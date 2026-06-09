@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FieldEngineer{% endblock %}</title>
+    {% load static %}
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind (compiled output) -->
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+
+    <style>
+        /* ── Design Tokens ─────────────────────────────── */
+        :root {
+            --brand:        #1A6FE8;
+            --brand-dark:   #1558C0;
+            --brand-light:  #EEF4FF;
+            --accent:       #F59E0B;   /* amber — tools, metal, energy */
+            --accent-dark:  #D97706;
+            --accent-light: #FEF3C7;
+            --surface:      #FFFFFF;
+            --surface-2:    #F7F9FC;
+            --surface-3:    #EEF3FB;
+            --text-1:       #0D1B2A;
+            --text-2:       #3D5166;
+            --text-3:       #7A8FA6;
+            --border:       #DDE6F0;
+            --radius-sm:    6px;
+            --radius-md:    12px;
+            --radius-lg:    20px;
+            --shadow-card:  0 2px 16px rgba(26,111,232,.10);
+            --shadow-nav:   0 2px 24px rgba(13,27,42,.08);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-1);
+            background: var(--surface);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Nav ────────────────────────────────────────── */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-nav);
+        }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .nav-logo-mark {
+            width: 36px;
+            height: 36px;
+            background: var(--brand);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 800;
+            color: #fff;
+            font-family: 'Sora', sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo-text {
+            font-family: 'Sora', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--text-1);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo-text span { color: var(--brand); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links > li { position: relative; }
+
+        .nav-links > li > a,
+        .nav-links > li > button {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 13px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-2);
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color .15s, background .15s;
+            white-space: nowrap;
+        }
+
+        .nav-links > li > a:hover,
+        .nav-links > li > button:hover {
+            color: var(--brand);
+            background: var(--surface-2);
+        }
+
+        /* Dropdown */
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            min-width: 210px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            padding: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-4px);
+            transition: opacity .18s, transform .18s;
+            z-index: 200;
+        }
+
+        .nav-links > li:hover .dropdown-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 9px 14px;
+            font-size: 13.5px;
+            color: var(--text-2);
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            transition: background .12s, color .12s;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--surface-2);
+            color: var(--brand);
+        }
+
+        /* Nav CTA buttons */
+        .nav-track-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--brand);
+            border: 1.5px solid var(--brand);
+            background: none;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background .15s, color .15s;
+        }
+
+        .nav-track-btn:hover { background: var(--surface-2); }
+
+        .nav-cta-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            background: var(--brand);
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background .15s;
+        }
+
+        .nav-cta-btn:hover { background: var(--brand-dark); }
+
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            color: var(--text-1);
+        }
+
+        @media (max-width: 960px) {
+            .nav-links, .nav-track-btn, .nav-cta-btn { display: none; }
+            .nav-hamburger { display: flex; }
+        }
+
+        /* ── Footer ──────────────────────────────────────── */
+        .site-footer {
+            background: var(--surface-2);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-main {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 64px 32px 48px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1.6fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-main { grid-template-columns: 1fr 1fr 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .footer-main { grid-template-columns: 1fr 1fr; padding: 40px 20px 32px; }
+        }
+
+        .footer-brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            text-decoration: none;
+        }
+
+        .footer-brand-logo .nav-logo-mark { width: 32px; height: 32px; font-size: 13px; }
+
+        .footer-brand-logo .nav-logo-text { font-size: 16px; }
+
+        .footer-brand p {
+            font-size: 13.5px;
+            color: var(--text-3);
+            line-height: 1.7;
+            margin: 0 0 18px;
+        }
+
+        .footer-contact-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13.5px;
+            color: var(--text-2);
+            margin-bottom: 10px;
+        }
+
+        .footer-contact-row i {
+            color: var(--brand);
+            margin-top: 2px;
+            width: 14px;
+            flex-shrink: 0;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-3);
+            font-size: 13px;
+            text-decoration: none;
+            transition: border-color .15s, color .15s, background .15s;
+        }
+
+        .footer-social a:hover {
+            border-color: var(--brand);
+            color: var(--brand);
+            background: var(--surface-3);
+        }
+
+        .footer-col h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-1);
+            margin: 0 0 6px;
+        }
+
+        .footer-col-divider {
+            width: 32px;
+            height: 3px;
+            background: var(--brand);
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col ul li a {
+            font-size: 13.5px;
+            color: var(--text-3);
+            text-decoration: none;
+            transition: color .14s;
+        }
+
+        .footer-col ul li a:hover { color: var(--brand); }
+
+        .footer-newsletter p {
+            font-size: 13.5px;
+            color: var(--text-3);
+            line-height: 1.6;
+            margin: 0 0 16px;
+        }
+
+        .newsletter-input {
+            display: flex;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .newsletter-input input {
+            flex: 1;
+            padding: 10px 14px;
+            font-size: 13.5px;
+            font-family: 'Inter', sans-serif;
+            border: none;
+            outline: none;
+            color: var(--text-1);
+            background: var(--surface);
+        }
+
+        .newsletter-input button {
+            padding: 10px 18px;
+            background: var(--brand);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background .14s;
+            white-space: nowrap;
+        }
+
+        .newsletter-input button:hover { background: var(--brand-dark); }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: var(--text-3);
+            margin: 0;
+        }
+
+        .footer-payment {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .footer-payment span { font-size: 13px; color: var(--text-3); }
+
+        .footer-payment img { height: 22px; }
+
+        .footer-policy-links { display: flex; gap: 20px; }
+
+        .footer-policy-links a {
+            font-size: 13px;
+            color: var(--text-3);
+            text-decoration: none;
+            transition: color .14s;
+        }
+
+        .footer-policy-links a:hover { color: var(--brand); }
+
+        /* ── Main ────────────────────────────────────────── */
+        main { min-height: 60vh; }
+    </style>
+</head>
+<body>
+
+<!-- ════════════ NAVBAR ════════════ -->
+<header class="site-nav">
+    <div class="nav-inner">
+
+        <!-- Logo -->
+        <a href="#" class="nav-logo">
+            <div class="nav-logo-mark">FE</div>
+            <span class="nav-logo-text">Field<span>Engineer</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+
+            <li>
+                <button>
+                    Solutions
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Network Cabling</a></li>
+                    <li><a href="#">Rack Installation</a></li>
+                    <li><a href="#">Field Deployment</a></li>
+                    <li><a href="#">Server Setup</a></li>
+                    <li><a href="#">CCTV & Security</a></li>
+                    <li><a href="#">Smart Hands</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <button>
+                    Services
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">On-Site Support</a></li>
+                    <li><a href="#">Remote Hands</a></li>
+                    <li><a href="#">Project Management</a></li>
+                    <li><a href="#">Break-Fix Services</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <button>
+                    Industries
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Telecom</a></li>
+                    <li><a href="#">Banking & Finance</a></li>
+                    <li><a href="#">Healthcare</a></li>
+                    <li><a href="#">Retail & Logistics</a></li>
+                    <li><a href="#">Government</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <button>
+                    Vendors
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Become a Vendor</a></li>
+                    <li><a href="#">Vendor Portal</a></li>
+                    <li><a href="#">Partner Program</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Pricing</a></li>
+        </ul>
+
+        <!-- Right CTAs -->
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+            <a href="#" class="nav-track-btn">
+                <i class="fa-regular fa-clock"></i> Track Job
+            </a>
+            <a href="#" class="nav-cta-btn">
+                Request Service <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Hamburger (mobile) -->
+        <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+
+    </div>
+</header>
+<!-- END NAVBAR -->
+
+<!-- ════════════ MAIN CONTENT ════════════ -->
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="site-footer">
+    <div class="footer-main">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+            <a href="#" class="footer-brand-logo">
+                <div class="nav-logo-mark">FE</div>
+                <span class="nav-logo-text">Field<span>Engineer</span></span>
+            </a>
+            <p>India's largest network of certified field engineers delivering on-site IT and infrastructure services across 120+ cities.</p>
+
+            <div class="footer-contact-row">
+                <i class="fa-solid fa-phone"></i>
+                <span>(+91) 98765-43210</span>
+            </div>
+            <div class="footer-contact-row">
+                <i class="fa-solid fa-envelope"></i>
+                <span>hello@fieldengineer.in</span>
+            </div>
+            <div class="footer-contact-row">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Level 4, One BKC Tower, Bandra Kurla Complex, Mumbai — 400051</span>
+            </div>
+
+            <div class="footer-social">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- Solutions -->
+        <div class="footer-col">
+            <h4>Solutions</h4>
+            <div class="footer-col-divider"></div>
+            <ul>
+                <li><a href="#">Network Cabling</a></li>
+                <li><a href="#">Rack Installation</a></li>
+                <li><a href="#">Field Deployment</a></li>
+                <li><a href="#">Server Setup</a></li>
+                <li><a href="#">CCTV & Security</a></li>
+            </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="footer-col">
+            <h4>Company</h4>
+            <div class="footer-col-divider"></div>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Press Kit</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Policy -->
+        <div class="footer-col">
+            <h4>Policy</h4>
+            <div class="footer-col-divider"></div>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">SLA Policy</a></li>
+                <li><a href="#">Vendor Agreement</a></li>
+                <li><a href="#">Help & FAQs</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-col footer-newsletter">
+            <h4>Stay Updated</h4>
+            <div class="footer-col-divider"></div>
+            <p>Get deployment updates, industry news, and exclusive service offers in your inbox.</p>
+            <div class="newsletter-input">
+                <input type="email" placeholder="Your email address">
+                <button>Subscribe</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom strip -->
+    <div style="border-top:1px solid var(--border);">
+        <div class="footer-bottom">
+            <p>© 2025 FieldEngineer. All rights reserved.</p>
+
+            <div class="footer-policy-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Cookies</a>
+                <a href="#">SLA</a>
+            </div>
+
+            <div class="footer-payment">
+                <span>We accept:</span>
+                <img src="{% static 'img/payment-via-1.png' %}" alt="Visa">
+                <img src="{% static 'img/payment-via-2.png' %}" alt="Mastercard">
+                <img src="{% static 'img/payment-via-3.png' %}" alt="UPI">
+                <img src="{% static 'img/payment-via-4.png' %}" alt="Net Banking">
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER -->
+
+<!-- ════════════ SCRIPTS ════════════ -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+    lucide.createIcons();
+
+    document.getElementById('hamburger-btn')?.addEventListener('click', () => {
+        const drawer = document.getElementById('mobile-drawer');
+        if (drawer) drawer.classList.toggle('hidden');
+    });
+</script>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>
