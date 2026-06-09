@@ -1,0 +1,280 @@
+{% extends "dashboard/layout.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="mb-4">
+    <h3 class="fw-bold">Profile Details</h3>
+    <p class="text-muted">
+        View and manage your business profile and documents.
+    </p>
+</div>
+
+<div class="row">
+
+    <!-- Left Content -->
+
+    <div class="col-lg-9">
+
+        <div class="card p-4 mb-4">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-2 text-center">
+                    <img
+                        src="https://i.pravatar.cc/150?img=12"
+                        class="profile-img"
+                    >
+                </div>
+
+                <div class="col-md-7">
+
+                    <h5 class="fw-bold mb-2">
+                        ACME Pvt. Ltd.
+                    </h5>
+
+                    <p class="mb-1">
+                        <i class="fa-regular fa-user"></i>
+                        Rishi Acharya
+                    </p>
+
+                    <p class="mb-1">
+                        <i class="fa-regular fa-envelope"></i>
+                        rishi@acme.com
+                    </p>
+
+                    <p class="mb-1">
+                        <i class="fa-solid fa-phone"></i>
+                        +91 81022 62067
+                    </p>
+
+                </div>
+
+                <div class="col-md-3 text-end">
+
+                    <a href="#" class="btn btn-outline-primary btn-sm mb-2">
+                        Edit Profile
+                    </a>
+
+                    <br>
+
+                    <a href="#" class="btn btn-outline-secondary btn-sm">
+                        Change Password
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="card p-4 mb-4">
+
+                    <h6 class="fw-bold mb-3">
+                        Company Information
+                    </h6>
+
+                    <table class="table table-borderless">
+
+                        <tr>
+                            <td>Company Name</td>
+                            <td>ACME Pvt Ltd</td>
+                        </tr>
+
+                        <tr>
+                            <td>Business Type</td>
+                            <td>Private Limited</td>
+                        </tr>
+
+                        <tr>
+                            <td>GSTIN</td>
+                            <td>27ABCDE1234F1Z5</td>
+                        </tr>
+
+                        <tr>
+                            <td>PAN</td>
+                            <td>ABCDE1234F</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="card p-4 mb-4">
+
+                    <h6 class="fw-bold mb-3">
+                        Contact Information
+                    </h6>
+
+                    <table class="table table-borderless">
+
+                        <tr>
+                            <td>Contact Person</td>
+                            <td>Rishi Acharya</td>
+                        </tr>
+
+                        <tr>
+                            <td>Email</td>
+                            <td>rishi@acme.com</td>
+                        </tr>
+
+                        <tr>
+                            <td>Phone</td>
+                            <td>+91 81022 62067</td>
+                        </tr>
+
+                        <tr>
+                            <td>Designation</td>
+                            <td>Operations Manager</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card p-4">
+
+            <div class="d-flex justify-content-between mb-3">
+
+                <h6 class="fw-bold">
+                    KYC Documents
+                </h6>
+
+                <button class="btn btn-primary btn-sm">
+                    Upload Document
+                </button>
+
+            </div>
+
+            <table class="table align-middle">
+
+                <thead>
+                    <tr>
+                        <th>Document</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>GST Certificate.pdf</td>
+                        <td>GST</td>
+                        <td>
+                            <span class="badge bg-success">
+                                Verified
+                            </span>
+                        </td>
+                        <td>
+                            <a href="#">View</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>PAN Card.pdf</td>
+                        <td>PAN</td>
+                        <td>
+                            <span class="badge bg-success">
+                                Verified
+                            </span>
+                        </td>
+                        <td>
+                            <a href="#">View</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- Right Sidebar -->
+
+    <div class="col-lg-3">
+
+        <div class="card p-4 mb-4">
+
+            <h6 class="fw-bold mb-3">
+                Verification Status
+            </h6>
+
+            <p class="verified">
+                ✔ Email Verified
+            </p>
+
+            <p class="verified">
+                ✔ Mobile Verified
+            </p>
+
+            <p class="verified">
+                ✔ GST Verified
+            </p>
+
+            <p class="verified">
+                ✔ Company Verified
+            </p>
+
+        </div>
+
+        <div class="card p-4 mb-4">
+
+            <h6 class="fw-bold mb-3">
+                Account Summary
+            </h6>
+
+            <p>Total Bookings: <strong>16</strong></p>
+            <p>Total Spend: <strong>₹84,250</strong></p>
+            <p>Active Requests: <strong>3</strong></p>
+            <p>Saved Locations: <strong>8</strong></p>
+
+        </div>
+
+        <div class="card p-4">
+
+            <h6 class="fw-bold mb-3">
+                Quick Actions
+            </h6>
+
+            <div class="d-grid gap-2">
+
+                <a href="#" class="btn btn-outline-primary">
+                    Edit Profile
+                </a>
+
+                <a href="#" class="btn btn-outline-primary">
+                    Upload Documents
+                </a>
+
+                <a href="#" class="btn btn-outline-primary">
+                    Contact Support
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
