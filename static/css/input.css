@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@source "../../home/templates/**/*.html";
+@source "../../dashboard/templates/**/*.html";
+@source "../../booking/templates/**/*.html";
+@source "../../registration/templates/**/*.html";
+@source "../../settings/templates/**/*.html";
+@source "../../support/templates/**/*.html";
+
+@theme {
+  /* Typography */
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand */
+  --color-primary: #1466de;
+  --color-primary-hover: #1056c4;
+
+  /* Neutrals */
+  --color-light: #f4f4f4;
+  --color-light-medium: #d8d8d8;
+  --color-medium: #969696;
+  --color-dark: #323232;
+  --color-ink: #212b36;
+
+  /* Status */
+  --color-red: #e33e38;
+  --color-green: #41d33e;
+
+  /* Glassmorphism */
+  --glass-background: radial-gradient(
+    90.16% 143.01% at 15.32% 21.04%,
+    rgba(168, 165, 255, 0.2) 0%,
+    rgba(110, 119, 244, 0.0447917) 77.08%,
+    rgba(70, 91, 213, 0) 100%
+  );
+  --glass-border-width: 2px;
+  --glass-border-image:
+    radial-gradient(
+      80.38% 222.5% at -13.75% -12.36%,
+      #98f9ff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      80.69% 208.78% at 108.28% 112.58%,
+      #eabfff 0%,
+      rgba(135, 38, 183, 0) 100%
+    );
+  --glass-backdrop-blur: 80px;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Headlines — Semi Bold */
+  --text-h1: 48px;
+  --text-h1--line-height: 58px;
+  --text-h2: 40px;
+  --text-h2--line-height: 48px;
+  --text-h3: 32px;
+  --text-h3--line-height: 38px;
+  --text-h4: 28px;
+  --text-h4--line-height: 34px;
+  --text-h5: 24px;
+  --text-h5--line-height: 28px;
+
+  /* Subtitles — Semi Bold */
+  --text-s1: 18px;
+  --text-s1--line-height: 28px;
+  --text-s2: 16px;
+  --text-s2--line-height: 24px;
+
+  /* Body */
+  --text-b1: 16px;
+  --text-b1--line-height: 24px;
+  --text-b2: 16px;
+  --text-b2--line-height: 24px;
+  --text-b3: 14px;
+  --text-b3--line-height: 20px;
+  --text-b4: 14px;
+  --text-b4--line-height: 20px;
+
+  /* Captions */
+  --text-c1: 12px;
+  --text-c1--line-height: 16px;
+  --text-c2: 12px;
+  --text-c2--line-height: 16px;
+  --text-c3: 10px;
+  --text-c3--line-height: 14px;
+
+  /* Label — Medium */
+  --text-label: 12px;
+  --text-label--line-height: 16px;
+}
+
+@layer base {
+  html,
+  body {
+    @apply font-sans antialiased;
+  }
+
+  .material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.25em;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    vertical-align: middle;
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border-0 font-semibold leading-none no-underline whitespace-nowrap cursor-pointer transition-colors duration-150 ease-in-out;
+    font-family: inherit;
+  }
+
+  .btn:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+
+  .btn svg,
+  .btn .btn-icon,
+  .btn .material-symbols-outlined {
+    @apply shrink-0 text-[1em] leading-none;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white;
+  }
+
+  .btn-primary:hover:not(:disabled):not(.is-disabled) {
+    @apply bg-primary-hover;
+  }
+
+  .btn-primary:disabled,
+  .btn-primary.is-disabled {
+    @apply bg-light text-medium cursor-not-allowed pointer-events-none;
+  }
+
+  .btn-giant {
+    @apply gap-3 rounded-xl px-8 py-4 text-s1;
+  }
+
+  .btn-lg {
+    @apply gap-2.5 rounded-[10px] px-7 py-3.5 text-s2;
+  }
+
+  .btn-md {
+    @apply px-6 py-3 text-b2;
+  }
+
+  .btn-sm {
+    @apply gap-1.5 px-5 py-2.5 text-b4;
+  }
+
+  .btn-tiny {
+    @apply gap-1.5 rounded-md px-4 py-2 text-c2;
+  }
+
+  /* Frosted glass panel */
+  .glass {
+    background: var(--glass-background);
+    border: var(--glass-border-width) solid transparent;
+    border-image-source: var(--glass-border-image);
+    border-image-slice: 1;
+    backdrop-filter: blur(var(--glass-backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--glass-backdrop-blur));
+  }
+}

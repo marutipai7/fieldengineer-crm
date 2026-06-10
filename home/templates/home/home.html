@@ -25,7 +25,7 @@
     transform: translate(-50%, -50%);
     font-size: clamp(60px, 10vw, 140px);
     font-weight: 900;
-    font-family: 'Sora', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: rgba(26,111,232,.04);
     white-space: nowrap;
     pointer-events: none;
@@ -63,7 +63,7 @@
 .hero-eyebrow span { color: var(--text-2); font-weight: 400; }
 
 .hero-h1 {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: clamp(32px, 4vw, 52px);
     font-weight: 800;
     line-height: 1.1;
@@ -101,7 +101,7 @@
 .hero-search input {
     flex: 1;
     font-size: 14.5px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     border: none;
     outline: none;
     color: var(--text-1);
@@ -250,7 +250,7 @@
 .stat-item:last-child { border-right: none; }
 
 .stat-value {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 27px;
     font-weight: 800;
     color: var(--text-1);
@@ -375,7 +375,7 @@
 }
 
 .section-title {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: clamp(26px, 3vw, 38px);
     font-weight: 800;
     color: var(--text-1);
@@ -700,7 +700,7 @@
 .app-mini-stats { display: flex; gap: 12px; }
 
 .app-mini-stat-val {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 18px;
     font-weight: 800;
     color: var(--text-1);
@@ -764,7 +764,7 @@
 }
 
 .coverage-card-stat {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 22px;
     font-weight: 800;
     color: var(--brand);
@@ -855,7 +855,7 @@
 }
 
 .cta-metric-val {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 28px;
     font-weight: 800;
     color: var(--text-1);
@@ -872,7 +872,7 @@
 }
 
 .cta-content h2 {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: clamp(22px, 2.6vw, 32px);
     font-weight: 800;
     color: var(--text-1);
@@ -906,7 +906,7 @@
         <!-- Left copy -->
         <div>
             <div class="hero-eyebrow">
-                <i class="fa-solid fa-circle-check"></i>
+                <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
                 India's Largest Field Engineering Network
                 <span>· 15,000+ Certified Engineers</span>
             </div>
@@ -923,28 +923,28 @@
 
             <!-- Search bar -->
             <div class="hero-search">
-                <i class="fa-solid fa-magnifying-glass" style="color:var(--text-3);font-size:15px;flex-shrink:0;"></i>
+                <span class="material-symbols-outlined" aria-hidden="true" style="color:var(--text-3);font-size:15px;flex-shrink:0;">search</span>
                 <input id="searchInput" type="text" placeholder="Search services, cities, engineers, vendors…">
                 <div class="hero-search-actions">
-                    <button title="Voice search"><i class="fa-solid fa-microphone"></i></button>
+                    <button title="Voice search"><span class="material-symbols-outlined" aria-hidden="true">mic</span></button>
                     <button class="hero-search-submit" title="Search">
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                     </button>
                 </div>
             </div>
 
             <!-- Category pills -->
             <div class="hero-categories">
-                <a href="?type=network"  class="category-pill"><i class="fa-solid fa-network-wired"></i> Networking</a>
-                <a href="?type=rack"     class="category-pill"><i class="fa-solid fa-server"></i> Rack Install</a>
-                <a href="?type=cctv"     class="category-pill"><i class="fa-solid fa-camera"></i> CCTV</a>
-                <a href="?type=smarthands" class="category-pill"><i class="fa-solid fa-hands-helping"></i> Smart Hands</a>
-                <a href="?type=more"     class="category-pill"><i class="fa-solid fa-ellipsis"></i> More</a>
+                <a href="?type=network"  class="category-pill"><span class="material-symbols-outlined" aria-hidden="true">lan</span> Networking</a>
+                <a href="?type=rack"     class="category-pill"><span class="material-symbols-outlined" aria-hidden="true">dns</span> Rack Install</a>
+                <a href="?type=cctv"     class="category-pill"><span class="material-symbols-outlined" aria-hidden="true">videocam</span> CCTV</a>
+                <a href="?type=smarthands" class="category-pill"><span class="material-symbols-outlined" aria-hidden="true">handshake</span> Smart Hands</a>
+                <a href="?type=more"     class="category-pill"><span class="material-symbols-outlined" aria-hidden="true">more_horiz</span> More</a>
             </div>
 
             <div class="hero-cta-row">
-                <a href="#" class="btn-primary">Request Service <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="#" class="btn-outline"><i class="fa-solid fa-briefcase"></i> Track Existing Job</a>
+                <a href="#" class="btn-primary">Request Service <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                <a href="#" class="btn-outline"><span class="material-symbols-outlined" aria-hidden="true">work</span> Track Existing Job</a>
             </div>
         </div>
 
@@ -1015,13 +1015,13 @@
                 <h2 class="section-title">How It Works</h2>
                 <p class="section-subtitle" style="margin-bottom:0;">A seamless process from booking to completion — typically within hours.</p>
             </div>
-            <a href="#" class="view-all-link">View Process Details <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#" class="view-all-link">View Process Details <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
         </div>
 
         <div class="steps-track">
             <div class="step-item">
                 <div class="step-icon-wrap">
-                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span class="material-symbols-outlined" aria-hidden="true">edit</span>
                     <span class="step-number">1</span>
                 </div>
                 <div class="step-title">Create Booking</div>
@@ -1029,7 +1029,7 @@
             </div>
             <div class="step-item">
                 <div class="step-icon-wrap">
-                    <i class="fa-solid fa-file-invoice"></i>
+                    <span class="material-symbols-outlined" aria-hidden="true">receipt_long</span>
                     <span class="step-number">2</span>
                 </div>
                 <div class="step-title">Receive Offers</div>
@@ -1037,7 +1037,7 @@
             </div>
             <div class="step-item">
                 <div class="step-icon-wrap">
-                    <i class="fa-solid fa-user-check"></i>
+                    <span class="material-symbols-outlined" aria-hidden="true">how_to_reg</span>
                     <span class="step-number">3</span>
                 </div>
                 <div class="step-title">Vendor Assigned</div>
@@ -1045,7 +1045,7 @@
             </div>
             <div class="step-item">
                 <div class="step-icon-wrap">
-                    <i class="fa-solid fa-hard-hat"></i>
+                    <span class="material-symbols-outlined" aria-hidden="true">engineering</span>
                     <span class="step-number">4</span>
                 </div>
                 <div class="step-title">Engineer Deployed</div>
@@ -1053,7 +1053,7 @@
             </div>
             <div class="step-item">
                 <div class="step-icon-wrap">
-                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
                     <span class="step-number">5</span>
                 </div>
                 <div class="step-title">Track Live Progress</div>
@@ -1061,7 +1061,7 @@
             </div>
             <div class="step-item">
                 <div class="step-icon-wrap">
-                    <i class="fa-solid fa-clipboard-check"></i>
+                    <span class="material-symbols-outlined" aria-hidden="true">assignment_turned_in</span>
                     <span class="step-number">6</span>
                 </div>
                 <div class="step-title">Completion & Report</div>
@@ -1069,7 +1069,7 @@
             </div>
             <div class="step-item">
                 <div class="step-icon-wrap">
-                    <i class="fa-solid fa-credit-card"></i>
+                    <span class="material-symbols-outlined" aria-hidden="true">credit_card</span>
                     <span class="step-number">7</span>
                 </div>
                 <div class="step-title">Payment & Closure</div>
@@ -1089,7 +1089,7 @@
                 <p class="section-eyebrow">Catalogue</p>
                 <h2 class="section-title">Explore Our Popular Services</h2>
             </div>
-            <a href="#" class="view-all-link">View All Services <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#" class="view-all-link">View All Services <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
         </div>
 
         <div class="services-grid">
@@ -1147,32 +1147,32 @@
 
         <div class="why-grid">
             <div class="why-card">
-                <div class="why-card-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                <div class="why-card-icon"><span class="material-symbols-outlined" aria-hidden="true">event_available</span></div>
                 <h3>Additional Tasks</h3>
                 <p>Add extra tasks to running jobs without creating a new booking. Flexible scoping on the fly.</p>
             </div>
             <div class="why-card">
-                <div class="why-card-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
+                <div class="why-card-icon"><span class="material-symbols-outlined" aria-hidden="true">my_location</span></div>
                 <h3>Live Tracking</h3>
                 <p>Follow engineer progress, live status updates, and milestone check-ins from your dashboard.</p>
             </div>
             <div class="why-card">
-                <div class="why-card-icon"><i class="fa-solid fa-user-shield"></i></div>
+                <div class="why-card-icon"><span class="material-symbols-outlined" aria-hidden="true">admin_panel_settings</span></div>
                 <h3>Work Logs</h3>
                 <p>Timestamped work log entries, photo proof-of-work, and digital sign-off at every step.</p>
             </div>
             <div class="why-card">
-                <div class="why-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="why-card-icon"><span class="material-symbols-outlined" aria-hidden="true">trending_up</span></div>
                 <h3>AI Reports</h3>
                 <p>Automated job-completion reports with AI-powered diagnostics and recommendations.</p>
             </div>
             <div class="why-card">
-                <div class="why-card-icon"><i class="fa-solid fa-users"></i></div>
+                <div class="why-card-icon"><span class="material-symbols-outlined" aria-hidden="true">groups</span></div>
                 <h3>Team Workspaces</h3>
                 <p>Collaborate with your IT and ops team. Assign roles, approve jobs, and view billing in one place.</p>
             </div>
             <div class="why-card">
-                <div class="why-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="why-card-icon"><span class="material-symbols-outlined" aria-hidden="true">shield</span></div>
                 <h3>Secure & Compliant</h3>
                 <p>ISO-27001-aligned operations with background-verified engineers and escrow payments.</p>
             </div>
@@ -1193,12 +1193,12 @@
                 Your entire field operations in one platform — for customers, vendors, and engineers.
             </p>
             <ul class="platform-checklist">
-                <li><i class="fa-solid fa-circle-check"></i> Easy booking & approval workflows</li>
-                <li><i class="fa-solid fa-circle-check"></i> Real-time tracking & live updates</li>
-                <li><i class="fa-solid fa-circle-check"></i> Secure payments & invoicing</li>
-                <li><i class="fa-solid fa-circle-check"></i> AI reports & analytics dashboard</li>
+                <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Easy booking & approval workflows</li>
+                <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Real-time tracking & live updates</li>
+                <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Secure payments & invoicing</li>
+                <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> AI reports & analytics dashboard</li>
             </ul>
-            <a href="#" class="view-all-link">Explore All Features <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#" class="view-all-link">Explore All Features <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
         </div>
 
         <!-- Right: app preview cards -->
@@ -1246,7 +1246,7 @@
                     <span class="app-mini-title">Engineer App</span>
                 </div>
                 <div style="font-size:12px;color:var(--text-3);margin-bottom:8px;">Today's Jobs</div>
-                <div style="font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:var(--text-1);">5</div>
+                <div style="font-family:'Open Sans',sans-serif;font-size:22px;font-weight:800;color:var(--text-1);">5</div>
                 <div style="font-size:11.5px;color:var(--text-3);">Assigned</div>
             </div>
         </div>
@@ -1310,7 +1310,7 @@
         </div>
 
         <div class="view-all-cities">
-            <a href="#" class="view-all-link">View All Cities <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#" class="view-all-link">View All Cities <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
         </div>
     </div>
 </div>
@@ -1324,8 +1324,8 @@
             <h2>Ready to deploy certified engineers at your site?</h2>
             <p>Request a service now and get matched with the best field engineers near you — typically within hours.</p>
             <div class="cta-row">
-                <a href="#" class="btn-primary">Request Service <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="#" class="btn-outline"><i class="fa-regular fa-comment-dots"></i> Talk to Expert</a>
+                <a href="#" class="btn-primary">Request Service <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+                <a href="#" class="btn-outline"><span class="material-symbols-outlined" aria-hidden="true">chat</span> Talk to Expert</a>
             </div>
         </div>
         <div class="cta-metric">
@@ -1350,9 +1350,6 @@
 {% endblock %}
 
 {% block extra_js %}
-<script>
-    lucide.createIcons();
-</script>
 <script src="{% static 'script/engineer/form.js' %}"></script>
 <script src="{% static 'script/engineer/validation.js' %}"></script>
 <script src="{% static 'script/engineer/searching.js' %}"></script>

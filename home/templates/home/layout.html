@@ -5,15 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}FieldEngineer{% endblock %}</title>
     {% load static %}
-
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Icons — Material Symbols Outlined -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- Tailwind (compiled output) -->
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
@@ -45,7 +41,7 @@
 
         body {
             margin: 0;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             color: var(--text-1);
             background: var(--surface);
             -webkit-font-smoothing: antialiased;
@@ -91,12 +87,12 @@
             font-size: 15px;
             font-weight: 800;
             color: #fff;
-            font-family: 'Sora', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             letter-spacing: -0.5px;
         }
 
         .nav-logo-text {
-            font-family: 'Sora', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             font-size: 17px;
             font-weight: 800;
             color: var(--text-1);
@@ -365,7 +361,7 @@
             flex: 1;
             padding: 10px 14px;
             font-size: 13.5px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             border: none;
             outline: none;
             color: var(--text-1);
@@ -506,10 +502,10 @@
         <!-- Right CTAs -->
         <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
             <a href="#" class="nav-track-btn">
-                <i class="fa-regular fa-clock"></i> Track Job
+                <span class="material-symbols-outlined" aria-hidden="true">schedule</span> Track Job
             </a>
             <a href="#" class="nav-cta-btn">
-                Request Service <i class="fa-solid fa-arrow-right"></i>
+                Request Service <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
             </a>
         </div>
 
@@ -542,24 +538,24 @@
             <p>India's largest network of certified field engineers delivering on-site IT and infrastructure services across 120+ cities.</p>
 
             <div class="footer-contact-row">
-                <i class="fa-solid fa-phone"></i>
+                <span class="material-symbols-outlined" aria-hidden="true">phone</span>
                 <span>(+91) 98765-43210</span>
             </div>
             <div class="footer-contact-row">
-                <i class="fa-solid fa-envelope"></i>
+                <span class="material-symbols-outlined" aria-hidden="true">mail</span>
                 <span>hello@fieldengineer.in</span>
             </div>
             <div class="footer-contact-row">
-                <i class="fa-solid fa-location-dot"></i>
+                <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
                 <span>Level 4, One BKC Tower, Bandra Kurla Complex, Mumbai — 400051</span>
             </div>
 
             <div class="footer-social">
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><span class="material-symbols-outlined" aria-hidden="true">public</span></a>
+                <a href="#"><span class="material-symbols-outlined" aria-hidden="true">tag</span></a>
+                <a href="#"><span class="material-symbols-outlined" aria-hidden="true">photo_camera</span></a>
+                <a href="#"><span class="material-symbols-outlined" aria-hidden="true">work</span></a>
+                <a href="#"><span class="material-symbols-outlined" aria-hidden="true">smart_display</span></a>
             </div>
         </div>
 
@@ -640,16 +636,6 @@
 <!-- END FOOTER -->
 
 <!-- ════════════ SCRIPTS ════════════ -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-<script>
-    lucide.createIcons();
-
-    document.getElementById('hamburger-btn')?.addEventListener('click', () => {
-        const drawer = document.getElementById('mobile-drawer');
-        if (drawer) drawer.classList.toggle('hidden');
-    });
-</script>
 
 {% block extra_js %}{% endblock %}
 </body>

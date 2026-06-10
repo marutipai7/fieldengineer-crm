@@ -1,5 +1,12 @@
 {
   "devDependencies": {
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^4.3.0"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.0"
+  },
+  "scripts": {
+    "tw:build": "npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css",
+    "tw:watch": "npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css --watch"
   }
 }
