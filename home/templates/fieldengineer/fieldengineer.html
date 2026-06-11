@@ -1,13 +1,243 @@
 {% extends 'home/layout.html' %}
 
-{% block title %}Field Engineer — FieldEngineer{% endblock %}
+{% block title %}Field Engineer — Field Engage{% endblock %}
 
 {% block content %}
-<section class="max-w-7xl mx-auto px-8 py-16">
-    <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">For Engineers</p>
-    <h1 class="text-h3 font-semibold text-ink mb-4">Field Engineer Page</h1>
-    <p class="text-b1 text-medium max-w-2xl">
-        This is the Field Engineer landing page. Add your Figma sections inside this block.
-    </p>
+
+<!-- Hero Section -->
+<section class="py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Left Content -->
+            <div>
+
+                <!-- Badge -->
+                <span
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pale-blue border border-pale-blue text-brand-blue text-h1 font-semibold mb-6">
+
+                    <span class="material-symbols-outlined text-lg">
+                        engineering
+                    </span>
+
+                    FOR FIELD ENGINEERS
+                </span>
+
+                <!-- Heading -->
+                <h1 class="text-h1 font-semibold text-deep-navy-blue mb-6">
+                    Find Opportunities,<br>
+                    Complete Projects,<br>
+                    and Grow Your Career
+                </h1>
+
+                <!-- Description -->
+                <p class="text-b1 text-medium max-w-xl mb-8">
+                    Join a network of skilled professionals, manage assignments,
+                    build your reputation, and earn on your own schedule.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap gap-4">
+
+                    <a href="#"
+                        class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-blue text-white font-medium transition hover:opacity-90">
+                        Join Network
+                    </a>
+
+                    <a href="#"
+                        class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-gray-300 text-deep-navy-blue font-medium transition hover:bg-gray-50">
+                        How It Works
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Right Content -->
+            <div class="relative">
+
+                <!-- Main Image -->
+                <img
+                    src="{% static 'images/engineer.png' %}"
+                    alt="Field Engineer"
+                    class="w-full rounded-3xl object-cover shadow-xl">
+
+                <!-- Floating Card 1 -->
+                <div
+                    class="hidden lg:block absolute top-8 right-0 bg-white rounded-2xl shadow-lg p-5">
+
+                    <h4 class="text-s2 font-semibold text-deep-navy-blue">
+                        Active Opportunities
+                    </h4>
+
+                    <p class="text-brand-blue text-h5 font-semibold mt-1">
+                        145 Jobs
+                    </p>
+
+                </div>
+
+                <!-- Floating Card 2 -->
+                <div
+                    class="hidden lg:block absolute bottom-8 left-0 bg-white rounded-2xl shadow-lg p-5">
+
+                    <h4 class="text-s2 font-semibold text-deep-navy-blue">
+                        Monthly Earnings
+                    </h4>
+
+                    <p class="text-green-600 text-h5 font-semibold mt-1">
+                        ₹46,750
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 </section>
+<!-- Stats -->
+<section class="py-10">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div class="bg-white shadow rounded-xl p-6 text-center">
+                <h3 class="text-3xl font-bold text-blue-600">15K+</h3>
+                <p>Active Engineers</p>
+            </div>
+
+            <div class="bg-white shadow rounded-xl p-6 text-center">
+                <h3 class="text-3xl font-bold text-blue-600">25K+</h3>
+                <p>Projects Completed</p>
+            </div>
+
+            <div class="bg-white shadow rounded-xl p-6 text-center">
+                <h3 class="text-3xl font-bold text-blue-600">500+</h3>
+                <p>Companies</p>
+            </div>
+
+            <div class="bg-white shadow rounded-xl p-6 text-center">
+                <h3 class="text-3xl font-bold text-blue-600">₹12Cr+</h3>
+                <p>Paid To Engineers</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Join Network -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <h2 class="text-3xl font-bold text-center mb-4">
+            Join the Engineer Network
+        </h2>
+
+        <p class="text-center text-slate-600 mb-12">
+            More opportunities. More flexibility. More earnings.
+        </p>
+
+        <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
+
+            <div class="text-center p-5 border rounded-xl">
+                <span class="material-symbols-outlined text-blue-600 text-4xl">
+                    engineering
+                </span>
+                <h4 class="font-semibold mt-3">Network Access</h4>
+            </div>
+
+            <div class="text-center p-5 border rounded-xl">
+                <span class="material-symbols-outlined text-blue-600 text-4xl">
+                    payments
+                </span>
+                <h4 class="font-semibold mt-3">Fast Payments</h4>
+            </div>
+
+            <div class="text-center p-5 border rounded-xl">
+                <span class="material-symbols-outlined text-blue-600 text-4xl">
+                    task_alt
+                </span>
+                <h4 class="font-semibold mt-3">Verified Projects</h4>
+            </div>
+
+            <div class="text-center p-5 border rounded-xl">
+                <span class="material-symbols-outlined text-blue-600 text-4xl">
+                    security
+                </span>
+                <h4 class="font-semibold mt-3">Protection</h4>
+            </div>
+
+            <div class="text-center p-5 border rounded-xl">
+                <span class="material-symbols-outlined text-blue-600 text-4xl">
+                    support_agent
+                </span>
+                <h4 class="font-semibold mt-3">Support</h4>
+            </div>
+
+            <div class="text-center p-5 border rounded-xl">
+                <span class="material-symbols-outlined text-blue-600 text-4xl">
+                    schedule
+                </span>
+                <h4 class="font-semibold mt-3">Flexible Work</h4>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <h2 class="text-3xl font-bold text-center mb-12">
+            How To Join The Network
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <div class="bg-white p-8 rounded-xl shadow-sm">
+                <h3 class="font-semibold text-lg mb-3">Create Profile</h3>
+                <p class="text-slate-600">
+                    Build your professional profile and showcase skills.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-sm">
+                <h3 class="font-semibold text-lg mb-3">Verification</h3>
+                <p class="text-slate-600">
+                    Verify certifications and experience.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-sm">
+                <h3 class="font-semibold text-lg mb-3">Start Earning</h3>
+                <p class="text-slate-600">
+                    Accept opportunities and earn instantly.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-12 text-center text-white">
+
+            <h2 class="text-4xl font-bold mb-4">
+                Ready To Start Working On New Opportunities?
+            </h2>
+
+            <p class="mb-8 opacity-90">
+                Join our growing network of skilled engineers today.
+            </p>
+
+            <button class="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold">
+                Join The Network
+            </button>
+
+        </div>
+    </div>
+</section>
+
 {% endblock %}
