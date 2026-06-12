@@ -184,15 +184,15 @@
                 </ul>
             </div>
 
-            <!-- For Vendors -->
+            <!-- For Vendors — each link uses pages/layout.html (not this header/footer) -->
             <div class="footer-col">
                 <h4>For Vendors</h4>
                 <ul>
-                    <li><a href="#">About FE</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Help Center</a></li>
+                    <li><a href="{% url 'about_fe' %}">About FE</a></li>
+                    <li><a href="{% url 'careers' %}">Careers</a></li>
+                    <li><a href="{% url 'blogs' %}">Blogs</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'help_center' %}">Help Center</a></li>
                 </ul>
             </div>
 

@@ -1065,4 +1065,97 @@
   .footer-policy-links a:hover {
     @apply text-primary;
   }
+
+  /* Company pages (For Vendors footer) — shared header/footer, not home layout */
+  .site-page {
+    @apply bg-white;
+  }
+
+  .site-page-header {
+    @apply sticky top-0 z-50 border-b border-light-medium bg-white;
+  }
+
+  .site-page-header-inner {
+    @apply mx-auto flex h-[68px] max-w-[90rem] items-center justify-between gap-6 px-5 md:px-8;
+  }
+
+  .site-page-logo {
+    @apply flex flex-col no-underline;
+  }
+
+  .site-page-logo-text {
+    @apply text-lg font-bold text-black;
+  }
+
+  .site-page-logo-sub {
+    @apply text-xs font-normal text-medium;
+  }
+
+  .site-page-nav {
+    @apply hidden items-center gap-5 lg:flex;
+  }
+
+  .site-page-nav a {
+    @apply text-b3 font-semibold text-ink no-underline transition-colors hover:text-primary;
+  }
+
+  .site-page-nav a.is-active {
+    @apply text-primary;
+  }
+
+  .site-page-back-link {
+    @apply inline-flex items-center gap-1 text-b3 font-semibold text-primary no-underline;
+  }
+
+  .site-page-main {
+    min-height: 60vh;
+  }
+
+  .site-page-footer {
+    @apply border-t border-light-medium bg-blue-light px-5 py-10 md:px-8;
+  }
+
+  .site-page-footer-inner {
+    @apply mx-auto max-w-[90rem];
+  }
+
+  .site-page-footer-title {
+    @apply text-h5 font-bold text-ink;
+  }
+
+  .site-page-footer-desc {
+    @apply mt-2 max-w-md text-b3 text-medium;
+  }
+
+  .site-page-footer-links {
+    @apply mt-6 flex flex-wrap gap-4;
+  }
+
+  .site-page-footer-links a {
+    @apply text-b3 text-ink no-underline transition-colors hover:text-primary;
+  }
+
+  .site-page-footer-copy {
+    @apply mt-8 text-c1 text-medium;
+  }
+
+  .site-page-hero {
+    @apply px-5 py-16 md:px-8 md:py-20;
+  }
+
+  .site-page-hero-inner {
+    @apply mx-auto max-w-[90rem];
+  }
+
+  .site-page-hero-eyebrow {
+    @apply text-b3 font-semibold uppercase tracking-wide text-primary;
+  }
+
+  .site-page-hero-title {
+    @apply mt-3 text-h3 font-bold text-ink md:text-h2;
+  }
+
+  .site-page-hero-desc {
+    @apply mt-4 max-w-2xl text-b1 text-medium;
+  }
 }

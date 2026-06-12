@@ -1,0 +1,23 @@
+{% load static %}
+<!-- Shared footer for For Vendors footer pages (not home layout) -->
+<footer class="site-page-footer">
+    <div class="site-page-footer-inner">
+        <div class="site-page-footer-brand">
+            <p class="site-page-footer-title">Field Engineer</p>
+            <p class="site-page-footer-desc">
+                India's infrastructure workforce platform for customers, vendors, and certified field engineers.
+            </p>
+        </div>
+
+        <div class="site-page-footer-links">
+            <a href="{% url 'about_fe' %}">About FE</a>
+            <a href="{% url 'careers' %}">Careers</a>
+            <a href="{% url 'blogs' %}">Blogs</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'help_center' %}">Help Center</a>
+            <a href="{% url 'home' %}">Main Website</a>
+        </div>
+
+        <p class="site-page-footer-copy">© 2026 Field Engineer. All Rights Reserved.</p>
+    </div>
+</footer>
