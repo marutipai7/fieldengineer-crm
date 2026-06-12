@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FieldEngineer{% endblock %}</title>
+    {% load static %}
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="site-page">
+
+{% include 'pages/partials/header.html' %}
+
+<main class="site-page-main">
+    {% block content %}{% endblock %}
+</main>
+
+{% include 'pages/partials/footer.html' %}
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>

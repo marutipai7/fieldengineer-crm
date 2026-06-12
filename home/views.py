@@ -11,3 +11,27 @@ def fieldengineer(request):
 
 def vendor(request):
     return render(request, 'vendor/vendor.html')
+
+
+def request_service(request):
+    return render(request, 'home/services/request-service.html')
+
+
+def about_fe(request):
+    return render(request, 'pages/about-fe.html')
+
+
+def careers(request):
+    return render(request, 'pages/careers.html')
+
+
+def blogs(request):
+    return render(request, 'pages/blogs.html')
+
+
+def contact(request):
+    return render(request, 'pages/contact.html')
+
+
+def help_center(request):
+    return render(request, 'pages/help-center.html')

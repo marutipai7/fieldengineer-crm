@@ -3,6 +3,10 @@
 
 {% block title %}FieldEngineer — Deploy Certified Engineers Anywhere in India{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+{% endblock %}
+
 {% block content %}
 
 <style>
@@ -60,7 +64,7 @@
     >
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/30"></div>
 
-    <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
+    <div class="relative z-10 mx-auto grid max-w-[90rem] items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
 
         <!-- Left -->
         <div class="max-w-xl lg:max-w-none">
@@ -88,7 +92,7 @@
                     >
                     <button
                         type="button"
-                        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-light-1 text-white transition-colors"
+                        class="hero-search-btn flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-light-1 text-white"
                         aria-label="Search"
                     >
                         <span class="material-symbols-outlined text-[20px]">search</span>
@@ -137,11 +141,11 @@
 
             <!-- CTA row -->
             <div class="hero-rise hero-rise-d4 mt-6 flex flex-wrap items-center gap-3">
-                <a href="#" class="nav-track-btn inline-flex">
+                <a href="#" class="nav-track-btn btn-glass-modern inline-flex">
                     <span class="material-symbols-outlined text-[18px]">location_on</span>
                     Track Job
                 </a>
-                <a href="#" class="btn btn-primary btn-md inline-flex rounded-[18px]">
+                <a href="{% url 'request_service' %}" class="btn btn-primary btn-md inline-flex rounded-[18px]">
                     Request Service
                     <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </a>
@@ -259,7 +263,7 @@
 
         <ol class="how-it-works-steps">
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon" aria-hidden="true">
+                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
                     <span class="material-symbols-outlined">assignment</span>
                 </div>
                 <div class="how-it-works-step-body">
@@ -268,7 +272,7 @@
                 </div>
             </li>
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon" aria-hidden="true">
+                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
                     <span class="material-symbols-outlined">description</span>
                 </div>
                 <div class="how-it-works-step-body">
@@ -277,7 +281,7 @@
                 </div>
             </li>
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon" aria-hidden="true">
+                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
                     <span class="material-symbols-outlined">person_add</span>
                 </div>
                 <div class="how-it-works-step-body">
@@ -286,7 +290,7 @@
                 </div>
             </li>
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon" aria-hidden="true">
+                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
                     <span class="material-symbols-outlined">engineering</span>
                 </div>
                 <div class="how-it-works-step-body">
@@ -295,7 +299,7 @@
                 </div>
             </li>
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon" aria-hidden="true">
+                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
                     <span class="material-symbols-outlined">pin_drop</span>
                 </div>
                 <div class="how-it-works-step-body">
@@ -304,7 +308,7 @@
                 </div>
             </li>
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon" aria-hidden="true">
+                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
                     <span class="material-symbols-outlined">monitoring</span>
                 </div>
                 <div class="how-it-works-step-body">
@@ -313,7 +317,7 @@
                 </div>
             </li>
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon" aria-hidden="true">
+                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
                     <span class="material-symbols-outlined">credit_card</span>
                 </div>
                 <div class="how-it-works-step-body">
@@ -438,8 +442,277 @@
     </div>
 </section>
 
+<!-- ════════════ WHY CHOOSE ════════════ -->
+<section class="why-choose" aria-labelledby="why-choose-title">
+    <div class="why-choose-card glass-border-white">
+        <h2 id="why-choose-title" class="why-choose-title">Why Choose Field Engineer</h2>
+
+        <div class="why-choose-grid">
+            <article class="why-feature-card glass-border-white">
+                <div class="why-feature-icon water-drop-glass">
+                    <img src="{% static 'img/additional-task.svg' %}" alt="">
+                </div>
+                <h3 class="why-feature-title">Additional Tasks</h3>
+                <p class="why-feature-desc">Add tasks during active jobs.</p>
+            </article>
+
+            <article class="why-feature-card glass-border-white">
+                <div class="why-feature-icon water-drop-glass">
+                    <img src="{% static 'img/tracking.svg' %}" alt="">
+                </div>
+                <h3 class="why-feature-title">Live Tracking</h3>
+                <p class="why-feature-desc">Track engineers in real time.</p>
+            </article>
+
+            <article class="why-feature-card glass-border-white">
+                <div class="why-feature-icon water-drop-glass">
+                    <img src="{% static 'img/work-logs.svg' %}" alt="">
+                </div>
+                <h3 class="why-feature-title">Work Logs</h3>
+                <p class="why-feature-desc">Detailed logs, photos &amp; checklists.</p>
+            </article>
+
+            <article class="why-feature-card glass-border-white">
+                <div class="why-feature-icon water-drop-glass">
+                    <img src="{% static 'img/ai-reports.svg' %}" alt="">
+                </div>
+                <h3 class="why-feature-title">AI Reports</h3>
+                <p class="why-feature-desc">Automated reports with insights.</p>
+            </article>
+
+            <article class="why-feature-card glass-border-white">
+                <div class="why-feature-icon water-drop-glass">
+                    <img src="{% static 'img/team-workspace.svg' %}" alt="">
+                </div>
+                <h3 class="why-feature-title">Team Workspace</h3>
+                <p class="why-feature-desc">Collaborate with engineers and teams.</p>
+            </article>
+
+            <article class="why-feature-card glass-border-white">
+                <div class="why-feature-icon water-drop-glass">
+                    <img src="{% static 'img/secure-complain.svg' %}" alt="">
+                </div>
+                <h3 class="why-feature-title">Secure &amp; Compliant</h3>
+                <p class="why-feature-desc">Enterprise-grade security and compliance.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ PLATFORM IN YOUR HANDS ════════════ -->
+<section class="platform-hands" aria-labelledby="platform-hands-title">
+    <div class="platform-hands-card glass-border-white">
+        <div class="platform-hands-inner">
+            <div class="platform-hands-content">
+                <h2 id="platform-hands-title" class="platform-hands-title">Platform in Your Hands</h2>
+
+                <ul class="platform-hands-list">
+                    <li>
+                        <img src="{% static 'img/tick.svg' %}" alt="Check" aria-hidden="true">
+                        Easy booking &amp; approvals
+                    </li>
+                    <li>
+                        <img src="{% static 'img/tick.svg' %}" alt="Check" aria-hidden="true">
+                        Real-time tracking &amp; updates
+                    </li>
+                    <li>
+                        <img src="{% static 'img/tick.svg' %}" alt="Check" aria-hidden="true">
+                        Secure payments &amp; invoicing
+                    </li>
+                    <li>
+                        <img src="{% static 'img/tick.svg' %}" alt="Check" aria-hidden="true">
+                        AI reports &amp; analytics
+                    </li>
+                </ul>
+
+                <a href="#" class="platform-hands-btn btn-glass-modern water-drop-glass">
+                    Explore All Features
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </a>
+            </div>
+
+            <div class="platform-hands-apps">
+                <div class="platform-hands-app">
+                    <p class="platform-hands-app-label">Customer App</p>
+                    <div class="platform-hands-phone">
+                        <img src="{% static 'img/app-img.svg' %}" alt="Customer App preview">
+                    </div>
+                </div>
+                <div class="platform-hands-app">
+                    <p class="platform-hands-app-label">Vendor App</p>
+                    <div class="platform-hands-phone">
+                        <img src="{% static 'img/app-img.svg' %}" alt="Vendor App preview">
+                    </div>
+                </div>
+                <div class="platform-hands-app">
+                    <p class="platform-hands-app-label">Engineer App</p>
+                    <div class="platform-hands-phone">
+                        <img src="{% static 'img/app-img.svg' %}" alt="Engineer App preview">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ COVERAGE ACROSS INDIA ════════════ -->
+<section class="coverage-india" aria-labelledby="coverage-india-title">
+    <div class="coverage-india-card glass-border-blue-light">
+        <div class="coverage-india-inner">
+            <div class="coverage-india-content">
+                <h2 id="coverage-india-title" class="coverage-india-title">
+                    Our Coverage
+                    <span class="pt-1">Across India</span>
+                </h2>
+                <p class="coverage-india-desc">
+                    A strong network of engineers &amp; vendors in every major city.
+                </p>
+
+                <div class="coverage-india-stats">
+                    <article class="coverage-stat-card water-drop-glass">
+                        <span class="coverage-stat-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined large-icon">groups</span>
+                        </span>
+                        <p class="coverage-stat-value">
+                            <span class="hero-counter" data-target="15000" data-suffix="+" data-format="comma">0</span>
+                        </p>
+                        <p class="coverage-stat-label">Certified engineers</p>
+                    </article>
+                    <article class="coverage-stat-card water-drop-glass">
+                        <span class="coverage-stat-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined large-icon">verified</span>
+                        </span>
+                        <p class="coverage-stat-value">
+                            <span class="hero-counter" data-target="350" data-suffix="+">0</span>
+                        </p>
+                        <p class="coverage-stat-label">Verified Vendors</p>
+                    </article>
+                    <article class="coverage-stat-card water-drop-glass">
+                        <span class="coverage-stat-icon" aria-hidden="true">
+                            <span class="material-symbols-outlined large-icon">apartment</span>
+                        </span>
+                        <p class="coverage-stat-value">
+                            <span class="hero-counter" data-target="120" data-suffix="+">0</span>
+                        </p>
+                        <p class="coverage-stat-label">Cities Covered</p>
+                    </article>
+                </div>
+
+                <a href="#" class="coverage-india-btn btn-glass-modern water-drop-glass">
+                    View All Cities
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </a>
+            </div>
+
+            <div class="coverage-india-map-wrap">
+                <div
+                    id="coverage-india-map"
+                    class="coverage-india-map"
+                    role="img"
+                    aria-label="Interactive map of India showing engineer coverage in major cities"
+                ></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ DEPLOY CTA ════════════ -->
+<section class="deploy-cta" aria-labelledby="deploy-cta-title">
+    <div class="deploy-cta-card glass-border-blue-light">
+        <div class="deploy-cta-inner">
+            <div class="deploy-cta-content">
+                <h2 id="deploy-cta-title" class="deploy-cta-title">
+                    Ready to Deploy Certified Engineers at Your Site?
+                </h2>
+                <p class="deploy-cta-desc">
+                    Book now and get the best offers from verified vendors
+                </p>
+                <div class="deploy-cta-actions">
+                    <a href="#" class="deploy-cta-btn-expert btn-glass-modern water-drop-glass">
+                        <span class="material-symbols-outlined">headset_mic</span>
+                        Talk to Expert
+                    </a>
+                    <a href="#" class="btn btn-primary btn-md btn-modern deploy-cta-btn-service inline-flex">
+                        Request Service
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="deploy-cta-stats">
+                <article class="deploy-cta-stat">
+                    <span class="deploy-cta-stat-icon water-drop-glass" aria-hidden="true">
+                        <span class="material-symbols-outlined">check_circle</span>
+                    </span>
+                    <p class="deploy-cta-stat-value">
+                        <span class="hero-counter" data-target="99.2" data-decimals="1" data-suffix="%">0</span>
+                    </p>
+                    <p class="deploy-cta-stat-label">SLA Success</p>
+                </article>
+                <article class="deploy-cta-stat">
+                    <span class="deploy-cta-stat-icon water-drop-glass" aria-hidden="true">
+                        <span class="material-symbols-outlined">assignment</span>
+                    </span>
+                    <p class="deploy-cta-stat-value">
+                        <span class="hero-counter" data-target="10" data-suffix="M+">0</span>
+                    </p>
+                    <p class="deploy-cta-stat-label">Jobs Completed</p>
+                </article>
+                <article class="deploy-cta-stat">
+                    <span class="deploy-cta-stat-icon water-drop-glass" aria-hidden="true">
+                        <span class="material-symbols-outlined">star</span>
+                    </span>
+                    <p class="deploy-cta-stat-value">4.8/5</p>
+                    <p class="deploy-cta-stat-label">Customer Rating</p>
+                </article>
+                <article class="deploy-cta-stat">
+                    <span class="deploy-cta-stat-icon water-drop-glass" aria-hidden="true">
+                        <span class="material-symbols-outlined">headset_mic</span>
+                    </span>
+                    <p class="deploy-cta-stat-value">24/7</p>
+                    <p class="deploy-cta-stat-label">Support Available</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════ STAY UPDATED ════════════ -->
+<section class="stay-updated" aria-labelledby="stay-updated-title">
+    <div class="stay-updated-card glass-border-white">
+        <div class="stay-updated-inner">
+            <div class="stay-updated-content">
+                <h2 id="stay-updated-title" class="stay-updated-title">Stay Updated with FE</h2>
+                <p class="stay-updated-desc">
+                    Get deployment insights, industry trends and product updates straight to your inbox.
+                </p>
+            </div>
+
+            <form class="stay-updated-form" action="#" method="post" novalidate>
+                <div class="stay-updated-input-wrap water-drop-glass">
+                    <label for="stay-updated-email" class="sr-only">Business email</label>
+                    <input
+                        type="email"
+                        id="stay-updated-email"
+                        name="email"
+                        class="stay-updated-input"
+                        placeholder="Enter your business email"
+                        autocomplete="email"
+                        required
+                    >
+                    <button type="submit" class="btn btn-primary btn-md btn-modern stay-updated-submit inline-flex">
+                        Request Service
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
 
 {% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="{% static 'script/customer-home/customer-home.js' %}"></script>
 {% endblock %}
