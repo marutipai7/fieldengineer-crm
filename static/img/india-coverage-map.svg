@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 460" fill="none" aria-hidden="true">
+  <defs>
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1466DE" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#1466DE" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#1466DE" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <path d="M300 118 C332 96 352 118 338 150 C360 176 348 214 318 232 C334 268 300 292 268 286 C246 332 206 352 176 334 C148 360 118 346 108 312 C78 302 62 268 74 236 C52 214 58 176 88 158 C96 126 126 104 156 108 C176 84 214 72 244 88 C266 72 286 88 300 118 Z" fill="none"/>
+
+  <g opacity="0.55" fill="#1466DE">
+    <circle cx="198" cy="98" r="2.2"/><circle cx="210" cy="104" r="2"/><circle cx="186" cy="110" r="2.2"/>
+    <circle cx="222" cy="118" r="2"/><circle cx="170" cy="122" r="2.2"/><circle cx="236" cy="128" r="2"/>
+    <circle cx="152" cy="136" r="2.2"/><circle cx="248" cy="142" r="2"/><circle cx="138" cy="152" r="2.2"/>
+    <circle cx="262" cy="158" r="2"/><circle cx="126" cy="168" r="2.2"/><circle cx="276" cy="176" r="2"/>
+    <circle cx="118" cy="188" r="2.2"/><circle cx="288" cy="196" r="2"/><circle cx="112" cy="208" r="2.2"/>
+    <circle cx="296" cy="214" r="2"/><circle cx="108" cy="226" r="2.2"/><circle cx="300" cy="228" r="2"/>
+    <circle cx="112" cy="244" r="2.2"/><circle cx="294" cy="246" r="2"/><circle cx="118" cy="262" r="2.2"/>
+    <circle cx="286" cy="264" r="2"/><circle cx="128" cy="280" r="2.2"/><circle cx="276" cy="278" r="2"/>
+    <circle cx="142" cy="296" r="2.2"/><circle cx="262" cy="292" r="2"/><circle cx="158" cy="310" r="2.2"/>
+    <circle cx="246" cy="304" r="2"/><circle cx="176" cy="322" r="2.2"/><circle cx="228" cy="316" r="2"/>
+    <circle cx="194" cy="334" r="2.2"/><circle cx="210" cy="328" r="2"/><circle cx="204" cy="346" r="2.2"/>
+    <circle cx="182" cy="150" r="2"/><circle cx="206" cy="162" r="2.2"/><circle cx="164" cy="176" r="2"/>
+    <circle cx="220" cy="186" r="2.2"/><circle cx="148" cy="200" r="2"/><circle cx="232" cy="210" r="2.2"/>
+    <circle cx="136" cy="224" r="2"/><circle cx="244" cy="232" r="2.2"/><circle cx="150" cy="248" r="2"/>
+    <circle cx="236" cy="252" r="2.2"/><circle cx="168" cy="266" r="2"/><circle cx="218" cy="270" r="2.2"/>
+    <circle cx="186" cy="286" r="2"/><circle cx="200" cy="298" r="2.2"/><circle cx="194" cy="312" r="2"/>
+    <circle cx="252" cy="188" r="2.2"/><circle cx="268" cy="204" r="2"/><circle cx="280" cy="220" r="2.2"/>
+    <circle cx="172" cy="198" r="2"/><circle cx="188" cy="214" r="2.2"/><circle cx="202" cy="230" r="2"/>
+    <circle cx="216" cy="246" r="2.2"/><circle cx="228" cy="262" r="2"/><circle cx="214" cy="278" r="2.2"/>
+    <circle cx="124" cy="118" r="2"/><circle cx="140" cy="108" r="2.2"/><circle cx="160" cy="98" r="2"/>
+    <circle cx="228" cy="96" r="2.2"/><circle cx="248" cy="108" r="2"/><circle cx="264" cy="124" r="2.2"/>
+    <circle cx="100" cy="196" r="2"/><circle cx="104" cy="252" r="2.2"/><circle cx="132" cy="312" r="2"/>
+    <circle cx="168" cy="336" r="2.2"/><circle cx="220" cy="340" r="2"/><circle cx="256" cy="320" r="2.2"/>
+  </g>
+
+  <g stroke="url(#arcGrad)" stroke-width="1.2" fill="none" opacity="0.75">
+    <path d="M300 200 C340 150 360 110 330 88"/>
+    <path d="M300 200 C350 170 380 150 392 128"/>
+    <path d="M198 98 C150 130 120 180 118 220"/>
+    <path d="M118 220 C130 280 160 330 194 346"/>
+    <path d="M194 346 C210 300 205 250 186 214"/>
+    <path d="M186 214 C160 250 140 290 194 346"/>
+    <path d="M252 188 C280 150 300 118 198 98"/>
+    <path d="M118 220 C170 210 220 200 300 200"/>
+  </g>
+
+  <g filter="url(#softGlow)">
+    <circle cx="198" cy="98" r="7" fill="url(#nodeGlow)"/>
+    <circle cx="118" cy="220" r="7" fill="url(#nodeGlow)"/>
+    <circle cx="194" cy="346" r="7" fill="url(#nodeGlow)"/>
+    <circle cx="186" cy="214" r="7" fill="url(#nodeGlow)"/>
+    <circle cx="252" cy="188" r="7" fill="url(#nodeGlow)"/>
+    <circle cx="300" cy="200" r="7" fill="url(#nodeGlow)"/>
+  </g>
+
+  <circle cx="198" cy="98" r="3.5" fill="#FFFFFF"/>
+  <circle cx="118" cy="220" r="3.5" fill="#FFFFFF"/>
+  <circle cx="194" cy="346" r="3.5" fill="#FFFFFF"/>
+  <circle cx="186" cy="214" r="3.5" fill="#FFFFFF"/>
+  <circle cx="252" cy="188" r="3.5" fill="#FFFFFF"/>
+  <circle cx="300" cy="200" r="3.5" fill="#FFFFFF"/>
+</svg>
