@@ -1,0 +1,52 @@
+{% extends 'home/layout.html' %}
+
+{% load static %}
+
+{% block content%}
+<section class="relative min-h-[calc(100vh-68px)] overflow-hidden bg-blue-light">
+
+    <!-- Background -->
+    <img src="{% static 'img/request-service/request-service-hero-bg.webp' %}" alt="" aria-hidden="true"
+        class="absolute inset-0 h-150 w-full object-contain object-[center_20%] lg:object-right">
+    <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/30"></div>
+
+    <div
+        class="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
+
+        <div class="max-w-xl lg:max-w-none">
+            <div class="flex items-center gap-2">
+
+                <span class="material-symbols-outlined">home</span>
+                <span>Home</span>
+                <span class="material-symbols-outlined">chevron_right</span>
+                <span>Request Service</span>
+            </div>
+            <h1
+                class="hero-rise hero-rise-d1 text-h3 font-bold leading-[1.1] tracking-tight text-gunmetal-blue md:text-h2 lg:text-h1 pt-10">
+                Request Service in<br>
+                <span class="text-royal-blue">3 Simple Steps</span><br>
+
+            </h1>
+
+            <p class="hero-rise hero-rise-d2 mt-5 max-w-md text-b1 leading-relaxed text-space-blue font-semibold">
+                Tell us what service you need , where and when. <br>
+                We'll connect you with the best engineers & vendors
+            </p>
+
+            <!-- Service search glass card -->
+            <div class="hero-service-card hero-rise hero-rise-d3 mt-8 rounded-[20px] p-3 hero-glass">
+
+            </div>
+
+
+        </div>
+
+        <!-- Right — floating cards -->
+        <div class="hero-rise hero-rise-d5 flex flex-col gap-4 lg:items-end">
+
+
+
+        </div>
+    </div>
+</section>
+{% endblock %}
