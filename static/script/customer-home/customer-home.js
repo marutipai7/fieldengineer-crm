@@ -68,9 +68,93 @@
     input.addEventListener("blur", () => wrapper?.classList.remove("ring-2", "ring-primary/25"));
   }
 
+  function buildCoverageMarker(city) {
+    return (
+      '<div class="coverage-map-marker glass-border-white">' +
+      '<span class="coverage-city-name">' + city.name + "</span>" +
+      '<span class="coverage-city-count">' + city.count + "</span>" +
+      "</div>"
+    );
+  }
+
+  function initCoverageMap() {
+    const mapEl = document.getElementById("coverage-india-map");
+    if (!mapEl || mapEl.dataset.mapReady === "true" || typeof L === "undefined") return;
+
+    const cities = [
+      { name: "Delhi NCR", count: "1,250+ Engineers", lat: 28.6139, lng: 77.209 },
+      { name: "Mumbai", count: "1,000+ Engineers", lat: 19.076, lng: 72.8777 },
+      { name: "Bangalore", count: "1,600+ Engineers", lat: 12.9716, lng: 77.5946 },
+      { name: "Chennai", count: "1,100+ Engineers", lat: 13.0827, lng: 80.2707 },
+      { name: "Hyderabad", count: "1,800+ Engineers", lat: 17.385, lng: 78.4867 },
+      { name: "Kolkata", count: "900+ Engineers", lat: 22.5726, lng: 88.3639 },
+    ];
+
+    const map = L.map(mapEl, {
+      zoomControl: true,
+      scrollWheelZoom: false,
+      attributionControl: true,
+    });
+
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: "abcd",
+      maxZoom: 19,
+    }).addTo(map);
+
+    const indiaBounds = L.latLngBounds([6.5, 68.0], [35.5, 97.5]);
+    map.fitBounds(indiaBounds, { padding: [18, 18] });
+    map.setMaxBounds(indiaBounds.pad(0.08));
+
+    const baseZoom = map.getZoom();
+    map.setMinZoom(baseZoom);
+    map.setMaxZoom(baseZoom + 1);
+
+    cities.forEach((city) => {
+      const icon = L.divIcon({
+        className: "coverage-map-marker-wrap",
+        html: buildCoverageMarker(city),
+        iconSize: [112, 48],
+        iconAnchor: [56, 48],
+      });
+
+      L.marker([city.lat, city.lng], { icon, alt: city.name }).addTo(map);
+    });
+
+    mapEl.dataset.mapReady = "true";
+    window.setTimeout(() => map.invalidateSize(), 150);
+    window.setTimeout(() => map.invalidateSize(), 500);
+  }
+
+  function observeCoverageMap() {
+    const mapEl = document.getElementById("coverage-india-map");
+    if (!mapEl) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      initCoverageMap();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            initCoverageMap();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(mapEl);
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initCounters();
     initServiceChips();
     initSearchFocus();
+    observeCoverageMap();
   });
 })();

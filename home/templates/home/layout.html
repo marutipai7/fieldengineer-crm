@@ -13,6 +13,7 @@
 
     <!-- Tailwind (compiled output) -->
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
 
@@ -135,12 +136,12 @@
                     India's Infrastructure workforce platform connecting customers, vendors and certified field engineers for seamless on-site evaluation.
                 </p>
                 <div class="footer-social">
-                    <a href="#" aria-label="LinkedIn">
+                    <a href="#" class="water-drop-glass" aria-label="LinkedIn">
                         <img src="{% static 'img/linkedin.svg' %}" alt="LinkedIn" aria-hidden="true">
                     </a>
-                    <a href="#" aria-label="X"><img src="{% static 'img/x.svg' %}" alt="X" aria-hidden="true"></a>
-                    <a href="#" aria-label="YouTube"><img src="{% static 'img/youtube.svg' %}" alt="YouTube" aria-hidden="true"></a>
-                    <a href="#" aria-label="Instagram"><img src="{% static 'img/instagram.svg' %}" alt="Instagram" aria-hidden="true"></a>
+                    <a href="#" class="water-drop-glass" aria-label="X"><img src="{% static 'img/x.svg' %}" alt="X" aria-hidden="true"></a>
+                    <a href="#" class="water-drop-glass" aria-label="YouTube"><img src="{% static 'img/youtube.svg' %}" alt="YouTube" aria-hidden="true"></a>
+                    <a href="#" class="water-drop-glass" aria-label="Instagram"><img src="{% static 'img/instagram.svg' %}" alt="Instagram" aria-hidden="true"></a>
                 </div>
             </div>
 
