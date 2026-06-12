@@ -11,3 +11,6 @@ def fieldengineer(request):
 
 def vendor(request):
     return render(request, 'vendor/vendor.html')
+
+def request_service(request):
+    return render(request, 'home/services/request-service.html')
