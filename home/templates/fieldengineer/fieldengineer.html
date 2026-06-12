@@ -1,13 +1,896 @@
 {% extends 'home/layout.html' %}
+{% load static %}
 
-{% block title %}Field Engineer — FieldEngineer{% endblock %}
+{% block title %}FieldEngineer — Deploy Certified Engineers Anywhere in India{% endblock %}
 
 {% block content %}
-<section class="max-w-7xl mx-auto px-8 py-16">
-    <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">For Engineers</p>
-    <h1 class="text-h3 font-semibold text-ink mb-4">Field Engineer Page</h1>
-    <p class="text-b1 text-medium max-w-2xl">
-        This is the Field Engineer landing page. Add your Figma sections inside this block.
-    </p>
+
+
+<!-- ════════════ HERO ════════════ -->
+<section class="relative min-h-[calc(100vh-70px)] overflow-hidden bg-blue-light">
+
+    <!-- Background -->
+    <img src="{% static 'img/customer-herobg.svg' %}" alt="" aria-hidden="true"
+        class="absolute inset-0 h-full w-full object-cover object-[center_20%] lg:object-right">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/30"></div>
+
+    <div
+        class="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
+
+        <!-- Left -->
+        <div class="max-w-xl lg:max-w-none">
+            <div class="mb-4">
+                <p
+                    class="inline-flex items-center gap-2 text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
+
+                    <span class="material-symbols-outlined text-[14px]">
+                        person
+                    </span>
+
+                    FOR FIELD ENGINEERS
+                </p>
+            </div>
+
+            <h1
+                class="hero-rise hero-rise-d1 text-h3 font-bold leading-[1.1] tracking-tight text-deep-indigo md:text-h2 lg:text-h1">
+                Find Opportunities,<br>
+                Complete Projects,<br>
+                and <span class="text-brand-blue">Grow Your Career</span>
+            </h1>
+
+
+
+            <p class="hero-rise hero-rise-d2 mt-5 max-w-md text-b1 leading-relaxed text-slate-gray font-semibold">
+                Join a network of skilled field professionals, discover service
+                opportunities, manage assignments, and build your reputation
+                while earning on your schedule.
+            </p>
+
+
+
+            <!-- CTA row -->
+            <div class="hero-rise hero-rise-d4 mt-6 flex flex-wrap items-center gap-3">
+
+                <a href="#" class="btn btn-primary btn-md inline-flex rounded-[18px]">
+                    Join the Network
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </a>
+                <a href="#" class="btn bg-white text-primary-dark btn-md inline-flex">
+
+                    Track Job
+                    <span class="material-symbols-outlined text-[18px]">expand_circle_right</span>
+                </a>
+
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-6 text-b3 font-medium text-deep-navy-blue">
+
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-bright-blue">
+                        verified_user
+                    </span>
+
+                    Safe & Secure
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-bright-blue">
+                        groups
+                    </span>
+                    Verified Network
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-bright-blue">
+                        payments
+                    </span>
+                    On-time Payments
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-bright-blue">
+                        handshake
+                    </span>
+                    Trusted by 15K+ Engineers
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- Right — floating cards -->
+        <div class="hero-rise hero-rise-d5 flex flex-col gap-4 lg:items-end">
+
+            <!-- Top stat pills -->
+            <div class="flex flex-col gap-4 w-full lg:max-w-[280px]">
+
+                <!-- Card 1 -->
+                <div class=" flex items-center gap-4 rounded-2xl bg-white px-5 py-4 ">
+
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-ice-blue">
+                        <span class="material-symbols-outlined text-bright-blue text-[28px]">
+                            work
+                        </span>
+                    </div>
+
+                    <div>
+                        <p class="text-b3 font-semibold text-deep-indigo">
+                            Available Opportunities
+                        </p>
+
+                        <h3 class="text-h5 font-semibold text-gray-light mt-1">
+                            128
+                        </h3>
+
+                        <span class="text-b3 font-medium text-sage-green">
+                            ↑ 15% this week
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- Card 2 -->
+                <div class=" flex items-center gap-4 rounded-2xl bg-white px-5 py-4 ">
+
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-ice-blue">
+                        <span class="material-symbols-outlined text-bright-blue text-[28px]">
+                            payments
+                        </span>
+                    </div>
+
+                    <div>
+                        <p class="text-b3 font-semibold text-deep-indigo">
+                            Earnings This Month
+                        </p>
+
+                        <h3 class="text-h5 font-semibold text-[#090831] mt-1">
+                            ₹48,750
+                        </h3>
+
+                        <span class="text-b3 font-medium text-sage-green">
+                            ↑ 24% vs last month
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- Card 3 -->
+                <div class=" flex items-center gap-4 rounded-2xl bg-white px-6 py-4 ">
+
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-light-ochre-yellow">
+                        <span class="material-symbols-outlined text-ochre-yellow text-[28px]">
+                            star
+                        </span>
+                    </div>
+
+                    <div>
+                        <p class="text-b3 font-semibold text-deep-indigo">
+                            Engineer Rating
+                        </p>
+
+                        <h3 class="text-h5 font-semibold text-[#090831] mt-1">
+                            4.8/5
+                        </h3>
+
+                        <span class="text-b3 font-semibold text-deep-indigo">
+                            Based on 120+ reviews
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- Card 4 -->
+                <div class=" bg-white flex items-center gap-4 rounded-2xl px-5 py-4 ">
+
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-ice-blue">
+                        <span class="material-symbols-outlined text-bright-blue text-[28px]">
+                            location_on
+                        </span>
+                    </div>
+
+                    <div>
+                        <p class="text-b3 font-medium text-deep-indigo">
+                            Opportunities Near You
+                        </p>
+
+                        <h3 class="text-b3 font-semibold text-deep-indigo mt-1">
+                            18 new projects
+                        </h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="relative z-20 max-w-7xl mx-auto px-5 md:px-8 -mt-8">
+
+        <div class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue overflow-hidden">
+
+            <div class="grid grid-cols-2 lg:grid-cols-4">
+
+                <!-- Item 1 -->
+                <div class="flex items-center gap-4 px-8 py-7 border-r border-[#EEF2F7]">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-ice-blue">
+                        <span class="material-symbols-outlined text-bright-blue">
+                            groups
+                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-h5 font-semibold text-dark-indigo">
+                            15K+
+                        </h3>
+
+                        <p class="text-b3 font-semibold text-cool-gray-blue1">
+                            Active Engineers
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="flex items-center gap-4 px-8 py-7 border-r border-[#EEF2F7]">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-ice-blue">
+                        <span class="material-symbols-outlined text-bright-blue">
+                            assignment
+                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-h5 font-semibold text-dark-indigo">
+                            25K+
+                        </h3>
+
+                        <p class="text-b3 font-semibold text-cool-gray-blue1">
+                            Projects Completed
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="flex items-center gap-4 px-8 py-7 border-r border-[#EEF2F7]">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-ice-blue">
+                        <span class="material-symbols-outlined text-bright-blue">
+                            business
+                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-h5 font-semibold text-dark-indigo">
+                            500+
+                        </h3>
+
+                        <p class="text-b3 font-semibold text-cool-gray-blue1">
+                            Verified Businesses
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="flex items-center gap-4 px-8 py-7">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-ice-blue">
+                        <span class="material-symbols-outlined text-bright-blue">
+                            account_balance_wallet
+                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-h5 font-semibold text-dark-indigo">
+                            ₹12Cr+
+                        </h3>
+
+                        <p class="text-b3 font-semibold text-cool-gray-blue1">
+                            Paid to Engineers
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
 </section>
+
+
+<!--REQUIREMENTS TO JOIN-->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+
+            <p
+                class="inline-block text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
+                REQUIREMENTS TO JOIN
+            </p>
+
+            <h2 class="mt-2 text-h3 font-semibold text-deep-indigo">
+                Join the Engineer Network
+            </h2>
+
+            <p class="mt-3 text-b3 font-medium text-deep-indigo">
+                Meet the basic requirements and start your journey with quality opportunities.
+            </p>
+
+        </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-6 gap-4">
+
+            <!-- Card 1 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
+                    <span class="material-symbols-outlined text-bright-blue">
+                        engineering
+                    </span>
+                </div>
+
+                <p class="mt-4 text-b3 font-semibold text-deep-indigo">
+                    Relevant technical skills and field service experience
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
+                    <span class="material-symbols-outlined text-bright-blue">
+                        badge
+                    </span>
+                </div>
+
+                <p class="mt-4 text-b3 font-semibold text-deep-indigo">
+                    Complete professional profile with work history
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
+                    <span class="material-symbols-outlined text-bright-blue">
+                        assignment
+                    </span>
+                </div>
+
+                <p class="mt-4 text-b3 font-semibold text-deep-indigo">
+                    Ability to manage assignments and meet deadlines
+                </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
+                    <span class="material-symbols-outlined text-bright-blue">
+                        verified_user
+                    </span>
+                </div>
+
+                <p class="mt-4 text-b3 font-semibold text-deep-indigo">
+                    Commitment to quality workmanship and customer satisfaction
+                </p>
+            </div>
+
+            <!-- Card 5 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
+                    <span class="material-symbols-outlined text-bright-blue">
+                        forum
+                    </span>
+                </div>
+
+                <p class="mt-4 text-b3 font-semibold text-deep-indigo">
+                    Strong communication and professional conduct
+                </p>
+            </div>
+
+            <!-- Card 6 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
+                    <span class="material-symbols-outlined text-bright-blue">
+                        schedule
+                    </span>
+                </div>
+
+                <p class="mt-4 text-b3 font-semibold text-deep-indigo">
+                    Availability to accept projects based on your schedule and expertise
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!--HOW TO JOIN-->
+<section class="py-16 bg-light-ice-blue">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+        <!-- Header -->
+        <div class="text-center mb-16">
+
+
+            <p
+                class="inline-block text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
+                HOW TO JOIN
+            </p>
+
+            <h2 class="mt-2 text-h3 font-semibold text-deep-indigo">
+                How to Join the Engineer Network
+            </h2>
+
+            <p class="mt-3 text-b3 font-medium text-deep-indigo">
+                Follow these simple steps to join our network and start receiving opportunities.
+            </p>
+
+        </div>
+
+        <!-- Steps -->
+        <div class="relative">
+
+            <!-- Dotted Connector Line -->
+            <div
+                class="hidden lg:block absolute top-12 left-[16%] right-[16%] border-t-2 border-dashed border-soft-sky-blue">
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-10 relative z-10">
+
+                <!-- Step 1 -->
+                <div class="text-center">
+
+                    <div class="relative inline-flex">
+
+                        <div
+                            class="w-24 h-24 rounded-full border-2 border-light-pastel-blue bg-white flex items-center justify-center">
+
+                            <span class="material-symbols-outlined text-[40px] text-bright-blue">
+                                person
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-bright-blue text-white text-c1 font-bold flex items-center justify-center">
+                            1
+                        </div>
+
+                    </div>
+
+                    <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">
+                        Create Your Profile
+                    </h3>
+
+                    <p class="mt-2 text-b3 text-slate-gray max-w-[260px] mx-auto">
+                        Build your professional profile with skills, experience,
+                        certifications, and previous project details.
+                    </p>
+
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+
+                    <div class="relative inline-flex">
+
+                        <div
+                            class="w-24 h-24 rounded-full border-2 border-light-pastel-blue bg-white flex items-center justify-center">
+
+                            <span class="material-symbols-outlined text-[40px] text-bright-blue">
+                                verified_user
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-bright-blue text-white text-c1 font-bold flex items-center justify-center">
+                            2
+                        </div>
+
+                    </div>
+
+                    <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">
+                        Verification & Review
+                    </h3>
+
+                    <p class="mt-2 text-b3 text-slate-gray max-w-[260px] mx-auto">
+                        Our team reviews your profile and qualifications to
+                        ensure quality standards and trust.
+                    </p>
+
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+
+                    <div class="relative inline-flex">
+
+                        <div
+                            class="w-24 h-24 rounded-full border-2 border-light-pastel-blue bg-white flex items-center justify-center">
+
+                            <span class="material-symbols-outlined text-[40px] text-bright-blue">
+                                work
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-bright-blue text-white text-c1 font-bold flex items-center justify-center">
+                            3
+                        </div>
+
+                    </div>
+
+                    <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">
+                        Start Receiving Opportunities
+                    </h3>
+
+                    <p class="mt-2 text-b3 text-slate-gray max-w-[260px] mx-auto">
+                        Browse available projects or receive assignments
+                        that match your skills, location, and availability.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!--WHY ENGINEERS CHOOSE OUR PLATFORM-->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+
+            <p
+                class="inline-block text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
+                WHY ENGINEERS CHOOSE OUR PLATFORM
+            </p>
+
+            <h2 class="mt-2 text-h3 font-semibold text-deep-indigo">
+                Why Engineers Choose Our Platform
+            </h2>
+
+            <p class="mt-3 text-b3 font-medium text-deep-indigo">
+                Built for skilled field professionals seeking flexibility, growth, and transparency.
+            </p>
+
+        </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-6 gap-5">
+
+            <!-- Card 1 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
+                    <span class="material-symbols-outlined text-[28px] text-bright-blue">
+                        work
+                    </span>
+                </div>
+
+                <h3 class="mt-4 text-s2 font-bold text-deep-indigo">
+                    Quality Work Opportunities
+                </h3>
+
+                <p class="mt-3 text-b3 text-deep-indigo">
+                    Access projects from trusted businesses across industries.
+                </p>
+
+            </div>
+
+            <!-- Card 2 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lavender-mist">
+                    <span class="material-symbols-outlined text-[28px] text-light-purple">
+                        schedule
+                    </span>
+                </div>
+
+                <h3 class="mt-4 text-s2 font-bold text-deep-indigo">
+                    Flexible Work Schedule
+                </h3>
+
+                <p class="mt-3 text-b3 text-deep-indigo">
+                    Work on your own time and choose what fits your availability.
+                </p>
+
+            </div>
+
+            <!-- Card 3 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lightest-green">
+                    <span class="material-symbols-outlined text-[28px] text-light-green">
+                        account_balance_wallet
+                    </span>
+                </div>
+
+                <h3 class="mt-4 text-s2 font-bold text-deep-indigo">
+                    Transparent Earnings
+                </h3>
+
+                <p class="mt-3 text-b3 text-deep-indigo">
+                    Track jobs, payments, and earnings with complete visibility.
+                </p>
+
+            </div>
+
+            <!-- Card 4 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lavender-mist">
+                    <span class="material-symbols-outlined text-[28px] text-light-purple">
+                        monitoring
+                    </span>
+                </div>
+
+                <h3 class="mt-4 text-s2 font-bold text-deep-indigo">
+                    Professional Growth
+                </h3>
+
+                <p class="mt-3 text-b3 text-deep-indigo">
+                    Build your reputation and grow through positive feedback.
+                </p>
+
+            </div>
+
+            <!-- Card 5 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-light-ochre-yellow">
+                    <span class="material-symbols-outlined text-[28px] text-ochre-yellow">
+                        verified_user
+                    </span>
+                </div>
+
+                <h3 class="mt-4 text-s2 font-bold text-deep-indigo">
+                    Verified Business Network
+                </h3>
+
+                <p class="mt-3 text-b3 text-deep-indigo">
+                    Connect with verified vendors and reliable businesses.
+                </p>
+
+            </div>
+
+            <!-- Card 6 -->
+            <div
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-light-cyan-blue">
+                    <span class="material-symbols-outlined text-[28px] text-bright-cyan-blue">
+                        grid_view
+                    </span>
+                </div>
+
+                <h3 class="mt-4 text-s2 font-bold text-deep-indigo">
+                    Diverse Project Opportunities
+                </h3>
+
+                <p class="mt-3 text-b3 text-deep-indigo">
+                    Installations, maintenance, repairs, networking, CCTV, and more.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!--POWERFUL TOOLS TO MANAGE-->
+<section class="py-16 bg-very-light-soft-blue1">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Left Content -->
+            <div>
+
+                <p
+                    class="inline-block text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
+                    BUILT FOR MODERN FIELD ENGINEERS
+                </p>
+
+                <h2 class="mt-4 text-h2 font-semibold text-deep-indigo">
+                    Powerful Tools to Manage
+                    Your Work & Earnings
+                </h2>
+
+                <p class="mt-5 text-b1 text-slate-gray max-w-lg">
+                    Everything you need to discover opportunities,
+                    manage assignments, communicate, and deliver
+                    quality service with confidence.
+                </p>
+
+                <!-- Features -->
+                <div class="mt-8 space-y-4">
+
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-bright-blue">
+                            check_circle
+                        </span>
+                        <span class="text-b3 text-deep-indigo">
+                            Discover opportunities that match your skills
+                        </span>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-bright-blue">
+                            check_circle
+                        </span>
+                        <span class="text-b3 text-deep-indigo">
+                            Manage assignments and update progress in real-time
+                        </span>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-bright-blue">
+                            check_circle
+                        </span>
+                        <span class="text-b3 text-deep-indigo">
+                            Communicate and deliver quality service with ease
+                        </span>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-bright-blue">
+                            check_circle
+                        </span>
+                        <span class="text-b3 text-deep-indigo">
+                            Track earnings and build your reputation
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Right Side Image -->
+            <div class="relative">
+
+                <div class="bg-white rounded-3xl  shadow-xl overflow-hidden">
+
+                    <img src="{% static 'img/powerful-tools.png' %}" alt="Engineer Dashboard"
+                        class="w-full h-auto object-cover">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!--TRUSTED BY LEADING BUSINESS-->
+<section class="py-10">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+        <div class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center ">
+
+            <!-- Badge -->
+            <div class="text-center mb-8">
+                <p
+                    class="inline-block text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
+                    TRUSTED BY LEADING BUSINESSES
+                </p>
+            </div>
+
+            <!-- Logos -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 items-center gap-8">
+
+                <img src="{% static 'img/logos/tata.svg' %}" alt="Tata" class="h-8 mx-auto object-contain ">
+
+                <img src="{% static 'img/logos/jio.svg' %}" alt="Reliance" class="h-8 mx-auto object-contain">
+
+                <img src="{% static 'img/logos/wipro.svg' %}" alt="Wipro" class="h-8 mx-auto object-contain">
+
+                <img src="{% static 'img/logos/hdfc-bank.svg' %}" alt="HDFC Bank" class="h-8 mx-auto object-contain">
+
+                <img src="{% static 'img/logos/airtel.svg' %}" alt="Airtel" class="h-8 mx-auto object-contain">
+
+
+
+                <img src="{% static 'img/logos/flipkart.svg' %}" alt="Flipkart" class="h-8 mx-auto object-contain">
+
+                <img src="{% static 'img/logos/amazon.svg' %}" alt="Amazon" class="h-8 mx-auto object-contain">
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!--READY TO STAR WORKING-->
+<section class="py-12">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+        <div
+            class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#0F5AF2] to-[#0047D6] px-6 py-12 text-center shadow-xl">
+
+            <!-- Decorative dots/lines -->
+            <div class="absolute inset-0 opacity-20">
+                <div class="absolute left-0 top-1/2 h-px w-full border-t border-dashed border-white/40">
+                </div>
+            </div>
+
+            <!-- Top Icon -->
+            <div
+                class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm">
+
+                <span class="material-symbols-outlined text-white text-[28px]">
+                    groups
+                </span>
+
+            </div>
+
+            <!-- Heading -->
+            <h2 class="text-h3 font-semibold text-white">
+                Ready to Start Working on New Opportunities?
+            </h2>
+
+            <!-- Description -->
+            <p class="mx-auto mt-4 max-w-3xl text-b1 text-white/90">
+                Join our network of skilled field engineers and gain access to
+                installation, maintenance, networking, security, and technology projects.
+            </p>
+
+            <!-- Button -->
+            <div class="mt-8">
+                <a href="#"
+                    class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3 text-b3 font-semibold text-[#2563EB] transition-all duration-300 hover:scale-105 hover:shadow-lg">
+
+                    Join the Network
+
+                    <span class="material-symbols-outlined text-[18px]">
+                        arrow_forward
+                    </span>
+
+                </a>
+            </div>
+
+            <!-- Decorative circles -->
+            <div class="absolute -left-10 top-1/2 h-40 w-40 rounded-full border border-white/10">
+            </div>
+
+            <div class="absolute -right-10 top-1/2 h-40 w-40 rounded-full border border-white/10">
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'script/customer-home/customer-home.js' %}"></script>
 {% endblock %}
