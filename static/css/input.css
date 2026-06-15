@@ -1452,7 +1452,7 @@
   }
 
   .vr-engineer-card {
-    @apply grid gap-6 rounded-2xl border border-[#e8ecf2] bg-white p-5 md:gap-8 md:p-6 lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)_auto] lg:items-start lg:gap-8;
+    @apply grid gap-6 rounded-xl border border-light-medium bg-white p-5 md:gap-8 md:p-6 lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)_auto] lg:items-start lg:gap-8;
   }
 
   .vr-engineer-card-profile {
@@ -1566,6 +1566,197 @@
 
   .vr-btn-primary {
     @apply inline-flex w-full cursor-pointer items-center justify-center rounded-md border-0 bg-light-blue px-5 py-3 text-[14px] font-semibold text-white transition-colors hover:bg-blue-dark;
+  }
+
+  /* Vendor Responses team cards */
+  .vr-team-list {
+    @apply flex flex-col gap-5 md:gap-6;
+  }
+
+  .vr-team-card {
+    @apply overflow-hidden rounded-xl border border-light-medium bg-white shadow-[0_2px_12px_rgba(33,43,54,0.06)];
+  }
+
+  .vr-team-card-main {
+    @apply grid gap-6 p-5 sm:grid-cols-2 md:gap-8 md:p-6 lg:grid-cols-[minmax(0,1.45fr)_minmax(0,0.75fr)_minmax(0,0.85fr)_minmax(0,0.95fr)] lg:items-start lg:gap-6 xl:gap-8;
+  }
+
+  .vr-team-card-company {
+    @apply flex flex-col gap-4 sm:col-span-2 sm:flex-row sm:items-start lg:col-span-1;
+  }
+
+  .vr-team-card-logo {
+    @apply flex h-18 w-18 shrink-0 items-center justify-center rounded-full text-[18px] font-bold leading-none;
+  }
+
+  .vr-team-card-logo .material-symbols-outlined {
+    @apply text-[26px] leading-none;
+  }
+
+  .vr-team-card-logo--blue {
+    @apply bg-blue-light text-light-blue;
+  }
+
+  .vr-team-card-logo--green {
+    @apply bg-lightest-green text-dark-green;
+  }
+
+  .vr-team-card-logo--orange {
+    @apply bg-light-ochre-yellow text-amber-orange;
+  }
+
+  .vr-team-card-company-info {
+    @apply min-w-0 flex-1 space-y-3;
+  }
+
+  .vr-team-card-head {
+    @apply flex flex-col items-start gap-2;
+  }
+
+  .vr-team-card-name {
+    @apply text-[16px] font-bold leading-snug text-dark-black md:text-[17px] lg:text-[18px];
+  }
+
+  .vr-team-card-badge {
+    @apply inline-flex shrink-0 rounded-md bg-blue-light px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-light-blue md:text-[11px];
+  }
+
+  .vr-team-card-meta {
+    @apply mt-1.5 flex flex-wrap items-center gap-2 text-[12px] text-ink font-medium md:text-[13px];
+  }
+
+  .vr-team-card-rating {
+    @apply inline-flex items-center gap-1 font-bold text-ink;
+  }
+
+  .vr-team-card-rating .material-symbols-outlined {
+    @apply text-[15px] leading-none text-ochre-yellow;
+    font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 20;
+  }
+
+  .vr-team-card-desc {
+    @apply mt-2.5 text-[12px] leading-relaxed text-ink font-medium md:text-[13px];
+  }
+
+  .vr-team-card-composition {
+    @apply flex flex-col justify-center gap-8 border-t h-full border-light-medium pt-5 lg:border-t-0 lg:border-l lg:pl-6 lg:pt-0;
+  }
+
+  .vr-team-stat {
+    @apply flex items-start gap-2.5 text-[13px] text-ink;
+  }
+
+  .vr-team-stat span{
+    @apply flex flex-col;
+  }
+
+  .vr-team-stat strong {
+    @apply font-bold text-dark-black text-[18px];
+  }
+
+  .vr-team-stat-icon {
+    @apply leading-none text-light-blue;
+  }
+
+  .vr-team-card-pricing {
+    @apply flex flex-col justify-center h-full gap-8 border-t border-light-medium pt-5 lg:border-t-0 lg:border-l lg:pl-6 lg:pt-0;
+  }
+
+  .vr-team-price-block {
+    @apply space-y-0.5;
+  }
+
+  .vr-team-price {
+    @apply block text-[22px] font-bold leading-none text-dark-black md:text-[24px];
+  }
+
+  .vr-team-price-label {
+    @apply block text-[12px] font-medium text-light-gray;
+  }
+
+  .vr-team-pricing-row {
+    @apply flex items-start gap-2.5;
+  }
+
+  .vr-team-pricing-icon {
+    @apply mt-0.5 text-[18px] leading-none text-light-blue;
+  }
+
+  .vr-team-pricing-row div strong {
+    @apply block text-[14px] font-bold leading-snug text-dark-black;
+  }
+
+  .vr-team-pricing-row div span {
+    @apply mt-0.5 block text-[12px] font-medium text-light-gray;
+  }
+
+  .vr-team-card-aside {
+    @apply flex flex-col gap-3 border-t h-full border-light-medium pt-5 sm:col-span-2 lg:col-span-1 lg:border-t-0 lg:border-l lg:pl-6 lg:pt-0;
+  }
+
+  .vr-team-preview {
+    @apply mb-1;
+  }
+
+  .vr-team-preview-label {
+    @apply mb-2 block text-[12px] font-semibold text-ink;
+  }
+
+  .vr-team-preview-avatars {
+    @apply flex items-center;
+  }
+
+  .vr-team-preview-avatar {
+    @apply h-8 w-8 shrink-0 rounded-full border-2 border-white object-cover;
+    margin-left: -6px;
+  }
+
+  .vr-team-preview-avatar:first-child {
+    margin-left: 0;
+  }
+
+  .vr-team-preview-more {
+    @apply -ml-1.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-white bg-light text-[11px] font-bold text-light-gray;
+  }
+
+  .vr-team-btn-outline {
+    @apply inline-flex w-full cursor-pointer items-center justify-center gap-4 rounded-md border border-light-medium bg-white px-4 py-2.5 text-[13px] font-semibold text-light-blue transition-colors hover:bg-blue-light;
+  }
+
+  .vr-team-btn-outline .material-symbols-outlined {
+    @apply text-[18px] leading-none;
+  }
+
+  .vr-team-btn-primary {
+    @apply inline-flex w-full cursor-pointer items-center justify-center gap-4 rounded-md border-0 bg-light-blue px-4 py-2.5 text-[13px] font-semibold text-white transition-colors hover:bg-blue-dark;
+  }
+
+  .vr-team-btn-primary .material-symbols-outlined {
+    @apply text-[18px] leading-none;
+  }
+
+  .vr-team-card-trust {
+    @apply grid grid-cols-2 gap-4 border-t border-light-medium px-5 py-4 md:grid-cols-4 md:gap-6 md:px-6 md:py-4;
+  }
+
+  .vr-team-trust-item {
+    @apply flex items-start gap-2.5 min-w-0 border-r border-light-medium;
+  }
+
+  .vr-team-trust-icon {
+    @apply shrink-0 text-[20px] leading-none text-light-blue;
+  }
+
+  .vr-team-trust-icon--green {
+    @apply text-green;
+  }
+
+  .vr-team-trust-item strong {
+    @apply block text-[12px] font-bold leading-snug text-ink md:text-[13px];
+  }
+
+  .vr-team-trust-item span {
+    @apply mt-0.5 block text-[11px] font-medium text-dark-black md:text-[12px];
   }
 
   /* Vendor Responses help banner */
