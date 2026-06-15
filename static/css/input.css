@@ -98,12 +98,33 @@
   --color-bright-cyan-blue: #06B6D4;
   --color-midnight-navy-blue: #021537;
 
-
-
-
-
-
-
+  /*Request Service*/
+  --color-sea-green:#3b974c;
+  --color-midnight-blue:#0c1536;
+  --color-alice-blue:#eaedf2;
+  --color-ice-blue:#f1f6fc;
+  --color-slate-gray:#7b8398;
+  --color-silver-gray:#d2d3d7;
+  --color-powder-blue:#ecf2fe;
+  --color-mist-blue:#e8f3f5;
+  --color-cobalt-blue:#17289e;
+  --color-steel-gray:#898f9f;
+  --color-navy-blue:#010a67;
+  --color-mist-gray:#f3f4f6;
+  --color-cool-slate:#8a91a3;
+  --color-muted-steel:#9a9ea7;
+  --color-porcelain-gray:#f4f5f7;
+  --color-frost-blue:#ecf3fd;
+  --color-sky-mist:#eef4fe;
+  --color-cloud-white:#f5f9fe;
+  --color-baby-blue:#e0eafc;
+  --color-deep-indigo:#2c2b59;
+  --color-pearl-blue:#eef2f9;
+  --color-snow-white:#f7f9fd;
+  --color-periwinkle-mist:#e5edfb;
+  --color-arctic-mist:#ecf3fe;
+  --color-baby-blue:#cddffd;
+  --color-forest-green:#0b7623;
   /* Glassmorphism */
   --glass-background: radial-gradient(90.16% 143.01% at 15.32% 21.04%,
       rgba(168, 165, 255, 0.2) 0%,
@@ -244,6 +265,17 @@
     @apply block h-auto max-w-full;
   }
 
+  input[type="number"] {
+      -moz-appearance: textfield !important;
+      appearance: textfield !important;
+  }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none !important;
+        margin: 0 !important;
+        display: none !important;
+      }
   .material-symbols-outlined {
     font-family: "Material Symbols Outlined";
     font-weight: normal;
