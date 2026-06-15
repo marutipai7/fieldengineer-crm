@@ -35,3 +35,7 @@ def contact(request):
 
 def help_center(request):
     return render(request, 'pages/help-center.html')
+
+
+def vendor_responses(request):
+    return render(request, 'pages/vendor-responses.html')

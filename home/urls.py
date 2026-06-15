@@ -10,6 +10,7 @@ from .views import (
     home,
     request_service,
     vendor,
+    vendor_responses,
 )
 
 urlpatterns = [
@@ -21,5 +22,6 @@ urlpatterns = [
     path('blogs/', blogs, name='blogs'),
     path('contact/', contact, name='contact'),
     path('help-center/', help_center, name='help_center'),
+    path('vendor-responses/', vendor_responses, name='vendor_responses'),
     path('services/request_service/', request_service, name='request_service'),
 ]

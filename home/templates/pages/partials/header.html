@@ -4,7 +4,7 @@
     <div class="site-page-header-inner">
         <a href="{% url 'home' %}" class="site-page-logo">
             <span class="site-page-logo-text">Field Engineer</span>
-            <span class="site-page-logo-sub">Company</span>
+            <span class="site-page-logo-sub">Field Engineer Workspace Platform</span>
         </a>
 
         <nav class="site-page-nav" aria-label="Company pages">
@@ -13,6 +13,7 @@
             <a href="{% url 'blogs' %}"{% if request.resolver_match.url_name == 'blogs' %} class="is-active"{% endif %}>Blogs</a>
             <a href="{% url 'contact' %}"{% if request.resolver_match.url_name == 'contact' %} class="is-active"{% endif %}>Contact</a>
             <a href="{% url 'help_center' %}"{% if request.resolver_match.url_name == 'help_center' %} class="is-active"{% endif %}>Help Center</a>
+            <a href="{% url 'vendor_responses' %}"{% if request.resolver_match.url_name == 'vendor_responses' %} class="is-active"{% endif %}>Vendor Responses</a>
         </nav>
 
         <a href="{% url 'home' %}" class="site-page-back-link">

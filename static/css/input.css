@@ -1202,4 +1202,404 @@
   .site-page-hero-desc {
     @apply mt-4 max-w-2xl text-b1 text-medium;
   }
+
+  /* Vendor Responses hero */
+  .vr-hero {
+    @apply relative overflow-hidden bg-white;
+    min-height: clamp(500px, 52vh, 520px);
+  }
+
+  .vr-hero-map {
+    @apply absolute inset-0 z-0 h-full w-full;
+  }
+
+  .vr-hero-map .leaflet-container {
+    @apply h-full w-full bg-blue-light;
+  }
+
+  .vr-hero-map .leaflet-tile-pane {
+    filter: saturate(1.05) brightness(1.02);
+  }
+
+  .vr-hero-map .leaflet-tile-pane::after {
+    content: "";
+    @apply pointer-events-none absolute inset-0;
+    background: linear-gradient(
+      160deg,
+      rgba(238, 244, 251, 0.22) 0%,
+      rgba(191, 219, 254, 0.14) 45%,
+      rgba(238, 244, 251, 0.18) 100%
+    );
+  }
+
+  .vr-hero-content-wrap {
+    @apply pointer-events-none relative z-10 mx-auto max-w-[90rem] px-5 pb-10 pt-8 md:px-10 md:pb-12 md:pt-10;
+  }
+
+  .vr-hero-content-wrap > * {
+    @apply pointer-events-auto;
+  }
+
+  .vr-breadcrumb {
+    @apply flex flex-wrap items-center gap-2 text-[13px] font-medium leading-none;
+  }
+
+  .vr-breadcrumb a,
+  .vr-breadcrumb span:not(.vr-breadcrumb-current) {
+    @apply text-ink no-underline transition-colors hover:text-primary;
+  }
+
+  .vr-breadcrumb-sep {
+    @apply text-ink;
+  }
+
+  .vr-breadcrumb-current {
+    @apply font-semibold text-light-blue;
+  }
+
+  .vr-hero-title {
+    @apply mt-8 text-[32px] font-bold leading-[1.15] tracking-tight text-dark-black md:text-[40px] lg:text-[44px];
+  }
+
+  .vr-hero-desc {
+    @apply mt-3 max-w-xl text-[15px] font-normal leading-relaxed text-ink md:text-b1;
+  }
+
+  .vr-request-bar {
+    @apply mt-6 inline-flex max-w-full items-center gap-0 overflow-x-auto rounded-md bg-white px-5 py-3 shadow-[0_4px_24px_rgba(33,43,54,0.1)] md:px-4 md:py-3.5;
+  }
+
+  .vr-request-bar-item {
+    @apply flex shrink-0 items-center gap-2 whitespace-nowrap text-[13px] font-bold md:text-[14px];
+  }
+
+  .vr-request-bar-item strong {
+    @apply font-bold text-dark-black;
+  }
+
+  .vr-request-bar-divider {
+    @apply mx-4 h-5 w-px shrink-0 bg-light-medium md:mx-5;
+  }
+
+  .vr-map-controls {
+    @apply absolute right-4 top-1/2 z-20 flex -translate-y-1/2 flex-col items-center rounded-2xl bg-white px-2 py-3 shadow-[0_4px_20px_rgba(33,43,54,0.12)] md:right-8;
+  }
+
+  .vr-map-control-btn {
+    @apply flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg border-0 bg-transparent p-0 text-black transition-colors hover:text-ink;
+  }
+
+  .vr-map-zoom-track {
+    @apply relative my-1 flex h-10 w-5 items-center justify-center;
+  }
+
+  .vr-map-zoom-track-line {
+    @apply h-full w-px bg-light-medium;
+  }
+
+  .vr-map-zoom-track-dot {
+    @apply absolute top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-gray-light;
+  }
+
+  .vr-engineer-marker-wrap {
+    @apply bg-transparent border-0;
+  }
+
+  .vr-engineer-marker {
+    @apply relative flex h-[88px] w-[88px] items-center justify-center;
+  }
+
+  .vr-engineer-marker__pulse {
+    @apply absolute left-1/2 top-1/2 h-11 w-11 -translate-x-1/2 -translate-y-1/2 rounded-full border-0;
+    background: radial-gradient(
+      circle,
+      rgba(72, 105, 225, 0.32) 0%,
+      rgba(72, 105, 225, 0.16) 42%,
+      rgba(72, 105, 225, 0.04) 68%,
+      transparent 72%
+    );
+    animation: vr-engineer-pulse 2.8s ease-out infinite;
+  }
+
+  .vr-engineer-marker__pulse:nth-child(2) {
+    animation-delay: 0.9s;
+  }
+
+  .vr-engineer-marker__pulse:nth-child(3) {
+    animation-delay: 1.8s;
+  }
+
+  @keyframes vr-engineer-pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  .vr-engineer-marker__avatar {
+    @apply relative z-10 h-11 w-11 rounded-full border-2 border-white object-cover shadow-[0_2px_10px_rgba(33,43,54,0.18)];
+  }
+
+  /* Vendor Responses toolbar */
+  .vr-toolbar-section {
+    @apply border-b border-light-medium pt-8;
+  }
+
+  .vr-toolbar-inner {
+    @apply mx-auto flex max-w-[90rem] flex-col gap-4 px-5 pt-0 sm:flex-row sm:items-end sm:justify-between md:px-10;
+  }
+
+  .vr-tabs {
+    @apply flex w-full shrink-0 gap-2 overflow-x-auto sm:w-auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .vr-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .vr-tab {
+    @apply flex shrink-0 items-center gap-2 rounded-t-lg border border-b-0 border-light-medium bg-white px-5 py-3.5 text-[14px] font-semibold text-ink transition-colors;
+  }
+
+  .vr-tab:hover:not(.is-active) {
+    @apply text-ink;
+  }
+
+  .vr-tab.is-active {
+    @apply relative z-[1] -mb-px border-b-[3px] border-b-light-blue text-light-blue;
+  }
+
+  .vr-sort {
+    @apply flex w-full shrink-0 items-center gap-2.5 pb-3.5 sm:w-auto sm:justify-end;
+  }
+
+  .vr-sort-label {
+    @apply shrink-0 text-[14px] font-medium text-ink;
+  }
+
+  .vr-dropdown {
+    @apply relative min-w-0 flex-1 sm:flex-none;
+  }
+
+  .vr-dropdown-trigger {
+    @apply flex w-full min-w-[158px] cursor-pointer items-center justify-between gap-3 rounded-lg border border-light-medium bg-white py-2 pl-3.5 pr-2.5 text-left outline-none transition-colors focus-visible:border-light-blue sm:w-auto;  
+  }
+
+  .vr-dropdown-value {
+    @apply text-[14px] font-semibold text-dark-black;
+  }
+
+  .vr-dropdown-chevron {
+    @apply text-[20px] leading-none text-ink;
+    transition: transform 0.2s ease;
+  }
+
+  .vr-dropdown.is-open .vr-dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  .vr-dropdown-menu {
+    @apply absolute right-0 top-[calc(100%+6px)] z-30 m-0 min-w-full list-none overflow-hidden rounded-lg border border-light-medium bg-white p-1 shadow-[0_8px_24px_rgba(33,43,54,0.12)];
+  }
+
+  .vr-dropdown-option {
+    @apply flex w-full cursor-pointer items-center rounded-md border-0 bg-transparent px-3 py-2.5 text-left text-[14px] font-medium text-[#4d5f7a] transition-colors hover:bg-blue-light hover:text-light-blue;
+  }
+
+  .vr-dropdown-option.is-selected {
+    @apply bg-blue-light font-semibold text-light-blue;
+  }
+
+  .vr-results {
+    @apply mx-auto max-w-[90rem] px-5 py-8 md:px-10 md:py-10;
+  }
+
+  .vr-tab-panel {
+    @apply hidden;
+  }
+
+  .vr-tab-panel.is-active {
+    @apply block;
+  }
+
+  .vr-results-placeholder {
+    @apply rounded-xl border border-dashed border-light-medium bg-blue-light/40 px-5 py-10 text-center text-b3 text-medium;
+  }
+
+  /* Vendor Responses engineer cards */
+  .vr-engineer-list {
+    @apply flex flex-col gap-5 md:gap-6;
+  }
+
+  .vr-engineer-card {
+    @apply grid gap-6 rounded-2xl border border-[#e8ecf2] bg-white p-5 md:gap-8 md:p-6 lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)_auto] lg:items-start lg:gap-8;
+  }
+
+  .vr-engineer-card-profile {
+    @apply flex flex-col gap-4 sm:flex-row sm:items-start;
+  }
+
+  .vr-engineer-card-avatar {
+    @apply h-[80px] w-[80px] shrink-0 rounded-full object-cover;
+  }
+
+  .vr-engineer-card-info {
+    @apply min-w-0 flex-1 space-y-4;
+  }
+
+  .vr-engineer-card-head {
+    @apply flex flex-wrap items-center gap-2.5;
+  }
+
+  .vr-engineer-card-name {
+    @apply text-[18px] font-bold leading-tight text-dark-black md:text-b1;
+  }
+
+  .vr-engineer-card-badge {
+    @apply inline-flex rounded-md bg-blue-light px-2.5 py-1 text-[11px] font-bold text-light-blue md:text-c2;
+  }
+
+  .vr-engineer-card-meta {
+    @apply mt-2 flex flex-wrap items-center gap-2 text-[13px] text-medium md:text-c2;
+  }
+
+  .vr-engineer-card-rating {
+    @apply inline-flex items-center gap-1 font-bold text-ink;
+  }
+
+  .vr-engineer-card-rating .material-symbols-outlined {
+    @apply text-[16px] leading-none text-[#f5b301];
+    font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 20;
+  }
+
+  .vr-engineer-card-meta-sep {
+    @apply text-ink;
+  }
+
+  .vr-engineer-card-bio {
+    @apply mt-3 text-[13px] leading-relaxed text-ink font-medium md:text-b3;
+  }
+
+  .vr-engineer-card-skills {
+    @apply mt-4 flex flex-col gap-2;
+  }
+
+  .vr-engineer-card-skills-label {
+    @apply shrink-0 text-[13px] font-semibold text-ink md:pt-1;
+  }
+
+  .vr-engineer-card-tags {
+    @apply flex flex-wrap items-center gap-2;
+  }
+
+  .vr-skill-tag {
+    @apply inline-flex rounded-md bg-primary-light px-2.5 py-1 text-[12px] font-medium text-ink;
+  }
+
+  .vr-skill-more {
+    @apply text-[12px] font-semibold text-ink;
+  }
+
+  .vr-engineer-card-details {
+    @apply grid grid-cols-1 gap-6 border-l border-r border-light-medium px-6;
+  }
+
+  .vr-detail-item {
+    @apply flex items-start gap-3;
+  }
+
+  .vr-detail-icon {
+    @apply leading-none text-light-blue;
+  }
+
+  .vr-detail-icon--green {
+    @apply text-green;
+  }
+
+  .vr-detail-text {
+    @apply min-w-0;
+  }
+
+  .vr-detail-text strong {
+    @apply block text-[15px] font-bold leading-snug text-dark-black md:text-b1;
+  }
+
+  .vr-detail-text > span:not(.vr-detail-available-label) {
+    @apply mt-0.5 block text-[12px] text-ink font-medium;
+  }
+
+  .vr-detail-available-label {
+    @apply block text-[12px] text-ink font-medium;
+  }
+
+  .vr-detail-available-date {
+    @apply mt-0.5 block text-[14px] font-semibold !text-green md:text-b3;
+  }
+
+  .vr-engineer-card-actions {
+    @apply flex flex-col gap-3 border-t border-light-medium pt-5 sm:flex-row lg:w-[280px] lg:flex-col lg:border-t-0 lg:pt-0;
+  }
+
+  .vr-btn-outline {
+    @apply inline-flex w-full items-center justify-center rounded-md border border-light-blue bg-white px-5 py-3 text-[14px] font-semibold text-light-blue no-underline transition-colors hover:bg-blue-light;
+  }
+
+  .vr-btn-primary {
+    @apply inline-flex w-full cursor-pointer items-center justify-center rounded-md border-0 bg-light-blue px-5 py-3 text-[14px] font-semibold text-white transition-colors hover:bg-blue-dark;
+  }
+
+  /* Vendor Responses help banner */
+  .vr-help-banner {
+    @apply mx-auto max-w-[90rem] px-5 pb-10 pt-2 md:px-10 md:pb-14;
+  }
+
+  .vr-help-banner-inner {
+    @apply flex flex-col gap-6 rounded-lg bg-[#002081] px-5 py-6 md:flex-row md:items-center md:justify-between md:px-8 md:py-7;
+  }
+
+  .vr-help-banner-content {
+    @apply flex items-start gap-4 md:items-center;
+  }
+
+  .vr-help-banner-icon {
+    @apply flex h-14 w-14 shrink-0 items-center justify-center rounded-md bg-white/15 text-white;
+  }
+
+  .vr-help-banner-icon .material-symbols-outlined {
+    @apply text-[28px] leading-none;
+  }
+
+  .vr-help-banner-title {
+    @apply text-[18px] font-bold leading-snug text-white md:text-b1;
+  }
+
+  .vr-help-banner-desc {
+    @apply mt-1 text-[13px] leading-relaxed text-white/85 md:text-b3;
+  }
+
+  .vr-help-banner-actions {
+    @apply flex flex-col gap-3 sm:flex-row md:shrink-0;
+  }
+
+  .vr-help-btn-white {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border-0 bg-white px-5 py-3 text-[14px] font-semibold text-light-blue transition-colors hover:bg-blue-light;
+  }
+
+  .vr-help-btn-white .material-symbols-outlined {
+    @apply text-[18px] leading-none;
+  }
+
+  .vr-help-btn-outline {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border border-white/80 bg-transparent px-5 py-3 text-[14px] font-semibold text-white transition-colors hover:bg-white/10;
+  }
+
+  .vr-help-btn-outline .material-symbols-outlined {
+    @apply text-[18px] leading-none;
+  }
 }
