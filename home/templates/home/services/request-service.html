@@ -1,0 +1,1686 @@
+{% extends 'home/layout.html' %}
+
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+{% endblock %}
+{% block content%}
+<section class="relative min-h-[calc(100vh-68px)] overflow-hidden bg-blue-light">
+
+    <!-- Background -->
+    <img src="{% static 'img/request-service/request-service-hero-bg.webp' %}" alt="" aria-hidden="true"
+        class="absolute inset-0 h-150 w-full object-contain object-[center_20%] lg:object-right z-0 pointer-events-none">
+    <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/30 pointer-events-none"></div>
+
+    <div
+        class="relative z-10 mx-10 grid max-w-7xl items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
+
+        <div class="max-w-xl lg:max-w-none">
+            <div class="flex items-center gap-2">
+
+                <span class="material-symbols-outlined">home</span>
+                <span>Home</span>
+                <span class="material-symbols-outlined">chevron_right</span>
+                <span>Request Service</span>
+            </div>
+            <h1
+                class="hero-rise hero-rise-d1 text-h3 font-bold leading-[1.1] tracking-tight text-gunmetal-blue md:text-h2 lg:text-h1 pt-10">
+                Request Service in<br>
+                <span class="text-royal-blue">3 Simple Steps</span><br>
+
+            </h1>
+
+            <p class="hero-rise hero-rise-d2 mt-5 max-w-md text-b1 leading-relaxed text-space-blue font-semibold">
+                Tell us what service you need , where and when. <br>
+                We'll connect you with the best engineers & vendors
+            </p>
+
+            <div class="flex items-center gap-10 pt-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full flex items-center justify-center bg-sea-green">
+                        <span class="material-symbols-outlined text-white">check</span>
+                    </div>
+                    <div class="flex flex-col gap-0.5">
+                        <p class="font-semibold text-base text-midnight-blue">Best Price</p>
+                        <p class="font-normal text-sm ">Assured</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full flex items-center justify-center bg-sea-green">
+                        <span class="material-symbols-outlined text-white">check</span>
+                    </div>
+                    <div class="flex flex-col gap-0.5">
+                        <p class="font-semibold text-base text-midnight-blue">Verified</p>
+                        <p class="font-normal text-sm ">Engineers</p>
+                    </div>
+
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-full flex items-center justify-center bg-sea-green">
+                        <span class="material-symbols-outlined text-white">check</span>
+                    </div>
+                    <div class="flex flex-col gap-0.5">
+                        <p class="font-semibold text-base text-midnight-blue">Fast</p>
+                        <p class="font-normal text-sm ">Response</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white  rounded-lg flex items-center   px-29 absolute mx-18 mt-4 stepIndicator">
+        <div class="flex flex-col items-center gap-2.5 pt-10">
+            <div
+                class="w-10 h-10 rounded-full  bg-primary flex items-center justify-center text-xl font-bold text-white">
+                1
+            </div>
+            <p class=" pb-2 text-nowrap text-black font-semibold">Service Details</p>
+        </div>
+
+        <div class="w-40 border-t-2 border-dashed border-silver-gray"></div>
+
+        <div class="flex flex-col items-center gap-2.5 pt-10">
+            <div
+                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold">
+                2
+            </div>
+            <p class="text-nowrap pb-2 text-slate-gray font-normal text-sm">Site Information</p>
+        </div>
+
+        <div class="w-40 border-t-2 border-dashed border-silver-gray"></div>
+
+        <div class="flex flex-col items-center gap-2.5 pt-10">
+            <div
+                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold">
+                3
+            </div>
+            <p class="text-nowrap pb-2 text-slate-gray font-normal text-sm">Location</p>
+        </div>
+
+        <div class="w-40 border-t-2 border-dashed border-silver-gray"></div>
+
+        <div class="flex flex-col items-center gap-2.5 pt-10">
+            <div
+                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold">
+                4
+            </div>
+            <p class="text-nowrap pb-2 text-slate-gray font-normal text-sm">Access & Timeline</p>
+        </div>
+
+        <div class="w-40 border-t-2 border-dashed border-silver-gray"></div>
+
+        <div class="flex flex-col items-center gap-2.5 pt-10">
+            <div
+                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold">
+                5
+            </div>
+            <p class="text-nowrap pb-2 text-slate-gray font-normal text-sm">Review & Submit</p>
+        </div>
+    </div>
+
+    <div class="mt-40 mx-18 flex items-start gap-4 relative z-10">
+        <div class="bg-white rounded-lg shadow-xl p-4 flex-1 ">
+
+            <!--Service Details Section-->
+            <div class="flex flex-col gap-4 serviceDetails">
+                <div class="flex flex-col gap-1">
+                    <p class="font-bold text-navy-blue text-xl">1.What service do you need?</p>
+                    <p class="font-normal text-xs text-navy-blue">Select the service category and specific service</p>
+                </div>
+
+                <div class="flex items-center gap-3 border border-mist-gray rounded-lg py-3 px-4">
+                    <span class="material-symbols-outlined text-muted-steel">search</span>
+                    <input type="text"
+                        class="focus:ring-0 focus:outline-none w-full placeholder:font-normal placeholder:text-sm placeholder:text-cool-slate font-normal text-sm"
+                        placeholder="Search service (e.g. Network Cabling,Rack Installation...)">
+                </div>
+
+                <div class="grid grid-cols-4 gap-4">
+                    <div
+                        class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
+                        <span class="material-symbols-outlined text-6xl! text-primary">cable</span>
+                        <p class="font-bold text-lg text-black group-hover:text-primary">Network Cabling</p>
+                        <p class="font-normal text-sm text-muted-steel">Cat6,Cat6A,Fiber</p>
+                    </div>
+
+                    <div
+                        class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
+                        <span class="material-symbols-outlined text-6xl! text-primary">storage</span>
+                        <p class="font-bold text-lg text-black group-hover:text-primary">Rack Installation</p>
+                        <p class="font-normal text-sm text-muted-steel">Rack setup,expansion</p>
+                    </div>
+
+                    <div
+                        class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
+                        <span class="material-symbols-outlined text-6xl! text-primary">settings_input_component</span>
+                        <p class="font-bold text-lg text-black group-hover:text-primary">Fiber Deployment</p>
+                        <p class="font-normal text-sm text-muted-steel">Fiber splicing,testing</p>
+                    </div>
+
+                    <div
+                        class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
+                        <span class="material-symbols-outlined text-6xl! text-primary">hard_drive</span>
+                        <p class="font-bold text-lg text-black group-hover:text-primary">Server Setup</p>
+                        <p class="font-normal text-sm text-muted-steel">Installation & configuration</p>
+                    </div>
+
+                    <div
+                        class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
+                        <span class="material-symbols-outlined text-6xl! text-primary">nest_cam_iq_outdoor</span>
+                        <p class="font-bold text-lg text-black group-hover:text-primary">CCTV & Security</p>
+                        <p class="font-normal text-sm text-muted-steel">CCTV,Access control</p>
+                    </div>
+
+                    <div
+                        class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
+                        <span class="material-symbols-outlined text-6xl! text-primary">network_intel_node</span>
+                        <p class="font-bold text-lg text-black group-hover:text-primary">Smart Hands</p>
+                        <p class="font-normal text-sm text-muted-steel">Remote hands & on-site support</p>
+                    </div>
+
+                    <div
+                        class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
+                        <span class="material-symbols-outlined text-6xl! text-primary">electric_bolt</span>
+                        <p class="font-bold text-lg text-black group-hover:text-primary">Electrical & HVAC</p>
+                        <p class="font-normal text-sm text-muted-steel">Power,AC,Cooling</p>
+                    </div>
+
+                    <div
+                        class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
+                        <span class="material-symbols-outlined text-6xl! text-primary">other_admission</span>
+                        <p class="font-bold text-lg text-black group-hover:text-primary">Other Services</p>
+                        <p class="font-normal text-sm text-muted-steel">Custom requirement</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col relative gap-2">
+                    <p class="font-bold text-black text-sm">Briefly describe your requirement <span
+                            class="text-red">*</span></p>
+                    <textarea maxlength="500"
+                        class="h-35 resize-none focus:ring-0 focus:outline-none border border-mist-gray w-full rounded-lg  font-normal text-sm p-4"
+                        placeholder="Descibe your work in detail,scope,quantity,special instructions..."></textarea>
+                    <p class="absolute right-2 bottom-0 font-normal text-xs text-muted-steel">0/500</p>
+                </div>
+
+                <div class="flex items-center justify-between mt-10">
+                    <button
+                        class="w-30 h-12 flex items-center justify-center rounded-md bg-white border border-mist-gray cursor-pointer cancelBtn">
+                        <span class="font-semibold text-base text-black">Cancel</span>
+                    </button>
+
+                    <button
+                        class="w-30 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn1 text-white gap-3">
+                        <span class="font-semibold text-base">Continue</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+
+            <!--Site Information Section-->
+            <div class="flex flex-col siteInfo hidden">
+                <div class="flex flex-col gap-1">
+                    <p class="font-bold text-navy-blue text-xl">2.Site Information</p>
+                    <p class="font-normal text-xs text-navy-blue">Add site details and work scope to help us understand
+                        your requirements better.</p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5 pt-6">
+                    <div class="flex flex-col gap-2">
+                        <label for="companyname" class="font-semibold text-xs text-deep-indigo">Company / Site Name
+                            <span class="text-red">*</span></label>
+                        <input type="text"
+                            class="border border-pearl-blue rounded-md py-3 px-4 w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                            placeholder="Enter Company/Site Name">
+                    </div>
+
+                    <div class="flex flex-col gap-2 relative dropdown-wrapper">
+                        <label for="companyname" class="font-semibold text-xs text-deep-indigo">Site Type
+                            <span class="text-red">*</span></label>
+                        <div class="flex items-center justify-between border border-pearl-blue rounded-md py-3 px-4 ">
+                            <input type="text"
+                                class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                placeholder="Select Site Type" readonly>
+                            <span
+                                class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+
+                        <div
+                            class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md">
+                            <ul class="space-y-4">
+                                <li class="font-normal text-sm cursor-pointer">Site Type 1</li>
+                                <li class="font-normal text-sm cursor-pointer">Site Type 2</li>
+                                <li class="font-normal text-sm cursor-pointer">Site Type 2</li>
+                                <li class="font-normal text-sm cursor-pointer">Site Type 3</li>
+                                <li class="font-normal text-sm cursor-pointer">Site Type 4</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    <div class="flex flex-col gap-2 relative dropdown-wrapper">
+                        <label for="companyname" class="font-semibold text-xs text-deep-indigo">Project Type
+                            <span class="text-red">*</span></label>
+                        <div class="flex items-center justify-between border border-pearl-blue rounded-md py-3 px-4 ">
+                            <input type="text"
+                                class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                placeholder="Select Project Type" readonly>
+                            <span
+                                class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+
+                        <div
+                            class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md">
+                            <ul class="space-y-4">
+                                <li class="font-normal text-sm cursor-pointer">Project Type 1</li>
+                                <li class="font-normal text-sm cursor-pointer">Project Type 2</li>
+                                <li class="font-normal text-sm cursor-pointer">Project Type 2</li>
+                                <li class="font-normal text-sm cursor-pointer">Project Type 3</li>
+                                <li class="font-normal text-sm cursor-pointer">Project Type 4</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="companyname" class="font-semibold text-xs text-deep-indigo">Building / Floor
+                            <span class="text-red">*</span></label>
+                        <input type="text"
+                            class="border border-pearl-blue rounded-md py-3 px-4 w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                            placeholder="Enter Address">
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="companyname" class="font-semibold text-xs text-deep-indigo">Landmark (Optional)
+                        </label>
+                        <input type="text"
+                            class="border border-pearl-blue rounded-md py-3 px-4 w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                            placeholder="Enter Landmark">
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="companyname" class="font-semibold text-xs text-deep-indigo">Estimated Site Area
+                            (Optional)
+                        </label>
+                        <div class="flex items-center justify-between border border-pearl-blue rounded-md ">
+                            <input type="number"
+                                class="w-full py-3 px-4  focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                placeholder="Enter Area">
+                            <div
+                                class="bg-snow-white border-l border-pearl-blue w-1/3 flex items-center justify-center h-full">
+                                <span class="font-semibold text-xs">Sq.ft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-1 pt-8">
+                    <div class="flex items-center gap-2">
+                        <p class="font-bold text-xl ">Scope Of Work</p>
+                        <span class="material-symbols-outlined text-primary text-lg! font-bold!">info</span>
+                    </div>
+                    <p class="font-normal text-xs">Provide approximate details of the work to be performed</p>
+                </div>
+
+                <div class="pt-4 grid grid-cols-4 gap-4">
+                    <div class="border border-pearl-blue rounded-md p-4 counter flex flex-col gap-2">
+                        <label for="companyname" class="font-semibold text-xs text-deep-indigo">Number of Engineers
+                            <span class="text-red">*</span></label>
+                        <div class="border border-pearl-blue rounded-md flex items-center">
+                            <button
+                                class="bg-snow-white border-r rounded-tl-md rounded-bl-md border-pearl-blue w-1/5 h-full flex items-center justify-center cursor-pointer decrementBtn">
+                                <span class="material-symbols-outlined text-lg!">remove</span>
+                            </button>
+                            <input type="number"
+                                class="focus:ring-0 focus:outline-none font-semibold text-sm count py-3 w-full text-center"
+                                value="0" readonly>
+                            <button
+                                class="bg-snow-white border-l rounded-tr-md rounded-br-md border-pearl-blue w-1/5 h-full flex items-center justify-center cursor-pointer incrementBtn">
+                                <span class="material-symbols-outlined text-lg!">add</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="border border-pearl-blue rounded-md p-4 counter flex flex-col gap-2">
+                        <label for="companyname" class="font-semibold text-xs text-deep-indigo">Number of Racks
+                            <span class="text-red">*</span></label>
+                        <div class="border border-pearl-blue rounded-md flex items-center">
+                            <button
+                                class="bg-snow-white border-r rounded-tl-md rounded-bl-md border-pearl-blue w-1/5 h-full flex items-center justify-center cursor-pointer decrementBtn">
+                                <span class="material-symbols-outlined text-lg!">remove</span>
+                            </button>
+                            <input type="number"
+                                class="focus:ring-0 focus:outline-none font-semibold text-sm count py-3 w-full text-center"
+                                value="0" readonly>
+                            <button
+                                class="bg-snow-white border-l rounded-tr-md rounded-br-md border-pearl-blue w-1/5 h-full flex items-center justify-center cursor-pointer incrementBtn">
+                                <span class="material-symbols-outlined text-lg!">add</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="border border-pearl-blue rounded-md p-4 counter flex flex-col gap-2">
+                        <label for="companyname" class="font-semibold text-xs text-deep-indigo">Estimated Cable Runs
+                            <span class="text-red">*</span></label>
+                        <div class="border border-pearl-blue rounded-md flex items-center">
+                            <button
+                                class="bg-snow-white border-r rounded-tl-md rounded-bl-md border-pearl-blue w-1/5 h-full flex items-center justify-center cursor-pointer decrementBtn">
+                                <span class="material-symbols-outlined text-lg!">remove</span>
+                            </button>
+                            <input type="number"
+                                class="focus:ring-0 focus:outline-none font-semibold text-sm count py-3 w-full text-center"
+                                value="0" readonly>
+                            <button
+                                class="bg-snow-white border-l rounded-tr-md rounded-br-md border-pearl-blue w-1/5 h-full flex items-center justify-center cursor-pointer incrementBtn">
+                                <span class="material-symbols-outlined text-lg!">add</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="border border-pearl-blue rounded-md p-4 counter flex flex-col gap-2">
+                        <label for="companyname" class="font-semibold text-xs text-deep-indigo">Estimated Duration
+                            <span class="text-red">*</span></label>
+                        <div class="border border-pearl-blue rounded-md flex items-center">
+                            <button
+                                class="bg-snow-white border-r rounded-tl-md rounded-bl-md border-pearl-blue w-1/5 h-full flex items-center justify-center cursor-pointer decrementBtn">
+                                <span class="material-symbols-outlined text-lg!">remove</span>
+                            </button>
+                            <input type="number"
+                                class="focus:ring-0 focus:outline-none font-semibold text-sm count py-3 w-full text-center"
+                                value="0" readonly>
+                            <button
+                                class="bg-snow-white border-l rounded-tr-md rounded-br-md border-pearl-blue w-1/5 h-full flex items-center justify-center cursor-pointer incrementBtn">
+                                <span class="material-symbols-outlined text-lg!">add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 border border-periwinkle-mist rounded-lg bg-arctic-mist py-3.5  px-4 flex flex-col">
+                    <div class="flex items-center gap-2">
+                        <img src="/static/img/sparkles.webp" alt="sparkles" class="w-10">
+                        <div class="flex flex-col ">
+                            <div class="flex items-center gap-2">
+                                <p class="font-semibold text-sm">AI Recommendation</p>
+                                <div class="bg-baby-blue w-10 h-6 flex items-center justify-center rounded-full">
+                                    <span class="text-xs text-primary font-semibold">New</span>
+                                </div>
+                            </div>
+                            <p class="font-normal text-xs">Based on your scope, here's your recommended plan.</p>
+                        </div>
+                        <div class="w-px h-15 bg-black mt-2 ml-2"></div>
+                        <div class="flex flex-col gap-1 pl-2">
+                            <p class="font-semibold text-sm">Recommended Engineers</p>
+                            <p class="font-bold text-lg">10 Engineers</p>
+                        </div>
+                        <div class="w-px h-15 bg-black mt-2 ml-2"></div>
+                        <div class="flex flex-col gap-1 pl-2">
+                            <p class="font-semibold text-sm">Estimated Duration</p>
+                            <p class="font-bold text-lg">2 Days</p>
+                        </div>
+                        <div class="w-px h-15 bg-black mt-2 ml-2"></div>
+                        <div class="flex flex-col gap-1 pl-2">
+                            <div class="flex items-center gap-2">
+                                <p class="font-semibold text-sm">Estimated Cost Range</p>
+                                <span class="material-symbols-outlined text-primary text-base!">info</span>
+                            </div>
+                            <p class="font-bold text-lg text-forest-green">
+                                &#8377;7,000 - &#8377;12000
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-end">
+                        <a href="#" class="flex items-center gap-2 text-primary">
+                            <span class="font-semibold  text-xs">View Cost Breakdown</span>
+                            <span class="material-symbols-outlined text-sm!">arrow_forward</span>
+                        </a>
+                    </div>
+
+
+                </div>
+                <div class="pt-7 flex flex-col gap-1 relative">
+                    <p class="font-bold text-sm ">Additional Requirements <span class="font-normal">(Optional)</span>
+                    </p>
+                    <p class="font-semibold text-xs">Any specific equipment,tools,or special instructions for the
+                        engineers?</p>
+
+                    <textarea maxlength="500"
+                        class="h-35 mt-2 resize-none focus:ring-0 focus:outline-none border border-mist-gray w-full rounded-lg  font-normal text-sm p-4"
+                        placeholder="Write your requirements here..."></textarea>
+                    <p class="absolute right-2 bottom-0 font-normal text-xs text-muted-steel">0/500</p>
+                </div>
+
+                <div class="flex items-center justify-between mt-10">
+                    <button
+                        class="w-30 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
+                        <span class="font-semibold text-base text-primary">Back</span>
+                    </button>
+
+                    <button
+                        class="w-30 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
+                        <span class="material-symbols-outlined text-primary">bookmark</span>
+                        <span class="font-semibold text-base text-primary">Save Draft</span>
+                    </button>
+
+                    <button
+                        class="w-30 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
+                        <span class="font-semibold text-base">Continue</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+
+            <!--Location-->
+            <div class="flex flex-col location hidden">
+                <div class="flex items-center justify-between">
+                    <div class="flex flex-col gap-1">
+                        <p class="font-bold text-navy-blue text-xl">3.Location</p>
+                        <p class="font-normal text-xs text-navy-blue">Pinpoint your site location on the map or enter
+                            the complete adress.</p>
+                    </div>
+
+                    <button
+                        class="w-52 h-12 border border-pearl-blue rounded-lg flex items-center justify-center gap-3 cursor-pointer currentLocationBtn">
+                        <span class="text-primary text-lg! material-symbols-outlined">my_location</span>
+                        <span class="text-primary font-semibold text-sm">Use Current Location</span>
+                    </button>
+                </div>
+
+                <div class="pt-5 flex flex-col gap-1">
+                    <p class="font-semibold text-xs">Enter Site Address <span class="text-red">*</span></p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="flex-1 border border-pearl-blue py-3 px-4 flex items-center justify-between rounded-md">
+                            <div class="flex items-center gap-2 w-full">
+                                <span class="material-symbols-outlined text-muted-steel">search</span>
+                                <input type="text"
+                                    class="focus:ring-0 w-full focus:outline-none font-normal text-sm placeholder:font-normal placeholder:text-sm placeholder:text-muted-steel"
+                                    placeholder="Enter address">
+                            </div>
+                            <span class="material-symbols-outlined text-muted-steel cursor-pointer">close</span>
+
+                        </div>
+
+                        <button
+                            class="w-30 h-10 flex items-center justify-center gap-1 bg-primary text-white rounded-md cursor-pointer">
+                            <span class="material-symbols-outlined">search</span>
+                            <span class="font-semibold text-xs">Search</span>
+                        </button>
+                    </div>
+
+                    <div class="border border-misty-blue rounded-lg h-75 mt-5">
+                        <div id="map"></div>
+                    </div>
+
+                    <div class="mt-5 flex items-start justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-off-white w-9 h-9 flex items-center justify-center rounded-md">
+                                <span class="material-symbols-outlined text-primary">schedule</span>
+                            </div>
+                            <div class="flex flex-col gap-0.5 ">
+                                <p class="font-semibold text-xs">Travel Time <span class="font-normal">(From Nearest
+                                        Hub)</span></p>
+                                <p class="font-bold text-sm">25-30 mins</p>
+                            </div>
+                        </div>
+
+                        <div class="w-0.5 h-12 bg-polar-white"></div>
+
+                        <div class="flex items-start gap-2">
+                            <div class="bg-off-white w-9 h-9 flex items-center justify-center rounded-md">
+                                <span class="material-symbols-outlined text-primary">group</span>
+                            </div>
+                            <div class="flex flex-col gap-0.5 ">
+                                <p class="font-semibold text-xs">Nearest Engineers</p>
+                                <p class="font-bold text-xs text-forest-green">12 Available</p>
+                                <a href="#" class="font-normal text-xs text-primary flex items-center gap-2">
+                                    <p>View Details</p>
+                                    <span class="material-symbols-outlined text-sm!">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="w-0.5 h-12 bg-polar-white"></div>
+
+                        <div class="flex items-start gap-2">
+                            <div class="bg-off-white w-9 h-9 flex items-center justify-center rounded-md">
+                                <span class="material-symbols-outlined text-primary">shield</span>
+                            </div>
+                            <div class="flex flex-col gap-0.5 ">
+                                <p class="font-semibold text-xs">Coverage Zone</p>
+                                <p class="font-bold text-xs text-forest-green">Noida <span class="text-black">& Nearby
+                                        Areas</span></p>
+                                <a href="#" class="font-normal text-xs text-primary flex items-center gap-2">
+                                    <p>View Areas</p>
+                                    <span class="material-symbols-outlined text-sm!">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="w-0.5 h-12 bg-polar-white"></div>
+
+                        <div class="flex items-start gap-2">
+                            <div class="bg-off-white w-9 h-9 flex items-center justify-center rounded-md">
+                                <span class="material-symbols-outlined text-primary">pin_road</span>
+                            </div>
+                            <div class="flex flex-col gap-0.5 ">
+                                <p class="font-semibold text-xs">Distance</p>
+                                <p class="font-bold text-xs ">18.6 km</p>
+                                <p class="font-normal text-xs">From Nearest Hub</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-sky-mist mt-5 flex items-center justify-center gap-2 py-2.5 rounded-md">
+                        <span class="material-symbols-outlined text-forest-green text-lg!">check_circle</span>
+                        <p class="font-semibold text-xs">Good news! We have engineers available in your area.</p>
+                    </div>
+
+                    <hr class="my-3 text-moonlight-gray">
+
+                    <div class="flex items-center justify-between mt-2">
+                        <button
+                            class="w-30 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
+                            <span class="font-semibold text-base text-primary">Back</span>
+                        </button>
+
+                        <button
+                            class="w-30 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
+                            <span class="material-symbols-outlined text-primary">bookmark</span>
+                            <span class="font-semibold text-base text-primary">Save Draft</span>
+                        </button>
+
+                        <button
+                            class="w-30 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
+                            <span class="font-semibold text-base">Continue</span>
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!--Access & Timeline-->
+            <div class="flex flex-col access-timeline hidden">
+                <div class="flex flex-col gap-1">
+                    <p class="font-bold text-navy-blue text-xl">4.Access & Timeline</p>
+                    <p class="font-normal text-xs text-navy-blue">Provide site access details & preferred schedule for
+                        the work.</p>
+                </div>
+
+                <div class="flex flex-col gap-2 mt-5">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">group</span>
+                        <p class="font-semibold text-sm">Site Contact Person</p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-5 pt-3">
+                        <div class="flex flex-col gap-2">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Contact Person Name
+                                <span class="text-red">*</span></label>
+                            <input type="text"
+                                class="border border-pearl-blue rounded-md py-3 px-4 w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                placeholder="Enter  Name">
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Mobile Number
+                                <span class="text-red">*</span></label>
+                            <input type="number"
+                                class="border border-pearl-blue rounded-md py-3 px-4 w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                placeholder="Enter Mobile Number">
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Alternate Number
+                            </label>
+                            <input type="text"
+                                class="border border-pearl-blue rounded-md py-3 px-4 w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                placeholder="Enter alternate number">
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Email Address
+                                <span class="text-red">*</span></label>
+                            <input type="email"
+                                class="border border-pearl-blue rounded-md py-3 px-4 w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                placeholder="Enter email">
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Department
+                            </label>
+                            <input type="text"
+                                class="border border-pearl-blue rounded-md py-3 px-4 w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                placeholder="Enter department">
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Designation
+                            </label>
+                            <input type="text"
+                                class="border border-pearl-blue rounded-md py-3 px-4 w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                placeholder="Enter designation">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-2 mt-5">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">person</span>
+                        <div class="flex flex-col">
+                            <p class="font-semibold text-sm">Access Information</p>
+                            <p class="font-normal text-xs text-navy-blue">Tell us how our engineers can access your
+                                site.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-5 pt-5">
+                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Entry Instructions
+                                <span class="text-red">*</span></label>
+                            <div
+                                class="flex items-center justify-between border border-pearl-blue rounded-md py-3 px-4 ">
+                                <input type="text"
+                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                    placeholder="Select instruction" readonly>
+                                <span
+                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
+                            </div>
+
+                            <div
+                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md z-9999">
+                                <ul class="space-y-4">
+                                    <li class="font-normal text-sm cursor-pointer">Instruction 1</li>
+                                    <li class="font-normal text-sm cursor-pointer">Instruction 2</li>
+                                    <li class="font-normal text-sm cursor-pointer">Instruction 2</li>
+                                    <li class="font-normal text-sm cursor-pointer">Instruction 3</li>
+                                    <li class="font-normal text-sm cursor-pointer">Instruction 4</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Security Gate
+                                Details
+                                <span class="text-red">*</span></label>
+                            <div
+                                class="flex items-center justify-between border border-pearl-blue rounded-md py-3 px-4 ">
+                                <input type="text"
+                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                    placeholder="Select security gate details" readonly>
+                                <span
+                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
+                            </div>
+
+                            <div
+                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md z-9999">
+                                <ul class="space-y-4">
+                                    <li class="font-normal text-sm cursor-pointer">Gate Detail 1</li>
+                                    <li class="font-normal text-sm cursor-pointer">Gate Detail 2</li>
+                                    <li class="font-normal text-sm cursor-pointer">Gate Detail 2</li>
+                                    <li class="font-normal text-sm cursor-pointer">Gate Detail 3</li>
+                                    <li class="font-normal text-sm cursor-pointer">Gate Detail 4</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Parking
+                                Availaibility
+                                <span class="text-red">*</span></label>
+                            <div
+                                class="flex items-center justify-between border border-pearl-blue rounded-md py-3 px-4 ">
+                                <input type="text"
+                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                    placeholder="Select parking availability" readonly>
+                                <span
+                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
+                            </div>
+
+                            <div
+                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md z-9999">
+                                <ul class="space-y-4">
+                                    <li class="font-normal text-sm cursor-pointer">Yes , Available</li>
+                                    <li class="font-normal text-sm cursor-pointer">No, Not Available</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Visitor Pass
+                                Required
+                                <span class="text-red">*</span></label>
+                            <div
+                                class="flex items-center justify-between border border-pearl-blue rounded-md py-3 px-4 ">
+                                <input type="text"
+                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                    placeholder="Select visitor pass required" readonly>
+                                <span
+                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
+                            </div>
+
+                            <div
+                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md z-9999">
+                                <ul class="space-y-4">
+                                    <li class="font-normal text-sm cursor-pointer">Yes</li>
+                                    <li class="font-normal text-sm cursor-pointer">No</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Weekend Access
+                            </label>
+                            <div
+                                class="flex items-center justify-between border border-pearl-blue rounded-md py-3 px-4 ">
+                                <input type="text"
+                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                    placeholder="Select weekend access" readonly>
+                                <span
+                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
+                            </div>
+
+                            <div
+                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md z-9999">
+                                <ul class="space-y-4">
+                                    <li class="font-normal text-sm cursor-pointer"> Available</li>
+                                    <li class="font-normal text-sm cursor-pointer">Not Available</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Night Shift Access
+                            </label>
+                            <div
+                                class="flex items-center justify-between border border-pearl-blue rounded-md py-3 px-4 ">
+                                <input type="text"
+                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                    placeholder="Select parking availability" readonly>
+                                <span
+                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
+                            </div>
+
+                            <div
+                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md z-9999">
+                                <ul class="space-y-4">
+                                    <li class="font-normal text-sm cursor-pointer">Required</li>
+                                    <li class="font-normal text-sm cursor-pointer">Not Required</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-2 mt-5">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">work</span>
+                        <div class="flex flex-col">
+                            <p class="font-semibold text-sm">Required Work Types</p>
+                            <p class="font-normal text-xs text-navy-blue">Select all the services you want to be
+                                performed on-site.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-6 gap-4 pt-4">
+                        <div
+                            class="border cursor-pointer group border-morning-mist rounded-md p-4 flex flex-col items-center justify-center gap-2 hover:border-primary hover:bg-frost-blue">
+                            <span class="material-symbols-outlined text-xl! text-primary">cable</span>
+                            <p class="font-semibold text-sm group-hover:text-primary">Network Cabling</p>
+                        </div>
+                        <div
+                            class="border cursor-pointer group border-morning-mist rounded-md p-4 flex flex-col items-center justify-center gap-2 hover:border-primary hover:bg-frost-blue">
+                            <span class="material-symbols-outlined text-xl! text-primary">storage</span>
+                            <p class="font-semibold text-sm group-hover:text-primary">Rack Installation</p>
+                        </div>
+                        <div
+                            class="border cursor-pointer group border-morning-mist rounded-md p-4 flex flex-col items-center justify-center gap-2 hover:border-primary hover:bg-frost-blue">
+                            <span
+                                class="material-symbols-outlined text-xl! text-primary">settings_input_component</span>
+                            <p class="font-semibold text-sm group-hover:text-primary">Fiber Deployment</p>
+                        </div>
+                        <div
+                            class="border cursor-pointer group border-morning-mist rounded-md p-4 flex flex-col items-center justify-center gap-2 hover:border-primary hover:bg-frost-blue">
+                            <span class="material-symbols-outlined text-xl! text-primary">nest_cam_iq_outdoor</span>
+                            <p class="font-semibold text-sm group-hover:text-primary">CCTV Installation</p>
+                        </div>
+                        <div
+                            class="border cursor-pointer group border-morning-mist rounded-md p-4 flex flex-col items-center justify-center gap-2 hover:border-primary hover:bg-frost-blue">
+                            <span class="material-symbols-outlined text-xl! text-primary">hard_drive</span>
+                            <p class="font-semibold text-sm group-hover:text-primary">Server Setup</p>
+                        </div>
+                        <div
+                            class="border cursor-pointer group border-morning-mist rounded-md p-4 flex flex-col items-center justify-center gap-2 hover:border-primary hover:bg-frost-blue">
+                            <span class="material-symbols-outlined text-xl! text-primary">electric_bolt</span>
+                            <p class="font-semibold text-sm group-hover:text-primary">Electrical Setup</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-2 mt-5">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">work</span>
+                        <div class="flex flex-col">
+                            <p class="font-semibold text-sm">Schedule & Timeline</p>
+                            <p class="font-normal text-xs text-navy-blue">Choose urgency and preferred date & time for
+                                the work.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-10 mt-5">
+                        <div class="flex flex-col gap-2.5">
+                            <label for="urgency" class="font-semibold text-xs text-deep-indigo">Urgency Level
+                                <span class="text-red">*</span></label>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div
+                                    class="urgencyLevel border cursor-pointer group border-morning-mist rounded-md p-4 flex flex-col items-center justify-center gap-0.5 hover:border-primary hover:bg-frost-blue h-12">
+                                    <p class="font-bold text-xs group-hover:text-primary">Network Cabling</p>
+                                    <p class="font-normal text-xs group-hover:text-primary">(Within 7 Days)</p>
+                                </div>
+                                <div
+                                    class="urgencyLevel border cursor-pointer group border-morning-mist rounded-md p-4 flex flex-col items-center justify-center gap-0.5 hover:border-primary hover:bg-frost-blue h-12">
+                                    <p class="font-bold text-xs group-hover:text-primary">Priority</p>
+                                    <p class="font-normal text-xs group-hover:text-primary">(Within 48 hours)</p>
+                                </div>
+                                <div
+                                    class="urgencyLevel border cursor-pointer group border-morning-mist rounded-md p-4 flex flex-col items-center justify-center gap-0.5 hover:border-primary hover:bg-frost-blue h-12">
+                                    <p class="font-bold text-xs group-hover:text-primary">Emergency</p>
+                                    <p class="font-normal text-xs group-hover:text-primary">(Within 24 hours)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex flex-col gap-2.5">
+                                <label for="urgency" class="font-semibold text-xs text-deep-indigo">Preferred Start Date
+                                    <span class="text-red">*</span></label>
+                                <div class="border border-pearl-blue rounded-md py-2.5 px-4 flex items-center gap-3">
+                                    <span class="material-symbols-outlined ">calendar_today</span>
+                                    <input type="text"
+                                        class="focus:ring-0 focus:outline-none font-semibold text-xs placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel"
+                                        placeholder="Select start date" readonly>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col gap-2.5">
+                                <label for="urgency" class="font-semibold text-xs text-deep-indigo">Preferred End Date
+                                    <span class="text-red">*</span></label>
+                                <div class="border border-pearl-blue rounded-md py-2.5 px-4 flex items-center gap-3">
+                                    <span class="material-symbols-outlined ">calendar_today</span>
+                                    <input type="text"
+                                        class="focus:ring-0 focus:outline-none font-semibold text-xs placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel"
+                                        placeholder="Select end date" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 mt-5">
+                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Preferred Time
+                                Window
+                                <span class="text-red">*</span></label>
+                            <div
+                                class="flex items-center justify-between border border-pearl-blue rounded-md py-3 px-4 ">
+                                <input type="text"
+                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                    placeholder="Select time" readonly>
+                                <span
+                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
+                            </div>
+
+                            <div
+                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md z-9999">
+                                <ul class="space-y-4">
+                                    <li class="font-normal text-sm cursor-pointer">10:00 AM - 02:00 PM</li>
+                                    <li class="font-normal text-sm cursor-pointer">10:00 AM - 02:00 PM</li>
+                                    <li class="font-normal text-sm cursor-pointer">10:00 AM - 02:00 PM</li>
+                                    <li class="font-normal text-sm cursor-pointer">10:00 AM - 02:00 PM</li>
+                                    <li class="font-normal text-sm cursor-pointer">10:00 AM - 02:00 PM</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Work Expected
+                                Duration
+                            </label>
+                            <div
+                                class="flex items-center justify-between border border-pearl-blue rounded-md py-3 px-4 ">
+                                <input type="text"
+                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                    placeholder="Select time" readonly>
+                                <span
+                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
+                            </div>
+
+                            <div
+                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md z-9999">
+                                <ul class="space-y-4">
+                                    <li class="font-normal text-sm cursor-pointer">2 Days</li>
+                                    <li class="font-normal text-sm cursor-pointer">4 Days</li>
+                                    <li class="font-normal text-sm cursor-pointer">6 Days</li>
+                                    <li class="font-normal text-sm cursor-pointer">8 Days</li>
+                                    <li class="font-normal text-sm cursor-pointer">12 Days</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
+                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Daily Working Hours
+                            </label>
+                            <div
+                                class="flex items-center justify-between border border-pearl-blue rounded-md py-3 px-4 ">
+                                <input type="text"
+                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
+                                    placeholder="Select time" readonly>
+                                <span
+                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
+                            </div>
+
+                            <div
+                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md z-9999">
+                                <ul class="space-y-4">
+                                    <li class="font-normal text-sm cursor-pointer">2 hours / Day</li>
+                                    <li class="font-normal text-sm cursor-pointer">4 hours / Day</li>
+                                    <li class="font-normal text-sm cursor-pointer">5 hours / Day</li>
+                                    <li class="font-normal text-sm cursor-pointer">7 hours / Day</li>
+                                    <li class="font-normal text-sm cursor-pointer">8 hours / Day</li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="flex flex-col mt-5">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">notes</span>
+                        <div class="flex flex-col">
+                            <p class="font-semibold text-sm">Additional Notes <span
+                                    class="font-normal">(Optional)</span></p>
+                            <p class="font-normal text-xs text-navy-blue">Any special instructions,safety guidelines,or
+                                equipment requirements?</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative gap-2 mt-3">
+
+                        <textarea maxlength="500"
+                            class="h-35 resize-none focus:ring-0 focus:outline-none border border-mist-gray w-full rounded-lg  font-normal text-sm p-4"
+                            placeholder="Descibe your work in detail,scope,quantity,special instructions..."></textarea>
+                        <p class="absolute right-2 bottom-0 font-normal text-xs text-muted-steel">0/500</p>
+                    </div>
+
+                    <div class="flex items-center justify-between mt-10">
+                        <button
+                            class="w-30 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
+                            <span class="font-semibold text-base text-primary">Back</span>
+                        </button>
+
+                        <button
+                            class="w-30 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
+                            <span class="material-symbols-outlined text-primary">bookmark</span>
+                            <span class="font-semibold text-base text-primary">Save Draft</span>
+                        </button>
+
+                        <button
+                            class="w-30 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
+                            <span class="font-semibold text-base">Continue</span>
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--Review & Submit Section-->
+            <div class="flex flex-col reviewSubmit hidden">
+                <div class="flex items-center justify-between">
+                    <div class="flex flex-col gap-1">
+                        <p class="font-bold text-navy-blue text-xl">5.Review & Submit</p>
+                        <p class="font-normal text-xs text-navy-blue">Please review all details carefully before
+                            submitting your request.</p>
+                    </div>
+
+                    <button
+                        class="w-40 h-10 flex items-center justify-center gap-2 cursor-pointer border border-pearl-blue rounded-md">
+                        <span class="material-symbols-outlined text-primary text-lg!">edit</span>
+                        <span class="font-semibold text-sm text-primary">Edit All</span>
+                    </button>
+                </div>
+
+                <div class="flex flex-col gap-3 pt-5">
+                    <!--Service Details-->
+                    <div class="border border-pearl-blue p-4 rounded-md flex items-start gap-4">
+                        <span class="material-symbols-outlined text-4xl! text-primary">engineering</span>
+
+                        <div class="flex flex-col gap-4 w-full">
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold text-base ">Service Details</p>
+                                <p class="font-semibold text-xs text-primary cursor-pointer">Edit</p>
+                            </div>
+
+                            <div class="grid grid-cols-5 gap-4">
+                                <div class="flex flex-col gap-2 border-r border-pale-sky">
+                                    <p class="font-normal text-sm text-muted-steel">Service</p>
+                                    <p class="font-bold text-sm ">Network Cabling</p>
+                                </div>
+
+                                <div class="flex flex-col gap-2 border-r border-pale-sky">
+                                    <p class="font-normal text-sm text-muted-steel">Work Type</p>
+                                    <p class="font-bold text-sm ">New Installation</p>
+                                </div>
+
+                                <div class="flex flex-col gap-2 border-r border-pale-sky">
+                                    <p class="font-normal text-sm text-muted-steel">Points / Drops</p>
+                                    <p class="font-bold text-sm ">50</p>
+                                </div>
+
+                                <div class="flex flex-col gap-2 border-r border-pale-sky">
+                                    <p class="font-normal text-sm text-muted-steel">Preferred Date</p>
+                                    <p class="font-bold text-sm ">24 May 2024</p>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <p class="font-normal text-sm text-muted-steel">Urgency</p>
+                                    <p class="font-bold text-sm ">Standard (Within 7 Days)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Site Information-->
+                    <div class="border border-pearl-blue p-4 rounded-md flex items-start gap-4">
+                        <span class="material-symbols-outlined text-4xl! text-primary">Domain</span>
+
+                        <div class="flex flex-col gap-4 w-full">
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold text-base ">Site Information</p>
+                                <p class="font-semibold text-xs text-primary cursor-pointer">Edit</p>
+                            </div>
+
+                            <div class="grid grid-cols-5 gap-4">
+                                <div class="flex flex-col gap-2 border-r border-pale-sky">
+                                    <p class="font-normal text-sm text-muted-steel">Company / Site</p>
+                                    <p class="font-bold text-sm ">ABC Technologies Pvt. Ltd.</p>
+                                </div>
+
+                                <div class="flex flex-col gap-2 border-r border-pale-sky">
+                                    <p class="font-normal text-sm text-muted-steel">Site Type</p>
+                                    <p class="font-bold text-sm ">Commercial Office</p>
+                                </div>
+
+                                <div class="flex flex-col gap-2 border-r border-pale-sky">
+                                    <p class="font-normal text-sm text-muted-steel">Building / Floor</p>
+                                    <p class="font-bold text-sm ">Tower A, 5th Floor</p>
+                                </div>
+
+                                <div class="flex flex-col gap-2 border-r border-pale-sky">
+                                    <p class="font-normal text-sm text-muted-steel">Site Area</p>
+                                    <p class="font-bold text-sm ">5,000 sq.ft</p>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <p class="font-normal text-sm text-muted-steel">Engineers</p>
+                                    <p class="font-bold text-sm ">10</p>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <p class="font-normal text-sm text-muted-steel">Racks</p>
+                                    <p class="font-bold text-sm ">2</p>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <p class="font-normal text-sm text-muted-steel">Cable Runs</p>
+                                    <p class="font-bold text-sm ">24</p>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <p class="font-normal text-sm text-muted-steel">Duration</p>
+                                    <p class="font-bold text-sm ">2 Days</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Location-->
+                    <div class="border border-pearl-blue p-4 rounded-md flex items-start gap-4">
+                        <span class="material-symbols-outlined text-4xl! text-primary">location_on</span>
+
+                        <div class="flex flex-col gap-4 w-full">
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold text-base ">Location</p>
+                                <p class="font-semibold text-xs text-primary cursor-pointer">Edit</p>
+                            </div>
+
+                            <div class="grid grid-cols-4 gap-4">
+
+
+                                <div class="flex flex-col gap-2 border-r border-pale-sky">
+                                    <p class="font-normal text-sm text-muted-steel">Address</p>
+                                    <p class="font-bold text-sm ">
+                                        ABC Technologies Pvt Ltd, Tower A 5th Floor, Sector 62, Noida , Uttar Pradesh
+                                        201309
+                                    </p>
+                                </div>
+
+                                <div class="flex flex-col gap-2 border-r border-pale-sky">
+                                    <p class="font-normal text-sm text-muted-steel">Distance</p>
+                                    <p class="font-bold text-sm ">18.6 km</p>
+                                    <p class="font-normal text-xs text-muted-steel">From Nearest Hub</p>
+
+                                </div>
+
+                                <div class="flex flex-col gap-2 ">
+                                    <p class="font-normal text-sm text-muted-steel">Travel Time</p>
+                                    <p class="font-bold text-sm ">25 - 30 mins</p>
+                                </div>
+
+
+                                <img src="/static/img/map-placeholder.png" alt="map" class="w-50 rounded-md">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Access & Timeline-->
+                    <div class="border border-pearl-blue p-4 rounded-md flex items-start gap-4">
+                        <span class="material-symbols-outlined text-4xl! text-primary">timeline</span>
+
+                        <div class="flex flex-col gap-4 w-full">
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold text-base ">Access & Timeline</p>
+                                <p class="font-semibold text-xs text-primary cursor-pointer">Edit</p>
+                            </div>
+
+                            <div class="flex ">
+                                <div class="w-60 flex flex-col gap-2 border-r border-pale-sky">
+                                    <div class="flex flex-col gap-1">
+                                        <p class="font-normal text-sm">Contact Person</p>
+                                        <p class="font-semibold text-sm">Rohit Sharma</p>
+                                    </div>
+
+                                    <div class="flex flex-col gap-1">
+                                        <p class="font-normal text-sm">Mobile Number</p>
+                                        <p class="font-semibold text-sm">+91 9876543210</p>
+                                    </div>
+
+                                    <div class="flex flex-col gap-1">
+                                        <p class="font-normal text-sm">Email</p>
+                                        <p class="font-semibold text-sm">rohitsharma@gmail.com</p>
+                                    </div>
+
+                                    <div class="flex flex-col gap-1">
+                                        <p class="font-normal text-sm">Department</p>
+                                        <p class="font-semibold text-sm">IT Infrastructure</p>
+                                    </div>
+
+                                    <div class="flex flex-col gap-1">
+                                        <p class="font-normal text-sm">Designation</p>
+                                        <p class="font-semibold text-sm">IT Manager</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-1 flex-col gap-3 pl-4">
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div class="flex flex-col gap-3">
+                                            <p class="font-semibold text-sm">Access Information</p>
+                                            <div class="grid grid-cols-2 ">
+                                                <div class="flex flex-col gap-2">
+                                                    <div class="flex items-center gap-2">
+                                                        <span
+                                                            class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                        <span class="font-normal text-xs">Entry Instructions</span>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <span
+                                                            class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                        <span class="font-normal text-xs">Security Gate Details</span>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <span
+                                                            class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                        <span class="font-normal text-xs">Parking Availaibility</span>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <span
+                                                            class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                        <span class="font-normal text-xs">Visitor Pass Required</span>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <span
+                                                            class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                        <span class="font-normal text-xs">Weekend Access</span>
+                                                    </div>
+                                                    <div class="flex items-center gap-2">
+                                                        <span
+                                                            class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                        <span class="font-normal text-xs">Night Shift Access</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="flex flex-col gap-4 pt-1 border-r pr-5 border-pale-sky">
+                                                    <p class="font-semibold text-sm">Main Gate Entry</p>
+                                                    <p class="font-semibold text-sm text-nowrap">Gate No.2, Ask for It
+                                                        Dept</p>
+                                                    <p class="font-semibold text-sm">Yes,Available</p>
+                                                    <p class="font-semibold text-sm">Yes</p>
+                                                    <p class="font-semibold text-sm">Available</p>
+                                                    <p class="font-semibold text-sm">Not Required</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col gap-3">
+                                            <p class="font-semibold text-sm">Schedule & Timeline</p>
+                                            <div class="grid grid-cols-2 ">
+                                                <div class="flex flex-col gap-4 pt-1 ">
+                                                    <p class="font-normal text-xs">Main Gate Entry</p>
+                                                    <p class="font-normal text-xs text-nowrap">Gate No.2, Ask for It
+                                                        Dept</p>
+                                                    <p class="font-normal text-xs">Yes,Available</p>
+                                                    <p class="font-normal text-xs">Yes</p>
+                                                    <p class="font-normal text-xs">Available</p>
+                                                    <p class="font-normal text-xs">Not Required</p>
+
+                                                </div>
+                                                <div class="flex flex-col gap-4 pt-1 border-r pr-5 border-pale-sky">
+                                                    <p class="font-semibold text-sm">Main Gate Entry</p>
+                                                    <p class="font-semibold text-sm text-nowrap">Gate No.2, Ask for It
+                                                        Dept</p>
+                                                    <p class="font-semibold text-sm">Yes,Available</p>
+                                                    <p class="font-semibold text-sm">Yes</p>
+                                                    <p class="font-semibold text-sm">Available</p>
+                                                    <p class="font-semibold text-sm">Not Required</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--Right Section-->
+        <div class="flex flex-col gap-3 w-75">
+            <div class="bg-white shadow-lg rounded-lg p-4 flex flex-col ">
+                <p class="font-bold text-xl">Booking Summary</p>
+                <div class="flex items-center justify-between mt-5">
+                    <p class="font-semibold text-xs ">Service</p>
+                    <p class="font-bold text-sm text-primary">Network Cabling</p>
+                </div>
+
+                <div class="flex items-center justify-between pt-3">
+                    <p class="font-semibold text-xs ">Location</p>
+                    <p class="font-bold text-xs text-muted-steel">Not selected</p>
+                </div>
+
+                <div class="flex items-center justify-between pt-3">
+                    <p class="font-semibold text-xs ">Date</p>
+                    <p class="font-bold text-xs text-muted-steel">Not selected</p>
+                </div>
+
+                <div class="flex items-center justify-between pt-3">
+                    <p class="font-semibold text-xs ">Site Address</p>
+                    <p class="font-bold text-xs text-muted-steel">Not selected</p>
+                </div>
+
+                <div class="siteDetails pt-5 hidden">
+                    <hr>
+                    <p class="font-bold text-xl pt-4">Site Information</p>
+                    <div class="flex items-center justify-between mt-5">
+                        <p class="font-semibold text-xs ">Company / Site</p>
+                        <p class="font-bold text-xs ">ABC Technologies Pvt. Ltd</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Site Type</p>
+                        <p class="font-bold text-xs ">Commercial Office</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Building / Floor</p>
+                        <p class="font-bold text-xs ">Tower A, 5th Floor</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Site Area</p>
+                        <p class="font-bold text-xs ">5000 sq.ft</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Engineers</p>
+                        <p class="font-bold text-xs ">10</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Racks</p>
+                        <p class="font-bold text-xs ">2</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Cable Runs</p>
+                        <p class="font-bold text-xs ">24</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Duration</p>
+                        <p class="font-bold text-xs ">2 Days</p>
+                    </div>
+                    <a href="#" class="font-semibold text-xs text-primary flex items-center justify-between pt-3">
+                        <span>View Full Details</span>
+                        <span class="material-symbols-outlined text-lg!">arrow_forward</span>
+                    </a>
+                </div>
+
+                <div class="locationDetails pt-5 hidden">
+                    <hr>
+                    <p class="font-bold text-xl pt-4">Location</p>
+                    <div class="flex items-start justify-between mt-5">
+                        <p class="font-semibold text-xs ">Address</p>
+                        <div class="flex flex-col">
+                            <p class="font-bold text-xs text-right">ABC Technologies Pvt. Ltd</p>
+                            <p class="font-bold text-xs text-right">Tower A,5th Floor , Sector 62 ,</p>
+                            <p class="font-bold text-xs text-right"> Noida , Uttar Pradesh 201309
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Distance</p>
+                        <p class="font-bold text-xs ">18.6 km </p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Travel Time</p>
+                        <p class="font-bold text-xs ">25 - 30 mins</p>
+                    </div>
+
+
+                </div>
+
+                <div class="accessTimelineDetails pt-5 hidden">
+                    <hr>
+                    <p class="font-bold text-xl pt-4">Access & Timeline</p>
+                    <div class="flex items-start justify-between mt-5">
+                        <p class="font-semibold text-xs ">Contact Person</p>
+                        <p class="font-semibold text-xs ">Rohit Sharma</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Mobile Number</p>
+                        <p class="font-bold text-xs ">+91 9876543210 </p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Urgency Level</p>
+                        <p class="font-bold text-xs ">Standard</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Start Date</p>
+                        <p class="font-bold text-xs ">28 May 2024</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">End Date</p>
+                        <p class="font-bold text-xs ">29 May 2024</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Preferred Time</p>
+                        <p class="font-bold text-xs ">10:00 AM - 02:00 PM</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Work Duration</p>
+                        <p class="font-bold text-xs ">2 Days</p>
+                    </div>
+                    <a href="#" class="font-semibold text-xs text-primary flex items-center justify-between pt-3">
+                        <span>View Full Details</span>
+                        <span class="material-symbols-outlined text-lg!">arrow_forward</span>
+                    </a>
+
+                </div>
+
+                <div class="costDetails pt-5 hidden">
+                    <hr>
+                    <p class="font-bold text-xl pt-4">Estimated Cost Summary</p>
+
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Base Service Cost</p>
+                        <p class="font-bold text-xs ">&#8377;8000.00</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Engineers [10]</p>
+                        <p class="font-bold text-xs ">&#8377;2000.00</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Per Day (2 Days)</p>
+                        <p class="font-bold text-xs ">&#8377;3000.00</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Equipment & Materials</p>
+                        <p class="font-bold text-xs ">&#8377;1,500.00</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3">
+                        <p class="font-semibold text-xs ">Logistics & Misc.</p>
+                        <p class="font-bold text-xs ">&#8377;500.00</p>
+                    </div>
+
+                    <div class="border-t border-dashed border-black my-4"></div>
+
+                    <div class="flex items-center justify-between">
+                        <p class="font-bold text-sm ">Estimated Total</p>
+                        <p class="font-bold text-sm text-forest-green">&#8377;15000.00</p>
+                    </div>
+
+                    <p class="font-normal text-xs pt-4 text-muted-steel">* Final price may vary after site assessment
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-sky-mist border border-cloud-white rounded-lg p-5 flex items-start gap-3">
+                <div class="w-9 h-9 rounded-full flex items-center justify-center bg-baby-blue">
+                    <span class="material-symbols-outlined text-primary">shield</span>
+                </div>
+                <div class="flex flex-col gap-0.5">
+                    <p class="text-primary font-bold text-lg">Get instant quotes from verified vendors</p>
+                    <p class="font-normal text-xs">You'll receive competitive offers within 15 minutes.</p>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-xl rounded-lg p-4 flex flex-col">
+                <p class="font-bold text-xl">Why choose FE?</p>
+
+                <div class="flex items-center gap-2 pt-6">
+                    <span class="material-symbols-outlined text-primary text-base!">check_circle</span>
+                    <p class="text-xs font-semibold">Verified engineers & vendors</p>
+                </div>
+
+                <div class="flex items-center gap-2 pt-2">
+                    <span class="material-symbols-outlined text-primary text-base!">check_circle</span>
+                    <p class="text-xs font-semibold">Pan India coverage (120+ cities)</p>
+                </div>
+
+                <div class="flex items-center gap-2 pt-2">
+                    <span class="material-symbols-outlined text-primary text-base!">check_circle</span>
+                    <p class="text-xs font-semibold">Best price & on-time delivery</p>
+                </div>
+
+                <div class="flex items-center gap-2 pt-2">
+                    <span class="material-symbols-outlined text-primary text-base!">check_circle</span>
+                    <p class="text-xs font-semibold">AI powered tracking & reports</p>
+                </div>
+
+                <div class="flex items-center gap-2 pt-2">
+                    <span class="material-symbols-outlined text-primary text-base!">check_circle</span>
+                    <p class="text-xs font-semibold">Secure & compliant process</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-xl p-4 flex items-center gap-2">
+                <div class="bg-sky-mist rounded-full flex items-center justify-center w-9 h-9">
+                    <span class="material-symbols-outlined text-primary">call</span>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <p class="font-semibold text-xs">Need Help?</p>
+                    <p class="font-semibold text-xs">+91 9876543210</p>
+                    <p class="font-semibold text-xs text-muted-steel">Mon - Sat,9:00 AM - 8:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-18 mt-5 bg-powder-blue shadow-xl  px-10 py-8 flex items-center justify-between relative z-10">
+        <div class="flex items-center gap-3">
+            <div class="w-15 h-15 rounded-full bg-mist-blue flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary text-4xl!">engineering</span>
+            </div>
+            <div class="flex flex-col">
+                <p class="text-2xl font-semibold text-royal-blue">15,000+</p>
+                <p class="font-normal text-sm">Certified Engineers</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <div class="w-15 h-15 rounded-full bg-mist-blue flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary text-4xl!">storefront</span>
+            </div>
+            <div class="flex flex-col">
+                <p class="text-2xl font-semibold text-black">350+</p>
+                <p class="font-normal text-sm">Verified Vendors</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <div class="w-15 h-15 rounded-full bg-mist-blue flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary text-4xl!">location_city</span>
+            </div>
+            <div class="flex flex-col">
+                <p class="text-2xl font-semibold text-black">120+</p>
+                <p class="font-normal text-sm">Cities Covered</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <div class="w-15 h-15 rounded-full bg-mist-blue flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary text-4xl!">acute</span>
+            </div>
+            <div class="flex flex-col">
+                <p class="text-2xl font-semibold text-royal-blue">98.7%</p>
+                <p class="font-normal text-sm">On-time Completion</p>
+            </div>
+        </div>
+
+        <img src="/static/img/request-service/request-service-1.webp" alt="Engineers" class="w-50">
+
+    </div>
+
+    <div class="bg-white mx-18 mt-5 rounded-lg shadow-xl p-5 flex items-start justify-between relative z-10">
+        <p class="font-bold text-3xl text-black">How it works</p>
+
+        <div class="flex flex-col items-center">
+            <div
+                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold text-primary">
+                1
+            </div>
+            <p class="font-bold text-sm text-black">Submit Request</p>
+            <p class="font-normal text-sm text-steel-gray pt-2 max-w-22.5 text-center">Tell us your requirements</p>
+        </div>
+
+        <span class="material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
+
+        <div class="flex flex-col items-center">
+            <div
+                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold text-primary">
+                2
+            </div>
+            <p class="font-bold text-sm text-black">Get Best Offers</p>
+            <p class="font-normal text-sm text-steel-gray pt-2 max-w-40 text-center">Verified vendors submit their
+                quotes</p>
+        </div>
+
+        <span class="material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
+
+        <div class="flex flex-col items-center">
+            <div
+                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold text-primary">
+                3
+            </div>
+            <p class="font-bold text-sm text-black">Assign Vendor</p>
+            <p class="font-normal text-sm text-steel-gray pt-2 max-w-40 text-center">You choose the best offer</p>
+        </div>
+
+        <span class="material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
+
+        <div class="flex flex-col items-center">
+            <div
+                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold text-primary">
+                4
+            </div>
+            <p class="font-bold text-sm text-black">Work Begins</p>
+            <p class="font-normal text-sm text-steel-gray pt-2 max-w-35 text-center">Track progress in real-time</p>
+        </div>
+
+        <span class="material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
+
+        <div class="flex flex-col items-center">
+            <div
+                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold text-primary">
+                5
+            </div>
+            <p class="font-bold text-sm text-black">Completion</p>
+            <p class="font-normal text-sm text-steel-gray pt-2 max-w-35 text-center">AI reports & documentation</p>
+        </div>
+
+    </div>
+
+    <div class="mx-18 mt-5 rounded-lg bg-primary px-5 py-7 flex items-center justify-between relative z-10">
+        <div class="flex flex-col">
+            <p class="font-semibold text-white text-2xl">Not sure what service you need?</p>
+            <p class="font-normal text-white text-sm">Talk to our experts and get guidance.</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <button class="bg-white w-52 h-12 flex items-center justify-center gap-5 rounded-lg cursor-pointer!">
+                <span class="font-semibold text-base text-primary">Talk to Expert</span>
+                <span class="material-symbols-outlined text-primary">support_agent</span>
+            </button>
+            <p class="font-semibold text-white text-sm">Or</p>
+
+            <button
+                class="w-52 h-12 flex items-center justify-center gap-5 rounded-lg cursor-pointer! border border-white">
+                <span class="font-semibold text-base text-white">Track Existing Job</span>
+                <span class="material-symbols-outlined text-white">location_on</span>
+            </button>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="/static/script/pages/request-service.js"></script>
+{% endblock %}
