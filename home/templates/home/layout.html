@@ -1,223 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}FieldEngineer{% endblock %}</title>
     {% load static %}
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
 
     <!-- Icons — Material Symbols Outlined -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- Tailwind (compiled output) -->
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
+
+    
     {% block extra_css %}{% endblock %}
 </head>
+
 <body>
 
-<!-- ════════════ NAVBAR ════════════ -->
-<header class="site-nav">
-    <div class="nav-inner">
+    <!-- ════════════ NAVBAR ════════════ -->
+    <header class="site-nav">
+        <div class="nav-inner">
 
-        <!-- Logo -->
-        <a href="#" class="nav-logo">
-            <span class="nav-logo-text">Field Engineer</span>
-            <span class="nav-logo-text-sub">Field Engineer Workspace Platform</span>
-        </a>
-
-        <!-- Desktop Navigation -->
-        <ul class="nav-links">
-            <li>
-                <button>
-                    Solutions
-                    <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Network Cabling</a></li>
-                    <li><a href="#">Rack Installation</a></li>
-                    <li><a href="#">Field Deployment</a></li>
-                    <li><a href="#">Server Setup</a></li>
-                    <li><a href="#">CCTV & Security</a></li>
-                    <li><a href="#">Smart Hands</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <button>
-                    Services
-                    <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">On-Site Support</a></li>
-                    <li><a href="#">Remote Hands</a></li>
-                    <li><a href="#">Project Management</a></li>
-                    <li><a href="#">Break-Fix Services</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <button>
-                    Industries
-                    <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Telecom</a></li>
-                    <li><a href="#">Banking & Finance</a></li>
-                    <li><a href="#">Healthcare</a></li>
-                    <li><a href="#">Retail & Logistics</a></li>
-                    <li><a href="#">Government</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <button>
-                    Vendors
-                    <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Become a Vendor</a></li>
-                    <li><a href="#">Vendor Portal</a></li>
-                    <li><a href="#">Partner Program</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <button>
-                    Pricing
-                    <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Pricing</a></li>
-                </ul>
-            </li>
-        </ul>
-
-        <!-- Right CTAs -->
-        <div class="nav-actions">
-            <button type="button" class="nav-track-btn">
-                <img src="{% static 'img/profile.svg' %}" alt="Profile" aria-hidden="true"> Profile
-            </button>
-            <a href="#" class="nav-cta-btn">
-                Login <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            <!-- Logo -->
+            <a href="#" class="nav-logo">
+                <span class="nav-logo-text">Field Engineer</span>
+                <span class="nav-logo-text-sub">Field Engineer Workspace Platform</span>
             </a>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li>
+                    <button>
+                        Solutions
+                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Network Cabling</a></li>
+                        <li><a href="#">Rack Installation</a></li>
+                        <li><a href="#">Field Deployment</a></li>
+                        <li><a href="#">Server Setup</a></li>
+                        <li><a href="#">CCTV & Security</a></li>
+                        <li><a href="#">Smart Hands</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <button>
+                        Services
+                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">On-Site Support</a></li>
+                        <li><a href="#">Remote Hands</a></li>
+                        <li><a href="#">Project Management</a></li>
+                        <li><a href="#">Break-Fix Services</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <button>
+                        Industries
+                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Telecom</a></li>
+                        <li><a href="#">Banking & Finance</a></li>
+                        <li><a href="#">Healthcare</a></li>
+                        <li><a href="#">Retail & Logistics</a></li>
+                        <li><a href="#">Government</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <button>
+                        Vendors
+                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Become a Vendor</a></li>
+                        <li><a href="#">Vendor Portal</a></li>
+                        <li><a href="#">Partner Program</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <button>
+                        Pricing
+                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Right CTAs -->
+            <div class="nav-actions">
+                <button type="button" class="nav-track-btn">
+                    <img src="{% static 'img/profile.svg' %}" alt="Profile" aria-hidden="true"> Profile
+                </button>
+                <a href="#" class="nav-cta-btn">
+                    Login <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                </a>
+            </div>
+
+            <!-- Hamburger (mobile) -->
+            <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
         </div>
+    </header>
+    <!-- END NAVBAR -->
 
-        <!-- Hamburger (mobile) -->
-        <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-        </button>
+    <!-- ════════════ MAIN CONTENT ════════════ -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 
-    </div>
-</header>
-<!-- END NAVBAR -->
+    <!-- ════════════ FOOTER ════════════ -->
+    <footer class="site-footer">
+        <div class="footer-card">
 
-<!-- ════════════ MAIN CONTENT ════════════ -->
-<main>
-    {% block content %}{% endblock %}
-</main>
+            <div class="footer-main">
 
-<!-- ════════════ FOOTER ════════════ -->
-<footer class="site-footer">
-    <div class="footer-card">
-
-        <div class="footer-main">
-
-            <!-- Brand -->
-            <div class="footer-brand">
-                <p class="footer-brand-title">Field Engineer</p>
-                <p class="footer-brand-subtitle">Field Engineer Workspace Platform</p>
-                <p class="footer-brand-desc">
-                    India's Infrastructure workforce platform connecting customers, vendors and certified field engineers for seamless on-site evaluation.
-                </p>
-                <div class="footer-social">
-                    <a href="#" class="water-drop-glass" aria-label="LinkedIn">
-                        <img src="{% static 'img/linkedin.svg' %}" alt="LinkedIn" aria-hidden="true">
-                    </a>
-                    <a href="#" class="water-drop-glass" aria-label="X"><img src="{% static 'img/x.svg' %}" alt="X" aria-hidden="true"></a>
-                    <a href="#" class="water-drop-glass" aria-label="YouTube"><img src="{% static 'img/youtube.svg' %}" alt="YouTube" aria-hidden="true"></a>
-                    <a href="#" class="water-drop-glass" aria-label="Instagram"><img src="{% static 'img/instagram.svg' %}" alt="Instagram" aria-hidden="true"></a>
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <p class="footer-brand-title">Field Engineer</p>
+                    <p class="footer-brand-subtitle">Field Engineer Workspace Platform</p>
+                    <p class="footer-brand-desc">
+                        India's Infrastructure workforce platform connecting customers, vendors and certified field
+                        engineers for seamless on-site evaluation.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="water-drop-glass" aria-label="LinkedIn">
+                            <img src="{% static 'img/linkedin.svg' %}" alt="LinkedIn" aria-hidden="true">
+                        </a>
+                        <a href="#" class="water-drop-glass" aria-label="X"><img src="{% static 'img/x.svg' %}" alt="X"
+                                aria-hidden="true"></a>
+                        <a href="#" class="water-drop-glass" aria-label="YouTube"><img
+                                src="{% static 'img/youtube.svg' %}" alt="YouTube" aria-hidden="true"></a>
+                        <a href="#" class="water-drop-glass" aria-label="Instagram"><img
+                                src="{% static 'img/instagram.svg' %}" alt="Instagram" aria-hidden="true"></a>
+                    </div>
                 </div>
+
+                <!-- Solutions -->
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#">Live Tracking</a></li>
+                        <li><a href="#">Work Logs</a></li>
+                        <li><a href="#">Additional Tasks</a></li>
+                        <li><a href="#">AI Reports</a></li>
+                        <li><a href="#">SLA Management</a></li>
+                        <li><a href="#">Team Workspace</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Network Cabling</a></li>
+                        <li><a href="#">Fiber Deployment</a></li>
+                        <li><a href="#">Rack Installation</a></li>
+                        <li><a href="#">Server Setup</a></li>
+                        <li><a href="#">CCTV</a></li>
+                        <li><a href="#">Electrical & HVAC</a></li>
+                    </ul>
+                </div>
+
+                <!-- Industries -->
+                <div class="footer-col">
+                    <h4>Industries</h4>
+                    <ul>
+                        <li><a href="#">Data Centers</a></li>
+                        <li><a href="#">Telecom</a></li>
+                        <li><a href="#">Banking</a></li>
+                        <li><a href="#">Retail</a></li>
+                        <li><a href="#">Manufacturing</a></li>
+                        <li><a href="#">IT Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- For Vendors — each link uses pages/layout.html (not this header/footer) -->
+                <div class="footer-col">
+                    <h4>For Vendors</h4>
+                    <ul>
+                        <li><a href="{% url 'about_fe' %}">About FE</a></li>
+                        <li><a href="{% url 'careers' %}">Careers</a></li>
+                        <li><a href="{% url 'blogs' %}">Blogs</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li><a href="{% url 'help_center' %}">Help Center</a></li>
+                        <li><a href="{% url 'vendor_responses' %}">Vendor Responses</a></li>
+                    </ul>
+                </div>
+
             </div>
 
-            <!-- Solutions -->
-            <div class="footer-col">
-                <h4>Solutions</h4>
-                <ul>
-                    <li><a href="#">Live Tracking</a></li>
-                    <li><a href="#">Work Logs</a></li>
-                    <li><a href="#">Additional Tasks</a></li>
-                    <li><a href="#">AI Reports</a></li>
-                    <li><a href="#">SLA Management</a></li>
-                    <li><a href="#">Team Workspace</a></li>
-                </ul>
-            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 Field Engineer. All Rights Reserved.</p>
 
-            <!-- Services -->
-            <div class="footer-col">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#">Network Cabling</a></li>
-                    <li><a href="#">Fiber Deployment</a></li>
-                    <li><a href="#">Rack Installation</a></li>
-                    <li><a href="#">Server Setup</a></li>
-                    <li><a href="#">CCTV</a></li>
-                    <li><a href="#">Electrical & HVAC</a></li>
-                </ul>
-            </div>
+                <div class="footer-policy-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookies Policy</a>
+                    <a href="#">Data Protection</a>
+                </div>
 
-            <!-- Industries -->
-            <div class="footer-col">
-                <h4>Industries</h4>
-                <ul>
-                    <li><a href="#">Data Centers</a></li>
-                    <li><a href="#">Telecom</a></li>
-                    <li><a href="#">Banking</a></li>
-                    <li><a href="#">Retail</a></li>
-                    <li><a href="#">Manufacturing</a></li>
-                    <li><a href="#">IT Services</a></li>
-                </ul>
-            </div>
-
-            <!-- For Vendors — each link uses pages/layout.html (not this header/footer) -->
-            <div class="footer-col">
-                <h4>For Vendors</h4>
-                <ul>
-                    <li><a href="{% url 'about_fe' %}">About FE</a></li>
-                    <li><a href="{% url 'careers' %}">Careers</a></li>
-                    <li><a href="{% url 'blogs' %}">Blogs</a></li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
-                    <li><a href="{% url 'help_center' %}">Help Center</a></li>
-                    <li><a href="{% url 'vendor_responses' %}">Vendor Responses</a></li>
-                </ul>
+                <p class="footer-tagline">Made for Enterprise field operation</p>
             </div>
 
         </div>
+    </footer>
+    <!-- END FOOTER -->
 
-        <div class="footer-bottom">
-            <p class="footer-copyright">© 2026 Field Engineer. All Rights Reserved.</p>
+    <!-- ════════════ SCRIPTS ════════════ -->
 
-            <div class="footer-policy-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Cookies Policy</a>
-                <a href="#">Data Protection</a>
-            </div>
-
-            <p class="footer-tagline">Made for Enterprise field operation</p>
-        </div>
-
-    </div>
-</footer>
-<!-- END FOOTER -->
-
-<!-- ════════════ SCRIPTS ════════════ -->
-
-{% block extra_js %}{% endblock %}
+    {% block extra_js %}
+        
+    {% endblock %}
 </body>
+
 </html>
