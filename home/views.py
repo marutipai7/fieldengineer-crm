@@ -39,3 +39,9 @@ def help_center(request):
 
 def vendor_responses(request):
     return render(request, 'pages/vendor-responses.html')
+
+def privacy_policy(request):
+    return render(request, 'pages/privacy-policy.html')
+
+def term_condition(request):
+    return render(request, 'pages/term-condition.html')
