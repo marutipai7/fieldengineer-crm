@@ -9,18 +9,20 @@
 <section class="relative min-h-[calc(100vh-68px)] overflow-hidden bg-blue-light">
 
     <!-- Background -->
-    <img src="{% static 'img/request-service/request-service-hero-bg.webp' %}" alt="" aria-hidden="true"
+    <img src="{% static 'img/request-service/request-service-hero-bg.webp' %}" alt="Background" aria-hidden="true"
         class="absolute inset-0 h-150 w-full object-contain object-[center_20%] lg:object-right z-0 pointer-events-none">
     <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/30 pointer-events-none"></div>
 
     <div
-        class="relative z-10 mx-10 grid max-w-7xl items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
+        class="relative z-10 mx-auto grid max-w-7xl w-full items-center gap-10 px-4 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
 
         <div class="max-w-xl lg:max-w-none">
             <div class="flex items-center gap-2">
+                <a href="{% url 'home' %}" class="flex items-center gap-2">
+                    <span class="material-symbols-outlined">home</span>
+                    <span>Home</span>
+                </a>
 
-                <span class="material-symbols-outlined">home</span>
-                <span>Home</span>
                 <span class="material-symbols-outlined">chevron_right</span>
                 <span>Request Service</span>
             </div>
@@ -72,8 +74,9 @@
         </div>
     </div>
 
-    <div class="bg-white  rounded-lg flex items-center   px-29 absolute mx-18 mt-4 stepIndicator">
-        <div class="flex flex-col items-center gap-2.5 pt-10">
+    <div
+        class="bg-white rounded-lg flex items-center px-4 lg:px-10 absolute left-4 right-4 md:left-8 md:right-8 mt-4 stepIndicator overflow-x-auto">
+        <div class="flex flex-col items-center gap-2.5 pt-10 shrink-0">
             <div
                 class="w-10 h-10 rounded-full  bg-primary flex items-center justify-center text-xl font-bold text-white">
                 1
@@ -81,9 +84,9 @@
             <p class=" pb-2 text-nowrap text-black font-semibold">Service Details</p>
         </div>
 
-        <div class="w-40 border-t-2 border-dashed border-silver-gray"></div>
+        <div class="w-4 md:w-16 lg:w-40 border-t-2 border-dashed border-silver-gray flex-shrink-0"></div>
 
-        <div class="flex flex-col items-center gap-2.5 pt-10">
+        <div class="flex flex-col items-center gap-2.5 pt-10 shrink-0">
             <div
                 class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold">
                 2
@@ -91,9 +94,9 @@
             <p class="text-nowrap pb-2 text-slate-gray font-normal text-sm">Site Information</p>
         </div>
 
-        <div class="w-40 border-t-2 border-dashed border-silver-gray"></div>
+        <div class="w-4 md:w-16 lg:w-40 border-t-2 border-dashed border-silver-gray flex-shrink-0"></div>
 
-        <div class="flex flex-col items-center gap-2.5 pt-10">
+        <div class="flex flex-col items-center gap-2.5 pt-10 shrink-0">
             <div
                 class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold">
                 3
@@ -101,9 +104,9 @@
             <p class="text-nowrap pb-2 text-slate-gray font-normal text-sm">Location</p>
         </div>
 
-        <div class="w-40 border-t-2 border-dashed border-silver-gray"></div>
+        <div class="w-4 md:w-16 lg:w-40 border-t-2 border-dashed border-silver-gray flex-shrink-0"></div>
 
-        <div class="flex flex-col items-center gap-2.5 pt-10">
+        <div class="flex flex-col items-center gap-2.5 pt-10 shrink-0">
             <div
                 class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold">
                 4
@@ -111,9 +114,9 @@
             <p class="text-nowrap pb-2 text-slate-gray font-normal text-sm">Access & Timeline</p>
         </div>
 
-        <div class="w-40 border-t-2 border-dashed border-silver-gray"></div>
+        <div class="w-4 md:w-16 lg:w-40 border-t-2 border-dashed border-silver-gray flex-shrink-0"></div>
 
-        <div class="flex flex-col items-center gap-2.5 pt-10">
+        <div class="flex flex-col items-center gap-2.5 pt-10 shrink-0">
             <div
                 class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold">
                 5
@@ -122,7 +125,7 @@
         </div>
     </div>
 
-    <div class="mt-40 mx-18 flex items-start gap-4 relative z-10">
+    <div class="mt-40 mx-4 md:mx-8 lg:mx-18 flex flex-col lg:flex-row items-start gap-4 relative z-10">
         <div class="bg-white rounded-lg shadow-xl p-4 flex-1 ">
 
             <!--Service Details Section-->
@@ -139,60 +142,70 @@
                         placeholder="Search service (e.g. Network Cabling,Rack Installation...)">
                 </div>
 
-                <div class="grid grid-cols-4 gap-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                     <div
                         class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
-                        <span class="material-symbols-outlined text-6xl! text-primary">cable</span>
-                        <p class="font-bold text-lg text-black group-hover:text-primary">Network Cabling</p>
+                        <span class="material-symbols-outlined text-4xl! lg:text-6xl! text-primary">cable</span>
+                        <p class="font-bold text-center lg:text-lg text-black group-hover:text-primary">Network Cabling
+                        </p>
                         <p class="font-normal text-sm text-muted-steel">Cat6,Cat6A,Fiber</p>
                     </div>
 
                     <div
                         class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
-                        <span class="material-symbols-outlined text-6xl! text-primary">storage</span>
-                        <p class="font-bold text-lg text-black group-hover:text-primary">Rack Installation</p>
+                        <span class="material-symbols-outlined text-4xl! lg:text-6xl! text-primary">storage</span>
+                        <p class="font-bold text-center lg:text-lg text-black group-hover:text-primary">Rack
+                            Installation</p>
                         <p class="font-normal text-sm text-muted-steel">Rack setup,expansion</p>
                     </div>
 
                     <div
                         class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
-                        <span class="material-symbols-outlined text-6xl! text-primary">settings_input_component</span>
-                        <p class="font-bold text-lg text-black group-hover:text-primary">Fiber Deployment</p>
+                        <span
+                            class="material-symbols-outlined text-4xl! lg:text-6xl! text-primary">settings_input_component</span>
+                        <p class="font-bold text-center lg:text-lg text-black group-hover:text-primary">Fiber Deployment
+                        </p>
                         <p class="font-normal text-sm text-muted-steel">Fiber splicing,testing</p>
                     </div>
 
                     <div
                         class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
-                        <span class="material-symbols-outlined text-6xl! text-primary">hard_drive</span>
-                        <p class="font-bold text-lg text-black group-hover:text-primary">Server Setup</p>
+                        <span class="material-symbols-outlined text-4xl! lg:text-6xl! text-primary">hard_drive</span>
+                        <p class="font-bold text-center lg:text-lg text-black group-hover:text-primary">Server Setup</p>
                         <p class="font-normal text-sm text-muted-steel">Installation & configuration</p>
                     </div>
 
                     <div
                         class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
-                        <span class="material-symbols-outlined text-6xl! text-primary">nest_cam_iq_outdoor</span>
-                        <p class="font-bold text-lg text-black group-hover:text-primary">CCTV & Security</p>
+                        <span
+                            class="material-symbols-outlined text-4xl! lg:text-6xl! text-primary">nest_cam_iq_outdoor</span>
+                        <p class="font-bold text-center lg:text-lg text-black group-hover:text-primary">CCTV & Security
+                        </p>
                         <p class="font-normal text-sm text-muted-steel">CCTV,Access control</p>
                     </div>
 
                     <div
                         class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
-                        <span class="material-symbols-outlined text-6xl! text-primary">network_intel_node</span>
-                        <p class="font-bold text-lg text-black group-hover:text-primary">Smart Hands</p>
+                        <span
+                            class="material-symbols-outlined text-4xl! lg:text-6xl! text-primary">network_intel_node</span>
+                        <p class="font-bold text-center lg:text-lg text-black group-hover:text-primary">Smart Hands</p>
                         <p class="font-normal text-sm text-muted-steel">Remote hands & on-site support</p>
                     </div>
 
                     <div
                         class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
-                        <span class="material-symbols-outlined text-6xl! text-primary">electric_bolt</span>
-                        <p class="font-bold text-lg text-black group-hover:text-primary">Electrical & HVAC</p>
+                        <span class="material-symbols-outlined text-4xl! lg:text-6xl! text-primary">electric_bolt</span>
+                        <p class="font-bold text-center lg:text-lg text-black group-hover:text-primary">Electrical &
+                            HVAC</p>
                         <p class="font-normal text-sm text-muted-steel">Power,AC,Cooling</p>
                     </div>
 
                     <div
                         class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
-                        <span class="material-symbols-outlined text-6xl! text-primary">other_admission</span>
-                        <p class="font-bold text-lg text-black group-hover:text-primary">Other Services</p>
+                        <span
+                            class="material-symbols-outlined text-4xl! lg:text-6xl! text-primary">other_admission</span>
+                        <p class="font-bold text-center lg:text-lg text-black group-hover:text-primary">Other Services
+                        </p>
                         <p class="font-normal text-sm text-muted-steel">Custom requirement</p>
                     </div>
                 </div>
@@ -207,10 +220,10 @@
                 </div>
 
                 <div class="flex items-center justify-between mt-10">
-                    <button
+                    <a href="{% url 'home' %}"
                         class="w-30 h-12 flex items-center justify-center rounded-md bg-white border border-mist-gray cursor-pointer cancelBtn">
                         <span class="font-semibold text-base text-black">Cancel</span>
-                    </button>
+                    </a>
 
                     <button
                         class="w-30 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn1 text-white gap-3">
@@ -228,7 +241,7 @@
                         your requirements better.</p>
                 </div>
 
-                <div class="grid grid-cols-3 gap-5 pt-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-6">
                     <div class="flex flex-col gap-2">
                         <label for="companyname" class="font-semibold text-xs text-deep-indigo">Company / Site Name
                             <span class="text-red">*</span></label>
@@ -249,7 +262,7 @@
                         </div>
 
                         <div
-                            class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md">
+                            class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md z-9999">
                             <ul class="space-y-4">
                                 <li class="font-normal text-sm cursor-pointer">Site Type 1</li>
                                 <li class="font-normal text-sm cursor-pointer">Site Type 2</li>
@@ -274,7 +287,7 @@
                         </div>
 
                         <div
-                            class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md">
+                            class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-pearl-blue p-4 rounded-md z-9999">
                             <ul class="space-y-4">
                                 <li class="font-normal text-sm cursor-pointer">Project Type 1</li>
                                 <li class="font-normal text-sm cursor-pointer">Project Type 2</li>
@@ -325,7 +338,7 @@
                     <p class="font-normal text-xs">Provide approximate details of the work to be performed</p>
                 </div>
 
-                <div class="pt-4 grid grid-cols-4 gap-4">
+                <div class="pt-4 grid grid-cols-1 lg:grid-cols-4 gap-4">
                     <div class="border border-pearl-blue rounded-md p-4 counter flex flex-col gap-2">
                         <label for="companyname" class="font-semibold text-xs text-deep-indigo">Number of Engineers
                             <span class="text-red">*</span></label>
@@ -400,7 +413,7 @@
                 </div>
 
                 <div class="mt-10 border border-periwinkle-mist rounded-lg bg-arctic-mist py-3.5  px-4 flex flex-col">
-                    <div class="flex items-center gap-2">
+                    <div class="flex flex-col lg:flex-row items-center gap-2">
                         <img src="/static/img/sparkles.webp" alt="sparkles" class="w-10">
                         <div class="flex flex-col ">
                             <div class="flex items-center gap-2">
@@ -411,17 +424,17 @@
                             </div>
                             <p class="font-normal text-xs">Based on your scope, here's your recommended plan.</p>
                         </div>
-                        <div class="w-px h-15 bg-black mt-2 ml-2"></div>
+                        <div class="hidden lg:block w-px h-15 bg-black mt-2 ml-2"></div>
                         <div class="flex flex-col gap-1 pl-2">
                             <p class="font-semibold text-sm">Recommended Engineers</p>
                             <p class="font-bold text-lg">10 Engineers</p>
                         </div>
-                        <div class="w-px h-15 bg-black mt-2 ml-2"></div>
+                        <div class="hidden lg:block w-px h-15 bg-black mt-2 ml-2"></div>
                         <div class="flex flex-col gap-1 pl-2">
                             <p class="font-semibold text-sm">Estimated Duration</p>
                             <p class="font-bold text-lg">2 Days</p>
                         </div>
-                        <div class="w-px h-15 bg-black mt-2 ml-2"></div>
+                        <div class="hidden lg:block w-px h-15 bg-black mt-2 ml-2"></div>
                         <div class="flex flex-col gap-1 pl-2">
                             <div class="flex items-center gap-2">
                                 <p class="font-semibold text-sm">Estimated Cost Range</p>
@@ -449,12 +462,12 @@
                         engineers?</p>
 
                     <textarea maxlength="500"
-                        class="h-35 mt-2 resize-none focus:ring-0 focus:outline-none border border-mist-gray w-full rounded-lg  font-normal text-sm p-4"
+                        class="h-35 mt-2 resize-none focus:ring-0 focus:outline-none border border-mist-gray lg:w-full rounded-lg  font-normal text-sm p-4 "
                         placeholder="Write your requirements here..."></textarea>
                     <p class="absolute right-2 bottom-0 font-normal text-xs text-muted-steel">0/500</p>
                 </div>
 
-                <div class="flex items-center justify-between mt-10">
+                <div class="flex items-center justify-between mt-10 gap-4">
                     <button
                         class="w-30 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
                         <span class="font-semibold text-base text-primary">Back</span>
@@ -492,7 +505,7 @@
 
                 <div class="pt-5 flex flex-col gap-1">
                     <p class="font-semibold text-xs">Enter Site Address <span class="text-red">*</span></p>
-                    <div class="flex items-center gap-3">
+                    <div class="flex  items-center gap-3">
                         <div
                             class="flex-1 border border-pearl-blue py-3 px-4 flex items-center justify-between rounded-md">
                             <div class="flex items-center gap-2 w-full">
@@ -516,7 +529,7 @@
                         <div id="map"></div>
                     </div>
 
-                    <div class="mt-5 flex items-start justify-between">
+                    <div class="mt-5 flex flex-col gap-10 sm:flex-row items-start justify-between">
                         <div class="flex items-center gap-2">
                             <div class="bg-off-white w-9 h-9 flex items-center justify-center rounded-md">
                                 <span class="material-symbols-outlined text-primary">schedule</span>
@@ -528,7 +541,7 @@
                             </div>
                         </div>
 
-                        <div class="w-0.5 h-12 bg-polar-white"></div>
+                        <div class="w-0.5 h-12 bg-polar-white hidden sm:block"></div>
 
                         <div class="flex items-start gap-2">
                             <div class="bg-off-white w-9 h-9 flex items-center justify-center rounded-md">
@@ -544,7 +557,7 @@
                             </div>
                         </div>
 
-                        <div class="w-0.5 h-12 bg-polar-white"></div>
+                        <div class="w-0.5 h-12 bg-polar-white hidden sm:block"></div>
 
                         <div class="flex items-start gap-2">
                             <div class="bg-off-white w-9 h-9 flex items-center justify-center rounded-md">
@@ -561,7 +574,7 @@
                             </div>
                         </div>
 
-                        <div class="w-0.5 h-12 bg-polar-white"></div>
+                        <div class="w-0.5 h-12 bg-polar-white hidden sm:block"></div>
 
                         <div class="flex items-start gap-2">
                             <div class="bg-off-white w-9 h-9 flex items-center justify-center rounded-md">
@@ -617,7 +630,7 @@
                         <p class="font-semibold text-sm">Site Contact Person</p>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-5 pt-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-3">
                         <div class="flex flex-col gap-2">
                             <label for="companyname" class="font-semibold text-xs text-deep-indigo">Contact Person Name
                                 <span class="text-red">*</span></label>
@@ -678,7 +691,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-5 pt-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-5">
                         <div class="flex flex-col gap-2 relative dropdown-wrapper">
                             <label for="companyname" class="font-semibold text-xs text-deep-indigo">Entry Instructions
                                 <span class="text-red">*</span></label>
@@ -826,7 +839,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-6 gap-4 pt-4">
+                    <div class="grid grid-cols-3 md:grid-cols-6 gap-4 pt-4">
                         <div
                             class="border cursor-pointer group border-morning-mist rounded-md p-4 flex flex-col items-center justify-center gap-2 hover:border-primary hover:bg-frost-blue">
                             <span class="material-symbols-outlined text-xl! text-primary">cable</span>
@@ -871,7 +884,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-10 mt-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
                         <div class="flex flex-col gap-2.5">
                             <label for="urgency" class="font-semibold text-xs text-deep-indigo">Urgency Level
                                 <span class="text-red">*</span></label>
@@ -1067,7 +1080,7 @@
                                 <p class="font-semibold text-xs text-primary cursor-pointer">Edit</p>
                             </div>
 
-                            <div class="grid grid-cols-5 gap-4">
+                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                 <div class="flex flex-col gap-2 border-r border-pale-sky">
                                     <p class="font-normal text-sm text-muted-steel">Service</p>
                                     <p class="font-bold text-sm ">Network Cabling</p>
@@ -1106,7 +1119,7 @@
                                 <p class="font-semibold text-xs text-primary cursor-pointer">Edit</p>
                             </div>
 
-                            <div class="grid grid-cols-5 gap-4">
+                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                 <div class="flex flex-col gap-2 border-r border-pale-sky">
                                     <p class="font-normal text-sm text-muted-steel">Company / Site</p>
                                     <p class="font-bold text-sm ">ABC Technologies Pvt. Ltd.</p>
@@ -1160,7 +1173,7 @@
                                 <p class="font-semibold text-xs text-primary cursor-pointer">Edit</p>
                             </div>
 
-                            <div class="grid grid-cols-4 gap-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
 
                                 <div class="flex flex-col gap-2 border-r border-pale-sky">
@@ -1200,8 +1213,8 @@
                                 <p class="font-semibold text-xs text-primary cursor-pointer">Edit</p>
                             </div>
 
-                            <div class="flex ">
-                                <div class="w-60 flex flex-col gap-2 border-r border-pale-sky">
+                            <div class="flex flex-col lg:flex-row">
+                                <div class="w-full lg:w-60 flex flex-col gap-2 lg:border-r border-pale-sky lg:pr-4">
                                     <div class="flex flex-col gap-1">
                                         <p class="font-normal text-sm">Contact Person</p>
                                         <p class="font-semibold text-sm">Rohit Sharma</p>
@@ -1229,7 +1242,7 @@
                                 </div>
 
                                 <div class="flex-1 flex-col gap-3 pl-4">
-                                    <div class="grid grid-cols-2 gap-2">
+                                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-2 mt-4 lg:mt-0">
                                         <div class="flex flex-col gap-3">
                                             <p class="font-semibold text-sm">Access Information</p>
                                             <div class="grid grid-cols-2 ">
@@ -1305,10 +1318,132 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="flex flex-col gap-2 mt-5">
+                                        <p class="font-bold text-sm">Required Work Types</p>
+
+                                        <div class="flex items-center flex-wrap gap-3">
+                                            <div class="flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                <span class="font-normal text-xs">Network Cabling</span>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                <span class="font-normal text-xs">Rack Installation</span>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                <span class="font-normal text-xs">Fiber Deployment</span>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                <span class="font-normal text-xs">CCTV Installation</span>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                <span class="font-normal text-xs">Server Setup</span>
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <span
+                                                    class="material-symbols-outlined text-primary text-lg!">check_circle</span>
+                                                <span class="font-normal text-xs">Electrical Setup</span>
+                                            </div>
+                                        </div>
+
+                                        <hr class="my-3 text-pearl-blue">
+
+                                        <div class="flex items-start gap-10">
+                                            <p class="font-semibold text-sm text-nowrap">Additional Notes</p>
+                                            <p class="font-normal text-xs">Please ensure all engineers carry safety
+                                                gear.Work will be surpervised by our IT team.We have an ongoing network
+                                                expansion in the same building.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
+                    </div>
+
+                    <!--Documents-->
+                    <div class="border border-pearl-blue p-4 rounded-md flex items-start gap-4">
+                        <span class="material-symbols-outlined text-4xl! text-primary">draft</span>
+
+                        <div class="flex flex-col gap-4 w-full">
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold text-base ">Documents <span
+                                        class="font-normal text-xs">(Optional)</span></p>
+                                <p class="font-semibold text-xs text-primary cursor-pointer">Edit</p>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                                <div
+                                    class="border border-pearl-blue rounded-md flex items-center gap-3 px-4 py-2 w-40 lg:w-auto">
+                                    <img src="/static/img/pdf-icon.svg" alt="pdf" class="w-6 h-6">
+                                    <div class="flex flex-col gap-1">
+                                        <p class="font-semibold text-xs">Site Layout.pdf</p>
+                                        <p class="font-normal text-xs">1.2 MB</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="border border-pearl-blue rounded-md flex items-center gap-3 px-4 py-2 w-40 lg:w-auto">
+                                    <img src="/static/img/pdf-icon.svg" alt="pdf" class="w-6 h-6">
+                                    <div class="flex flex-col gap-1">
+                                        <p class="font-semibold text-xs">Site Layout.pdf</p>
+                                        <p class="font-normal text-xs">1.2 MB</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="border border-pearl-blue rounded-md flex items-center gap-3 px-2 py-2 w-40 lg:w-auto cursor-pointer">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center border border-pearl-blue rounded-md">
+                                        <span
+                                            class="text-primary font-semibold! text-lg! material-symbols-outlined cursor-pointer">add</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <p class="font-semibold text-xs text-primary">Add Document</p>
+                                        <p class="font-normal text-xs">Upload file or drag & drop</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="border-t border-pearl-blue mt-5 flex items-center gap-3 pt-4">
+                                <span class="material-symbols-outlined text-4xl!">shield</span>
+                                <div class="flex items-center gap-2">
+                                    <input type="checkbox" class="accent-primary cursor-pointer">
+                                    <p class="font-semibold text-xs">I agree to the <span class="text-primary">Terms &
+                                            Conditions , Privacy Policy</span> and acknowledge that the information
+                                        provided above is correct</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between mt-10">
+                        <button
+                            class="w-30 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
+                            <span class="font-semibold text-base text-primary">Back</span>
+                        </button>
+
+                        <button
+                            class="w-30 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
+                            <span class="material-symbols-outlined text-primary">bookmark</span>
+                            <span class="font-semibold text-base text-primary">Save Draft</span>
+                        </button>
+
+                        <a href="{% url 'vendor_responses' %}"
+                            class="w-52 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
+                            <span class="font-semibold text-base">Submit Request</span>
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </a>
                     </div>
                 </div>
 
@@ -1316,7 +1451,7 @@
         </div>
 
         <!--Right Section-->
-        <div class="flex flex-col gap-3 w-75">
+        <div class="flex flex-col gap-3 w-full lg:w-75">
             <div class="bg-white shadow-lg rounded-lg p-4 flex flex-col ">
                 <p class="font-bold text-xl">Booking Summary</p>
                 <div class="flex items-center justify-between mt-5">
@@ -1552,7 +1687,8 @@
         </div>
     </div>
 
-    <div class="mx-18 mt-5 bg-powder-blue shadow-xl  px-10 py-8 flex items-center justify-between relative z-10">
+    <div
+        class="mx-4 md:mx-8 lg:mx-18 mt-5 bg-powder-blue shadow-xl px-5 py-6 grid grid-cols-2 lg:flex lg:items-center lg:justify-between gap-6 relative z-10">
         <div class="flex items-center gap-3">
             <div class="w-15 h-15 rounded-full bg-mist-blue flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary text-4xl!">engineering</span>
@@ -1597,7 +1733,8 @@
 
     </div>
 
-    <div class="bg-white mx-18 mt-5 rounded-lg shadow-xl p-5 flex items-start justify-between relative z-10">
+    <div
+        class="bg-white mx-4 md:mx-8 lg:mx-18 mt-5 rounded-lg shadow-xl p-5 flex flex-col sm:flex-row items-center flex-wrap sm:items-start justify-center gap-4 relative z-10">
         <p class="font-bold text-3xl text-black">How it works</p>
 
         <div class="flex flex-col items-center">
@@ -1609,7 +1746,7 @@
             <p class="font-normal text-sm text-steel-gray pt-2 max-w-22.5 text-center">Tell us your requirements</p>
         </div>
 
-        <span class="material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
+        <span class="hidden! sm:flex! material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
 
         <div class="flex flex-col items-center">
             <div
@@ -1621,7 +1758,7 @@
                 quotes</p>
         </div>
 
-        <span class="material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
+        <span class="hidden! sm:flex! material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
 
         <div class="flex flex-col items-center">
             <div
@@ -1632,7 +1769,7 @@
             <p class="font-normal text-sm text-steel-gray pt-2 max-w-40 text-center">You choose the best offer</p>
         </div>
 
-        <span class="material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
+        <span class="hidden! sm:flex! material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
 
         <div class="flex flex-col items-center">
             <div
@@ -1643,7 +1780,7 @@
             <p class="font-normal text-sm text-steel-gray pt-2 max-w-35 text-center">Track progress in real-time</p>
         </div>
 
-        <span class="material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
+        <span class="hidden! sm:flex! material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
 
         <div class="flex flex-col items-center">
             <div
@@ -1656,13 +1793,14 @@
 
     </div>
 
-    <div class="mx-18 mt-5 rounded-lg bg-primary px-5 py-7 flex items-center justify-between relative z-10">
+    <div
+        class="mx-4 md:mx-8 lg:mx-18 mt-5 rounded-lg bg-primary px-5 py-7 flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
         <div class="flex flex-col">
             <p class="font-semibold text-white text-2xl">Not sure what service you need?</p>
             <p class="font-normal text-white text-sm">Talk to our experts and get guidance.</p>
         </div>
 
-        <div class="flex items-center gap-3">
+        <div class="flex flex-col sm:flex-row items-center gap-3">
             <button class="bg-white w-52 h-12 flex items-center justify-center gap-5 rounded-lg cursor-pointer!">
                 <span class="font-semibold text-base text-primary">Talk to Expert</span>
                 <span class="material-symbols-outlined text-primary">support_agent</span>
