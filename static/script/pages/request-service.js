@@ -66,9 +66,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Required Work Types — multi-select ────────────────────────────────────
   const selectedWorkTypes = new Set();
 
-  document
-    .querySelectorAll(".access-timeline .grid.grid-cols-6 > div")
-    .forEach((card) => {
+  const workTypesHeading = Array.from(
+    document.querySelectorAll("p.font-semibold.text-sm"),
+  ).find((p) => p.textContent.trim() === "Required Work Types");
+  const workTypesGrid = workTypesHeading
+    ?.closest(".flex.flex-col.gap-2")
+    ?.querySelector(".grid.gap-4");
+
+  if (workTypesGrid) {
+    workTypesGrid.querySelectorAll(":scope > div").forEach((card) => {
       card.classList.add("relative");
       card.addEventListener("click", () => {
         const label = card.querySelector("p")?.textContent.trim();
@@ -76,8 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
           selectedWorkTypes.delete(label);
           card.classList.remove("border-primary", "bg-frost-blue");
           card.classList.add("border-morning-mist");
-          const badge = card.querySelector(".work-check");
-          if (badge) badge.remove();
+          card.querySelector(".work-check")?.remove();
         } else {
           selectedWorkTypes.add(label);
           card.classList.add("border-primary", "bg-frost-blue");
@@ -93,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
+  }
 
   // ── Urgency Level — single select ─────────────────────────────────────────
   let selectedUrgency = null;
@@ -372,39 +378,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ── Validation: Step 2 ────────────────────────────────────────────────────
+  // ── Validation: Step 2 ────────────────────────────────────────────────────
   function validateStep2() {
     let valid = true;
     const section = document.querySelector(".siteInfo");
 
     function fieldError(wrapper, input, message, errorId) {
-      if (input && !input.value.trim()) {
+      if (!wrapper || !input) return;
+      if (!input.value.trim()) {
         markFieldError(input);
         showError(wrapper, message, errorId);
         valid = false;
-      } else if (input) {
+      } else {
         clearFieldError(input);
         removeError(wrapper, errorId);
       }
     }
 
     function dropdownError(wrapper, errorId) {
-      if (!wrapper) {
-        console.error("dropdownError: wrapper not found", errorId);
-        valid = false;
-        return;
-      }
-
+      if (!wrapper) return;
       const dropInput = wrapper.querySelector("input");
       const dropBox = wrapper.querySelector(
         ".flex.items-center.justify-between",
       );
-
-      if (!dropInput || !dropBox) {
-        console.error("dropdownError: dropdown structure missing", wrapper);
-        valid = false;
-        return;
-      }
-
+      if (!dropInput || !dropBox) return;
       if (!dropInput.value.trim()) {
         dropBox.classList.add("border-red-500");
         dropBox.classList.remove("border-pearl-blue");
@@ -417,29 +414,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    const companyWrapper = section.querySelector(
-      ".grid.grid-cols-3 > div:nth-child(1)",
-    );
+    // Use the responsive grid — grab all direct children
+    const infoGrid = section.querySelector(".grid.gap-5");
+    const gridDivs = infoGrid
+      ? Array.from(infoGrid.querySelectorAll(":scope > div"))
+      : [];
+
+    // gridDivs[0] = Company/Site Name, [1] = Site Type, [2] = Project Type, [3] = Building/Floor
     fieldError(
-      companyWrapper,
-      companyWrapper.querySelector("input"),
+      gridDivs[0],
+      gridDivs[0]?.querySelector("input"),
       "Company/Site name is required.",
       "err-company",
     );
-    dropdownError(
-      section.querySelector(".grid.grid-cols-3 > div:nth-child(2)"),
-      "err-site-type",
-    );
-    dropdownError(
-      section.querySelector(".grid.grid-cols-3 > div:nth-child(3)"),
-      "err-project-type",
-    );
-    const buildingWrapper = section.querySelector(
-      ".grid.grid-cols-3 > div:nth-child(4)",
-    );
+    dropdownError(gridDivs[1], "err-site-type");
+    dropdownError(gridDivs[2], "err-project-type");
     fieldError(
-      buildingWrapper,
-      buildingWrapper.querySelector("input"),
+      gridDivs[3],
+      gridDivs[3]?.querySelector("input"),
       "Building/Floor is required.",
       "err-building",
     );
@@ -457,6 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       removeError(scopeWrapper, "scope-error");
     }
+
     return valid;
   }
 
@@ -478,7 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function dropdownError(wrapper, errorId) {
-      if (!wrapper) return; // ← guard against null
+      if (!wrapper) return;
       const dropInput = wrapper.querySelector("input");
       const dropBox = wrapper.querySelector(
         ".flex.items-center.justify-between",
@@ -497,64 +490,74 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ── Site Contact Person ──────────────────────────────────────────────
-    // Select all grids inside access-timeline and pick the first one (contact grid)
-    const allGrids = section.querySelectorAll(".grid.grid-cols-3");
-    const contactGrid = allGrids[0]; // first grid-cols-3 = contact person
-    const accessGrid = allGrids[1]; // second grid-cols-3 = access information
+    // Target by the heading text to avoid fragile nth-child / grid-cols matching
+    const contactHeading = Array.from(
+      section.querySelectorAll("p.font-semibold.text-sm"),
+    ).find((p) => p.textContent.trim() === "Site Contact Person");
+    const contactGrid = contactHeading
+      ?.closest(".flex.flex-col.gap-2")
+      ?.querySelector(".grid.gap-5");
+    const contactDivs = contactGrid
+      ? Array.from(contactGrid.querySelectorAll(":scope > div"))
+      : [];
 
-    if (contactGrid) {
-      const contactDivs = contactGrid.querySelectorAll(":scope > div");
-      fieldError(
-        contactDivs[0],
-        contactDivs[0]?.querySelector("input"),
-        "Contact person name is required.",
-        "err-contact-name",
-      );
-      fieldError(
-        contactDivs[1],
-        contactDivs[1]?.querySelector("input"),
-        "Mobile number is required.",
-        "err-mobile",
-      );
-      fieldError(
-        contactDivs[3],
-        contactDivs[3]?.querySelector("input"),
-        "Email address is required.",
-        "err-email",
-      );
-    }
+    // [0]=Name [1]=Mobile [2]=Alternate [3]=Email [4]=Department [5]=Designation
+    fieldError(
+      contactDivs[0],
+      contactDivs[0]?.querySelector("input"),
+      "Contact person name is required.",
+      "err-contact-name",
+    );
+    fieldError(
+      contactDivs[1],
+      contactDivs[1]?.querySelector("input"),
+      "Mobile number is required.",
+      "err-mobile",
+    );
+    fieldError(
+      contactDivs[3],
+      contactDivs[3]?.querySelector("input"),
+      "Email address is required.",
+      "err-email",
+    );
 
-    // ── Access Information dropdowns ─────────────────────────────────────
-    // Use .dropdown-wrapper directly inside the access grid — immune to nth-child issues
-    if (accessGrid) {
-      const accessDropdowns = accessGrid.querySelectorAll(".dropdown-wrapper");
-      dropdownError(accessDropdowns[0] || null, "err-entry"); // Entry Instructions
-      dropdownError(accessDropdowns[1] || null, "err-security"); // Security Gate
-      dropdownError(accessDropdowns[2] || null, "err-parking"); // Parking
-      dropdownError(accessDropdowns[3] || null, "err-visitor"); // Visitor Pass
-    }
+    // ── Access Information ───────────────────────────────────────────────
+    const accessHeading = Array.from(
+      section.querySelectorAll("p.font-semibold.text-sm"),
+    ).find((p) => p.textContent.trim() === "Access Information");
+    const accessGrid = accessHeading
+      ?.closest(".flex.flex-col.gap-2")
+      ?.querySelector(".grid.gap-5");
+    const accessDropdowns = accessGrid
+      ? Array.from(accessGrid.querySelectorAll(".dropdown-wrapper"))
+      : [];
+
+    dropdownError(accessDropdowns[0] ?? null, "err-entry"); // Entry Instructions
+    dropdownError(accessDropdowns[1] ?? null, "err-security"); // Security Gate
+    dropdownError(accessDropdowns[2] ?? null, "err-parking"); // Parking
+    dropdownError(accessDropdowns[3] ?? null, "err-visitor"); // Visitor Pass
 
     // ── Urgency Level ────────────────────────────────────────────────────
-    const urgencyGrid = section.querySelector(".grid.grid-cols-3.gap-4");
+    const urgencyHeading = Array.from(
+      section.querySelectorAll("p.font-semibold.text-sm"),
+    ).find((p) => p.textContent.trim() === "Urgency Level");
+    const urgencyWrapper = urgencyHeading?.closest(".flex.flex-col.gap-2\\.5");
+
     if (!selectedUrgency) {
       showError(
-        urgencyGrid?.parentElement,
+        urgencyWrapper ?? section,
         "Please select an urgency level.",
         "urgency-error",
       );
       valid = false;
     } else {
-      removeError(urgencyGrid?.parentElement, "urgency-error");
+      removeError(urgencyWrapper ?? section, "urgency-error");
     }
 
-    // ── Start & End Date ─────────────────────────────────────────────────
+    // ── Preferred Start Date ─────────────────────────────────────────────
     const startInput = section.querySelector(
       "input[placeholder='Select start date']",
     );
-    const endInput = section.querySelector(
-      "input[placeholder='Select end date']",
-    );
-
     if (startInput) {
       const startWrapper = startInput.closest(".flex.flex-col");
       if (!startInput.value.trim()) {
@@ -567,6 +570,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    // ── Preferred End Date ───────────────────────────────────────────────
+    const endInput = section.querySelector(
+      "input[placeholder='Select end date']",
+    );
     if (endInput) {
       const endWrapper = endInput.closest(".flex.flex-col");
       if (!endInput.value.trim()) {
@@ -580,13 +587,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ── Preferred Time Window ────────────────────────────────────────────
-    // Query .dropdown-wrapper elements inside the schedule grid (grid-cols-3 gap-4)
-    const scheduleGrid = section.querySelector(".grid.grid-cols-3.gap-4");
-    if (scheduleGrid) {
-      const scheduleDropdowns =
-        scheduleGrid.querySelectorAll(".dropdown-wrapper");
-      dropdownError(scheduleDropdowns[0] || null, "err-time-window");
-    }
+    const scheduleHeading = Array.from(
+      section.querySelectorAll("p.font-semibold.text-sm"),
+    ).find((p) => p.textContent.trim() === "Schedule & Timeline");
+    const scheduleGrid = scheduleHeading
+      ?.closest(".flex.flex-col.gap-2")
+      ?.querySelector(".grid.gap-4");
+    const scheduleDropdowns = scheduleGrid
+      ? Array.from(scheduleGrid.querySelectorAll(".dropdown-wrapper"))
+      : [];
+
+    dropdownError(scheduleDropdowns[0] ?? null, "err-time-window"); // Preferred Time Window
 
     return valid;
   }
