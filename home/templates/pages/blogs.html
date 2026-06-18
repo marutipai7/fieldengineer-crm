@@ -1,13 +1,146 @@
 {% extends 'pages/layout.html' %}
+{% load static %}
 
-{% block title %}Blogs — FieldEngineer{% endblock %}
+{% block title %}Blog — FieldEngineer{% endblock %}
 
 {% block content %}
-<section class="site-page-hero">
-    <div class="site-page-hero-inner">
-        <p class="site-page-hero-eyebrow">Blogs</p>
-        <h1 class="site-page-hero-title">Field Engineer Blog</h1>
-        <p class="site-page-hero-desc">Add your Blogs Figma sections here.</p>
+<div id="blog-page" data-static-base="{% static 'img/' %}">
+
+<!-- Hero -->
+<section class="blog-hero">
+    <img src="{% static 'img/blog-hero-bg.svg' %}" alt="" aria-hidden="true" class="blog-hero-bg">
+    <div class="blog-hero-overlay" aria-hidden="true"></div>
+
+    <div class="blog-hero-inner">
+        <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+            <a href="{% url 'home' %}">Home</a>
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+            <span class="blog-breadcrumb-current">Blog</span>
+        </nav>
+
+        <div class="blog-hero-content">
+            <p class="blog-hero-eyebrow">FE Blog</p>
+            <h1 class="blog-hero-title">Insights. Trends. Innovation.</h1>
+            <p class="blog-hero-desc">
+                Expert insights, industry trends and best practices in infrastructure and field operations.
+            </p>
+
+            <form class="blog-hero-search" data-blog-search-form role="search">
+                <label class="sr-only" for="blog-search-input">Search articles</label>
+                <input
+                    id="blog-search-input"
+                    type="search"
+                    class="blog-hero-search-input"
+                    placeholder="Search articles, topics and more..."
+                    data-blog-search-input
+                    autocomplete="off"
+                >
+                <button type="submit" class="blog-hero-search-btn">Search</button>
+            </form>
+        </div>
     </div>
 </section>
+
+<!-- Main content -->
+<section class="blog-main" data-blog-content>
+    <div class="blog-main-inner">
+        <div class="blog-layout">
+            <div class="blog-content-col">
+                <nav class="blog-tabs" data-blog-tabs aria-label="Article categories"></nav>
+
+                <div data-blog-featured></div>
+
+                <div class="blog-grid" data-blog-grid></div>
+
+                <nav class="blog-pagination" data-blog-pagination aria-label="Blog pagination"></nav>
+            </div>
+
+            <aside class="blog-sidebar" aria-label="Blog sidebar">
+                <div data-blog-sidebar-categories></div>
+                <div data-blog-sidebar-popular></div>
+
+                <div class="blog-newsletter">
+                    <h2 class="blog-newsletter-title">Stay Updated</h2>
+                    <p class="blog-newsletter-desc">
+                        Subscribe to get the latest insights on field operations, technology trends, and industry best practices.
+                    </p>
+                    <form class="blog-newsletter-form" data-blog-newsletter-form novalidate>
+                        <label class="sr-only" for="blog-newsletter-email">Email address</label>
+                        <input
+                            id="blog-newsletter-email"
+                            type="email"
+                            class="blog-newsletter-input"
+                            placeholder="Enter your email"
+                            required
+                        >
+                        <button type="submit" class="blog-newsletter-btn">Subscribe</button>
+                        <p class="blog-newsletter-note">
+                            By subscribing, you agree to receive updates from Field Engineer. Unsubscribe anytime.
+                        </p>
+                        <p class="blog-newsletter-success" role="status" aria-live="polite">
+                            Thanks for subscribing!
+                        </p>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<!-- Stats bar -->
+<section class="blog-stats-bar" aria-label="Platform statistics">
+    <div class="blog-stats-bar-inner">
+        <div class="blog-stat">
+            <div class="blog-stat-icon">
+                <span class="material-symbols-outlined">groups</span>
+            </div>
+            <div>
+                <strong>15,000+</strong>
+                <span>Certified Engineers</span>
+            </div>
+        </div>
+        <div class="blog-stat">
+            <div class="blog-stat-icon">
+                <span class="material-symbols-outlined">verified_user</span>
+            </div>
+            <div>
+                <strong>350+</strong>
+                <span>Verified Vendors</span>
+            </div>
+        </div>
+        <div class="blog-stat">
+            <div class="blog-stat-icon">
+                <span class="material-symbols-outlined">location_city</span>
+            </div>
+            <div>
+                <strong>120+</strong>
+                <span>Cities Covered</span>
+            </div>
+        </div>
+        <div class="blog-stat">
+            <div class="blog-stat-icon">
+                <span class="material-symbols-outlined">schedule</span>
+            </div>
+            <div>
+                <strong>10M+</strong>
+                <span>Work Hours</span>
+            </div>
+        </div>
+        <div class="blog-stat">
+            <div class="blog-stat-icon">
+                <span class="material-symbols-outlined">check_circle</span>
+            </div>
+            <div>
+                <strong>99.2%</strong>
+                <span>SLA Success</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'script/pages/blogs.js' %}"></script>
 {% endblock %}

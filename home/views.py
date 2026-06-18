@@ -45,3 +45,6 @@ def privacy_policy(request):
 
 def term_condition(request):
     return render(request, 'pages/term-condition.html')
+
+def profile(request):
+    return render(request, 'fieldengineer-crm/profile.html')
