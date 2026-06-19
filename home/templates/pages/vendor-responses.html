@@ -1,722 +1,734 @@
 {% extends 'pages/layout.html' %}
 {% load static %}
 
-{% block title %}Vendor Responses — FieldEngineer{% endblock %}
+{% block title %}Vendor Responses — Compare Engineers &amp; Teams | FieldEngineer{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 {% endblock %}
 
 {% block content %}
-<section class="vr-hero" aria-labelledby="vr-hero-title">
-    <div id="vr-hero-map" class="vr-hero-map" aria-hidden="true"></div>
 
-    <div class="vr-hero-content-wrap">
-        <nav class="vr-breadcrumb" aria-label="Breadcrumb">
-            <a href="{% url 'home' %}">Home</a>
-            <span class="vr-breadcrumb-sep" aria-hidden="true">&gt;</span>
-            <a href="#">Track Request</a>
-            <span class="vr-breadcrumb-sep" aria-hidden="true">&gt;</span>
-            <span class="vr-breadcrumb-current">Vendor Responses</span>
-        </nav>
+<main>
 
-        <h1 id="vr-hero-title" class="vr-hero-title">3 Responses Received</h1>
+    <section class="vr-hero" aria-labelledby="vr-hero-title">
+        <div id="vr-hero-map" class="vr-hero-map" aria-hidden="true"></div>
 
-        <p class="vr-hero-desc">Compare engineers and select the best option for your project.</p>
+        <div class="vr-hero-content-wrap">
+            <nav class="vr-breadcrumb" aria-label="Breadcrumb">
+                <a href="{% url 'home' %}">Home</a>
+                <span class="vr-breadcrumb-sep" aria-hidden="true">&gt;</span>
+                <a href="#">Track Request</a>
+                <span class="vr-breadcrumb-sep" aria-hidden="true">&gt;</span>
+                <span class="vr-breadcrumb-current" aria-current="page">Vendor Responses</span>
+            </nav>
 
-        <div class="vr-request-bar">
-            <div class="vr-request-bar-item">
-                Request ID: <strong>BK-56874</strong>
-            </div>
-            <span class="vr-request-bar-divider" aria-hidden="true"></span>
-            <div class="vr-request-bar-item text-primary tiny-icon">
-                <span class="material-symbols-outlined">person_shield</span>
-                Network Cabling
-            </div>
-            <span class="vr-request-bar-divider" aria-hidden="true"></span>
-            <div class="vr-request-bar-item text-primary tiny-icon">
-                <span class="material-symbols-outlined">pin_drop</span>
-                50 Drops
-            </div>
-            <span class="vr-request-bar-divider" aria-hidden="true"></span>
-            <div class="vr-request-bar-item text-primary tiny-icon">
-                <span class="material-symbols-outlined">location_on</span>
-                Gurugram
+            <h1 id="vr-hero-title" class="vr-hero-title">3 Responses Received</h1>
+
+            <p class="vr-hero-desc">Compare engineers and select the best option for your project.</p>
+
+            <div class="vr-request-bar">
+                <div class="vr-request-bar-item">
+                    Request ID: <strong>BK-56874</strong>
+                </div>
+                <span class="vr-request-bar-divider" aria-hidden="true"></span>
+                <div class="vr-request-bar-item text-primary tiny-icon">
+                    <span class="material-symbols-outlined" aria-hidden="true">person_shield</span>
+                    Network Cabling
+                </div>
+                <span class="vr-request-bar-divider" aria-hidden="true"></span>
+                <div class="vr-request-bar-item text-primary tiny-icon">
+                    <span class="material-symbols-outlined" aria-hidden="true">pin_drop</span>
+                    50 Drops
+                </div>
+                <span class="vr-request-bar-divider" aria-hidden="true"></span>
+                <div class="vr-request-bar-item text-primary tiny-icon">
+                    <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+                    Gurugram
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="vr-map-controls" aria-label="Map controls">
-        <button type="button" class="vr-map-control-btn" id="vr-map-recenter" aria-label="Recenter map">
-            <span class="material-symbols-outlined">my_location</span>
-        </button>
-        <button type="button" class="vr-map-control-btn" id="vr-map-zoom-in" aria-label="Zoom in">
-            <span class="material-symbols-outlined">add</span>
-        </button>
-        <div class="vr-map-zoom-track" aria-hidden="true">
-            <span class="vr-map-zoom-track-line"></span>
-            <span class="vr-map-zoom-track-dot"></span>
-        </div>
-        <button type="button" class="vr-map-control-btn" id="vr-map-zoom-out" aria-label="Zoom out">
-            <span class="material-symbols-outlined">remove</span>
-        </button>
-    </div>
-</section>
-
-<section class="vr-toolbar-section" aria-label="Response filters">
-    <div class="vr-toolbar-inner">
-        <div class="vr-tabs" role="tablist" aria-label="Engineer type">
-            <button
-                type="button"
-                class="vr-tab is-active"
-                role="tab"
-                id="vr-tab-individual"
-                aria-selected="true"
-                aria-controls="vr-panel-individual"
-                data-vr-tab="individual"
-            >
-                <span class="material-symbols-outlined" aria-hidden="true">person</span>
-                Individual Engineers (3)
+        <div class="vr-map-controls" aria-label="Map controls">
+            <button type="button" class="vr-map-control-btn" id="vr-map-recenter" aria-label="Recenter map">
+                <span class="material-symbols-outlined" aria-hidden="true">my_location</span>
             </button>
-            <button
-                type="button"
-                class="vr-tab"
-                role="tab"
-                id="vr-tab-teams"
-                aria-selected="false"
-                aria-controls="vr-panel-teams"
-                data-vr-tab="teams"
-                tabindex="-1"
-            >
-                <span class="material-symbols-outlined" aria-hidden="true">groups</span>
-                Multiple Engineer Teams (3)
+            <button type="button" class="vr-map-control-btn" id="vr-map-zoom-in" aria-label="Zoom in">
+                <span class="material-symbols-outlined" aria-hidden="true">add</span>
+            </button>
+            <div class="vr-map-zoom-track" aria-hidden="true">
+                <span class="vr-map-zoom-track-line"></span>
+                <span class="vr-map-zoom-track-dot"></span>
+            </div>
+            <button type="button" class="vr-map-control-btn" id="vr-map-zoom-out" aria-label="Zoom out">
+                <span class="material-symbols-outlined" aria-hidden="true">remove</span>
             </button>
         </div>
+    </section>
 
-        <div class="vr-sort">
-            <span class="vr-sort-label" id="vr-sort-label">Sort by:</span>
-            <div class="vr-dropdown" data-vr-dropdown>
+   
+    <section class="vr-toolbar-section" aria-label="Response filters">
+        <div class="vr-toolbar-inner">
+            <div class="vr-tabs" role="tablist" aria-label="Engineer type">
                 <button
                     type="button"
-                    class="vr-dropdown-trigger"
-                    id="vr-sort-trigger"
-                    aria-haspopup="listbox"
-                    aria-expanded="false"
-                    aria-labelledby="vr-sort-label vr-sort-trigger"
+                    class="vr-tab is-active"
+                    role="tab"
+                    id="vr-tab-individual"
+                    aria-selected="true"
+                    aria-controls="vr-panel-individual"
+                    data-vr-tab="individual"
                 >
-                    <span class="vr-dropdown-value" data-vr-dropdown-value>Recommended</span>
-                    <span class="material-symbols-outlined vr-dropdown-chevron" aria-hidden="true">expand_more</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">person</span>
+                    Individual Engineers (3)
                 </button>
-                <ul class="vr-dropdown-menu" role="listbox" aria-labelledby="vr-sort-label" hidden>
-                    <li>
-                        <button type="button" class="vr-dropdown-option is-selected" role="option" data-value="recommended" aria-selected="true">
-                            Recommended
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="vr-dropdown-option" role="option" data-value="price-low" aria-selected="false">
-                            Price: Low to High
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="vr-dropdown-option" role="option" data-value="price-high" aria-selected="false">
-                            Price: High to Low
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="vr-dropdown-option" role="option" data-value="rating" aria-selected="false">
-                            Highest Rated
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="vr-dropdown-option" role="option" data-value="response" aria-selected="false">
-                            Fastest Response
-                        </button>
-                    </li>
-                </ul>
-                <input type="hidden" name="sort" value="recommended" data-vr-dropdown-input>
+                <button
+                    type="button"
+                    class="vr-tab"
+                    role="tab"
+                    id="vr-tab-teams"
+                    aria-selected="false"
+                    aria-controls="vr-panel-teams"
+                    data-vr-tab="teams"
+                    tabindex="-1"
+                >
+                    <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+                    Multiple Engineer Teams (3)
+                </button>
+            </div>
+
+            <div class="vr-sort">
+                <span class="vr-sort-label" id="vr-sort-label">Sort by:</span>
+                <div class="vr-dropdown" data-vr-dropdown>
+                    <button
+                        type="button"
+                        class="vr-dropdown-trigger"
+                        id="vr-sort-trigger"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-labelledby="vr-sort-label vr-sort-trigger"
+                    >
+                        <span class="vr-dropdown-value" data-vr-dropdown-value>Recommended</span>
+                        <span class="material-symbols-outlined vr-dropdown-chevron" aria-hidden="true">expand_more</span>
+                    </button>
+                    <ul class="vr-dropdown-menu" role="listbox" aria-labelledby="vr-sort-label" hidden>
+                        <li>
+                            <button type="button" class="vr-dropdown-option is-selected" role="option" data-value="recommended" aria-selected="true">
+                                Recommended
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="vr-dropdown-option" role="option" data-value="price-low" aria-selected="false">
+                                Price: Low to High
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="vr-dropdown-option" role="option" data-value="price-high" aria-selected="false">
+                                Price: High to Low
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="vr-dropdown-option" role="option" data-value="rating" aria-selected="false">
+                                Highest Rated
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="vr-dropdown-option" role="option" data-value="response" aria-selected="false">
+                                Fastest Response
+                            </button>
+                        </li>
+                    </ul>
+                    <input type="hidden" name="sort" value="recommended" data-vr-dropdown-input>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="vr-results">
-    <div
-        id="vr-panel-individual"
-        class="vr-tab-panel is-active"
-        role="tabpanel"
-        aria-labelledby="vr-tab-individual"
-        data-vr-panel="individual"
-    >
-        <div class="vr-engineer-list">
-            <article class="vr-engineer-card">
-                <div class="vr-engineer-card-profile">
-                    <img src="{% static 'img/vendor-responses/engineer-1.jpg' %}" alt="" class="vr-engineer-card-avatar" width="80" height="80" loading="lazy">
-                    <div class="vr-engineer-card-info">
-                        <div class="vr-engineer-card-head">
-                            <h2 class="vr-engineer-card-name">Rohit Sharma</h2>
-                            <span class="vr-engineer-card-badge">Verified Engineer</span>
-                        </div>
-                        <div class="vr-engineer-card-meta">
-                            <span class="vr-engineer-card-rating">
-                                <span class="material-symbols-outlined" aria-hidden="true">star</span>
-                                4.8 (256)
-                            </span>
-                            <span class="vr-engineer-card-meta-sep" aria-hidden="true">|</span>
-                            <span class="text-ink font-medium">5+ Years Experience</span>
-                        </div>
-                        <p class="vr-engineer-card-bio">Experienced network cabling specialist with expertise in structured cabling, fiber optics, and enterprise network deployments.</p>
-                        <div class="vr-engineer-card-skills">
-                            <span class="vr-engineer-card-skills-label">Skills</span>
-                            <div class="vr-engineer-card-tags">
-                                <span class="vr-skill-tag">Network Cabling</span>
-                                <span class="vr-skill-tag">Fiber Splicing</span>
-                                <span class="vr-skill-tag">Rack Installation</span>
-                                <span class="vr-skill-more">+2 more</span>
+    {# ========== RESULTS SECTION ========== #}
+    <section class="vr-results" aria-label="Vendor responses results">
+
+        {# Panel: Individual Engineers #}
+        <div
+            id="vr-panel-individual"
+            class="vr-tab-panel is-active"
+            role="tabpanel"
+            aria-labelledby="vr-tab-individual"
+            data-vr-panel="individual"
+        >
+            <div class="vr-engineer-list">
+                <article class="vr-engineer-card">
+                    <div class="vr-engineer-card-profile">
+                        <img src="{% static 'img/vendor-responses/engineer-1.jpg' %}" alt="Rohit Sharma engineer profile" class="vr-engineer-card-avatar" width="80" height="80" loading="lazy">
+                        <div class="vr-engineer-card-info">
+                            <div class="vr-engineer-card-head">
+                                <h2 class="vr-engineer-card-name">Rohit Sharma</h2>
+                                <span class="vr-engineer-card-badge">Verified Engineer</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="vr-engineer-card-details">
-                    <div class="vr-detail-item">
-                        <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">person</span>
-                        <div class="vr-detail-text">
-                            <strong>₹1,950</strong>
-                            <span>Estimated Price</span>
-                        </div>
-                    </div>
-                    <div class="vr-detail-item">
-                        <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">schedule</span>
-                        <div class="vr-detail-text">
-                            <strong>8 Hours</strong>
-                            <span>Estimated Duration</span>
-                        </div>
-                    </div>
-                    <div class="vr-detail-item">
-                        <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">location_on</span>
-                        <div class="vr-detail-text">
-                            <strong>DLF Cyber City, Gurugram</strong>
-                        </div>
-                    </div>
-                    <div class="vr-detail-item vr-detail-item--available">
-                        <span class="material-symbols-outlined vr-detail-icon vr-detail-icon--green" aria-hidden="true">event_available</span>
-                        <div class="vr-detail-text">
-                            <span class="vr-detail-available-label">Available</span>
-                            <strong class="vr-detail-available-date">Tomorrow, 29 May 2026</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="vr-engineer-card-actions">
-                    <a href="#" class="vr-btn-outline">View Profile</a>
-                    <button type="button" class="vr-btn-primary">Select Engineer</button>
-                </div>
-            </article>
-
-            <article class="vr-engineer-card">
-                <div class="vr-engineer-card-profile">
-                    <img src="{% static 'img/vendor-responses/engineer-2.jpg' %}" alt="" class="vr-engineer-card-avatar" width="72" height="72" loading="lazy">
-                    <div class="vr-engineer-card-info">
-                        <div class="vr-engineer-card-head">
-                            <h2 class="vr-engineer-card-name">Amit Patel</h2>
-                            <span class="vr-engineer-card-badge">Verified Engineer</span>
-                        </div>
-                        <div class="vr-engineer-card-meta">
-                            <span class="vr-engineer-card-rating">
-                                <span class="material-symbols-outlined" aria-hidden="true">star</span>
-                                4.9 (189)
-                            </span>
-                            <span class="vr-engineer-card-meta-sep" aria-hidden="true">|</span>
-                            <span>7+ Years Experience</span>
-                        </div>
-                        <p class="vr-engineer-card-bio">Certified fiber and copper cabling expert focused on data center rollouts, patch panel terminations, and on-site quality assurance.</p>
-                        <div class="vr-engineer-card-skills">
-                            <span class="vr-engineer-card-skills-label">Skills</span>
-                            <div class="vr-engineer-card-tags">
-                                <span class="vr-skill-tag">Fiber Splicing</span>
-                                <span class="vr-skill-tag">Network Cabling</span>
-                                <span class="vr-skill-tag">Testing &amp; QA</span>
-                                <span class="vr-skill-more">+1 more</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="vr-engineer-card-details">
-                    <div class="vr-detail-item">
-                        <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">person</span>
-                        <div class="vr-detail-text">
-                            <strong>₹2,100</strong>
-                            <span>Estimated Price</span>
-                        </div>
-                    </div>
-                    <div class="vr-detail-item">
-                        <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">schedule</span>
-                        <div class="vr-detail-text">
-                            <strong>6 Hours</strong>
-                            <span>Estimated Duration</span>
-                        </div>
-                    </div>
-                    <div class="vr-detail-item">
-                        <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">location_on</span>
-                        <div class="vr-detail-text">
-                            <strong>Udyog Vihar, Gurugram</strong>
-                        </div>
-                    </div>
-                    <div class="vr-detail-item vr-detail-item--available">
-                        <span class="material-symbols-outlined vr-detail-icon vr-detail-icon--green" aria-hidden="true">event_available</span>
-                        <div class="vr-detail-text">
-                            <span class="vr-detail-available-label">Available</span>
-                            <strong class="vr-detail-available-date">30 May 2026</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="vr-engineer-card-actions">
-                    <a href="#" class="vr-btn-outline">View Profile</a>
-                    <button type="button" class="vr-btn-primary">Select Engineer</button>
-                </div>
-            </article>
-
-            <article class="vr-engineer-card">
-                <div class="vr-engineer-card-profile">
-                    <img src="{% static 'img/vendor-responses/engineer-3.jpg' %}" alt="" class="vr-engineer-card-avatar" width="72" height="72" loading="lazy">
-                    <div class="vr-engineer-card-info">
-                        <div class="vr-engineer-card-head">
-                            <h2 class="vr-engineer-card-name">Vikram Singh</h2>
-                            <span class="vr-engineer-card-badge">Verified Engineer</span>
-                        </div>
-                        <div class="vr-engineer-card-meta">
-                            <span class="vr-engineer-card-rating">
-                                <span class="material-symbols-outlined" aria-hidden="true">star</span>
-                                4.7 (312)
-                            </span>
-                            <span class="vr-engineer-card-meta-sep" aria-hidden="true">|</span>
-                            <span>4+ Years Experience</span>
-                        </div>
-                        <p class="vr-engineer-card-bio">Reliable field engineer for structured cabling projects, drop installations, labeling, and end-to-end site handover documentation.</p>
-                        <div class="vr-engineer-card-skills">
-                            <span class="vr-engineer-card-skills-label">Skills</span>
-                            <div class="vr-engineer-card-tags">
-                                <span class="vr-skill-tag">Rack Installation</span>
-                                <span class="vr-skill-tag">Network Cabling</span>
-                                <span class="vr-skill-tag">Cable Management</span>
-                                <span class="vr-skill-more">+3 more</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="vr-engineer-card-details">
-                    <div class="vr-detail-item">
-                        <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">person</span>
-                        <div class="vr-detail-text">
-                            <strong>₹1,850</strong>
-                            <span>Estimated Price</span>
-                        </div>
-                    </div>
-                    <div class="vr-detail-item">
-                        <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">schedule</span>
-                        <div class="vr-detail-text">
-                            <strong>10 Hours</strong>
-                            <span>Estimated Duration</span>
-                        </div>
-                    </div>
-                    <div class="vr-detail-item">
-                        <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">location_on</span>
-                        <div class="vr-detail-text">
-                            <strong>Sector 44, Gurugram</strong>
-                        </div>
-                    </div>
-                    <div class="vr-detail-item vr-detail-item--available">
-                        <span class="material-symbols-outlined vr-detail-icon vr-detail-icon--green" aria-hidden="true">event_available</span>
-                        <div class="vr-detail-text">
-                            <span class="vr-detail-available-label">Available</span>
-                            <strong class="vr-detail-available-date">31 May 2026</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="vr-engineer-card-actions">
-                    <a href="#" class="vr-btn-outline">View Profile</a>
-                    <button type="button" class="vr-btn-primary">Select Engineer</button>
-                </div>
-            </article>
-        </div>
-    </div>
-
-    <div
-        id="vr-panel-teams"
-        class="vr-tab-panel"
-        role="tabpanel"
-        aria-labelledby="vr-tab-teams"
-        data-vr-panel="teams"
-        hidden
-    >
-        <div class="vr-team-list">
-            <article class="vr-team-card">
-                <div class="vr-team-card-main">
-                    <div class="vr-team-card-company">
-                        <div class="vr-team-card-logo vr-team-card-logo--blue" aria-hidden="true">
-                            <span class="material-symbols-outlined">hub</span>
-                        </div>
-                        <div class="vr-team-card-company-info">
-                            <div class="vr-team-card-head">
-                                <h2 class="vr-team-card-name">Network Experts Pvt. Ltd.</h2>
-                                <span class="vr-team-card-badge">Verified Vendor</span>
-                            </div>
-                            <div class="vr-team-card-meta">
-                                <span class="vr-team-card-rating">
+                            <div class="vr-engineer-card-meta">
+                                <span class="vr-engineer-card-rating">
                                     <span class="material-symbols-outlined" aria-hidden="true">star</span>
                                     4.8 (256)
                                 </span>
-                                <span class="vr-team-card-meta-sep" aria-hidden="true">&bull;</span>
-                                <span>5+ Years in Service</span>
+                                <span class="vr-engineer-card-meta-sep" aria-hidden="true">|</span>
+                                <span class="text-ink font-medium">5+ Years Experience</span>
                             </div>
-                            <p class="vr-team-card-desc">Leading network infrastructure company specializing in enterprise cabling, fiber deployment, and structured cabling solutions across India.</p>
+                            <p class="vr-engineer-card-bio">Experienced network cabling specialist with expertise in structured cabling, fiber optics, and enterprise network deployments.</p>
+                            <div class="vr-engineer-card-skills">
+                                <span class="vr-engineer-card-skills-label">Skills</span>
+                                <div class="vr-engineer-card-tags">
+                                    <span class="vr-skill-tag">Network Cabling</span>
+                                    <span class="vr-skill-tag">Fiber Splicing</span>
+                                    <span class="vr-skill-tag">Rack Installation</span>
+                                    <span class="vr-skill-more">+2 more</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="vr-team-card-composition">
-                        <div class="vr-team-stat">
-                            <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">groups</span>
-                            <span><strong>10</strong> Engineers</span>
+                    <div class="vr-engineer-card-details">
+                        <div class="vr-detail-item">
+                            <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">person</span>
+                            <div class="vr-detail-text">
+                                <strong>₹1,950</strong>
+                                <span>Estimated Price</span>
+                            </div>
                         </div>
-                        <div class="vr-team-stat">
-                            <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">assignment_ind</span>
-                            <span><strong>2</strong> Supervisors</span>
-                        </div>
-                        <div class="vr-team-stat">
-                            <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">manage_search</span>
-                            <span><strong>2</strong> Quality Checkers</span>
-                        </div>
-                    </div>
-
-                    <div class="vr-team-card-pricing">
-                        <div class="vr-team-price-block">
-                            <strong class="vr-team-price">₹7,434</strong>
-                            <span class="vr-team-price-label">Estimated Price</span>
-                        </div>
-                        <div class="vr-team-pricing-row">
-                            <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">schedule</span>
-                            <div>
-                                <strong>15 Hours</strong>
+                        <div class="vr-detail-item">
+                            <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">schedule</span>
+                            <div class="vr-detail-text">
+                                <strong>8 Hours</strong>
                                 <span>Estimated Duration</span>
                             </div>
                         </div>
-                        <div class="vr-team-pricing-row">
-                            <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">location_on</span>
-                            <div>
+                        <div class="vr-detail-item">
+                            <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">location_on</span>
+                            <div class="vr-detail-text">
                                 <strong>DLF Cyber City, Gurugram</strong>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="vr-team-card-aside">
-                        <div class="vr-team-preview">
-                            <span class="vr-team-preview-label">Team Preview</span>
-                            <div class="vr-team-preview-avatars" aria-label="4 of 11 team members shown">
-                                <img src="{% static 'img/vendor-responses/engineer-1.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <img src="{% static 'img/vendor-responses/engineer-2.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <img src="{% static 'img/vendor-responses/engineer-3.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <img src="{% static 'img/vendor-responses/engineer-4.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <span class="vr-team-preview-more">+7</span>
+                        <div class="vr-detail-item vr-detail-item--available">
+                            <span class="material-symbols-outlined vr-detail-icon vr-detail-icon--green" aria-hidden="true">event_available</span>
+                            <div class="vr-detail-text">
+                                <span class="vr-detail-available-label">Available</span>
+                                <strong class="vr-detail-available-date">Tomorrow, 29 May 2026</strong>
                             </div>
                         </div>
-                        <button type="button" class="vr-team-btn-outline">
-                            View Details
-                            <span class="material-symbols-outlined" aria-hidden="true">info</span>
-                        </button>
-                        <button type="button" class="vr-team-btn-primary">
-                            Accept Offer
-                            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                        </button>
                     </div>
-                </div>
 
-                <div class="vr-team-card-trust">
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon vr-team-trust-icon--green" aria-hidden="true">schedule</span>
-                        <div>
-                            <strong>On-time Delivery</strong>
-                            <span>98% Projects</span>
-                        </div>
+                    <div class="vr-engineer-card-actions">
+                        <a href="#" class="vr-btn-outline">View Profile</a>
+                        <button type="button" class="vr-btn-primary">Select Engineer</button>
                     </div>
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">verified_user</span>
-                        <div>
-                            <strong>Quality Assurance</strong>
-                            <span>ISO Certified</span>
-                        </div>
-                    </div>
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">shield</span>
-                        <div>
-                            <strong>Service Warranty</strong>
-                            <span>90 Days</span>
-                        </div>
-                    </div>
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">badge</span>
-                        <div>
-                            <strong>Background Checked</strong>
-                            <span>100% Engineers</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="vr-team-card">
-                <div class="vr-team-card-main">
-                    <div class="vr-team-card-company">
-                        <div class="vr-team-card-logo vr-team-card-logo--green" aria-hidden="true">
-                            <span>T</span>
-                        </div>
-                        <div class="vr-team-card-company-info">
-                            <div class="vr-team-card-head">
-                                <h2 class="vr-team-card-name">TechWorks Solutions</h2>
-                                <span class="vr-team-card-badge">Verified Vendor</span>
+                <article class="vr-engineer-card">
+                    <div class="vr-engineer-card-profile">
+                        <img src="{% static 'img/vendor-responses/engineer-2.jpg' %}" alt="Amit Patel engineer profile" class="vr-engineer-card-avatar" width="72" height="72" loading="lazy">
+                        <div class="vr-engineer-card-info">
+                            <div class="vr-engineer-card-head">
+                                <h2 class="vr-engineer-card-name">Amit Patel</h2>
+                                <span class="vr-engineer-card-badge">Verified Engineer</span>
                             </div>
-                            <div class="vr-team-card-meta">
-                                <span class="vr-team-card-rating">
+                            <div class="vr-engineer-card-meta">
+                                <span class="vr-engineer-card-rating">
                                     <span class="material-symbols-outlined" aria-hidden="true">star</span>
                                     4.9 (189)
                                 </span>
-                                <span class="vr-team-card-meta-sep" aria-hidden="true">&bull;</span>
-                                <span>7+ Years in Service</span>
+                                <span class="vr-engineer-card-meta-sep" aria-hidden="true">|</span>
+                                <span>7+ Years Experience</span>
                             </div>
-                            <p class="vr-team-card-desc">Certified team for data center rollouts, patch panel terminations, fiber splicing, and on-site quality assurance at scale.</p>
+                            <p class="vr-engineer-card-bio">Certified fiber and copper cabling expert focused on data center rollouts, patch panel terminations, and on-site quality assurance.</p>
+                            <div class="vr-engineer-card-skills">
+                                <span class="vr-engineer-card-skills-label">Skills</span>
+                                <div class="vr-engineer-card-tags">
+                                    <span class="vr-skill-tag">Fiber Splicing</span>
+                                    <span class="vr-skill-tag">Network Cabling</span>
+                                    <span class="vr-skill-tag">Testing &amp; QA</span>
+                                    <span class="vr-skill-more">+1 more</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="vr-team-card-composition">
-                        <div class="vr-team-stat">
-                            <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">groups</span>
-                            <span><strong>8</strong> Engineers</span>
+                    <div class="vr-engineer-card-details">
+                        <div class="vr-detail-item">
+                            <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">person</span>
+                            <div class="vr-detail-text">
+                                <strong>₹2,100</strong>
+                                <span>Estimated Price</span>
+                            </div>
                         </div>
-                        <div class="vr-team-stat">
-                            <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">assignment_ind</span>
-                            <span><strong>2</strong> Supervisors</span>
-                        </div>
-                        <div class="vr-team-stat">
-                            <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">manage_search</span>
-                            <span><strong>1</strong> Quality Checker</span>
-                        </div>
-                    </div>
-
-                    <div class="vr-team-card-pricing">
-                        <div class="vr-team-price-block">
-                            <strong class="vr-team-price">₹8,250</strong>
-                            <span class="vr-team-price-label">Estimated Price</span>
-                        </div>
-                        <div class="vr-team-pricing-row">
-                            <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">schedule</span>
-                            <div>
-                                <strong>14 Hours</strong>
+                        <div class="vr-detail-item">
+                            <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">schedule</span>
+                            <div class="vr-detail-text">
+                                <strong>6 Hours</strong>
                                 <span>Estimated Duration</span>
                             </div>
                         </div>
-                        <div class="vr-team-pricing-row">
-                            <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">location_on</span>
-                            <div>
+                        <div class="vr-detail-item">
+                            <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">location_on</span>
+                            <div class="vr-detail-text">
                                 <strong>Udyog Vihar, Gurugram</strong>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="vr-team-card-aside">
-                        <div class="vr-team-preview">
-                            <span class="vr-team-preview-label">Team Preview</span>
-                            <div class="vr-team-preview-avatars" aria-label="4 of 9 team members shown">
-                                <img src="{% static 'img/vendor-responses/engineer-2.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <img src="{% static 'img/vendor-responses/engineer-3.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <img src="{% static 'img/vendor-responses/engineer-4.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <img src="{% static 'img/vendor-responses/engineer-1.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <span class="vr-team-preview-more">+5</span>
+                        <div class="vr-detail-item vr-detail-item--available">
+                            <span class="material-symbols-outlined vr-detail-icon vr-detail-icon--green" aria-hidden="true">event_available</span>
+                            <div class="vr-detail-text">
+                                <span class="vr-detail-available-label">Available</span>
+                                <strong class="vr-detail-available-date">30 May 2026</strong>
                             </div>
                         </div>
-                        <button type="button" class="vr-team-btn-outline">
-                            View Details
-                            <span class="material-symbols-outlined" aria-hidden="true">info</span>
-                        </button>
-                        <button type="button" class="vr-team-btn-primary">
-                            Accept Offer
-                            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                        </button>
                     </div>
-                </div>
 
-                <div class="vr-team-card-trust">
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon vr-team-trust-icon--green" aria-hidden="true">schedule</span>
-                        <div>
-                            <strong>On-time Delivery</strong>
-                            <span>96% Projects</span>
-                        </div>
+                    <div class="vr-engineer-card-actions">
+                        <a href="#" class="vr-btn-outline">View Profile</a>
+                        <button type="button" class="vr-btn-primary">Select Engineer</button>
                     </div>
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">verified_user</span>
-                        <div>
-                            <strong>Quality Assurance</strong>
-                            <span>ISO Certified</span>
-                        </div>
-                    </div>
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">shield</span>
-                        <div>
-                            <strong>Service Warranty</strong>
-                            <span>60 Days</span>
-                        </div>
-                    </div>
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">badge</span>
-                        <div>
-                            <strong>Background Checked</strong>
-                            <span>100% Engineers</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="vr-team-card">
-                <div class="vr-team-card-main">
-                    <div class="vr-team-card-company">
-                        <div class="vr-team-card-logo vr-team-card-logo--orange" aria-hidden="true">
-                            <span>CW</span>
-                        </div>
-                        <div class="vr-team-card-company-info">
-                            <div class="vr-team-card-head">
-                                <h2 class="vr-team-card-name">CableWorks India Pvt. Ltd.</h2>
-                                <span class="vr-team-card-badge">Verified Vendor</span>
+                <article class="vr-engineer-card">
+                    <div class="vr-engineer-card-profile">
+                        <img src="{% static 'img/vendor-responses/engineer-3.jpg' %}" alt="Vikram Singh engineer profile" class="vr-engineer-card-avatar" width="72" height="72" loading="lazy">
+                        <div class="vr-engineer-card-info">
+                            <div class="vr-engineer-card-head">
+                                <h2 class="vr-engineer-card-name">Vikram Singh</h2>
+                                <span class="vr-engineer-card-badge">Verified Engineer</span>
                             </div>
-                            <div class="vr-team-card-meta">
-                                <span class="vr-team-card-rating">
+                            <div class="vr-engineer-card-meta">
+                                <span class="vr-engineer-card-rating">
                                     <span class="material-symbols-outlined" aria-hidden="true">star</span>
                                     4.7 (312)
                                 </span>
-                                <span class="vr-team-card-meta-sep" aria-hidden="true">&bull;</span>
-                                <span>4+ Years in Service</span>
+                                <span class="vr-engineer-card-meta-sep" aria-hidden="true">|</span>
+                                <span>4+ Years Experience</span>
                             </div>
-                            <p class="vr-team-card-desc">Reliable field teams for structured cabling projects, drop installations, labeling, and end-to-end site handover documentation.</p>
+                            <p class="vr-engineer-card-bio">Reliable field engineer for structured cabling projects, drop installations, labeling, and end-to-end site handover documentation.</p>
+                            <div class="vr-engineer-card-skills">
+                                <span class="vr-engineer-card-skills-label">Skills</span>
+                                <div class="vr-engineer-card-tags">
+                                    <span class="vr-skill-tag">Rack Installation</span>
+                                    <span class="vr-skill-tag">Network Cabling</span>
+                                    <span class="vr-skill-tag">Cable Management</span>
+                                    <span class="vr-skill-more">+3 more</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="vr-team-card-composition">
-                        <div class="vr-team-stat">
-                            <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">groups</span>
-                            <span><strong>12</strong> Engineers</span>
+                    <div class="vr-engineer-card-details">
+                        <div class="vr-detail-item">
+                            <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">person</span>
+                            <div class="vr-detail-text">
+                                <strong>₹1,850</strong>
+                                <span>Estimated Price</span>
+                            </div>
                         </div>
-                        <div class="vr-team-stat">
-                            <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">assignment_ind</span>
-                            <span><strong>3</strong> Supervisors</span>
-                        </div>
-                        <div class="vr-team-stat">
-                            <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">manage_search</span>
-                            <span><strong>2</strong> Quality Checkers</span>
-                        </div>
-                    </div>
-
-                    <div class="vr-team-card-pricing">
-                        <div class="vr-team-price-block">
-                            <strong class="vr-team-price">₹8,550</strong>
-                            <span class="vr-team-price-label">Estimated Price</span>
-                        </div>
-                        <div class="vr-team-pricing-row">
-                            <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">schedule</span>
-                            <div>
-                                <strong>12 Hours</strong>
+                        <div class="vr-detail-item">
+                            <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">schedule</span>
+                            <div class="vr-detail-text">
+                                <strong>10 Hours</strong>
                                 <span>Estimated Duration</span>
                             </div>
                         </div>
-                        <div class="vr-team-pricing-row">
-                            <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">location_on</span>
-                            <div>
+                        <div class="vr-detail-item">
+                            <span class="material-symbols-outlined vr-detail-icon" aria-hidden="true">location_on</span>
+                            <div class="vr-detail-text">
                                 <strong>Sector 44, Gurugram</strong>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="vr-team-card-aside">
-                        <div class="vr-team-preview">
-                            <span class="vr-team-preview-label">Team Preview</span>
-                            <div class="vr-team-preview-avatars" aria-label="4 of 15 team members shown">
-                                <img src="{% static 'img/vendor-responses/engineer-3.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <img src="{% static 'img/vendor-responses/engineer-4.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <img src="{% static 'img/vendor-responses/engineer-1.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <img src="{% static 'img/vendor-responses/engineer-2.jpg' %}" alt="" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
-                                <span class="vr-team-preview-more">+11</span>
+                        <div class="vr-detail-item vr-detail-item--available">
+                            <span class="material-symbols-outlined vr-detail-icon vr-detail-icon--green" aria-hidden="true">event_available</span>
+                            <div class="vr-detail-text">
+                                <span class="vr-detail-available-label">Available</span>
+                                <strong class="vr-detail-available-date">31 May 2026</strong>
                             </div>
                         </div>
-                        <button type="button" class="vr-team-btn-outline">
-                            View Details
-                            <span class="material-symbols-outlined" aria-hidden="true">info</span>
-                        </button>
-                        <button type="button" class="vr-team-btn-primary">
-                            Accept Offer
-                            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                        </button>
                     </div>
-                </div>
 
-                <div class="vr-team-card-trust">
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon vr-team-trust-icon--green" aria-hidden="true">schedule</span>
-                        <div>
-                            <strong>On-time Delivery</strong>
-                            <span>94% Projects</span>
-                        </div>
+                    <div class="vr-engineer-card-actions">
+                        <a href="#" class="vr-btn-outline">View Profile</a>
+                        <button type="button" class="vr-btn-primary">Select Engineer</button>
                     </div>
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">verified_user</span>
-                        <div>
-                            <strong>Quality Assurance</strong>
-                            <span>ISO Certified</span>
-                        </div>
-                    </div>
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">shield</span>
-                        <div>
-                            <strong>Service Warranty</strong>
-                            <span>90 Days</span>
-                        </div>
-                    </div>
-                    <div class="vr-team-trust-item">
-                        <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">badge</span>
-                        <div>
-                            <strong>Background Checked</strong>
-                            <span>100% Engineers</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-</section>
-
-<section class="vr-help-banner" aria-labelledby="vr-help-title">
-    <div class="vr-help-banner-inner">
-        <div class="vr-help-banner-content">
-            <div class="vr-help-banner-icon" aria-hidden="true">
-                <span class="material-symbols-outlined">headset_mic</span>
-            </div>
-            <div class="vr-help-banner-text">
-                <h2 id="vr-help-title" class="vr-help-banner-title">Need help choosing the right engineer?</h2>
-                <p class="vr-help-banner-desc">Talk to our experts before making your decision.</p>
+                </article>
             </div>
         </div>
-        <div class="vr-help-banner-actions">
-            <button type="button" class="vr-help-btn-white">
-                <span class="material-symbols-outlined" aria-hidden="true">headset_mic</span>
-                Talk to Expert
-            </button>
-            <button type="button" class="vr-help-btn-outline">
-                <span class="material-symbols-outlined" aria-hidden="true">call</span>
-                Request Callback
-            </button>
+
+        {# Panel: Teams #}
+        <div
+            id="vr-panel-teams"
+            class="vr-tab-panel"
+            role="tabpanel"
+            aria-labelledby="vr-tab-teams"
+            data-vr-panel="teams"
+            hidden
+        >
+            <div class="vr-team-list">
+                <article class="vr-team-card">
+                    <div class="vr-team-card-main">
+                        <div class="vr-team-card-company">
+                            <div class="vr-team-card-logo vr-team-card-logo--blue" aria-hidden="true">
+                                <span class="material-symbols-outlined">hub</span>
+                            </div>
+                            <div class="vr-team-card-company-info">
+                                <div class="vr-team-card-head">
+                                    <h2 class="vr-team-card-name">Network Experts Pvt. Ltd.</h2>
+                                    <span class="vr-team-card-badge">Verified Vendor</span>
+                                </div>
+                                <div class="vr-team-card-meta">
+                                    <span class="vr-team-card-rating">
+                                        <span class="material-symbols-outlined" aria-hidden="true">star</span>
+                                        4.8 (256)
+                                    </span>
+                                    <span class="vr-team-card-meta-sep" aria-hidden="true">&bull;</span>
+                                    <span>5+ Years in Service</span>
+                                </div>
+                                <p class="vr-team-card-desc">Leading network infrastructure company specializing in enterprise cabling, fiber deployment, and structured cabling solutions across India.</p>
+                            </div>
+                        </div>
+
+                        <div class="vr-team-card-composition">
+                            <div class="vr-team-stat">
+                                <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">groups</span>
+                                <span><strong>10</strong> Engineers</span>
+                            </div>
+                            <div class="vr-team-stat">
+                                <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">assignment_ind</span>
+                                <span><strong>2</strong> Supervisors</span>
+                            </div>
+                            <div class="vr-team-stat">
+                                <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">manage_search</span>
+                                <span><strong>2</strong> Quality Checkers</span>
+                            </div>
+                        </div>
+
+                        <div class="vr-team-card-pricing">
+                            <div class="vr-team-price-block">
+                                <strong class="vr-team-price">₹7,434</strong>
+                                <span class="vr-team-price-label">Estimated Price</span>
+                            </div>
+                            <div class="vr-team-pricing-row">
+                                <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">schedule</span>
+                                <div>
+                                    <strong>15 Hours</strong>
+                                    <span>Estimated Duration</span>
+                                </div>
+                            </div>
+                            <div class="vr-team-pricing-row">
+                                <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">location_on</span>
+                                <div>
+                                    <strong>DLF Cyber City, Gurugram</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vr-team-card-aside">
+                            <div class="vr-team-preview">
+                                <span class="vr-team-preview-label">Team Preview</span>
+                                <div class="vr-team-preview-avatars" aria-label="4 of 11 team members shown">
+                                    <img src="{% static 'img/vendor-responses/engineer-1.jpg' %}" alt="Network Experts team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <img src="{% static 'img/vendor-responses/engineer-2.jpg' %}" alt="Network Experts team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <img src="{% static 'img/vendor-responses/engineer-3.jpg' %}" alt="Network Experts team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <img src="{% static 'img/vendor-responses/engineer-4.jpg' %}" alt="Network Experts team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <span class="vr-team-preview-more">+7</span>
+                                </div>
+                            </div>
+                            <button type="button" class="vr-team-btn-outline">
+                                View Details
+                                <span class="material-symbols-outlined" aria-hidden="true">info</span>
+                            </button>
+                            <button type="button" class="vr-team-btn-primary">
+                                Accept Offer
+                                <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="vr-team-card-trust">
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon vr-team-trust-icon--green" aria-hidden="true">schedule</span>
+                            <div>
+                                <strong>On-time Delivery</strong>
+                                <span>98% Projects</span>
+                            </div>
+                        </div>
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">verified_user</span>
+                            <div>
+                                <strong>Quality Assurance</strong>
+                                <span>ISO Certified</span>
+                            </div>
+                        </div>
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">shield</span>
+                            <div>
+                                <strong>Service Warranty</strong>
+                                <span>90 Days</span>
+                            </div>
+                        </div>
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">badge</span>
+                            <div>
+                                <strong>Background Checked</strong>
+                                <span>100% Engineers</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="vr-team-card">
+                    <div class="vr-team-card-main">
+                        <div class="vr-team-card-company">
+                            <div class="vr-team-card-logo vr-team-card-logo--green" aria-hidden="true">
+                                <span>T</span>
+                            </div>
+                            <div class="vr-team-card-company-info">
+                                <div class="vr-team-card-head">
+                                    <h2 class="vr-team-card-name">TechWorks Solutions</h2>
+                                    <span class="vr-team-card-badge">Verified Vendor</span>
+                                </div>
+                                <div class="vr-team-card-meta">
+                                    <span class="vr-team-card-rating">
+                                        <span class="material-symbols-outlined" aria-hidden="true">star</span>
+                                        4.9 (189)
+                                    </span>
+                                    <span class="vr-team-card-meta-sep" aria-hidden="true">&bull;</span>
+                                    <span>7+ Years in Service</span>
+                                </div>
+                                <p class="vr-team-card-desc">Certified team for data center rollouts, patch panel terminations, fiber splicing, and on-site quality assurance at scale.</p>
+                            </div>
+                        </div>
+
+                        <div class="vr-team-card-composition">
+                            <div class="vr-team-stat">
+                                <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">groups</span>
+                                <span><strong>8</strong> Engineers</span>
+                            </div>
+                            <div class="vr-team-stat">
+                                <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">assignment_ind</span>
+                                <span><strong>2</strong> Supervisors</span>
+                            </div>
+                            <div class="vr-team-stat">
+                                <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">manage_search</span>
+                                <span><strong>1</strong> Quality Checker</span>
+                            </div>
+                        </div>
+
+                        <div class="vr-team-card-pricing">
+                            <div class="vr-team-price-block">
+                                <strong class="vr-team-price">₹8,250</strong>
+                                <span class="vr-team-price-label">Estimated Price</span>
+                            </div>
+                            <div class="vr-team-pricing-row">
+                                <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">schedule</span>
+                                <div>
+                                    <strong>14 Hours</strong>
+                                    <span>Estimated Duration</span>
+                                </div>
+                            </div>
+                            <div class="vr-team-pricing-row">
+                                <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">location_on</span>
+                                <div>
+                                    <strong>Udyog Vihar, Gurugram</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vr-team-card-aside">
+                            <div class="vr-team-preview">
+                                <span class="vr-team-preview-label">Team Preview</span>
+                                <div class="vr-team-preview-avatars" aria-label="4 of 9 team members shown">
+                                    <img src="{% static 'img/vendor-responses/engineer-2.jpg' %}" alt="TechWorks team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <img src="{% static 'img/vendor-responses/engineer-3.jpg' %}" alt="TechWorks team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <img src="{% static 'img/vendor-responses/engineer-4.jpg' %}" alt="TechWorks team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <img src="{% static 'img/vendor-responses/engineer-1.jpg' %}" alt="TechWorks team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <span class="vr-team-preview-more">+5</span>
+                                </div>
+                            </div>
+                            <button type="button" class="vr-team-btn-outline">
+                                View Details
+                                <span class="material-symbols-outlined" aria-hidden="true">info</span>
+                            </button>
+                            <button type="button" class="vr-team-btn-primary">
+                                Accept Offer
+                                <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="vr-team-card-trust">
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon vr-team-trust-icon--green" aria-hidden="true">schedule</span>
+                            <div>
+                                <strong>On-time Delivery</strong>
+                                <span>96% Projects</span>
+                            </div>
+                        </div>
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">verified_user</span>
+                            <div>
+                                <strong>Quality Assurance</strong>
+                                <span>ISO Certified</span>
+                            </div>
+                        </div>
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">shield</span>
+                            <div>
+                                <strong>Service Warranty</strong>
+                                <span>60 Days</span>
+                            </div>
+                        </div>
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">badge</span>
+                            <div>
+                                <strong>Background Checked</strong>
+                                <span>100% Engineers</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="vr-team-card">
+                    <div class="vr-team-card-main">
+                        <div class="vr-team-card-company">
+                            <div class="vr-team-card-logo vr-team-card-logo--orange" aria-hidden="true">
+                                <span>CW</span>
+                            </div>
+                            <div class="vr-team-card-company-info">
+                                <div class="vr-team-card-head">
+                                    <h2 class="vr-team-card-name">CableWorks India Pvt. Ltd.</h2>
+                                    <span class="vr-team-card-badge">Verified Vendor</span>
+                                </div>
+                                <div class="vr-team-card-meta">
+                                    <span class="vr-team-card-rating">
+                                        <span class="material-symbols-outlined" aria-hidden="true">star</span>
+                                        4.7 (312)
+                                    </span>
+                                    <span class="vr-team-card-meta-sep" aria-hidden="true">&bull;</span>
+                                    <span>4+ Years in Service</span>
+                                </div>
+                                <p class="vr-team-card-desc">Reliable field teams for structured cabling projects, drop installations, labeling, and end-to-end site handover documentation.</p>
+                            </div>
+                        </div>
+
+                        <div class="vr-team-card-composition">
+                            <div class="vr-team-stat">
+                                <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">groups</span>
+                                <span><strong>12</strong> Engineers</span>
+                            </div>
+                            <div class="vr-team-stat">
+                                <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">assignment_ind</span>
+                                <span><strong>3</strong> Supervisors</span>
+                            </div>
+                            <div class="vr-team-stat">
+                                <span class="material-symbols-outlined vr-team-stat-icon" aria-hidden="true">manage_search</span>
+                                <span><strong>2</strong> Quality Checkers</span>
+                            </div>
+                        </div>
+
+                        <div class="vr-team-card-pricing">
+                            <div class="vr-team-price-block">
+                                <strong class="vr-team-price">₹8,550</strong>
+                                <span class="vr-team-price-label">Estimated Price</span>
+                            </div>
+                            <div class="vr-team-pricing-row">
+                                <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">schedule</span>
+                                <div>
+                                    <strong>12 Hours</strong>
+                                    <span>Estimated Duration</span>
+                                </div>
+                            </div>
+                            <div class="vr-team-pricing-row">
+                                <span class="material-symbols-outlined vr-team-pricing-icon" aria-hidden="true">location_on</span>
+                                <div>
+                                    <strong>Sector 44, Gurugram</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vr-team-card-aside">
+                            <div class="vr-team-preview">
+                                <span class="vr-team-preview-label">Team Preview</span>
+                                <div class="vr-team-preview-avatars" aria-label="4 of 15 team members shown">
+                                    <img src="{% static 'img/vendor-responses/engineer-3.jpg' %}" alt="CableWorks team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <img src="{% static 'img/vendor-responses/engineer-4.jpg' %}" alt="CableWorks team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <img src="{% static 'img/vendor-responses/engineer-1.jpg' %}" alt="CableWorks team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <img src="{% static 'img/vendor-responses/engineer-2.jpg' %}" alt="CableWorks team member" class="vr-team-preview-avatar" width="32" height="32" loading="lazy">
+                                    <span class="vr-team-preview-more">+11</span>
+                                </div>
+                            </div>
+                            <button type="button" class="vr-team-btn-outline">
+                                View Details
+                                <span class="material-symbols-outlined" aria-hidden="true">info</span>
+                            </button>
+                            <button type="button" class="vr-team-btn-primary">
+                                Accept Offer
+                                <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="vr-team-card-trust">
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon vr-team-trust-icon--green" aria-hidden="true">schedule</span>
+                            <div>
+                                <strong>On-time Delivery</strong>
+                                <span>94% Projects</span>
+                            </div>
+                        </div>
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">verified_user</span>
+                            <div>
+                                <strong>Quality Assurance</strong>
+                                <span>ISO Certified</span>
+                            </div>
+                        </div>
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">shield</span>
+                            <div>
+                                <strong>Service Warranty</strong>
+                                <span>90 Days</span>
+                            </div>
+                        </div>
+                        <div class="vr-team-trust-item">
+                            <span class="material-symbols-outlined vr-team-trust-icon" aria-hidden="true">badge</span>
+                            <div>
+                                <strong>Background Checked</strong>
+                                <span>100% Engineers</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    {# ========== HELP BANNER ========== #}
+    <section class="vr-help-banner" aria-labelledby="vr-help-title">
+        <div class="vr-help-banner-inner">
+            <div class="vr-help-banner-content">
+                <div class="vr-help-banner-icon" aria-hidden="true">
+                    <span class="material-symbols-outlined">headset_mic</span>
+                </div>
+                <div class="vr-help-banner-text">
+                    <h2 id="vr-help-title" class="vr-help-banner-title">Need help choosing the right engineer?</h2>
+                    <p class="vr-help-banner-desc">Talk to our experts before making your decision.</p>
+                </div>
+            </div>
+            <div class="vr-help-banner-actions">
+                <button type="button" class="vr-help-btn-white">
+                    <span class="material-symbols-outlined" aria-hidden="true">headset_mic</span>
+                    Talk to Expert
+                </button>
+                <button type="button" class="vr-help-btn-outline">
+                    <span class="material-symbols-outlined" aria-hidden="true">call</span>
+                    Request Callback
+                </button>
+            </div>
+        </div>
+    </section>
+
+</main>
+
 {% endblock %}
 
 {% block extra_js %}
