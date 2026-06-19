@@ -1000,6 +1000,9 @@
   .w-\[105px\] {
     width: 105px;
   }
+  .w-\[180px\] {
+    width: 180px;
+  }
   .w-\[200px\] {
     width: 200px;
   }
@@ -1422,6 +1425,9 @@
     :where(& > :not(:last-child)) {
       border-color: var(--color-slate-100);
     }
+  }
+  .self-center {
+    align-self: center;
   }
   .overflow-hidden {
     overflow: hidden;
@@ -4009,6 +4015,11 @@
       max-width: 280px;
     }
   }
+  .lg\:max-w-\[350px\] {
+    @media (width >= 64rem) {
+      max-width: 350px;
+    }
+  }
   .lg\:max-w-\[580px\] {
     @media (width >= 64rem) {
       max-width: 580px;
@@ -4163,6 +4174,11 @@
   .lg\:gap-12 {
     @media (width >= 64rem) {
       gap: calc(var(--spacing) * 12);
+    }
+  }
+  .lg\:justify-self-end {
+    @media (width >= 64rem) {
+      justify-self: flex-end;
     }
   }
   .lg\:border-r {
