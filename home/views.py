@@ -35,9 +35,11 @@ def blogs(request):
 def contact(request):
     return render(request, 'pages/contact.html')
 
-
 def help_center(request):
     return render(request, 'pages/help-center.html')
+
+def help_center_2(request):
+    return render(request, 'pages/help-center-2.html')
 
 
 def vendor_responses(request):
