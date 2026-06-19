@@ -4,6 +4,9 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'home/home.html')
 
+def home_2(request):
+    return render(request, 'pages/home-2.html')
+
 
 def fieldengineer(request):
     return render(request, 'fieldengineer/fieldengineer.html')
@@ -45,6 +48,3 @@ def privacy_policy(request):
 
 def term_condition(request):
     return render(request, 'pages/term-condition.html')
-
-def profile(request):
-    return render(request, 'fieldengineer-crm/profile.html')

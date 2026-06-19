@@ -8,19 +8,19 @@ from .views import (
     fieldengineer,
     help_center,
     home,
+     home_2,
     request_service,
     vendor,
     vendor_responses,
     privacy_policy,
     term_condition,
-     profile,
-
 )
 
 urlpatterns = [
     path('', home, name='home'),
+    path('home-2/', home_2, name='home_2'),
     path('fieldengineer/', fieldengineer, name='fieldengineer'),
-    path('vendor-management-software/', vendor, name='vendor'),
+    path('vendor/', vendor, name='vendor'),
     path('about-fe/', about_fe, name='about_fe'),
     path('careers/', careers, name='careers'),
     path('blogs/', blogs, name='blogs'),
@@ -30,5 +30,4 @@ urlpatterns = [
     path('services/request_service/', request_service, name='request_service'),
     path('privacy-policy/', privacy_policy, name='privacy-policy'),
     path('term-condition/', term_condition, name='term_condition'),
-      path('profile/', profile, name='profile'),
 ]
