@@ -15,7 +15,8 @@
             <nav class="text-sm pt-1 pb-0 text-slate-500 mb-0" aria-label="Breadcrumb">
                 <ol class="list-none p-0 inline-flex space-x-2">
                     <li class="flex items-center">
-                        <a href="#" class="hover:text-blue-600 transition-colors" aria-label="Home">Home</a>
+                        <a href="{% url 'home' %}" class="hover:text-blue-600 transition-colors" aria-label="Home">Home</a>
+                          <!-- <a href="{% url 'home' %}" class="flex items-center gap-2"></a> -->
                         <span class="mx-2 text-slate-400" aria-hidden="true">&gt;</span>
                     </li>
                     <li class="text-slate-700 font-medium" aria-current="page">About Us</li>

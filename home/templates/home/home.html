@@ -3,6 +3,49 @@
 
 {% block title %}FieldEngineer — Deploy Certified Engineers Anywhere in India{% endblock %}
 
+{# ===== SEO ADDITIONS: extra_head block ===== #}
+{% block extra_head %}
+    <!-- Meta Description & Open Graph -->
+    <meta name="description" content="Deploy certified field engineers across India. Network cabling, rack installation, server setup, CCTV, and smart hands – track live, get AI reports.">
+    <meta property="og:title" content="FieldEngineer — Deploy Certified Engineers Anywhere in India">
+    <meta property="og:description" content="Book skilled field engineers for network, server, security, and infrastructure projects. Live tracking, AI reports, and verified vendors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="{% static 'img/customer-herobg.svg' %}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FieldEngineer — Deploy Certified Engineers Anywhere in India">
+    <meta name="twitter:description" content="Deploy certified field engineers across India. Live tracking, AI reports, and verified vendors.">
+    <meta name="twitter:image" content="{% static 'img/customer-herobg.svg' %}">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+    <!-- Preconnect to Google Fonts (used by Material Symbols) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Structured Data (JSON‑LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "FieldEngineer — Deploy Certified Engineers Anywhere in India",
+      "description": "Deploy certified field engineers across India. Network cabling, rack installation, server setup, CCTV, and smart hands – track live, get AI reports.",
+      "url": "{{ request.build_absolute_uri }}",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.build_absolute_uri }}" }
+        ]
+      },
+      "about": {
+        "@type": "Organization",
+        "name": "FieldEngineer",
+        "description": "Platform for deploying certified field engineers and managing service requests across India.",
+        "url": "{{ request.build_absolute_uri }}"
+      }
+    }
+    </script>
+{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 {% endblock %}
@@ -58,9 +101,10 @@
     <!-- Background -->
     <img
         src="{% static 'img/customer-herobg.svg' %}"
-        alt=""
+        alt="Background illustration of field engineers and network infrastructure"
         aria-hidden="true"
         class="absolute inset-0 h-full w-full object-cover object-[center_20%] lg:object-right"
+        fetchpriority="high"   {# ADDED: fetchpriority="high" #}
     >
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/30"></div>
 
@@ -102,37 +146,37 @@
                 <div class="hero-service-scroll mt-5 overflow-x-auto pb-1 snap-x snap-mandatory sm:overflow-visible">
                     <a href="#" class="hero-service-chip">
                         <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/network.svg' %}" alt="Network Cabling" class="h-6 w-6">
+                            <img src="{% static 'img/network.svg' %}" alt="Network Cabling" class="h-6 w-6" loading="lazy">
                         </span>
                         <span class="hero-service-chip-label">Network<br>Cabling</span>
                     </a>
                     <a href="#" class="hero-service-chip">
                         <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/rack.svg' %}" alt="Rack Installation" class="h-6 w-6">
+                            <img src="{% static 'img/rack.svg' %}" alt="Rack Installation" class="h-6 w-6" loading="lazy">
                         </span>
                         <span class="hero-service-chip-label">Rack<br>Installation</span>
                     </a>
                     <a href="#" class="hero-service-chip">
                         <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/server.svg' %}" alt="Server Installation" class="h-6 w-6">
+                            <img src="{% static 'img/server.svg' %}" alt="Server Installation" class="h-6 w-6" loading="lazy">
                         </span>
                         <span class="hero-service-chip-label">Server<br>Installation</span>
                     </a>
                     <a href="#" class="hero-service-chip">
                         <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/power.svg' %}" alt="Power & UPS" class="h-6 w-6">
+                            <img src="{% static 'img/power.svg' %}" alt="Power & UPS" class="h-6 w-6" loading="lazy">
                         </span>
                         <span class="hero-service-chip-label">Power<br>& UPS</span>
                     </a>
                     <a href="#" class="hero-service-chip">
                         <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/cctv.svg' %}" alt="CCTV Installation" class="h-6 w-6">
+                            <img src="{% static 'img/cctv.svg' %}" alt="CCTV Installation" class="h-6 w-6" loading="lazy">
                         </span>
                         <span class="hero-service-chip-label">CCTV<br>Installation</span>
                     </a>
                     <a href="#" class="hero-service-chip">
                         <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/rack.svg' %}" alt="Other" class="h-6 w-6">
+                            <img src="{% static 'img/rack.svg' %}" alt="Other services" class="h-6 w-6" loading="lazy">
                         </span>
                         <span class="hero-service-chip-label">Other</span>
                     </a>
@@ -235,10 +279,10 @@
             <div class="hero-float hero-float-delay bg-white flex w-full items-center justify-between gap-4 rounded-[10px] px-4 py-3 lg:max-w-[240px]">
                 <div class="flex items-center gap-3">
                     <div class="flex -space-x-2">
-                        <img src="https://i.pravatar.cc/40?img=11" alt="" class="!h-9 !w-9 rounded-full border-2 border-white object-cover">
-                        <img src="https://i.pravatar.cc/40?img=22" alt="" class="!h-9 !w-9 rounded-full border-2 border-white object-cover">
-                        <img src="https://i.pravatar.cc/40?img=33" alt="" class="!h-9 !w-9 rounded-full border-2 border-white object-cover">
-                        <img src="https://i.pravatar.cc/40?img=44" alt="" class="!h-9 !w-9 rounded-full border-2 border-white object-cover">
+                        <img src="https://i.pravatar.cc/40?img=11" alt="User avatar" class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
+                        <img src="https://i.pravatar.cc/40?img=22" alt="User avatar" class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
+                        <img src="https://i.pravatar.cc/40?img=33" alt="User avatar" class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
+                        <img src="https://i.pravatar.cc/40?img=44" alt="User avatar" class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
                     </div>
                 </div>
                 <div class="flex flex-col gap-0.5 text-center">
@@ -339,7 +383,7 @@
         <div class="popular-services-grid">
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/network-cabiling.svg' %}" alt="Network Cabling">
+                    <img src="{% static 'img/popular-services/network-cabiling.svg' %}" alt="Network Cabling service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">Network Cabling</h3>
                 <p class="service-card-desc">Structured cabling, routing &amp; patching</p>
@@ -356,7 +400,7 @@
 
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/rack-installation.svg' %}" alt="Rack Installation">
+                    <img src="{% static 'img/popular-services/rack-installation.svg' %}" alt="Rack Installation service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">Rack Installation</h3>
                 <p class="service-card-desc">Rack setup, expansion &amp; migration</p>
@@ -373,7 +417,7 @@
 
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/fibre-deployment.svg' %}" alt="Fiber Deployment">
+                    <img src="{% static 'img/popular-services/fibre-deployment.svg' %}" alt="Fiber Deployment service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">Fiber Deployment</h3>
                 <p class="service-card-desc">Fiber installation, splicing &amp; testing</p>
@@ -390,7 +434,7 @@
 
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/server-setup.svg' %}" alt="Server Setup">
+                    <img src="{% static 'img/popular-services/server-setup.svg' %}" alt="Server Setup service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">Server Setup</h3>
                 <p class="service-card-desc">Server installation, configuration &amp; testing</p>
@@ -407,7 +451,7 @@
 
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/cctv-security.svg' %}" alt="CCTV &amp; Security">
+                    <img src="{% static 'img/popular-services/cctv-security.svg' %}" alt="CCTV and Security service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">CCTV &amp; Security</h3>
                 <p class="service-card-desc">CCTV installation &amp; access control</p>
@@ -424,7 +468,7 @@
 
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/smart-hands.svg' %}" alt="Smart Hands">
+                    <img src="{% static 'img/popular-services/smart-hands.svg' %}" alt="Smart Hands service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">Smart Hands</h3>
                 <p class="service-card-desc">Remote hands &amp; eyes support</p>
@@ -450,7 +494,7 @@
         <div class="why-choose-grid">
             <article class="why-feature-card glass-border-white">
                 <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/additional-task.svg' %}" alt="">
+                    <img src="{% static 'img/additional-task.svg' %}" alt="Additional Tasks icon" loading="lazy">
                 </div>
                 <h3 class="why-feature-title">Additional Tasks</h3>
                 <p class="why-feature-desc">Add tasks during active jobs.</p>
@@ -458,7 +502,7 @@
 
             <article class="why-feature-card glass-border-white">
                 <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/tracking.svg' %}" alt="">
+                    <img src="{% static 'img/tracking.svg' %}" alt="Live Tracking icon" loading="lazy">
                 </div>
                 <h3 class="why-feature-title">Live Tracking</h3>
                 <p class="why-feature-desc">Track engineers in real time.</p>
@@ -466,7 +510,7 @@
 
             <article class="why-feature-card glass-border-white">
                 <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/work-logs.svg' %}" alt="">
+                    <img src="{% static 'img/work-logs.svg' %}" alt="Work Logs icon" loading="lazy">
                 </div>
                 <h3 class="why-feature-title">Work Logs</h3>
                 <p class="why-feature-desc">Detailed logs, photos &amp; checklists.</p>
@@ -474,7 +518,7 @@
 
             <article class="why-feature-card glass-border-white">
                 <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/ai-reports.svg' %}" alt="">
+                    <img src="{% static 'img/ai-reports.svg' %}" alt="AI Reports icon" loading="lazy">
                 </div>
                 <h3 class="why-feature-title">AI Reports</h3>
                 <p class="why-feature-desc">Automated reports with insights.</p>
@@ -482,7 +526,7 @@
 
             <article class="why-feature-card glass-border-white">
                 <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/team-workspace.svg' %}" alt="">
+                    <img src="{% static 'img/team-workspace.svg' %}" alt="Team Workspace icon" loading="lazy">
                 </div>
                 <h3 class="why-feature-title">Team Workspace</h3>
                 <p class="why-feature-desc">Collaborate with engineers and teams.</p>
@@ -490,7 +534,7 @@
 
             <article class="why-feature-card glass-border-white">
                 <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/secure-complain.svg' %}" alt="">
+                    <img src="{% static 'img/secure-complain.svg' %}" alt="Secure and Compliant icon" loading="lazy">
                 </div>
                 <h3 class="why-feature-title">Secure &amp; Compliant</h3>
                 <p class="why-feature-desc">Enterprise-grade security and compliance.</p>
@@ -508,19 +552,19 @@
 
                 <ul class="platform-hands-list">
                     <li>
-                        <img src="{% static 'img/tick.svg' %}" alt="Check" aria-hidden="true">
+                        <img src="{% static 'img/tick.svg' %}" alt="Check mark" aria-hidden="true" loading="lazy">
                         Easy booking &amp; approvals
                     </li>
                     <li>
-                        <img src="{% static 'img/tick.svg' %}" alt="Check" aria-hidden="true">
+                        <img src="{% static 'img/tick.svg' %}" alt="Check mark" aria-hidden="true" loading="lazy">
                         Real-time tracking &amp; updates
                     </li>
                     <li>
-                        <img src="{% static 'img/tick.svg' %}" alt="Check" aria-hidden="true">
+                        <img src="{% static 'img/tick.svg' %}" alt="Check mark" aria-hidden="true" loading="lazy">
                         Secure payments &amp; invoicing
                     </li>
                     <li>
-                        <img src="{% static 'img/tick.svg' %}" alt="Check" aria-hidden="true">
+                        <img src="{% static 'img/tick.svg' %}" alt="Check mark" aria-hidden="true" loading="lazy">
                         AI reports &amp; analytics
                     </li>
                 </ul>
@@ -535,19 +579,19 @@
                 <div class="platform-hands-app">
                     <p class="platform-hands-app-label">Customer App</p>
                     <div class="platform-hands-phone">
-                        <img src="{% static 'img/app-img.svg' %}" alt="Customer App preview">
+                        <img src="{% static 'img/app-img.svg' %}" alt="Customer App preview on mobile" loading="lazy">
                     </div>
                 </div>
                 <div class="platform-hands-app">
                     <p class="platform-hands-app-label">Vendor App</p>
                     <div class="platform-hands-phone">
-                        <img src="{% static 'img/app-img.svg' %}" alt="Vendor App preview">
+                        <img src="{% static 'img/app-img.svg' %}" alt="Vendor App preview on mobile" loading="lazy">
                     </div>
                 </div>
                 <div class="platform-hands-app">
                     <p class="platform-hands-app-label">Engineer App</p>
                     <div class="platform-hands-phone">
-                        <img src="{% static 'img/app-img.svg' %}" alt="Engineer App preview">
+                        <img src="{% static 'img/app-img.svg' %}" alt="Engineer App preview on mobile" loading="lazy">
                     </div>
                 </div>
             </div>

@@ -1,16 +1,68 @@
 {% extends 'home/layout.html' %}
 
 {% load static %}
+
+{# ===== SEO ADDITIONS: extra_head block ===== #}
+{% block extra_head %}
+    <!-- Meta Description & Open Graph -->
+    <meta name="description" content="Request field engineering services across India. Get instant quotes from verified vendors, track progress live, and deploy certified engineers for network, server, CCTV, and more.">
+    <meta property="og:title" content="Request Service – FieldEngineer">
+    <meta property="og:description" content="Submit your service request and receive competitive offers from verified engineers. Live tracking, AI reports, and fast response.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="{% static 'img/request-service/request-service-hero-bg.webp' %}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Request Service – FieldEngineer">
+    <meta name="twitter:description" content="Request field engineering services. Get quotes, track progress, and deploy certified engineers.">
+    <meta name="twitter:image" content="{% static 'img/request-service/request-service-hero-bg.webp' %}">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+    <!-- Preconnect to Google Fonts (used by Material Symbols) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Structured Data (JSON‑LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Request Service – FieldEngineer",
+      "description": "Request field engineering services across India. Get instant quotes from verified vendors, track progress live, and deploy certified engineers.",
+      "url": "{{ request.build_absolute_uri }}",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.build_absolute_uri }}/" },
+          { "@type": "ListItem", "position": 2, "name": "Request Service", "item": "{{ request.build_absolute_uri }}" }
+        ]
+      },
+      "about": {
+        "@type": "Service",
+        "name": "Field Engineering Service Request",
+        "description": "Platform to request and manage field engineering services.",
+        "provider": {
+          "@type": "Organization",
+          "name": "FieldEngineer"
+        }
+      }
+    }
+    </script>
+{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 {% endblock %}
-{% block content%}
+
+{% block content %}
 <section class="relative min-h-[calc(100vh-68px)] overflow-hidden bg-blue-light">
 
     <!-- Background -->
-    <img src="{% static 'img/request-service/request-service-hero-bg.webp' %}" alt="Background" aria-hidden="true"
-        class="absolute inset-0 h-150 w-full object-contain object-[center_20%] lg:object-right z-0 pointer-events-none">
+    <img src="{% static 'img/request-service/request-service-hero-bg.webp' %}" 
+         alt="Background illustration of field engineer services" 
+         aria-hidden="true"
+         class="absolute inset-0 h-150 w-full object-contain object-[center_20%] lg:object-right z-0 pointer-events-none"
+         fetchpriority="high">   {# ADDED: fetchpriority="high" #}
     <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/30 pointer-events-none"></div>
 
     <div
@@ -414,7 +466,7 @@
 
                 <div class="mt-10 border border-periwinkle-mist rounded-lg bg-arctic-mist py-3.5  px-4 flex flex-col">
                     <div class="flex flex-col lg:flex-row items-center gap-2">
-                        <img src="/static/img/sparkles.webp" alt="sparkles" class="w-10">
+                        <img src="/static/img/sparkles.webp" alt="Sparkles icon" class="w-10" loading="lazy">   {# ADDED: loading="lazy" #}
                         <div class="flex flex-col ">
                             <div class="flex items-center gap-2">
                                 <p class="font-semibold text-sm">AI Recommendation</p>
@@ -1197,7 +1249,7 @@
                                 </div>
 
 
-                                <img src="/static/img/map-placeholder.png" alt="map" class="w-50 rounded-md">
+                                <img src="/static/img/map-placeholder.png" alt="Map placeholder showing location" class="w-50 rounded-md" loading="lazy">   {# ADDED: loading="lazy" #}
 
                             </div>
                         </div>
@@ -1383,7 +1435,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                                 <div
                                     class="border border-pearl-blue rounded-md flex items-center gap-3 px-4 py-2 w-40 lg:w-auto">
-                                    <img src="/static/img/pdf-icon.svg" alt="pdf" class="w-6 h-6">
+                                    <img src="/static/img/pdf-icon.svg" alt="PDF icon" class="w-6 h-6" loading="lazy">   {# ADDED: loading="lazy" #}
                                     <div class="flex flex-col gap-1">
                                         <p class="font-semibold text-xs">Site Layout.pdf</p>
                                         <p class="font-normal text-xs">1.2 MB</p>
@@ -1392,7 +1444,7 @@
 
                                 <div
                                     class="border border-pearl-blue rounded-md flex items-center gap-3 px-4 py-2 w-40 lg:w-auto">
-                                    <img src="/static/img/pdf-icon.svg" alt="pdf" class="w-6 h-6">
+                                    <img src="/static/img/pdf-icon.svg" alt="PDF icon" class="w-6 h-6" loading="lazy">   {# ADDED: loading="lazy" #}
                                     <div class="flex flex-col gap-1">
                                         <p class="font-semibold text-xs">Site Layout.pdf</p>
                                         <p class="font-normal text-xs">1.2 MB</p>
@@ -1729,8 +1781,7 @@
             </div>
         </div>
 
-        <img src="/static/img/request-service/request-service-1.webp" alt="Engineers" class="w-50">
-
+        <img src="/static/img/request-service/request-service-1.webp" alt="Group of field engineers" class="w-50" loading="lazy">   {# ADDED: loading="lazy" #}
     </div>
 
     <div
