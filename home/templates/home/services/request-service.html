@@ -4,25 +4,28 @@
 
 {# ===== SEO ADDITIONS: extra_head block ===== #}
 {% block extra_head %}
-    <!-- Meta Description & Open Graph -->
-    <meta name="description" content="Request field engineering services across India. Get instant quotes from verified vendors, track progress live, and deploy certified engineers for network, server, CCTV, and more.">
-    <meta property="og:title" content="Request Service – FieldEngineer">
-    <meta property="og:description" content="Submit your service request and receive competitive offers from verified engineers. Live tracking, AI reports, and fast response.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:image" content="{% static 'img/request-service/request-service-hero-bg.webp' %}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Request Service – FieldEngineer">
-    <meta name="twitter:description" content="Request field engineering services. Get quotes, track progress, and deploy certified engineers.">
-    <meta name="twitter:image" content="{% static 'img/request-service/request-service-hero-bg.webp' %}">
-    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+<!-- Meta Description & Open Graph -->
+<meta name="description"
+    content="Request field engineering services across India. Get instant quotes from verified vendors, track progress live, and deploy certified engineers for network, server, CCTV, and more.">
+<meta property="og:title" content="Request Service – FieldEngineer">
+<meta property="og:description"
+    content="Submit your service request and receive competitive offers from verified engineers. Live tracking, AI reports, and fast response.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'img/request-service/request-service-hero-bg.webp' %}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Request Service – FieldEngineer">
+<meta name="twitter:description"
+    content="Request field engineering services. Get quotes, track progress, and deploy certified engineers.">
+<meta name="twitter:image" content="{% static 'img/request-service/request-service-hero-bg.webp' %}">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
 
-    <!-- Preconnect to Google Fonts (used by Material Symbols) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preconnect to Google Fonts (used by Material Symbols) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Structured Data (JSON‑LD) -->
-    <script type="application/ld+json">
+<!-- Structured Data (JSON‑LD) -->
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
@@ -58,11 +61,10 @@
 <section class="relative min-h-[calc(100vh-68px)] overflow-hidden bg-blue-light">
 
     <!-- Background -->
-    <img src="{% static 'img/request-service/request-service-hero-bg.webp' %}" 
-         alt="Background illustration of field engineer services" 
-         aria-hidden="true"
-         class="absolute inset-0 h-150 w-full object-contain object-[center_20%] lg:object-right z-0 pointer-events-none"
-         fetchpriority="high">   {# ADDED: fetchpriority="high" #}
+    <img src="{% static 'img/request-service/request-service-hero-bg.webp' %}"
+        alt="Background illustration of field engineer services" aria-hidden="true"
+        class="absolute inset-0 h-150 w-full object-contain object-[center_20%] lg:object-right z-0 pointer-events-none"
+        fetchpriority="high"> {# ADDED: fetchpriority="high" #}
     <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/30 pointer-events-none"></div>
 
     <div
@@ -127,7 +129,7 @@
     </div>
 
     <div
-        class="bg-white rounded-lg flex items-center px-4 lg:px-10 absolute left-4 right-4 md:left-8 md:right-8 mt-4 stepIndicator overflow-x-auto">
+        class="bg-white rounded-lg flex items-center px-4 lg:px-10 absolute left-4 right-4 md:left-8 md:right-8 mt-4 stepIndicator overflow-x-auto z-20">
         <div class="flex flex-col items-center gap-2.5 pt-10 shrink-0">
             <div
                 class="w-10 h-10 rounded-full  bg-primary flex items-center justify-center text-xl font-bold text-white">
@@ -177,7 +179,8 @@
         </div>
     </div>
 
-    <div class="mt-40 mx-4 md:mx-8 lg:mx-18 flex flex-col lg:flex-row items-start gap-4 relative z-10">
+    <div class="mx-4 md:mx-8 lg:mx-18 flex flex-col lg:flex-row items-start gap-4 relative z-10"
+        style="margin-top: 180px;">
         <div class="bg-white rounded-lg shadow-xl p-4 flex-1 ">
 
             <!--Service Details Section-->
@@ -265,10 +268,10 @@
                 <div class="flex flex-col relative gap-2">
                     <p class="font-bold text-black text-sm">Briefly describe your requirement <span
                             class="text-red">*</span></p>
-                    <textarea maxlength="500"
-                        class="h-35 resize-none focus:ring-0 focus:outline-none border border-mist-gray w-full rounded-lg  font-normal text-sm p-4"
+                    <textarea maxlength="900" style="height: 200px;"
+                        class="resize-none focus:ring-0 focus:outline-none border border-mist-gray  rounded-lg font-normal text-sm p-4"
                         placeholder="Descibe your work in detail,scope,quantity,special instructions..."></textarea>
-                    <p class="absolute right-2 bottom-0 font-normal text-xs text-muted-steel">0/500</p>
+                    <p class="absolute right-2 bottom-0 font-bold text-xs text-muted-steel ml-4 mb-2">0/500</p>
                 </div>
 
                 <div class="flex items-center justify-between mt-10">
@@ -466,7 +469,8 @@
 
                 <div class="mt-10 border border-periwinkle-mist rounded-lg bg-arctic-mist py-3.5  px-4 flex flex-col">
                     <div class="flex flex-col lg:flex-row items-center gap-2">
-                        <img src="/static/img/sparkles.webp" alt="Sparkles icon" class="w-10" loading="lazy">   {# ADDED: loading="lazy" #}
+                        <img src="/static/img/sparkles.webp" alt="Sparkles icon" class="w-10" loading="lazy"> {# ADDED:
+                        loading="lazy" #}
                         <div class="flex flex-col ">
                             <div class="flex items-center gap-2">
                                 <p class="font-semibold text-sm">AI Recommendation</p>
@@ -965,9 +969,9 @@
                                     <span class="text-red">*</span></label>
                                 <div class="border border-pearl-blue rounded-md py-2.5 px-4 flex items-center gap-3">
                                     <span class="material-symbols-outlined ">calendar_today</span>
-                                    <input type="text"
-                                        class="focus:ring-0 focus:outline-none font-semibold text-xs placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel"
-                                        placeholder="Select start date" readonly>
+                                    <input type="date"
+                                        class="w-full cursor-pointer bg-transparent focus:ring-0 focus:outline-none font-semibold text-xs placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel"
+                                        placeholder="Select start date">
                                 </div>
                             </div>
 
@@ -976,9 +980,9 @@
                                     <span class="text-red">*</span></label>
                                 <div class="border border-pearl-blue rounded-md py-2.5 px-4 flex items-center gap-3">
                                     <span class="material-symbols-outlined ">calendar_today</span>
-                                    <input type="text"
-                                        class="focus:ring-0 focus:outline-none font-semibold text-xs placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel"
-                                        placeholder="Select end date" readonly>
+                                    <input type="date"
+                                        class="w-full cursor-pointer bg-transparent focus:ring-0 focus:outline-none font-semibold text-xs placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel"
+                                        placeholder="Select end date">
                                 </div>
                             </div>
                         </div>
@@ -1249,7 +1253,8 @@
                                 </div>
 
 
-                                <img src="/static/img/map-placeholder.png" alt="Map placeholder showing location" class="w-50 rounded-md" loading="lazy">   {# ADDED: loading="lazy" #}
+                                <img src="/static/img/map-placeholder.png" alt="Map placeholder showing location"
+                                    class="w-50 rounded-md" loading="lazy"> {# ADDED: loading="lazy" #}
 
                             </div>
                         </div>
@@ -1518,7 +1523,8 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                                 <div
                                     class="border border-pearl-blue rounded-md flex items-center gap-3 px-4 py-2 w-40 lg:w-auto">
-                                    <img src="/static/img/pdf-icon.svg" alt="PDF icon" class="w-6 h-6" loading="lazy">   {# ADDED: loading="lazy" #}
+                                    <img src="/static/img/pdf-icon.svg" alt="PDF icon" class="w-6 h-6" loading="lazy">
+                                    {# ADDED: loading="lazy" #}
                                     <div class="flex flex-col gap-1">
                                         <p class="font-semibold text-xs">Site Layout.pdf</p>
                                         <p class="font-normal text-xs">1.2 MB</p>
@@ -1527,7 +1533,8 @@
 
                                 <div
                                     class="border border-pearl-blue rounded-md flex items-center gap-3 px-4 py-2 w-40 lg:w-auto">
-                                    <img src="/static/img/pdf-icon.svg" alt="PDF icon" class="w-6 h-6" loading="lazy">   {# ADDED: loading="lazy" #}
+                                    <img src="/static/img/pdf-icon.svg" alt="PDF icon" class="w-6 h-6" loading="lazy">
+                                    {# ADDED: loading="lazy" #}
                                     <div class="flex flex-col gap-1">
                                         <p class="font-semibold text-xs">Site Layout.pdf</p>
                                         <p class="font-normal text-xs">1.2 MB</p>
@@ -1823,7 +1830,7 @@
     </div>
 
     <div
-        class="mx-4 md:mx-8 lg:mx-18 mt-5 bg-powder-blue shadow-xl px-5 py-6 grid grid-cols-2 lg:flex lg:items-center lg:justify-between gap-6 relative z-10">
+        class="mx-4 md:mx-8 lg:mx-18 mt-20 bg-powder-blue shadow-xl px-5 py-15 grid grid-cols-2 lg:flex lg:items-center lg:justify-between gap-6 relative z-10">
         <div class="flex items-center gap-3">
             <div class="w-15 h-15 rounded-full bg-mist-blue flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary text-4xl!">engineering</span>
@@ -1864,11 +1871,12 @@
             </div>
         </div>
 
-        <img src="/static/img/request-service/request-service-1.webp" alt="Group of field engineers" class="w-50" loading="lazy">   {# ADDED: loading="lazy" #}
+        <img src="/static/img/request-service/request-service-1.webp" alt="Group of field engineers" class="w-50"
+            loading="lazy"> {# ADDED: loading="lazy" #}
     </div>
 
     <div
-        class="bg-white mx-4 md:mx-8 lg:mx-18 mt-5 rounded-lg shadow-xl p-5 flex flex-col sm:flex-row items-center flex-wrap sm:items-start justify-center gap-4 relative z-10">
+        class="bg-white mx-4 md:mx-8 lg:mx-18 mt-15 rounded-lg shadow-xl p-10 flex flex-col sm:flex-row items-center flex-wrap sm:items-start justify-center gap-4 relative z-10">
         <p class="font-bold text-3xl text-black">How it works</p>
 
         <div class="flex flex-col items-center">
@@ -1927,8 +1935,8 @@
 
     </div>
 
-    <div
-        class="mx-4 md:mx-8 lg:mx-18 mt-5 rounded-lg bg-primary px-5 py-7 flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
+    <div class="mx-4 md:mx-8 lg:mx-18 mt-13 rounded-lg bg-primary px-6 py-15 flex flex-col md:flex-row items-center justify-between gap-4 relative z-10"
+        style="margin-bottom: 60px;">
         <div class="flex flex-col">
             <p class="font-semibold text-white text-2xl">Not sure what service you need?</p>
             <p class="font-normal text-white text-sm">Talk to our experts and get guidance.</p>
