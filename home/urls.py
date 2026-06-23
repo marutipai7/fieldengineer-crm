@@ -15,10 +15,14 @@ from .views import (
     vendor_responses,
     privacy_policy,
     term_condition,
+     profile,
+     customer_contactus,
+
+
 )
 
 urlpatterns = [
-    path('', home, name='home'),
+    path('home', home, name='home'),
     path('home-2/', home_2, name='home_2'),
     path('fieldengineer/', fieldengineer, name='fieldengineer'),
     path('vendor/', vendor, name='vendor'),
@@ -32,4 +36,6 @@ urlpatterns = [
     path('services/request_service/', request_service, name='request_service'),
     path('privacy-policy/', privacy_policy, name='privacy-policy'),
     path('term-condition/', term_condition, name='term_condition'),
+    path('profile/', profile, name='profile'),
+    path('customer-contactus/', customer_contactus, name='customer_contactus'),
 ]
