@@ -4,6 +4,9 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'home/home.html')
 
+def home_2(request):
+    return render(request, 'pages/home-2.html')
+
 
 def fieldengineer(request):
     return render(request, 'fieldengineer/fieldengineer.html')
@@ -32,9 +35,11 @@ def blogs(request):
 def contact(request):
     return render(request, 'pages/contact.html')
 
-
 def help_center(request):
     return render(request, 'pages/help-center.html')
+
+def help_center_2(request):
+    return render(request, 'pages/help-center-2.html')
 
 
 def vendor_responses(request):
@@ -45,6 +50,9 @@ def privacy_policy(request):
 
 def term_condition(request):
     return render(request, 'pages/term-condition.html')
+
+def customer_contactus(request):
+    return render(request, 'fieldengineer-crm/customer-contactus.html')
 
 def profile(request):
     return render(request, 'fieldengineer-crm/profile.html')
