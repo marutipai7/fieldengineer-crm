@@ -66,6 +66,97 @@
     const wrapper = input.closest("div");
     input.addEventListener("focus", () => wrapper?.classList.add("ring-2", "ring-primary/25"));
     input.addEventListener("blur", () => wrapper?.classList.remove("ring-2", "ring-primary/25"));
+
+
+
+    // SEARCH FUNCTIONALITY FOR POPULAR SERVICES
+// ============================================================
+
+function initSearchFilter() {
+    const searchInput = document.getElementById("hero-search-input");
+    if (!searchInput) {
+        console.warn("Search input not found on this page.");
+        return;
+    }
+
+    const serviceCards = document.querySelectorAll(".service-card");
+    if (serviceCards.length === 0) {
+        console.warn("No service cards found on this page.");
+        return;
+    }
+
+    console.log("✅ Search filter initialized with", serviceCards.length, "cards");
+
+    // Main filter function
+    function filterCards() {
+        const query = searchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        serviceCards.forEach(function(card) {
+            // Get title and description from the card
+            const titleEl = card.querySelector(".service-card-title");
+            const descEl = card.querySelector(".service-card-desc");
+            
+            const title = titleEl ? titleEl.textContent : "";
+            const desc = descEl ? descEl.textContent : "";
+            const fullText = (title + " " + desc).toLowerCase();
+
+            // Check if card matches search query
+            const matches = query === "" || fullText.includes(query);
+            
+            // Show or hide the card
+            card.style.display = matches ? "" : "none";
+            
+            if (matches) visibleCount++;
+        });
+
+        console.log(`🔍 Searched for "${query}" → ${visibleCount} cards visible`);
+    }
+
+    // Event 1: Typing in the search box
+    searchInput.addEventListener("input", filterCards);
+
+    // Event 2: Clicking the search button (magnifying glass)
+    const searchBtn = document.querySelector(".hero-search-btn");
+    if (searchBtn) {
+        searchBtn.addEventListener("click", function(e) {
+            e.preventDefault();
+            filterCards();
+        });
+    }
+
+    // Event 3: Pressing the "Enter" key
+    searchInput.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            filterCards();
+        }
+    });
+
+    // Event 4: Clicking service chips (Network Cabling, Rack, etc.)
+    const serviceChips = document.querySelectorAll(".hero-service-chip");
+    serviceChips.forEach(function(chip) {
+        chip.addEventListener("click", function(e) {
+            e.preventDefault(); // Stops page jump
+            
+            const label = this.querySelector(".hero-service-chip-label");
+            if (label) {
+                const serviceName = label.textContent.trim();
+                searchInput.value = serviceName;
+                filterCards();
+                console.log(`🔍 Chip clicked: "${serviceName}"`);
+            }
+        });
+    });
+
+    // Initial check: if input already has text, filter on load
+    if (searchInput.value.trim() !== "") {
+        filterCards();
+    }
+}
+
+
+    
   }
 
   function buildCoverageMarker(city) {
@@ -155,6 +246,10 @@
     initCounters();
     initServiceChips();
     initSearchFocus();
+    initSearchFilter();
     observeCoverageMap();
   });
 })();
+
+
+

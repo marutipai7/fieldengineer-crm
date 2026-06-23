@@ -5,25 +5,28 @@
 
 {# ===== SEO ADDITIONS: extra_head block ===== #}
 {% block extra_head %}
-    <!-- Meta Description & Open Graph -->
-    <meta name="description" content="Deploy certified field engineers across India. Network cabling, rack installation, server setup, CCTV, and smart hands – track live, get AI reports.">
-    <meta property="og:title" content="FieldEngineer — Deploy Certified Engineers Anywhere in India">
-    <meta property="og:description" content="Book skilled field engineers for network, server, security, and infrastructure projects. Live tracking, AI reports, and verified vendors.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:image" content="{% static 'img/customer-herobg.svg' %}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FieldEngineer — Deploy Certified Engineers Anywhere in India">
-    <meta name="twitter:description" content="Deploy certified field engineers across India. Live tracking, AI reports, and verified vendors.">
-    <meta name="twitter:image" content="{% static 'img/customer-herobg.svg' %}">
-    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+<!-- Meta Description & Open Graph -->
+<meta name="description"
+    content="Deploy certified field engineers across India. Network cabling, rack installation, server setup, CCTV, and smart hands – track live, get AI reports.">
+<meta property="og:title" content="FieldEngineer — Deploy Certified Engineers Anywhere in India">
+<meta property="og:description"
+    content="Book skilled field engineers for network, server, security, and infrastructure projects. Live tracking, AI reports, and verified vendors.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% static 'img/customer-herobg.svg' %}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FieldEngineer — Deploy Certified Engineers Anywhere in India">
+<meta name="twitter:description"
+    content="Deploy certified field engineers across India. Live tracking, AI reports, and verified vendors.">
+<meta name="twitter:image" content="{% static 'img/customer-herobg.svg' %}">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
 
-    <!-- Preconnect to Google Fonts (used by Material Symbols) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preconnect to Google Fonts (used by Material Symbols) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Structured Data (JSON‑LD) -->
-    <script type="application/ld+json">
+<!-- Structured Data (JSON‑LD) -->
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
@@ -47,80 +50,327 @@
 {% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 {% endblock %}
 
 {% block content %}
 
 <style>
-  @keyframes hero-rise {
-    from { opacity: 0; transform: translateY(28px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes hero-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-  @keyframes hero-draw-line {
-    from { stroke-dashoffset: 220; }
-    to { stroke-dashoffset: 0; }
-  }
-  @keyframes hero-pulse-live {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.45; transform: scale(0.8); }
-  }
-  .hero-rise {
-    opacity: 0;
-    animation: hero-rise 0.8s ease-out forwards;
-  }
-  .hero-rise-d1 { animation-delay: 0.1s; }
-  .hero-rise-d2 { animation-delay: 0.22s; }
-  .hero-rise-d3 { animation-delay: 0.34s; }
-  .hero-rise-d4 { animation-delay: 0.46s; }
-  .hero-rise-d5 { animation-delay: 0.58s; }
-  .hero-float {
-    animation: hero-float 6s ease-in-out infinite;
-  }
-  .hero-float-delay { animation-delay: 1.2s; }
-  .hero-float-delay-2 { animation-delay: 2.4s; }
-  .hero-line-draw {
-    stroke-dasharray: 220;
-    stroke-dashoffset: 220;
-    animation: hero-draw-line 1.8s ease-out 0.9s forwards;
-  }
-  .hero-live-dot {
-    animation: hero-pulse-live 1.4s ease-in-out infinite;
-  }
-  .hero-service-scroll::-webkit-scrollbar { display: none; }
-  .hero-service-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    @keyframes hero-rise {
+        from {
+            opacity: 0;
+            transform: translateY(28px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes hero-float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes hero-draw-line {
+        from {
+            stroke-dashoffset: 220;
+        }
+
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes hero-pulse-live {
+
+        0%,
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        50% {
+            opacity: 0.45;
+            transform: scale(0.8);
+        }
+    }
+
+    .hero-rise {
+        opacity: 0;
+        animation: hero-rise 0.8s ease-out forwards;
+    }
+
+    .hero-rise-d1 {
+        animation-delay: 0.1s;
+    }
+
+    .hero-rise-d2 {
+        animation-delay: 0.22s;
+    }
+
+    .hero-rise-d3 {
+        animation-delay: 0.34s;
+    }
+
+    .hero-rise-d4 {
+        animation-delay: 0.46s;
+    }
+
+    .hero-rise-d5 {
+        animation-delay: 0.58s;
+    }
+
+    .hero-float {
+        animation: hero-float 6s ease-in-out infinite;
+    }
+
+    .hero-float-delay {
+        animation-delay: 1.2s;
+    }
+
+    .hero-float-delay-2 {
+        animation-delay: 2.4s;
+    }
+
+    .hero-line-draw {
+        stroke-dasharray: 220;
+        stroke-dashoffset: 220;
+        animation: hero-draw-line 1.8s ease-out 0.9s forwards;
+    }
+
+    .hero-live-dot {
+        animation: hero-pulse-live 1.4s ease-in-out infinite;
+    }
+
+    .hero-service-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hero-service-scroll {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* ============================================
+   POPULAR SERVICES - HEADER WITH VIEW ALL
+   ============================================ */
+    .popular-services-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .popular-services-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin: 0;
+    }
+
+    .popular-services-title span {
+        color: #1a56db;
+    }
+
+    .popular-services-view-all {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #1a56db;
+        background: #ffffff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 50px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: all 0.25s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .popular-services-view-all:hover {
+        background: #f7fafc;
+        border-color: #1a56db;
+        transform: translateX(2px);
+        box-shadow: 0 4px 12px rgba(26, 86, 219, 0.12);
+    }
+
+    .popular-services-view-all .material-symbols-outlined {
+        font-size: 18px;
+        transition: transform 0.25s ease;
+    }
+
+    .popular-services-view-all:hover .material-symbols-outlined {
+        transform: translateX(3px);
+    }
+
+    /* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+    @media (max-width: 640px) {
+        .popular-services-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .popular-services-title {
+            font-size: 1.4rem;
+        }
+
+        .popular-services-view-all {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.8rem;
+        }
+    }
+
+
+    /* ============================================
+   HOW IT WORKS - HEADER WITH VIEW PROCESS DETAILS
+   ============================================ */
+    .how-it-works-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .how-it-works-header h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin: 0;
+    }
+
+    .how-it-works-subtitle {
+        font-size: 1rem;
+        color: #4a5568;
+        margin-top: 0.25rem;
+    }
+
+    .how-it-works-view-all {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #1a56db;
+        background: #ffffff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 50px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: all 0.25s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .how-it-works-view-all:hover {
+        background: #f7fafc;
+        border-color: #1a56db;
+        transform: translateX(2px);
+        box-shadow: 0 4px 12px rgba(26, 86, 219, 0.12);
+    }
+
+    .how-it-works-view-all .material-symbols-outlined {
+        font-size: 18px;
+        transition: transform 0.25s ease;
+    }
+
+    .how-it-works-view-all:hover .material-symbols-outlined {
+        transform: translateX(3px);
+    }
+
+    /* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+    @media (max-width: 640px) {
+        .how-it-works-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .how-it-works-header h2 {
+            font-size: 1.4rem;
+        }
+
+        .how-it-works-view-all {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.8rem;
+        }
+    }
+
+
+    /* ============================================
+   STAY UPDATED - FORCE BLUE SUBSCRIBE BUTTON
+   ============================================ */
+
+    /* Force blue background on subscribe button */
+    .stay-updated-submit {
+        background-color: #2563eb !important;
+        /* Force blue */
+        color: #ffffff !important;
+        /* Force white text */
+        border: none !important;
+    }
+
+    .stay-updated-submit:hover {
+        background-color: #1d4ed8 !important;
+        /* Darker blue on hover */
+        color: #ffffff !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Remove any default button styles that might be interfering */
+    .stay-updated-submit:focus {
+        outline: none !important;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3) !important;
+    }
 </style>
 
 <!-- ════════════ HERO ════════════ -->
 <section class="relative min-h-[calc(100vh-68px)] overflow-hidden bg-blue-light">
 
     <!-- Background -->
-    <img
-        src="{% static 'img/customer-herobg.svg' %}"
-        alt="Background illustration of field engineers and network infrastructure"
-        aria-hidden="true"
-        class="absolute inset-0 h-full w-full object-cover object-[center_20%] lg:object-right"
-        fetchpriority="high"   {# ADDED: fetchpriority="high" #}
-    >
+    <img src="{% static 'img/customer-herobg.svg' %}"
+        alt="Background illustration of field engineers and network infrastructure" aria-hidden="true"
+        class="absolute inset-0 h-full w-full object-cover object-[center_20%] lg:object-right" fetchpriority="high" {#
+        ADDED: fetchpriority="high" #}>
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/30"></div>
 
-    <div class="relative z-10 mx-auto grid max-w-[90rem] items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
+    <div
+        class="relative z-10 mx-auto grid max-w-[90rem] items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
 
         <!-- Left -->
         <div class="max-w-xl lg:max-w-none">
 
-            <h1 class="hero-rise hero-rise-d1 text-h3 font-bold leading-[1.1] tracking-tight text-primary-dark md:text-h2 lg:text-h1">
+            <h1
+                class="hero-rise hero-rise-d1 text-h3 font-bold leading-[1.1] tracking-tight text-primary-dark md:text-h2 lg:text-h1">
                 Deploy Certified<br>
                 <span class="text-primary">Field Engineers</span><br>
                 Any where in India
             </h1>
 
             <p class="hero-rise hero-rise-d2 mt-5 max-w-md text-b1 leading-relaxed text-gray-dark font-semibold">
-                Network cabling, rack installation, fleet deployment, server setup, CCTV and smart hands support — track in real time. Get AI-powered reports.
+                Network cabling, rack installation, fleet deployment, server setup, CCTV and smart hands support — track
+                in real time. Get AI-powered reports.
             </p>
 
             <!-- Service search glass card -->
@@ -128,17 +378,11 @@
                 <h2 class="text-b2 font-bold text-dark">What service do you need?</h2>
 
                 <div class="hero-service-search mt-4 flex items-center gap-2 rounded-[12px] glass-2 py-1.5 pl-5 pr-1.5">
-                    <input
-                        type="text"
-                        id="hero-search-input"
-                        placeholder="Search service or type you required...."
-                        class="min-w-0 flex-1 border-0 bg-transparent text-b3 text-ink outline-none placeholder:text-ink focus:!outline-none focus:!ring-0"
-                    >
-                    <button
-                        type="button"
+                    <input type="text" id="hero-search-input" placeholder="Search service or type you required...."
+                        class="min-w-0 flex-1 border-0 bg-transparent text-b3 text-ink outline-none placeholder:text-ink focus:!outline-none focus:!ring-0">
+                    <button type="button"
                         class="hero-search-btn flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-light-1 text-white"
-                        aria-label="Search"
-                    >
+                        aria-label="Search">
                         <span class="material-symbols-outlined text-[20px]">search</span>
                     </button>
                 </div>
@@ -146,19 +390,22 @@
                 <div class="hero-service-scroll mt-5 overflow-x-auto pb-1 snap-x snap-mandatory sm:overflow-visible">
                     <a href="#" class="hero-service-chip">
                         <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/network.svg' %}" alt="Network Cabling" class="h-6 w-6" loading="lazy">
+                            <img src="{% static 'img/network.svg' %}" alt="Network Cabling" class="h-6 w-6"
+                                loading="lazy">
                         </span>
                         <span class="hero-service-chip-label">Network<br>Cabling</span>
                     </a>
                     <a href="#" class="hero-service-chip">
                         <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/rack.svg' %}" alt="Rack Installation" class="h-6 w-6" loading="lazy">
+                            <img src="{% static 'img/rack.svg' %}" alt="Rack Installation" class="h-6 w-6"
+                                loading="lazy">
                         </span>
                         <span class="hero-service-chip-label">Rack<br>Installation</span>
                     </a>
                     <a href="#" class="hero-service-chip">
                         <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/server.svg' %}" alt="Server Installation" class="h-6 w-6" loading="lazy">
+                            <img src="{% static 'img/server.svg' %}" alt="Server Installation" class="h-6 w-6"
+                                loading="lazy">
                         </span>
                         <span class="hero-service-chip-label">Server<br>Installation</span>
                     </a>
@@ -170,7 +417,8 @@
                     </a>
                     <a href="#" class="hero-service-chip">
                         <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/cctv.svg' %}" alt="CCTV Installation" class="h-6 w-6" loading="lazy">
+                            <img src="{% static 'img/cctv.svg' %}" alt="CCTV Installation" class="h-6 w-6"
+                                loading="lazy">
                         </span>
                         <span class="hero-service-chip-label">CCTV<br>Installation</span>
                     </a>
@@ -201,16 +449,19 @@
 
             <!-- Top stat pills -->
             <div class="flex flex-col gap-3 w-full lg:max-w-[240px]">
-                <div class="hero-float hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
+                <div
+                    class="hero-float hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
                     <span class="flex shrink-0 items-center justify-center text-green">
                         <span class="material-symbols-outlined large-icon">groups</span>
                     </span>
                     <p class="text-h5 font-semibold text-ink text-center">
-                        <span class="hero-counter font-bold" data-target="15000" data-suffix="+" data-format="comma">0</span><br>
+                        <span class="hero-counter font-bold" data-target="15000" data-suffix="+"
+                            data-format="comma">0</span><br>
                         <span class="text-b1">Certified engineers</span>
                     </p>
                 </div>
-                <div class="hero-float hero-float-delay hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
+                <div
+                    class="hero-float hero-float-delay hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
                     <span class="flex shrink-0 items-center justify-center text-green">
                         <span class="material-symbols-outlined large-icon">verified</span>
                     </span>
@@ -219,7 +470,8 @@
                         <span class="text-b1">Verified Vendors</span>
                     </p>
                 </div>
-                <div class="hero-float hero-float-delay-2 hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
+                <div
+                    class="hero-float hero-float-delay-2 hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
                     <span class="flex shrink-0 items-center justify-center text-green">
                         <span class="material-symbols-outlined large-icon">apartment</span>
                     </span>
@@ -250,39 +502,40 @@
                     </li>
                     <li class="flex justify-between gap-4">
                         <span class="text-medium">On Time Completion</span>
-                        <span class="font-bold text-green"><span class="hero-counter" data-target="98.9" data-decimals="1" data-suffix="%">0</span></span>
+                        <span class="font-bold text-green"><span class="hero-counter" data-target="98.9"
+                                data-decimals="1" data-suffix="%">0</span></span>
                     </li>
                 </ul>
                 <div class="mt-4 h-14 w-full overflow-hidden rounded-xl bg-green/5 px-2 py-2">
                     <svg viewBox="0 0 280 48" class="h-full w-full" preserveAspectRatio="none" aria-hidden="true">
                         <defs>
                             <linearGradient id="heroChartGrad" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#41D33E" stop-opacity="0.35"/>
-                                <stop offset="100%" stop-color="#41D33E" stop-opacity="0"/>
+                                <stop offset="0%" stop-color="#41D33E" stop-opacity="0.35" />
+                                <stop offset="100%" stop-color="#41D33E" stop-opacity="0" />
                             </linearGradient>
                         </defs>
-                        <path d="M0 40 L40 32 L80 36 L120 20 L160 24 L200 14 L240 18 L280 8 L280 48 L0 48 Z" fill="url(#heroChartGrad)"/>
-                        <polyline
-                            class="hero-line-draw"
-                            points="0,40 40,32 80,36 120,20 160,24 200,14 240,18 280,8"
-                            fill="none"
-                            stroke="#41D33E"
-                            stroke-width="2.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
+                        <path d="M0 40 L40 32 L80 36 L120 20 L160 24 L200 14 L240 18 L280 8 L280 48 L0 48 Z"
+                            fill="url(#heroChartGrad)" />
+                        <polyline class="hero-line-draw" points="0,40 40,32 80,36 120,20 160,24 200,14 240,18 280,8"
+                            fill="none" stroke="#41D33E" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
                 </div>
             </div>
 
             <!-- Active users -->
-            <div class="hero-float hero-float-delay bg-white flex w-full items-center justify-between gap-4 rounded-[10px] px-4 py-3 lg:max-w-[240px]">
+            <div
+                class="hero-float hero-float-delay bg-white flex w-full items-center justify-between gap-4 rounded-[10px] px-4 py-3 lg:max-w-[240px]">
                 <div class="flex items-center gap-3">
                     <div class="flex -space-x-2">
-                        <img src="https://i.pravatar.cc/40?img=11" alt="User avatar" class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
-                        <img src="https://i.pravatar.cc/40?img=22" alt="User avatar" class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
-                        <img src="https://i.pravatar.cc/40?img=33" alt="User avatar" class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
-                        <img src="https://i.pravatar.cc/40?img=44" alt="User avatar" class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
+                        <img src="https://i.pravatar.cc/40?img=11" alt="User avatar"
+                            class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
+                        <img src="https://i.pravatar.cc/40?img=22" alt="User avatar"
+                            class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
+                        <img src="https://i.pravatar.cc/40?img=33" alt="User avatar"
+                            class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
+                        <img src="https://i.pravatar.cc/40?img=44" alt="User avatar"
+                            class="!h-9 !w-9 rounded-full border-2 border-white object-cover" loading="lazy">
                     </div>
                 </div>
                 <div class="flex flex-col gap-0.5 text-center">
@@ -298,12 +551,19 @@
 </section>
 
 <!-- ════════════ HOW IT WORKS ════════════ -->
-<section class="how-it-works" aria-labelledby="how-it-works-title">
+<section class="how-it-works" aria-labelledby="how-it-works-title" style="padding-bottom: 0.5rem" ;>
     <div class="how-it-works-card glass-border-white">
-        <header class="how-it-works-header">
-            <h2 id="how-it-works-title">How it Works?</h2>
-            <p>A seamless process from booking to completion</p>
-        </header>
+        <!-- ===== HEADER WITH VIEW PROCESS DETAILS BUTTON ===== -->
+        <div class="how-it-works-header">
+            <div>
+                <h2 id="how-it-works-title">How it Works?</h2>
+                <p class="how-it-works-subtitle">A seamless process from booking to completion</p>
+            </div>
+            <a href="#" class="how-it-works-view-all">
+                View Process Details
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
 
         <ol class="how-it-works-steps">
             <li class="how-it-works-step">
@@ -357,7 +617,7 @@
                 </div>
                 <div class="how-it-works-step-body">
                     <h3 class="how-it-works-step-title">Completion &amp; Report</h3>
-                    <p class="how-it-works-step-desc">Ai generated report with work proof &amp; documentation</p>
+                    <p class="how-it-works-step-desc">AI generated report with work proof &amp; documentation</p>
                 </div>
             </li>
             <li class="how-it-works-step">
@@ -374,16 +634,25 @@
 </section>
 
 <!-- ════════════ POPULAR SERVICES ════════════ -->
-<section class="popular-services" aria-labelledby="popular-services-title">
+<section class="popular-services" aria-labelledby="popular-services-title" style="padding-bottom: 0.5rem;">
     <div class="popular-services-card glass-border-white">
-        <h2 id="popular-services-title" class="popular-services-title">
-            Explore Our <span>Popular Services</span>
-        </h2>
+        <!-- ===== HEADER WITH VIEW ALL BUTTON ===== -->
+        <div class="popular-services-header">
+            <h2 id="popular-services-title" class="popular-services-title">
+                Explore Our <span>Popular Services</span>
+            </h2>
+            <a href="#" class="popular-services-view-all">
+                View All Services
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
 
         <div class="popular-services-grid">
+            <!-- Card 1: Network Cabling -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/network-cabiling.svg' %}" alt="Network Cabling service illustration" loading="lazy">
+                    <img src="{% static 'img/popular-services/network-cabiling.svg' %}"
+                        alt="Network Cabling service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">Network Cabling</h3>
                 <p class="service-card-desc">Structured cabling, routing &amp; patching</p>
@@ -398,9 +667,11 @@
                 </div>
             </article>
 
+            <!-- Card 2: Rack Installation -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/rack-installation.svg' %}" alt="Rack Installation service illustration" loading="lazy">
+                    <img src="{% static 'img/popular-services/rack-installation.svg' %}"
+                        alt="Rack Installation service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">Rack Installation</h3>
                 <p class="service-card-desc">Rack setup, expansion &amp; migration</p>
@@ -415,9 +686,11 @@
                 </div>
             </article>
 
+            <!-- Card 3: Fiber Deployment -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/fibre-deployment.svg' %}" alt="Fiber Deployment service illustration" loading="lazy">
+                    <img src="{% static 'img/popular-services/fibre-deployment.svg' %}"
+                        alt="Fiber Deployment service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">Fiber Deployment</h3>
                 <p class="service-card-desc">Fiber installation, splicing &amp; testing</p>
@@ -432,9 +705,11 @@
                 </div>
             </article>
 
+            <!-- Card 4: Server Setup -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/server-setup.svg' %}" alt="Server Setup service illustration" loading="lazy">
+                    <img src="{% static 'img/popular-services/server-setup.svg' %}"
+                        alt="Server Setup service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">Server Setup</h3>
                 <p class="service-card-desc">Server installation, configuration &amp; testing</p>
@@ -449,9 +724,11 @@
                 </div>
             </article>
 
+            <!-- Card 5: CCTV & Security -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/cctv-security.svg' %}" alt="CCTV and Security service illustration" loading="lazy">
+                    <img src="{% static 'img/popular-services/cctv-security.svg' %}"
+                        alt="CCTV and Security service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">CCTV &amp; Security</h3>
                 <p class="service-card-desc">CCTV installation &amp; access control</p>
@@ -466,12 +743,14 @@
                 </div>
             </article>
 
+            <!-- Card 6: Smart Hands -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
-                    <img src="{% static 'img/popular-services/smart-hands.svg' %}" alt="Smart Hands service illustration" loading="lazy">
+                    <img src="{% static 'img/popular-services/smart-hands.svg' %}"
+                        alt="Smart Hands service illustration" loading="lazy">
                 </div>
                 <h3 class="service-card-title">Smart Hands</h3>
-                <p class="service-card-desc">Remote hands &amp; eyes support</p>
+                <p class="service-card-desc">Remote Hands &amp; eyes support</p>
                 <div class="service-card-footer">
                     <div>
                         <span class="service-card-price-label">Starts from</span>
@@ -487,7 +766,7 @@
 </section>
 
 <!-- ════════════ WHY CHOOSE ════════════ -->
-<section class="why-choose" aria-labelledby="why-choose-title">
+<section class="why-choose" aria-labelledby="why-choose-title" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
     <div class="why-choose-card glass-border-white">
         <h2 id="why-choose-title" class="why-choose-title">Why Choose Field Engineer</h2>
 
@@ -544,7 +823,8 @@
 </section>
 
 <!-- ════════════ PLATFORM IN YOUR HANDS ════════════ -->
-<section class="platform-hands" aria-labelledby="platform-hands-title">
+<section class="platform-hands" aria-labelledby="platform-hands-title"
+    style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
     <div class="platform-hands-card glass-border-white">
         <div class="platform-hands-inner">
             <div class="platform-hands-content">
@@ -600,7 +880,8 @@
 </section>
 
 <!-- ════════════ COVERAGE ACROSS INDIA ════════════ -->
-<section class="coverage-india" aria-labelledby="coverage-india-title">
+<section class="coverage-india" aria-labelledby="coverage-india-title"
+    style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
     <div class="coverage-india-card glass-border-blue-light">
         <div class="coverage-india-inner">
             <div class="coverage-india-content">
@@ -649,19 +930,15 @@
             </div>
 
             <div class="coverage-india-map-wrap">
-                <div
-                    id="coverage-india-map"
-                    class="coverage-india-map"
-                    role="img"
-                    aria-label="Interactive map of India showing engineer coverage in major cities"
-                ></div>
+                <div id="coverage-india-map" class="coverage-india-map" role="img"
+                    aria-label="Interactive map of India showing engineer coverage in major cities"></div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ════════════ DEPLOY CTA ════════════ -->
-<section class="deploy-cta" aria-labelledby="deploy-cta-title">
+<section class="deploy-cta" aria-labelledby="deploy-cta-title" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
     <div class="deploy-cta-card glass-border-blue-light">
         <div class="deploy-cta-inner">
             <div class="deploy-cta-content">
@@ -721,35 +998,53 @@
     </div>
 </section>
 
+
+
+
+
 <!-- ════════════ STAY UPDATED ════════════ -->
-<section class="stay-updated" aria-labelledby="stay-updated-title">
-    <div class="stay-updated-card glass-border-white">
-        <div class="stay-updated-inner">
-            <div class="stay-updated-content">
-                <h2 id="stay-updated-title" class="stay-updated-title">Stay Updated with FE</h2>
-                <p class="stay-updated-desc">
-                    Get deployment insights, industry trends and product updates straight to your inbox.
-                </p>
+<section class="stay-updated" aria-labelledby="stay-updated-title" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+    <div class="stay-updated-card glass-border-white p-2">
+        <div
+            class="stay-updated-inner flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-4 px-3 py-3 md:px-4 md:py-3 ">
+
+            <!-- Left: Email Icon + Content -->
+            <div class="stay-updated-content flex items-center gap-8 pl-8 w-full lg:w-auto ">
+                <!-- Email Icon -->
+                <div
+                    class="stay-updated-icon flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                    <span class="material-symbols-outlined text-xl md:text-2xl">email</span>
+                </div>
+
+                <!-- Text Content -->
+                <div class="stay-updated-text">
+                    <h2 id="stay-updated-title"
+                        class="stay-updated-title text-sm md:text-base font-bold text-gray-900 leading-tight">
+                        Stay Updated with FE
+                    </h2>
+                    <p class="stay-updated-desc text-xs text-gray-600 leading-relaxed max-w-xs">
+                        Get deployment insights, industry trends <br>and product updates straight to your inbox.
+                    </p>
+                </div>
             </div>
 
-            <form class="stay-updated-form" action="#" method="post" novalidate>
-                <div class="stay-updated-input-wrap water-drop-glass">
-                    <label for="stay-updated-email" class="sr-only">Business email</label>
-                    <input
-                        type="email"
-                        id="stay-updated-email"
-                        name="email"
-                        class="stay-updated-input"
-                        placeholder="Enter your business email"
-                        autocomplete="email"
-                        required
-                    >
-                    <button type="submit" class="btn btn-primary btn-md btn-modern stay-updated-submit inline-flex">
-                        Request Service
-                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            <!-- Right: Input + Subscribe Button (Side by side, button OUTSIDE input) -->
+            <form class="stay-updated-form w-full lg:w-auto flex-shrink-0" action="#" method="post" novalidate>
+                <div class="stay-updated-input-wrap flex items-center  gap-2 w-full">
+                    <!-- Input Field -->
+                    <input type="email" id="stay-updated-email" name="email"
+                        class="stay-updated-input flex-1 min-w-[140px] px-5 py-3 bg-white border border-gray-200 rounded-lg text-gray-800 text-sm outline-none placeholder:text-gray-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-200 shadow-sm"
+                        placeholder="Enter your business email" autocomplete="email" required>
+                    <!-- Subscribe Button (OUTSIDE input, blue background) -->
+                    <button type="submit"
+                        class="stay-updated-submit flex-shrink-0 inline-flex items-center justify-center gap-1.5 px-6 py-2.5 bg-blue-700 hover:bg-blue-700 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-blue-600/25 whitespace-nowrap">
+                        Subscribe
+                        <span
+                            class="material-symbols-outlined text-base transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>
                     </button>
                 </div>
             </form>
+
         </div>
     </div>
 </section>
@@ -757,6 +1052,10 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="{% static 'script/customer-home/customer-home.js' %}"></script>
+
+
+
 {% endblock %}
