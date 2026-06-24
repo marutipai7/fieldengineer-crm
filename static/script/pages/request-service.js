@@ -20,16 +20,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toggle.addEventListener("click", () => menu.classList.toggle("hidden"));
 
-    menu.querySelectorAll("li").forEach((li) => {
-      li.addEventListener("click", () => {
+  menu.querySelectorAll("li").forEach((li) => {
+    li.addEventListener("click", () => {
         input.value = li.textContent.trim();
         menu.classList.add("hidden");
-        wrapper
-          .querySelector(".flex.items-center.justify-between")
-          .classList.remove("border-red-500");
+        const dropBox = wrapper.querySelector(".flex.items-center.justify-between");
+        if (dropBox) {
+            dropBox.classList.remove("border-red-500");
+            dropBox.classList.add("border-pearl-blue");
+        }
         removeError(wrapper);
-      });
     });
+});
 
     document.addEventListener("click", (e) => {
       if (!wrapper.contains(e.target)) menu.classList.add("hidden");
@@ -118,12 +120,26 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ── Date Pickers ──────────────────────────────────────────────────────────
-  function buildCalendar(inputEl) {
-    // Remove any existing calendar for this input
-    const existingPicker = inputEl
-      .closest(".flex.flex-col")
-      ?.querySelector(".date-picker-popup");
-    if (existingPicker) existingPicker.remove();
+ // ── Date Pickers ──────────────────────────────────────────────────────────
+let currentCalendar = null; // Global reference for the open calendar
+
+// ── Date Pickers ──────────────────────────────────────────────────────────
+// ── Date Pickers ──────────────────────────────────────────────────────────
+let activeCalendar = null;
+
+function buildCalendar(inputEl) {
+    // Saare existing calendars hatao
+    if (activeCalendar) {
+        activeCalendar.remove();
+        activeCalendar = null;
+    }
+    document.querySelectorAll(".date-picker-popup").forEach(p => p.remove());
+
+    const existing = inputEl.closest(".flex.flex-col")?.querySelector(".date-picker-popup");
+    if (existing) {
+        existing.remove();
+        return;
+    }
 
     const today = new Date();
     let viewYear = today.getFullYear();
@@ -131,146 +147,196 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const popup = document.createElement("div");
     popup.className =
-      "date-picker-popup absolute z-50 bg-white border border-pearl-blue rounded-lg shadow-xl p-4 w-72 top-full mt-1 left-0";
+        "date-picker-popup absolute z-50 bg-white border border-pearl-blue rounded-lg shadow-xl p-4 w-72 top-full mt-1 left-0";
+    activeCalendar = popup;
 
     function render() {
-      popup.innerHTML = "";
+        popup.innerHTML = "";
 
-      // Header
-      const header = document.createElement("div");
-      header.className = "flex items-center justify-between mb-3";
-      const prevBtn = document.createElement("button");
-      prevBtn.innerHTML =
-        '<span class="material-symbols-outlined text-sm!">chevron_left</span>';
-      prevBtn.className = "cursor-pointer text-primary";
-      prevBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        viewMonth--;
-        if (viewMonth < 0) {
-          viewMonth = 11;
-          viewYear--;
-        }
-        render();
-      });
-
-      const nextBtn = document.createElement("button");
-      nextBtn.innerHTML =
-        '<span class="material-symbols-outlined text-sm!">chevron_right</span>';
-      nextBtn.className = "cursor-pointer text-primary";
-      nextBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        viewMonth++;
-        if (viewMonth > 11) {
-          viewMonth = 0;
-          viewYear++;
-        }
-        render();
-      });
-
-      const monthLabel = document.createElement("span");
-      monthLabel.className = "font-semibold text-sm";
-      monthLabel.textContent = new Date(viewYear, viewMonth).toLocaleString(
-        "default",
-        { month: "long", year: "numeric" },
-      );
-
-      header.append(prevBtn, monthLabel, nextBtn);
-      popup.appendChild(header);
-
-      // Day headers
-      const dayRow = document.createElement("div");
-      dayRow.className = "grid grid-cols-7 mb-1";
-      ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].forEach((d) => {
-        const cell = document.createElement("div");
-        cell.className =
-          "text-center text-xs font-semibold text-muted-steel py-1";
-        cell.textContent = d;
-        dayRow.appendChild(cell);
-      });
-      popup.appendChild(dayRow);
-
-      // Days grid
-      const grid = document.createElement("div");
-      grid.className = "grid grid-cols-7 gap-y-1";
-      const firstDay = new Date(viewYear, viewMonth, 1).getDay();
-      const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
-
-      for (let i = 0; i < firstDay; i++) {
-        grid.appendChild(document.createElement("div"));
-      }
-
-      for (let d = 1; d <= daysInMonth; d++) {
-        const cell = document.createElement("button");
-        cell.textContent = d;
-        cell.className =
-          "text-center text-xs rounded-full w-7 h-7 mx-auto cursor-pointer hover:bg-primary hover:text-white transition-colors";
-
-        const cellDate = new Date(viewYear, viewMonth, d);
-        const isToday = cellDate.toDateString() === today.toDateString();
-        if (isToday)
-          cell.classList.add("border", "border-primary", "text-primary");
-
-        // Check if this date is already selected
-        if (
-          inputEl.value ===
-          cellDate.toLocaleDateString("en-IN", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-          })
-        ) {
-          cell.classList.add("bg-primary", "text-white");
-        }
-
-        cell.addEventListener("click", (e) => {
-          e.stopPropagation();
-          inputEl.value = cellDate.toLocaleDateString("en-IN", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-          });
-          clearFieldError(inputEl);
-          popup.remove();
+        // Header
+        const header = document.createElement("div");
+        header.className = "flex items-center justify-between mb-3";
+        const prevBtn = document.createElement("button");
+        prevBtn.innerHTML =
+            '<span class="material-symbols-outlined text-sm!">chevron_left</span>';
+        prevBtn.className = "cursor-pointer text-primary";
+        prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            viewMonth--;
+            if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+            render();
         });
-        grid.appendChild(cell);
-      }
-      popup.appendChild(grid);
+
+        const nextBtn = document.createElement("button");
+        nextBtn.innerHTML =
+            '<span class="material-symbols-outlined text-sm!">chevron_right</span>';
+        nextBtn.className = "cursor-pointer text-primary";
+        nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            viewMonth++;
+            if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+            render();
+        });
+
+        const monthLabel = document.createElement("span");
+        monthLabel.className = "font-semibold text-sm";
+        monthLabel.textContent = new Date(viewYear, viewMonth).toLocaleString(
+            "default", { month: "long", year: "numeric" }
+        );
+
+        header.append(prevBtn, monthLabel, nextBtn);
+        popup.appendChild(header);
+
+        // Day headers
+        const dayRow = document.createElement("div");
+        dayRow.className = "grid grid-cols-7 mb-1";
+        ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].forEach((d) => {
+            const cell = document.createElement("div");
+            cell.className = "text-center text-xs font-semibold text-muted-steel py-1";
+            cell.textContent = d;
+            dayRow.appendChild(cell);
+        });
+        popup.appendChild(dayRow);
+
+        // Days grid
+        const grid = document.createElement("div");
+        grid.className = "grid grid-cols-7 gap-y-1";
+        const firstDay = new Date(viewYear, viewMonth, 1).getDay();
+        const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+        for (let i = 0; i < firstDay; i++) {
+            grid.appendChild(document.createElement("div"));
+        }
+
+        for (let d = 1; d <= daysInMonth; d++) {
+            const cell = document.createElement("button");
+            cell.textContent = d;
+            cell.className =
+                "text-center text-xs rounded-full w-7 h-7 mx-auto cursor-pointer hover:bg-primary hover:text-white transition-colors";
+
+            const cellDate = new Date(viewYear, viewMonth, d);
+            if (cellDate.toDateString() === today.toDateString()) {
+                cell.classList.add("border", "border-primary", "text-primary");
+            }
+
+            // 🔥 Check if already selected (YYYY-MM-DD compare)
+            const selectedDate = inputEl.value;
+            const cellDateStr = cellDate.toISOString().split('T')[0];
+            if (selectedDate === cellDateStr) {
+                cell.classList.add("bg-primary", "text-white");
+            }
+
+            // 🔥 FIX: YYYY-MM-DD format set karo
+            cell.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const year = cellDate.getFullYear();
+                const month = String(cellDate.getMonth() + 1).padStart(2, '0');
+                const day = String(cellDate.getDate()).padStart(2, '0');
+                inputEl.value = `${year}-${month}-${day}`;
+                
+                // Trigger change event
+                inputEl.dispatchEvent(new Event('change', { bubbles: true }));
+                
+                if (typeof clearFieldError === 'function') {
+                    clearFieldError(inputEl);
+                }
+                
+                if (activeCalendar) {
+                    activeCalendar.remove();
+                    activeCalendar = null;
+                }
+            });
+            grid.appendChild(cell);
+        }
+        popup.appendChild(grid);
+
+        // Footer – Clear & Today
+        const footer = document.createElement("div");
+        footer.className = "flex items-center justify-between mt-3 pt-2 border-t border-pearl-blue";
+
+        const clearBtn = document.createElement("button");
+        clearBtn.textContent = "Clear";
+        clearBtn.className = "text-sm text-muted-steel hover:text-primary cursor-pointer";
+        clearBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            inputEl.value = "";
+            inputEl.dispatchEvent(new Event('change', { bubbles: true }));
+            if (typeof clearFieldError === 'function') {
+                clearFieldError(inputEl);
+            }
+            if (activeCalendar) {
+                activeCalendar.remove();
+                activeCalendar = null;
+            }
+        });
+
+        const todayBtn = document.createElement("button");
+        todayBtn.textContent = "Today";
+        todayBtn.className = "text-sm text-primary font-semibold hover:underline cursor-pointer";
+        todayBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            inputEl.value = `${year}-${month}-${day}`;
+            inputEl.dispatchEvent(new Event('change', { bubbles: true }));
+            if (typeof clearFieldError === 'function') {
+                clearFieldError(inputEl);
+            }
+            if (activeCalendar) {
+                activeCalendar.remove();
+                activeCalendar = null;
+            }
+        });
+
+        footer.append(clearBtn, todayBtn);
+        popup.appendChild(footer);
     }
 
     render();
 
-    // Position relative to parent wrapper
     const wrapper = inputEl.closest(".flex.flex-col");
     wrapper.style.position = "relative";
     wrapper.appendChild(popup);
 
-    // Close on outside click
-    setTimeout(() => {
-      document.addEventListener("click", function closePicker(e) {
+    function closeOnOutside(e) {
         if (!popup.contains(e.target) && e.target !== inputEl) {
-          popup.remove();
-          document.removeEventListener("click", closePicker);
+            if (activeCalendar) {
+                activeCalendar.remove();
+                activeCalendar = null;
+            }
+            document.removeEventListener("click", closeOnOutside);
         }
-      });
-    }, 0);
-  }
+    }
+    setTimeout(() => document.addEventListener("click", closeOnOutside), 10);
+}
 
   // Attach to both date inputs in access-timeline
-  document
+document
     .querySelectorAll(
-      ".access-timeline input[placeholder='Select start date'], .access-timeline input[placeholder='Select end date']",
+        ".access-timeline input[placeholder='Select start date'], .access-timeline input[placeholder='Select end date']",
     )
     .forEach((input) => {
-      input.addEventListener("click", (e) => {
-        e.stopPropagation();
-        // Close any other open pickers first
-        document
-          .querySelectorAll(".date-picker-popup")
-          .forEach((p) => p.remove());
-        buildCalendar(input);
-      });
-    });
+        input.addEventListener("click", function(e) {
+            e.stopPropagation();
+            e.preventDefault();
 
+            const parent = this.closest(".flex.flex-col");
+            const existing = parent?.querySelector(".date-picker-popup");
+
+            if (existing) {
+                if (activeCalendar) {
+                    activeCalendar.remove();
+                    activeCalendar = null;
+                }
+                return;
+            }
+
+            buildCalendar(this);
+        });
+    });
+    
   // ── Step Indicator ─────────────────────────────────────────────────────────
   const stepIndicator = document.querySelector(".stepIndicator");
   const stepItems = stepIndicator.querySelectorAll(
@@ -335,16 +401,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function clearFieldError(field) {
     field.classList.remove("border-red-500");
+    function clearFieldError(field) {
+    field.classList.remove("border-red-500");
+    // Default border class restore
+    if (field.tagName === "TEXTAREA") {
+        field.classList.add("border-mist-gray");
+    } else if (field.type === "text" || field.type === "number" || field.type === "email") {
+        field.classList.add("border-pearl-blue");
+    }
+    // Dropdown box ke liye alag se handle karte hain
+}
   }
 
-  document
+ document
     .querySelectorAll(
-      "input[type='text'], input[type='number'], input[type='email'], textarea",
+        "input[type='text'], input[type='number'], input[type='email'], textarea",
     )
     .forEach((el) => {
-      el.addEventListener("input", () => clearFieldError(el));
-    });
+        el.addEventListener("input", function() {
+            // Red border hatao
+            clearFieldError(this);
 
+            // 👇 Error message hatao (wrapper ke andar)
+            const wrapper = this.closest(".flex.flex-col");
+            if (wrapper) {
+                // Koi bhi error message jo wrapper ke andar ho
+                const errorMsg = wrapper.querySelector(".error-msg");
+                if (errorMsg) errorMsg.remove();
+            }
+
+            // Agar dropdown wrapper ke andar hai toh wahan se bhi hatao
+            const dropdownWrapper = this.closest(".dropdown-wrapper");
+            if (dropdownWrapper) {
+                const errorMsg = dropdownWrapper.querySelector(".error-msg");
+                if (errorMsg) errorMsg.remove();
+                // Dropdown box ka border bhi restore
+                const dropBox = dropdownWrapper.querySelector(".flex.items-center.justify-between");
+                if (dropBox) {
+                    dropBox.classList.remove("border-red-500");
+                    dropBox.classList.add("border-pearl-blue");
+                }
+            }
+        });
+    });
   // ── Validation: Step 1 ────────────────────────────────────────────────────
   function validateStep1() {
     let valid = true;
@@ -378,229 +477,231 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ── Validation: Step 2 ────────────────────────────────────────────────────
-  // ── Validation: Step 2 ────────────────────────────────────────────────────
-  function validateStep2() {
+ function validateStep2() {
     let valid = true;
     const section = document.querySelector(".siteInfo");
 
     function fieldError(wrapper, input, message, errorId) {
-      if (!wrapper || !input) return;
-      if (!input.value.trim()) {
-        markFieldError(input);
-        showError(wrapper, message, errorId);
-        valid = false;
-      } else {
-        clearFieldError(input);
-        removeError(wrapper, errorId);
-      }
+        if (!wrapper || !input) return;
+        if (!input.value.trim()) {
+            markFieldError(input);
+            showError(wrapper, message, errorId);
+            valid = false;
+        } else {
+            clearFieldError(input);
+            removeError(wrapper, errorId);
+        }
     }
 
     function dropdownError(wrapper, errorId) {
-      if (!wrapper) return;
-      const dropInput = wrapper.querySelector("input");
-      const dropBox = wrapper.querySelector(
-        ".flex.items-center.justify-between",
-      );
-      if (!dropInput || !dropBox) return;
-      if (!dropInput.value.trim()) {
-        dropBox.classList.add("border-red-500");
-        dropBox.classList.remove("border-pearl-blue");
-        showError(wrapper, "Please select an option.", errorId);
-        valid = false;
-      } else {
-        dropBox.classList.remove("border-red-500");
-        dropBox.classList.add("border-pearl-blue");
-        removeError(wrapper, errorId);
-      }
+        if (!wrapper) return;
+        const dropInput = wrapper.querySelector("input");
+        const dropBox = wrapper.querySelector(".flex.items-center.justify-between");
+        if (!dropInput || !dropBox) return;
+        if (!dropInput.value.trim()) {
+            dropBox.classList.add("border-red-500");
+            dropBox.classList.remove("border-pearl-blue");
+            showError(wrapper, "Please select an option.", errorId);
+            valid = false;
+        } else {
+            dropBox.classList.remove("border-red-500");
+            dropBox.classList.add("border-pearl-blue");
+            removeError(wrapper, errorId);
+        }
     }
 
-    // Use the responsive grid — grab all direct children
-    const infoGrid = section.querySelector(".grid.gap-5");
-    const gridDivs = infoGrid
-      ? Array.from(infoGrid.querySelectorAll(":scope > div"))
-      : [];
+    function findWrapperByLabel(grid, text) {
+        if (!grid) return null;
+        const labels = grid.querySelectorAll("label");
+        for (const label of labels) {
+            if (label.textContent.trim().includes(text)) {
+                return label.closest(".flex.flex-col");
+            }
+        }
+        return null;
+    }
 
-    // gridDivs[0] = Company/Site Name, [1] = Site Type, [2] = Project Type, [3] = Building/Floor
-    fieldError(
-      gridDivs[0],
-      gridDivs[0]?.querySelector("input"),
-      "Company/Site name is required.",
-      "err-company",
-    );
-    dropdownError(gridDivs[1], "err-site-type");
-    dropdownError(gridDivs[2], "err-project-type");
-    fieldError(
-      gridDivs[3],
-      gridDivs[3]?.querySelector("input"),
-      "Building/Floor is required.",
-      "err-building",
-    );
+    const grid = section.querySelector(".grid.gap-5");
 
+    // Company / Site Name
+    const companyWrapper = findWrapperByLabel(grid, "Company / Site Name");
+    const companyInput = companyWrapper?.querySelector("input");
+    fieldError(companyWrapper, companyInput, "Company/Site name is required.", "err-company");
+
+    // Site Type dropdown
+    const siteTypeWrapper = findWrapperByLabel(grid, "Site Type");
+    if (siteTypeWrapper?.classList.contains("dropdown-wrapper")) {
+        dropdownError(siteTypeWrapper, "err-site-type");
+    }
+
+    // Project Type dropdown
+    const projectTypeWrapper = findWrapperByLabel(grid, "Project Type");
+    if (projectTypeWrapper?.classList.contains("dropdown-wrapper")) {
+        dropdownError(projectTypeWrapper, "err-project-type");
+    }
+
+    // Building / Floor
+    const buildingWrapper = findWrapperByLabel(grid, "Building / Floor");
+    const buildingInput = buildingWrapper?.querySelector("input");
+    fieldError(buildingWrapper, buildingInput, "Building/Floor is required.", "err-building");
+
+    // Scope of Work counters
     const counters = section.querySelectorAll(".counter input.count");
     const allZero = Array.from(counters).every((c) => parseInt(c.value) === 0);
     const scopeWrapper = section.querySelector(".grid.grid-cols-4");
     if (allZero) {
-      showError(
-        scopeWrapper,
-        "Please fill in at least one scope field.",
-        "scope-error",
-      );
-      valid = false;
+        showError(scopeWrapper, "Please fill in at least one scope field.", "scope-error");
+        valid = false;
     } else {
-      removeError(scopeWrapper, "scope-error");
+        removeError(scopeWrapper, "scope-error");
     }
 
     return valid;
-  }
-
+}
   // ── Validation: Step 4 (Access & Timeline) ────────────────────────────────
-  function validateStep4() {
-    let valid = true;
-    const section = document.querySelector(".access-timeline");
+function validateStep4() {
+  let valid = true;
+  const section = document.querySelector(".access-timeline");
 
-    function fieldError(wrapper, input, message, errorId) {
-      if (!wrapper || !input) return;
-      if (!input.value.trim()) {
-        markFieldError(input);
-        showError(wrapper, message, errorId);
-        valid = false;
-      } else {
-        clearFieldError(input);
-        removeError(wrapper, errorId);
-      }
-    }
-
-    function dropdownError(wrapper, errorId) {
-      if (!wrapper) return;
-      const dropInput = wrapper.querySelector("input");
-      const dropBox = wrapper.querySelector(
-        ".flex.items-center.justify-between",
-      );
-      if (!dropInput || !dropBox) return;
-      if (!dropInput.value.trim()) {
-        dropBox.classList.add("border-red-500");
-        dropBox.classList.remove("border-pearl-blue");
-        showError(wrapper, "Please select an option.", errorId);
-        valid = false;
-      } else {
-        dropBox.classList.remove("border-red-500");
-        dropBox.classList.add("border-pearl-blue");
-        removeError(wrapper, errorId);
-      }
-    }
-
-    // ── Site Contact Person ──────────────────────────────────────────────
-    // Target by the heading text to avoid fragile nth-child / grid-cols matching
-    const contactHeading = Array.from(
-      section.querySelectorAll("p.font-semibold.text-sm"),
-    ).find((p) => p.textContent.trim() === "Site Contact Person");
-    const contactGrid = contactHeading
-      ?.closest(".flex.flex-col.gap-2")
-      ?.querySelector(".grid.gap-5");
-    const contactDivs = contactGrid
-      ? Array.from(contactGrid.querySelectorAll(":scope > div"))
-      : [];
-
-    // [0]=Name [1]=Mobile [2]=Alternate [3]=Email [4]=Department [5]=Designation
-    fieldError(
-      contactDivs[0],
-      contactDivs[0]?.querySelector("input"),
-      "Contact person name is required.",
-      "err-contact-name",
-    );
-    fieldError(
-      contactDivs[1],
-      contactDivs[1]?.querySelector("input"),
-      "Mobile number is required.",
-      "err-mobile",
-    );
-    fieldError(
-      contactDivs[3],
-      contactDivs[3]?.querySelector("input"),
-      "Email address is required.",
-      "err-email",
-    );
-
-    // ── Access Information ───────────────────────────────────────────────
-    const accessHeading = Array.from(
-      section.querySelectorAll("p.font-semibold.text-sm"),
-    ).find((p) => p.textContent.trim() === "Access Information");
-    const accessGrid = accessHeading
-      ?.closest(".flex.flex-col.gap-2")
-      ?.querySelector(".grid.gap-5");
-    const accessDropdowns = accessGrid
-      ? Array.from(accessGrid.querySelectorAll(".dropdown-wrapper"))
-      : [];
-
-    dropdownError(accessDropdowns[0] ?? null, "err-entry"); // Entry Instructions
-    dropdownError(accessDropdowns[1] ?? null, "err-security"); // Security Gate
-    dropdownError(accessDropdowns[2] ?? null, "err-parking"); // Parking
-    dropdownError(accessDropdowns[3] ?? null, "err-visitor"); // Visitor Pass
-
-    // ── Urgency Level ────────────────────────────────────────────────────
-    const urgencyHeading = Array.from(
-      section.querySelectorAll("p.font-semibold.text-sm"),
-    ).find((p) => p.textContent.trim() === "Urgency Level");
-    const urgencyWrapper = urgencyHeading?.closest(".flex.flex-col.gap-2\\.5");
-
-    if (!selectedUrgency) {
-      showError(
-        urgencyWrapper ?? section,
-        "Please select an urgency level.",
-        "urgency-error",
-      );
+  function fieldError(wrapper, input, message, errorId) {
+    if (!wrapper || !input) return;
+    if (!input.value.trim()) {
+      markFieldError(input);
+      showError(wrapper, message, errorId);
       valid = false;
     } else {
-      removeError(urgencyWrapper ?? section, "urgency-error");
+      clearFieldError(input);
+      removeError(wrapper, errorId);
     }
-
-    // ── Preferred Start Date ─────────────────────────────────────────────
-    const startInput = section.querySelector(
-      "input[placeholder='Select start date']",
-    );
-    if (startInput) {
-      const startWrapper = startInput.closest(".flex.flex-col");
-      if (!startInput.value.trim()) {
-        markFieldError(startInput);
-        showError(startWrapper, "Start date is required.", "err-start-date");
-        valid = false;
-      } else {
-        clearFieldError(startInput);
-        removeError(startWrapper, "err-start-date");
-      }
-    }
-
-    // ── Preferred End Date ───────────────────────────────────────────────
-    const endInput = section.querySelector(
-      "input[placeholder='Select end date']",
-    );
-    if (endInput) {
-      const endWrapper = endInput.closest(".flex.flex-col");
-      if (!endInput.value.trim()) {
-        markFieldError(endInput);
-        showError(endWrapper, "End date is required.", "err-end-date");
-        valid = false;
-      } else {
-        clearFieldError(endInput);
-        removeError(endWrapper, "err-end-date");
-      }
-    }
-
-    // ── Preferred Time Window ────────────────────────────────────────────
-    const scheduleHeading = Array.from(
-      section.querySelectorAll("p.font-semibold.text-sm"),
-    ).find((p) => p.textContent.trim() === "Schedule & Timeline");
-    const scheduleGrid = scheduleHeading
-      ?.closest(".flex.flex-col.gap-2")
-      ?.querySelector(".grid.gap-4");
-    const scheduleDropdowns = scheduleGrid
-      ? Array.from(scheduleGrid.querySelectorAll(".dropdown-wrapper"))
-      : [];
-
-    dropdownError(scheduleDropdowns[0] ?? null, "err-time-window"); // Preferred Time Window
-
-    return valid;
   }
+
+  function dropdownError(wrapper, errorId) {
+    if (!wrapper) return;
+    const dropInput = wrapper.querySelector("input");
+    const dropBox = wrapper.querySelector(
+      ".flex.items-center.justify-between"
+    );
+    if (!dropInput || !dropBox) return;
+    if (!dropInput.value.trim()) {
+      dropBox.classList.add("border-red-500");
+      dropBox.classList.remove("border-pearl-blue");
+      showError(wrapper, "Please select an option.", errorId);
+      valid = false;
+    } else {
+      dropBox.classList.remove("border-red-500");
+      dropBox.classList.add("border-pearl-blue");
+      removeError(wrapper, errorId);
+    }
+  }
+
+  // ── Site Contact Person ──────────────────────────────────────────────
+  const contactHeading = Array.from(
+    section.querySelectorAll("p.font-semibold.text-sm")
+  ).find((p) => p.textContent.trim() === "Site Contact Person");
+  const contactGrid = contactHeading
+    ?.closest(".flex.flex-col.gap-2")
+    ?.querySelector(".grid.gap-5");
+  const contactDivs = contactGrid
+    ? Array.from(contactGrid.querySelectorAll(":scope > div"))
+    : [];
+
+  fieldError(
+    contactDivs[0],
+    contactDivs[0]?.querySelector("input"),
+    "Contact person name is required.",
+    "err-contact-name"
+  );
+  fieldError(
+    contactDivs[1],
+    contactDivs[1]?.querySelector("input"),
+    "Mobile number is required.",
+    "err-mobile"
+  );
+  fieldError(
+    contactDivs[3],
+    contactDivs[3]?.querySelector("input"),
+    "Email address is required.",
+    "err-email"
+  );
+
+  // ── Access Information ───────────────────────────────────────────────
+  const accessHeading = Array.from(
+    section.querySelectorAll("p.font-semibold.text-sm")
+  ).find((p) => p.textContent.trim() === "Access Information");
+  const accessGrid = accessHeading
+    ?.closest(".flex.flex-col.gap-2")
+    ?.querySelector(".grid.gap-5");
+  const accessDropdowns = accessGrid
+    ? Array.from(accessGrid.querySelectorAll(".dropdown-wrapper"))
+    : [];
+
+  dropdownError(accessDropdowns[0] ?? null, "err-entry"); // Entry Instructions
+  dropdownError(accessDropdowns[1] ?? null, "err-security"); // Security Gate
+  dropdownError(accessDropdowns[2] ?? null, "err-parking"); // Parking
+  dropdownError(accessDropdowns[3] ?? null, "err-visitor"); // Visitor Pass
+
+  // ── Urgency Level ────────────────────────────────────────────────────
+  const urgencyLabel = section.querySelector('label[for="urgency"]');
+  const urgencyWrapper = urgencyLabel?.closest(".flex.flex-col.gap-2\\.5");
+
+  if (!selectedUrgency) {
+    showError(
+      urgencyWrapper ?? section,
+      "Please select an urgency level.",
+      "urgency-error"
+    );
+    valid = false;
+  } else {
+    removeError(urgencyWrapper ?? section, "urgency-error");
+  }
+
+  // ── Preferred Start Date ─────────────────────────────────────────────
+  const startInput = section.querySelector(
+    "input[placeholder='Select start date']"
+  );
+  if (startInput) {
+    const startWrapper = startInput.closest(".flex.flex-col");
+    if (!startInput.value.trim()) {
+      markFieldError(startInput);
+      showError(startWrapper, "Start date is required.", "err-start-date");
+      valid = false;
+    } else {
+      clearFieldError(startInput);
+      removeError(startWrapper, "err-start-date");
+    }
+  }
+
+  // ── Preferred End Date ───────────────────────────────────────────────
+  const endInput = section.querySelector(
+    "input[placeholder='Select end date']"
+  );
+  if (endInput) {
+    const endWrapper = endInput.closest(".flex.flex-col");
+    if (!endInput.value.trim()) {
+      markFieldError(endInput);
+      showError(endWrapper, "End date is required.", "err-end-date");
+      valid = false;
+    } else {
+      clearFieldError(endInput);
+      removeError(endWrapper, "err-end-date");
+    }
+  }
+
+  // ── Preferred Time Window ────────────────────────────────────────────
+  const scheduleHeading = Array.from(
+    section.querySelectorAll("p.font-semibold.text-sm")
+  ).find((p) => p.textContent.trim() === "Schedule & Timeline");
+  const scheduleGrid = scheduleHeading
+    ?.closest(".flex.flex-col.gap-2")
+    ?.querySelector(".grid.gap-4");
+  const scheduleDropdowns = scheduleGrid
+    ? Array.from(scheduleGrid.querySelectorAll(".dropdown-wrapper"))
+    : [];
+
+  dropdownError(scheduleDropdowns[0] ?? null, "err-time-window"); // Preferred Time Window
+
+  return valid;
+}
 
   // ── Leaflet Map ────────────────────────────────────────────────────────────
   let map = null;
