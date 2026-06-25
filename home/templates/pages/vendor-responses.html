@@ -71,30 +71,39 @@
         <div class="vr-toolbar-inner">
             <div class="vr-tabs" role="tablist" aria-label="Engineer type">
                 <button
-                    type="button"
-                    class="vr-tab is-active"
-                    role="tab"
-                    id="vr-tab-individual"
-                    aria-selected="true"
-                    aria-controls="vr-panel-individual"
-                    data-vr-tab="individual"
-                >
-                    <span class="material-symbols-outlined" aria-hidden="true">person</span>
-                    Individual Engineers (3)
-                </button>
-                <button
-                    type="button"
-                    class="vr-tab"
-                    role="tab"
-                    id="vr-tab-teams"
-                    aria-selected="false"
-                    aria-controls="vr-panel-teams"
-                    data-vr-tab="teams"
-                    tabindex="-1"
-                >
-                    <span class="material-symbols-outlined" aria-hidden="true">groups</span>
-                    Multiple Engineer Teams (3)
-                </button>
+    type="button"
+    class="vr-tab is-active"
+    role="tab"
+    id="vr-tab-individual"
+    aria-selected="true"
+    aria-controls="vr-panel-individual"
+    data-vr-tab="individual"
+>
+    <span class="material-symbols-outlined" aria-hidden="true">person</span>
+
+    <span class="flex flex-col leading-tight text-center">
+        <span>Individual</span>
+        <span>Engineers (3)</span>
+    </span>
+</button>
+
+<button
+    type="button"
+    class="vr-tab"
+    role="tab"
+    id="vr-tab-teams"
+    aria-selected="false"
+    aria-controls="vr-panel-teams"
+    data-vr-tab="teams"
+>
+    <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+
+    <span class="flex flex-col leading-tight text-center">
+        <span>Multiple Engineer</span>
+        <span>Teams (3)</span>
+    </span>
+</button>
+                    
             </div>
 
             <div class="vr-sort">

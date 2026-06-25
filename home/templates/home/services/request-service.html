@@ -58,19 +58,19 @@
 {% endblock %}
 
 {% block content %}
-<section class="relative min-h-[calc(100vh-68px)] overflow-hidden bg-blue-light">
+<section class="relative min-h-[850px] overflow-hidden bg-blue-light">
 
     <!-- Background -->
     <img src="{% static 'img/request-service/request-service-hero-bg.webp' %}"
         alt="Background illustration of field engineer services" aria-hidden="true"
-        class="absolute inset-0 h-150 w-full object-contain object-[center_20%] lg:object-right z-0 pointer-events-none"
+        class="absolute inset-0 h-130 w-full object-contain object-[center_20%] lg:object-[110%_center] z-0"
         fetchpriority="high"> {# ADDED: fetchpriority="high" #}
     <div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/30 pointer-events-none"></div>
 
     <div
-        class="relative z-10 mx-auto grid max-w-7xl w-full items-center gap-10 px-4 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
+        class="relative z-10 mx-auto grid max-w-7xl w-full items-center gap-16 px-6 py-16 md:px-10 md:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24 lg:py-24">
 
-        <div class="max-w-xl lg:max-w-none">
+        <div class="max-w-[750px] relative z-20">
             <div class="flex items-center gap-2">
                 <a href="{% url 'home' %}" class="flex items-center gap-2">
                     <span class="material-symbols-outlined">home</span>
@@ -199,7 +199,7 @@
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                     <div
-                        class="bg-white border border-porcelain-gray rounded-lg flex flex-col items-center gap-2 p-4 cursor-pointer hover:border-primary hover:bg-frost-blue group">
+                        class="relative bg-white border border-porcelain-gray rounded-lg flex flex-col items-center justify-center gap-3 p-6 cursor-pointer hover:border-primary hover:bg-frost-blue group">
                         <span class="material-symbols-outlined text-4xl! lg:text-6xl! text-primary">cable</span>
                         <p class="font-bold text-center lg:text-lg text-black group-hover:text-primary">Network Cabling
                         </p>
