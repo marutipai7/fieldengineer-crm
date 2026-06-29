@@ -161,6 +161,158 @@
         scrollbar-width: none;
     }
 
+    .hero-main-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+    }
+
+    .hero-main-copy {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Keep all three hero counters visible and readable on every screen size. */
+    .hero-stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .hero-stat-copy {
+        font-size: 0.875rem;
+        line-height: 1.2;
+    }
+
+    .hero-stat-label {
+        font-size: 0.625rem;
+        line-height: 1.2;
+    }
+
+    .hero-mobile-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(0.25rem, 2vw, 0.75rem);
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin-top: 1.25rem;
+        box-sizing: border-box;
+    }
+
+    .hero-mobile-stat {
+        display: flex;
+        min-height: 5.25rem;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 0.25rem;
+        border-radius: 0.75rem;
+        text-align: center;
+    }
+
+    .hero-mobile-stat .material-symbols-outlined {
+        font-size: 1.25rem;
+    }
+
+    .hero-mobile-stat-value {
+        margin-top: 0.125rem;
+        font-size: clamp(0.75rem, 3.8vw, 1rem);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-ink, #111827);
+    }
+
+    .hero-mobile-stat-label {
+        margin-top: 0.125rem;
+        overflow-wrap: anywhere;
+        font-size: clamp(0.5625rem, 2.6vw, 0.75rem);
+        line-height: 1.2;
+        color: var(--color-ink, #111827);
+    }
+
+    @media (max-width: 359px) {
+        .hero-mobile-stats {
+            gap: 0.25rem;
+        }
+
+        .hero-mobile-stat {
+            min-height: 4.75rem;
+            padding: 0.5rem 0.125rem;
+        }
+
+        .hero-mobile-stat .material-symbols-outlined {
+            font-size: 1.125rem;
+        }
+    }
+
+    .hero-desktop-stats {
+        display: none;
+    }
+
+    @media (min-width: 640px) {
+        .hero-mobile-stats {
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .hero-mobile-stat {
+            min-height: 7rem;
+            padding: 1rem 0.75rem;
+            border-radius: 1rem;
+        }
+
+        .hero-mobile-stat .material-symbols-outlined {
+            font-size: 1.75rem;
+        }
+
+        .hero-mobile-stat-value {
+            font-size: 1.25rem;
+        }
+
+        .hero-mobile-stat-label {
+            font-size: 0.875rem;
+        }
+
+        .hero-stat-grid {
+            gap: 0.75rem;
+        }
+
+        .hero-stat-copy {
+            font-size: 1.25rem;
+        }
+
+        .hero-stat-label {
+            font-size: 1rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero-main-grid {
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        }
+
+        .hero-main-copy {
+            max-width: none;
+        }
+
+        .hero-mobile-stats {
+            display: none;
+        }
+
+        .hero-desktop-stats {
+            display: flex;
+        }
+
+        .hero-stat-grid {
+            display: flex;
+            max-width: 240px;
+            flex-direction: column;
+        }
+    }
+
     /* ============================================
    POPULAR SERVICES - HEADER WITH VIEW ALL
    ============================================ */
@@ -316,11 +468,6 @@
         }
     }
 
-
-    /* ============================================
-   STAY UPDATED - FORCE BLUE SUBSCRIBE BUTTON
-   ============================================ */
-
     /* Force blue background on subscribe button */
     .stay-updated-submit {
         background-color: #2563eb !important;
@@ -343,6 +490,82 @@
         outline: none !important;
         box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3) !important;
     }
+
+
+    /* ============================================
+   FIX: HERO SERVICE CARD MOBILE PADDING
+   ============================================ */
+@media (max-width: 640px) {
+    /* Fix: Hero service card padding */
+    .hero-service-card {
+        padding: 1rem !important;
+        padding-right: 1rem !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Fix: Service search input container */
+    .hero-service-search {
+        padding-left: 0.75rem !important;
+        padding-right: 0.5rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Fix: Service chips container */
+    .hero-service-scroll {
+        padding-right: 0.5rem !important;
+        padding-left: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Fix: Individual service chips */
+    .hero-service-chip {
+        flex-shrink: 0 !important;
+        margin-right: 0.5rem !important;
+    }
+
+    /* Fix: Last chip should have margin */
+    .hero-service-chip:last-child {
+        margin-right: 0 !important;
+    }
+
+    /* Fix: Hero section overall padding */
+    .relative.z-10 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Fix: Make sure no overflow */
+    .hero-service-card,
+    .hero-service-search,
+    .hero-service-scroll {
+        overflow: visible !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Fix for very small screens */
+@media (max-width: 400px) {
+    .hero-service-card {
+        padding: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    .hero-service-search input {
+        font-size: 0.8rem !important;
+    }
+
+    .hero-service-chip {
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    .hero-service-chip-label {
+        font-size: 0.65rem !important;
+    }
+}
 </style>
 
 <!-- ════════════ HERO ════════════ -->
@@ -356,10 +579,10 @@
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/30"></div>
 
     <div
-        class="relative z-10 mx-auto grid max-w-[90rem] items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
+        class="hero-main-grid relative z-10 mx-auto grid max-w-[90rem] items-center gap-8 px-4 py-8 sm:px-5 sm:py-12 md:px-8 md:py-16 lg:gap-8 lg:py-20">
 
         <!-- Left -->
-        <div class="max-w-xl lg:max-w-none">
+        <div class="hero-main-copy max-w-xl lg:max-w-none">
 
             <h1
                 class="hero-rise hero-rise-d1 text-h3 font-bold leading-[1.1] tracking-tight text-primary-dark md:text-h2 lg:text-h1">
@@ -373,63 +596,85 @@
                 in real time. Get AI-powered reports.
             </p>
 
-            <!-- Service search glass card -->
-            <div class="hero-service-card hero-rise hero-rise-d3 mt-8 rounded-[20px] p-3 hero-glass">
-                <h2 class="text-b2 font-bold text-dark">What service do you need?</h2>
-
-                <div class="hero-service-search mt-4 flex items-center gap-2 rounded-[12px] glass-2 py-1.5 pl-5 pr-1.5">
-                    <input type="text" id="hero-search-input" placeholder="Search service or type you required...."
-                        class="min-w-0 flex-1 border-0 bg-transparent text-b3 text-ink outline-none placeholder:text-ink focus:!outline-none focus:!ring-0">
-                    <button type="button"
-                        class="hero-search-btn flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-light-1 text-white"
-                        aria-label="Search">
-                        <span class="material-symbols-outlined text-[20px]">search</span>
-                    </button>
-                </div>
-
-                <div class="hero-service-scroll mt-5 overflow-x-auto pb-1 snap-x snap-mandatory sm:overflow-visible">
-                    <a href="#" class="hero-service-chip">
-                        <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/network.svg' %}" alt="Network Cabling" class="h-6 w-6"
-                                loading="lazy">
-                        </span>
-                        <span class="hero-service-chip-label">Network<br>Cabling</span>
-                    </a>
-                    <a href="#" class="hero-service-chip">
-                        <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/rack.svg' %}" alt="Rack Installation" class="h-6 w-6"
-                                loading="lazy">
-                        </span>
-                        <span class="hero-service-chip-label">Rack<br>Installation</span>
-                    </a>
-                    <a href="#" class="hero-service-chip">
-                        <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/server.svg' %}" alt="Server Installation" class="h-6 w-6"
-                                loading="lazy">
-                        </span>
-                        <span class="hero-service-chip-label">Server<br>Installation</span>
-                    </a>
-                    <a href="#" class="hero-service-chip">
-                        <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/power.svg' %}" alt="Power & UPS" class="h-6 w-6" loading="lazy">
-                        </span>
-                        <span class="hero-service-chip-label">Power<br>& UPS</span>
-                    </a>
-                    <a href="#" class="hero-service-chip">
-                        <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/cctv.svg' %}" alt="CCTV Installation" class="h-6 w-6"
-                                loading="lazy">
-                        </span>
-                        <span class="hero-service-chip-label">CCTV<br>Installation</span>
-                    </a>
-                    <a href="#" class="hero-service-chip">
-                        <span class="hero-service-chip-icon">
-                            <img src="{% static 'img/rack.svg' %}" alt="Other services" class="h-6 w-6" loading="lazy">
-                        </span>
-                        <span class="hero-service-chip-label">Other</span>
-                    </a>
-                </div>
+            <!-- Mobile counters: kept near the heading so they remain visible without deep scrolling. -->
+            <div class="hero-mobile-stats hero-rise hero-rise-d3" aria-label="Service coverage statistics">
+                <article class="hero-mobile-stat hero-glass">
+                    <span class="material-symbols-outlined text-green" aria-hidden="true">groups</span>
+                    <p class="hero-mobile-stat-value">
+                        <span class="hero-counter" data-target="15000" data-suffix="+" data-format="comma">0</span>
+                    </p>
+                    <p class="hero-mobile-stat-label">Certified engineers</p>
+                </article>
+                <article class="hero-mobile-stat hero-glass">
+                    <span class="material-symbols-outlined text-green" aria-hidden="true">verified</span>
+                    <p class="hero-mobile-stat-value">
+                        <span class="hero-counter" data-target="350" data-suffix="+">0</span>
+                    </p>
+                    <p class="hero-mobile-stat-label">Verified Vendors</p>
+                </article>
+                <article class="hero-mobile-stat hero-glass">
+                    <span class="material-symbols-outlined text-green" aria-hidden="true">apartment</span>
+                    <p class="hero-mobile-stat-value">
+                        <span class="hero-counter" data-target="120" data-suffix="+">0</span>
+                    </p>
+                    <p class="hero-mobile-stat-label">Cities Covered</p>
+                </article>
             </div>
+
+            <!-- Service search glass card -->
+
+<div class="hero-service-card hero-rise hero-rise-d3 mt-8 rounded-[20px] p-3 pr-3 sm:p-3 hero-glass">
+    <h2 class="text-b2 font-bold text-dark">What service do you need?</h2>
+
+    <div class="hero-service-search mt-4 flex items-center gap-2 rounded-[12px] glass-2 py-1.5 pl-4 pr-2 sm:pl-5 sm:pr-1.5">
+        <input type="text" id="hero-search-input" placeholder="Search service or type you required...."
+            class="min-w-0 flex-1 border-0 bg-transparent text-b3 text-ink outline-none placeholder:text-ink focus:!outline-none focus:!ring-0">
+        <button type="button"
+            class="hero-search-btn flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-light-1 text-white"
+            aria-label="Search">
+            <span class="material-symbols-outlined text-[20px]">search</span>
+        </button>
+    </div>
+
+ <div class="hero-service-scroll mt-5 overflow-x-auto pb-1 snap-x snap-mandatory sm:overflow-visible">
+        <a href="#" class="hero-service-chip">
+            <span class="hero-service-chip-icon">
+                <img src="{% static 'img/network.svg' %}" alt="Network Cabling" class="h-6 w-6" loading="lazy">
+            </span>
+            <span class="hero-service-chip-label">Network<br>Cabling</span>
+        </a>
+        <a href="#" class="hero-service-chip">
+            <span class="hero-service-chip-icon">
+                <img src="{% static 'img/rack.svg' %}" alt="Rack Installation" class="h-6 w-6" loading="lazy">
+            </span>
+            <span class="hero-service-chip-label">Rack<br>Installation</span>
+        </a>
+        <a href="#" class="hero-service-chip">
+            <span class="hero-service-chip-icon">
+                <img src="{% static 'img/server.svg' %}" alt="Server Installation" class="h-6 w-6" loading="lazy">
+            </span>
+            <span class="hero-service-chip-label">Server<br>Installation</span>
+        </a>
+        <a href="#" class="hero-service-chip">
+            <span class="hero-service-chip-icon">
+                <img src="{% static 'img/power.svg' %}" alt="Power & UPS" class="h-6 w-6" loading="lazy">
+            </span>
+            <span class="hero-service-chip-label">Power<br>& UPS</span>
+        </a>
+        <a href="#" class="hero-service-chip">
+            <span class="hero-service-chip-icon">
+                <img src="{% static 'img/cctv.svg' %}" alt="CCTV Installation" class="h-6 w-6" loading="lazy">
+            </span>
+            <span class="hero-service-chip-label">CCTV<br>Installation</span>
+        </a>
+        <a href="#" class="hero-service-chip">
+            <span class="hero-service-chip-icon">
+                <img src="{% static 'img/rack.svg' %}" alt="Other services" class="h-6 w-6" loading="lazy">
+            </span>
+            <span class="hero-service-chip-label">Other</span>
+        </a>
+    </div>
+</div>
 
             <!-- CTA row -->
             <div class="hero-rise hero-rise-d4 mt-6 flex flex-wrap items-center gap-3">
@@ -445,39 +690,39 @@
         </div>
 
         <!-- Right — floating cards -->
-        <div class="hero-rise hero-rise-d5 flex flex-col gap-4 lg:items-end">
+        <div class="hero-rise hero-rise-d5 flex min-w-0 flex-col gap-4 lg:items-end">
 
             <!-- Top stat pills -->
-            <div class="flex flex-col gap-3 w-full lg:max-w-[240px]">
+            <div class="hero-stat-grid hero-desktop-stats">
                 <div
-                    class="hero-float hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
+                    class="hero-float hero-glass hero-stat-card flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl px-1 py-3 text-center sm:flex-row sm:justify-between sm:gap-2.5 sm:rounded-2xl sm:px-4 lg:px-5">
                     <span class="flex shrink-0 items-center justify-center text-green">
                         <span class="material-symbols-outlined large-icon">groups</span>
                     </span>
-                    <p class="text-h5 font-semibold text-ink text-center">
+                    <p class="hero-stat-copy font-semibold text-ink text-center">
                         <span class="hero-counter font-bold" data-target="15000" data-suffix="+"
                             data-format="comma">0</span><br>
-                        <span class="text-b1">Certified engineers</span>
+                        <span class="hero-stat-label">Certified engineers</span>
                     </p>
                 </div>
                 <div
-                    class="hero-float hero-float-delay hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
+                    class="hero-float hero-float-delay hero-glass hero-stat-card flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl px-1 py-3 text-center sm:flex-row sm:justify-between sm:gap-2.5 sm:rounded-2xl sm:px-4 lg:px-5">
                     <span class="flex shrink-0 items-center justify-center text-green">
                         <span class="material-symbols-outlined large-icon">verified</span>
                     </span>
-                    <p class="text-h5 font-semibold text-ink text-center">
+                    <p class="hero-stat-copy font-semibold text-ink text-center">
                         <span class="hero-counter font-bold" data-target="350" data-suffix="+">0</span><br>
-                        <span class="text-b1">Verified Vendors</span>
+                        <span class="hero-stat-label">Verified Vendors</span>
                     </p>
                 </div>
                 <div
-                    class="hero-float hero-float-delay-2 hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
+                    class="hero-float hero-float-delay-2 hero-glass hero-stat-card flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl px-1 py-3 text-center sm:flex-row sm:justify-between sm:gap-2.5 sm:rounded-2xl sm:px-4 lg:px-5">
                     <span class="flex shrink-0 items-center justify-center text-green">
                         <span class="material-symbols-outlined large-icon">apartment</span>
                     </span>
-                    <p class="text-h5 font-semibold text-ink text-center">
+                    <p class="hero-stat-copy font-semibold text-ink text-center">
                         <span class="hero-counter font-bold" data-target="120" data-suffix="+">0</span><br>
-                        <span class="text-b1">Cities Covered</span>
+                        <span class="hero-stat-label">Cities Covered</span>
                     </p>
                 </div>
             </div>
@@ -551,7 +796,7 @@
 </section>
 
 <!-- ════════════ HOW IT WORKS ════════════ -->
-<section class="how-it-works" aria-labelledby="how-it-works-title" style="padding-bottom: 0.5rem" ;>
+<section class="how-it-works" aria-labelledby="how-it-works-title" style="padding-bottom: 1.5rem";>
     <div class="how-it-works-card glass-border-white">
         <!-- ===== HEADER WITH VIEW PROCESS DETAILS BUTTON ===== -->
         <div class="how-it-works-header">
@@ -559,10 +804,10 @@
                 <h2 id="how-it-works-title">How it Works?</h2>
                 <p class="how-it-works-subtitle">A seamless process from booking to completion</p>
             </div>
-            <a href="#" class="how-it-works-view-all">
-                View Process Details
-                <span class="material-symbols-outlined">arrow_forward</span>
-            </a>
+           <a href="#" class="how-it-works-view-all pointer-events-none opacity-50 cursor-not-allowed" tabindex="-1" aria-disabled="true">
+    View Process Details
+    <span class="material-symbols-outlined">arrow_forward</span>
+</a>
         </div>
 
         <ol class="how-it-works-steps">
@@ -634,7 +879,7 @@
 </section>
 
 <!-- ════════════ POPULAR SERVICES ════════════ -->
-<section class="popular-services" aria-labelledby="popular-services-title" style="padding-bottom: 0.5rem;">
+<section class="popular-services" aria-labelledby="popular-services-title" style="padding-bottom: 1.5rem;">
     <div class="popular-services-card glass-border-white">
         <!-- ===== HEADER WITH VIEW ALL BUTTON ===== -->
         <div class="popular-services-header">
@@ -765,58 +1010,56 @@
     </div>
 </section>
 
+
 <!-- ════════════ WHY CHOOSE ════════════ -->
-<section class="why-choose" aria-labelledby="why-choose-title" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+<section class="why-choose" aria-labelledby="why-choose-title" style="padding-bottom: 1.5rem";>
     <div class="why-choose-card glass-border-white">
         <h2 id="why-choose-title" class="why-choose-title">Why Choose Field Engineer</h2>
 
-        <div class="why-choose-grid">
-            <article class="why-feature-card glass-border-white">
-                <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/additional-task.svg' %}" alt="Additional Tasks icon" loading="lazy">
+        <div class="why-choose-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+            <!-- feature cards with improved icon containers -->
+            <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
+                <div class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
+                    <img src="{% static 'img/additional-task.svg' %}" alt="Additional Tasks icon" loading="lazy" class="w-8 h-8 object-contain">
                 </div>
-                <h3 class="why-feature-title">Additional Tasks</h3>
-                <p class="why-feature-desc">Add tasks during active jobs.</p>
+                <h3 class="why-feature-title text-sm font-bold">Additional Tasks</h3>
+                <p class="why-feature-desc text-xs text-gray-600">Add tasks during active jobs.</p>
             </article>
-
-            <article class="why-feature-card glass-border-white">
-                <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/tracking.svg' %}" alt="Live Tracking icon" loading="lazy">
+            <!-- repeat for other 5 features with the same structure -->
+            <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
+                <div class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
+                    <img src="{% static 'img/tracking.svg' %}" alt="Live Tracking icon" loading="lazy" class="w-8 h-8 object-contain">
                 </div>
-                <h3 class="why-feature-title">Live Tracking</h3>
-                <p class="why-feature-desc">Track engineers in real time.</p>
+                <h3 class="why-feature-title text-sm font-bold">Live Tracking</h3>
+                <p class="why-feature-desc text-xs text-gray-600">Track engineers in real time.</p>
             </article>
-
-            <article class="why-feature-card glass-border-white">
-                <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/work-logs.svg' %}" alt="Work Logs icon" loading="lazy">
+            <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
+                <div class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
+                    <img src="{% static 'img/work-logs.svg' %}" alt="Work Logs icon" loading="lazy" class="w-8 h-8 object-contain">
                 </div>
-                <h3 class="why-feature-title">Work Logs</h3>
-                <p class="why-feature-desc">Detailed logs, photos &amp; checklists.</p>
+                <h3 class="why-feature-title text-sm font-bold">Work Logs</h3>
+                <p class="why-feature-desc text-xs text-gray-600">Detailed logs, photos &amp; checklists.</p>
             </article>
-
-            <article class="why-feature-card glass-border-white">
-                <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/ai-reports.svg' %}" alt="AI Reports icon" loading="lazy">
+            <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
+                <div class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
+                    <img src="{% static 'img/ai-reports.svg' %}" alt="AI Reports icon" loading="lazy" class="w-8 h-8 object-contain">
                 </div>
-                <h3 class="why-feature-title">AI Reports</h3>
-                <p class="why-feature-desc">Automated reports with insights.</p>
+                <h3 class="why-feature-title text-sm font-bold">AI Reports</h3>
+                <p class="why-feature-desc text-xs text-gray-600">Automated reports with insights.</p>
             </article>
-
-            <article class="why-feature-card glass-border-white">
-                <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/team-workspace.svg' %}" alt="Team Workspace icon" loading="lazy">
+            <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
+                <div class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
+                    <img src="{% static 'img/team-workspace.svg' %}" alt="Team Workspace icon" loading="lazy" class="w-8 h-8 object-contain">
                 </div>
-                <h3 class="why-feature-title">Team Workspace</h3>
-                <p class="why-feature-desc">Collaborate with engineers and teams.</p>
+                <h3 class="why-feature-title text-sm font-bold">Team Workspace</h3>
+                <p class="why-feature-desc text-xs text-gray-600">Collaborate with engineers and teams.</p>
             </article>
-
-            <article class="why-feature-card glass-border-white">
-                <div class="why-feature-icon water-drop-glass">
-                    <img src="{% static 'img/secure-complain.svg' %}" alt="Secure and Compliant icon" loading="lazy">
+            <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
+                <div class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
+                    <img src="{% static 'img/secure-complain.svg' %}" alt="Secure and Compliant icon" loading="lazy" class="w-8 h-8 object-contain">
                 </div>
-                <h3 class="why-feature-title">Secure &amp; Compliant</h3>
-                <p class="why-feature-desc">Enterprise-grade security and compliance.</p>
+                <h3 class="why-feature-title text-sm font-bold">Secure &amp; Compliant</h3>
+                <p class="why-feature-desc text-xs text-gray-600">Enterprise-grade security and compliance.</p>
             </article>
         </div>
     </div>
@@ -824,7 +1067,7 @@
 
 <!-- ════════════ PLATFORM IN YOUR HANDS ════════════ -->
 <section class="platform-hands" aria-labelledby="platform-hands-title"
-    style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+    style="padding-bottom: 1.5rem";>
     <div class="platform-hands-card glass-border-white">
         <div class="platform-hands-inner">
             <div class="platform-hands-content">
@@ -849,7 +1092,7 @@
                     </li>
                 </ul>
 
-                <a href="#" class="platform-hands-btn btn-glass-modern water-drop-glass">
+                <a href="{% url 'about_fe' %}" class="platform-hands-btn btn-glass-modern water-drop-glass">
                     Explore All Features
                     <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </a>
@@ -881,7 +1124,7 @@
 
 <!-- ════════════ COVERAGE ACROSS INDIA ════════════ -->
 <section class="coverage-india" aria-labelledby="coverage-india-title"
-    style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+    style="padding-bottom: 1.5rem";>
     <div class="coverage-india-card glass-border-blue-light">
         <div class="coverage-india-inner">
             <div class="coverage-india-content">
@@ -923,22 +1166,21 @@
                     </article>
                 </div>
 
-                <a href="#" class="coverage-india-btn btn-glass-modern water-drop-glass">
+                <!-- <a href="#" class="coverage-india-btn btn-glass-modern water-drop-glass">
                     View All Cities
                     <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                </a>
+                </a> -->
             </div>
 
             <div class="coverage-india-map-wrap">
-                <div id="coverage-india-map" class="coverage-india-map" role="img"
-                    aria-label="Interactive map of India showing engineer coverage in major cities"></div>
+                    <img src="{% static 'img/Indian_map.png' %}" alt="Network Cabling" class="" loading="lazy">
             </div>
         </div>
     </div>
 </section>
 
 <!-- ════════════ DEPLOY CTA ════════════ -->
-<section class="deploy-cta" aria-labelledby="deploy-cta-title" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+<section class="deploy-cta" aria-labelledby="deploy-cta-title" style="padding-bottom: 1.5rem";>
     <div class="deploy-cta-card glass-border-blue-light">
         <div class="deploy-cta-inner">
             <div class="deploy-cta-content">
@@ -949,11 +1191,11 @@
                     Book now and get the best offers from verified vendors
                 </p>
                 <div class="deploy-cta-actions">
-                    <a href="#" class="deploy-cta-btn-expert btn-glass-modern water-drop-glass">
+                    <a  href="{% url 'help_center' %}" class="deploy-cta-btn-expert btn-glass-modern water-drop-glass">
                         <span class="material-symbols-outlined">headset_mic</span>
                         Talk to Expert
                     </a>
-                    <a href="#" class="btn btn-primary btn-md btn-modern deploy-cta-btn-service inline-flex">
+                    <a href="{% url 'request_service' %}" class="btn btn-primary btn-md btn-modern deploy-cta-btn-service inline-flex">
                         Request Service
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                     </a>
@@ -998,49 +1240,42 @@
     </div>
 </section>
 
-
-
-
-
 <!-- ════════════ STAY UPDATED ════════════ -->
-<section class="stay-updated" aria-labelledby="stay-updated-title" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+<section class="stay-updated" aria-labelledby="stay-updated-title" style="padding-bottom: 0.5rem";>
     <div class="stay-updated-card glass-border-white p-2">
-        <div
-            class="stay-updated-inner flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-4 px-3 py-3 md:px-4 md:py-3 ">
+        <div class="stay-updated-inner flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-4 px-3 py-3 md:px-4 md:py-3">
 
             <!-- Left: Email Icon + Content -->
-            <div class="stay-updated-content flex items-center gap-8 pl-8 w-full lg:w-auto ">
+            <div class="stay-updated-content flex items-center gap-3 w-full lg:flex-1 min-w-0">
                 <!-- Email Icon -->
-                <div
-                    class="stay-updated-icon flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                <div class="stay-updated-icon flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
                     <span class="material-symbols-outlined text-xl md:text-2xl">email</span>
                 </div>
 
                 <!-- Text Content -->
-                <div class="stay-updated-text">
-                    <h2 id="stay-updated-title"
-                        class="stay-updated-title text-sm md:text-base font-bold text-gray-900 leading-tight">
+                <div class="stay-updated-text flex-1 min-w-0">
+                    <h2 id="stay-updated-title" class="stay-updated-title text-sm md:text-base font-bold text-gray-900 leading-tight">
                         Stay Updated with FE
                     </h2>
-                    <p class="stay-updated-desc text-xs text-gray-600 leading-relaxed max-w-xs">
-                        Get deployment insights, industry trends <br>and product updates straight to your inbox.
+                    <!-- Subtitle: now text-sm (smaller than before), one line on desktop -->
+                    <p class="stay-updated-desc text-sm text-gray-600 leading-relaxed lg:whitespace-nowrap">
+                        Get deployment insights, industry trends and product updates straight to your inbox.
                     </p>
                 </div>
             </div>
 
-            <!-- Right: Input + Subscribe Button (Side by side, button OUTSIDE input) -->
+            <!-- Right: Input + Subscribe Button -->
             <form class="stay-updated-form w-full lg:w-auto flex-shrink-0" action="#" method="post" novalidate>
-                <div class="stay-updated-input-wrap flex items-center  gap-2 w-full">
-                    <!-- Input Field -->
+                <div class="stay-updated-input-wrap flex flex-col sm:flex-row items-center gap-2 w-full">
+                    <!-- Input: full width on mobile, with min-width on desktop -->
                     <input type="email" id="stay-updated-email" name="email"
-                        class="stay-updated-input flex-1 min-w-[140px] px-5 py-3 bg-white border border-gray-200 rounded-lg text-gray-800 text-sm outline-none placeholder:text-gray-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-200 shadow-sm"
+                        class="stay-updated-input w-full sm:flex-1 min-w-0 sm:min-w-[160px] px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-800 text-sm outline-none placeholder:text-gray-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-200 shadow-sm"
                         placeholder="Enter your business email" autocomplete="email" required>
-                    <!-- Subscribe Button (OUTSIDE input, blue background) -->
+                    <!-- Subscribe button: full width on mobile, auto on desktop -->
                     <button type="submit"
-                        class="stay-updated-submit flex-shrink-0 inline-flex items-center justify-center gap-1.5 px-6 py-2.5 bg-blue-700 hover:bg-blue-700 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-blue-600/25 whitespace-nowrap">
+                        class="stay-updated-submit w-full sm:w-auto flex-shrink-0 inline-flex items-center justify-center gap-1.5 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-blue-600/25 whitespace-nowrap">
                         Subscribe
-                        <span
-                            class="material-symbols-outlined text-base transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>
+                        <span class="material-symbols-outlined text-base transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>
                     </button>
                 </div>
             </form>

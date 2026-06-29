@@ -1,276 +1,227 @@
 {% extends "dashboard/layout.html" %}
 
-{% block title %}
-Dashboard
-{% endblock %}
+{% block title %}Dashboard{% endblock %}
 
 {% block content %}
 
-<div class="mb-4">
-    <h3 class="fw-bold">Profile Details</h3>
-    <p class="text-muted">
-        View and manage your business profile and documents.
-    </p>
+<div class="mb-6">
+    <h3 class="text-2xl font-bold text-gray-800">Profile Details</h3>
+    <p class="text-gray-500 mt-1">View and manage your business profile and documents.</p>
 </div>
 
-<div class="row">
+<div class="flex flex-col lg:flex-row gap-6">
 
     <!-- Left Content -->
+    <div class="flex-1 min-w-0">
 
-    <div class="col-lg-9">
+        <!-- Profile Card -->
+        <div class="bg-white rounded-2xl shadow-sm p-6 mb-6">
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-5">
 
-        <div class="card p-4 mb-4">
-
-            <div class="row align-items-center">
-
-                <div class="col-md-2 text-center">
-                    <img
-                        src="https://i.pravatar.cc/150?img=12"
-                        class="profile-img"
-                    >
+                <div class="flex-shrink-0 text-center">
+                    <img src="https://i.pravatar.cc/150?img=12"
+                        class="w-20 h-20 rounded-full object-cover" alt="Profile">
                 </div>
 
-                <div class="col-md-7">
-
-                    <h5 class="fw-bold mb-2">
-                        ACME Pvt. Ltd.
-                    </h5>
-
-                    <p class="mb-1">
-                        <span class="material-symbols-outlined" aria-hidden="true">person</span>
-                        Rishi Acharya
-                    </p>
-
-                    <p class="mb-1">
-                        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
-                        rishi@acme.com
-                    </p>
-
-                    <p class="mb-1">
-                        <span class="material-symbols-outlined" aria-hidden="true">phone</span>
-                        +91 81022 62067
-                    </p>
-
+                <div class="flex-1 min-w-0 text-center md:text-left">
+                    <h5 class="text-lg font-bold text-gray-800">ACME Pvt. Ltd.</h5>
+                    <div class="flex items-center justify-center md:justify-start gap-1 mt-1 text-gray-600">
+                        <span class="material-symbols-outlined text-base" aria-hidden="true">person</span>
+                        <span>Rishi Acharya</span>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start gap-1 mt-1 text-gray-600">
+                        <span class="material-symbols-outlined text-base" aria-hidden="true">mail</span>
+                        <span>rishi@acme.com</span>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start gap-1 mt-1 text-gray-600">
+                        <span class="material-symbols-outlined text-base" aria-hidden="true">phone</span>
+                        <span>+91 81022 62067</span>
+                    </div>
                 </div>
 
-                <div class="col-md-3 text-end">
-
-                    <a href="#" class="btn btn-outline-primary btn-sm mb-2">
+                <div class="flex flex-row md:flex-col gap-2 flex-shrink-0">
+                    <a href="#" class="border border-blue-600 text-blue-600 hover:bg-blue-50 rounded-lg px-4 py-1.5 text-sm font-medium transition-colors">
                         Edit Profile
                     </a>
-
-                    <br>
-
-                    <a href="#" class="btn btn-outline-secondary btn-sm">
+                    <a href="#" class="border border-gray-400 text-gray-600 hover:bg-gray-50 rounded-lg px-4 py-1.5 text-sm font-medium transition-colors">
                         Change Password
                     </a>
-
                 </div>
 
+            </div>
+        </div>
+
+        <!-- Company & Contact Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+
+            <!-- Company Information -->
+            <div class="bg-white rounded-2xl shadow-sm p-6">
+                <h6 class="font-bold text-gray-800 mb-4">Company Information</h6>
+                <table class="w-full text-sm">
+                    <tbody class="divide-y divide-gray-100">
+                        <tr>
+                            <td class="py-2.5 text-gray-500 w-1/2">Company Name</td>
+                            <td class="py-2.5 font-medium text-gray-800">ACME Pvt Ltd</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 text-gray-500">Business Type</td>
+                            <td class="py-2.5 font-medium text-gray-800">Private Limited</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 text-gray-500">GSTIN</td>
+                            <td class="py-2.5 font-medium text-gray-800">27ABCDE1234F1Z5</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 text-gray-500">PAN</td>
+                            <td class="py-2.5 font-medium text-gray-800">ABCDE1234F</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="bg-white rounded-2xl shadow-sm p-6">
+                <h6 class="font-bold text-gray-800 mb-4">Contact Information</h6>
+                <table class="w-full text-sm">
+                    <tbody class="divide-y divide-gray-100">
+                        <tr>
+                            <td class="py-2.5 text-gray-500 w-1/2">Contact Person</td>
+                            <td class="py-2.5 font-medium text-gray-800">Rishi Acharya</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 text-gray-500">Email</td>
+                            <td class="py-2.5 font-medium text-gray-800">rishi@acme.com</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 text-gray-500">Phone</td>
+                            <td class="py-2.5 font-medium text-gray-800">+91 81022 62067</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 text-gray-500">Designation</td>
+                            <td class="py-2.5 font-medium text-gray-800">Operations Manager</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
         </div>
 
-        <div class="row">
+        <!-- KYC Documents -->
+        <div class="bg-white rounded-2xl shadow-sm p-6">
 
-            <div class="col-md-6">
-
-                <div class="card p-4 mb-4">
-
-                    <h6 class="fw-bold mb-3">
-                        Company Information
-                    </h6>
-
-                    <table class="table table-borderless">
-
-                        <tr>
-                            <td>Company Name</td>
-                            <td>ACME Pvt Ltd</td>
-                        </tr>
-
-                        <tr>
-                            <td>Business Type</td>
-                            <td>Private Limited</td>
-                        </tr>
-
-                        <tr>
-                            <td>GSTIN</td>
-                            <td>27ABCDE1234F1Z5</td>
-                        </tr>
-
-                        <tr>
-                            <td>PAN</td>
-                            <td>ABCDE1234F</td>
-                        </tr>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-6">
-
-                <div class="card p-4 mb-4">
-
-                    <h6 class="fw-bold mb-3">
-                        Contact Information
-                    </h6>
-
-                    <table class="table table-borderless">
-
-                        <tr>
-                            <td>Contact Person</td>
-                            <td>Rishi Acharya</td>
-                        </tr>
-
-                        <tr>
-                            <td>Email</td>
-                            <td>rishi@acme.com</td>
-                        </tr>
-
-                        <tr>
-                            <td>Phone</td>
-                            <td>+91 81022 62067</td>
-                        </tr>
-
-                        <tr>
-                            <td>Designation</td>
-                            <td>Operations Manager</td>
-                        </tr>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="card p-4">
-
-            <div class="d-flex justify-content-between mb-3">
-
-                <h6 class="fw-bold">
-                    KYC Documents
-                </h6>
-
-                <button class="btn btn-primary btn-sm">
+            <div class="flex items-center justify-between mb-4">
+                <h6 class="font-bold text-gray-800">KYC Documents</h6>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-1.5 rounded-lg transition-colors">
                     Upload Document
                 </button>
-
             </div>
 
-            <table class="table align-middle">
-
-                <thead>
-                    <tr>
-                        <th>Document</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>GST Certificate.pdf</td>
-                        <td>GST</td>
-                        <td>
-                            <span class="badge bg-success">
-                                Verified
-                            </span>
-                        </td>
-                        <td>
-                            <a href="#">View</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>PAN Card.pdf</td>
-                        <td>PAN</td>
-                        <td>
-                            <span class="badge bg-success">
-                                Verified
-                            </span>
-                        </td>
-                        <td>
-                            <a href="#">View</a>
-                        </td>
-                    </tr>
-
-                </tbody>
-
-            </table>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-gray-200">
+                            <th class="text-left py-3 text-gray-500 font-medium">Document</th>
+                            <th class="text-left py-3 text-gray-500 font-medium">Type</th>
+                            <th class="text-left py-3 text-gray-500 font-medium">Status</th>
+                            <th class="text-left py-3 text-gray-500 font-medium">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr>
+                            <td class="py-3 text-gray-700">GST Certificate.pdf</td>
+                            <td class="py-3 text-gray-700">GST</td>
+                            <td class="py-3">
+                                <span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+                                    Verified
+                                </span>
+                            </td>
+                            <td class="py-3">
+                                <a href="#" class="text-blue-600 hover:underline">View</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 text-gray-700">PAN Card.pdf</td>
+                            <td class="py-3 text-gray-700">PAN</td>
+                            <td class="py-3">
+                                <span class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+                                    Verified
+                                </span>
+                            </td>
+                            <td class="py-3">
+                                <a href="#" class="text-blue-600 hover:underline">View</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
         </div>
 
     </div>
 
     <!-- Right Sidebar -->
+    <div class="lg:w-72 flex flex-col gap-6">
 
-    <div class="col-lg-3">
-
-        <div class="card p-4 mb-4">
-
-            <h6 class="fw-bold mb-3">
-                Verification Status
-            </h6>
-
-            <p class="verified">
-                ✔ Email Verified
-            </p>
-
-            <p class="verified">
-                ✔ Mobile Verified
-            </p>
-
-            <p class="verified">
-                ✔ GST Verified
-            </p>
-
-            <p class="verified">
-                ✔ Company Verified
-            </p>
-
+        <!-- Verification Status -->
+        <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h6 class="font-bold text-gray-800 mb-4">Verification Status</h6>
+            <ul class="space-y-2 text-sm">
+                <li class="flex items-center gap-2 text-green-600 font-medium">
+                    <span class="material-symbols-outlined text-base">check_circle</span>
+                    Email Verified
+                </li>
+                <li class="flex items-center gap-2 text-green-600 font-medium">
+                    <span class="material-symbols-outlined text-base">check_circle</span>
+                    Mobile Verified
+                </li>
+                <li class="flex items-center gap-2 text-green-600 font-medium">
+                    <span class="material-symbols-outlined text-base">check_circle</span>
+                    GST Verified
+                </li>
+                <li class="flex items-center gap-2 text-green-600 font-medium">
+                    <span class="material-symbols-outlined text-base">check_circle</span>
+                    Company Verified
+                </li>
+            </ul>
         </div>
 
-        <div class="card p-4 mb-4">
-
-            <h6 class="fw-bold mb-3">
-                Account Summary
-            </h6>
-
-            <p>Total Bookings: <strong>16</strong></p>
-            <p>Total Spend: <strong>₹84,250</strong></p>
-            <p>Active Requests: <strong>3</strong></p>
-            <p>Saved Locations: <strong>8</strong></p>
-
+        <!-- Account Summary -->
+        <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h6 class="font-bold text-gray-800 mb-4">Account Summary</h6>
+            <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex justify-between">
+                    <span>Total Bookings</span>
+                    <p class="text-gray-800 font-medium lg:font-semibold">16</p>
+                </li>
+                <li class="flex justify-between">
+                    <span>Total Spend</span>
+                    <p class="text-gray-800 font-medium lg:font-semibold">₹84,250</p>
+                </li>
+                <li class="flex justify-between">
+                    <span>Active Requests</span>
+                    <p class="text-gray-800 font-medium lg:font-semibold">3</p>
+                </li>
+                <li class="flex justify-between">
+                    <span>Saved Locations</span>
+                    <p class="text-gray-800 font-medium lg:font-semibold">8</p>
+                </li>
+            </ul>
         </div>
 
-        <div class="card p-4">
-
-            <h6 class="fw-bold mb-3">
-                Quick Actions
-            </h6>
-
-            <div class="d-grid gap-2">
-
-                <a href="#" class="btn btn-outline-primary">
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h6 class="font-bold text-gray-800 mb-4">Quick Actions</h6>
+            <div class="flex flex-col gap-2">
+                <a href="#" class="border border-blue-600 text-blue-600 hover:bg-blue-50 text-center rounded-lg py-2 text-sm font-medium transition-colors">
                     Edit Profile
                 </a>
-
-                <a href="#" class="btn btn-outline-primary">
+                <a href="#" class="border border-blue-600 text-blue-600 hover:bg-blue-50 text-center rounded-lg py-2 text-sm font-medium transition-colors">
                     Upload Documents
                 </a>
-
-                <a href="#" class="btn btn-outline-primary">
+                <a href="#" class="border border-blue-600 text-blue-600 hover:bg-blue-50 text-center rounded-lg py-2 text-sm font-medium transition-colors">
                     Contact Support
                 </a>
-
             </div>
-
         </div>
 
     </div>

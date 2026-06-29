@@ -268,22 +268,23 @@
                 <div class="flex flex-col relative gap-2">
                     <p class="font-bold text-black text-sm">Briefly describe your requirement <span
                             class="text-red">*</span></p>
-                    <textarea maxlength="900" style="height: 200px;"
+                    <textarea maxlength="900" style="height: 200px; padding: 1rem;"
                         class="resize-none focus:ring-0 focus:outline-none border border-mist-gray  rounded-lg font-normal text-sm p-4"
                         placeholder="Descibe your work in detail,scope,quantity,special instructions..."></textarea>
                     <p class="absolute right-2 bottom-0 font-bold text-xs text-muted-steel ml-4 mb-2">0/500</p>
                 </div>
 
-             <div class="flex items-center justify-between mt-10 gap-4">
-    <a href="{% url 'home' %}"
-       class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-mist-gray cursor-pointer">
-        <span class="font-semibold text-base text-black">Cancel</span>
-    </a>
-    <button class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn1 text-white gap-3">
-        <span class="font-semibold text-base">Continue</span>
-        <span class="material-symbols-outlined">arrow_forward</span>
-    </button>
-</div>
+                <div class="flex items-center justify-between mt-10 gap-4">
+                    <a href="{% url 'home' %}"
+                        class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-mist-gray cursor-pointer">
+                        <span class="font-semibold text-base text-black">Cancel</span>
+                    </a>
+                    <button
+                        class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn1 text-white gap-3">
+                        <span class="font-semibold text-base">Continue</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
             </div>
 
             <!--Site Information Section-->
@@ -515,24 +516,27 @@
                         engineers?</p>
 
                     <textarea maxlength="500"
-                        class="h-35 mt-2 resize-none focus:ring-0 focus:outline-none border border-mist-gray lg:w-full rounded-lg  font-normal text-sm p-4 "
+                        class="h-64 mt-2 p-6 resize-none focus:ring-0 focus:outline-none border border-mist-gray lg:w-full rounded-lg font-normal text-sm"
                         placeholder="Write your requirements here..."></textarea>
                     <p class="absolute right-2 bottom-0 font-normal text-xs text-muted-steel">0/500</p>
                 </div>
 
-               <div class="flex items-center justify-between mt-10 gap-4">
-    <button class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
-        <span class="font-semibold text-base text-primary">Back</span>
-    </button>
-    <button class="w-40 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
-        <span class="material-symbols-outlined text-primary">bookmark</span>
-        <span class="font-semibold text-base text-primary">Save Draft</span>
-    </button>
-    <button class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
-        <span class="font-semibold text-base">Continue</span>
-        <span class="material-symbols-outlined">arrow_forward</span>
-    </button>
-</div>
+                <div class="flex items-center justify-between mt-10 gap-4">
+                    <button
+                        class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
+                        <span class="font-semibold text-base text-primary">Back</span>
+                    </button>
+                    <button
+                        class="w-40 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
+                        <span class="material-symbols-outlined text-primary">bookmark</span>
+                        <span class="font-semibold text-base text-primary">Save Draft</span>
+                    </button>
+                    <button
+                        class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
+                        <span class="font-semibold text-base">Continue</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
             </div>
 
             <!--Location-->
@@ -643,19 +647,22 @@
 
                     <hr class="my-3 text-moonlight-gray">
 
-                 <div class="flex items-center justify-between gap-4 mt-2">
-    <button class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
-        <span class="font-semibold text-base text-primary">Back</span>
-    </button>
-    <button class="w-40 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
-        <span class="material-symbols-outlined text-primary">bookmark</span>
-        <span class="font-semibold text-base text-primary">Save Draft</span>
-    </button>
-    <button class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
-        <span class="font-semibold text-base">Continue</span>
-        <span class="material-symbols-outlined">arrow_forward</span>
-    </button>
-</div>
+                    <div class="flex items-center justify-between gap-4 mt-2">
+                        <button
+                            class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
+                            <span class="font-semibold text-base text-primary">Back</span>
+                        </button>
+                        <button
+                            class="w-40 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
+                            <span class="material-symbols-outlined text-primary">bookmark</span>
+                            <span class="font-semibold text-base text-primary">Save Draft</span>
+                        </button>
+                        <button
+                            class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
+                            <span class="font-semibold text-base">Continue</span>
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -1069,9 +1076,9 @@
                     <div class="flex flex-col relative gap-2 mt-3">
 
                         <textarea maxlength="500"
-                            class="h-35 resize-none focus:ring-0 focus:outline-none border border-mist-gray w-full rounded-lg  font-normal text-sm p-4"
+                            class="h-48 resize-none focus:ring-0 focus:outline-none border border-mist-gray w-full rounded-lg font-normal text-sm p-5"
                             placeholder="Descibe your work in detail,scope,quantity,special instructions..."></textarea>
-                        <p class="absolute right-2 bottom-0 font-normal text-xs text-muted-steel">0/500</p>
+                        <p class="absolute right-2 bottom-0 mb-2 font-normal text-xs text-muted-steel">0/500</p>
                     </div>
 
                     <div class="flex items-center justify-between mt-10">
@@ -1101,7 +1108,8 @@
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col gap-1">
                         <p class="font-bold text-navy-blue text-xl">5.Review & Submit</p>
-                        <p class="font-normal text-xs text-navy-blue">request services bugsreview all details carefully before
+                        <p class="font-normal text-xs text-navy-blue">request services bugsreview all details carefully
+                            before
                             submitting your request.</p>
                     </div>
 
@@ -1863,8 +1871,8 @@
     </div>
 
     <div
-        class="bg-white mx-4 md:mx-8 lg:mx-18 mt-15 rounded-lg shadow-xl p-10 flex flex-col sm:flex-row items-center flex-wrap sm:items-start justify-center gap-4 relative z-10">
-        <p class="font-bold text-3xl text-black">How it works</p>
+        class="bg-white mx-4 md:mx-8 lg:mx-10 mt-15 rounded-lg shadow-xl p-10 flex flex-col sm:flex-row items-center flex-wrap sm:items-start justify-center gap-4 relative z-10">
+        <p class="font-bold text-3xl text-black whitespace-nowrap" style="transform: translateX(-70px);">How it works</p>
 
         <div class="flex flex-col items-center">
             <div

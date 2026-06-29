@@ -334,6 +334,11 @@ function initSearchFilter() {
         });
     }
 
+
+
+
+    
+
     resize();
     window.addEventListener('resize', resize);
 })();
