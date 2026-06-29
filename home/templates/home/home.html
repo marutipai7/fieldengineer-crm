@@ -338,6 +338,82 @@
         outline: none !important;
         box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3) !important;
     }
+
+
+    /* ============================================
+   FIX: HERO SERVICE CARD MOBILE PADDING
+   ============================================ */
+@media (max-width: 640px) {
+    /* Fix: Hero service card padding */
+    .hero-service-card {
+        padding: 1rem !important;
+        padding-right: 1rem !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Fix: Service search input container */
+    .hero-service-search {
+        padding-left: 0.75rem !important;
+        padding-right: 0.5rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Fix: Service chips container */
+    .hero-service-scroll {
+        padding-right: 0.5rem !important;
+        padding-left: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Fix: Individual service chips */
+    .hero-service-chip {
+        flex-shrink: 0 !important;
+        margin-right: 0.5rem !important;
+    }
+
+    /* Fix: Last chip should have margin */
+    .hero-service-chip:last-child {
+        margin-right: 0 !important;
+    }
+
+    /* Fix: Hero section overall padding */
+    .relative.z-10 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Fix: Make sure no overflow */
+    .hero-service-card,
+    .hero-service-search,
+    .hero-service-scroll {
+        overflow: visible !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Fix for very small screens */
+@media (max-width: 400px) {
+    .hero-service-card {
+        padding: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    .hero-service-search input {
+        font-size: 0.8rem !important;
+    }
+
+    .hero-service-chip {
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    .hero-service-chip-label {
+        font-size: 0.65rem !important;
+    }
+}
 </style>
 
 <!-- ════════════ HERO ════════════ -->
