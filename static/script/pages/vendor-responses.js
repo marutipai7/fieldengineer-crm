@@ -1,3 +1,5 @@
+console.log("Vendor Response JS Loaded");
+
 (function () {
   const GURUGRAM_CENTER = [28.4595, 77.0266];
   const DEFAULT_ZOOM = 13;
@@ -166,10 +168,37 @@
       });
     });
   }
+  function initSkillToggle() {
+  const buttons = document.querySelectorAll(".vr-skill-more");
 
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const card = this.closest(".vr-engineer-card");
+      const hiddenSkills = card.querySelectorAll(".vr-hidden-skill");
+
+      const isOpen = this.dataset.open === "true";
+
+      hiddenSkills.forEach((skill) => {
+        skill.style.display = isOpen ? "none" : "inline-flex";
+      });
+
+      if (isOpen) {
+        this.textContent = "+" + hiddenSkills.length + " more";
+        this.dataset.open = "false";
+      } else {
+        this.textContent = "Show Less";
+        this.dataset.open = "true";
+      }
+    });
+  });
+}
   document.addEventListener("DOMContentLoaded", () => {
     initVendorResponsesHeroMap();
     initVendorResponsesTabs();
     initVendorResponsesDropdown();
-  });
+
+    // Skills Toggle
+    initSkillToggle();
+});
+  
 })();
