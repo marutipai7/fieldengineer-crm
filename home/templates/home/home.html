@@ -233,6 +233,13 @@
         color: var(--color-ink, #111827);
     }
 
+    /* Keep the mobile stats and service selector visually separated. */
+    @media (max-width: 1023px) {
+        .hero-mobile-stats + .hero-service-card {
+            margin-top: 1.25rem !important;
+        }
+    }
+
     @media (max-width: 359px) {
         .hero-mobile-stats {
             gap: 0.25rem;
@@ -804,9 +811,7 @@
                 <h2 id="how-it-works-title">How it Works?</h2>
                 <p class="how-it-works-subtitle">A seamless process from booking to completion</p>
             </div>
-           <a href="#" class="how-it-works-view-all pointer-events-none opacity-50 cursor-not-allowed" tabindex="-1" aria-disabled="true">
-    View Process Details
-    <span class="material-symbols-outlined">arrow_forward</span>
+
 </a>
         </div>
 
@@ -886,10 +891,7 @@
             <h2 id="popular-services-title" class="popular-services-title">
                 Explore Our <span>Popular Services</span>
             </h2>
-            <a href="#" class="popular-services-view-all">
-                View All Services
-                <span class="material-symbols-outlined">arrow_forward</span>
-            </a>
+           
         </div>
 
         <div class="popular-services-grid">
