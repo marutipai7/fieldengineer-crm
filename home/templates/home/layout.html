@@ -18,8 +18,358 @@
     <!-- Tailwind (compiled output) -->
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
 
-    
+
     {% block extra_css %}{% endblock %}
+
+   <style>
+/* ===== ONLY MOBILE NAVBAR FIXES ===== */
+@media (max-width: 991px) {
+    /* Navbar container */
+    .site-nav {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 9999 !important;
+        background: #ffffff !important;
+        border-bottom: 1px solid #e5e7eb !important;
+    }
+
+    /* Nav inner - flex container */
+    .nav-inner {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-wrap: wrap !important;
+        position: relative !important;
+        padding: 0.75rem 1rem !important;
+        max-width: 100% !important;
+    }
+
+    /* Logo - left side */
+    .nav-logo {
+        flex: 0 0 auto !important;
+        order: 1 !important;
+    }
+
+    /* Hamburger - ALWAYS on right side */
+    .nav-hamburger {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 0.5rem !important;
+        color: #1f2937 !important;
+        z-index: 10001 !important;
+        transition: transform 0.3s ease !important;
+        flex: 0 0 auto !important;
+        order: 3 !important;
+        margin-left: auto !important;
+        position: relative !important;
+    }
+
+    .nav-hamburger.active {
+        transform: rotate(90deg) !important;
+    }
+
+    /* Nav links - full width, below everything */
+    .nav-links {
+        display: none !important;
+        width: 100% !important;
+        flex-direction: column !important;
+        background: #ffffff !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        padding: 1rem 1.5rem !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+        border-radius: 0 0 12px 12px !important;
+        z-index: 9999 !important;
+        max-height: 70vh !important;
+        overflow-y: auto !important;
+        margin: 0 !important;
+        list-style: none !important;
+        order: 4 !important;
+        flex: 0 0 100% !important;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    /* Nav actions - below nav links */
+    .nav-actions {
+        display: none !important;
+        width: 100% !important;
+        flex-direction: column !important;
+        background: #ffffff !important;
+        padding: 1rem 1.5rem !important;
+        border-top: 1px solid #e5e7eb !important;
+        margin-top: 0.5rem !important;
+        gap: 0.75rem !important;
+        order: 5 !important;
+        flex: 0 0 100% !important;
+    }
+
+    .nav-actions.active {
+        display: flex !important;
+    }
+
+    /* Nav links items */
+    .nav-links li {
+        width: 100% !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none !important;
+    }
+
+    .nav-links > li > button {
+        width: 100% !important;
+        justify-content: space-between !important;
+        padding: 0.75rem 0 !important;
+        font-size: 1rem !important;
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        font-weight: 500 !important;
+        color: #1f2937 !important;
+        font-family: inherit !important;
+    }
+
+    /* Dropdown menu on mobile */
+    .nav-links .dropdown-menu {
+        display: none !important;
+        position: static !important;
+        box-shadow: none !important;
+        padding-left: 1rem !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .nav-links .dropdown-menu.open {
+        display: block !important;
+    }
+
+    .nav-links .dropdown-menu li {
+        border-bottom: none !important;
+        padding: 0 !important;
+    }
+
+    .nav-links .dropdown-menu li a {
+        display: block !important;
+        padding: 0.5rem 0 !important;
+        padding-left: 0.5rem !important;
+        font-size: 0.9rem !important;
+        color: #4b5563 !important;
+        text-decoration: none !important;
+        font-weight: 400 !important;
+    }
+
+    .nav-links .dropdown-menu li a:hover {
+        color: #1a56db !important;
+        background: #f3f4f6 !important;
+        border-radius: 4px !important;
+        padding-left: 0.75rem !important;
+    }
+
+    /* Arrow rotation */
+    .nav-links > li > button .material-symbols-outlined {
+        transition: transform 0.3s ease !important;
+    }
+
+    .nav-links > li > button.active .material-symbols-outlined {
+        transform: rotate(180deg) !important;
+    }
+
+    /* Mobile action buttons */
+    .nav-actions .nav-track-btn,
+    .nav-actions .nav-cta-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 0.75rem !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+    }
+
+    .nav-actions .nav-track-btn {
+        background: none !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 8px !important;
+        color: #1f2937 !important;
+        font-weight: 600 !important;
+        font-size: 0.875rem !important;
+        cursor: pointer !important;
+    }
+
+    .nav-actions .nav-cta-btn {
+        background: #1a56db !important;
+        border: none !important;
+        border-radius: 8px !important;
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        font-size: 0.875rem !important;
+        text-decoration: none !important;
+    }
+
+    .nav-actions .nav-cta-btn:hover {
+        background: #1e40af !important;
+    }
+
+    /* Scrollbar */
+    .nav-links::-webkit-scrollbar {
+        width: 4px !important;
+    }
+
+    .nav-links::-webkit-scrollbar-track {
+        background: #f1f1f1 !important;
+        border-radius: 10px !important;
+    }
+
+    .nav-links::-webkit-scrollbar-thumb {
+        background: #d1d5db !important;
+        border-radius: 10px !important;
+    }
+}
+
+/* ===== DESKTOP - NO CHANGES ===== */
+@media (min-width: 992px) {
+    .nav-inner {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        max-width: 90rem !important;
+        margin: 0 auto !important;
+        padding: 0.75rem 1.5rem !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .nav-logo {
+        flex: 0 0 auto !important;
+    }
+
+    .nav-links {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        position: static !important;
+        width: auto !important;
+        flex-direction: row !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+        flex: 1 !important;
+        justify-content: center !important;
+    }
+
+    .nav-links > li {
+        position: relative !important;
+        border-bottom: none !important;
+        width: auto !important;
+    }
+
+    .nav-links > li > button {
+        width: auto !important;
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.875rem !important;
+        font-weight: 600 !important;
+        color: #1f2937 !important;
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.25rem !important;
+        border-radius: 6px !important;
+        transition: all 0.2s ease !important;
+        white-space: nowrap !important;
+    }
+
+    .nav-links > li > button:hover {
+        /* background: #f3f4f6 !important; */
+        color: #1a56db !important;
+    }
+
+    .nav-links > li .dropdown-menu {
+        display: none !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        min-width: 220px !important;
+        background: #ffffff !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+        border-radius: 12px !important;
+        padding: 0.5rem 0 !important;
+        z-index: 10000 !important;
+        border: 1px solid #f0f0f0 !important;
+    }
+
+    .nav-links > li:hover .dropdown-menu {
+        display: block !important;
+    }
+
+    .nav-links .dropdown-menu li {
+        border-bottom: none !important;
+        width: 100% !important;
+    }
+
+    .nav-links .dropdown-menu li a {
+        display: block !important;
+        padding: 0.6rem 1.25rem !important;
+        color: #374151 !important;
+        text-decoration: none !important;
+        font-size: 0.875rem !important;
+        font-weight: 500 !important;
+        white-space: nowrap !important;
+    }
+
+    .nav-links .dropdown-menu li a:hover {
+        background: #f3f4f6 !important;
+        color: #1a56db !important;
+        padding-left: 1.5rem !important;
+    }
+
+    .nav-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+        flex-shrink: 0 !important;
+        position: static !important;
+        width: auto !important;
+        flex-direction: row !important;
+        background: transparent !important;
+        padding: 0 !important;
+        border-top: none !important;
+        margin-top: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .nav-hamburger {
+        display: none !important;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -38,69 +388,46 @@
             <ul class="nav-links">
                 <li>
                     <button>
-                        Solutions
+                        Company
                         <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Network Cabling</a></li>
-                        <li><a href="#">Rack Installation</a></li>
-                        <li><a href="#">Field Deployment</a></li>
-                        <li><a href="#">Server Setup</a></li>
-                        <li><a href="#">CCTV & Security</a></li>
-                        <li><a href="#">Smart Hands</a></li>
+                        <li><a href="{% url 'about_fe' %}">About FE</a></li>
+                        <li><a href="{% url 'careers' %}">Careers</a></li>
+                        <li><a href="{% url 'blogs' %}">Blog</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'help_center' %}">Help Center</a></li>
+                        <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'term_condition' %}">Terms & Conditions</a></li>
                     </ul>
                 </li>
 
                 <li>
                     <button>
-                        Services
+                        For Customers
                         <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">On-Site Support</a></li>
-                        <li><a href="#">Remote Hands</a></li>
-                        <li><a href="#">Project Management</a></li>
-                        <li><a href="#">Break-Fix Services</a></li>
+                        <li><a href="{% url 'request_service' %}">Request a Service</a></li>
+                        <li><a href="#">Service Categories</a></li>
+                        <li><a href="#">Track Booking</a></li>
+                        <li><a href="#">Customer Support</a></li>
                     </ul>
                 </li>
 
                 <li>
                     <button>
-                        Industries
+                        Join FE Network
                         <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Telecom</a></li>
-                        <li><a href="#">Banking & Finance</a></li>
-                        <li><a href="#">Healthcare</a></li>
-                        <li><a href="#">Retail & Logistics</a></li>
-                        <li><a href="#">Government</a></li>
+                        <li><a href="{% url 'fieldengineer' %}">Becoming a Field Engineer</a></li>
+                        <li><a href="{% url 'vendor' %}">Becoming a Vendor Partner</a></li>
+
                     </ul>
                 </li>
 
-                <li>
-                    <button>
-                        Vendors
-                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Become a Vendor</a></li>
-                        <li><a href="#">Vendor Portal</a></li>
-                        <li><a href="#">Partner Program</a></li>
-                    </ul>
-                </li>
 
-                <li>
-                    <button>
-                        Pricing
-                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Pricing</a></li>
-                    </ul>
-                </li>
             </ul>
 
             <!-- Right CTAs -->
@@ -158,55 +485,40 @@
 
                 <!-- Solutions -->
                 <div class="footer-col">
-                    <h4>Solutions</h4>
+                    <h4>Company</h4>
                     <ul>
-                        <li><a href="#">Live Tracking</a></li>
-                        <li><a href="#">Work Logs</a></li>
-                        <li><a href="#">Additional Tasks</a></li>
-                        <li><a href="#">AI Reports</a></li>
-                        <li><a href="#">SLA Management</a></li>
-                        <li><a href="#">Team Workspace</a></li>
+                        <li><a href="{% url 'about_fe' %}">About FE</a></li>
+                        <li><a href="{% url 'careers' %}">Careers</a></li>
+                        <li><a href="{% url 'blogs' %}">Blog</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'help_center' %}">Help Center</a></li>
+                        <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'term_condition' %}">Terms & Conditions</a></li>
                     </ul>
                 </div>
 
                 <!-- Services -->
                 <div class="footer-col">
-                    <h4>Services</h4>
+                    <h4>For Customers</h4>
                     <ul>
-                        <li><a href="#">Network Cabling</a></li>
-                        <li><a href="#">Fiber Deployment</a></li>
-                        <li><a href="#">Rack Installation</a></li>
-                        <li><a href="#">Server Setup</a></li>
-                        <li><a href="#">CCTV</a></li>
-                        <li><a href="#">Electrical & HVAC</a></li>
+                        <li><a href="{% url 'request_service' %}">Request a Service</a></li>
+                        <li><a href="#">Service Categories</a></li>
+                        <li><a href="#">Track Booking</a></li>
+                        <li><a href="#">Customer Support</a></li>
                     </ul>
                 </div>
 
                 <!-- Industries -->
                 <div class="footer-col">
-                    <h4>Industries</h4>
+                    <h4>Join FE Network</h4>
                     <ul>
-                        <li><a href="#">Data Centers</a></li>
-                        <li><a href="#">Telecom</a></li>
-                        <li><a href="#">Banking</a></li>
-                        <li><a href="#">Retail</a></li>
-                        <li><a href="#">Manufacturing</a></li>
-                        <li><a href="#">IT Services</a></li>
+                        <li><a href="{% url 'fieldengineer' %}" class="whitespace-nowrap">Becoming a Field Engineer</a></li>
+                        <li><a href="{% url 'vendor' %}" class="whitespace-nowrap">Becoming a Vendor Partner</a></li>
                     </ul>
                 </div>
 
                 <!-- For Vendors — each link uses pages/layout.html (not this header/footer) -->
-                <div class="footer-col">
-                    <h4>For Vendors</h4>
-                    <ul>
-                        <li><a href="{% url 'about_fe' %}">About FE</a></li>
-                        <li><a href="{% url 'careers' %}">Careers</a></li>
-                        <li><a href="{% url 'blogs' %}">Blogs</a></li>
-                        <li><a href="{% url 'contact' %}">Contact</a></li>
-                        <li><a href="{% url 'help_center' %}">Help Center</a></li>
-                        <li><a href="{% url 'vendor_responses' %}">Vendor Responses</a></li>
-                    </ul>
-                </div>
+
 
             </div>
 
@@ -214,8 +526,7 @@
                 <p class="footer-copyright">© 2026 Field Engineer. All Rights Reserved.</p>
 
                 <div class="footer-policy-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms & Conditions</a>
+                    
                     <a href="#">Cookies Policy</a>
                     <a href="#">Data Protection</a>
                 </div>
@@ -230,7 +541,7 @@
     <!-- ════════════ SCRIPTS ════════════ -->
 
     {% block extra_js %}
-        
+
     {% endblock %}
 </body>
 
