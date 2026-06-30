@@ -18,7 +18,7 @@
     <!-- Tailwind (compiled output) -->
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
 
-    
+
     {% block extra_css %}{% endblock %}
 
    <style>
@@ -388,69 +388,46 @@
             <ul class="nav-links">
                 <li>
                     <button>
-                        Solutions
+                        Company
                         <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Network Cabling</a></li>
-                        <li><a href="#">Rack Installation</a></li>
-                        <li><a href="#">Field Deployment</a></li>
-                        <li><a href="#">Server Setup</a></li>
-                        <li><a href="#">CCTV & Security</a></li>
-                        <li><a href="#">Smart Hands</a></li>
+                        <li><a href="{% url 'about_fe' %}">About FE</a></li>
+                        <li><a href="{% url 'careers' %}">Careers</a></li>
+                        <li><a href="{% url 'blogs' %}">Blog</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'help_center' %}">Help Center</a></li>
+                        <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'term_condition' %}">Terms & Conditions</a></li>
                     </ul>
                 </li>
 
                 <li>
                     <button>
-                        Services
+                        For Customers
                         <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">On-Site Support</a></li>
-                        <li><a href="#">Remote Hands</a></li>
-                        <li><a href="#">Project Management</a></li>
-                        <li><a href="#">Break-Fix Services</a></li>
+                        <li><a href="{% url 'request_service' %}">Request a Service</a></li>
+                        <li><a href="#">Service Categories</a></li>
+                        <li><a href="#">Track Booking</a></li>
+                        <li><a href="#">Customer Support</a></li>
                     </ul>
                 </li>
 
                 <li>
                     <button>
-                        Industries
+                        Join FE Network
                         <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Telecom</a></li>
-                        <li><a href="#">Banking & Finance</a></li>
-                        <li><a href="#">Healthcare</a></li>
-                        <li><a href="#">Retail & Logistics</a></li>
-                        <li><a href="#">Government</a></li>
+                        <li><a href="{% url 'fieldengineer' %}">Becoming a Field Engineer</a></li>
+                        <li><a href="{% url 'vendor' %}">Becoming a Vendor Partner</a></li>
+
                     </ul>
                 </li>
 
-                <li>
-                    <button>
-                        Vendors
-                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Become a Vendor</a></li>
-                        <li><a href="#">Vendor Portal</a></li>
-                        <li><a href="#">Partner Program</a></li>
-                    </ul>
-                </li>
 
-                <li>
-                    <button>
-                        Pricing
-                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Pricing</a></li>
-                    </ul>
-                </li>
             </ul>
 
             <!-- Right CTAs -->
@@ -508,55 +485,40 @@
 
                 <!-- Solutions -->
                 <div class="footer-col">
-                    <h4>Solutions</h4>
+                    <h4>Company</h4>
                     <ul>
-                        <li><a href="#">Live Tracking</a></li>
-                        <li><a href="#">Work Logs</a></li>
-                        <li><a href="#">Additional Tasks</a></li>
-                        <li><a href="#">AI Reports</a></li>
-                        <li><a href="#">SLA Management</a></li>
-                        <li><a href="#">Team Workspace</a></li>
+                        <li><a href="{% url 'about_fe' %}">About FE</a></li>
+                        <li><a href="{% url 'careers' %}">Careers</a></li>
+                        <li><a href="{% url 'blogs' %}">Blog</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'help_center' %}">Help Center</a></li>
+                        <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'term_condition' %}">Terms & Conditions</a></li>
                     </ul>
                 </div>
 
                 <!-- Services -->
                 <div class="footer-col">
-                    <h4>Services</h4>
+                    <h4>For Customers</h4>
                     <ul>
-                        <li><a href="#">Network Cabling</a></li>
-                        <li><a href="#">Fiber Deployment</a></li>
-                        <li><a href="#">Rack Installation</a></li>
-                        <li><a href="#">Server Setup</a></li>
-                        <li><a href="#">CCTV</a></li>
-                        <li><a href="#">Electrical & HVAC</a></li>
+                        <li><a href="{% url 'request_service' %}">Request a Service</a></li>
+                        <li><a href="#">Service Categories</a></li>
+                        <li><a href="#">Track Booking</a></li>
+                        <li><a href="#">Customer Support</a></li>
                     </ul>
                 </div>
 
                 <!-- Industries -->
                 <div class="footer-col">
-                    <h4>Industries</h4>
+                    <h4>Join FE Network</h4>
                     <ul>
-                        <li><a href="#">Data Centers</a></li>
-                        <li><a href="#">Telecom</a></li>
-                        <li><a href="#">Banking</a></li>
-                        <li><a href="#">Retail</a></li>
-                        <li><a href="#">Manufacturing</a></li>
-                        <li><a href="#">IT Services</a></li>
+                        <li><a href="{% url 'fieldengineer' %}" class="whitespace-nowrap">Becoming a Field Engineer</a></li>
+                        <li><a href="{% url 'vendor' %}" class="whitespace-nowrap">Becoming a Vendor Partner</a></li>
                     </ul>
                 </div>
 
                 <!-- For Vendors — each link uses pages/layout.html (not this header/footer) -->
-                <div class="footer-col">
-                    <h4>For Vendors</h4>
-                    <ul>
-                        <li><a href="{% url 'about_fe' %}">About FE</a></li>
-                        <li><a href="{% url 'careers' %}">Careers</a></li>
-                        <li><a href="{% url 'blogs' %}">Blogs</a></li>
-                        <li><a href="{% url 'contact' %}">Contact</a></li>
-                        <li><a href="{% url 'help_center' %}">Help Center</a></li>
-                        <li><a href="{% url 'vendor_responses' %}">Vendor Responses</a></li>
-                    </ul>
-                </div>
+
 
             </div>
 
@@ -564,8 +526,7 @@
                 <p class="footer-copyright">© 2026 Field Engineer. All Rights Reserved.</p>
 
                 <div class="footer-policy-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms & Conditions</a>
+                    
                     <a href="#">Cookies Policy</a>
                     <a href="#">Data Protection</a>
                 </div>
@@ -579,142 +540,9 @@
 
     <!-- ════════════ SCRIPTS ════════════ -->
 
-   <!-- ════════════ SCRIPTS ════════════ -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // ===== NAVBAR MOBILE TOGGLE =====
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navLinks = document.querySelector('.nav-links');
-    const navActions = document.querySelector('.nav-actions');
+    {% block extra_js %}
 
-    if (hamburgerBtn && navLinks) {
-        hamburgerBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            
-            // Toggle nav links
-            navLinks.classList.toggle('active');
-            
-            // Toggle nav actions (Profile + Login)
-            if (navActions) {
-                navActions.classList.toggle('active');
-            }
-            
-            // Toggle hamburger icon animation
-            this.classList.toggle('active');
-            
-            // Update aria-label
-            const isOpen = navLinks.classList.contains('active');
-            this.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-        });
-    }
-
-    // ===== DROPDOWN TOGGLE ON MOBILE ONLY =====
-    const dropdownButtons = document.querySelectorAll('.nav-links > li > button');
-    dropdownButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // ONLY on mobile (below 992px)
-            if (window.innerWidth <= 991) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const parentLi = this.closest('li');
-                const dropdown = parentLi.querySelector('.dropdown-menu');
-                
-                if (dropdown) {
-                    // Close other dropdowns
-                    document.querySelectorAll('.dropdown-menu.open').forEach(d => {
-                        if (d !== dropdown) {
-                            d.classList.remove('open');
-                            d.closest('li').querySelector('button')?.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle current dropdown
-                    dropdown.classList.toggle('open');
-                    this.classList.toggle('active');
-                }
-            }
-            // On desktop, let hover work naturally
-        });
-    });
-
-    // ===== CLOSE NAVBAR WHEN CLICKING OUTSIDE =====
-    document.addEventListener('click', function(e) {
-        if (navLinks && hamburgerBtn) {
-            const isClickInsideNav = navLinks.contains(e.target) || hamburgerBtn.contains(e.target);
-            if (!isClickInsideNav && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                if (navActions) {
-                    navActions.classList.remove('active');
-                }
-                hamburgerBtn.classList.remove('active');
-                hamburgerBtn.setAttribute('aria-label', 'Open menu');
-                
-                // Close any open dropdowns
-                document.querySelectorAll('.dropdown-menu.open').forEach(d => {
-                    d.classList.remove('open');
-                    d.closest('li').querySelector('button')?.classList.remove('active');
-                });
-            }
-        }
-    });
-
-    // ===== CLOSE NAVBAR WHEN CLICKING A LINK (mobile only) =====
-    const pageLinks = document.querySelectorAll('.nav-links a');
-    pageLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            // Only close if it's a real link (not # or empty)
-            if (href && href !== '#' && href !== '' && !href.startsWith('javascript:')) {
-                if (window.innerWidth <= 991) {
-                    // Close navbar
-                    navLinks.classList.remove('active');
-                    if (navActions) {
-                        navActions.classList.remove('active');
-                    }
-                    if (hamburgerBtn) {
-                        hamburgerBtn.classList.remove('active');
-                        hamburgerBtn.setAttribute('aria-label', 'Open menu');
-                    }
-                    
-                    // Close any open dropdowns
-                    document.querySelectorAll('.dropdown-menu.open').forEach(d => {
-                        d.classList.remove('open');
-                        d.closest('li').querySelector('button')?.classList.remove('active');
-                    });
-                }
-            }
-        });
-    });
-
-    // ===== HANDLE WINDOW RESIZE =====
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-            if (window.innerWidth > 991) {
-                // Close everything on desktop
-                navLinks.classList.remove('active');
-                if (navActions) {
-                    navActions.classList.remove('active');
-                }
-                if (hamburgerBtn) {
-                    hamburgerBtn.classList.remove('active');
-                    hamburgerBtn.setAttribute('aria-label', 'Open menu');
-                }
-                
-                document.querySelectorAll('.dropdown-menu.open').forEach(d => {
-                    d.classList.remove('open');
-                    d.closest('li').querySelector('button')?.classList.remove('active');
-                });
-            }
-        }, 250);
-    });
-});
-</script>
-
-{% block extra_js %}
-{% endblock %}
+    {% endblock %}
 </body>
 
 </html>
