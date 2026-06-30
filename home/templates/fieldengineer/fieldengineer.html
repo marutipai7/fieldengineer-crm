@@ -85,7 +85,7 @@
 
             <!-- CTA row -->
             <div class="hero-rise hero-rise-d4 mt-6 flex flex-wrap items-center gap-3">
-                <a href="#" class="btn btn-primary btn-md inline-flex rounded-[18px]">
+                <a href="{% url 'contact' %}" class="btn btn-primary btn-md inline-flex rounded-[18px]">
                     Join the Network
                     <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </a>
@@ -215,7 +215,7 @@
 </section>
 
 <!--REQUIREMENTS TO JOIN-->
-<section class="py-16 bg-white">
+<section class="py-8 md:py-12 lg:py-16 bg-white bg-white">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
         <div class="text-center mb-12">
             <p
@@ -286,7 +286,7 @@
 </section>
 
 <!--HOW TO JOIN-->
-<section class="py-16 bg-light-ice-blue">
+<section class="py-8 md:py-12 lg:py-16 bg-white bg-light-ice-blue">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
         <div class="text-center mb-16">
             <p
@@ -359,7 +359,7 @@
 </section>
 
 <!--WHY ENGINEERS CHOOSE OUR PLATFORM-->
-<section class="py-16 bg-white">
+<section class="py-8 md:py-12 lg:py-16 bg-white bg-white">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
         <div class="text-center mb-12">
             <p
@@ -434,7 +434,7 @@
 </section>
 
 <!--POWERFUL TOOLS TO MANAGE-->
-<section class="py-16 bg-very-light-soft-blue1">
+<section class="py-8 md:py-12 lg:py-16 bg-white bg-very-light-soft-blue1">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <!-- Left Content -->
@@ -471,7 +471,7 @@
                 </div>
             </div>
             <!-- Right Side Image -->
-            <div class="relative pt-27">
+            <div class="relative pt-4 lg:pt-27">
                 <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
                     <img src="{% static 'img/powerful-tools.png' %}" alt="Engineer Dashboard"
                         class="w-full h-auto object-cover" loading="lazy"> {# ADDED: loading="lazy" #}
@@ -531,7 +531,7 @@
                     networking, security, and technology projects.
                 </p>
                 <div class="mt-8">
-                    <a href="#"
+                    <a href="{% url 'contact' %}"
                         class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3 text-b3 font-semibold text-[#2563EB] transition-all duration-300 hover:scale-105 hover:shadow-lg">
                         Join the Network
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
