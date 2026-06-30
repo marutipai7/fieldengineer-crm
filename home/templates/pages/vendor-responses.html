@@ -1,4 +1,4 @@
-{% extends 'pages/layout.html' %}
+{% extends 'home/layout.html' %}
 {% load static %}
 
 {% block title %}Vendor Responses — Compare Engineers &amp; Teams | FieldEngineer{% endblock %}
@@ -71,30 +71,39 @@
         <div class="vr-toolbar-inner">
             <div class="vr-tabs" role="tablist" aria-label="Engineer type">
                 <button
-                    type="button"
-                    class="vr-tab is-active"
-                    role="tab"
-                    id="vr-tab-individual"
-                    aria-selected="true"
-                    aria-controls="vr-panel-individual"
-                    data-vr-tab="individual"
-                >
-                    <span class="material-symbols-outlined" aria-hidden="true">person</span>
-                    Individual Engineers (3)
-                </button>
-                <button
-                    type="button"
-                    class="vr-tab"
-                    role="tab"
-                    id="vr-tab-teams"
-                    aria-selected="false"
-                    aria-controls="vr-panel-teams"
-                    data-vr-tab="teams"
-                    tabindex="-1"
-                >
-                    <span class="material-symbols-outlined" aria-hidden="true">groups</span>
-                    Multiple Engineer Teams (3)
-                </button>
+    type="button"
+    class="vr-tab is-active"
+    role="tab"
+    id="vr-tab-individual"
+    aria-selected="true"
+    aria-controls="vr-panel-individual"
+    data-vr-tab="individual"
+>
+    <span class="material-symbols-outlined" aria-hidden="true">person</span>
+
+    <span class="flex flex-col leading-tight text-center">
+        <span>Individual</span>
+        <span>Engineers (3)</span>
+    </span>
+</button>
+
+<button
+    type="button"
+    class="vr-tab"
+    role="tab"
+    id="vr-tab-teams"
+    aria-selected="false"
+    aria-controls="vr-panel-teams"
+    data-vr-tab="teams"
+>
+    <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+
+    <span class="flex flex-col leading-tight text-center">
+        <span>Multiple Engineer</span>
+        <span>Teams (3)</span>
+    </span>
+</button>
+                    
             </div>
 
             <div class="vr-sort">
@@ -173,14 +182,22 @@
                                 <span class="text-ink font-medium">5+ Years Experience</span>
                             </div>
                             <p class="vr-engineer-card-bio">Experienced network cabling specialist with expertise in structured cabling, fiber optics, and enterprise network deployments.</p>
-                            <div class="vr-engineer-card-skills">
-                                <span class="vr-engineer-card-skills-label">Skills</span>
-                                <div class="vr-engineer-card-tags">
-                                    <span class="vr-skill-tag">Network Cabling</span>
-                                    <span class="vr-skill-tag">Fiber Splicing</span>
-                                    <span class="vr-skill-tag">Rack Installation</span>
-                                    <span class="vr-skill-more">+2 more</span>
-                                </div>
+                            <div class="vr-engineer-card-tags">
+
+                            <span class="vr-skill-tag">Network Cabling</span>
+                            <span class="vr-skill-tag">Fiber Splicing</span>
+                            <span class="vr-skill-tag">Rack Installation</span>
+
+                             <!-- Hidden Skills -->
+                            <span class="vr-skill-tag vr-hidden-skill">Cable Testing</span>
+                            <span class="vr-skill-tag vr-hidden-skill">Patch Panel Installation</span>
+
+                            <button
+                            type="button"
+                            class="vr-skill-more"
+                            data-open="false">
+                            +2 more
+                            </button>
                             </div>
                         </div>
                     </div>
@@ -238,15 +255,22 @@
                                 <span>7+ Years Experience</span>
                             </div>
                             <p class="vr-engineer-card-bio">Certified fiber and copper cabling expert focused on data center rollouts, patch panel terminations, and on-site quality assurance.</p>
-                            <div class="vr-engineer-card-skills">
-                                <span class="vr-engineer-card-skills-label">Skills</span>
-                                <div class="vr-engineer-card-tags">
-                                    <span class="vr-skill-tag">Fiber Splicing</span>
-                                    <span class="vr-skill-tag">Network Cabling</span>
-                                    <span class="vr-skill-tag">Testing &amp; QA</span>
-                                    <span class="vr-skill-more">+1 more</span>
-                                </div>
-                            </div>
+                            <div class="vr-engineer-card-tags">
+
+    <span class="vr-skill-tag">Fiber Splicing</span>
+    <span class="vr-skill-tag">Network Cabling</span>
+    <span class="vr-skill-tag">Testing &amp; QA</span>
+
+    <!-- Hidden Skill -->
+    <span class="vr-skill-tag vr-hidden-skill">
+        Cable Certification
+    </span>
+
+    <button type="button" class="vr-skill-more">
+        +1 more
+    </button>
+
+</div>
                         </div>
                     </div>
 
@@ -303,15 +327,30 @@
                                 <span>4+ Years Experience</span>
                             </div>
                             <p class="vr-engineer-card-bio">Reliable field engineer for structured cabling projects, drop installations, labeling, and end-to-end site handover documentation.</p>
-                            <div class="vr-engineer-card-skills">
-                                <span class="vr-engineer-card-skills-label">Skills</span>
-                                <div class="vr-engineer-card-tags">
-                                    <span class="vr-skill-tag">Rack Installation</span>
-                                    <span class="vr-skill-tag">Network Cabling</span>
-                                    <span class="vr-skill-tag">Cable Management</span>
-                                    <span class="vr-skill-more">+3 more</span>
-                                </div>
-                            </div>
+                            <div class="vr-engineer-card-tags">
+
+                        <span class="vr-skill-tag">Rack Installation</span>
+                        <span class="vr-skill-tag">Network Cabling</span>
+                        <span class="vr-skill-tag">Cable Management</span>
+
+    <!-- Hidden Skills -->
+    <span class="vr-skill-tag vr-hidden-skill">
+        Fiber Splicing
+    </span>
+
+    <span class="vr-skill-tag vr-hidden-skill">
+        Patch Panel Installation
+    </span>
+
+    <span class="vr-skill-tag vr-hidden-skill">
+        Cable Testing
+    </span>
+
+    <button type="button" class="vr-skill-more">
+        +3 more
+    </button>
+
+</div>
                         </div>
                     </div>
 

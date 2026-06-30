@@ -166,10 +166,37 @@
       });
     });
   }
+function initSkillToggle() {
+    document.querySelectorAll(".vr-skill-more").forEach(button => {
 
-  document.addEventListener("DOMContentLoaded", () => {
+        button.addEventListener("click", function () {
+
+            const card = this.closest(".vr-engineer-card");
+            const hiddenSkills = card.querySelectorAll(".vr-hidden-skill");
+
+            const isOpen = this.dataset.open === "true";
+
+            hiddenSkills.forEach(skill => {
+                if (isOpen) {
+                    skill.classList.remove("show");
+                } else {
+                    skill.classList.add("show");
+                }
+            });
+
+            this.dataset.open = isOpen ? "false" : "true";
+            this.textContent = isOpen
+                ? `+${hiddenSkills.length} more`
+                : "Show Less";
+        });
+
+    });
+}
+ document.addEventListener("DOMContentLoaded", () => {
     initVendorResponsesHeroMap();
     initVendorResponsesTabs();
     initVendorResponsesDropdown();
-  });
+    initSkillToggle();
+});
+  
 })();

@@ -733,7 +733,7 @@
   }
 
   .platform-hands-btn {
-    @apply mt-8 inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-b3 font-semibold text-ink no-underline transition-all duration-150 hover:brightness-[0.98];
+    @apply mt-8 flex w-fit mx-auto items-center gap-2 rounded-full px-6 py-2.5 text-b3 font-semibold text-ink no-underline transition-all duration-150 hover:brightness-[0.98];
   }
 
   .platform-hands-apps {
@@ -803,10 +803,6 @@
 
   .coverage-india-btn {
     @apply mt-8 inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-b3 font-semibold text-ink no-underline transition-all duration-150 hover:brightness-[0.98];
-  }
-
-  .coverage-india-map-wrap {
-    @apply relative mx-auto w-full max-w-full lg:mx-0 lg:ml-auto;
   }
 
   .coverage-india-map {
@@ -1091,9 +1087,14 @@
   }
 
   .footer-main {
-    @apply grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr_1fr] lg:gap-8;
-  }
+    @apply grid grid-cols-1 gap-10 sm:grid-cols-2 lg:gap-8;
+}
 
+@media (min-width: 1024px) {
+    .footer-main {
+        grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+    }
+}
   .footer-brand-title {
     @apply mb-1 text-h5 font-bold text-black;
   }
@@ -1262,13 +1263,14 @@
   }
 
   /* Vendor Responses hero */
-  .vr-hero {
-    @apply relative overflow-hidden bg-white;
-    min-height: clamp(500px, 52vh, 520px);
+ .vr-hero {
+  @apply relative overflow-hidden bg-white;
+  min-height: clamp(620px, 65vh, 700px);
   }
 
-  .vr-hero-map {
-    @apply absolute inset-0 z-0 h-full w-full;
+ .vr-hero-map {
+  @apply absolute inset-0 h-full w-full;
+  z-index: 1;
   }
 
   .vr-hero-map .leaflet-container {
@@ -1289,11 +1291,11 @@
   }
 
   .vr-hero-content-wrap {
-    @apply pointer-events-none relative z-10 mx-auto max-w-[90rem] px-5 pb-10 pt-8 md:px-10 md:pb-12 md:pt-10;
+  @apply pointer-events-none relative z-30 mx-auto max-w-[90rem] px-5 pb-24 pt-8 md:px-10 md:pb-28 md:pt-10;
   }
 
-  .vr-hero-content-wrap>* {
-    @apply pointer-events-auto;
+  .vr-hero-content-wrap > * {
+  @apply pointer-events-auto;
   }
 
   .vr-breadcrumb {
@@ -1322,8 +1324,10 @@
   }
 
   .vr-request-bar {
-    @apply mt-6 inline-flex max-w-full items-center gap-0 overflow-x-auto rounded-md bg-white px-5 py-3 shadow-[0_4px_24px_rgba(33, 43, 54, 0.1)] md:px-4 md:py-3.5;
-  }
+  @apply mt-6 inline-flex max-w-full items-center gap-0 overflow-x-auto rounded-md bg-white px-5 py-3 md:px-4 md:py-3.5;
+
+  box-shadow: 0 4px 24px rgba(33, 43, 54, 0.1);
+}
 
   .vr-request-bar-item {
     @apply flex shrink-0 items-center gap-2 whitespace-nowrap text-[13px] font-bold md:text-[14px];
@@ -1338,9 +1342,10 @@
   }
 
   .vr-map-controls {
-    @apply absolute right-4 top-1/2 z-20 flex -translate-y-1/2 flex-col items-center rounded-2xl bg-white px-2 py-3 shadow-[0_4px_20px_rgba(33, 43, 54, 0.12)] md:right-8;
-  }
+  @apply absolute right-4 top-1/2 z-20 flex -translate-y-1/2 flex-col items-center rounded-2xl bg-white px-2 py-3 md:right-8;
 
+  box-shadow: 0 4px 20px rgba(33, 43, 54, 0.12);
+}
   .vr-map-control-btn {
     @apply flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg border-0 bg-transparent p-0 text-black transition-colors hover:text-ink;
   }
@@ -1362,7 +1367,7 @@
   }
 
   .vr-engineer-marker {
-    @apply relative flex h-[88px] w-[88px] items-center justify-center;
+    @apply relative z-0 flex h-[88px] w-[88px] items-center justify-center;
   }
 
   .vr-engineer-marker__pulse {
@@ -1390,18 +1395,19 @@
     }
 
     100% {
-      transform: translate(-50%, -50%) scale(2.5);
-      opacity: 0;
-    }
+  transform: translate(-50%, -50%) scale(1.8);
+   }
   }
 
   .vr-engineer-marker__avatar {
-    @apply relative z-10 h-11 w-11 rounded-full border-2 border-white object-cover shadow-[0_2px_10px_rgba(33, 43, 54, 0.18)];
-  }
+    @apply relative z-10 h-11 w-11 rounded-full border-2 border-white object-cover;
 
+    box-shadow: 0 2px 10px rgba(33, 43, 54, 0.18);
+  }
   /* Vendor Responses toolbar */
   .vr-toolbar-section {
-    @apply border-b border-light-medium pt-8;
+  @apply relative border-b border-light-medium pt-8 bg-white;
+  z-index: 50;
   }
 
   .vr-toolbar-inner {
@@ -1419,7 +1425,8 @@
   }
 
   .vr-tab {
-    @apply flex shrink-0 items-center gap-2 rounded-t-lg border border-b-0 border-light-medium bg-white px-5 py-3.5 text-[14px] font-semibold text-ink transition-colors;
+  min-width: 260px;
+  white-space: nowrap;
   }
 
   .vr-tab:hover:not(.is-active) {
@@ -1460,7 +1467,9 @@
   }
 
   .vr-dropdown-menu {
-    @apply absolute right-0 top-[calc(100%+6px)] z-30 m-0 min-w-full list-none overflow-hidden rounded-lg border border-light-medium bg-white p-1 shadow-[0_8px_24px_rgba(33, 43, 54, 0.12)];
+  @apply absolute right-0 top-[calc(100%+6px)] z-30 m-0 min-w-full list-none overflow-hidden rounded-lg border border-light-medium bg-white p-1;
+
+  box-shadow: 0 8px 24px rgba(33, 43, 54, 0.12);
   }
 
   .vr-dropdown-option {
@@ -1471,10 +1480,9 @@
     @apply bg-blue-light font-semibold text-light-blue;
   }
 
-  .vr-results {
-    @apply mx-auto max-w-[90rem] px-5 py-8 md:px-10 md:py-10;
-  }
-
+ .vr-results {
+  @apply mx-auto max-w-[90rem] px-5 pt-6 pb-8 md:px-10 md:pt-8 md:pb-10;
+}
   .vr-tab-panel {
     @apply hidden;
   }
@@ -1493,9 +1501,14 @@
   }
 
   .vr-engineer-card {
-    @apply grid gap-6 rounded-xl border border-light-medium bg-white p-5 md:gap-8 md:p-6 lg:grid-cols-[minmax(0, 1.55fr)_minmax(0, 1fr)_auto] lg:items-start lg:gap-8;
-  }
+  @apply grid gap-6 rounded-xl border border-light-medium bg-white p-5 md:gap-8 md:p-6 lg:items-start lg:gap-8;
+}
 
+@media (min-width: 1024px) {
+  .vr-engineer-card {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr) auto;
+  }
+}
   .vr-engineer-card-profile {
     @apply flex flex-col gap-4 sm:flex-row sm:items-start;
   }
@@ -1550,16 +1563,26 @@
   }
 
   .vr-engineer-card-tags {
-    @apply flex flex-wrap items-center gap-2;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
 
   .vr-skill-tag {
     @apply inline-flex rounded-md bg-primary-light px-2.5 py-1 text-[12px] font-medium text-ink;
-  }
+}
 
-  .vr-skill-more {
-    @apply text-[12px] font-semibold text-ink;
-  }
+.vr-hidden-skill {
+    display: none !important;
+}
+
+.vr-hidden-skill.show {
+    display: inline-flex !important;
+}
+.vr-skill-more:hover {
+    @apply underline text-blue-700;
+}
 
   .vr-engineer-card-details {
     @apply grid grid-cols-1 gap-6 border-l border-r border-light-medium px-6;
@@ -1615,12 +1638,23 @@
   }
 
   .vr-team-card {
-    @apply overflow-hidden rounded-xl border border-light-medium bg-white shadow-[0_2px_12px_rgba(33, 43, 54, 0.06)];
-  }
+    @apply overflow-hidden rounded-xl border border-light-medium bg-white;
 
-  .vr-team-card-main {
-    @apply grid gap-6 p-5 sm:grid-cols-2 md:gap-8 md:p-6 lg:grid-cols-[minmax(0, 1.45fr)_minmax(0, 0.75fr)_minmax(0, 0.85fr)_minmax(0, 0.95fr)] lg:items-start lg:gap-6 xl:gap-8;
+    box-shadow: 0 2px 12px rgba(33, 43, 54, 0.06);
   }
+ .vr-team-card-main {
+    @apply grid gap-6 p-5 sm:grid-cols-2 md:gap-8 md:p-6 lg:items-start lg:gap-6 xl:gap-8;
+}
+
+@media (min-width: 1024px) {
+    .vr-team-card-main {
+        grid-template-columns:
+            minmax(0, 1.45fr)
+            minmax(0, 0.75fr)
+            minmax(0, 0.85fr)
+            minmax(0, 0.95fr);
+    }
+}
 
   .vr-team-card-company {
     @apply flex flex-col gap-4 sm:col-span-2 sm:flex-row sm:items-start lg:col-span-1;
@@ -1901,8 +1935,14 @@
   }
 
   .contact-hero-grid {
-    @apply grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6;
-  }
+    @apply grid w-full grid-cols-1 items-center gap-8 lg:gap-6;
+}
+
+@media (min-width: 1024px) {
+    .contact-hero-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+    }
+}
 
   .contact-hero-content {
     @apply relative z-10;
@@ -1951,16 +1991,23 @@
   }
 
   .contact-hero-aside {
-    @apply relative flex min-h-[280px] items-start justify-end lg:min-h-[360px];
-  }
+    @apply relative flex min-h-[280px] items-start justify-start lg:justify-end lg:min-h-[360px];
+}
 
-  .contact-status-cards {
-    @apply relative z-10 flex w-full max-w-[260px] flex-col gap-3 lg:absolute lg:right-0 lg:top-6;
-  }
+.contact-status-cards {
+    @apply relative z-10 flex w-full max-w-full flex-col gap-3 lg:absolute lg:right-0 lg:top-6 lg:max-w-[260px];
+}
 
-  .contact-status-card {
+@media (min-width: 768px) and (max-width: 1023px) {
+    .contact-status-cards {
+        width: 420px;
+        max-width: 100%;
+    }
+}
+
+.contact-status-card {
     @apply flex items-center gap-3 rounded-xl border border-white/15 bg-black-one/80 px-4 py-3.5 backdrop-blur-md;
-  }
+}
 
   .contact-status-card-icon {
     @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/20 text-primary-light-1;
@@ -2084,7 +2131,9 @@
   }
 
   .contact-dropdown-menu {
-    @apply absolute left-0 right-0 top-[calc(100%+6px)] z-30 m-0 max-h-[220px] list-none overflow-auto rounded-lg border border-light-medium bg-white p-1 shadow-[0_8px_24px_rgba(33, 43, 54, 0.12)];
+    @apply absolute left-0 right-0 top-[calc(100%+6px)] z-30 m-0 max-h-[220px] list-none overflow-auto rounded-lg border border-light-medium bg-white p-1;
+
+    box-shadow: 0 8px 24px rgba(33, 43, 54, 0.12);
   }
 
   .contact-dropdown-option {
@@ -2226,9 +2275,10 @@
   }
 
   .contact-city-card {
-    @apply flex items-start gap-3 rounded-lg border border-light-medium bg-white px-2 py-3.5 shadow-[0_2px_12px_rgba(33, 43, 54, 0.06)];
-  }
+    @apply flex items-start gap-3 rounded-lg border border-light-medium bg-white px-2 py-3.5;
 
+    box-shadow: 0 2px 12px rgba(33, 43, 54, 0.06);
+  }
   .contact-city-icon {
     @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-light text-primary;
   }
@@ -2392,8 +2442,20 @@
   }
 
   .blog-layout {
-    @apply grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0, 1fr)_320px] lg:gap-10 xl:grid-cols-[minmax(0, 1fr)_340px];
-  }
+    @apply grid grid-cols-1 gap-8 lg:gap-10;
+}
+
+@media (min-width: 1024px) {
+    .blog-layout {
+        grid-template-columns: minmax(0, 1fr) 320px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .blog-layout {
+        grid-template-columns: minmax(0, 1fr) 340px;
+    }
+}
 
   .blog-content-col {
     @apply min-w-0;
@@ -2417,9 +2479,14 @@
   }
 
   .blog-featured-card {
-    @apply mb-8 grid grid-cols-1 overflow-hidden rounded-xl border border-light-medium bg-white no-underline shadow-sm transition-shadow hover:shadow-md md:grid-cols-[minmax(0, 1.05fr)_minmax(0, 0.95fr)];
-  }
+    @apply mb-8 grid grid-cols-1 overflow-hidden rounded-xl border border-light-medium bg-white no-underline shadow-sm transition-shadow hover:shadow-md;
+}
 
+@media (min-width: 768px) {
+    .blog-featured-card {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    }
+}
   .blog-featured-media {
     @apply relative min-h-[220px] overflow-hidden bg-blue-light md:min-h-full;
   }

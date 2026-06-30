@@ -161,6 +161,165 @@
         scrollbar-width: none;
     }
 
+    .hero-main-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+    }
+
+    .hero-main-copy {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Keep all three hero counters visible and readable on every screen size. */
+    .hero-stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .hero-stat-copy {
+        font-size: 0.875rem;
+        line-height: 1.2;
+    }
+
+    .hero-stat-label {
+        font-size: 0.625rem;
+        line-height: 1.2;
+    }
+
+    .hero-mobile-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(0.25rem, 2vw, 0.75rem);
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin-top: 1.25rem;
+        box-sizing: border-box;
+    }
+
+    .hero-mobile-stat {
+        display: flex;
+        min-height: 5.25rem;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 0.25rem;
+        border-radius: 0.75rem;
+        text-align: center;
+    }
+
+    .hero-mobile-stat .material-symbols-outlined {
+        font-size: 1.25rem;
+    }
+
+    .hero-mobile-stat-value {
+        margin-top: 0.125rem;
+        font-size: clamp(0.75rem, 3.8vw, 1rem);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-ink, #111827);
+    }
+
+    .hero-mobile-stat-label {
+        margin-top: 0.125rem;
+        overflow-wrap: anywhere;
+        font-size: clamp(0.5625rem, 2.6vw, 0.75rem);
+        line-height: 1.2;
+        color: var(--color-ink, #111827);
+    }
+
+    /* Keep the mobile stats and service selector visually separated. */
+    @media (max-width: 1023px) {
+        .hero-mobile-stats + .hero-service-card {
+            margin-top: 1.25rem !important;
+        }
+    }
+
+    @media (max-width: 359px) {
+        .hero-mobile-stats {
+            gap: 0.25rem;
+        }
+
+        .hero-mobile-stat {
+            min-height: 4.75rem;
+            padding: 0.5rem 0.125rem;
+        }
+
+        .hero-mobile-stat .material-symbols-outlined {
+            font-size: 1.125rem;
+        }
+    }
+
+    .hero-desktop-stats {
+        display: none;
+    }
+
+    @media (min-width: 640px) {
+        .hero-mobile-stats {
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .hero-mobile-stat {
+            min-height: 7rem;
+            padding: 1rem 0.75rem;
+            border-radius: 1rem;
+        }
+
+        .hero-mobile-stat .material-symbols-outlined {
+            font-size: 1.75rem;
+        }
+
+        .hero-mobile-stat-value {
+            font-size: 1.25rem;
+        }
+
+        .hero-mobile-stat-label {
+            font-size: 0.875rem;
+        }
+
+        .hero-stat-grid {
+            gap: 0.75rem;
+        }
+
+        .hero-stat-copy {
+            font-size: 1.25rem;
+        }
+
+        .hero-stat-label {
+            font-size: 1rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero-main-grid {
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        }
+
+        .hero-main-copy {
+            max-width: none;
+        }
+
+        .hero-mobile-stats {
+            display: none;
+        }
+
+        .hero-desktop-stats {
+            display: flex;
+        }
+
+        .hero-stat-grid {
+            display: flex;
+            max-width: 240px;
+            flex-direction: column;
+        }
+    }
+
     /* ============================================
    POPULAR SERVICES - HEADER WITH VIEW ALL
    ============================================ */
@@ -427,10 +586,10 @@
     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/30"></div>
 
     <div
-        class="relative z-10 mx-auto grid max-w-[90rem] items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
+        class="hero-main-grid relative z-10 mx-auto grid max-w-[90rem] items-center gap-8 px-4 py-8 sm:px-5 sm:py-12 md:px-8 md:py-16 lg:gap-8 lg:py-20">
 
         <!-- Left -->
-        <div class="max-w-xl lg:max-w-none">
+        <div class="hero-main-copy max-w-xl lg:max-w-none">
 
             <h1
                 class="hero-rise hero-rise-d1 text-h3 font-bold leading-[1.1] tracking-tight text-primary-dark md:text-h2 lg:text-h1">
@@ -443,6 +602,31 @@
                 Network cabling, rack installation, fleet deployment, server setup, CCTV and smart hands support — track
                 in real time. Get AI-powered reports.
             </p>
+
+            <!-- Mobile counters: kept near the heading so they remain visible without deep scrolling. -->
+            <div class="hero-mobile-stats hero-rise hero-rise-d3" aria-label="Service coverage statistics">
+                <article class="hero-mobile-stat hero-glass">
+                    <span class="material-symbols-outlined text-green" aria-hidden="true">groups</span>
+                    <p class="hero-mobile-stat-value">
+                        <span class="hero-counter" data-target="15000" data-suffix="+" data-format="comma">0</span>
+                    </p>
+                    <p class="hero-mobile-stat-label">Certified engineers</p>
+                </article>
+                <article class="hero-mobile-stat hero-glass">
+                    <span class="material-symbols-outlined text-green" aria-hidden="true">verified</span>
+                    <p class="hero-mobile-stat-value">
+                        <span class="hero-counter" data-target="350" data-suffix="+">0</span>
+                    </p>
+                    <p class="hero-mobile-stat-label">Verified Vendors</p>
+                </article>
+                <article class="hero-mobile-stat hero-glass">
+                    <span class="material-symbols-outlined text-green" aria-hidden="true">apartment</span>
+                    <p class="hero-mobile-stat-value">
+                        <span class="hero-counter" data-target="120" data-suffix="+">0</span>
+                    </p>
+                    <p class="hero-mobile-stat-label">Cities Covered</p>
+                </article>
+            </div>
 
             <!-- Service search glass card -->
 
@@ -513,39 +697,39 @@
         </div>
 
         <!-- Right — floating cards -->
-        <div class="hero-rise hero-rise-d5 flex flex-col gap-4 lg:items-end">
+        <div class="hero-rise hero-rise-d5 flex min-w-0 flex-col gap-4 lg:items-end">
 
             <!-- Top stat pills -->
-            <div class="flex flex-col gap-3 w-full lg:max-w-[240px]">
+            <div class="hero-stat-grid hero-desktop-stats">
                 <div
-                    class="hero-float hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
+                    class="hero-float hero-glass hero-stat-card flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl px-1 py-3 text-center sm:flex-row sm:justify-between sm:gap-2.5 sm:rounded-2xl sm:px-4 lg:px-5">
                     <span class="flex shrink-0 items-center justify-center text-green">
                         <span class="material-symbols-outlined large-icon">groups</span>
                     </span>
-                    <p class="text-h5 font-semibold text-ink text-center">
+                    <p class="hero-stat-copy font-semibold text-ink text-center">
                         <span class="hero-counter font-bold" data-target="15000" data-suffix="+"
                             data-format="comma">0</span><br>
-                        <span class="text-b1">Certified engineers</span>
+                        <span class="hero-stat-label">Certified engineers</span>
                     </p>
                 </div>
                 <div
-                    class="hero-float hero-float-delay hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
+                    class="hero-float hero-float-delay hero-glass hero-stat-card flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl px-1 py-3 text-center sm:flex-row sm:justify-between sm:gap-2.5 sm:rounded-2xl sm:px-4 lg:px-5">
                     <span class="flex shrink-0 items-center justify-center text-green">
                         <span class="material-symbols-outlined large-icon">verified</span>
                     </span>
-                    <p class="text-h5 font-semibold text-ink text-center">
+                    <p class="hero-stat-copy font-semibold text-ink text-center">
                         <span class="hero-counter font-bold" data-target="350" data-suffix="+">0</span><br>
-                        <span class="text-b1">Verified Vendors</span>
+                        <span class="hero-stat-label">Verified Vendors</span>
                     </p>
                 </div>
                 <div
-                    class="hero-float hero-float-delay-2 hero-glass hero-stat-card flex items-center justify-between gap-2.5 rounded-2xl px-5 py-3">
+                    class="hero-float hero-float-delay-2 hero-glass hero-stat-card flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl px-1 py-3 text-center sm:flex-row sm:justify-between sm:gap-2.5 sm:rounded-2xl sm:px-4 lg:px-5">
                     <span class="flex shrink-0 items-center justify-center text-green">
                         <span class="material-symbols-outlined large-icon">apartment</span>
                     </span>
-                    <p class="text-h5 font-semibold text-ink text-center">
+                    <p class="hero-stat-copy font-semibold text-ink text-center">
                         <span class="hero-counter font-bold" data-target="120" data-suffix="+">0</span><br>
-                        <span class="text-b1">Cities Covered</span>
+                        <span class="hero-stat-label">Cities Covered</span>
                     </p>
                 </div>
             </div>
@@ -627,9 +811,7 @@
                 <h2 id="how-it-works-title">How it Works?</h2>
                 <p class="how-it-works-subtitle">A seamless process from booking to completion</p>
             </div>
-           <a href="#" class="how-it-works-view-all pointer-events-none opacity-50 cursor-not-allowed" tabindex="-1" aria-disabled="true">
-    View Process Details
-    <span class="material-symbols-outlined">arrow_forward</span>
+
 </a>
         </div>
 
@@ -709,10 +891,7 @@
             <h2 id="popular-services-title" class="popular-services-title">
                 Explore Our <span>Popular Services</span>
             </h2>
-            <a href="#" class="popular-services-view-all">
-                View All Services
-                <span class="material-symbols-outlined">arrow_forward</span>
-            </a>
+           
         </div>
 
         <div class="popular-services-grid">
@@ -915,10 +1094,12 @@
                     </li>
                 </ul>
 
-                <a href="{% url 'about_fe' %}" class="platform-hands-btn btn-glass-modern water-drop-glass">
-                    Explore All Features
-                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                </a>
+            <div class="flex justify-center mt-8">
+            <a href="{% url 'about_fe' %}" class="platform-hands-btn btn-glass-modern water-drop-glass">
+            Explore All Features
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+            </div>
             </div>
 
             <div class="platform-hands-apps">
@@ -989,10 +1170,12 @@
                     </article>
                 </div>
 
-                <!-- <a href="#" class="coverage-india-btn btn-glass-modern water-drop-glass">
-                    View All Cities
-                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                </a> -->
+                <div class="flex justify-center mt-8">
+                <a href="#" class="coverage-india-btn btn-glass-modern water-drop-glass">
+                View All Cities
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                 </a>
+                </div>
             </div>
 
             <div class="coverage-india-map-wrap">
