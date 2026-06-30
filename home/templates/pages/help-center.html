@@ -1,4 +1,4 @@
-{% extends 'pages/layout.html' %}
+{% extends 'home/layout.html' %}
 {% load static %}
 
 {% block title %}Help Center — Find Answers, Guides &amp; Support | FieldEngineer{% endblock %}
@@ -179,13 +179,16 @@
                 {# LEFT SIDE #}
                 <div>
 
-                    <div class="flex items-center justify-between mb-6">
-                        <h2 id="popular-heading" class="text-h3 font-semibold text-deep-indigo">Popular Articles</h2>
-                        <a href="#" class="inline-flex items-center gap-1 text-bright-blue text-b3 font-semibold hover:gap-2 transition-all">
-                            View All Articles
-                            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
-                        </a>
-                    </div>
+                    <div class="flex justify-between items-baseline mb-6">
+    <h2 id="popular-heading" class="text-h3 font-semibold text-deep-indigo">
+        Popular Articles
+    </h2>
+
+    <a href="#" class="inline-flex items-center gap-1 text-bright-blue text-b3 font-semibold">
+        View All Articles
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </a>
+</div>
 
                     <div class="grid md:grid-cols-2 gap-4">
 
