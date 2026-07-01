@@ -333,11 +333,12 @@
     @apply shrink-0 text-[1em] leading-none;
   }
 
+  @layer components {
   .btn-primary {
-    @apply bg-primary text-white;
+    @apply bg-primary text-white transition-colors;
   }
 
-  .btn-primary:hover:not(:disabled):not(.is-disabled) {
+  .btn-primary:hover {
     @apply bg-primary-hover;
   }
 
@@ -346,6 +347,11 @@
     @apply bg-light text-medium cursor-not-allowed pointer-events-none;
   }
 
+  .btn-primary:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2;
+  }
+}
+}
   .btn-giant {
     @apply gap-3 rounded-xl px-8 py-4 text-s1;
   }
