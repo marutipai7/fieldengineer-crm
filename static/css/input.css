@@ -333,11 +333,12 @@
     @apply shrink-0 text-[1em] leading-none;
   }
 
+  @layer components {
   .btn-primary {
-    @apply bg-primary text-white;
+    @apply bg-primary text-white transition-colors;
   }
 
-  .btn-primary:hover:not(:disabled):not(.is-disabled) {
+  .btn-primary:hover {
     @apply bg-primary-hover;
   }
 
@@ -346,6 +347,11 @@
     @apply bg-light text-medium cursor-not-allowed pointer-events-none;
   }
 
+  .btn-primary:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2;
+  }
+}
+}
   .btn-giant {
     @apply gap-3 rounded-xl px-8 py-4 text-s1;
   }
@@ -1219,7 +1225,7 @@
   }
 
   .site-page-footer-inner {
-    @apply mx-auto max-w-[90rem];
+    @apply mx-auto max-w-[90rem] flex flex-col items-center text-center;
   }
 
   .site-page-footer-title {
@@ -1231,7 +1237,7 @@
   }
 
   .site-page-footer-links {
-    @apply mt-6 flex flex-wrap gap-4;
+    @apply mt-6 flex flex-wrap gap-4 justify-center;
   }
 
   .site-page-footer-links a {
@@ -1239,7 +1245,11 @@
   }
 
   .site-page-footer-copy {
-    @apply mt-8 text-c1 text-medium;
+    @apply mt-8 text-c1 text-medium text-center;
+  }
+
+  .site-page-footer-policies {
+    @apply mt-4 flex flex-wrap gap-4 justify-center text-b3 text-ink;
   }
 
   .site-page-hero {
@@ -2500,7 +2510,7 @@
   }
 
   .blog-badge {
-    @apply inline-block w-fit rounded-md px-2.5 py-1 text-label font-bold uppercase tracking-wide;
+    @apply inline-block w-fit rounded-md px-2.5 py-1 text-label font-bold uppercase tracking-wide mb-4;
   }
 
   .blog-badge--featured {
@@ -2516,7 +2526,7 @@
   }
 
   .blog-card-category {
-    @apply text-label font-bold uppercase tracking-wide text-slate-gray;
+    @apply text-label font-bold uppercase tracking-wide text-slate-gray mt-0;
   }
 
   .blog-card-meta {
@@ -2882,10 +2892,3 @@
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
-
-
-
-
-
-
-}
