@@ -21,16 +21,18 @@
 
     {% block extra_css %}{% endblock %}
 
-   <style>
-/* ===== ONLY MOBILE NAVBAR FIXES ===== */
+ <style>
+    /* ===== ONLY MOBILE NAVBAR FIXES ===== */
 @media (max-width: 991px) {
-    /* Navbar container */
+    /* Navbar container - Height auto करने से ये खुले हुए मेनू को पूरा कवर कर लेगा */
     .site-nav {
         position: sticky !important;
         top: 0 !important;
         z-index: 9999 !important;
         background: #ffffff !important;
         border-bottom: 1px solid #e5e7eb !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+        height: auto !important; /* गैप को रोकने के लिए फिक्स */
     }
 
     /* Nav inner - flex container */
@@ -42,6 +44,7 @@
         position: relative !important;
         padding: 0.75rem 1rem !important;
         max-width: 100% !important;
+        height: auto !important; /* गैप को रोकने के लिए फिक्स */
     }
 
     /* Logo - left side */
@@ -72,21 +75,14 @@
         transform: rotate(90deg) !important;
     }
 
-    /* Nav links - full width, below everything */
+    /* Nav links - (CHANGED: सारे मार्जिन/पैडिंग गैप्स हटा दिए हैं ताकि बीच में बैकग्राउंड न दिखे) */
     .nav-links {
         display: none !important;
         width: 100% !important;
         flex-direction: column !important;
         background: #ffffff !important;
-        position: absolute !important;
-        top: 100% !important;
-        left: 0 !important;
-        padding: 1rem 1.5rem !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
-        border-radius: 0 0 12px 12px !important;
-        z-index: 9999 !important;
-        max-height: 70vh !important;
-        overflow-y: auto !important;
+        position: relative !important;
+        padding: 0.5rem 0 0 0 !important; /* पैडिंग को एडजस्ट किया */
         margin: 0 !important;
         list-style: none !important;
         order: 4 !important;
@@ -97,20 +93,21 @@
         display: flex !important;
     }
 
-    /* Nav actions - below nav links */
+    /* ===== NAV ACTIONS - (FIXED: ऊपर वाले बॉक्स से एकदम चिपका दिया है) ===== */
     .nav-actions {
         display: none !important;
         width: 100% !important;
         flex-direction: column !important;
         background: #ffffff !important;
-        padding: 1rem 1.5rem !important;
-        border-top: 1px solid #e5e7eb !important;
-        margin-top: 0.5rem !important;
+        padding: 0.5rem 0 0.75rem 0 !important; /* टॉप पैडिंग कम की ताकि गैप न बने */
         gap: 0.75rem !important;
         order: 5 !important;
         flex: 0 0 100% !important;
+        position: relative !important;
+        margin: 0 !important; /* मार्जिन जीरो किया */
     }
 
+    /* Show nav actions when active */
     .nav-actions.active {
         display: flex !important;
     }
@@ -195,181 +192,59 @@
         transform: rotate(180deg) !important;
     }
 
-    /* Mobile action buttons */
+    /* ===== MOBILE ACTION BUTTONS ===== */
     .nav-actions .nav-track-btn,
     .nav-actions .nav-cta-btn {
         width: 100% !important;
         justify-content: center !important;
         text-align: center !important;
-        padding: 0.75rem !important;
+        padding: 0.75rem 1rem !important;
         display: flex !important;
         align-items: center !important;
         gap: 0.5rem !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
     }
 
     .nav-actions .nav-track-btn {
-        background: none !important;
-        border: 1px solid #e5e7eb !important;
-        border-radius: 8px !important;
+        background: #f8fafc !important;
+        border: 1.5px solid #e2e8f0 !important;
+        border-radius: 10px !important;
         color: #1f2937 !important;
-        font-weight: 600 !important;
-        font-size: 0.875rem !important;
         cursor: pointer !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .nav-actions .nav-track-btn:hover {
+        background: #f1f5f9 !important;
+        border-color: #94a3b8 !important;
+    }
+
+    .nav-actions .nav-track-btn img {
+        width: 20px !important;
+        height: 20px !important;
     }
 
     .nav-actions .nav-cta-btn {
         background: #1a56db !important;
         border: none !important;
-        border-radius: 8px !important;
+        border-radius: 10px !important;
         color: #ffffff !important;
-        font-weight: 600 !important;
-        font-size: 0.875rem !important;
         text-decoration: none !important;
+        transition: all 0.2s ease !important;
     }
 
     .nav-actions .nav-cta-btn:hover {
         background: #1e40af !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(26, 86, 219, 0.3) !important;
     }
 
-    /* Scrollbar */
-    .nav-links::-webkit-scrollbar {
-        width: 4px !important;
-    }
-
-    .nav-links::-webkit-scrollbar-track {
-        background: #f1f1f1 !important;
-        border-radius: 10px !important;
-    }
-
-    .nav-links::-webkit-scrollbar-thumb {
-        background: #d1d5db !important;
-        border-radius: 10px !important;
+    .nav-actions .nav-cta-btn .material-symbols-outlined {
+        font-size: 20px !important;
     }
 }
-
-/* ===== DESKTOP - NO CHANGES ===== */
-@media (min-width: 992px) {
-    .nav-inner {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        max-width: 90rem !important;
-        margin: 0 auto !important;
-        padding: 0.75rem 1.5rem !important;
-        flex-wrap: nowrap !important;
-    }
-
-    .nav-logo {
-        flex: 0 0 auto !important;
-    }
-
-    .nav-links {
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.5rem !important;
-        list-style: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        position: static !important;
-        width: auto !important;
-        flex-direction: row !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        max-height: none !important;
-        overflow: visible !important;
-        flex: 1 !important;
-        justify-content: center !important;
-    }
-
-    .nav-links > li {
-        position: relative !important;
-        border-bottom: none !important;
-        width: auto !important;
-    }
-
-    .nav-links > li > button {
-        width: auto !important;
-        padding: 0.5rem 0.75rem !important;
-        font-size: 0.875rem !important;
-        font-weight: 600 !important;
-        color: #1f2937 !important;
-        background: none !important;
-        border: none !important;
-        cursor: pointer !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.25rem !important;
-        border-radius: 6px !important;
-        transition: all 0.2s ease !important;
-        white-space: nowrap !important;
-    }
-
-    .nav-links > li > button:hover {
-        /* background: #f3f4f6 !important; */
-        color: #1a56db !important;
-    }
-
-    .nav-links > li .dropdown-menu {
-        display: none !important;
-        position: absolute !important;
-        top: 100% !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        min-width: 220px !important;
-        background: #ffffff !important;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
-        border-radius: 12px !important;
-        padding: 0.5rem 0 !important;
-        z-index: 10000 !important;
-        border: 1px solid #f0f0f0 !important;
-    }
-
-    .nav-links > li:hover .dropdown-menu {
-        display: block !important;
-    }
-
-    .nav-links .dropdown-menu li {
-        border-bottom: none !important;
-        width: 100% !important;
-    }
-
-    .nav-links .dropdown-menu li a {
-        display: block !important;
-        padding: 0.6rem 1.25rem !important;
-        color: #374151 !important;
-        text-decoration: none !important;
-        font-size: 0.875rem !important;
-        font-weight: 500 !important;
-        white-space: nowrap !important;
-    }
-
-    .nav-links .dropdown-menu li a:hover {
-        background: #f3f4f6 !important;
-        color: #1a56db !important;
-        padding-left: 1.5rem !important;
-    }
-
-    .nav-actions {
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.75rem !important;
-        flex-shrink: 0 !important;
-        position: static !important;
-        width: auto !important;
-        flex-direction: row !important;
-        background: transparent !important;
-        padding: 0 !important;
-        border-top: none !important;
-        margin-top: 0 !important;
-        box-shadow: none !important;
-    }
-
-    .nav-hamburger {
-        display: none !important;
-    }
-}
-</style>
+ </style>
 </head>
 
 <body>
@@ -539,6 +414,133 @@
     <!-- END FOOTER -->
 
     <!-- ════════════ SCRIPTS ════════════ -->
+<!-- ════════════ SCRIPTS ════════════ -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // ===== NAVBAR MOBILE TOGGLE =====
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const navActions = document.querySelector('.nav-actions');
+
+    if (hamburgerBtn && navLinks) {
+        hamburgerBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Toggle nav links
+            navLinks.classList.toggle('active');
+            
+            // Toggle nav actions (Profile + Login)
+            if (navActions) {
+                navActions.classList.toggle('active');
+            }
+            
+            // Toggle hamburger icon animation
+            this.classList.toggle('active');
+            
+            // Update aria-label
+            const isOpen = navLinks.classList.contains('active');
+            this.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+        });
+    }
+
+    // ===== DROPDOWN TOGGLE ON MOBILE ONLY =====
+    const dropdownButtons = document.querySelectorAll('.nav-links > li > button');
+    dropdownButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            if (window.innerWidth <= 991) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const parentLi = this.closest('li');
+                const dropdown = parentLi.querySelector('.dropdown-menu');
+                
+                if (dropdown) {
+                    document.querySelectorAll('.dropdown-menu.open').forEach(d => {
+                        if (d !== dropdown) {
+                            d.classList.remove('open');
+                            d.closest('li').querySelector('button')?.classList.remove('active');
+                        }
+                    });
+                    
+                    dropdown.classList.toggle('open');
+                    this.classList.toggle('active');
+                }
+            }
+        });
+    });
+
+    // ===== CLOSE NAVBAR WHEN CLICKING OUTSIDE =====
+    document.addEventListener('click', function(e) {
+        if (navLinks && hamburgerBtn) {
+            const isClickInsideNav = navLinks.contains(e.target) || 
+                                     hamburgerBtn.contains(e.target) || 
+                                     (navActions && navActions.contains(e.target));
+            if (!isClickInsideNav && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                if (navActions) {
+                    navActions.classList.remove('active');
+                }
+                hamburgerBtn.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-label', 'Open menu');
+                
+                document.querySelectorAll('.dropdown-menu.open').forEach(d => {
+                    d.classList.remove('open');
+                    d.closest('li').querySelector('button')?.classList.remove('active');
+                });
+            }
+        }
+    });
+
+    // ===== CLOSE NAVBAR WHEN CLICKING A LINK =====
+    const pageLinks = document.querySelectorAll('.nav-links a');
+    pageLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href !== '#' && href !== '' && !href.startsWith('javascript:')) {
+                if (window.innerWidth <= 991) {
+                    navLinks.classList.remove('active');
+                    if (navActions) {
+                        navActions.classList.remove('active');
+                    }
+                    if (hamburgerBtn) {
+                        hamburgerBtn.classList.remove('active');
+                        hamburgerBtn.setAttribute('aria-label', 'Open menu');
+                    }
+                    
+                    document.querySelectorAll('.dropdown-menu.open').forEach(d => {
+                        d.classList.remove('open');
+                        d.closest('li').querySelector('button')?.classList.remove('active');
+                    });
+                }
+            }
+        });
+    });
+
+    // ===== HANDLE WINDOW RESIZE =====
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (window.innerWidth > 991) {
+                navLinks.classList.remove('active');
+                if (navActions) {
+                    navActions.classList.remove('active');
+                }
+                if (hamburgerBtn) {
+                    hamburgerBtn.classList.remove('active');
+                    hamburgerBtn.setAttribute('aria-label', 'Open menu');
+                }
+                
+                document.querySelectorAll('.dropdown-menu.open').forEach(d => {
+                    d.classList.remove('open');
+                    d.closest('li').querySelector('button')?.classList.remove('active');
+                });
+            }
+        }, 250);
+    });
+});
+</script>
+
 
     {% block extra_js %}
 

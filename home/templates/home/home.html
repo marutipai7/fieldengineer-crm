@@ -233,6 +233,13 @@
         color: var(--color-ink, #111827);
     }
 
+    /* Keep the mobile stats and service selector visually separated. */
+    @media (max-width: 1023px) {
+        .hero-mobile-stats + .hero-service-card {
+            margin-top: 1.25rem !important;
+        }
+    }
+
     @media (max-width: 359px) {
         .hero-mobile-stats {
             gap: 0.25rem;
@@ -796,7 +803,7 @@
 </section>
 
 <!-- ════════════ HOW IT WORKS ════════════ -->
-<section class="how-it-works" aria-labelledby="how-it-works-title" style="padding-bottom: 1.5rem";>
+<section class="how-it-works" aria-labelledby="how-it-works-title" style="padding-bottom: 3rem";>
     <div class="how-it-works-card glass-border-white">
         <!-- ===== HEADER WITH VIEW PROCESS DETAILS BUTTON ===== -->
         <div class="how-it-works-header">
@@ -804,9 +811,7 @@
                 <h2 id="how-it-works-title">How it Works?</h2>
                 <p class="how-it-works-subtitle">A seamless process from booking to completion</p>
             </div>
-           <a href="#" class="how-it-works-view-all pointer-events-none opacity-50 cursor-not-allowed" tabindex="-1" aria-disabled="true">
-    View Process Details
-    <span class="material-symbols-outlined">arrow_forward</span>
+
 </a>
         </div>
 
@@ -879,17 +884,14 @@
 </section>
 
 <!-- ════════════ POPULAR SERVICES ════════════ -->
-<section class="popular-services" aria-labelledby="popular-services-title" style="padding-bottom: 1.5rem;">
+<section class="popular-services" aria-labelledby="popular-services-title" style="padding-bottom: 3rem";>
     <div class="popular-services-card glass-border-white">
         <!-- ===== HEADER WITH VIEW ALL BUTTON ===== -->
         <div class="popular-services-header">
             <h2 id="popular-services-title" class="popular-services-title">
                 Explore Our <span>Popular Services</span>
             </h2>
-            <a href="#" class="popular-services-view-all">
-                View All Services
-                <span class="material-symbols-outlined">arrow_forward</span>
-            </a>
+           
         </div>
 
         <div class="popular-services-grid">
@@ -1012,7 +1014,7 @@
 
 
 <!-- ════════════ WHY CHOOSE ════════════ -->
-<section class="why-choose" aria-labelledby="why-choose-title" style="padding-bottom: 1.5rem";>
+<section class="why-choose" aria-labelledby="why-choose-title" style="padding-bottom: 3rem";>
     <div class="why-choose-card glass-border-white">
         <h2 id="why-choose-title" class="why-choose-title">Why Choose Field Engineer</h2>
 
@@ -1067,7 +1069,7 @@
 
 <!-- ════════════ PLATFORM IN YOUR HANDS ════════════ -->
 <section class="platform-hands" aria-labelledby="platform-hands-title"
-    style="padding-bottom: 1.5rem";>
+    style="padding-bottom: 3rem";>
     <div class="platform-hands-card glass-border-white">
         <div class="platform-hands-inner">
             <div class="platform-hands-content">
@@ -1092,12 +1094,10 @@
                     </li>
                 </ul>
 
-            <div class="flex justify-center mt-8">
-            <a href="{% url 'about_fe' %}" class="platform-hands-btn btn-glass-modern water-drop-glass">
-            Explore All Features
-            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-            </a>
-            </div>
+               <a href="{% url 'about_fe' %}" class="platform-hands-btn btn-glass-modern water-drop-glass block w-max mr-auto md:mx-0">
+    Explore All Features
+    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
             </div>
 
             <div class="platform-hands-apps">
@@ -1126,7 +1126,7 @@
 
 <!-- ════════════ COVERAGE ACROSS INDIA ════════════ -->
 <section class="coverage-india" aria-labelledby="coverage-india-title"
-    style="padding-bottom: 1.5rem";>
+    style="padding-bottom: 3rem";>
     <div class="coverage-india-card glass-border-blue-light">
         <div class="coverage-india-inner">
             <div class="coverage-india-content">
@@ -1168,12 +1168,10 @@
                     </article>
                 </div>
 
-                <div class="flex justify-center mt-8">
-                <a href="#" class="coverage-india-btn btn-glass-modern water-drop-glass">
-                View All Cities
-                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                 </a>
-                </div>
+                <!-- <a href="#" class="coverage-india-btn btn-glass-modern water-drop-glass">
+                    View All Cities
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </a> -->
             </div>
 
             <div class="coverage-india-map-wrap">
@@ -1184,7 +1182,7 @@
 </section>
 
 <!-- ════════════ DEPLOY CTA ════════════ -->
-<section class="deploy-cta" aria-labelledby="deploy-cta-title" style="padding-bottom: 1.5rem";>
+<section class="deploy-cta" aria-labelledby="deploy-cta-title" style="padding-bottom: 3rem";>
     <div class="deploy-cta-card glass-border-blue-light">
         <div class="deploy-cta-inner">
             <div class="deploy-cta-content">
@@ -1245,7 +1243,7 @@
 </section>
 
 <!-- ════════════ STAY UPDATED ════════════ -->
-<section class="stay-updated" aria-labelledby="stay-updated-title" style="padding-bottom: 0.5rem";>
+<section class="stay-updated" aria-labelledby="stay-updated-title" style="padding-bottom: 3rem";>
     <div class="stay-updated-card glass-border-white p-2">
         <div class="stay-updated-inner flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-4 px-3 py-3 md:px-4 md:py-3">
 

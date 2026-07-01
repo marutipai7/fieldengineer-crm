@@ -55,6 +55,384 @@
 {% block extra_css %}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+    /* ============================================================
+       REQUEST SERVICE – COMPREHENSIVE RESPONSIVE STYLESHEET
+       Targets: mobile 320px, iPhone SE 375px, tablet 768px, laptop
+       DO NOT change visual appearance on desktop (≥1024px)
+       ============================================================ */
+
+    /* 1. Prevent horizontal overflow on all viewports */
+    html,
+    body {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 2. Navbar box-sizing safety */
+    .site-nav {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .nav-inner {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ── Hide scrollbar on step indicator but keep swipe ──────── */
+    .stepIndicator {
+        scrollbar-width: none;
+    }
+
+    .stepIndicator::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* ============================================================
+       TABLET  ≤ 1023px
+       ============================================================ */
+    @media (max-width: 1023px) {
+
+        /* 3. Hero section – reduce min-height so it doesn't force
+              excessive white space below on tablet */
+        section.bg-blue-light {
+            min-height: auto !important;
+        }
+
+        /* 4. Dim the hero background image so text remains legible */
+        section.bg-blue-light>img.absolute {
+            opacity: 0.35 !important;
+            object-position: right center !important;
+        }
+
+        /* 5. Hero grid – single column, remove large gaps */
+        .relative.z-10.mx-auto.grid.max-w-7xl {
+            grid-template-columns: 1fr !important;
+            gap: 0 !important;
+            padding-bottom: 1.5rem !important;
+        }
+
+        /* 6. Hero text column – allow full width */
+        .max-w-\[750px\] {
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+
+        /* 7. Badge row – tighten gap so "Fast Response" doesn't clip */
+        .flex.items-center.gap-10.pt-8 {
+            gap: 1.25rem !important;
+            flex-wrap: wrap !important;
+        }
+
+        /* 8. Step indicator – move from absolute to normal document flow
+              so it sits below the hero text naturally */
+        .stepIndicator {
+            position: relative !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin: 1rem !important;
+            width: calc(100% - 2rem) !important;
+            border-radius: 0.75rem !important;
+        }
+
+        /* 9. Override the inline margin-top: 180px on the form container
+              (absolute→relative step indicator means we no longer need 180px) */
+        .stepIndicator+div[style] {
+            margin-top: 1rem !important;
+        }
+
+        /* 10. AI Recommendation box – stack columns vertically */
+        .bg-arctic-mist .flex.flex-col.lg\:flex-row {
+            align-items: stretch !important;
+            text-align: center !important;
+            gap: 1rem !important;
+        }
+
+        .bg-arctic-mist .flex.flex-col.lg\:flex-row>div {
+            padding-bottom: 0.75rem !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07) !important;
+            padding-left: 0 !important;
+        }
+
+        .bg-arctic-mist .flex.flex-col.lg\:flex-row>div:last-child {
+            border-bottom: none !important;
+        }
+
+        /* 11. Vertical separator lines inside AI box – hide on tablet */
+        .bg-arctic-mist .hidden.lg\:block.w-px {
+            display: none !important;
+        }
+    }
+
+    /* ============================================================
+       MOBILE  ≤ 767px
+       ============================================================ */
+    @media (max-width: 767px) {
+
+        /* 12. Hero – even smaller padding */
+        .relative.z-10.mx-auto.grid.max-w-7xl {
+            padding: 1.25rem 1rem 1rem !important;
+        }
+
+        /* 13. Hero H1 text sizing */
+        section.bg-blue-light h1 {
+            font-size: 1.75rem !important;
+            line-height: 1.2 !important;
+            padding-top: 0.5rem !important;
+        }
+
+        /* 14. Subtitle text – allow wrap without overflow */
+        section.bg-blue-light p.max-w-md {
+            max-width: 100% !important;
+            font-size: 0.9rem !important;
+        }
+
+        /* 15. Badge row – smaller gap, wrap */
+        .flex.items-center.gap-10.pt-8 {
+            gap: 1rem !important;
+            padding-top: 0.75rem !important;
+        }
+
+        /* 16. Step indicator – compact step labels on mobile */
+        .stepIndicator {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+            justify-content: flex-start !important;
+        }
+
+        .stepIndicator>div.flex-col {
+            padding-top: 0.75rem !important;
+        }
+
+        /* Shrink the dashed connector lines on mobile */
+        .stepIndicator .w-4.md\:w-16 {
+            width: 0.5rem !important;
+            flex-shrink: 0 !important;
+            min-width: 0.5rem !important;
+        }
+
+        /* 17. Stack schedule grid columns (preferred time etc.) */
+        .access-timeline .grid.grid-cols-3.gap-4.mt-5 {
+            grid-template-columns: 1fr !important;
+            gap: 0.75rem !important;
+        }
+
+        /* 18. Right sidebar – full width below the form on mobile */
+        .flex.flex-col.gap-3.w-full.lg\:w-75 {
+            width: 100% !important;
+        }
+    }
+
+    /* ============================================================
+       SMALL MOBILE  ≤ 640px  (iPhone SE 375px, narrow Android)
+       ============================================================ */
+    @media (max-width: 640px) {
+
+        /* 19. Hero background image – very dim on small mobile */
+        section.bg-blue-light>img.absolute {
+            opacity: 0.2 !important;
+        }
+
+        /* 20. Hero H1 – slightly smaller */
+        section.bg-blue-light h1 {
+            font-size: 1.5rem !important;
+        }
+
+        /* 21. Service category cards grid – 2 columns on mobile */
+        .serviceDetails .grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 0.5rem !important;
+        }
+
+        .serviceDetails .grid>div {
+            padding: 0.875rem 0.5rem !important;
+            gap: 0.4rem !important;
+        }
+
+        .serviceDetails .grid>div p {
+            font-size: 0.8rem !important;
+        }
+
+        .serviceDetails .grid>div span.material-symbols-outlined {
+            font-size: 2rem !important;
+        }
+
+        /* 22. Access & Timeline – work type cards 2 columns */
+        .access-timeline .grid.grid-cols-3.md\:grid-cols-6 {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 0.5rem !important;
+        }
+
+        /* 23. Urgency level cards – flexible height */
+        .urgencyLevel {
+            height: auto !important;
+            padding: 0.5rem !important;
+            text-align: center !important;
+        }
+
+        .urgencyLevel p {
+            font-size: 0.72rem !important;
+        }
+
+        /* 24. Location section – "Use Current Location" button full width */
+        .location .flex.items-center.justify-between {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 0.75rem !important;
+        }
+
+        .location .flex.items-center.justify-between button {
+            width: 100% !important;
+        }
+
+        /* 25. Location address search row – stack on mobile */
+        .location .flex.items-center.gap-3 {
+            flex-wrap: wrap !important;
+        }
+
+        .location .flex.items-center.gap-3>div.flex-1 {
+            width: 100% !important;
+        }
+
+        .location .flex.items-center.gap-3>button {
+            width: 100% !important;
+        }
+
+        /* 26. Location stats row – stack 2 columns on mobile */
+        .mt-5.flex.flex-col.gap-10.sm\:flex-row {
+            flex-direction: column !important;
+            gap: 1rem !important;
+        }
+
+        /* 27. Wizard nav button rows – stack vertically */
+        .serviceDetails .flex.items-center.justify-between.mt-10.gap-4,
+        .siteInfo .flex.items-center.justify-between.mt-10.gap-4,
+        .location .flex.items-center.justify-between.gap-4.mt-2,
+        .access-timeline .flex.items-center.justify-between.mt-10,
+        .reviewSubmit .flex.items-center.justify-between.mt-10 {
+            flex-direction: column !important;
+            gap: 0.75rem !important;
+            align-items: stretch !important;
+        }
+
+        .serviceDetails .flex.items-center.justify-between.mt-10.gap-4 a,
+        .serviceDetails .flex.items-center.justify-between.mt-10.gap-4 button,
+        .siteInfo .flex.items-center.justify-between.mt-10.gap-4 button,
+        .location .flex.items-center.justify-between.gap-4.mt-2 button,
+        .access-timeline .flex.items-center.justify-between.mt-10 button,
+        .reviewSubmit .flex.items-center.justify-between.mt-10 button,
+        .reviewSubmit .flex.items-center.justify-between.mt-10 a {
+            width: 100% !important;
+            margin: 0 !important;
+            justify-content: center !important;
+        }
+
+        /* 28. Review & Submit – service detail grids responsive */
+        .reviewSubmit .grid.grid-cols-2.md\:grid-cols-3.lg\:grid-cols-5 {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 0.75rem !important;
+        }
+
+        /* 29. Review border-right separators – hide on mobile */
+        .reviewSubmit .border-r.border-pale-sky {
+            border-right: none !important;
+            border-bottom: 1px solid #e5e7eb !important;
+            padding-bottom: 0.5rem !important;
+        }
+
+        /* 30. Review Access & Timeline – prevent nowrap overflow */
+        .reviewSubmit .text-nowrap {
+            white-space: normal !important;
+        }
+
+        /* 31. Stats section – single column layout */
+        .bg-powder-blue {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 1.25rem !important;
+        }
+
+        /* 32. "How it works" section – remove transform, center heading */
+        .mt-15.rounded-lg.shadow-xl.p-10.flex {
+            padding: 1.25rem !important;
+            flex-wrap: wrap !important;
+        }
+
+        .mt-15.rounded-lg.shadow-xl.p-10.flex p[style*="transform"] {
+            transform: none !important;
+            text-align: center !important;
+            white-space: normal !important;
+            width: 100% !important;
+            margin-bottom: 0.75rem !important;
+        }
+
+        /* 33. CTA Banner – full width buttons */
+        .bg-primary.px-6.py-15 button {
+            width: 100% !important;
+            max-width: 320px !important;
+        }
+
+        /* 34. Scope of work counter cards – 2 columns on mobile */
+        .pt-4.grid.grid-cols-1.lg\:grid-cols-4 {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 0.75rem !important;
+        }
+
+        /* 35. Site information form grid – 1 column on mobile */
+        .siteInfo .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-3 {
+            grid-template-columns: 1fr !important;
+        }
+
+        /* 36. Access & Timeline contact person grid – 1 column */
+        .access-timeline .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-3 {
+            grid-template-columns: 1fr !important;
+        }
+
+        /* 37. Access info left panel in review – full width */
+        .w-full.lg\:w-60 {
+            width: 100% !important;
+            border-right: none !important;
+            padding-right: 0 !important;
+            border-bottom: 1px solid #e5e7eb !important;
+            padding-bottom: 1rem !important;
+            margin-bottom: 0.75rem !important;
+        }
+    }
+
+    /* ============================================================
+       VERY SMALL MOBILE  ≤ 390px  (iPhone SE 320–375px)
+       ============================================================ */
+    @media (max-width: 390px) {
+
+        /* 38. Hero H1 even smaller */
+        section.bg-blue-light h1 {
+            font-size: 1.35rem !important;
+        }
+
+        /* 39. Step indicator – shrink numbers */
+        .stepIndicator .w-10.h-10 {
+            width: 2rem !important;
+            height: 2rem !important;
+            font-size: 0.875rem !important;
+        }
+
+        .stepIndicator p.text-nowrap {
+            font-size: 0.65rem !important;
+        }
+
+        /* 40. Badge row – shrink text */
+        .flex.items-center.gap-10.pt-8 p {
+            font-size: 0.8rem !important;
+        }
+
+        /* 41. Stats section – single column */
+        .bg-powder-blue {
+            grid-template-columns: 1fr !important;
+        }
+    }
+</style>
 {% endblock %}
 
 {% block content %}
@@ -274,17 +652,22 @@
                     <p class="absolute right-2 bottom-0 font-bold text-xs text-muted-steel ml-4 mb-2">0/500</p>
                 </div>
 
-                <div class="flex items-center justify-between mt-10 gap-4">
-                    <a href="{% url 'home' %}"
-                        class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-mist-gray cursor-pointer">
-                        <span class="font-semibold text-base text-black">Cancel</span>
-                    </a>
-                    <button
-                        class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn1 text-white gap-3">
-                        <span class="font-semibold text-base">Continue</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </button>
-                </div>
+           <div class="flex items-center justify-between mt-10 gap-4">
+    <a href="{% url 'home' %}"
+       class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-mist-gray cursor-pointer">
+        <span class="font-semibold text-base text-black">Cancel</span>
+    </a>
+    <div class="flex items-center gap-4">
+        <button class="w-40 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
+            <span class="material-symbols-outlined text-primary">bookmark</span>
+            <span class="font-semibold text-base text-primary">Save Draft</span>
+        </button>
+        <button class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn1 text-white gap-3">
+            <span class="font-semibold text-base">Continue</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+    </div>
+</div>
             </div>
 
             <!--Site Information Section-->
@@ -518,25 +901,25 @@
                     <textarea maxlength="500"
                         class="h-64 mt-2 p-6 resize-none focus:ring-0 focus:outline-none border border-mist-gray lg:w-full rounded-lg font-normal text-sm"
                         placeholder="Write your requirements here..."></textarea>
-                    <p class="absolute right-2 bottom-0 font-normal text-xs text-muted-steel">0/500</p>
+                    <p class="absolute right-2 bottom-0 font-normal text-xs  mb-2 text-muted-steel">0/500</p>
                 </div>
 
-                <div class="flex items-center justify-between mt-10 gap-4">
-                    <button
-                        class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
-                        <span class="font-semibold text-base text-primary">Back</span>
-                    </button>
-                    <button
-                        class="w-40 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
-                        <span class="material-symbols-outlined text-primary">bookmark</span>
-                        <span class="font-semibold text-base text-primary">Save Draft</span>
-                    </button>
-                    <button
-                        class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
-                        <span class="font-semibold text-base">Continue</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </button>
-                </div>
+              <div class="flex items-center justify-between mt-10 gap-4">
+    <button class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
+        <span class="font-semibold text-base text-primary">Back</span>
+    </button>
+    <div class="flex items-center gap-4">
+        <button class="w-40 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
+            <span class="material-symbols-outlined text-primary">bookmark</span>
+            <span class="font-semibold text-base text-primary">Save Draft</span>
+        </button>
+        <button class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
+            <span class="font-semibold text-base">Continue</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+    </div>
+</div>
+
             </div>
 
             <!--Location-->
@@ -588,7 +971,7 @@
                             </div>
                             <div class="flex flex-col gap-0.5 ">
                                 <p class="font-bold text-xs">Travel Time <span class="font-normal">(From Nearest
-                                        Hub)</span></p>
+                                        Hub)</span></p> 
                                 <p class="font-bold text-sm">25-30 mins</p>
                             </div>
                         </div>
@@ -601,7 +984,7 @@
                             </div>
                             <div class="flex flex-col gap-0.5 ">
                                 <p class="font-bold text-xs">Nearest Engineers</p>
-                                <p class="font-bold text-xs text-forest-green">12 Available</p>
+                                <p class="font-bold text-sm text-forest-green">12 Available</p>
                                 <a href="#" class="font-bold text-xs text-primary flex items-center gap-2">
                                     <p>View Details</p>
                                     <span class="material-symbols-outlined text-sm!">arrow_forward</span>
@@ -617,7 +1000,7 @@
                             </div>
                             <div class="flex flex-col gap-0.5 ">
                                 <p class="font-bold text-xs">Coverage Zone</p>
-                                <p class="font-bold text-xs text-forest-green">Noida <span class="text-black">& Nearby
+                                <p class="font-bold text-sm text-forest-green">Noida <span class="text-black">& Nearby
                                         Areas</span></p>
                                 <a href="#" class="font-bold text-xs text-primary flex items-center gap-2">
                                     <p>View Areas</p>
@@ -634,8 +1017,8 @@
                             </div>
                             <div class="flex flex-col gap-0.5 ">
                                 <p class="font-bold text-xs">Distance</p>
-                                <p class="font-bold text-xs ">18.6 km</p>
-                                <p class="font-bold text-xs">From Nearest Hub</p>
+                                <p class="font-bold text-sm ">18.6 km</p>
+                                <p class="font-bold text-gray-black text-xs">From Nearest Hub</p>
                             </div>
                         </div>
                     </div>
@@ -647,22 +1030,22 @@
 
                     <hr class="my-3 text-moonlight-gray">
 
-                    <div class="flex items-center justify-between gap-4 mt-2">
-                        <button
-                            class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
-                            <span class="font-semibold text-base text-primary">Back</span>
-                        </button>
-                        <button
-                            class="w-40 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
-                            <span class="material-symbols-outlined text-primary">bookmark</span>
-                            <span class="font-semibold text-base text-primary">Save Draft</span>
-                        </button>
-                        <button
-                            class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
-                            <span class="font-semibold text-base">Continue</span>
-                            <span class="material-symbols-outlined">arrow_forward</span>
-                        </button>
-                    </div>
+               <div class="flex items-center justify-between gap-4 mt-2">
+    <button class="w-40 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
+        <span class="font-semibold text-base text-primary">Back</span>
+    </button>
+    <div class="flex items-center gap-4">
+        <button class="w-40 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
+            <span class="material-symbols-outlined text-primary">bookmark</span>
+            <span class="font-semibold text-base text-primary">Save Draft</span>
+        </button>
+        <button class="w-40 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
+            <span class="font-semibold text-base">Continue</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+    </div>
+</div>
+
                 </div>
             </div>
 
@@ -1081,24 +1464,22 @@
                         <p class="absolute right-2 bottom-0 mb-2 font-normal text-xs text-muted-steel">0/500</p>
                     </div>
 
-                    <div class="flex items-center justify-between mt-10">
-                        <button
-                            class="w-30 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
-                            <span class="font-semibold text-base text-primary">Back</span>
-                        </button>
+                  <div class="flex items-center justify-between mt-10">
+    <button class="w-30 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
+        <span class="font-semibold text-base text-primary">Back</span>
+    </button>
+    <div class="flex items-center gap-4">
+        <button class="w-30 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
+            <span class="material-symbols-outlined text-primary">bookmark</span>
+            <span class="font-semibold text-base text-primary">Save Draft</span>
+        </button>
+        <button class="w-30 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
+            <span class="font-semibold text-base">Continue</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+    </div>
+</div>
 
-                        <button
-                            class="w-30 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
-                            <span class="material-symbols-outlined text-primary">bookmark</span>
-                            <span class="font-semibold text-base text-primary">Save Draft</span>
-                        </button>
-
-                        <button
-                            class="w-30 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
-                            <span class="font-semibold text-base">Continue</span>
-                            <span class="material-symbols-outlined">arrow_forward</span>
-                        </button>
-                    </div>
                 </div>
 
             </div>
@@ -1564,24 +1945,22 @@
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-between mt-10">
-                        <button
-                            class="w-30 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
-                            <span class="font-semibold text-base text-primary">Back</span>
-                        </button>
+                   <div class="flex items-center justify-between mt-10">
+    <button class="w-30 h-12 flex items-center justify-center rounded-md bg-white border border-primary cursor-pointer cancelBtn">
+        <span class="font-semibold text-base text-primary">Back</span>
+    </button>
+    <div class="flex items-center gap-4">
+        <button class="w-30 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
+            <span class="material-symbols-outlined text-primary">bookmark</span>
+            <span class="font-semibold text-base text-primary">Save Draft</span>
+        </button>
+        <a href="{% url 'vendor_responses' %}" class="w-52 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
+            <span class="font-semibold text-base">Submit Request</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+    </div>
+</div>
 
-                        <button
-                            class="w-30 h-12 flex items-center gap-2 justify-center rounded-md bg-white border border-primary cursor-pointer">
-                            <span class="material-symbols-outlined text-primary">bookmark</span>
-                            <span class="font-semibold text-base text-primary">Save Draft</span>
-                        </button>
-
-                        <a href="{% url 'vendor_responses' %}"
-                            class="w-52 h-12 flex items-center justify-center rounded-md bg-primary cursor-pointer continueBtn text-white gap-3">
-                            <span class="font-semibold text-base">Submit Request</span>
-                            <span class="material-symbols-outlined">arrow_forward</span>
-                        </a>
-                    </div>
                 </div>
 
             </div>
@@ -1872,7 +2251,8 @@
 
     <div
         class="bg-white mx-4 md:mx-8 lg:mx-10 mt-15 rounded-lg shadow-xl p-10 flex flex-col sm:flex-row items-center flex-wrap sm:items-start justify-center gap-4 relative z-10">
-        <p class="font-bold text-3xl text-black whitespace-nowrap" style="transform: translateX(-70px);">How it works</p>
+        <p class="font-bold text-3xl text-black whitespace-nowrap" style="transform: translateX(-70px);">How it works
+        </p>
 
         <div class="flex flex-col items-center">
             <div

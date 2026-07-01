@@ -1,5 +1,3 @@
-console.log("Vendor Response JS Loaded");
-
 (function () {
   const GURUGRAM_CENTER = [28.4595, 77.0266];
   const DEFAULT_ZOOM = 13;
@@ -168,36 +166,36 @@ console.log("Vendor Response JS Loaded");
       });
     });
   }
-  function initSkillToggle() {
-  const buttons = document.querySelectorAll(".vr-skill-more");
+function initSkillToggle() {
+    document.querySelectorAll(".vr-skill-more").forEach(button => {
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const card = this.closest(".vr-engineer-card");
-      const hiddenSkills = card.querySelectorAll(".vr-hidden-skill");
+        button.addEventListener("click", function () {
 
-      const isOpen = this.dataset.open === "true";
+            const card = this.closest(".vr-engineer-card");
+            const hiddenSkills = card.querySelectorAll(".vr-hidden-skill");
 
-      hiddenSkills.forEach((skill) => {
-        skill.style.display = isOpen ? "none" : "inline-flex";
-      });
+            const isOpen = this.dataset.open === "true";
 
-      if (isOpen) {
-        this.textContent = "+" + hiddenSkills.length + " more";
-        this.dataset.open = "false";
-      } else {
-        this.textContent = "Show Less";
-        this.dataset.open = "true";
-      }
+            hiddenSkills.forEach(skill => {
+                if (isOpen) {
+                    skill.classList.remove("show");
+                } else {
+                    skill.classList.add("show");
+                }
+            });
+
+            this.dataset.open = isOpen ? "false" : "true";
+            this.textContent = isOpen
+                ? `+${hiddenSkills.length} more`
+                : "Show Less";
+        });
+
     });
-  });
 }
-  document.addEventListener("DOMContentLoaded", () => {
+ document.addEventListener("DOMContentLoaded", () => {
     initVendorResponsesHeroMap();
     initVendorResponsesTabs();
     initVendorResponsesDropdown();
-
-    // Skills Toggle
     initSkillToggle();
 });
   
