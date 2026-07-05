@@ -22,6 +22,120 @@
     {% block extra_css %}{% endblock %}
 
  <style>
+/* ===== DROPDOWN FIXES - HOVER PAR OPEN RAHE ===== */
+@media (min-width: 992px) {
+    /* Desktop dropdown - hover par open ho */
+    .nav-links > li {
+        position: relative;
+    }
+
+    .nav-links > li > button {
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-weight: 500;
+        color: #1f2937;
+        padding: 0.5rem 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-family: inherit;
+        font-size: 0.95rem;
+        white-space: nowrap;
+    }
+
+    .nav-links > li > button:hover {
+        color: #1a56db;
+    }
+
+    .nav-links .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 220px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+        z-index: 9999;
+        list-style: none;
+        margin: 0;
+    }
+
+    /* Hover par dropdown open */
+    .nav-links > li:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Dropdown items */
+    .nav-links .dropdown-menu li {
+        padding: 0;
+        margin: 0;
+        border: none;
+        list-style: none;
+    }
+
+    .nav-links .dropdown-menu li a {
+        display: block;
+        padding: 0.6rem 1.25rem;
+        color: #4b5563;
+        font-size: 0.9rem;
+        font-weight: 400;
+        text-decoration: none;
+        transition: all 0.15s ease;
+        white-space: nowrap;
+    }
+
+    .nav-links .dropdown-menu li a:hover {
+        background: #f3f4f6;
+        color: #1a56db;
+    }
+
+    /* Arrow icon in desktop */
+    .nav-links > li > button .material-symbols-outlined {
+        font-size: 18px;
+        transition: transform 0.2s ease;
+    }
+
+    .nav-links > li:hover > button .material-symbols-outlined {
+        transform: rotate(180deg);
+    }
+}
+
+/* ===== MOBILE DROPDOWN - CLICK PAR OPEN ===== */
+@media (max-width: 991px) {
+    .nav-links .dropdown-menu {
+        display: none !important;
+        position: static !important;
+        box-shadow: none !important;
+        padding-left: 1rem !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .nav-links .dropdown-menu.open {
+        display: block !important;
+    }
+}
+
+
+
     /* ===== ONLY MOBILE NAVBAR FIXES ===== */
 @media (max-width: 991px) {
     /* Navbar container - Height auto करने से ये खुले हुए मेनू को पूरा कवर कर लेगा */
@@ -249,81 +363,84 @@
 
 <body>
 
-    <!-- ════════════ NAVBAR ════════════ -->
-    <header class="site-nav">
-        <div class="nav-inner">
+   
+   <!-- ════════════ NAVBAR ════════════ -->
+<header class="site-nav">
+    <div class="nav-inner">
 
-            <!-- Logo -->
-            <a href="#" class="nav-logo">
-                <span class="nav-logo-text">Field Engineer</span>
-                <span class="nav-logo-text-sub">Field Engineer Workspace Platform</span>
-            </a>
+        <!-- Logo -->
+        <a href="#" class="nav-logo">
+            <span class="nav-logo-text">Field Engineer</span>
+            <span class="nav-logo-text-sub">Field Engineer Workspace Platform</span>
+        </a>
 
-            <!-- Desktop Navigation -->
-            <ul class="nav-links">
-                <li>
-                    <button>
-                        Company
-                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'about_fe' %}">About FE</a></li>
-                        <li><a href="{% url 'careers' %}">Careers</a></li>
-                        <li><a href="{% url 'blogs' %}">Blog</a></li>
-                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                        <li><a href="{% url 'help_center' %}">Help Center</a></li>
-                        <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
-                        <li><a href="{% url 'term_condition' %}">Terms & Conditions</a></li>
-                    </ul>
-                </li>
+        <!-- Desktop Navigation -->
+        <ul class="nav-links">
 
-                <li>
-                    <button>
-                        For Customers
-                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'request_service' %}">Request a Service</a></li>
-                        <li><a href="#">Service Categories</a></li>
-                        <li><a href="#">Track Booking</a></li>
-                        <li><a href="#">Customer Support</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <button>
-                        Join FE Network
-                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'fieldengineer' %}">Becoming a Field Engineer</a></li>
-                        <li><a href="{% url 'vendor' %}">Becoming a Vendor Partner</a></li>
-
-                    </ul>
-                </li>
-
-
-            </ul>
-
-            <!-- Right CTAs -->
-            <div class="nav-actions">
-                <button type="button" class="nav-track-btn">
-                    <img src="{% static 'img/profile.svg' %}" alt="Profile" aria-hidden="true"> Profile
+            <li>
+                <button>
+                <a href="{% url 'home' %}">Home</a>
                 </button>
-                <a href="#" class="nav-cta-btn">
-                    Login <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                </a>
-            </div>
+            </li>
+            <li>
+                <button>
+                    Company
+                    <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'about_fe' %}">About FE</a></li>
+                    <li><a href="{% url 'careers' %}">Careers</a></li>
+                    <li><a href="{% url 'blogs' %}">Blog</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li><a href="{% url 'help_center' %}">Help Center</a></li>
+                    <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+                    <li><a href="{% url 'term_condition' %}">Terms & Conditions</a></li>
+                </ul>
+            </li>
 
-            <!-- Hamburger (mobile) -->
-            <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
+            <li>
+                <button>
+                    For Customers
+                    <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'request_service' %}">Request a Service</a></li>
+                    <li><a href="#">Service Categories</a></li>
+                    <li><a href="#">Track Booking</a></li>
+                    <li><a href="#">Customer Support</a></li>
+                </ul>
+            </li>
 
+            <li>
+                <button>
+                    Join FE Network
+                    <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'fieldengineer' %}">Becoming a Field Engineer</a></li>
+                    <li><a href="{% url 'vendor' %}">Becoming a Vendor Partner</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Right CTAs -->
+        <div class="nav-actions">
+           
+            <a href="#" class="nav-cta-btn">
+                Login <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            </a>
         </div>
-    </header>
+
+        <!-- Hamburger (mobile) -->
+        <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+    </div>
+</header>
+<!-- END NAVBAR -->
     <!-- END NAVBAR -->
 
     <!-- ════════════ MAIN CONTENT ════════════ -->
