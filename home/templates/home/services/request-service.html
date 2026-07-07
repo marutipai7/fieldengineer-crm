@@ -1446,30 +1446,44 @@
                             </div>
                         </div>
 
-                        <div class="date-fields-grid grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-3 sm:mt-5 md:col-span-2 xl:col-span-2 min-w-0">
-                            <div class="flex flex-col gap-2.5 min-w-0">
-                                <label for="start-date" class="font-semibold text-xs text-deep-indigo">Preferred Start Date
-                                    <span class="text-red">*</span></label>
-                                <div class="border border-gray-400 rounded-md py-2 sm:py-2.5 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 min-w-0 overflow-hidden">
-                                    <span class="material-symbols-outlined text-base sm:text-lg">calendar_today</span>
-                                    <input type="date" id="start-date"
-                                        class="w-full min-w-0 cursor-pointer bg-transparent focus:ring-0 focus:outline-none font-semibold text-xs placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel"
-                                        placeholder="dd-mm-yyyy">
-                                </div>
-                            </div>
+                        <div class="flex flex-col gap-2">
+    <label class="font-semibold text-xs text-deep-indigo">
+        Preferred Date
+        <span class="text-red">*</span>
+    </label>
 
-                            <div class="flex flex-col gap-2.5 min-w-0">
-                                <label for="end-date" class="font-semibold text-xs text-deep-indigo">Preferred End Date
-                                    <span class="text-red">*</span></label>
-                                <div class="border border-gray-400 rounded-md py-2 sm:py-2.5 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 min-w-0 overflow-hidden">
-                                    <span class="material-symbols-outlined text-base sm:text-lg">calendar_today</span>
-                                    <input type="date" id="end-date"
-                                        class="w-full min-w-0 cursor-pointer bg-transparent focus:ring-0 focus:outline-none font-semibold text-xs placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel"
-                                        placeholder="dd-mm-yyyy">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="flex items-center gap-3">
+
+        <!-- From Date -->
+        <div class="flex-1">
+            <label class="block text-xs text-gray-500 mb-1">From</label>
+            <div class="flex items-center gap-2 border border-gray-400 rounded-md py-3 px-4">
+                <span class="material-symbols-outlined text-gray-500">
+                    calendar_today
+                </span>
+                <input
+                    type="date"
+                    id="from-date"
+                    class="w-full bg-transparent cursor-pointer focus:outline-none focus:ring-0 text-sm">
+            </div>
+        </div>
+
+        <!-- To Date -->
+        <div class="flex-1">
+            <label class="block text-xs text-gray-500 mb-1">To</label>
+            <div class="flex items-center gap-2 border border-gray-400 rounded-md py-3 px-4">
+                <span class="material-symbols-outlined text-gray-500">
+                    calendar_today
+                </span>
+                <input
+                    type="date"
+                    id="to-date"
+                    class="w-full bg-transparent cursor-pointer focus:outline-none focus:ring-0 text-sm">
+            </div>
+        </div>
+
+    </div>
+</div>
 
                     <div class="grid grid-cols-3 gap-4 mt-5">
                         <div class="flex flex-col gap-2 relative dropdown-wrapper">
@@ -1503,6 +1517,7 @@
                                 </ul>
                             </div>
                         </div>
+                        
 
                         <!--div class="flex flex-col gap-2 relative dropdown-wrapper">
                             <label for="companyname" class="font-semibold text-xs text-deep-indigo">Work Expected
