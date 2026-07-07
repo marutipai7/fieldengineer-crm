@@ -1,11 +1,207 @@
 {% extends "dashboard/layout.html" %}
-
 {% block title %}Payment Methods{% endblock %}
-
 {% block content %}
 
-<p>
-    Payment Methods Page
-</p>
+<main class="flex flex-col gap-5">
+    <div class="flex flex-col gap-2.25">
+        <p class="font-bold text-xl lg:text-2xl">Billing and Invoices</p>
+        <p class="text-sm font-normal text-granite-gray">Manage payments, view invoices, and download billing reports.
+        </p>
+    </div>
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="metrics-card">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-cloud-blue">
+                <span class="material-symbols-outlined text-primary">currency_rupee</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="font-normal text-xs text-medium">Total Spend</p>
+                <p class="font-bold text-2xl text-ink">Rs.8,42,500</p>
+                <p class="font-normal text-xs text-granite-gray">All Time</p>
+            </div>
+        </div>
+
+        <div class="metrics-card">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-lavender-mist">
+                <span class="material-symbols-outlined text-electric-violet">docs</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="font-normal text-xs text-medium">Total Invoices</p>
+                <p class="font-bold text-2xl text-ink">127</p>
+                <p class="font-normal text-xs text-granite-gray">All Time</p>
+            </div>
+        </div>
+
+        <div class="metrics-card">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-mint-mist">
+                <span class="material-symbols-outlined text-forest-green">trending_up</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="font-normal text-xs text-medium">This Month Spend</p>
+                <p class="font-bold text-2xl text-ink">Rs.64,800</p>
+                <p class="font-normal text-xs text-granite-gray">June 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6.5">
+        <div class="bg-white border border-light-medium rounded-3xl p-6 flex flex-col gap-3">
+            <p class="font-semibold text-base text-ink">Payment Methods</p>
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-cloud-blue">
+                        <span class="material-symbols-outlined text-primary text-lg!">credit_card</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">HDFC Bank</p>
+                        <p class="font-normal text-xs text-granite-gray">HDFC Savings A/C ...1254 IFSC HDFC0001234</p>
+                    </div>
+                </div>
+
+                <div class="w-15 h-5.5 flex items-center justify-center rounded-full bg-mint-frost">
+                    <p class="font-normal text-xs text-forest-green">Primary</p>
+                </div>
+
+                <div
+                    class="w-8 h-7 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-pale-blue-gray">
+                    <span class="material-symbols-outlined text-lg!">more_vert</span>
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-mint-mist">
+                        <span class="material-symbols-outlined text-forest-green text-lg!">credit_card</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">SBI Bank</p>
+                        <p class="font-normal text-xs text-granite-gray">SBI Current A/C ...5678 IFSC SBIN0012345</p>
+                    </div>
+                </div>
+                <div
+                    class="w-8 h-7 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-pale-blue-gray">
+                    <span class="material-symbols-outlined text-lg!">more_vert</span>
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-lavender-mist">
+                        <span class="material-symbols-outlined text-electric-violet text-lg!">credit_card</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">Corporate Card</p>
+                        <p class="font-normal text-xs text-granite-gray">Axis Corporate Visa ...9876</p>
+                    </div>
+                </div>
+                <div
+                    class="w-8 h-7 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-pale-blue-gray">
+                    <span class="material-symbols-outlined text-lg!">more_vert</span>
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-peach-cream">
+                        <span class="material-symbols-outlined text-golden-orange text-lg!">mobile_2</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">UPI acme@paytm</p>
+                        <p class="font-normal text-xs text-granite-gray">UPI ID acme@paytm</p>
+                    </div>
+                </div>
+                <div
+                    class="w-8 h-7 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-pale-blue-gray">
+                    <span class="material-symbols-outlined text-lg!">more_vert</span>
+                </div>
+            </div>
+
+            <button
+                class="border border-primary! bg-white rounded-xl flex items-center justify-center py-4 gap-2 cursor-pointer addPaymentBtn">
+                <span class="text-royal-blue material-symbols-outlined">add</span>
+                <span class="text-primary font-semibold text-lg">Add Payment Method</span>
+            </button>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-mist p-6 flex flex-col gap-1">
+            <p class="font-semibold text-base text-ink">Download Center</p>
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-cloud-blue">
+                        <span class="material-symbols-outlined text-primary text-lg!">docs</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Download GST Report</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-mint-mist">
+                        <span class="material-symbols-outlined text-forest-green text-lg!">signal_cellular_alt</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Download Expense Report</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-lavender-mist">
+                        <span class="material-symbols-outlined text-electric-violet text-lg!">docs</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Download All Invoices</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-peach-cream">
+                        <span class="material-symbols-outlined text-golden-orange text-lg!">database</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Export as CSV</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="flex flex-col gap-4">
+        <div class="flex items-center gap-2">
+            <button
+                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">All</span>
+            </button>
+
+            <button
+                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">Paid</span>
+            </button>
+
+            <button
+                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">Pending</span>
+            </button>
+
+            <button
+                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">Refunded</span>
+            </button>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="border border-pale-blue-gray rounded-[10px] bg-arctic-white flex items-center gap-1.5 py-[7.5px] px-2.5 w-65!">
+                    <span class="material-symbols-outlined text-lg! text-medium">search</span>
+                    <input type="text" class="focus:ring-0 focus:outline-none w-full placeholder:font-normal placeholder:text-sm placeholder:text-medium font-normal text-sm text-ink" placeholder="Search Invoice">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 {% endblock %}
