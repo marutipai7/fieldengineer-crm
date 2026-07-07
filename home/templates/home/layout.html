@@ -21,261 +21,375 @@
 
     {% block extra_css %}{% endblock %}
 
- <style>
-    /* ===== ONLY MOBILE NAVBAR FIXES ===== */
-@media (max-width: 991px) {
-    /* Navbar container - Height auto करने से ये खुले हुए मेनू को पूरा कवर कर लेगा */
-    .site-nav {
-        position: sticky !important;
-        top: 0 !important;
-        z-index: 9999 !important;
-        background: #ffffff !important;
-        border-bottom: 1px solid #e5e7eb !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-        height: auto !important; /* गैप को रोकने के लिए फिक्स */
-    }
+    <style>
+        /* ===== DROPDOWN FIXES - HOVER PAR OPEN RAHE ===== */
+        @media (min-width: 992px) {
 
-    /* Nav inner - flex container */
-    .nav-inner {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        flex-wrap: wrap !important;
-        position: relative !important;
-        padding: 0.75rem 1rem !important;
-        max-width: 100% !important;
-        height: auto !important; /* गैप को रोकने के लिए फिक्स */
-    }
+            /* Desktop dropdown - hover par open ho */
+            .nav-links>li {
+                position: relative;
+            }
 
-    /* Logo - left side */
-    .nav-logo {
-        flex: 0 0 auto !important;
-        order: 1 !important;
-    }
+            .nav-links>li>button {
+                cursor: pointer;
+                background: none;
+                border: none;
+                font-weight: 500;
+                color: #1f2937;
+                padding: 0.5rem 0.75rem;
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+                font-family: inherit;
+                font-size: 0.95rem;
+                white-space: nowrap;
+            }
 
-    /* Hamburger - ALWAYS on right side */
-    .nav-hamburger {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: none !important;
-        border: none !important;
-        cursor: pointer !important;
-        padding: 0.5rem !important;
-        color: #1f2937 !important;
-        z-index: 10001 !important;
-        transition: transform 0.3s ease !important;
-        flex: 0 0 auto !important;
-        order: 3 !important;
-        margin-left: auto !important;
-        position: relative !important;
-    }
+            .nav-links>li>button:hover {
+                color: #1a56db;
+            }
 
-    .nav-hamburger.active {
-        transform: rotate(90deg) !important;
-    }
+            .nav-links .dropdown-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                min-width: 220px;
+                background: #ffffff;
+                border: 1px solid #e5e7eb;
+                border-radius: 12px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                padding: 0.5rem 0;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-8px);
+                transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+                z-index: 9999;
+                list-style: none;
+                margin: 0;
+            }
 
-    /* Nav links - (CHANGED: सारे मार्जिन/पैडिंग गैप्स हटा दिए हैं ताकि बीच में बैकग्राउंड न दिखे) */
-    .nav-links {
-        display: none !important;
-        width: 100% !important;
-        flex-direction: column !important;
-        background: #ffffff !important;
-        position: relative !important;
-        padding: 0.5rem 0 0 0 !important; /* पैडिंग को एडजस्ट किया */
-        margin: 0 !important;
-        list-style: none !important;
-        order: 4 !important;
-        flex: 0 0 100% !important;
-    }
+            /* Hover par dropdown open */
+            .nav-links>li:hover .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
 
-    .nav-links.active {
-        display: flex !important;
-    }
+            /* Dropdown items */
+            .nav-links .dropdown-menu li {
+                padding: 0;
+                margin: 0;
+                border: none;
+                list-style: none;
+            }
 
-    /* ===== NAV ACTIONS - (FIXED: ऊपर वाले बॉक्स से एकदम चिपका दिया है) ===== */
-    .nav-actions {
-        display: none !important;
-        width: 100% !important;
-        flex-direction: column !important;
-        background: #ffffff !important;
-        padding: 0.5rem 0 0.75rem 0 !important; /* टॉप पैडिंग कम की ताकि गैप न बने */
-        gap: 0.75rem !important;
-        order: 5 !important;
-        flex: 0 0 100% !important;
-        position: relative !important;
-        margin: 0 !important; /* मार्जिन जीरो किया */
-    }
+            .nav-links .dropdown-menu li a {
+                display: block;
+                padding: 0.6rem 1.25rem;
+                color: #4b5563;
+                font-size: 0.9rem;
+                font-weight: 400;
+                text-decoration: none;
+                transition: all 0.15s ease;
+                white-space: nowrap;
+            }
 
-    /* Show nav actions when active */
-    .nav-actions.active {
-        display: flex !important;
-    }
+            .nav-links .dropdown-menu li a:hover {
+                background: #f3f4f6;
+                color: #1a56db;
+            }
 
-    /* Nav links items */
-    .nav-links li {
-        width: 100% !important;
-        border-bottom: 1px solid #f3f4f6 !important;
-        list-style: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+            /* Arrow icon in desktop */
+            .nav-links>li>button .material-symbols-outlined {
+                font-size: 18px;
+                transition: transform 0.2s ease;
+            }
 
-    .nav-links li:last-child {
-        border-bottom: none !important;
-    }
+            .nav-links>li:hover>button .material-symbols-outlined {
+                transform: rotate(180deg);
+            }
+        }
 
-    .nav-links > li > button {
-        width: 100% !important;
-        justify-content: space-between !important;
-        padding: 0.75rem 0 !important;
-        font-size: 1rem !important;
-        background: none !important;
-        border: none !important;
-        cursor: pointer !important;
-        display: flex !important;
-        align-items: center !important;
-        font-weight: 500 !important;
-        color: #1f2937 !important;
-        font-family: inherit !important;
-    }
+        /* ===== MOBILE DROPDOWN - CLICK PAR OPEN ===== */
+        @media (max-width: 991px) {
+            .nav-links .dropdown-menu {
+                display: none !important;
+                position: static !important;
+                box-shadow: none !important;
+                padding-left: 1rem !important;
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                background: transparent !important;
+                border: none !important;
+                border-radius: 0 !important;
+                width: 100% !important;
+                margin: 0 !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                transition: none !important;
+            }
 
-    /* Dropdown menu on mobile */
-    .nav-links .dropdown-menu {
-        display: none !important;
-        position: static !important;
-        box-shadow: none !important;
-        padding-left: 1rem !important;
-        padding-top: 0.5rem !important;
-        padding-bottom: 0.5rem !important;
-        background: transparent !important;
-        border: none !important;
-        border-radius: 0 !important;
-        width: 100% !important;
-        margin: 0 !important;
-        max-height: none !important;
-        overflow: visible !important;
-    }
+            .nav-links .dropdown-menu.open {
+                display: block !important;
+            }
+        }
 
-    .nav-links .dropdown-menu.open {
-        display: block !important;
-    }
 
-    .nav-links .dropdown-menu li {
-        border-bottom: none !important;
-        padding: 0 !important;
-    }
 
-    .nav-links .dropdown-menu li a {
-        display: block !important;
-        padding: 0.5rem 0 !important;
-        padding-left: 0.5rem !important;
-        font-size: 0.9rem !important;
-        color: #4b5563 !important;
-        text-decoration: none !important;
-        font-weight: 400 !important;
-    }
+        /* ===== ONLY MOBILE NAVBAR FIXES ===== */
+        @media (max-width: 991px) {
 
-    .nav-links .dropdown-menu li a:hover {
-        color: #1a56db !important;
-        background: #f3f4f6 !important;
-        border-radius: 4px !important;
-        padding-left: 0.75rem !important;
-    }
+            /* Navbar container - Height auto करने से ये खुले हुए मेनू को पूरा कवर कर लेगा */
+            .site-nav {
+                position: sticky !important;
+                top: 0 !important;
+                z-index: 9999 !important;
+                background: #ffffff !important;
+                border-bottom: 1px solid #e5e7eb !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+                height: auto !important;
+                /* गैप को रोकने के लिए फिक्स */
+            }
 
-    /* Arrow rotation */
-    .nav-links > li > button .material-symbols-outlined {
-        transition: transform 0.3s ease !important;
-    }
+            /* Nav inner - flex container */
+            .nav-inner {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                flex-wrap: wrap !important;
+                position: relative !important;
+                padding: 0.75rem 1rem !important;
+                max-width: 100% !important;
+                height: auto !important;
+                /* गैप को रोकने के लिए फिक्स */
+            }
 
-    .nav-links > li > button.active .material-symbols-outlined {
-        transform: rotate(180deg) !important;
-    }
+            /* Logo - left side */
+            .nav-logo {
+                flex: 0 0 auto !important;
+                order: 1 !important;
+            }
 
-    /* ===== MOBILE ACTION BUTTONS ===== */
-    .nav-actions .nav-track-btn,
-    .nav-actions .nav-cta-btn {
-        width: 100% !important;
-        justify-content: center !important;
-        text-align: center !important;
-        padding: 0.75rem 1rem !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.5rem !important;
-        font-size: 1rem !important;
-        font-weight: 600 !important;
-    }
+            /* Hamburger - ALWAYS on right side */
+            .nav-hamburger {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                background: none !important;
+                border: none !important;
+                cursor: pointer !important;
+                padding: 0.5rem !important;
+                color: #1f2937 !important;
+                z-index: 10001 !important;
+                transition: transform 0.3s ease !important;
+                flex: 0 0 auto !important;
+                order: 3 !important;
+                margin-left: auto !important;
+                position: relative !important;
+            }
 
-    .nav-actions .nav-track-btn {
-        background: #f8fafc !important;
-        border: 1.5px solid #e2e8f0 !important;
-        border-radius: 10px !important;
-        color: #1f2937 !important;
-        cursor: pointer !important;
-        transition: all 0.2s ease !important;
-    }
+            .nav-hamburger.active {
+                transform: rotate(90deg) !important;
+            }
 
-    .nav-actions .nav-track-btn:hover {
-        background: #f1f5f9 !important;
-        border-color: #94a3b8 !important;
-    }
+            /* Nav links - (CHANGED: सारे मार्जिन/पैडिंग गैप्स हटा दिए हैं ताकि बीच में बैकग्राउंड न दिखे) */
+            .nav-links {
+                display: none !important;
+                width: 100% !important;
+                flex-direction: column !important;
+                background: #ffffff !important;
+                position: relative !important;
+                padding: 0.5rem 0 0 0 !important;
+                /* पैडिंग को एडजस्ट किया */
+                margin: 0 !important;
+                list-style: none !important;
+                order: 4 !important;
+                flex: 0 0 100% !important;
+            }
 
-    .nav-actions .nav-track-btn img {
-        width: 20px !important;
-        height: 20px !important;
-    }
+            .nav-links.active {
+                display: flex !important;
+            }
 
-    .nav-actions .nav-cta-btn {
-        background: #1a56db !important;
-        border: none !important;
-        border-radius: 10px !important;
-        color: #ffffff !important;
-        text-decoration: none !important;
-        transition: all 0.2s ease !important;
-    }
+            /* ===== NAV ACTIONS - (FIXED: ऊपर वाले बॉक्स से एकदम चिपका दिया है) ===== */
+            .nav-actions {
+                display: none !important;
+                width: 100% !important;
+                flex-direction: column !important;
+                background: #ffffff !important;
+                padding: 0.5rem 0 0.75rem 0 !important;
+                /* टॉप पैडिंग कम की ताकि गैप न बने */
+                gap: 0.75rem !important;
+                order: 5 !important;
+                flex: 0 0 100% !important;
+                position: relative !important;
+                margin: 0 !important;
+                /* मार्जिन जीरो किया */
+            }
 
-    .nav-actions .nav-cta-btn:hover {
-        background: #1e40af !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 4px 12px rgba(26, 86, 219, 0.3) !important;
-    }
+            /* Show nav actions when active */
+            .nav-actions.active {
+                display: flex !important;
+            }
 
-    .nav-actions .nav-cta-btn .material-symbols-outlined {
-        font-size: 20px !important;
-    }
-}
- </style>
+            /* Nav links items */
+            .nav-links li {
+                width: 100% !important;
+                border-bottom: 1px solid #f3f4f6 !important;
+                list-style: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none !important;
+            }
+
+            .nav-links>li>button {
+                width: 100% !important;
+                justify-content: space-between !important;
+                padding: 0.75rem 0 !important;
+                font-size: 1rem !important;
+                background: none !important;
+                border: none !important;
+                cursor: pointer !important;
+                display: flex !important;
+                align-items: center !important;
+                font-weight: 500 !important;
+                color: #1f2937 !important;
+                font-family: inherit !important;
+            }
+
+            /* Dropdown menu on mobile */
+            .nav-links .dropdown-menu {
+                display: none !important;
+                position: static !important;
+                box-shadow: none !important;
+                padding-left: 1rem !important;
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+                background: transparent !important;
+                border: none !important;
+                border-radius: 0 !important;
+                width: 100% !important;
+                margin: 0 !important;
+                max-height: none !important;
+                overflow: visible !important;
+            }
+
+            .nav-links .dropdown-menu.open {
+                display: block !important;
+            }
+
+            .nav-links .dropdown-menu li {
+                border-bottom: none !important;
+                padding: 0 !important;
+            }
+
+            .nav-links .dropdown-menu li a {
+                display: block !important;
+                padding: 0.5rem 0 !important;
+                padding-left: 0.5rem !important;
+                font-size: 0.9rem !important;
+                color: #4b5563 !important;
+                text-decoration: none !important;
+                font-weight: 400 !important;
+            }
+
+            .nav-links .dropdown-menu li a:hover {
+                color: #1a56db !important;
+                background: #f3f4f6 !important;
+                border-radius: 4px !important;
+                padding-left: 0.75rem !important;
+            }
+
+            /* Arrow rotation */
+            .nav-links>li>button .material-symbols-outlined {
+                transition: transform 0.3s ease !important;
+            }
+
+            .nav-links>li>button.active .material-symbols-outlined {
+                transform: rotate(180deg) !important;
+            }
+
+            /* ===== MOBILE ACTION BUTTONS ===== */
+            .nav-actions .nav-track-btn,
+            .nav-actions .nav-cta-btn {
+                width: 100% !important;
+                justify-content: center !important;
+                text-align: center !important;
+                padding: 0.75rem 1rem !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 0.5rem !important;
+                font-size: 1rem !important;
+                font-weight: 600 !important;
+            }
+
+            .nav-actions .nav-track-btn {
+                background: #f8fafc !important;
+                border: 1.5px solid #e2e8f0 !important;
+                border-radius: 10px !important;
+                color: #1f2937 !important;
+                cursor: pointer !important;
+                transition: all 0.2s ease !important;
+            }
+
+            .nav-actions .nav-track-btn:hover {
+                background: #f1f5f9 !important;
+                border-color: #94a3b8 !important;
+            }
+
+            .nav-actions .nav-track-btn img {
+                width: 20px !important;
+                height: 20px !important;
+            }
+
+            .nav-actions .nav-cta-btn {
+                background: #1a56db !important;
+                border: none !important;
+                border-radius: 10px !important;
+                color: #ffffff !important;
+                text-decoration: none !important;
+                transition: all 0.2s ease !important;
+            }
+
+            .nav-actions .nav-cta-btn:hover {
+                background: #1e40af !important;
+                transform: translateY(-1px) !important;
+                box-shadow: 0 4px 12px rgba(26, 86, 219, 0.3) !important;
+            }
+
+            .nav-actions .nav-cta-btn .material-symbols-outlined {
+                font-size: 20px !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
 
     <!-- ════════════ NAVBAR ════════════ -->
     <header class="site-nav">
         <div class="nav-inner">
 
-            <!-- Logo -->
-            <a href="#" class="nav-logo">
-                <span class="nav-logo-text">Field Engineer</span>
-                <span class="nav-logo-text-sub">Field Engineer Workspace Platform</span>
-            </a>
+        <!-- Logo -->
+        <a href="#" class="nav-logo">
+            <span class="nav-logo-text">Field Engineer</span>
+      <!-- <span class="nav-logo-text-sub">Field Engineer Workspace Platform</span> -->
+        </a>
 
             <!-- Desktop Navigation -->
             <ul class="nav-links">
+
                 <li>
                     <button>
-                        Company
-                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                        <a href="{% url 'home' %}">Home</a>
                     </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'about_fe' %}">About FE</a></li>
-                        <li><a href="{% url 'careers' %}">Careers</a></li>
-                        <li><a href="{% url 'blogs' %}">Blog</a></li>
-                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                        <li><a href="{% url 'help_center' %}">Help Center</a></li>
-                        <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
-                        <li><a href="{% url 'term_condition' %}">Terms & Conditions</a></li>
-                    </ul>
                 </li>
+
 
                 <li>
                     <button>
@@ -292,24 +406,35 @@
 
                 <li>
                     <button>
-                        Join FE Network
+                        Join FE Individual or Vendor
                         <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
                     </button>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'fieldengineer' %}">Becoming a Field Engineer</a></li>
                         <li><a href="{% url 'vendor' %}">Becoming a Vendor Partner</a></li>
-
                     </ul>
                 </li>
 
-
+                <li>
+                    <button>
+                        Company
+                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'about_fe' %}">About FE</a></li>
+                        <li><a href="{% url 'careers' %}">Careers</a></li>
+                        <li><a href="{% url 'blogs' %}">Blog</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'help_center' %}">Help Center</a></li>
+                        <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'term_condition' %}">Terms & Conditions</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <!-- Right CTAs -->
             <div class="nav-actions">
-                <button type="button" class="nav-track-btn">
-                    <img src="{% static 'img/profile.svg' %}" alt="Profile" aria-hidden="true"> Profile
-                </button>
+
                 <a href="#" class="nav-cta-btn">
                     Login <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                 </a>
@@ -325,6 +450,7 @@
         </div>
     </header>
     <!-- END NAVBAR -->
+    <!-- END NAVBAR -->
 
     <!-- ════════════ MAIN CONTENT ════════════ -->
     <main>
@@ -332,264 +458,300 @@
     </main>
 
     <!-- ════════════ FOOTER ════════════ -->
-   <footer class="site-footer bg-white border-t border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer class="site-footer bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        <!-- Footer Main Grid -->
-       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 pb-8">
+            <!-- Footer Main Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 pb-8">
 
-            <!-- Brand Column -->
-            <div class="lg:col-span-1">
-                <h2 class="text-2xl font-bold text-gray-900 mb-1">Field Engineer</h2>
-                <p class="text-sm text-gray-600 mb-3">Field Engineer Workspace Platform</p>
-                <p class="text-sm text-gray-500 leading-relaxed mb-4">
-                    India's Infrastructure workforce platform connecting customers, vendors and certified field
-                    engineers for seamless on-site evaluation.
-                </p>
-                <div class="flex space-x-3">
-                    <a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition">
-                        <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    </a>
-                    <a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition">
-                        <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                    <a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition">
-                        <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-                    <a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition">
-                        <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-                    </a>
+                <!-- Brand Column -->
+                <div class="lg:col-span-1">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-1">Field Engineer</h2>
+                    <p class="text-sm text-gray-600 mb-3">Field Engineer Workspace Platform</p>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-4">
+                        India's Infrastructure workforce platform connecting customers, vendors and certified field
+                        engineers for seamless on-site evaluation.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#"
+                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition">
+                            <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition">
+                            <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition">
+                            <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition">
+                            <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Company -->
-            <div>
-                <h4 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Company</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">About FE</a></li>
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Careers</a></li>
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Blog</a></li>
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Contact Us</a></li>
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Help Center</a></li>
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Privacy Policy</a></li>
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Terms & Conditions</a></li>
-                </ul>
-            </div>
 
-            <!-- For Customers -->
-            <div>
-                <h4 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">For Customers</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Request a Service</a></li>
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Service Categories</a></li>
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Track Booking</a></li>
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Customer Support</a></li>
-                </ul>
-            </div>
 
-            <!-- Join FE Network -->
-            <div>
-                <h4 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Join FE Network</h4>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Becoming a Field Engineer</a></li>
-                    <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Becoming a Vendor Partner</a></li>
-                </ul>
-            </div>
-
-            <!-- Download FE App -->
-            <div>
-                <h4 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Download FE App</h4>
-                <p class="text-sm font-medium text-gray-800 mb-1">One App. All Experiences.</p>
-                <p class="text-xs text-gray-500 leading-relaxed mb-3">
-                    Book services, manage field jobs and grow your business—anytime, anywhere.
-                </p>
-                
-                <!-- Links in horizontal layout with dots -->
-               <div class="flex flex-col gap-y-3 mb-4 text-xs font-medium text-gray-500">
-    <div class="flex items-center gap-x-2 whitespace-nowrap">
-        <svg class="w-4 h-4 mr-2 text-blue-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-        <div class="flex items-center gap-x-4">
-            <a href="#" class="hover:text-gray-900 transition">For Customers</a>
-            <span class="w-[3px] h-[3px] rounded-full bg-gray-400 shrink-0 mx-0.5"></span>
-            <a href="#" class="hover:text-gray-900 transition">For Engineers</a>
-        </div>
-    </div>
-
-    <div class="flex items-center gap-x-2 whitespace-nowrap">
-        <svg class="w-4 h-4 mr-2 gap-x-2 text-blue-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-        <div class="flex items-center gap-x-4">
-            <a href="#" class="hover:text-gray-900 transition">For Vendors</a>
-            <span class="w-[3px] h-[3px] rounded-full bg-gray-400 shrink-0 mx-0.5"></span>
-            <a href="#" class="hover:text-gray-900 transition">All in One App</a>
-        </div>
-    </div>
-</div>
-
-                <!-- App Store Badges - Google Play on top as shown in image -->
-                <div class="flex flex-col gap-2">
-                    <a href="#" class="inline-block">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
-                             alt="Get it on Google Play" 
-                             class="h-10 w-auto">
-                    </a>
-                    <a href="#" class="inline-block">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
-                             alt="Download on App Store" 
-                             class="h-10 w-auto">
-                    </a>
+                <!-- For Customers -->
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">For Customers</h4>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'request_service' %}"
+                                class="text-sm text-gray-500 hover:text-gray-900 transition">Request a Service</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Service
+                                Categories</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Track Booking</a>
+                        </li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition">Customer
+                                Support</a></li>
+                    </ul>
                 </div>
+
+                <!-- Join FE Network -->
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Join FE Individual or
+                        Vendor</h4>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'fieldengineer' %}"
+                                class="text-sm text-gray-500 hover:text-gray-900 transition">Becoming a Field
+                                Engineer</a></li>
+                        <li><a href="{% url 'vendor' %}"
+                                class="text-sm text-gray-500 hover:text-gray-900 transition">Becoming a Vendor
+                                Partner</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'about_fe' %}"
+                                class="text-sm text-gray-500 hover:text-gray-900 transition">About FE</a></li>
+                        <li><a href="{% url 'careers' %}"
+                                class="text-sm text-gray-500 hover:text-gray-900 transition">Careers</a></li>
+                        <li><a href="{% url 'blogs' %}"
+                                class="text-sm text-gray-500 hover:text-gray-900 transition">Blog</a></li>
+                        <li><a href="{% url 'contact' %}"
+                                class="text-sm text-gray-500 hover:text-gray-900 transition">Contact Us</a></li>
+                        <li><a href="{% url 'help_center' %}"
+                                class="text-sm text-gray-500 hover:text-gray-900 transition">Help Center</a></li>
+                        <li><a href="{% url 'privacy-policy' %}"
+                                class="text-sm text-gray-500 hover:text-gray-900 transition">Privacy Policy</a></li>
+                        <li><a href="{% url 'term_condition' %}"
+                                class="text-sm text-gray-500 hover:text-gray-900 transition">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Download FE App -->
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Download FE App</h4>
+                    <p class="text-sm font-medium text-gray-800 mb-1">One App. All Experiences.</p>
+                    <p class="text-xs text-gray-500 leading-relaxed mb-3">
+                        Book services, manage field jobs and grow your business—anytime, anywhere.
+                    </p>
+
+                    <!-- Links in horizontal layout with dots -->
+                    <div class="flex flex-col gap-y-3 mb-4 text-xs font-medium text-gray-500">
+                        <div class="flex items-center gap-x-2 whitespace-nowrap">
+                            <svg class="w-4 h-4 mr-2 text-blue-600 shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="flex items-center gap-x-4">
+                                <a href="#" class="hover:text-gray-900 transition">For Customers</a>
+                                <span class="w-[3px] h-[3px] rounded-full bg-gray-400 shrink-0 mx-4"></span>
+                                <a href="#" class="hover:text-gray-900 transition">For Engineers</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-x-4 whitespace-nowrap">
+                            <svg class="w-4 h-4 mr-2 gap-x-2 text-blue-600 shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="flex items-center gap-x-4">
+                                <a href="#" class="hover:text-gray-900 transition">For Vendors</a>
+                                <span class="w-[3px] h-[3px] rounded-full bg-gray-400 shrink-0 mx-4"></span>
+                                <a href="#" class="hover:text-gray-900 transition">All in One App</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- App Store Badges - Google Play on top as shown in image -->
+                    <div class="flex flex-col gap-2">
+                        <a href="#" class="inline-block">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                alt="Get it on Google Play" class="h-10 w-auto">
+                        </a>
+                        <a href="#" class="inline-block">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                                alt="Download on App Store" class="h-10 w-auto">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-200 mt-8"></div>
+
+            <!-- Footer Bottom -->
+            <div class="flex flex-col sm:flex-row justify-between items-center pt-6 space-y-3 sm:space-y-0">
+                <p class="text-sm text-gray-500">© 2026 Field Engineer. All Rights Reserved.</p>
+                <div class="flex items-center space-x-4 text-sm text-gray-500">
+                    <a href="#" class="hover:text-gray-900 transition">Cookies Policy</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="#" class="hover:text-gray-900 transition">Data Protection</a>
+                </div>
+                <p class="text-sm text-gray-400">Made for Enterprise field operation</p>
             </div>
 
         </div>
-
-        <div class="border-t border-gray-200 mt-8"></div>
-
-        <!-- Footer Bottom -->
-        <div class="flex flex-col sm:flex-row justify-between items-center pt-6 space-y-3 sm:space-y-0">
-            <p class="text-sm text-gray-500">© 2026 Field Engineer. All Rights Reserved.</p>
-            <div class="flex items-center space-x-4 text-sm text-gray-500">
-                <a href="#" class="hover:text-gray-900 transition">Cookies Policy</a>
-                <span class="text-gray-300">|</span>
-                <a href="#" class="hover:text-gray-900 transition">Data Protection</a>
-            </div>
-            <p class="text-sm text-gray-400">Made for Enterprise field operation</p>
-        </div>
-
-    </div>
-</footer>
+    </footer>
     <!-- END FOOTER -->
 
+
     <!-- ════════════ SCRIPTS ════════════ -->
-<!-- ════════════ SCRIPTS ════════════ -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // ===== NAVBAR MOBILE TOGGLE =====
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navLinks = document.querySelector('.nav-links');
-    const navActions = document.querySelector('.nav-actions');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // ===== NAVBAR MOBILE TOGGLE =====
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const navLinks = document.querySelector('.nav-links');
+            const navActions = document.querySelector('.nav-actions');
 
-    if (hamburgerBtn && navLinks) {
-        hamburgerBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            
-            // Toggle nav links
-            navLinks.classList.toggle('active');
-            
-            // Toggle nav actions (Profile + Login)
-            if (navActions) {
-                navActions.classList.toggle('active');
-            }
-            
-            // Toggle hamburger icon animation
-            this.classList.toggle('active');
-            
-            // Update aria-label
-            const isOpen = navLinks.classList.contains('active');
-            this.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-        });
-    }
+            if (hamburgerBtn && navLinks) {
+                hamburgerBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
 
-    // ===== DROPDOWN TOGGLE ON MOBILE ONLY =====
-    const dropdownButtons = document.querySelectorAll('.nav-links > li > button');
-    dropdownButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            if (window.innerWidth <= 991) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const parentLi = this.closest('li');
-                const dropdown = parentLi.querySelector('.dropdown-menu');
-                
-                if (dropdown) {
-                    document.querySelectorAll('.dropdown-menu.open').forEach(d => {
-                        if (d !== dropdown) {
-                            d.classList.remove('open');
-                            d.closest('li').querySelector('button')?.classList.remove('active');
-                        }
-                    });
-                    
-                    dropdown.classList.toggle('open');
+                    // Toggle nav links
+                    navLinks.classList.toggle('active');
+
+                    // Toggle nav actions (Profile + Login)
+                    if (navActions) {
+                        navActions.classList.toggle('active');
+                    }
+
+                    // Toggle hamburger icon animation
                     this.classList.toggle('active');
-                }
-            }
-        });
-    });
 
-    // ===== CLOSE NAVBAR WHEN CLICKING OUTSIDE =====
-    document.addEventListener('click', function(e) {
-        if (navLinks && hamburgerBtn) {
-            const isClickInsideNav = navLinks.contains(e.target) || 
-                                     hamburgerBtn.contains(e.target) || 
-                                     (navActions && navActions.contains(e.target));
-            if (!isClickInsideNav && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                if (navActions) {
-                    navActions.classList.remove('active');
-                }
-                hamburgerBtn.classList.remove('active');
-                hamburgerBtn.setAttribute('aria-label', 'Open menu');
-                
-                document.querySelectorAll('.dropdown-menu.open').forEach(d => {
-                    d.classList.remove('open');
-                    d.closest('li').querySelector('button')?.classList.remove('active');
+                    // Update aria-label
+                    const isOpen = navLinks.classList.contains('active');
+                    this.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
                 });
             }
-        }
-    });
 
-    // ===== CLOSE NAVBAR WHEN CLICKING A LINK =====
-    const pageLinks = document.querySelectorAll('.nav-links a');
-    pageLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href && href !== '#' && href !== '' && !href.startsWith('javascript:')) {
-                if (window.innerWidth <= 991) {
-                    navLinks.classList.remove('active');
-                    if (navActions) {
-                        navActions.classList.remove('active');
+            // ===== DROPDOWN TOGGLE ON MOBILE ONLY =====
+            const dropdownButtons = document.querySelectorAll('.nav-links > li > button');
+            dropdownButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    if (window.innerWidth <= 991) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        const parentLi = this.closest('li');
+                        const dropdown = parentLi.querySelector('.dropdown-menu');
+
+                        if (dropdown) {
+                            document.querySelectorAll('.dropdown-menu.open').forEach(d => {
+                                if (d !== dropdown) {
+                                    d.classList.remove('open');
+                                    d.closest('li').querySelector('button')?.classList.remove('active');
+                                }
+                            });
+
+                            dropdown.classList.toggle('open');
+                            this.classList.toggle('active');
+                        }
                     }
-                    if (hamburgerBtn) {
+                });
+            });
+
+            // ===== CLOSE NAVBAR WHEN CLICKING OUTSIDE =====
+            document.addEventListener('click', function (e) {
+                if (navLinks && hamburgerBtn) {
+                    const isClickInsideNav = navLinks.contains(e.target) ||
+                        hamburgerBtn.contains(e.target) ||
+                        (navActions && navActions.contains(e.target));
+                    if (!isClickInsideNav && navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        if (navActions) {
+                            navActions.classList.remove('active');
+                        }
                         hamburgerBtn.classList.remove('active');
                         hamburgerBtn.setAttribute('aria-label', 'Open menu');
-                    }
-                    
-                    document.querySelectorAll('.dropdown-menu.open').forEach(d => {
-                        d.classList.remove('open');
-                        d.closest('li').querySelector('button')?.classList.remove('active');
-                    });
-                }
-            }
-        });
-    });
 
-    // ===== HANDLE WINDOW RESIZE =====
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-            if (window.innerWidth > 991) {
-                navLinks.classList.remove('active');
-                if (navActions) {
-                    navActions.classList.remove('active');
+                        document.querySelectorAll('.dropdown-menu.open').forEach(d => {
+                            d.classList.remove('open');
+                            d.closest('li').querySelector('button')?.classList.remove('active');
+                        });
+                    }
                 }
-                if (hamburgerBtn) {
-                    hamburgerBtn.classList.remove('active');
-                    hamburgerBtn.setAttribute('aria-label', 'Open menu');
-                }
-                
-                document.querySelectorAll('.dropdown-menu.open').forEach(d => {
-                    d.classList.remove('open');
-                    d.closest('li').querySelector('button')?.classList.remove('active');
+            });
+
+            // ===== CLOSE NAVBAR WHEN CLICKING A LINK =====
+            const pageLinks = document.querySelectorAll('.nav-links a');
+            pageLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href !== '#' && href !== '' && !href.startsWith('javascript:')) {
+                        if (window.innerWidth <= 991) {
+                            navLinks.classList.remove('active');
+                            if (navActions) {
+                                navActions.classList.remove('active');
+                            }
+                            if (hamburgerBtn) {
+                                hamburgerBtn.classList.remove('active');
+                                hamburgerBtn.setAttribute('aria-label', 'Open menu');
+                            }
+
+                            document.querySelectorAll('.dropdown-menu.open').forEach(d => {
+                                d.classList.remove('open');
+                                d.closest('li').querySelector('button')?.classList.remove('active');
+                            });
+                        }
+                    }
                 });
-            }
-        }, 250);
-    });
-});
-</script>
+            });
+
+            // ===== HANDLE WINDOW RESIZE =====
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    if (window.innerWidth > 991) {
+                        navLinks.classList.remove('active');
+                        if (navActions) {
+                            navActions.classList.remove('active');
+                        }
+                        if (hamburgerBtn) {
+                            hamburgerBtn.classList.remove('active');
+                            hamburgerBtn.setAttribute('aria-label', 'Open menu');
+                        }
+
+                        document.querySelectorAll('.dropdown-menu.open').forEach(d => {
+                            d.classList.remove('open');
+                            d.closest('li').querySelector('button')?.classList.remove('active');
+                        });
+                    }
+                }, 250);
+            });
+        });
+    </script>
 
 
     {% block extra_js %}
