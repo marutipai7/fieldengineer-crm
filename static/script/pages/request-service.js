@@ -14,14 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ── Dropdowns ──────────────────────────────────────────────────────────────
   document.querySelectorAll(".dropdown-wrapper").forEach((wrapper) => {
-    const toggle = wrapper.querySelector(".dropdown-toggle");
-    const menu = wrapper.querySelector(".dropdownMenu");
-    const input = wrapper.querySelector("input");
-    
-    if (!toggle || !menu) return;
+    const trigger = wrapper.querySelector(".flex.items-center.justify-between");
+const menu = wrapper.querySelector(".dropdownMenu");
+const input = wrapper.querySelector("input");
 
-    toggle.addEventListener("click", () => menu.classList.toggle("hidden"));
+if (!trigger || !menu) return;
 
+trigger.style.cursor = "pointer";
+
+trigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("hidden");
+});
   menu.querySelectorAll("li").forEach((li) => {
     li.addEventListener("click", () => {
         input.value = li.textContent.trim();
