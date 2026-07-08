@@ -193,15 +193,282 @@
             </button>
         </div>
 
-        <div class="flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="border border-pale-blue-gray rounded-[10px] bg-arctic-white flex items-center gap-1.5 py-[7.5px] px-2.5 w-65!">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center justify-between">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                <div
+                    class="border border-pale-blue-gray rounded-[10px] bg-arctic-white flex items-center gap-1.5 py-[7.5px] px-2.5 sm:w-65!">
                     <span class="material-symbols-outlined text-lg! text-medium">search</span>
-                    <input type="text" class="focus:ring-0 focus:outline-none w-full placeholder:font-normal placeholder:text-sm placeholder:text-medium font-normal text-sm text-ink" placeholder="Search Invoice">
+                    <input type="text"
+                        class="focus:ring-0 focus:outline-none w-full placeholder:font-normal placeholder:text-sm placeholder:text-medium font-normal text-sm text-ink"
+                        placeholder="Search Invoice">
                 </div>
+
+                <button
+                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">calendar_today</span>
+                    <p class="font-normal text-sm text-granite-gray">Date Range</p>
+                </button>
+
+                <button
+                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">tune</span>
+                    <p class="font-normal text-sm text-granite-gray">Filters</p>
+                </button>
             </div>
+
+            <p class="font-semibold text-base text-dark cursor-pointer viewAllInvoices">View All Invoices</p>
+        </div>
+
+        <hr class="text-pale-blue-gray">
+
+        <div class="overflow-x-auto">
+            <table class="w-full whitespace-nowrap">
+                <thead class="bg-primary text-white font-semibold text-lg">
+                    <th class="py-5 px-10 border-r border-white rounded-tl-2xl">
+                        Invoice ID
+                    </th>
+                    <th class="py-5 px-10 border-r border-white">
+                        Booking ID
+                    </th>
+                    <th class="py-5 px-10 border-r border-white">
+                        Service
+                    </th>
+                    <th class="py-5 px-10 border-r border-white">
+                        Amount
+                    </th>
+                    <th class="py-5 px-10 border-r border-white">
+                        Status
+                    </th>
+                    <th class="py-5 px-10 border-r border-white">
+                        Invoice Date
+                    </th>
+                    <th class="py-5 px-10 rounded-tr-2xl">
+                        Action
+                    </th>
+                </thead>
+
+                <tbody class="border border-light-medium rounded-br-2xl rounded-bl-2xl">
+                    <tr>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            INV-2026-001
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            Network Cabling
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="p-7.5">
+                            <div class="bg-pale-mint rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-forest-green">Paid</span>
+                            </div>
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="p-7.5">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            INV-2026-002
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            rack Installation
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="p-7.5">
+                            <div class="bg-pale-mint rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-forest-green">Paid</span>
+                            </div>
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="p-7.5">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            INV-2026-003
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            CCTV Installation
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="p-7.5">
+                            <div class="bg-apricot-cream rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-golden-orange">Pending</span>
+                            </div>
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="p-7.5">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            INV-2026-004
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            Fiber Optic
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="p-7.5">
+                            <div class="bg-apricot-cream rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-golden-orange">Pending</span>
+                            </div>
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="p-7.5">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            INV-2026-005
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            Fiber Optic
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="p-7.5">
+                            <div class="bg-apricot-cream rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-golden-orange">Pending</span>
+                            </div>
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="p-7.5">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="bg-white border border-slate-mist rounded-2xl p-6 ">
+
+        <div class="flex flex-col gap-3.5 bg-white rounded-xl shadow-metric-card! p-6">
+            <div class="flex items-center gap-2 ">
+                <p class="font-semibold text-base text-ink">Monthly Spend Overview</p>
+
+                <button
+                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">calendar_today</span>
+                    <p class="font-normal text-sm text-granite-gray">Date Range</p>
+                </button>
+
+                <button
+                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">tune</span>
+                    <p class="font-normal text-sm text-granite-gray">Filters</p>
+                </button>
+            </div>
+
+            <div class="chart-container h-150">
+                <canvas id="revenueChart"></canvas>
+                <div class="axis-label flex justify-center pt-5">Day/Month/ Year</div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="border border-slate-mist rounded-2xl p-6 bg-white flex flex-col gap-2">
+        <p class="font-semibold text-base text-ink">Payment Summary</p>
+        <div class="flex items-center justify-between border-b-soft-slate">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-green"></div>
+                <p class="font-normal text-sm text-granite-gray">Paid</p>
+            </div>
+
+            <p class="font-semibold text-sm text-ink">Rs.7,94,300</p>
+        </div>
+
+        <div class="flex items-center justify-between border-b-soft-slate">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-golden-orange"></div>
+                <p class="font-normal text-sm text-granite-gray">Pending</p>
+            </div>
+
+            <p class="font-semibold text-sm text-golden-orange">Rs.32,000</p>
+        </div>
+
+        <div class="flex items-center justify-between border-b-soft-slate">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-green"></div>
+                <p class="font-normal text-sm text-granite-gray">Paid</p>
+            </div>
+
+            <p class="font-semibold text-sm text-ink">Rs.7,94,300</p>
+        </div>
+
+        <div class="flex items-center justify-between border-b-soft-slate">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-green"></div>
+                <p class="font-normal text-sm text-granite-gray">Paid</p>
+            </div>
+
+            <p class="font-semibold text-sm text-ink">Rs.7,94,300</p>
         </div>
     </section>
 </main>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="/static/script/profile/payment-methods.js"></script>
 
 {% endblock %}
