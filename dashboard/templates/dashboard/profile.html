@@ -4,8 +4,519 @@
 
 {% block content %}
 
-<p>
-    Profile Page
-</p>
+<div class="p-6 lg:p-8  min-h-screen text-slate-800">
+    <div class="mb-8">
+        <h1 class="text-2xl font-bold text-ink">Profile & Verification Center</h1>
+        <p class="text-sm text-granite-gray mt-1">Complete your profile to unlock all feature and book faster.</p>
+    </div>
+
+   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+    <!-- Box 1: Profile -->
+    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-2">
+            <div class="relative w-16 h-16 flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120" alt="Avatar" class="w-full h-full rounded-full object-cover p-1 ring-2 ring-blue-500">
+                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-blue-50 border border-blue-200 text-blue-600 font-semibold text-[10px] px-1.5 py-0.5 rounded-full shadow-sm">80%</span>
+            </div>
+            <button class="bg-[#1466DE] hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto">
+                Edit Profile
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-0">
+            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
+                <div class="p-2.5 bg-blue-50 text-blue-600 rounded-xl">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                </div>
+                <div class="leading-none">
+                    <p class="text-sm font-semibold text-slate-700">Contact Person</p>
+                    <p class="text-xs text-slate-500 font-medium -mt-0.5">Rishi Acharya</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
+                <div class="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                </div>
+                <div class="leading-none">
+                    <p class="text-sm font-semibold text-slate-700">Phone Number</p>
+                    <p class="text-xs text-slate-500 font-medium -mt-0.5">+91 76543 65434</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
+                <div class="p-2.5 bg-emerald-50 text-emerald-600 rounded-xl">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div class="leading-none">
+                    <p class="text-sm font-semibold text-slate-700">Email</p>
+                    <p class="text-xs text-slate-500 font-medium -mt-0.5">Alexa257@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
+                <div class="p-2.5 bg-slate-100 text-slate-600 rounded-xl">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div class="leading-none">
+                    <p class="text-sm font-semibold text-slate-700">Business Type</p>
+                    <p class="text-xs text-slate-500 font-medium -mt-0.5">Private Limited</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition col-span-1 sm:col-span-2">
+                <div class="p-2.5 bg-orange-50 text-orange-600 rounded-xl">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div class="leading-none">
+                    <p class="text-sm font-semibold text-slate-700">Member Since</p>
+                    <p class="text-xs text-slate-500 font-medium -mt-0.5">25 May 2020</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Box 2: Account Summary -->
+   <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+    <div class="mb-4">
+        <h2 class="text-lg font-bold text-slate-900">Account Summary</h2>
+        <p class="text-sm text-slate-600 mt-0.5">All important events related to this booking.</p>
+    </div>
+
+    <div class="space-y-1.5">
+        <div class="flex items-center justify-between py-1.5">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <span class="text-sm font-medium text-slate-600">Total Bookings</span>
+            </div>
+            <span class="text-base font-bold text-slate-800">16</span>
+        </div>
+
+        <div class="flex items-center justify-between py-1.5">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <span class="text-sm font-medium text-slate-600">Completed Jobs</span>
+            </div>
+            <span class="text-base font-bold text-slate-800">14</span>
+        </div>
+
+        <div class="flex items-center justify-between py-1.5">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-orange-50 text-orange-600 rounded-lg">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <span class="text-sm font-medium text-slate-600">Saved Locations</span>
+            </div>
+            <span class="text-base font-bold text-slate-800">8</span>
+        </div>
+
+        <div class="flex items-center justify-between py-1.5">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-indigo-50 text-indigo-600 rounded-lg">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                </div>
+                <span class="text-sm font-medium text-slate-600">Total Spend</span>
+            </div>
+            <span class="text-base font-bold text-slate-800">₹84,250</span>
+        </div>
+
+        <div class="flex items-center justify-between py-1.5">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-slate-100 text-slate-600 rounded-lg">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z"/></svg>
+                </div>
+                <span class="text-sm font-medium text-slate-600">Member Since</span>
+            </div>
+            <span class="text-base font-bold text-slate-800">May 2024</span>
+        </div>
+    </div>
+</div>
+
+    <!-- Box 3: Payment Methods -->
+    <div class="bg-gray border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+        <div class="mb-5">
+            <h2 class="text-lg font-bold text-slate-900">Payment Methods</h2>
+        </div>
+
+        <div class="space-y-3.5 mb-6">
+            <div class="flex items-center justify-between border border-slate-100 rounded-xl p-4 bg-white hover:border-slate-200 transition">
+                <div class="flex items-center gap-4.5">
+                    <div class="w-10 h-10 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-center text-slate-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-slate-800">UPI: acme@paytm</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Linked on 10 May 2024</p>
+                    </div>
+                </div>
+                <button class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"/></svg>
+                </button>
+            </div>
+
+            <div class="flex items-center justify-between border border-slate-100 rounded-xl p-4 bg-white hover:border-slate-200 transition">
+                <div class="flex items-center gap-4.5">
+                    <div class="w-10 h-10 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-center text-slate-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-slate-800">HDFC Bank A/C ...1254</p>
+                        <p class="text-xs text-slate-400 mt-0.5">IFSC: HDFC0001234</p>
+                    </div>
+                </div>
+                <button class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <button class="w-full border border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold text-sm py-3 rounded-xl transition duration-200 flex items-center justify-center gap-1.5">
+            <span class="text-lg font-medium leading-none">+</span> Add Payment Method
+        </button>
+    </div>
+
+    <!-- Box 4: Verification Status -->
+    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-5">
+            <h2 class="text-lg font-bold text-slate-900">Verification Status</h2>
+            <span class="text-xs font-bold text-orange-500">100% Completed</span>
+        </div>
+
+        <div class="space-y-3.5 mb-6">
+            <div class="flex items-center gap-3">
+                <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span class="text-sm font-medium text-slate-700">Email Verified</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span class="text-sm font-medium text-slate-700">Mobile Verified</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span class="text-sm font-medium text-slate-700">GST Verified</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span class="text-sm font-medium text-slate-700">Company Verified</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <span class="text-sm font-medium text-slate-700">Identity Verified</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="flex items-center justify-between text-[11px] font-semibold text-slate-500 mb-1.5">
+                <span>Status</span>
+                <span>100%</span>
+            </div>
+            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full bg-orange-400 rounded-full w-full"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="mt-6 grid grid-cols-1 gap-6">
+
+   <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-lg font-bold text-slate-900">Business Information</h2>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm">
+            Edit Information
+        </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Company Name</label>
+            <input type="text" value="ACME Pvt Ltd." 
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Business Type</label>
+            <input type="text" value="Private Limited" 
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Industry Type</label>
+            <input type="text" value="Data Center Services" 
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">GST Number</label>
+            <input type="text" value="98123461021346" 
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Pan Number</label>
+            <input type="text" value="GXBPM2878F" 
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Company Registration Number</label>
+            <input type="text" value="AEYSYEJ325" 
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div class="md:col-span-2">
+            <label class="block text-sm font-medium text-slate-500 mb-2">Website</label>
+            <input type="text" value="www.acme.com" 
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+    </div>
+</div>
+
+    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-lg font-bold text-slate-900">Office Address</h2>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm">
+            Edit Address
+        </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Address Type</label>
+            <input type="text" value="Head Office"
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Pin-code</label>
+            <input type="text" value="123456"
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Phone Number</label>
+            <input type="text" value="+91 65734839"
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Landmark</label>
+            <input type="text" value="Near tmks"
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div class="md:col-span-2">
+            <label class="block text-sm font-medium text-slate-500 mb-2">Address</label>
+            <input type="text" value="Vadol Gaon, Waldhuni, Ambernath, Ulhasnagar, Maharashtra 421501"
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="mt-6 grid grid-cols-1 gap-6">
+
+   <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-lg font-bold text-slate-900">Authorized Contact</h2>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm">
+            Edit Details
+        </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Name</label>
+            <input type="text" value="Rishi Acharya"
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Designation</label>
+            <input type="text" value="Operation Manager"
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Phone Number</label>
+            <input type="text" value="+91 65734839"
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-slate-500 mb-2">Work Email</label>
+            <input type="text" value="rishi@acme.com"
+                class="w-full bg-slate-50 border border-slate-100 text-sm text-slate-700 font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+    </div>
+</div>
+
+  <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+    <div class="flex items-center justify-between mb-1">
+        <h2 class="text-lg font-bold text-slate-900">Documents & KYC</h2>
+        <a href="#" class="text-xs font-bold text-slate-600 hover:text-slate-900 flex items-center gap-1 transition">
+            View All Documents 
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+    </div>
+    <p class="text-xs text-slate-400 mb-6">Upload and manage your business documents for compliance.</p>
+
+    <div class="overflow-x-auto rounded-xl border border-slate-100">
+        <table class="w-full text-left border-collapse min-w-[700px]">
+            <thead>
+                <tr class="bg-blue-600 text-white text-sm font-bold">
+                    <th class="p-3 px-4 border-r border-white/20">Documents Name</th>
+                    <th class="p-3 px-4 text-center border-r border-white/20">Type</th>
+                    <th class="p-3 px-4 text-center border-r border-white/20">Status</th>
+                    <th class="p-3 px-4 text-center border-r border-white/20">Uploaded On</th>
+                    <th class="p-3 px-4 text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody class="text-sm font-medium text-slate-600 divide-y divide-slate-100">
+                
+                <tr class="hover:bg-slate-50/70 transition">
+                    <td class="p-3 px-4 font-semibold text-slate-700">GST Certificate.pdf</td>
+                    <td class="p-3 px-4 text-center text-slate-500">GST Certificate</td>
+                    <td class="p-3 px-4 text-center">
+                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-emerald-50 text-emerald-600 rounded-md border border-emerald-100">Verified</span>
+                    </td>
+                    <td class="p-3 px-4 text-center text-slate-500">15 May 2026</td>
+                    <td class="p-3 px-4 text-center">
+                        <div class="flex items-center justify-center gap-3 text-slate-500">
+                            <button class="hover:text-blue-600 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178a1.012 1.012 0 010 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </button>
+                            <button class="hover:text-blue-600 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="hover:bg-slate-50/70 transition">
+                    <td class="p-3 px-4 font-semibold text-slate-700">PAN Card.pdf</td>
+                    <td class="p-3 px-4 text-center text-slate-500">PAN Documents</td>
+                    <td class="p-3 px-4 text-center">
+                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-emerald-50 text-emerald-600 rounded-md border border-emerald-100">Verified</span>
+                    </td>
+                    <td class="p-3 px-4 text-center text-slate-500">15 May 2026</td>
+                    <td class="p-3 px-4 text-center">
+                        <div class="flex items-center justify-center gap-3 text-slate-500">
+                            <button class="hover:text-blue-600 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178a1.012 1.012 0 010 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </button>
+                            <button class="hover:text-blue-600 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="hover:bg-slate-50/70 transition">
+                    <td class="p-3 px-4 font-semibold text-slate-700">Incorporation.pdf</td>
+                    <td class="p-3 px-4 text-center text-slate-500">Company Registration</td>
+                    <td class="p-3 px-4 text-center">
+                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-emerald-50 text-emerald-600 rounded-md border border-emerald-100">Verified</span>
+                    </td>
+                    <td class="p-3 px-4 text-center text-slate-500">15 May 2026</td>
+                    <td class="p-3 px-4 text-center">
+                        <div class="flex items-center justify-center gap-3 text-slate-500">
+                            <button class="hover:text-blue-600 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178a1.012 1.012 0 010 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </button>
+                            <button class="hover:text-blue-600 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="hover:bg-slate-50/70 transition">
+                    <td class="p-3 px-4 font-semibold text-slate-700">Address Proof.pdf</td>
+                    <td class="p-3 px-4 text-center text-slate-500">Address Proof</td>
+                    <td class="p-3 px-4 text-center">
+                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-red-50 text-red-500 rounded-md border border-red-100">Pending</span>
+                    </td>
+                    <td class="p-3 px-4 text-center text-slate-500">15 May 2026</td>
+                    <td class="p-3 px-4 text-center">
+                        <div class="flex items-center justify-center gap-3 text-slate-500">
+                            <button class="hover:text-blue-600 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178a1.012 1.012 0 010 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </button>
+                            <button class="hover:text-blue-600 transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="hover:bg-slate-50/70 transition">
+                    <td class="p-3 px-4 font-semibold text-slate-700">Other Documents.pdf</td>
+                    <td class="p-3 px-4 text-center text-slate-500">Supporting Documents</td>
+                    <td class="p-3 px-4 text-center">
+                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-slate-100 text-slate-600 rounded-md">Upload</span>
+                    </td>
+                    <td class="p-3 px-4 text-center text-slate-400">-</td>
+                    <td class="p-3 px-4 text-center">
+                        <div class="flex items-center justify-center text-slate-500">
+                            <button class="hover:text-blue-600 transition p-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>
+</div>
+
+
 
 {% endblock %}

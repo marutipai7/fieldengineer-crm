@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggle = wrapper.querySelector(".dropdown-toggle");
     const menu = wrapper.querySelector(".dropdownMenu");
     const input = wrapper.querySelector("input");
+    
+    if (!toggle || !menu) return;
 
     toggle.addEventListener("click", () => menu.classList.toggle("hidden"));
 
