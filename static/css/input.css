@@ -138,6 +138,25 @@
   --color-Ice-Blue: #EDF1F8;
   --color-pale-blue-gray:#E5EAF0;
   --color-cloud-blue:#EEF4FF;
+  --color-lavender-mist:#F3F0FF;
+  --color-electric-violet:#7C3AED;
+  --color-mint-mist:#E8F5E9;
+  --color-forest-green:#16A34A;
+  --color-slate-mist:#E2E8F0;
+  --color-snow-white:#f6f6f6;
+  --color-mint-frost:#DCFCE7;
+  --color-peach-cream:#FFF3E0;
+  --color-golden-orange:#F79E1B;
+  --color-royal-blue:#4E61F6;
+  --color-soft-slate:#F1F5F9;
+  --color-arctic-white:#F8FAFC;
+  --color-dark-gray:#484848;
+  --color-pale-mint:#EBF9F1;
+  --color-apricot-cream:#FFEACB;
+  --color-baby-blue:#DBEAFE;
+  --shadow-metric-card:0px 2px 8px 0px #0000000F;
+
+
   /* Glassmorphism */
   --glass-background: radial-gradient(90.16% 143.01% at 15.32% 21.04%,
       rgba(168, 165, 255, 0.2) 0%,
@@ -2894,3 +2913,13 @@
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
+
+  .metrics-card {
+    @apply bg-white shadow-metric-card rounded-xl p-5 flex items-center gap-4
+  }
+
+  .payment-method {
+   @apply  border border-pale-blue-gray rounded-xl py-3.25 px-3.75 flex items-center justify-between
+  }
+
+  
