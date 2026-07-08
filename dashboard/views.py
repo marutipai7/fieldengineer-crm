@@ -18,3 +18,6 @@ def support_center(request):
 
 def settings(request):
     return render(request, 'dashboard/settings.html')
+
+def invoice(request):
+    return render(request, 'dashboard/invoice.html')

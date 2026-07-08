@@ -1,0 +1,394 @@
+{% extends "dashboard/layout.html" %}
+{% block title %}Invoices{% endblock %}
+{% block content %}
+<main class="flex flex-col gap-6 w-full pb-10">
+    <div class="flex flex-col gap-2">
+        <h1 class="font-bold text-2xl lg:text-3xl text-slate-800">Payment Methods</h1>
+        <p class="text-sm font-normal text-gray-500">Manage payments, view invoices, and download billing reports.</p>
+    </div>
+
+    <!-- Status Filters -->
+    <div class="flex items-center gap-3" id="statusFilters">
+        <button data-status="all"
+            class="filter-btn bg-[#FFC949] text-white py-2 px-6 rounded-[20px] font-medium text-sm flex items-center justify-center transition-colors">All</button>
+        <button data-status="paid"
+            class="filter-btn border border-gray-200 bg-white py-2 px-6 rounded-[20px] font-medium text-sm text-gray-500 hover:bg-gray-50 transition-colors">Paid</button>
+        <button data-status="pending"
+            class="filter-btn border border-gray-200 bg-white py-2 px-6 rounded-[20px] font-medium text-sm text-gray-500 hover:bg-gray-50 transition-colors">Pending</button>
+        <button data-status="refunded"
+            class="filter-btn border border-gray-200 bg-white py-2 px-6 rounded-[20px] font-medium text-sm text-gray-500 hover:bg-gray-50 transition-colors">Refunded</button>
+    </div>
+
+    <!-- Search and Action Filters -->
+    <div class="flex flex-col sm:flex-row gap-3">
+        <div class="border border-gray-200 rounded-xl bg-[#F8F9FA] flex items-center gap-2 py-2 px-3 sm:w-64">
+            <span class="material-symbols-outlined text-lg text-gray-400">search</span>
+            <input type="text"
+                class="bg-transparent focus:outline-none w-full text-sm text-slate-800 placeholder-gray-500"
+                placeholder="Search invoice">
+        </div>
+        <button
+            class="bg-white border border-gray-200 rounded-xl py-2 px-4 flex items-center justify-center gap-2 text-gray-500 hover:bg-gray-50 transition-colors">
+            <span class="material-symbols-outlined text-lg">calendar_today</span>
+            <span class="text-sm">Date Range</span>
+        </button>
+        <button
+            class="bg-white border border-gray-200 rounded-xl py-2 px-4 flex items-center justify-center gap-2 text-gray-500 hover:bg-gray-50 transition-colors">
+            <span class="material-symbols-outlined text-lg">tune</span>
+            <span class="text-sm">Filters</span>
+        </button>
+    </div>
+
+    <!-- Table -->
+    <div class="w-full overflow-x-auto border border-gray-200 rounded-xl bg-white mt-2">
+        <table class="w-full text-left border-collapse min-w-[800px]">
+            <thead class="bg-[#FFC949] text-white text-base font-semibold">
+                <tr>
+                    <th class="py-5 px-6 font-semibold border-r border-white/20 whitespace-nowrap">Invoice ID</th>
+                    <th class="py-5 px-6 font-semibold border-r border-white/20 whitespace-nowrap text-center">Booking
+                        ID</th>
+                    <th class="py-5 px-6 font-semibold border-r border-white/20 whitespace-nowrap">Service</th>
+                    <th class="py-5 px-6 font-semibold border-r border-white/20 whitespace-nowrap text-center">Amount
+                    </th>
+                    <th class="py-5 px-6 font-semibold border-r border-white/20 whitespace-nowrap text-center">Status
+                    </th>
+                    <th class="py-5 px-6 font-semibold border-r border-white/20 whitespace-nowrap text-center">Invoice
+                        Date</th>
+                    <th class="py-5 px-6 font-semibold text-center whitespace-nowrap">Action</th>
+                </tr>
+            </thead>
+            <tbody class="text-slate-700 text-sm font-medium" id="invoiceTableBody">
+                <!-- Row 1 -->
+                <tr class="invoice-row border-b border-gray-200 last:border-0 hover:bg-gray-50" data-status="paid">
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">INV-2026-001</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">BK-5684</td>
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">Network Cabling</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">Rs. 5,730</td>
+                    <td class="py-6 px-6 text-center">
+                        <span
+                            class="inline-flex items-center justify-center bg-[#E5F7ED] text-[#00A859] font-bold px-3 py-1.5 rounded-lg text-sm">Paid</span>
+                    </td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">15 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4 text-gray-500">
+                            <span
+                                class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800">download</span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 2 -->
+                <tr class="invoice-row border-b border-gray-200 last:border-0 hover:bg-gray-50" data-status="paid">
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">INV-2026-002</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">BK-5684</td>
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">Rack Installation</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">Rs. 5,730</td>
+                    <td class="py-6 px-6 text-center">
+                        <span
+                            class="inline-flex items-center justify-center bg-[#E5F7ED] text-[#00A859] font-bold px-3 py-1.5 rounded-lg text-sm">Paid</span>
+                    </td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">15 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4 text-gray-500">
+                            <span
+                                class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800">download</span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 3 -->
+                <tr class="invoice-row border-b border-gray-200 last:border-0 hover:bg-gray-50" data-status="pending">
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">INV-2026-003</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">BK-5684</td>
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">CCTV Installation</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">Rs. 5,730</td>
+                    <td class="py-6 px-6 text-center">
+                        <span
+                            class="inline-flex items-center justify-center bg-[#FFF3E0] text-[#FF9800] font-bold px-3 py-1.5 rounded-lg text-sm">Pending</span>
+                    </td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">15 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4 text-gray-500">
+                            <span
+                                class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800">download</span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 4 -->
+                <tr class="invoice-row border-b border-gray-200 last:border-0 hover:bg-gray-50" data-status="pending">
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">INV-2026-004</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">BK-5684</td>
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">Fiber Optic</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">Rs. 5,730</td>
+                    <td class="py-6 px-6 text-center">
+                        <span
+                            class="inline-flex items-center justify-center bg-[#FFF3E0] text-[#FF9800] font-bold px-3 py-1.5 rounded-lg text-sm">Pending</span>
+                    </td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">15 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4 text-gray-500">
+                            <span
+                                class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800">download</span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 5 -->
+                <tr class="invoice-row border-b border-gray-200 last:border-0 hover:bg-gray-50" data-status="pending">
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">INV-2026-004</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">BK-5684</td>
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">Fiber Optic</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">Rs. 5,730</td>
+                    <td class="py-6 px-6 text-center">
+                        <span
+                            class="inline-flex items-center justify-center bg-[#FFF3E0] text-[#FF9800] font-bold px-3 py-1.5 rounded-lg text-sm">Pending</span>
+                    </td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">15 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4 text-gray-500">
+                            <span
+                                class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800">download</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex items-center justify-between text-sm text-gray-500 mt-2">
+        <p>Showing 1-5 of 127 invoices</p>
+        <div class="flex items-center gap-2">
+            <button
+                class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-400 transition-colors">&lsaquo;</button>
+            <button
+                class="w-8 h-8 rounded border border-[#FFC949] flex items-center justify-center bg-white text-[#FFC949] font-medium">1</button>
+            <button
+                class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-500 font-medium transition-colors">2</button>
+            <button
+                class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-500 font-medium transition-colors">3</button>
+            <button
+                class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-500 font-medium transition-colors">4</button>
+            <button
+                class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-400 transition-colors">&rsaquo;</button>
+        </div>
+    </div>
+
+    <!-- Support Block -->
+    <div class="mt-4 bg-[#F2F7FF] rounded-xl flex items-center justify-between p-6">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 flex items-center justify-center bg-[#E5F0FF] rounded-[10px]">
+                <span class="material-symbols-outlined text-[#FFC949] text-xl">help</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="font-semibold text-base text-[#FFC949]">Need help with invoices or payments?</p>
+                <p class="text-sm text-gray-500">Our support team is here to help you with any billing-related queries.
+                </p>
+            </div>
+        </div>
+        <button
+            class="bg-[#FFC949] hover:bg-[#eebb33] transition-colors rounded-xl flex items-center justify-center gap-2 py-2.5 px-6">
+            <span class="material-symbols-outlined text-white text-xl">chat_bubble</span>
+            <p class="font-semibold text-sm text-white">Contact Support</p>
+        </button>
+    </div>
+
+    <!-- Invoice Modal -->
+    <div id="invoiceModal"
+        class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div class="bg-[#F8F9FA] rounded-lg shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative">
+            <div class="sticky top-0 right-0 flex justify-end p-4 bg-[#F8F9FA] border-b border-gray-200">
+                <button id="closeInvoiceModal"
+                    class="text-gray-500 hover:text-gray-800 transition-colors bg-white rounded-full p-1 shadow-sm">
+                    <span class="material-symbols-outlined text-2xl block">close</span>
+                </button>
+            </div>
+
+            <div id="invoiceContent" class="p-8 font-mono text-sm text-gray-800 bg-[#F8F9FA]">
+                <div class="text-center mb-6">
+                    <p class="font-bold">TAX INVOICE</p>
+                    <p>(Under GST - Advertising Service: SAC 998361)</p>
+                </div>
+
+                <div class="border-b border-dashed border-gray-400 my-4"></div>
+
+                <div class="flex justify-between">
+                    <div class="flex gap-4">
+                        <span class="w-32">Invoice No:</span>
+                        <span>INV/AD/2025/0045</span>
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <div class="flex gap-4">
+                        <span class="w-32">Date:</span>
+                        <span>17-May-2025</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex gap-4">
+                    <span class="w-32">Platform Name:</span>
+                    <span>MediConnect Digital Services Pvt. Ltd.</span>
+                </div>
+
+                <div class="mt-2 text-gray-600 bg-gray-100 p-2">
+                    <div class="flex gap-4"><span class="w-32">GSTIN:</span><span>27PLTFORM7890A1Z3</span></div>
+                    <div class="flex gap-4"><span class="w-32">Address:</span><span>3rd Floor, Knowledge Tower,
+                            Bengaluru - 560034</span></div>
+                    <div class="flex gap-4 text-red-500"><span class="w-32">Contact:</span><span>+91-9988776655 |
+                            billing@mediconnect.in</span></div>
+                </div>
+
+                <div class="border-b border-dashed border-gray-400 my-4"></div>
+
+                <div class="mb-2 font-bold">Billed To:</div>
+                <div class="flex gap-4"><span class="w-32">Advertiser Name:</span><span>WellnessFit Nutrition Pvt.
+                        Ltd.</span></div>
+                <div class="flex gap-4"><span class="w-32">GSTIN:</span><span>27WELLFIT1234G1Z9</span></div>
+                <div class="flex gap-4"><span class="w-32">Address:</span><span>22, Link Road, Mumbai - 400072</span>
+                </div>
+                <div class="flex gap-4 text-red-500"><span class="w-32">Contact:</span><span>info@wellnessfit.in</span>
+                </div>
+
+                <div class="border-b border-dashed border-gray-400 my-4"></div>
+
+                <div class="flex gap-4"><span class="w-40">Order Reference:</span><span>COUP-ORD-2025/223</span></div>
+                <div class="flex gap-4 text-red-500"><span class="w-40">Campaign Duration:</span><span>18-May-2025 to
+                        25-May-2025</span></div>
+
+                <div class="border-b border-dashed border-gray-400 my-4"></div>
+
+                <div class="text-red-500 grid grid-cols-5 gap-2 font-semibold">
+                    <div class="col-span-2">Description</div>
+                    <div>| SAC Code</div>
+                    <div>| Qty | Rate</div>
+                    <div>| GST % | Total (INR)</div>
+                </div>
+
+                <div class="border-b border-dashed border-gray-400 my-2"></div>
+
+                <div class="grid grid-cols-5 gap-2 mt-2">
+                    <div class="col-span-2">
+                        <p>Coupon Posting - 6 coupons x 10 views</p>
+                        <p>(Digital display services)</p>
+                    </div>
+                    <div class="pt-4">998361</div>
+                    <div class="pt-4">| 60 | ₹100.00</div>
+                    <div class="pt-4">| 18% | ₹6,000.00</div>
+                </div>
+
+                <div class="border-b border-dashed border-gray-400 my-4"></div>
+
+                <div class="flex justify-end gap-16">
+                    <div class="w-64 text-right">Subtotal:</div>
+                    <div class="w-32 text-right">₹6,000.00</div>
+                </div>
+                <div class="flex justify-end gap-16 text-red-500">
+                    <div class="w-64 text-right">Add: GST @18%</div>
+                    <div class="w-32 text-right">₹1,080.00</div>
+                </div>
+
+                <div class="border-b border-dashed border-gray-400 my-4"></div>
+
+                <div class="flex justify-end gap-16">
+                    <div class="w-64 text-right">Gross Invoice Amount:</div>
+                    <div class="w-32 text-right font-bold">₹7,080.00</div>
+                </div>
+                <div class="flex justify-end gap-16 text-red-500">
+                    <div class="w-64 text-right">Less: Advance Adjusted (Ref: ADV/2025/0007)</div>
+                    <div class="w-32 text-right">₹100.00</div>
+                </div>
+
+                <div class="border-b border-dashed border-gray-400 my-4"></div>
+
+                <div class="flex justify-end gap-16 font-bold">
+                    <div class="w-64 text-right">**Net Payable Now:**</div>
+                    <div class="w-32 text-right">₹6,980.00</div>
+                </div>
+
+                <div class="border-b border-dashed border-gray-400 my-4"></div>
+
+                <div class="mt-6">
+                    <p>Amount in Words: INR Six Thousand Nine Hundred Eighty Only</p>
+                    <p class="mt-4">Mode of Payment: UPI / Bank Transfer</p>
+                </div>
+
+                <div class="border-b border-dashed border-gray-400 my-4"></div>
+
+                <div class="mt-4">
+                    <p class="font-bold">**Notes:**</p>
+                    <ul class="list-none space-y-1 mt-2">
+                        <li>- Services pertain to digital advertisement placements on MediConnect Platform.</li>
+                        <li>- Advance of ₹100 received earlier has been adjusted.</li>
+                        <li>- Input Tax Credit (ITC) can be claimed on this invoice.</li>
+                        <li class="text-red-500">- No TDS applicable under Section 194C for online ad media (under
+                            ₹30,000 single contract).</li>
+                    </ul>
+                </div>
+
+                <div class="border-b border-dashed border-gray-400 my-4"></div>
+
+                <div class="mt-6">
+                    <p>Authorized Signatory,</p>
+                    <p class="mt-8">[Signature]</p>
+                    <p>MediConnect Digital Services Pvt. Ltd.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const filters = document.querySelectorAll(".filter-btn");
+        const rows = document.querySelectorAll(".invoice-row");
+        const viewBtns = document.querySelectorAll(".view-invoice-btn");
+        const modal = document.getElementById("invoiceModal");
+        const closeModalBtn = document.getElementById("closeInvoiceModal");
+
+        // Filter Functionality
+        filters.forEach(filterBtn => {
+            filterBtn.addEventListener("click", function () {
+                filters.forEach(btn => {
+                    btn.classList.remove("bg-[#FFC949]", "text-white");
+                    btn.classList.add("border", "border-gray-200", "bg-white", "text-gray-500");
+                });
+
+                this.classList.remove("border", "border-gray-200", "bg-white", "text-gray-500");
+                this.classList.add("bg-[#FFC949]", "text-white");
+
+                const status = this.getAttribute("data-status");
+
+                rows.forEach(row => {
+                    if (status === "all" || row.getAttribute("data-status") === status) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                });
+            });
+        });
+
+        // Modal Functionality
+        viewBtns.forEach(btn => {
+            btn.addEventListener("click", function () {
+                modal.classList.remove("hidden");
+            });
+        });
+
+        closeModalBtn.addEventListener("click", function () {
+            modal.classList.add("hidden");
+        });
+
+        // Close when clicking outside
+        modal.addEventListener("click", function (e) {
+            if (e.target === modal) {
+                modal.classList.add("hidden");
+            }
+        });
+    });
+</script>
+{% endblock %}
