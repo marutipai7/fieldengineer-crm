@@ -1,11 +1,491 @@
 {% extends "dashboard/layout.html" %}
-
 {% block title %}Payment Methods{% endblock %}
-
 {% block content %}
 
-<p>
-    Payment Methods Page
-</p>
+<main class="flex flex-col gap-5">
+    <div class="flex flex-col gap-2.25">
+        <p class="font-bold text-xl lg:text-2xl">Billing and Invoices</p>
+        <p class="text-sm font-normal text-granite-gray">Manage payments, view invoices, and download billing reports.
+        </p>
+    </div>
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="metrics-card">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-cloud-blue">
+                <span class="material-symbols-outlined text-primary">currency_rupee</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="font-normal text-xs text-medium">Total Spend</p>
+                <p class="font-bold text-2xl text-ink">Rs.8,42,500</p>
+                <p class="font-normal text-xs text-granite-gray">All Time</p>
+            </div>
+        </div>
+
+        <div class="metrics-card">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-lavender-mist">
+                <span class="material-symbols-outlined text-electric-violet">docs</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="font-normal text-xs text-medium">Total Invoices</p>
+                <p class="font-bold text-2xl text-ink">127</p>
+                <p class="font-normal text-xs text-granite-gray">All Time</p>
+            </div>
+        </div>
+
+        <div class="metrics-card">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-mint-mist">
+                <span class="material-symbols-outlined text-forest-green">trending_up</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="font-normal text-xs text-medium">This Month Spend</p>
+                <p class="font-bold text-2xl text-ink">Rs.64,800</p>
+                <p class="font-normal text-xs text-granite-gray">June 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6.5">
+        <div class="bg-white border border-light-medium rounded-3xl p-6 flex flex-col gap-3">
+            <p class="font-semibold text-base text-ink">Payment Methods</p>
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-cloud-blue">
+                        <span class="material-symbols-outlined text-primary text-lg!">credit_card</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">HDFC Bank</p>
+                        <p class="font-normal text-xs text-granite-gray">HDFC Savings A/C ...1254 IFSC HDFC0001234</p>
+                    </div>
+                </div>
+
+                <div class="w-15 h-5.5 flex items-center justify-center rounded-full bg-mint-frost">
+                    <p class="font-normal text-xs text-forest-green">Primary</p>
+                </div>
+
+                <div
+                    class="w-8 h-7 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-pale-blue-gray">
+                    <span class="material-symbols-outlined text-lg!">more_vert</span>
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-mint-mist">
+                        <span class="material-symbols-outlined text-forest-green text-lg!">credit_card</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">SBI Bank</p>
+                        <p class="font-normal text-xs text-granite-gray">SBI Current A/C ...5678 IFSC SBIN0012345</p>
+                    </div>
+                </div>
+                <div
+                    class="w-8 h-7 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-pale-blue-gray">
+                    <span class="material-symbols-outlined text-lg!">more_vert</span>
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-lavender-mist">
+                        <span class="material-symbols-outlined text-electric-violet text-lg!">credit_card</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">Corporate Card</p>
+                        <p class="font-normal text-xs text-granite-gray">Axis Corporate Visa ...9876</p>
+                    </div>
+                </div>
+                <div
+                    class="w-8 h-7 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-pale-blue-gray">
+                    <span class="material-symbols-outlined text-lg!">more_vert</span>
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-peach-cream">
+                        <span class="material-symbols-outlined text-golden-orange text-lg!">mobile_2</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">UPI acme@paytm</p>
+                        <p class="font-normal text-xs text-granite-gray">UPI ID acme@paytm</p>
+                    </div>
+                </div>
+                <div
+                    class="w-8 h-7 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-pale-blue-gray">
+                    <span class="material-symbols-outlined text-lg!">more_vert</span>
+                </div>
+            </div>
+
+            <button
+                class="border border-primary! bg-white rounded-xl flex items-center justify-center py-4 gap-2 cursor-pointer addPaymentBtn">
+                <span class="text-royal-blue material-symbols-outlined">add</span>
+                <span class="text-primary font-semibold text-lg">Add Payment Method</span>
+            </button>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-mist p-6 flex flex-col gap-1">
+            <p class="font-semibold text-base text-ink">Download Center</p>
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-cloud-blue">
+                        <span class="material-symbols-outlined text-primary text-lg!">docs</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Download GST Report</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-mint-mist">
+                        <span class="material-symbols-outlined text-forest-green text-lg!">signal_cellular_alt</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Download Expense Report</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-lavender-mist">
+                        <span class="material-symbols-outlined text-electric-violet text-lg!">docs</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Download All Invoices</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-peach-cream">
+                        <span class="material-symbols-outlined text-golden-orange text-lg!">database</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Export as CSV</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="flex flex-col gap-4">
+        <div class="flex items-center gap-2">
+            <button
+                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">All</span>
+            </button>
+
+            <button
+                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">Paid</span>
+            </button>
+
+            <button
+                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">Pending</span>
+            </button>
+
+            <button
+                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">Refunded</span>
+            </button>
+        </div>
+
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center justify-between">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                <div
+                    class="border border-pale-blue-gray rounded-[10px] bg-arctic-white flex items-center gap-1.5 py-[7.5px] px-2.5 sm:w-65!">
+                    <span class="material-symbols-outlined text-lg! text-medium">search</span>
+                    <input type="text"
+                        class="focus:ring-0 focus:outline-none w-full placeholder:font-normal placeholder:text-sm placeholder:text-medium font-normal text-sm text-ink"
+                        placeholder="Search Invoice">
+                </div>
+
+                <button
+                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">calendar_today</span>
+                    <p class="font-normal text-sm text-granite-gray">Date Range</p>
+                </button>
+
+                <button
+                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">tune</span>
+                    <p class="font-normal text-sm text-granite-gray">Filters</p>
+                </button>
+            </div>
+
+            <p class="font-semibold text-base text-dark cursor-pointer viewAllInvoices">View All Invoices</p>
+        </div>
+
+        <hr class="text-pale-blue-gray">
+
+        <div class="overflow-x-auto">
+            <table class="w-full whitespace-nowrap">
+                <thead class="bg-primary text-white font-semibold text-lg">
+                    <th class="py-5 px-10 border-r border-white rounded-tl-2xl">
+                        Invoice ID
+                    </th>
+                    <th class="py-5 px-10 border-r border-white">
+                        Booking ID
+                    </th>
+                    <th class="py-5 px-10 border-r border-white">
+                        Service
+                    </th>
+                    <th class="py-5 px-10 border-r border-white">
+                        Amount
+                    </th>
+                    <th class="py-5 px-10 border-r border-white">
+                        Status
+                    </th>
+                    <th class="py-5 px-10 border-r border-white">
+                        Invoice Date
+                    </th>
+                    <th class="py-5 px-10 rounded-tr-2xl">
+                        Action
+                    </th>
+                </thead>
+
+                <tbody class="border border-light-medium rounded-br-2xl rounded-bl-2xl">
+                    <tr>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            INV-2026-001
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            Network Cabling
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="p-7.5">
+                            <div class="bg-pale-mint rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-forest-green">Paid</span>
+                            </div>
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="p-7.5">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            INV-2026-002
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            rack Installation
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="p-7.5">
+                            <div class="bg-pale-mint rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-forest-green">Paid</span>
+                            </div>
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="p-7.5">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            INV-2026-003
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            CCTV Installation
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="p-7.5">
+                            <div class="bg-apricot-cream rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-golden-orange">Pending</span>
+                            </div>
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="p-7.5">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            INV-2026-004
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            Fiber Optic
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="p-7.5">
+                            <div class="bg-apricot-cream rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-golden-orange">Pending</span>
+                            </div>
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="p-7.5">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            INV-2026-005
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                            Fiber Optic
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="p-7.5">
+                            <div class="bg-apricot-cream rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-golden-orange">Pending</span>
+                            </div>
+                        </td>
+                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="p-7.5">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="bg-white border border-slate-mist rounded-2xl p-6 ">
+
+        <div class="flex flex-col gap-3.5 bg-white rounded-xl shadow-metric-card! p-6">
+            <div class="flex items-center gap-2 ">
+                <p class="font-semibold text-base text-ink">Monthly Spend Overview</p>
+
+                <button
+                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">calendar_today</span>
+                    <p class="font-normal text-sm text-granite-gray">Date Range</p>
+                </button>
+
+                <button
+                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">tune</span>
+                    <p class="font-normal text-sm text-granite-gray">Filters</p>
+                </button>
+            </div>
+
+            <div class="chart-container h-150">
+                <canvas id="revenueChart"></canvas>
+                <div class="axis-label flex justify-center pt-5">Day/Month/ Year</div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="border border-slate-mist rounded-2xl p-6 bg-white flex flex-col gap-2">
+        <p class="font-semibold text-base text-ink">Payment Summary</p>
+        <div class="flex items-center justify-between border-b border-soft-slate">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-green"></div>
+                <p class="font-normal text-sm text-granite-gray">Paid</p>
+            </div>
+
+            <p class="font-semibold text-sm text-ink">Rs.7,94,300</p>
+        </div>
+
+        <div class="flex items-center justify-between border-b border-soft-slate">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-golden-orange"></div>
+                <p class="font-normal text-sm text-granite-gray">Pending</p>
+            </div>
+
+            <p class="font-semibold text-sm text-golden-orange">Rs.32,000</p>
+        </div>
+
+        <div class="flex items-center justify-between border-b border-soft-slate">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-electric-violet"></div>
+                <p class="font-normal text-sm text-granite-gray">Refunded</p>
+            </div>
+
+            <p class="font-semibold text-sm text-electric-violet">Rs.16,200</p>
+        </div>
+
+        <div class="flex items-center justify-between border-b border-soft-slate">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                <p class="font-normal text-sm text-granite-gray">Total</p>
+            </div>
+
+            <p class="font-bold text-xl text-primary">Rs.8,42,500</p>
+        </div>
+    </section>
+
+    <section class="bg-cloud-blue border border-baby-blue rounded-xl flex items-center justify-between py-5 px-7.5">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 flex items-center justify-center bg-baby-blue rounded-xl">
+                <span class="material-symbols-outlined text-primary">help</span>
+            </div>
+            <div class="flex flex-col gap-2">
+                <p class="font-semibold text-base text-primary">Need help with invoices or payments?</p>
+                <p class="font-normal text-sm text-granite-gray">Our support team is here to help you with any billing-related queries.</p>
+            </div>
+        </div>
+
+        <a href="#" class="bg-primary rounded-xl flex items-center justify-center gap-2 py-2.5 px-5 ">
+            <span class="material-symbols-outlined text-white text-xl!">chat_bubble</span>
+            <p class="font-semibold text-sm text-white">Contact Support</p>
+        </a>
+    </section>
+</main>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="/static/script/profile/payment-methods.js"></script>
 
 {% endblock %}
