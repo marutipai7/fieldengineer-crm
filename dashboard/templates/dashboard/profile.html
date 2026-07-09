@@ -16,25 +16,25 @@
     <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-2">
             <div class="relative w-16 h-16 flex-shrink-0">
-                <!-- Profile Image Container -->
-                <div id="profileImageContainer" class="relative w-16 h-16">
-                    <img id="profileImage" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120" alt="Avatar" class="w-full h-full rounded-full object-cover p-1 ring-2 ring-blue-500">
-                    
-                    <!-- Hidden file input -->
-                    <input type="file" id="profileImageInput" accept="image/*" class="hidden" onchange="changeProfileImage(event)">
-                    
-                    <!-- Hover overlay - hidden by default -->
-                    <div id="profileOverlay" class="absolute inset-0 rounded-full bg-black/40 opacity-0 transition-opacity flex items-center justify-center pointer-events-none">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
-                    </div>
-                </div>
-                
-                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-blue-50 border border-blue-200 text-blue-600 font-semibold text-[10px] px-1.5 py-0.5 rounded-full shadow-sm">80%</span>
-            </div>
-            <button id="editProfileBtn" class="bg-primary hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto" onclick="toggleEditMode()">
+    <!-- Profile Image Container -->
+    <div id="profileImageContainer" class="relative w-16 h-16">
+        <img id="profileImage" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120" alt="Avatar" class="w-full h-full rounded-full object-cover p-1 ring-2 ring-primary-yellow">
+        
+        <!-- Hidden file input -->
+        <input type="file" id="profileImageInput" accept="image/*" class="hidden" onchange="changeProfileImage(event)">
+        
+        <!-- Hover overlay - hidden by default -->
+        <div id="profileOverlay" class="absolute inset-0 rounded-full bg-black/40 opacity-0 transition-opacity flex items-center justify-center pointer-events-none">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+        </div>
+    </div>
+    
+    <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary-yellow border border-primary-yellow text-white font-semibold text-[10px] px-1.5 py-0.5 rounded-full shadow-sm">80%</span>
+</div>
+            <button id="editProfileBtn" class="bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto" onclick="toggleEditMode()">
                 Edit Profile
             </button>
         </div>
@@ -42,7 +42,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-0">
             <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
                 <div class="p-2.5 bg-blue-50 text-blue-600 rounded-xl">
-                   <img src="/static/img/person.svg" alt="">
+                   <img src="/static/img/profile.svg" alt="">
                 </div>
                 <div class="leading-none flex-1">
                     <p class="text-sm font-semibold text-primary-gray">Contact Person</p>
@@ -194,8 +194,8 @@
             </div>
         </div>
 
-        <button class="w-full border border-primary text-blue-600 hover:bg-blue-50 font-semibold text-sm py-3 rounded-xl transition duration-200 flex items-center justify-center gap-1.5">
-            <span class="text-lg text-primary font-medium leading-none">+</span> Add Payment Method
+        <button class="w-full border border-primary-yellow text-primary-yellow hover:bg-yellow-100 font-semibold text-sm py-3 rounded-xl transition duration-200 flex items-center justify-center gap-1.5">
+            <span class="text-lg text-primary-yellow font-medium leading-none">+</span> Add Payment Method
         </button>
     </div>
 
@@ -261,7 +261,7 @@
    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
     <div class="flex items-center justify-between mb-6">
         <h2 class="text-lg font-bold text-ink">Business Information</h2>
-        <button class="bg-primary hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn" onclick="toggleSectionEdit(this, 'businessInfo')">
+        <button class="bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn" onclick="toggleSectionEdit(this, 'businessInfo')">
             Edit Information
         </button>
     </div>
@@ -314,7 +314,7 @@
     <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
     <div class="flex items-center justify-between mb-6">
         <h2 class="text-lg font-bold text-ink">Office Address</h2>
-        <button class="bg-primary hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn" onclick="toggleSectionEdit(this, 'officeAddress')">
+        <button class="bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn" onclick="toggleSectionEdit(this, 'officeAddress')">
             Edit Address
         </button>
     </div>
@@ -359,7 +359,7 @@
    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
     <div class="flex items-center justify-between mb-6">
         <h2 class="text-lg font-bold text-ink">Authorized Contact</h2>
-        <button class="bg-primary hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn" onclick="toggleSectionEdit(this, 'authorizedContact')">
+        <button class="bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn" onclick="toggleSectionEdit(this, 'authorizedContact')">
             Edit Details
         </button>
     </div>
@@ -404,7 +404,7 @@
     <div class="overflow-x-auto rounded-xl border border-slate-100">
         <table class="w-full text-left border-collapse min-w-[700px]">
             <thead>
-                <tr class="bg-primary text-white text-sm font-medium">
+                <tr class="bg-primary-yellow text-white text-sm font-medium">
                     <th class="p-3 px-4 border-r border-white/20">Documents Name</th>
                     <th class="p-3 px-4 text-center border-r border-white/20">Type</th>
                     <th class="p-3 px-4 text-center border-r border-white/20">Status</th>
@@ -557,7 +557,7 @@ upload
             imageContainer.onclick = null;
             
             btn.textContent = 'Edit Profile';
-            btn.className = 'bg-[#1466DE] hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto';
+            btn.className = 'bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto';
             alert('Profile saved successfully!');
         } else {
             // Edit mode - enable inputs, add border
@@ -579,7 +579,7 @@ upload
             };
             
             btn.textContent = 'Save Profile';
-            btn.className = 'bg-[#1466DE] hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto';
+            btn.className = 'bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto';
         }
     }
 
@@ -596,7 +596,7 @@ upload
                 input.classList.add('bg-slate-50');
             });
             button.textContent = button.textContent.replace('Save', 'Edit');
-            button.className = 'bg-[#1466DE] hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn';
+            button.className = 'bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn';
             alert('Changes saved successfully!');
         } else {
             inputs.forEach(input => {
@@ -605,7 +605,7 @@ upload
                 input.classList.add('bg-white');
             });
             button.textContent = button.textContent.replace('Edit', 'Save');
-            button.className = 'bg-[#1466DE] hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn';
+            button.className = 'bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn';
         }
     }
 
