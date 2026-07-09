@@ -369,17 +369,49 @@
 </head>
 
 <body>
+      
+<!-- ════════════ HEADER ════════════ -->
+<header class="sticky top-0 z-50">
 
+   <div class="w-full bg-white border-b border-gray-200">
+    <div class="mx-auto max-w-[90rem] px-8">
 
-    <!-- ════════════ NAVBAR ════════════ -->
-    <header class="site-nav">
+        <div class="flex h-12 items-center justify-between">
+
+            <div class="flex items-center gap-5 text-sm text-gray-600">
+
+                <a href="javascript:void(0)"
+                   id="salesEnquiryBtn"
+                   class="hover:text-blue-600">
+                    Sales Enquiry
+                </a>
+
+                <span class="text-gray-300">|</span>
+
+                <a href="#" class="hover:text-blue-600">
+                    Submit a Ticket
+                </a>
+
+            </div>
+
+            <a href="#"
+               class="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-white px-4 py-1.5 rounded-md text-sm font-medium">
+                Support Login
+            </a>
+
+        </div>
+
+    </div>
+ </div>
+
+    <!-- ======= NAVBAR ======= -->
+    <div class="site-nav">
         <div class="nav-inner">
 
-        <!-- Logo -->
-        <a href="#" class="nav-logo">
-            <span class="nav-logo-text">Field Engineer</span>
-      <!-- <span class="nav-logo-text-sub">Field Engineer Workspace Platform</span> -->
-        </a>
+            <!-- Logo -->
+            <a href="#" class="nav-logo">
+                <span class="nav-logo-text">Field Engineer</span>
+            </a>
 
             <!-- Desktop Navigation -->
             <ul class="nav-links">
@@ -390,12 +422,12 @@
                     </button>
                 </li>
 
-
                 <li>
                     <button>
                         For Customers
-                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                        <span class="material-symbols-outlined tiny-icon">keyboard_arrow_down</span>
                     </button>
+
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'request_service' %}">Request a Service</a></li>
                         <li><a href="#">Service Categories</a></li>
@@ -407,8 +439,9 @@
                 <li>
                     <button>
                         Join FE Individual or Vendor
-                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                        <span class="material-symbols-outlined tiny-icon">keyboard_arrow_down</span>
                     </button>
+
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'fieldengineer' %}">Becoming a Field Engineer</a></li>
                         <li><a href="{% url 'vendor' %}">Becoming a Vendor Partner</a></li>
@@ -418,8 +451,9 @@
                 <li>
                     <button>
                         Company
-                        <span class="material-symbols-outlined tiny-icon" aria-hidden="true">keyboard_arrow_down</span>
+                        <span class="material-symbols-outlined tiny-icon">keyboard_arrow_down</span>
                     </button>
+
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'about_fe' %}">About FE</a></li>
                         <li><a href="{% url 'careers' %}">Careers</a></li>
@@ -430,27 +464,30 @@
                         <li><a href="{% url 'term_condition' %}">Terms & Conditions</a></li>
                     </ul>
                 </li>
+
             </ul>
 
-            <!-- Right CTAs -->
+            <!-- Right Button -->
             <div class="nav-actions">
-
                 <a href="#" class="nav-cta-btn">
-                    Login <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                    Login
+                    <span class="material-symbols-outlined">arrow_forward</span>
                 </a>
             </div>
 
-            <!-- Hamburger (mobile) -->
+            <!-- Mobile Menu -->
             <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 6h16M4 12h16M4 18h16" />
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2">
+                    <path d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
             </button>
 
         </div>
-    </header>
-    <!-- END NAVBAR -->
-    <!-- END NAVBAR -->
+    </div>
+
+</header>
+<!-- END HEADER -->
 
     <!-- ════════════ MAIN CONTENT ════════════ -->
     <main>
@@ -757,6 +794,309 @@
     {% block extra_js %}
 
     {% endblock %}
+    <div id="salesModal"
+     class="fixed inset-0 hidden items-center justify-center bg-black/60 z-[9999]">
+
+    <div class="bg-white rounded-2xl w-[90%] max-w-5xl h-[90vh] overflow-y-auto relative">
+
+        <button id="closeSalesModal"
+                class="absolute top-5 right-5 text-3xl">
+            ✕
+        </button>
+
+        <div class="p-10">
+
+            <h2 class="text-4xl font-bold mb-8">
+                Tell us how we can help
+            </h2>
+<form id="salesEnquiryForm" class="mt-8 space-y-6">
+
+    <!-- Company Name -->
+    <div>
+        <label class="block text-lg font-medium mb-2">
+            Company Name <span class="text-red-500">*</span>
+        </label>
+        <input
+            type="text"
+            name="company_name"
+            placeholder="Company Name"
+            required
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+
+    <!-- Industry -->
+    <div>
+        <label class="block text-lg font-medium mb-2">
+            Industry <span class="text-red-500">*</span>
+        </label>
+
+        <select
+            name="industry"
+            required
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+            <option value="">Select Industry</option>
+            <option>IT</option>
+            <option>Telecom</option>
+            <option>Healthcare</option>
+            <option>Manufacturing</option>
+            <option>Education</option>
+            <option>Retail</option>
+            <option>Finance</option>
+            <option>Construction</option>
+            <option>Other</option>
+
+        </select>
+    </div>
+
+    <!-- First Name & Last Name -->
+    <div class="grid md:grid-cols-2 gap-6">
+
+        <div>
+    <label class="block text-lg font-medium mb-2">
+        First Name <span class="text-red-500">*</span>
+    </label>
+
+    <input
+        type="text"
+        name="first_name"
+        placeholder="First Name"
+        required
+        pattern="[A-Za-z ]+"
+        title="First name should contain only letters."
+        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+</div>
+
+        <div>
+    <label class="block text-lg font-medium mb-2">
+        Last Name <span class="text-red-500">*</span>
+    </label>
+
+    <input
+        type="text"
+        name="last_name"
+        placeholder="Last Name"
+        required
+        pattern="[A-Za-z ]+"
+        title="Last name should contain only letters."
+        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+</div>
+
+    </div>
+
+    <!-- Contact Number & Email -->
+    <div class="grid md:grid-cols-2 gap-6">
+
+        <div>
+            <label class="block text-lg font-medium mb-2">
+                Contact Number <span class="text-red-500">*</span>
+            </label>
+
+            <div class="flex gap-3">
+
+                <select
+                    name="country_code"
+                    required
+                    class="w-32 border border-gray-300 rounded-lg px-3 py-3">
+
+                    <option value="+91">+91</option>
+                    <option value="+1">+1</option>
+                    <option value="+44">+44</option>
+                    <option value="+61">+61</option>
+                    <option value="+971">+971</option>
+
+                </select>
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Enter Contact Number"
+                    required
+                    minlength="10"
+                    maxlength="10"
+                    pattern="[0-9]{10}"
+                    title="Please enter a valid 10-digit phone number"
+                    class="flex-1 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+            </div>
+
+        </div>
+
+        <div>
+            <label class="block text-lg font-medium mb-2">
+                Email <span class="text-red-500">*</span>
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+    </div>
+
+    <!-- Website & Address -->
+    <div class="grid md:grid-cols-2 gap-6">
+
+        <div>
+            <label class="block text-lg font-medium mb-2">
+                Website <span class="text-red-500">*</span>
+            </label>
+
+            <input
+                type="url"
+                name="website"
+                placeholder="https://example.com"
+                required
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div>
+            <label class="block text-lg font-medium mb-2">
+                Company Address <span class="text-red-500">*</span>
+            </label>
+
+            <input
+                type="text"
+                name="company_address"
+                placeholder="Company Address"
+                required
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+    </div>
+
+    <!-- City / State / Country -->
+    <div class="grid md:grid-cols-3 gap-6">
+
+        <div>
+            <label class="block text-lg font-medium mb-2">
+                City <span class="text-red-500">*</span>
+            </label>
+
+            <input
+                type="text"
+                name="city"
+                placeholder="City"
+                required
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div>
+            <label class="block text-lg font-medium mb-2">
+                State <span class="text-red-500">*</span>
+            </label>
+
+            <input
+                type="text"
+                name="state"
+                placeholder="State"
+                required
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div>
+            <label class="block text-lg font-medium mb-2">
+                Country <span class="text-red-500">*</span>
+            </label>
+
+            <input
+                type="text"
+                name="country"
+                placeholder="Country"
+                required
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+    </div>
+
+    <!-- Service Required -->
+    <div>
+        <label class="block text-lg font-medium mb-2">
+            Service Required <span class="text-red-500">*</span>
+        </label>
+
+        <input
+            type="text"
+            name="service_required"
+            placeholder="Service Required"
+            required
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+
+    <!-- Message -->
+    <div>
+
+        <label class="block text-lg font-medium mb-2">
+            Message <span class="text-red-500">*</span>
+        </label>
+
+        <textarea
+            name="message"
+            rows="5"
+            placeholder="Write your message..."
+            required
+            minlength="10"
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+
+    </div>
+
+    <!-- Submit Button -->
+<div class="flex justify-center mt-8">
+
+    <button
+        type="submit"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-3 rounded-lg transition duration-300">
+
+        Submit Enquiry
+
+    </button>
+
+</div>
+
+</form>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("salesEnquiryBtn");
+    const modal = document.getElementById("salesModal");
+    const close = document.getElementById("closeSalesModal");
+
+    console.log("Button:", btn);
+    console.log("Modal:", modal);
+
+    if (!btn || !modal || !close) {
+        console.error("One or more elements were not found.");
+        return;
+    }
+
+    btn.addEventListener("click", function () {
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+    });
+
+    close.addEventListener("click", function () {
+        modal.classList.remove("flex");
+        modal.classList.add("hidden");
+    });
+
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+        }
+    });
+});
+</script>
+</body>
+</html>
 </body>
 
 </html>

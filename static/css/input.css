@@ -998,9 +998,9 @@
   }
 
   /* Navbar */
-  .site-nav {
-    @apply sticky top-0 z-50 bg-primary-light;
-  }
+ .site-nav {
+    @apply bg-primary-light;
+}
 
   .nav-inner {
     @apply mx-auto flex h-[68px] max-w-[90rem] items-center justify-between gap-6 px-8;
@@ -1051,6 +1051,26 @@
   .dropdown-menu a:hover {
     @apply bg-light text-primary;
   }
+
+  .dropdown-trigger {
+  @apply bg-white border border-gray-300;
+}
+
+.dropdown-trigger input {
+  @apply bg-transparent;
+}
+
+.dropdownMenu li {
+  @apply bg-white text-black px-2 py-2 rounded-md cursor-pointer;
+}
+
+.dropdownMenu li:hover {
+  @apply bg-gray-100;
+}
+
+.dropdownMenu li.selected {
+  @apply bg-white text-black;
+}
 
   .nav-actions {
     @apply flex shrink-0 items-center gap-2.5;
