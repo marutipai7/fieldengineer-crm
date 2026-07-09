@@ -36,7 +36,7 @@ new Chart(ctx, {
       {
         label: "Revenue",
         data: data,
-        backgroundColor: "#1660E8",
+        backgroundColor: "#FFC949",
         borderRadius: 0,
         barPercentage: 0.35,
         categoryPercentage: 0.8,
