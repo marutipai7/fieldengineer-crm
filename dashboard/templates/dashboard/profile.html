@@ -4,10 +4,60 @@
 
 {% block content %}
 
-<div class="p-0 lg:p-0  min-h-screen text-slate-800">
-    <div class="mb-8">
-        <h1 class="text-2xl font-bold text-ink">Profile & Verification Center</h1>
-        <p class="text-sm text-granite-gray mt-1">Complete your profile to unlock all feature and book faster.</p>
+<!-- <div class="p-0 lg:p-0  min-h-screen text-slate-800"> -->
+    <div class="max-w-7xl mx-auto p- sm:p- space-y-6  min-h-screen font-sans">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+            <h1 class="text-xl font-bold text-ink">Profile & Verification Center</h1>
+            <p class="text-xs text-slate-400 mt-0.5">Complete your profile to unlock all feature and book faster.</p>
+        </div>
+        <button class="bg-primary-yellow hover:bg-[#F59E0B] text-white font-semibold text-sm px-4 py-2 rounded-xl transition duration-150 flex items-center gap-2 shadow-sm self-start sm:self-auto">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"/></svg>
+            Edit Profile
+        </button>
+    </div>
+
+    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="w-full lg:max-w-3xl relative px-4">
+            
+            <div class="absolute left-[calc(10%/2+8px)] right-[calc(10%/2+8px)] top-3.5 h-[2px] bg-slate-200 -z-0">
+                <div class="bg-[#22C55E] h-full w-[25%]"></div>
+            </div>
+            
+            <div class="relative z-10 flex items-start justify-between w-full">
+                <div class="flex flex-col items-center w-[10%]">
+                    <div class="w-7 h-7 rounded-full bg-[#22C55E] text-white flex items-center justify-center shadow-sm">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                    </div>
+                    <span class="text-[13px] font-semibold text-slate-700 mt-2.5 text-center whitespace-nowrap">Profile Details</span>
+                </div>
+
+                <div class="flex flex-col items-center w-[10%]">
+                    <div class="w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300"></div>
+                    <span class="text-[13px] font-medium text-slate-400 mt-2.5 text-center whitespace-nowrap">Identity Verification</span>
+                </div>
+
+                <div class="flex flex-col items-center w-[10%]">
+                    <div class="w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300"></div>
+                    <span class="text-[13px] font-medium text-slate-400 mt-2.5 text-center whitespace-nowrap">Business Information</span>
+                </div>
+
+                <div class="flex flex-col items-center w-[10%]">
+                    <div class="w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300"></div>
+                    <span class="text-[13px] font-medium text-slate-400 mt-2.5 text-center whitespace-nowrap">Payment Method</span>
+                </div>
+
+                <div class="flex flex-col items-center w-[10%]">
+                    <div class="w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300"></div>
+                    <span class="text-[13px] font-medium text-slate-400 mt-2.5 text-center whitespace-nowrap">Documents</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="w-full lg:w-auto bg-[#FBBF24] hover:bg-[#F59E0B] text-white font-bold text-xs px-6 py-3 rounded-xl transition duration-150 whitespace-nowrap shadow-sm flex items-center justify-center gap-2 self-center">
+            Continue Setup
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
+        </button>
     </div>
 
    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -34,9 +84,9 @@
     
     <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary-yellow border border-primary-yellow text-white font-semibold text-[10px] px-1.5 py-0.5 rounded-full shadow-sm">80%</span>
 </div>
-            <button id="editProfileBtn" class="bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto" onclick="toggleEditMode()">
+            <!-- <button id="editProfileBtn" class="bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto" onclick="toggleEditMode()">
                 Edit Profile
-            </button>
+            </button> -->
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-0">
@@ -256,140 +306,113 @@
 
 </div>
 
-    <div class="mt-6 grid grid-cols-1 gap-6">
+    <div class="mt-6 space-y-6">
 
-   <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-    <div class="flex items-center justify-between mb-6">
-        <h2 class="text-lg font-bold text-ink">Business Information</h2>
-        <button class="bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn" onclick="toggleSectionEdit(this, 'businessInfo')">
-            Edit Information
-        </button>
-    </div>
-
-    <div id="businessInfo" class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Company Name</label>
-            <input type="text" value="ACME Pvt Ltd." disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
-
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Business Type</label>
-            <input type="text" value="Private Limited" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
-
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Industry Type</label>
-            <input type="text" value="Data Center Services" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
-
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">GST Number</label>
-            <input type="text" value="98123461021346" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
-
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Pan Number</label>
-            <input type="text" value="GXBPM2878F" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
-
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Company Registration Number</label>
-            <input type="text" value="AEYSYEJ325" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
-
-        <div class="md:col-span-2">
-            <label class="block text-sm font-normal text-ink mb-2">Website</label>
-            <input type="text" value="www.acme.com" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
-    </div>
-</div>
-
+    <!-- SECTION 1: BUSINESS INFORMATION -->
     <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-    <div class="flex items-center justify-between mb-6">
-        <h2 class="text-lg font-bold text-ink">Office Address</h2>
-        <button class="bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn" onclick="toggleSectionEdit(this, 'officeAddress')">
-            Edit Address
-        </button>
+        <h2 class="text-base font-bold text-slate-800 mb-5">Business Information</h2>
+        
+        <div id="businessInfo" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4">
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Company Name</p>
+                <p class="text-xs text-slate-400 mt-1">ACME Pvt Ltd.</p>
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Business Type</p>
+                <p class="text-xs text-slate-400 mt-1">Private Limited</p>
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Industry Type</p>
+                <p class="text-xs text-slate-400 mt-1">Data center services</p>
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold text-slate-700">GST Number</p>
+                <p class="text-xs text-slate-400 mt-1">1234567476554</p>
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Pan Number</p>
+                <p class="text-xs text-slate-400 mt-1">GXBPM1211E</p>
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Company Registration Number</p>
+                <p class="text-xs text-slate-400 mt-1">ASDFET3456234</p>
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Website</p>
+                <p class="text-xs text-slate-400 mt-1">www.acme.com</p>
+            </div>
+        </div>
     </div>
 
-    <div id="officeAddress" class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Address Type</label>
-            <input type="text" value="Head Office" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
+    <!-- SECTION 2: OFFICE ADDRESS -->
+    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+        <h2 class="text-base font-bold text-slate-800 mb-5">Office Address</h2>
+        
+        <div id="officeAddress" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4">
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Address Type</p>
+                <p class="text-xs text-slate-400 mt-1">Head Office</p>
+            </div>
 
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Pin-code</label>
-            <input type="text" value="123456" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Pin code</p>
+                <p class="text-xs text-slate-400 mt-1">123 456</p>
+            </div>
 
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Phone Number</label>
-            <input type="text" value="+91 65734839" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Phone Number</p>
+                <p class="text-xs text-slate-400 mt-1">+91 87654 34567</p>
+            </div>
 
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Landmark</label>
-            <input type="text" value="Near tmks" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Land Mark</p>
+                <p class="text-xs text-slate-400 mt-1">Near tkam</p>
+            </div>
 
-        <div class="md:col-span-2">
-            <label class="block text-sm font-normal text-ink mb-2">Address</label>
-            <input type="text" value="Vadol Gaon, Waldhuni, Ambernath, Ulhasnagar, Maharashtra 421501" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
+            <div class="md:col-span-4">
+                <p class="text-sm font-semibold text-slate-700">Address</p>
+                <p class="text-xs text-slate-400 mt-1">Vadol Gaon, Waldhuni, Ambernath, Ulhasnagar, Maharashtra 421501</p>
+            </div>
         </div>
     </div>
-</div>
+
+    <!-- SECTION 3: AUTHORIZED CONTACT -->
+    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+        <h2 class="text-base font-bold text-slate-800 mb-5">Authorized Contact</h2>
+        
+        <div id="authorizedContact" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4">
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Name</p>
+                <p class="text-xs text-slate-400 mt-1">Aniket Mahakal</p>
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Designation</p>
+                <p class="text-xs text-slate-400 mt-1">Operation Manager</p>
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Phone Number</p>
+                <p class="text-xs text-slate-400 mt-1">+91 87654 34567</p>
+            </div>
+
+            <div>
+                <p class="text-sm font-semibold text-slate-700">Work Email</p>
+                <p class="text-xs text-slate-400 mt-1">aniket@gmail.com</p>
+            </div>
+        </div>
+    </div>
 
 </div>
-
 <div class="mt-6 grid grid-cols-1 gap-6">
 
-   <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-    <div class="flex items-center justify-between mb-6">
-        <h2 class="text-lg font-bold text-ink">Authorized Contact</h2>
-        <button class="bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn" onclick="toggleSectionEdit(this, 'authorizedContact')">
-            Edit Details
-        </button>
-    </div>
-
-    <div id="authorizedContact" class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Name</label>
-            <input type="text" value="Rishi Acharya" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
-
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Designation</label>
-            <input type="text" value="Operation Manager" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
-
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Phone Number</label>
-            <input type="text" value="+91 65734839" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
-
-        <div>
-            <label class="block text-sm font-normal text-ink mb-2">Work Email</label>
-            <input type="text" value="rishi@acme.com" disabled
-                class="w-full bg-slate-50 border border-slate-200 text-sm text-granite-gray font-medium rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-slate-50 disabled:opacity-100">
-        </div>
-    </div>
-</div>
+  
 
   <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
     <div class="flex items-center justify-between mb-1">
@@ -531,98 +554,6 @@ upload
 
 </div>
 </div>
-
-<script>
-    // Toggle edit mode for Profile section
-    function toggleEditMode() {
-        const btn = document.getElementById('editProfileBtn');
-        const inputs = document.querySelectorAll('.profile-input');
-        const overlay = document.getElementById('profileOverlay');
-        const imageContainer = document.getElementById('profileImageContainer');
-        const isEditing = btn.textContent === 'Save Profile';
-        
-        if (isEditing) {
-            // Save mode - disable inputs, remove border
-            inputs.forEach(input => {
-                input.disabled = true;
-                input.classList.remove('border', 'border-slate-200', 'bg-white', 'rounded', 'px-2', 'py-1');
-                input.classList.add('bg-transparent', 'p-0');
-            });
-            
-            // Make profile picture non-clickable
-            imageContainer.style.cursor = 'default';
-            overlay.style.pointerEvents = 'none';
-            overlay.classList.remove('opacity-100');
-            overlay.classList.add('opacity-0');
-            imageContainer.onclick = null;
-            
-            btn.textContent = 'Edit Profile';
-            btn.className = 'bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto';
-            alert('Profile saved successfully!');
-        } else {
-            // Edit mode - enable inputs, add border
-            inputs.forEach(input => {
-                input.disabled = false;
-                input.classList.remove('bg-transparent', 'p-0');
-                input.classList.add('border', 'border-slate-200', 'bg-white', 'rounded', 'px-2', 'py-1');
-            });
-            
-            // Make profile picture clickable with hover effect
-            imageContainer.style.cursor = 'pointer';
-            overlay.style.pointerEvents = 'auto';
-            overlay.classList.remove('opacity-0');
-            overlay.classList.add('opacity-100');
-            
-            // Add click handler to image container
-            imageContainer.onclick = function(e) {
-                document.getElementById('profileImageInput').click();
-            };
-            
-            btn.textContent = 'Save Profile';
-            btn.className = 'bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto';
-        }
-    }
-
-    // Toggle edit mode for individual sections
-    function toggleSectionEdit(button, sectionId) {
-        const section = document.getElementById(sectionId);
-        const inputs = section.querySelectorAll('input');
-        const isEditing = button.textContent.toLowerCase().includes('save');
-        
-        if (isEditing) {
-            inputs.forEach(input => {
-                input.disabled = true;
-                input.classList.remove('bg-white');
-                input.classList.add('bg-slate-50');
-            });
-            button.textContent = button.textContent.replace('Save', 'Edit');
-            button.className = 'bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn';
-            alert('Changes saved successfully!');
-        } else {
-            inputs.forEach(input => {
-                input.disabled = false;
-                input.classList.remove('bg-slate-50');
-                input.classList.add('bg-white');
-            });
-            button.textContent = button.textContent.replace('Edit', 'Save');
-            button.className = 'bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm edit-toggle-btn';
-        }
-    }
-
-    // Change profile image
-    function changeProfileImage(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('profileImage').src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-        // Reset the input so same file can be selected again
-        event.target.value = '';
-    }
-</script>
 
 <style>
     /* Profile inputs - no border by default */

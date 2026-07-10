@@ -11,7 +11,7 @@
     <section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div class="metrics-card">
             <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-cloud-blue">
-                <span class="material-symbols-outlined text-primary">currency_rupee</span>
+                <span class="material-symbols-outlined text-[#FFC949]">currency_rupee</span>
             </div>
             <div class="flex flex-col gap-1">
                 <p class="font-normal text-xs text-medium">Total Spend</p>
@@ -49,7 +49,7 @@
             <div class="payment-method">
                 <div class="flex items-center gap-3">
                     <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-cloud-blue">
-                        <span class="material-symbols-outlined text-primary text-lg!">credit_card</span>
+                        <span class="material-symbols-outlined text-[#FFC949] text-lg!">credit_card</span>
                     </div>
                     <div class="flex flex-col gap-1">
                         <p class="font-normal text-sm text-ink">HDFC Bank</p>
@@ -116,9 +116,9 @@
             </div>
 
             <button
-                class="border border-primary! bg-white rounded-xl flex items-center justify-center py-4 gap-2 cursor-pointer addPaymentBtn">
+                class="border border-[#FFC949]! bg-white rounded-xl flex items-center justify-center py-4 gap-2 cursor-pointer addPaymentBtn">
                 <span class="text-royal-blue material-symbols-outlined">add</span>
-                <span class="text-primary font-semibold text-lg">Add Payment Method</span>
+                <span class="text-[#FFC949] font-semibold text-lg">Add Payment Method</span>
             </button>
         </div>
 
@@ -127,7 +127,7 @@
             <div class="flex items-center justify-between py-2 border-b border-soft-slate">
                 <div class="flex items-center gap-3">
                     <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-cloud-blue">
-                        <span class="material-symbols-outlined text-primary text-lg!">docs</span>
+                        <span class="material-symbols-outlined text-[#FFC949] text-lg!">docs</span>
                     </div>
                     <p class="font-normal text-sm text-ink">Download GST Report</p>
                 </div>
@@ -172,23 +172,23 @@
 
     <section class="flex flex-col gap-4">
         <div class="flex items-center gap-2">
-            <button
-                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+            <button data-status="all"
+                class="filter-tab border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary! active-tab">
                 <span class="font-normal text-xs text-granite-gray group-hover:text-white">All</span>
             </button>
 
-            <button
-                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+            <button data-status="paid"
+                class="filter-tab border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
                 <span class="font-normal text-xs text-granite-gray group-hover:text-white">Paid</span>
             </button>
 
-            <button
-                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+            <button data-status="pending"
+                class="filter-tab border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
                 <span class="font-normal text-xs text-granite-gray group-hover:text-white">Pending</span>
             </button>
 
-            <button
-                class="border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
+            <button data-status="refunded"
+                class="filter-tab border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary!">
                 <span class="font-normal text-xs text-granite-gray group-hover:text-white">Refunded</span>
             </button>
         </div>
@@ -250,7 +250,7 @@
                 </thead>
 
                 <tbody class="border border-light-medium rounded-br-2xl rounded-bl-2xl">
-                    <tr>
+                    <tr class="invoice-row" data-status="paid">
                         <td class="p-7.5 font-semibold text-base text-dark-gray">
                             INV-2026-001
                         </td>
@@ -279,7 +279,7 @@
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr class="invoice-row" data-status="paid">
                         <td class="p-7.5 font-semibold text-base text-dark-gray">
                             INV-2026-002
                         </td>
@@ -309,7 +309,7 @@
                     </tr>
 
 
-                    <tr>
+                    <tr class="invoice-row" data-status="pending">
                         <td class="p-7.5 font-semibold text-base text-dark-gray">
                             INV-2026-003
                         </td>
@@ -338,7 +338,7 @@
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr class="invoice-row" data-status="pending">
                         <td class="p-7.5 font-semibold text-base text-dark-gray">
                             INV-2026-004
                         </td>
@@ -367,7 +367,7 @@
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr class="invoice-row" data-status="pending">
                         <td class="p-7.5 font-semibold text-base text-dark-gray">
                             INV-2026-005
                         </td>
@@ -484,6 +484,154 @@
         </a>
     </section>
 </main>
+
+<!-- Invoice Modal -->
+<div id="invoiceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative">
+        <div class="sticky top-0 bg-white z-10 border-b border-gray-200">
+            <div class="flex justify-between items-center p-4">
+                <div class="flex gap-2">
+                    <button class="bg-[#00B884] text-white rounded p-1 flex items-center justify-center w-8 h-8"><span
+                            class="material-symbols-outlined text-sm">share</span></button>
+                    <button class="bg-[#00B884] text-white rounded p-1 flex items-center justify-center w-8 h-8"><span
+                            class="material-symbols-outlined text-sm">download</span></button>
+                </div>
+                <h2 class="text-2xl font-semibold text-[#00B884]">Invoice</h2>
+                <button id="closeInvoiceModal"
+                    class="text-gray-500 hover:text-gray-700 w-8 h-8 flex items-center justify-center">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+        </div>
+        <div class="p-8 text-sm">
+            <!-- Header section of invoice -->
+            <div class="text-center mb-6">
+                <p class="font-bold">TAX INVOICE</p>
+                <p class="text-xs">(Under GST - Advertising Service: SAC 998361)</p>
+                <hr class="my-2 border-dashed border-gray-300">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                    <div class="flex"><span class="w-32 font-medium">Invoice No:</span><span>INV/AD/2025/0045</span>
+                    </div>
+                    <div class="flex"><span class="w-32 font-medium">Date:</span><span>17-May-2025</span></div>
+                </div>
+                <div></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                <div>
+                    <div class="flex"><span class="w-24 font-medium">Platform Name:</span><span>MediConnect Digital
+                            Services Pvt. Ltd.</span></div>
+                    <div class="flex mt-2"><span class="w-24 font-medium">GSTIN:</span><span>27PLATFORM7890123</span>
+                    </div>
+                    <div class="flex mt-1"><span class="w-24 font-medium">Address:</span><span>3rd Floor, Knowledge
+                            Tower, Bengaluru - 560034</span></div>
+                    <div class="flex mt-1"><span class="w-24 font-medium text-red-500">Contact:</span><span
+                            class="text-red-500">+91-9988776655 | billing@mediconnect.in</span></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                <div>
+                    <p class="font-medium">Billed To:</p>
+                    <div class="flex mt-1"><span class="w-24 font-medium">Advertiser Name:</span><span>WellnessFit
+                            Nutrition Pvt. Ltd.</span></div>
+                    <div class="flex mt-1"><span class="w-24 font-medium">GSTIN:</span><span>27WELLFIT12345129</span>
+                    </div>
+                    <div class="flex mt-1"><span class="w-24 font-medium">Address:</span><span>22, Link Road, Mumbai -
+                            400072</span></div>
+                    <div class="flex mt-1"><span class="w-24 font-medium text-red-500">Contact:</span><span
+                            class="text-red-500">info@wellnessfit.in</span></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                <div>
+                    <div class="flex"><span class="w-32 font-medium">Order
+                            Reference:</span><span>COUP-ORD-2025/223</span></div>
+                    <div class="flex mt-1"><span class="w-32 font-medium text-red-500">Campaign Duration:</span><span
+                            class="text-red-500">18-May-2025 to 25-May-2025</span></div>
+                </div>
+            </div>
+
+            <hr class="my-4 border-dashed border-red-300">
+
+            <table class="w-full text-xs text-red-500 mb-6">
+                <thead>
+                    <tr class="text-left">
+                        <th class="font-medium">Description</th>
+                        <th class="font-medium">SAC code</th>
+                        <th class="font-medium">Qty</th>
+                        <th class="font-medium">Rate</th>
+                        <th class="font-medium">GST %</th>
+                        <th class="font-medium text-right">Total (INR)</th>
+                    </tr>
+                </thead>
+                <tbody class="text-black">
+                    <tr class="mt-2">
+                        <td class="pt-2">Coupon Posting - 6 coupons x 10 views<br>(Digital display services)</td>
+                        <td class="pt-2">998361</td>
+                        <td class="pt-2">60</td>
+                        <td class="pt-2">₹100.00</td>
+                        <td class="pt-2">18%</td>
+                        <td class="pt-2 text-right">₹6,000.00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="flex justify-end text-xs mb-4">
+                <div class="w-64">
+                    <div class="flex justify-between"><span class="font-medium">Subtotal:</span><span>₹6,000.00</span>
+                    </div>
+                    <div class="flex justify-between text-red-500"><span class="font-medium">Add: GST
+                            @18%</span><span>₹1,080.00</span></div>
+                </div>
+            </div>
+
+            <hr class="my-2 border-dashed border-gray-300">
+
+            <div class="flex justify-end text-xs mb-4">
+                <div class="w-64">
+                    <div class="flex justify-between"><span class="font-medium">Gross Invoice
+                            Amount:</span><span>₹7,080.00</span></div>
+                    <div class="flex justify-between text-red-500"><span class="font-medium">Less: Advance Adjusted
+                            (Ref: ADV/2025/0007)</span><span>₹100.00</span></div>
+                </div>
+            </div>
+
+            <hr class="my-2 border-dashed border-red-400">
+
+            <div class="flex justify-end text-xs mb-6">
+                <div class="w-64">
+                    <div class="flex justify-between font-bold"><span>**Net Payable Now:**</span><span>₹6,980.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4 border-dashed border-gray-300">
+
+            <div class="text-xs mb-6">
+                <p class="mb-2">Amount in Words: INR Six Thousand Nine Hundred Eighty Only</p>
+                <p>Mode of Payment: UPI / Bank Transfer</p>
+            </div>
+
+            <div class="text-xs text-red-500 mb-8">
+                <p class="font-bold text-black mb-1">**Notes:**</p>
+                <p>- Services pertain to digital advertisement placements on MediConnect Platform.</p>
+                <p>- Advance of ₹100 received earlier has been adjusted.</p>
+                <p class="text-black">- Input Tax Credit (ITC) can be claimed on this invoice.</p>
+                <p>- NO TDS applicable under section 194C for online ad media (under ₹30,000 single contract).</p>
+            </div>
+
+            <div class="text-xs">
+                <p>Authorized Signatory,</p>
+                <p>[Signature]</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
 

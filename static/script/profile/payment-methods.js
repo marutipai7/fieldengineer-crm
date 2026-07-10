@@ -86,3 +86,73 @@ new Chart(ctx, {
   },
   plugins: [dataLabelsPlugin],
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Tab functionality
+    const tabs = document.querySelectorAll(".filter-tab");
+    const rows = document.querySelectorAll(".invoice-row");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            // Remove active classes from all tabs
+            tabs.forEach(t => t.classList.remove("bg-primary!", "active-tab"));
+            tabs.forEach(t => t.querySelector("span").classList.remove("text-white"));
+            tabs.forEach(t => t.querySelector("span").classList.add("text-granite-gray"));
+
+            // Add active classes to clicked tab
+            tab.classList.add("bg-primary!", "active-tab");
+            tab.querySelector("span").classList.remove("text-granite-gray");
+            tab.querySelector("span").classList.add("text-white");
+
+            const status = tab.getAttribute("data-status");
+
+            // Filter rows
+            rows.forEach(row => {
+                if (status === "all" || row.getAttribute("data-status") === status) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        });
+    });
+
+    // Initialize first tab as active
+    const allTab = document.querySelector('.filter-tab[data-status="all"]');
+    if (allTab) {
+        allTab.classList.add("bg-primary!");
+        allTab.querySelector("span").classList.remove("text-granite-gray");
+        allTab.querySelector("span").classList.add("text-white");
+    }
+
+    // Modal functionality
+    const modal = document.getElementById("invoiceModal");
+    const closeBtn = document.getElementById("closeInvoiceModal");
+    const downloadIcons = document.querySelectorAll("td span.cursor-pointer");
+
+    downloadIcons.forEach(icon => {
+        if (icon.textContent.trim() === "download") {
+            icon.addEventListener("click", () => {
+                if (modal) {
+                    modal.classList.remove("hidden");
+                    modal.classList.add("flex");
+                }
+            });
+        }
+    });
+
+    if (closeBtn && modal) {
+        closeBtn.addEventListener("click", () => {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        });
+    }
+
+    // Close when clicking outside the modal content
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+    });
+});
