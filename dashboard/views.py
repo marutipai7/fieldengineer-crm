@@ -21,3 +21,6 @@ def settings(request):
 
 def invoice(request):
     return render(request, 'dashboard/invoice.html')
+
+def login(request):
+    return render(request, 'dashboard/login.html')
