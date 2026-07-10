@@ -2383,67 +2383,69 @@
             loading="lazy"> {# ADDED: loading="lazy" #}
     </div>
 
-    <div
-        class="bg-white mx-4 md:mx-8 lg:mx-18 mt-15 rounded-lg shadow-xl p-10 flex flex-col sm:flex-row items-center flex-wrap sm:items-start justify-center gap-8 relative z-10">
-        <p class="font-bold text-3xl text-black mt-6 whitespace-nowrap"
-            style="transform: translateX(100);  margin-right: auto;margin-left:auto;">How it works
-        </p>
-
-        <div class="flex flex-col items-center">
-            <div
-                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold text-primary">
-                1
-            </div>
-            <p class="font-bold text-sm text-black">Submit Request</p>
-            <p class="font-normal text-sm text-steel-gray pt-2 max-w-22.5 text-center">Tell us your requirements</p>
+   <div class="bg-white mx-4 md:mx-8 lg:mx-18 mt-15 rounded-lg shadow-xl p-6 md:p-10 relative z-10">
+    <!-- Main Flex Container: Mobile par column vertical stack, desktop (lg) par single row -->
+    <div class="flex flex-col lg:flex-row items-center lg:justify-between gap-8 lg:gap-4">
+        
+        <!-- Heading: Mobile par perfectly center, Desktop par left-aligned -->
+        <div class="text-center lg:text-left mb-2 lg:mb-0">
+            <h2 class="font-bold text-3xl text-black whitespace-nowrap">How it works</h2>
         </div>
 
-        <span class="hidden! sm:flex! material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
-
-        <div class="flex flex-col items-center">
-            <div
-                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold text-primary">
-                2
+        <!-- Steps Content Layout: Mobile par vertical column, desktop par row flow -->
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-3 w-full lg:flex-1">
+            
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center text-center">
+                <!-- Naked digit with clean spacing underneath -->
+                <div class="text-2xl font-bold text-primary mb-3 leading-none">1</div>
+                <p class="font-bold text-sm text-black whitespace-nowrap">Submit Request</p>
+                <p class="font-normal text-sm text-steel-gray pt-1 max-w-[160px]">Tell us your requirements</p>
             </div>
-            <p class="font-bold text-sm text-black">Get Best Offers</p>
-            <p class="font-normal text-sm text-steel-gray pt-2 max-w-40 text-center">Verified vendors submit their
-                quotes</p>
-        </div>
 
-        <span class="hidden! sm:flex! material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
+            <!-- Arrow 1: Mobile par hidden, sirf desktop (lg) par steps ke bilkul beech mein dikhega -->
+            <span class="hidden lg:block material-symbols-outlined text-steel-gray mx-1 self-center mb-8">arrow_forward</span>
 
-        <div class="flex flex-col items-center">
-            <div
-                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold text-primary">
-                3
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="text-2xl font-bold text-primary mb-3 leading-none">2</div>
+                <p class="font-bold text-sm text-black whitespace-nowrap">Get Best Offers</p>
+                <p class="font-normal text-sm text-steel-gray pt-1 max-w-[160px]">Verified vendors submit their quotes</p>
             </div>
-            <p class="font-bold text-sm text-black">Assign Vendor</p>
-            <p class="font-normal text-sm text-steel-gray pt-2 max-w-40 text-center">You choose the best offer</p>
-        </div>
 
-        <span class="hidden! sm:flex! material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
+            <!-- Arrow 2 -->
+            <span class="hidden lg:block material-symbols-outlined text-steel-gray mx-1 self-center mb-8">arrow_forward</span>
 
-        <div class="flex flex-col items-center">
-            <div
-                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold text-primary">
-                4
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="text-2xl font-bold text-primary mb-3 leading-none">3</div>
+                <p class="font-bold text-sm text-black whitespace-nowrap">Assign Vendor</p>
+                <p class="font-normal text-sm text-steel-gray pt-1 max-w-[160px]">You choose the best offer</p>
             </div>
-            <p class="font-bold text-sm text-black">Work Begins</p>
-            <p class="font-normal text-sm text-steel-gray pt-2 max-w-35 text-center">Track progress in real-time</p>
-        </div>
 
-        <span class="hidden! sm:flex! material-symbols-outlined text-steel-gray my-auto">arrow_forward</span>
+            <!-- Arrow 3 -->
+            <span class="hidden lg:block material-symbols-outlined text-steel-gray mx-1 self-center mb-8">arrow_forward</span>
 
-        <div class="flex flex-col items-center">
-            <div
-                class="w-10 h-10 rounded-full border border-alice-blue bg-ice-blue flex items-center justify-center text-xl font-bold text-primary">
-                5
+            <!-- Step 4 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="text-2xl font-bold text-primary mb-3 leading-none">4</div>
+                <p class="font-bold text-sm text-black whitespace-nowrap">Work Begins</p>
+                <p class="font-normal text-sm text-steel-gray pt-1 max-w-[160px]">Track progress in real-time</p>
             </div>
-            <p class="font-bold text-sm text-black">Completion</p>
-            <p class="font-normal text-sm text-steel-gray pt-2 max-w-35 text-center">AI reports & documentation</p>
-        </div>
 
+            <!-- Arrow 4 -->
+            <span class="hidden lg:block material-symbols-outlined text-steel-gray mx-1 self-center mb-8">arrow_forward</span>
+
+            <!-- Step 5 -->
+            <div class="flex flex-col items-center text-center">
+                <div class="text-2xl font-bold text-primary mb-3 leading-none">5</div>
+                <p class="font-bold text-sm text-black whitespace-nowrap">Completion</p>
+                <p class="font-normal text-sm text-steel-gray pt-1 max-w-[160px]">AI reports & documentation</p>
+            </div>
+
+        </div>
     </div>
+</div>
 
     <div class="mx-4 md:mx-8 lg:mx-18 mt-13 rounded-lg bg-primary px-6 py-15 flex flex-col md:flex-row items-center justify-between gap-4 relative z-10"
         style="margin-bottom: 60px;">
