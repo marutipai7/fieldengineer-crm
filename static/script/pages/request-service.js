@@ -108,22 +108,52 @@ trigger.addEventListener("click", (e) => {
     });
   }
 
-  // ── Urgency Level — single select ─────────────────────────────────────────
-  let selectedUrgency = null;
+ // ── Urgency Level — single select ─────────────────────────────────────────
+let selectedUrgency = null;
 
-  document.querySelectorAll(".urgencyLevel").forEach((card) => {
-    card.classList.add("relative");
-    card.addEventListener("click", () => {
-      if (selectedUrgency && selectedUrgency !== card) {
-        selectedUrgency.classList.remove("border-primary", "bg-frost-blue");
-        selectedUrgency.classList.add("border-morning-mist");
+document.querySelectorAll(".urgencyLevel").forEach((card) => {
+  card.classList.add("relative");
+
+  card.addEventListener("click", () => {
+
+    // Remove previous selection
+    document.querySelectorAll(".urgencyLevel").forEach((item) => {
+      item.classList.remove("border-primary", "bg-frost-blue");
+      item.classList.add("border-gray-300");
+
+      const icon = item.querySelector(".material-symbols-outlined");
+
+      if (icon) {
+        icon.textContent = "radio_button_unchecked";
+        icon.classList.remove("text-primary");
+        icon.classList.add("text-gray-300");
       }
-      selectedUrgency = card;
-      card.classList.add("border-primary", "bg-frost-blue");
-      card.classList.remove("border-morning-mist");
-      removeError(card.closest(".flex.flex-col.gap-2\\.5"), "urgency-error");
     });
+
+
+    // Select clicked card
+    selectedUrgency = card;
+
+    card.classList.remove("border-gray-300");
+    card.classList.add("border-primary", "bg-frost-blue");
+
+
+    const icon = card.querySelector(".material-symbols-outlined");
+
+    if (icon) {
+      icon.textContent = "check_circle";
+      icon.classList.remove("text-gray-300");
+      icon.classList.add("text-primary");
+    }
+
+
+    removeError(
+      card.closest(".flex.flex-col.gap-2\\.5"),
+      "urgency-error"
+    );
+
   });
+});
 
   // ── Date Pickers ──────────────────────────────────────────────────────────
  // ── Date Pickers ──────────────────────────────────────────────────────────

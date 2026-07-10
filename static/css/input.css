@@ -1122,7 +1122,56 @@
       @apply flex;
     }
   }
+ .desktop-login {
+    display: flex;
+}
 
+.mobile-nav-buttons {
+    display: none;
+}
+
+@media (max-width:960px) {
+
+    /* Hide desktop login */
+    .desktop-login {
+        display: none !important;
+    }
+
+    /* Hide mobile buttons by default */
+    .mobile-nav-buttons {
+        display: none !important;
+        width: 100%;
+    }
+
+    /* When the hamburger menu opens */
+    .nav-actions.active {
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 12px;
+    }
+
+    /* Show buttons only after menu opens */
+    .nav-actions.active .mobile-nav-buttons {
+        display: flex !important;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .mobile-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1A6FE8;
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 18px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+}
   /* Footer */
   .site-footer {
     @apply px-6 pb-10 pt-4 md:px-8;

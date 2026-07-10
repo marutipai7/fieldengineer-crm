@@ -1299,55 +1299,33 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 pt-5">
-                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
-                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Entry Instructions
-                                <span class="text-red">*</span></label>
-                            <div
-                                class="flex items-center justify-between border border-gray-300 rounded-md py-3 px-4 ">
-                                <input type="text"
-                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
-                                    placeholder="Select instruction" readonly>
-                                <span
-                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
-                            </div>
+                        <div class="flex flex-col gap-2">
+    <label for="entry_instructions" class="font-semibold text-xs text-deep-indigo">
+        Entry Instructions
+        <span class="text-red">*</span>
+    </label>
 
-                            <div
-                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-gray-300 p-4 rounded-md z-9999">
-                                <ul class="space-y-4">
-                                    <li class="font-normal text-sm cursor-pointer">Instruction 1</li>
-                                    <li class="font-normal text-sm cursor-pointer">Instruction 2</li>
-                                    <li class="font-normal text-sm cursor-pointer">Instruction 2</li>
-                                    <li class="font-normal text-sm cursor-pointer">Instruction 3</li>
-                                    <li class="font-normal text-sm cursor-pointer">Instruction 4</li>
-                                </ul>
-                            </div>
+    <input
+        type="text"
+        id="entry_instructions"
+        name="entry_instructions"
+        placeholder="Enter entry instructions"
+        class="border border-gray-300 rounded-md py-3 px-4 w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm">
                         </div>
 
-                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
-                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Security Gate
-                                Details
-                                <span class="text-red">*</span></label>
-                            <div
-                                class="flex items-center justify-between border border-gray-300 rounded-md py-3 px-4 ">
-                                <input type="text"
-                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
-                                    placeholder="Select security gate details" readonly>
-                                <span
-                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
-                            </div>
+                        <div class="flex flex-col gap-2">
+    <label for="security_gate_details" class="font-semibold text-xs text-deep-indigo">
+        Security Gate Details
+        <span class="text-red">*</span>
+    </label>
 
-                            <div
-                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-gray-300 p-4 rounded-md z-9999">
-                                <ul class="space-y-4">
-                                    <li class="font-normal text-sm cursor-pointer">Gate Detail 1</li>
-                                    <li class="font-normal text-sm cursor-pointer">Gate Detail 2</li>
-                                    <li class="font-normal text-sm cursor-pointer">Gate Detail 2</li>
-                                    <li class="font-normal text-sm cursor-pointer">Gate Detail 3</li>
-                                    <li class="font-normal text-sm cursor-pointer">Gate Detail 4</li>
-                                </ul>
-                            </div>
-                        </div>
-
+    <input
+        type="text"
+        id="security_gate_details"
+        name="security_gate_details"
+        placeholder="Enter security gate details"
+        class="border border-gray-300 rounded-md py-3 px-4 w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm">
+</div>
                         <div class="flex flex-col gap-2 relative dropdown-wrapper">
                             <label for="companyname" class="font-semibold text-xs text-deep-indigo">Parking
                                 Availaibility
@@ -1436,149 +1414,257 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-2 mt-5">
-                    <div class="flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary">work</span>
-                        <div class="flex flex-col">
-                            <p class="font-semibold text-sm">Schedule & Timeline</p>
-                            <p class="font-normal text-xs text-navy-blue">Choose urgency and preferred date & time for
-                                the work.</p>
-                        </div>
-                    </div>
+                <!-- ================= Schedule & Timeline ================= -->
+<div class="flex flex-col gap-6 mt-6">
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-5">
-                        <div class="flex flex-col gap-2.5">
-                            <label for="urgency" class="font-semibold text-xs text-deep-indigo">Urgency Level
-                                <span class="text-red">*</span></label>
-                            <div
-                                class="urgency-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-                                <div
-                                    class="urgencyLevel border cursor-pointer group border-gray-300 rounded-md p-2 sm:p-3 md:p-4 flex flex-col items-center justify-center gap-0.5 hover:border-primary hover:bg-frost-blue min-h-14 sm:min-h-16 md:min-h-12">
-                                    <p class="font-bold text-xs group-hover:text-primary">Standard</p>
-                                    <p class="font-normal text-xs group-hover:text-primary">(Within 7 Days)</p>
-                                </div>
-                                <div
-                                    class="urgencyLevel border cursor-pointer group border-gray-300 rounded-md p-2 sm:p-3 md:p-4 flex flex-col items-center justify-center gap-0.5 hover:border-primary hover:bg-frost-blue min-h-14 sm:min-h-16 md:min-h-12">
-                                    <p class="font-bold text-xs group-hover:text-primary">Priority</p>
-                                    <p class="font-normal text-xs group-hover:text-primary">(Within 48 hours)</p>
-                                </div>
-                                <!--div
-                                    class="urgencyLevel border cursor-pointer group border-morning-mist rounded-md p-2 sm:p-3 md:p-4 flex flex-col items-center justify-center gap-0.5 hover:border-primary hover:bg-frost-blue min-h-14 sm:min-h-16 md:min-h-12">
-                                    <p class="font-bold text-xs group-hover:text-primary">Emergency</p>
-                                    <p class="font-normal text-xs group-hover:text-primary">(Within 24 hours)</p>
-                                </div-->
-                            </div>
-                        </div>
+    <!-- Heading -->
+    <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">work</span>
+        <div>
+            <p class="font-semibold text-sm">Schedule & Timeline</p>
+            <p class="text-xs text-navy-blue">
+                Choose urgency and preferred schedule for the work.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= Urgency Level ================= -->
+    <div class="flex flex-col gap-3">
+
+        <label class="font-semibold text-xs text-deep-indigo">
+            Urgency Level
+            <span class="text-red">*</span>
+        </label>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+
+            <!-- Standard -->
+           <div class="urgencyLevel cursor-pointer border-2 border-primary rounded-xl p-5 bg-blue-50 hover:shadow-md transition">
+
+                <div class="flex items-start justify-between">
+
+                    <div class="flex gap-4">
 
                         <div
-                            class="date-fields-grid grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-3 sm:mt-5 md:col-span-2 xl:col-span-2 min-w-0">
-                            <div class="flex flex-col gap-2.5 min-w-0">
-                                <label for="start-date" class="font-semibold text-xs text-deep-indigo">Preferred Date
-                                    From
-                                    <span class="text-red">*</span></label>
-                                <div
-                                    class="border border-gray-300 rounded-md py-2 sm:py-2.5 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 min-w-0 overflow-hidden">
-                                    <span class="material-symbols-outlined text-base sm:text-lg">calendar_today</span>
-                                    <input type="date" id="start-date"
-                                        class="w-full min-w-0 cursor-pointer bg-transparent focus:ring-0 focus:outline-none font-semibold text-xs placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel"
-                                        placeholder="dd-mm-yyyy">
-                                </div>
-                            </div>
+                            class="w-14 h-14 rounded-full bg-white flex items-center justify-center">
 
-                            <div class="flex flex-col gap-2.5 min-w-0">
-                                <label for="end-date" class="font-semibold text-xs text-deep-indigo">Preferred Date To
-                                    <span class="text-red">*</span></label>
-                                <div
-                                    class="border border-gray-300 rounded-md py-2 sm:py-2.5 px-3 sm:px-4 flex items-center gap-2 sm:gap-3 min-w-0 overflow-hidden">
-                                    <span class="material-symbols-outlined text-base sm:text-lg">calendar_today</span>
-                                    <input type="date" id="end-date"
-                                        class="w-full min-w-0 cursor-pointer bg-transparent focus:ring-0 focus:outline-none font-semibold text-xs placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel"
-                                        placeholder="dd-mm-yyyy">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            <span class="material-symbols-outlined text-primary text-3xl">
+                                schedule
+                            </span>
 
-                    <div class="grid grid-cols-3 gap-4 mt-5">
-                        <div class="flex flex-col gap-2 relative dropdown-wrapper">
-                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Preferred Time
-                                Window
-                                <span class="text-red">*</span></label>
-                            <div
-                                class="flex items-center justify-between border border-gray-300 rounded-md py-3 px-4 ">
-                                <input type="text"
-                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
-                                    placeholder="Select time" readonly>
-                                <span
-                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
-                            </div>
-
-                            <div
-                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-gray-300 p-4 rounded-md z-9999">
-                                <ul class="space-y-4">
-                                    <li class="font-normal text-sm cursor-pointer">10:00 AM - 02:00 PM</li>
-                                    <li class="font-normal text-sm cursor-pointer">10:00 AM - 02:00 PM</li>
-                                    <li class="font-normal text-sm cursor-pointer">10:00 AM - 02:00 PM</li>
-                                    <li class="font-normal text-sm cursor-pointer">10:00 AM - 02:00 PM</li>
-                                    <li class="font-normal text-sm cursor-pointer">10:00 AM - 02:00 PM</li>
-                                </ul>
-                            </div>
                         </div>
 
-                        <!--div class="flex flex-col gap-2 relative dropdown-wrapper">
-                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Work Expected
-                                Duration
-                            </label>
-                            <div
-                                class="flex items-center justify-between border border-gray-400 rounded-md py-3 px-4 ">
-                                <input type="text"
-                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
-                                    placeholder="Select time" readonly>
-                                <span
-                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
-                            </div>
+                        <div>
 
-                            <div
-                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full borderborder-gray-400 p-4 rounded-md z-9999">
-                                <ul class="space-y-4">
-                                    <li class="font-normal text-sm cursor-pointer">2 Days</li>
-                                    <li class="font-normal text-sm cursor-pointer">4 Days</li>
-                                    <li class="font-normal text-sm cursor-pointer">6 Days</li>
-                                    <li class="font-normal text-sm cursor-pointer">8 Days</li>
-                                    <li class="font-normal text-sm cursor-pointer">12 Days</li>
-                                </ul>
-                            </div>
-                        </div-->
+                            <h3 class="font-semibold text-base">
+                                Standard
+                            </h3>
 
-                        <!--div class="flex flex-col gap-2 relative dropdown-wrapper">
-                            <label for="companyname" class="font-semibold text-xs text-deep-indigo">Daily Working Hours
-                            </label>
-                            <div
-                                class="flex items-center justify-between border border-gray-400 rounded-md py-3 px-4 ">
-                                <input type="text"
-                                    class="cursor-pointer w-full focus:ring-0 focus:outline-none placeholder:font-normal placeholder:text-xs placeholder:text-muted-steel font-normal text-sm"
-                                    placeholder="Select time" readonly>
-                                <span
-                                    class="cursor-pointer dropdown-toggle material-symbols-outlined">keyboard_arrow_down</span>
-                            </div>
+                            <p class="text-sm text-gray-500">
+                                Best for planned work.
+                            </p>
 
-                            <div
-                                class="dropdownMenu hidden absolute shadow-xl w-full mt-1 bg-white top-full border border-gray-400 p-4 rounded-md z-9999">
-                                <ul class="space-y-4">
-                                    <li class="font-normal text-sm cursor-pointer">2 hours / Day</li>
-                                    <li class="font-normal text-sm cursor-pointer">4 hours / Day</li>
-                                    <li class="font-normal text-sm cursor-pointer">5 hours / Day</li>
-                                    <li class="font-normal text-sm cursor-pointer">7 hours / Day</li>
-                                    <li class="font-normal text-sm cursor-pointer">8 hours / Day</li>
-                                </ul>
-                            </div>
-                        </div-->
+                            <span
+                                class="inline-block mt-3 bg-white text-primary rounded-full px-3 py-1 text-xs font-semibold">
+                                Within 7 Days
+                            </span>
 
+                        </div>
 
                     </div>
 
+                   
 
                 </div>
+
+            </div>
+
+            <!-- Priority -->
+
+            <div class="urgencyLevel cursor-pointer border border-gray-300 rounded-xl p-5 hover:border-primary hover:shadow-md transition">
+
+                <div class="flex items-start justify-between">
+
+                    <div class="flex gap-4">
+
+                        <div
+                            class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center">
+
+                            <span class="material-symbols-outlined text-orange-500 text-3xl">
+                                bolt
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <h3 class="font-semibold text-base">
+                                Priority
+                            </h3>
+
+                            <p class="text-sm text-gray-500">
+                                Faster response for urgent work.
+                            </p>
+
+                            <span
+                                class="inline-block mt-3 bg-orange-100 text-orange-600 rounded-full px-3 py-1 text-xs font-semibold">
+                                Within 48 Hours
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= Preferred Dates ================= -->
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+
+        <!-- From -->
+
+        <div class="flex flex-col gap-2">
+
+            <label class="font-semibold text-xs text-deep-indigo">
+                Preferred Date From
+                <span class="text-red">*</span>
+            </label>
+
+            <div
+                class="flex items-center gap-3 border border-gray-300 rounded-lg px-4 h-12">
+
+                <span class="material-symbols-outlined text-gray-500">
+                    calendar_today
+                </span>
+
+                <input
+                    type="date"
+                    class="w-full border-none outline-none bg-transparent text-sm">
+
+            </div>
+
+        </div>
+
+        <!-- To -->
+
+        <div class="flex flex-col gap-2">
+
+            <label class="font-semibold text-xs text-deep-indigo">
+                Preferred Date To
+                <span class="text-red">*</span>
+            </label>
+
+            <div
+                class="flex items-center gap-3 border border-gray-300 rounded-lg px-4 h-12">
+
+                <span class="material-symbols-outlined text-gray-500">
+                    calendar_today
+                </span>
+
+                <input
+                    type="date"
+                    class="w-full border-none outline-none bg-transparent text-sm">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= Single Day Work ================= -->
+
+    <div
+        class="flex items-center justify-between border border-gray-300 rounded-xl px-5 py-4">
+
+        <div>
+
+            <p class="font-semibold text-sm">
+                Single Day Work
+            </p>
+
+            <p class="text-xs text-gray-500">
+                Need engineers for only one day?
+            </p>
+
+        </div>
+
+        <label class="relative inline-flex cursor-pointer">
+
+            <input
+                type="checkbox"
+                class="sr-only peer">
+
+            <div
+                class="w-12 h-7 bg-gray-300 rounded-full peer-checked:bg-primary transition"></div>
+
+            <div
+                class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition peer-checked:translate-x-5"></div>
+
+        </label>
+
+    </div>
+
+    <!-- ================= Preferred Time ================= -->
+
+    <div class="flex flex-col gap-2 relative dropdown-wrapper">
+
+        <label class="font-semibold text-xs text-deep-indigo">
+            Preferred Time Window
+            <span class="text-red">*</span>
+        </label>
+
+        <div
+            class="flex items-center justify-between border border-gray-300 rounded-lg h-12 px-4 cursor-pointer">
+
+            <input
+                type="text"
+                placeholder="Select Time Window"
+                readonly
+                class="w-full outline-none bg-transparent text-sm cursor-pointer">
+
+            <span
+                class="material-symbols-outlined dropdown-toggle">
+                keyboard_arrow_down
+            </span>
+
+        </div>
+
+        <div
+            class="dropdownMenu hidden absolute top-full left-0 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg z-50">
+
+            <ul>
+
+                <li class="px-4 py-3 hover:bg-gray-100 cursor-pointer">
+                    09:00 AM – 12:00 PM
+                </li>
+
+                <li class="px-4 py-3 hover:bg-gray-100 cursor-pointer">
+                    12:00 PM – 03:00 PM
+                </li>
+
+                <li class="px-4 py-3 hover:bg-gray-100 cursor-pointer">
+                    03:00 PM – 06:00 PM
+                </li>
+
+                <li class="px-4 py-3 hover:bg-gray-100 cursor-pointer">
+                    Flexible
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
                 <div class="flex flex-col mt-5">
                     <div class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-primary">notes</span>
