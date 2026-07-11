@@ -95,12 +95,12 @@ document.addEventListener("DOMContentLoaded", function() {
     tabs.forEach(tab => {
         tab.addEventListener("click", () => {
             // Remove active classes from all tabs
-            tabs.forEach(t => t.classList.remove("bg-primary!", "active-tab"));
+            tabs.forEach(t => t.classList.remove("bg-primary-yellow!", "active-tab"));
             tabs.forEach(t => t.querySelector("span").classList.remove("text-white"));
             tabs.forEach(t => t.querySelector("span").classList.add("text-granite-gray"));
 
             // Add active classes to clicked tab
-            tab.classList.add("bg-primary!", "active-tab");
+            tab.classList.add("bg-primary-yellow!", "active-tab");
             tab.querySelector("span").classList.remove("text-granite-gray");
             tab.querySelector("span").classList.add("text-white");
 
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initialize first tab as active
     const allTab = document.querySelector('.filter-tab[data-status="all"]');
     if (allTab) {
-        allTab.classList.add("bg-primary!");
+        allTab.classList.add("bg-primary-yellow!");
         allTab.querySelector("span").classList.remove("text-granite-gray");
         allTab.querySelector("span").classList.add("text-white");
     }
