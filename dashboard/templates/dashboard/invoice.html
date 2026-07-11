@@ -1,6 +1,7 @@
 {% extends "dashboard/layout.html" %}
 {% block title %}Invoices{% endblock %}
 {% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <main class="flex flex-col gap-6 w-full pb-10">
     <div class="flex flex-col gap-2">
         <h1 class="font-bold text-2xl lg:text-3xl text-slate-800">Payment Methods</h1>
@@ -23,14 +24,14 @@
     <div class="flex flex-col sm:flex-row gap-3">
         <div class="border border-gray-200 rounded-xl bg-[#F8F9FA] flex items-center gap-2 py-2 px-3 sm:w-64">
             <span class="material-symbols-outlined text-lg text-gray-400">search</span>
-            <input type="text"
+            <input type="text" id="invoiceSearchInput"
                 class="bg-transparent focus:outline-none w-full text-sm text-slate-800 placeholder-gray-500"
                 placeholder="Search invoice">
         </div>
         <button
-            class="bg-white border border-gray-200 rounded-xl py-2 px-4 flex items-center justify-center gap-2 text-gray-500 hover:bg-gray-50 transition-colors">
+            class="date-picker-btn bg-white border border-gray-200 rounded-xl py-2 px-4 flex items-center justify-center gap-2 text-gray-500 hover:bg-gray-50 transition-colors">
             <span class="material-symbols-outlined text-lg">calendar_today</span>
-            <span class="text-sm">Date Range</span>
+            <span class="text-sm date-range-text">Date Range</span>
         </button>
         <button
             class="bg-white border border-gray-200 rounded-xl py-2 px-4 flex items-center justify-center gap-2 text-gray-500 hover:bg-gray-50 transition-colors">
@@ -153,6 +154,61 @@
                         </div>
                     </td>
                 </tr>
+                <!-- Refunded rows -->
+                <tr class="invoice-row border-b border-gray-200 last:border-0 hover:bg-gray-50" data-status="refunded">
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">INV-2026-006</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">BK-5685</td>
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">Equipment Return</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">Rs. 2,150</td>
+                    <td class="py-6 px-6 text-center">
+                        <span
+                            class="inline-flex items-center justify-center bg-[#FEE2E2] text-[#EF4444] font-bold px-3 py-1.5 rounded-lg text-sm">Refunded</span>
+                    </td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">18 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4 text-gray-500">
+                            <span
+                                class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800">download</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="invoice-row border-b border-gray-200 last:border-0 hover:bg-gray-50" data-status="refunded">
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">INV-2026-007</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">BK-5686</td>
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">Service Cancellation</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">Rs. 1,500</td>
+                    <td class="py-6 px-6 text-center">
+                        <span
+                            class="inline-flex items-center justify-center bg-[#FEE2E2] text-[#EF4444] font-bold px-3 py-1.5 rounded-lg text-sm">Refunded</span>
+                    </td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">20 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4 text-gray-500">
+                            <span
+                                class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800">download</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="invoice-row border-b border-gray-200 last:border-0 hover:bg-gray-50" data-status="refunded">
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">INV-2026-008</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">BK-5687</td>
+                    <td class="py-6 px-6 whitespace-nowrap text-slate-700">Site Survey</td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">Rs. 3,200</td>
+                    <td class="py-6 px-6 text-center">
+                        <span
+                            class="inline-flex items-center justify-center bg-[#FEE2E2] text-[#EF4444] font-bold px-3 py-1.5 rounded-lg text-sm">Refunded</span>
+                    </td>
+                    <td class="py-6 px-6 text-center whitespace-nowrap text-slate-700">22 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4 text-gray-500">
+                            <span
+                                class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800">download</span>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -204,7 +260,7 @@
                         <button
                             class="bg-[#00B884] text-white rounded p-1 flex items-center justify-center w-8 h-8"><span
                                 class="material-symbols-outlined text-sm">share</span></button>
-                        <button
+                        <button id="downloadInvoiceBtn"
                             class="bg-[#00B884] text-white rounded p-1 flex items-center justify-center w-8 h-8"><span
                                 class="material-symbols-outlined text-sm">download</span></button>
                     </div>
@@ -215,7 +271,7 @@
                     </button>
                 </div>
             </div>
-            <div class="p-8 text-sm">
+            <div id="invoiceContent" class="p-8 text-sm bg-white">
                 <!-- Header section of invoice -->
                 <div class="text-center mb-6">
                     <p class="font-bold">TAX INVOICE</p>
@@ -353,6 +409,8 @@
 {% endblock %}
 
 {% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const filters = document.querySelectorAll(".filter-btn");
@@ -360,6 +418,10 @@
         const viewBtns = document.querySelectorAll(".view-invoice-btn");
         const modal = document.getElementById("invoiceModal");
         const closeModalBtn = document.getElementById("closeInvoiceModal");
+        const downloadInvoiceBtn = document.getElementById("downloadInvoiceBtn");
+        const invoiceContent = document.getElementById("invoiceContent");
+
+        const searchInput = document.getElementById("invoiceSearchInput");
 
         // Filter Functionality
         filters.forEach(filterBtn => {
@@ -372,17 +434,61 @@
                 this.classList.remove("border", "border-gray-200", "bg-white", "text-gray-500");
                 this.classList.add("bg-[#FFC949]", "text-white");
 
-                const status = this.getAttribute("data-status");
+                if (searchInput) {
+                    searchInput.dispatchEvent(new Event("input"));
+                } else {
+                    const status = this.getAttribute("data-status");
+                    rows.forEach(row => {
+                        if (status === "all" || row.getAttribute("data-status") === status) {
+                            row.style.display = "";
+                        } else {
+                            row.style.display = "none";
+                        }
+                    });
+                }
+            });
+        });
+
+        // Search logic
+        if (searchInput) {
+            searchInput.addEventListener("input", (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                const activeFilter = Array.from(filters).find(f => f.classList.contains("text-white"));
+                const currentStatus = activeFilter ? activeFilter.getAttribute("data-status") : "all";
 
                 rows.forEach(row => {
-                    if (status === "all" || row.getAttribute("data-status") === status) {
+                    const invoiceId = row.querySelector("td:first-child").textContent.toLowerCase().trim();
+                    const matchesSearch = invoiceId.includes(query);
+                    const matchesStatus = currentStatus === "all" || row.getAttribute("data-status") === currentStatus;
+
+                    if (matchesSearch && matchesStatus) {
                         row.style.display = "";
                     } else {
                         row.style.display = "none";
                     }
                 });
             });
-        });
+        }
+
+        // Flatpickr initialization
+        if (typeof flatpickr !== 'undefined') {
+            document.querySelectorAll(".date-picker-btn").forEach(btn => {
+                const fp = flatpickr(btn, {
+                    mode: "range",
+                    dateFormat: "M j, Y",
+                    onChange: function (selectedDates, dateStr, instance) {
+                        const spanTag = instance.element.querySelector('.date-range-text');
+                        if (spanTag) {
+                            spanTag.textContent = dateStr ? dateStr : "Date Range";
+                        }
+                    }
+                });
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    fp.open();
+                });
+            });
+        }
 
         // Modal Functionality
         const downloadBtns = document.querySelectorAll("td span.cursor-pointer");
@@ -393,6 +499,20 @@
                 modal.classList.add("flex");
             });
         });
+
+        // Function to handle downloading the invoice
+        function downloadInvoiceAsPDF() {
+            if (invoiceContent) {
+                const opt = {
+                    margin: 0.5,
+                    filename: 'invoice.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true },
+                    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+                };
+                html2pdf().set(opt).from(invoiceContent).save();
+            }
+        }
 
         downloadBtns.forEach(icon => {
             if (icon.textContent.trim() === "download") {
@@ -409,6 +529,12 @@
             modal.classList.add("hidden");
             modal.classList.remove("flex");
         });
+
+        if (downloadInvoiceBtn && invoiceContent) {
+            downloadInvoiceBtn.addEventListener("click", function () {
+                downloadInvoiceAsPDF();
+            });
+        }
 
         // Close when clicking outside
         modal.addEventListener("click", function (e) {

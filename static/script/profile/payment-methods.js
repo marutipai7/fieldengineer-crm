@@ -105,10 +105,14 @@ document.addEventListener("DOMContentLoaded", function() {
             tab.querySelector("span").classList.add("text-white");
 
             const status = tab.getAttribute("data-status");
+            const searchInput = document.getElementById("invoiceSearchInput");
+            const searchTerm = searchInput ? searchInput.value.toLowerCase() : "";
 
             // Filter rows
             rows.forEach(row => {
-                if (status === "all" || row.getAttribute("data-status") === status) {
+                const invoiceId = row.querySelector("td").textContent.toLowerCase().trim();
+                const matchesSearch = invoiceId.includes(searchTerm);
+                if ((status === "all" || row.getAttribute("data-status") === status) && matchesSearch) {
                     row.style.display = "";
                 } else {
                     row.style.display = "none";
@@ -123,6 +127,47 @@ document.addEventListener("DOMContentLoaded", function() {
         allTab.classList.add("bg-primary-yellow!");
         allTab.querySelector("span").classList.remove("text-granite-gray");
         allTab.querySelector("span").classList.add("text-white");
+    }
+
+    // Search functionality
+    const searchInput = document.getElementById("invoiceSearchInput");
+    if (searchInput) {
+        searchInput.addEventListener("input", function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const activeStatus = document.querySelector('.filter-tab.active-tab')?.getAttribute('data-status') || 'all';
+
+            rows.forEach(row => {
+                const invoiceId = row.querySelector("td").textContent.toLowerCase().trim();
+                const matchesSearch = invoiceId.includes(searchTerm);
+                const matchesStatus = (activeStatus === "all" || row.getAttribute("data-status") === activeStatus);
+
+                if (matchesSearch && matchesStatus) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        });
+    }
+
+    // Flatpickr initialization
+    if (typeof flatpickr !== 'undefined') {
+        document.querySelectorAll(".date-picker-btn").forEach(btn => {
+            const fp = flatpickr(btn, {
+                mode: "range",
+                dateFormat: "M j, Y",
+                onChange: function(selectedDates, dateStr, instance) {
+                    const pTag = instance.element.querySelector('p');
+                    if (pTag) {
+                        pTag.textContent = dateStr ? dateStr : "Date Range";
+                    }
+                }
+            });
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                fp.open();
+            });
+        });
     }
 
     // Modal functionality

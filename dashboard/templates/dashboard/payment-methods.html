@@ -1,10 +1,12 @@
 {% extends "dashboard/layout.html" %}
 {% block title %}Payment Methods{% endblock %}
 {% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
 
 <main class="flex flex-col gap-5">
     <div class="flex flex-col gap-2.25">
-        <p class="font-bold text-xl lg:text-2xl">Billing and Invoices</p>
+        <p class="font-bold text-xl lg:text-2xl">Payment Methods</p>
         <p class="text-sm font-normal text-granite-gray">Manage payments, view invoices, and download billing reports.
         </p>
     </div>
@@ -14,24 +16,26 @@
                 <span class="material-symbols-outlined text-[#FFC949]">currency_rupee</span>
             </div>
             <div class="flex flex-col gap-1">
-                <p class="font-normal text-xs text-medium">Total Payout</p>
+                <p class="font-normal text-xs text-medium">Total Spend</p>
                 <p class="font-bold text-2xl text-ink">Rs.8,42,500</p>
+                <p class="font-normal text-xs text-medium">All Time</p>
             </div>
         </div>
 
         <div class="metrics-card">
-            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-[#FFF5E5]">
-                <span class="material-symbols-outlined text-[#FFB020]">description</span>
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-[#F3E8FF]">
+                <span class="material-symbols-outlined text-[#8B5CF6]">description</span>
             </div>
             <div class="flex flex-col gap-1">
-                <p class="font-normal text-xs text-medium">Pending Payouts</p>
-                <p class="font-bold text-2xl text-ink">Rs. 842</p>
+                <p class="font-normal text-xs text-medium">Total Invoices</p>
+                <p class="font-bold text-2xl text-ink">127</p>
+                <p class="font-normal text-xs text-medium">All Time</p>
             </div>
         </div>
 
         <div class="metrics-card">
             <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-[#E8F8EE]">
-                <span class="material-symbols-outlined text-success-green">trending_up</span>
+                <span class="material-symbols-outlined text-spend-green">trending_up</span>
             </div>
             <div class="flex flex-col gap-1">
                 <p class="font-normal text-xs text-medium">This Month Spend</p>
@@ -169,6 +173,35 @@
     </section>
 
     <section class="flex flex-col gap-4">
+        <p class="font-semibold text-base text-ink">Invoice History</p>
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center justify-between">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                <div
+                    class="border border-pale-blue-gray rounded-[10px] bg-arctic-white flex items-center gap-1.5 py-[7.5px] px-2.5 sm:w-65!">
+                    <span class="material-symbols-outlined text-lg! text-medium">search</span>
+                    <input type="text" id="invoiceSearchInput"
+                        class="focus:ring-0 focus:outline-none w-full placeholder:font-normal placeholder:text-sm placeholder:text-medium font-normal text-sm text-ink"
+                        placeholder="Search Invoice">
+                </div>
+
+                <button
+                    class="date-picker-btn bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">calendar_today</span>
+                    <p class="font-normal text-sm text-granite-gray">Date Range</p>
+                </button>
+
+                <button
+                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">tune</span>
+                    <p class="font-normal text-sm text-granite-gray">Filters</p>
+                </button>
+            </div>
+
+            <a href="/dashboard/invoice/"
+                class="font-semibold text-base text-dark cursor-pointer viewAllInvoices hover:underline">View All
+                Invoices</a>
+        </div>
+
         <div class="flex items-center gap-2">
             <button data-status="all"
                 class="filter-tab border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary-yellow! active-tab">
@@ -191,85 +224,57 @@
             </button>
         </div>
 
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-center justify-between">
-            <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-                <div
-                    class="border border-pale-blue-gray rounded-[10px] bg-arctic-white flex items-center gap-1.5 py-[7.5px] px-2.5 sm:w-65!">
-                    <span class="material-symbols-outlined text-lg! text-medium">search</span>
-                    <input type="text"
-                        class="focus:ring-0 focus:outline-none w-full placeholder:font-normal placeholder:text-sm placeholder:text-medium font-normal text-sm text-ink"
-                        placeholder="Search Invoice">
-                </div>
-
-                <button
-                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
-                    <span class="material-symbols-outlined text-lg! text-granite-gray">calendar_today</span>
-                    <p class="font-normal text-sm text-granite-gray">Date Range</p>
-                </button>
-
-                <button
-                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
-                    <span class="material-symbols-outlined text-lg! text-granite-gray">tune</span>
-                    <p class="font-normal text-sm text-granite-gray">Filters</p>
-                </button>
-            </div>
-
-            <a href="/dashboard/invoice/"
-                class="font-semibold text-base text-dark cursor-pointer viewAllInvoices hover:underline">View All
-                Invoices</a>
-        </div>
-
         <hr class="text-pale-blue-gray">
 
         <div class="overflow-x-auto">
             <table class="w-full whitespace-nowrap">
                 <thead class="bg-[#FFC949] text-white font-semibold text-lg">
-                    <th class="py-5 px-10 border-r border-white rounded-tl-2xl">
+                    <th class="py-5 px-4 border-r border-white rounded-tl-2xl">
                         Invoice ID
                     </th>
-                    <th class="py-5 px-10 border-r border-white">
+                    <th class="py-5 px-4 border-r border-white">
                         Booking ID
                     </th>
-                    <th class="py-5 px-10 border-r border-white">
+                    <th class="py-5 px-4 border-r border-white">
                         Service
                     </th>
-                    <th class="py-5 px-10 border-r border-white">
+                    <th class="py-5 px-4 border-r border-white">
                         Amount
                     </th>
-                    <th class="py-5 px-10 border-r border-white">
+                    <th class="py-5 px-4 border-r border-white">
                         Status
                     </th>
-                    <th class="py-5 px-10 border-r border-white">
+                    <th class="py-5 px-4 border-r border-white">
                         Invoice Date
                     </th>
-                    <th class="py-5 px-10 rounded-tr-2xl">
+                    <th class="py-5 px-4 rounded-tr-2xl">
                         Action
                     </th>
                 </thead>
 
                 <tbody class="border border-light-medium rounded-br-2xl rounded-bl-2xl">
                     <tr class="invoice-row" data-status="paid">
-                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
                             INV-2026-001
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             BK-5684
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
                             Network Cabling
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             Rs. 5,730
                         </td>
-                        <td class="p-7.5">
+                        <td class="px-4 py-3">
                             <div class="bg-[#E5F7F1] rounded-[10px] flex items-center justify-center py-2.5 px-2">
                                 <span class="font-bold text-base text-[#00B884]">Completed</span>
                             </div>
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             15 May 2026
                         </td>
-                        <td class="p-7.5">
+                        <td class="px-4 py-3">
                             <div class="flex items-center justify-center gap-5">
                                 <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
                                 <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
@@ -278,27 +283,27 @@
                     </tr>
 
                     <tr class="invoice-row" data-status="paid">
-                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
                             INV-2026-002
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             BK-5684
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
                             rack Installation
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             Rs. 5,730
                         </td>
-                        <td class="p-7.5">
+                        <td class="px-4 py-3">
                             <div class="bg-[#E5F7F1] rounded-[10px] flex items-center justify-center py-2.5 px-2">
                                 <span class="font-bold text-base text-[#00B884]">Completed</span>
                             </div>
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             15 May 2026
                         </td>
-                        <td class="p-7.5">
+                        <td class="px-4 py-3">
                             <div class="flex items-center justify-center gap-5">
                                 <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
                                 <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
@@ -308,27 +313,27 @@
 
 
                     <tr class="invoice-row" data-status="pending">
-                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
                             INV-2026-003
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             BK-5684
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
                             CCTV Installation
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             Rs. 5,730
                         </td>
-                        <td class="p-7.5">
+                        <td class="px-4 py-3">
                             <div class="bg-[#FFF5E5] rounded-[10px] flex items-center justify-center py-2.5 px-2">
                                 <span class="font-bold text-base text-[#FFB020]">Pending</span>
                             </div>
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             15 May 2026
                         </td>
-                        <td class="p-7.5">
+                        <td class="px-4 py-3">
                             <div class="flex items-center justify-center gap-5">
                                 <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
                                 <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
@@ -337,27 +342,27 @@
                     </tr>
 
                     <tr class="invoice-row" data-status="pending">
-                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
                             INV-2026-004
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             BK-5684
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
                             Fiber Optic
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             Rs. 5,730
                         </td>
-                        <td class="p-7.5">
+                        <td class="px-4 py-3">
                             <div class="bg-[#FFF5E5] rounded-[10px] flex items-center justify-center py-2.5 px-2">
                                 <span class="font-bold text-base text-[#FFB020]">Pending</span>
                             </div>
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             15 May 2026
                         </td>
-                        <td class="p-7.5">
+                        <td class="px-4 py-3">
                             <div class="flex items-center justify-center gap-5">
                                 <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
                                 <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
@@ -366,27 +371,140 @@
                     </tr>
 
                     <tr class="invoice-row" data-status="pending">
-                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
                             INV-2026-005
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             BK-5684
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
                             Fiber Optic
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             Rs. 5,730
                         </td>
-                        <td class="p-7.5">
+                        <td class="px-4 py-3">
                             <div class="bg-[#FFF5E5] rounded-[10px] flex items-center justify-center py-2.5 px-2">
                                 <span class="font-bold text-base text-[#FFB020]">Pending</span>
                             </div>
                         </td>
-                        <td class="p-7.5 font-semibold text-base text-dark-gray text-center">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
                             15 May 2026
                         </td>
-                        <td class="p-7.5">
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="invoice-row" data-status="refunded">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-006
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5685
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            Equipment Return
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 2,150
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#FEE2E2] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#EF4444]">Refunded</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            18 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="invoice-row" data-status="refunded">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-007
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5686
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            Service Cancellation
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 1,500
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#FEE2E2] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#EF4444]">Refunded</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            20 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="invoice-row" data-status="refunded">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-008
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5687
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            Site Survey
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 3,200
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#FEE2E2] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#EF4444]">Refunded</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            22 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="invoice-row" data-status="refunded">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-009
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5688
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            Equipment Maintenance
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 1,800
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#FEE2E2] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#EF4444]">Refunded</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            25 May 2026
+                        </td>
+                        <td class="px-4 py-3">
                             <div class="flex items-center justify-center gap-5">
                                 <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
                                 <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
@@ -405,7 +523,7 @@
                 <p class="font-semibold text-base text-ink">Monthly Spend Overview</p>
 
                 <button
-                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    class="date-picker-btn bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
                     <span class="material-symbols-outlined text-lg! text-granite-gray">calendar_today</span>
                     <p class="font-normal text-sm text-granite-gray">Date Range</p>
                 </button>
@@ -430,16 +548,16 @@
         <div class="flex items-center justify-between py-2">
             <div class="flex items-center gap-2">
                 <div class="w-2 h-2 rounded-full bg-[#00B884]"></div>
-                <p class="font-normal text-sm text-granite-gray">Total Payouts (All Time)</p>
+                <p class="font-normal text-sm text-granite-gray">Paid</p>
             </div>
 
-            <p class="font-semibold text-sm text-[#00B884]">Rs.8,42,500</p>
+            <p class="font-semibold text-sm text-[#00B884]">Rs.7,68,700</p>
         </div>
 
         <div class="flex items-center justify-between py-2">
             <div class="flex items-center gap-2">
                 <div class="w-2 h-2 rounded-full bg-[#FFB020]"></div>
-                <p class="font-normal text-sm text-granite-gray">Pending amount</p>
+                <p class="font-normal text-sm text-granite-gray">Pending</p>
             </div>
 
             <p class="font-semibold text-sm text-[#FFB020]">Rs.57,600</p>
@@ -448,7 +566,7 @@
         <div class="flex items-center justify-between py-2">
             <div class="flex items-center gap-2">
                 <div class="w-2 h-2 rounded-full bg-[#8B5CF6]"></div>
-                <p class="font-normal text-sm text-granite-gray">Processing</p>
+                <p class="font-normal text-sm text-granite-gray">Refunded</p>
             </div>
 
             <p class="font-semibold text-sm text-[#8B5CF6]">Rs.16,200</p>
@@ -456,11 +574,11 @@
 
         <div class="flex items-center justify-between py-2">
             <div class="flex items-center gap-2">
-                <div class="w-2 h-2 rounded-full bg-[#EF4444]"></div>
-                <p class="font-normal text-sm text-granite-gray">Failed Transactions</p>
+                <div class="w-2 h-2 rounded-full bg-[#FFC949]"></div>
+                <p class="font-normal text-sm text-granite-gray">Total</p>
             </div>
 
-            <p class="font-semibold text-sm text-[#EF4444]">Rs.0</p>
+            <p class="font-semibold text-sm text-[#FFC949]">Rs.8,42,500</p>
         </div>
     </section>
 
@@ -634,6 +752,7 @@
 {% endblock %}
 
 {% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script src="/static/script/profile/payment-methods.js"></script>
 
