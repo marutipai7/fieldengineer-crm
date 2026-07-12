@@ -200,4 +200,77 @@ document.addEventListener("DOMContentLoaded", function() {
             modal.classList.remove("flex");
         }
     });
+    // Add Payment Modal functionality
+    const addPaymentBtn = document.querySelector(".addPaymentBtn");
+    const addPaymentModal = document.getElementById("addPaymentModal");
+    
+    if (addPaymentBtn && addPaymentModal) {
+        addPaymentBtn.addEventListener("click", () => {
+            addPaymentModal.classList.remove("hidden");
+            addPaymentModal.classList.add("flex");
+        });
+    }
+
+    if (addPaymentModal) {
+        // Close when clicking outside
+        addPaymentModal.addEventListener("click", (e) => {
+            if (e.target === addPaymentModal) {
+                addPaymentModal.classList.add("hidden");
+                addPaymentModal.classList.remove("flex");
+            }
+        });
+        
+        // Close when clicking the close button
+        const closeAddPaymentModalBtn = document.getElementById("closeAddPaymentModalBtn");
+        if (closeAddPaymentModalBtn) {
+            closeAddPaymentModalBtn.addEventListener("click", () => {
+                addPaymentModal.classList.add("hidden");
+                addPaymentModal.classList.remove("flex");
+            });
+        }
+
+        // Radio button logic
+        const paymentOptions = addPaymentModal.querySelectorAll(".payment-option");
+        paymentOptions.forEach(option => {
+            option.addEventListener("click", function() {
+                // Reset all
+                paymentOptions.forEach(opt => {
+                    opt.classList.remove("border-[#E5F0FF]", "bg-[#F4F9FF]");
+                    opt.classList.add("border-transparent");
+                    
+                    const radio = opt.querySelector(".radio-custom");
+                    if (radio) {
+                        radio.classList.remove("border-primary-yellow");
+                        radio.classList.add("border-gray-300");
+                        const innerDot = radio.querySelector(".inner-dot");
+                        if (innerDot) innerDot.classList.add("hidden");
+                    }
+
+                    const icon = opt.querySelector(".material-symbols-outlined");
+                    if (icon) {
+                        icon.classList.remove("text-primary-yellow");
+                        icon.classList.add("text-gray-500");
+                    }
+                });
+
+                // Set active
+                this.classList.remove("border-transparent");
+                this.classList.add("border-[#E5F0FF]", "bg-[#F4F9FF]");
+                
+                const radio = this.querySelector(".radio-custom");
+                if (radio) {
+                    radio.classList.remove("border-gray-300");
+                    radio.classList.add("border-primary-yellow");
+                    const innerDot = radio.querySelector(".inner-dot");
+                    if (innerDot) innerDot.classList.remove("hidden");
+                }
+
+                const icon = this.querySelector(".material-symbols-outlined");
+                if (icon) {
+                    icon.classList.remove("text-gray-500");
+                    icon.classList.add("text-primary-yellow");
+                }
+            });
+        });
+    }
 });

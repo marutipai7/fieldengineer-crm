@@ -252,10 +252,10 @@
     </div>
 
     <!-- Invoice Modal -->
-    <div id="invoiceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative">
+    <div id="invoiceModal" class="fixed inset-0 bg-[#8c8c8c] bg-opacity-80 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-3xl relative">
             <div class="sticky top-0 bg-white z-10 border-b border-gray-200">
-                <div class="flex justify-between items-center p-4">
+                <div class="flex justify-between items-center p-2 px-4">
                     <div class="flex gap-2">
                         <button
                             class="bg-[#00B884] text-white rounded p-1 flex items-center justify-center w-8 h-8"><span
@@ -264,31 +264,31 @@
                             class="bg-[#00B884] text-white rounded p-1 flex items-center justify-center w-8 h-8"><span
                                 class="material-symbols-outlined text-sm">download</span></button>
                     </div>
-                    <h2 class="text-2xl font-semibold text-[#00B884]">Invoice</h2>
-                    <button id="closeInvoiceModal"
+                    <h2 class="text-xl font-semibold text-[#00B884]">Invoice</h2>
+                    <button id="closeInvoiceModal" onclick="closeInvoiceModalUI()"
                         class="text-gray-500 hover:text-gray-700 w-8 h-8 flex items-center justify-center">
                         <span class="material-symbols-outlined">close</span>
                     </button>
                 </div>
             </div>
-            <div id="invoiceContent" class="p-8 text-sm bg-white">
+            <div id="invoiceContent" class="p-4 text-[10px] leading-tight bg-white">
                 <!-- Header section of invoice -->
-                <div class="text-center mb-6">
-                    <p class="font-bold">TAX INVOICE</p>
-                    <p class="text-xs">(Under GST - Advertising Service: SAC 998361)</p>
-                    <hr class="my-2 border-dashed border-gray-300">
+                <div class="text-center mb-2">
+                    <p class="font-bold text-xs">TAX INVOICE</p>
+                    <p class="text-[9px]">(Under GST - Advertising Service: SAC 998361)</p>
+                    <hr class="my-1 border-dashed border-gray-300">
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="grid grid-cols-2 gap-1 mb-2">
                     <div>
-                        <div class="flex"><span class="w-32 font-medium">Invoice No:</span><span>INV/AD/2025/0045</span>
+                        <div class="flex"><span class="w-24 font-medium">Invoice No:</span><span>INV/AD/2025/0045</span>
                         </div>
-                        <div class="flex"><span class="w-32 font-medium">Date:</span><span>17-May-2025</span></div>
+                        <div class="flex"><span class="w-24 font-medium">Date:</span><span>17-May-2025</span></div>
                     </div>
                     <div></div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                <div class="grid grid-cols-2 gap-1 mb-2 text-[9px]">
                     <div>
                         <div class="flex"><span class="w-24 font-medium">Platform Name:</span><span>MediConnect Digital
                                 Services Pvt. Ltd.</span></div>
@@ -302,42 +302,40 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                <div class="grid grid-cols-2 gap-1 mb-2 text-[9px]">
                     <div>
                         <p class="font-medium">Billed To:</p>
-                        <div class="flex mt-1"><span class="w-24 font-medium">Advertiser Name:</span><span>WellnessFit
+                        <div class="flex"><span class="w-24 font-medium">Advertiser Name:</span><span>WellnessFit
                                 Nutrition Pvt. Ltd.</span></div>
-                        <div class="flex mt-1"><span
-                                class="w-24 font-medium">GSTIN:</span><span>27WELLFIT12345129</span>
+                        <div class="flex"><span class="w-24 font-medium">GSTIN:</span><span>27WELLFIT12345129</span>
                         </div>
-                        <div class="flex mt-1"><span class="w-24 font-medium">Address:</span><span>22, Link Road, Mumbai
-                                -
-                                400072</span></div>
-                        <div class="flex mt-1"><span class="w-24 font-medium text-red-500">Contact:</span><span
+                        <div class="flex"><span class="w-24 font-medium">Address:</span><span>22, Link Road, Mumbai
+                                - 400072</span></div>
+                        <div class="flex"><span class="w-24 font-medium text-red-500">Contact:</span><span
                                 class="text-red-500">info@wellnessfit.in</span></div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                <div class="grid grid-cols-2 gap-1 mb-2 text-[9px]">
                     <div>
-                        <div class="flex"><span class="w-32 font-medium">Order
+                        <div class="flex"><span class="w-24 font-medium">Order
                                 Reference:</span><span>COUP-ORD-2025/223</span></div>
-                        <div class="flex mt-1"><span class="w-32 font-medium text-red-500">Campaign
+                        <div class="flex"><span class="w-24 font-medium text-red-500">Campaign
                                 Duration:</span><span class="text-red-500">18-May-2025 to 25-May-2025</span></div>
                     </div>
                 </div>
 
-                <hr class="my-4 border-dashed border-red-300">
+                <hr class="my-1 border-dashed border-red-300">
 
-                <table class="w-full text-xs text-red-500 mb-6">
+                <table class="w-full text-[9px] text-red-500 mb-2">
                     <thead>
                         <tr class="text-left">
-                            <th class="font-medium">Description</th>
-                            <th class="font-medium">SAC code</th>
-                            <th class="font-medium">Qty</th>
-                            <th class="font-medium">Rate</th>
-                            <th class="font-medium">GST %</th>
-                            <th class="font-medium text-right">Total (INR)</th>
+                            <th class="font-medium pb-1">Description</th>
+                            <th class="font-medium pb-1">SAC code</th>
+                            <th class="font-medium pb-1">Qty</th>
+                            <th class="font-medium pb-1">Rate</th>
+                            <th class="font-medium pb-1">GST %</th>
+                            <th class="font-medium text-right pb-1">Total (INR)</th>
                         </tr>
                     </thead>
                     <tbody class="text-black">
@@ -352,8 +350,8 @@
                     </tbody>
                 </table>
 
-                <div class="flex justify-end text-xs mb-4">
-                    <div class="w-64">
+                <div class="flex justify-end text-[9px] mb-1">
+                    <div class="w-56">
                         <div class="flex justify-between"><span
                                 class="font-medium">Subtotal:</span><span>₹6,000.00</span>
                         </div>
@@ -362,10 +360,10 @@
                     </div>
                 </div>
 
-                <hr class="my-2 border-dashed border-gray-300">
+                <hr class="my-1 border-dashed border-gray-300">
 
-                <div class="flex justify-end text-xs mb-4">
-                    <div class="w-64">
+                <div class="flex justify-end text-[9px] mb-1">
+                    <div class="w-56">
                         <div class="flex justify-between"><span class="font-medium">Gross Invoice
                                 Amount:</span><span>₹7,080.00</span></div>
                         <div class="flex justify-between text-red-500"><span class="font-medium">Less: Advance Adjusted
@@ -373,25 +371,25 @@
                     </div>
                 </div>
 
-                <hr class="my-2 border-dashed border-red-400">
+                <hr class="my-1 border-dashed border-red-400">
 
-                <div class="flex justify-end text-xs mb-6">
-                    <div class="w-64">
+                <div class="flex justify-end text-[9px] mb-2">
+                    <div class="w-56">
                         <div class="flex justify-between font-bold"><span>**Net Payable
                                 Now:**</span><span>₹6,980.00</span>
                         </div>
                     </div>
                 </div>
 
-                <hr class="my-4 border-dashed border-gray-300">
+                <hr class="my-1 border-dashed border-gray-300">
 
-                <div class="text-xs mb-6">
-                    <p class="mb-2">Amount in Words: INR Six Thousand Nine Hundred Eighty Only</p>
+                <div class="text-[9px] mb-2">
+                    <p>Amount in Words: INR Six Thousand Nine Hundred Eighty Only</p>
                     <p>Mode of Payment: UPI / Bank Transfer</p>
                 </div>
 
-                <div class="text-xs text-red-500 mb-8">
-                    <p class="font-bold text-black mb-1">**Notes:**</p>
+                <div class="text-[9px] text-red-500 mb-2">
+                    <p class="font-bold text-black">**Notes:**</p>
                     <p>- Services pertain to digital advertisement placements on MediConnect Platform.</p>
                     <p>- Advance of ₹100 received earlier has been adjusted.</p>
                     <p class="text-black">- Input Tax Credit (ITC) can be claimed on this invoice.</p>
@@ -503,14 +501,25 @@
         // Function to handle downloading the invoice
         function downloadInvoiceAsPDF() {
             if (invoiceContent) {
-                const opt = {
-                    margin: 0.5,
-                    filename: 'invoice.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2, useCORS: true },
-                    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-                };
-                html2pdf().set(opt).from(invoiceContent).save();
+                if (typeof html2pdf === 'undefined') {
+                    alert("PDF library is still loading or failed to load. Please check your internet connection.");
+                    return;
+                }
+
+                try {
+                    const opt = {
+                        margin: 0.5,
+                        filename: 'invoice.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2, useCORS: true },
+                        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+                    };
+
+                    html2pdf().set(opt).from(invoiceContent).save();
+                } catch (error) {
+                    console.error("PDF Error:", error);
+                    alert("There was an issue generating the PDF. Please try printing the page (Ctrl+P) as an alternative.");
+                }
             }
         }
 
@@ -597,5 +606,14 @@
             });
         }
     });
+</script>
+<script>
+    function closeInvoiceModalUI() {
+        const modal = document.getElementById("invoiceModal");
+        if (modal) {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+    }
 </script>
 {% endblock %}
