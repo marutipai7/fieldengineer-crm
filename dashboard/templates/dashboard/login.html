@@ -4,7 +4,6 @@
 
 {% block content %}
 <style>
-    /* Pure page ki scrolling aur right sidebaar jad se band */
     html, body {
         margin: 0 !important;
         padding: 0 !important;
@@ -21,7 +20,6 @@
         display: block;
     }
 
-    /* OTP Input Fields - height kam ki */
     .otp-input-container {
         display: flex;
         gap: 10px;
@@ -91,34 +89,6 @@
         display: block;
     }
 
-    input.error {
-        border-color: #ef4444 !important;
-        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
-    }
-
-    /* OTP Form - Center aligned */
-    .otp-form-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        min-height: 360px;
-        justify-content: center;
-    }
-
-    .otp-form-content h2 {
-        text-align: center;
-    }
-
-    .otp-form-content p {
-        text-align: center;
-    }
-
-    .otp-form-content form {
-        width: 100%;
-    }
-
-    /* Resend section - Left & Right in one line */
     .resend-section {
         display: flex;
         justify-content: space-between;
@@ -154,7 +124,6 @@
         text-decoration: none;
     }
 
-    /* Verify & Continue Button - BG color */
     .btn-verify {
         background-color: #ffc341 !important;
         color: #1e2530 !important;
@@ -169,7 +138,7 @@
         display: flex;
         align-items: center;
         border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 16px;
+        border-radius: 14px;
         background: rgba(255, 255, 255, 0.1);
         transition: all 0.3s ease;
         padding: 0 4px;
@@ -189,8 +158,8 @@
     .country-code {
         font-weight: 600;
         color: #1e2530;
-        font-size: 16px;
-        padding-left: 16px;
+        font-size: 15px;
+        padding-left: 14px;
         padding-right: 4px;
         white-space: nowrap;
     }
@@ -199,8 +168,8 @@
         border: none;
         outline: none;
         flex: 1;
-        padding: 14px 12px 14px 4px;
-        font-size: 16px;
+        padding: 12px 12px 12px 4px;
+        font-size: 15px;
         background: transparent;
         color: #1e2530;
         min-width: 0;
@@ -211,127 +180,196 @@
         color: #8ea0b4;
         font-weight: 400;
     }
+
+    /* First image jaisa exact design */
+    .login-box {
+        width: 420px;
+        max-width: 92%;
+        padding: 32px 36px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .login-box h2 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #1e2530;
+        margin-bottom: 2px;
+        text-align: center;
+    }
+
+    .login-box .subtitle {
+        font-size: 14px;
+        color: #475569;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .login-box label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #1e2530;
+        display: block;
+        text-align: left;
+        margin-bottom: 4px;
+    }
+
+    .login-box .btn-send {
+        width: 100%;
+        padding: 12px;
+        background: #ffc341;
+        border: none;
+        border-radius: 14px;
+        color: white;
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 4px;
+    }
+
+    .login-box .btn-send:hover {
+        background: #eeb130;
+    }
+
+    .login-box .footer-link {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        color: #1e2530;
+        margin-top: 18px;
+    }
+
+    .login-box .footer-link a {
+        color: #ffc341;
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        margin-left: 4px;
+        cursor: pointer;
+    }
+
+    .login-box .footer-link a:hover {
+        color: #eeb130;
+    }
+
+    .otp-box {
+        text-align: center;
+    }
+
+    .otp-box h2 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #1e2530;
+        margin-bottom: 2px;
+        text-align: center;
+    }
+
+    .otp-box .subtitle {
+        font-size: 14px;
+        color: #475569;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .otp-box .subtitle span {
+        font-weight: 600;
+        color: #1e2530;
+    }
 </style>
 
 <div class="w-full h-[calc(100vh-73px)] max-h-[calc(100vh-73px)] overflow-hidden relative">
     <img src="/static/img/background-img.jpg" 
          alt="Background" 
-         class="w-full object-cover block"
-         style="height: 90%; margin-top: -3%;">
+         class="w-full h-full object-cover block">
     
-    <div class="absolute inset-0 flex items-start mt-16 justify-center">
-        <div class="w-[720px] max-w-[95%] p-10 rounded-[32px] bg-white/15 border border-white/20 backdrop-blur-md shadow-2xl text-[#1e2530]">
+    <div class="absolute inset-0 flex items-center justify-center">
+        <div class="login-box">
             
-            <!-- Sign In Form -->
+            <!-- Sign In -->
             <div id="signinForm" class="form-container active">
-                <h2 class="text-[38px] font-bold tracking-tight text-[#1e2530] mb-1">Sign in</h2>
-                <p class="text-[15px] text-[#475569] font-medium mb-8">Please login to continue to your account.</p>
+                <h2>Sign in</h2>
+                <p class="subtitle">Please login to continue to your account.</p>
 
-                <form onsubmit="validateAndShowOTP(event, 'signin')" class="space-y-6">
-                    <div>
-                        <label for="mobile_no" class="block text-[15px] font-medium text-[#1e2530] mb-2">Mobile No</label>
+                <form onsubmit="validateAndShowOTP(event, 'signin')">
+                    <label for="mobile_no">Mobile No</label>
+                    <div class="phone-input-wrapper" id="signinWrapper">
+                        <span class="country-code">+91</span>
                         <input type="text" 
                                id="mobile_no" 
                                name="mobile_no" 
-                               placeholder="Enter 10 digit mobile number" 
+                               placeholder="456785 54345" 
                                maxlength="10"
-                               oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                               class="w-full px-5 py-3.5 text-[16px] rounded-xl bg-white/10 border border-white/30 text-[#1e2530] placeholder-[#8ea0b4] focus:outline-none focus:ring-2 focus:ring-[#ffc341] focus:border-transparent transition-all">
-                        <div class="error-message" id="signinError">Please enter a valid 10-digit mobile number</div>
+                               oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                     </div>
+                    <div class="error-message" id="signinError">Please enter a valid 10-digit mobile number</div>
 
-                    <button type="submit" 
-                            class="w-full py-4 px-4 bg-[#ffc341] hover:bg-[#eeb130] text-white font-semibold text-[17px] rounded-xl shadow-sm transition-all transform active:scale-[0.99]">
-                        Send OTP
-                    </button>
+                    <button type="submit" class="btn-send">Send OTP</button>
                 </form>
 
-                <div class="relative my-7 flex items-center justify-center">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-white/30"></div>
-                    </div>
-                    <span class="relative px-3 text-[14px] font-medium text-[#475569]">or</span>
-                </div>
-
-                <div class="text-center text-[15px] font-medium text-[#1e2530]">
+                <div class="footer-link">
                     Need an account? 
-                    <a href="#" onclick="toggleForms('signin')" class="text-[#ffc341] hover:text-[#eeb130] font-semibold underline underline-offset-4 ml-1 transition-all cursor-pointer">
-                        Create one
-                    </a>
+                    <a href="#" onclick="toggleForms('signin')">Create one</a>
                 </div>
             </div>
 
-            <!-- Register Form -->
+            <!-- Register -->
             <div id="registerForm" class="form-container">
-                <h2 class="text-[38px] font-bold tracking-tight text-[#1e2530] mb-1">Create Account</h2>
-                <p class="text-[15px] text-[#475569] font-medium mb-8">Please sign up to continue to your account.</p>
+                <h2>Create Account</h2>
+                <p class="subtitle">Please sign up to continue to your account.</p>
 
-                <form onsubmit="validateAndShowOTP(event, 'register')" class="space-y-6">
-                    <div>
-                        <label for="register_mobile" class="block text-[15px] font-medium text-[#1e2530] mb-2">Mobile No</label>
+                <form onsubmit="validateAndShowOTP(event, 'register')">
+                    <label for="register_mobile">Mobile No</label>
+                    <div class="phone-input-wrapper" id="registerWrapper">
+                        <span class="country-code">+91</span>
                         <input type="text" 
                                id="register_mobile" 
                                name="register_mobile" 
-                               placeholder="Enter 10 digit mobile number" 
+                               placeholder="456785 54345" 
                                maxlength="10"
-                               oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                               class="w-full px-5 py-3.5 text-[16px] rounded-xl bg-white/10 border border-white/30 text-[#1e2530] placeholder-[#8ea0b4] focus:outline-none focus:ring-2 focus:ring-[#ffc341] focus:border-transparent transition-all">
-                        <div class="error-message" id="registerError">Please enter a valid 10-digit mobile number</div>
+                               oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                     </div>
+                    <div class="error-message" id="registerError">Please enter a valid 10-digit mobile number</div>
 
-                    <button type="submit" 
-                            class="w-full py-4 px-4 bg-[#ffc341] hover:bg-[#eeb130] text-white font-semibold text-[17px] rounded-xl shadow-sm transition-all transform active:scale-[0.99]">
-                        Send OTP
-                    </button>
+                    <button type="submit" class="btn-send">Send OTP</button>
                 </form>
 
-                <div class="relative my-7 flex items-center justify-center">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-white/30"></div>
-                    </div>
-                    <span class="relative px-3 text-[14px] font-medium text-[#475569]">or</span>
-                </div>
-
-                <div class="text-center text-[15px] font-medium text-[#1e2530]">
+                <div class="footer-link">
                     Already have an account? 
-                    <a href="#" onclick="toggleForms('register')" class="text-[#ffc341] hover:text-[#eeb130] font-semibold underline underline-offset-4 ml-1 transition-all cursor-pointer">
-                        Log in
-                    </a>
+                    <a href="#" onclick="toggleForms('register')">Log in</a>
                 </div>
             </div>
 
-            <!-- OTP Verification Form -->
-            <div id="otpForm" class="form-container">
-                <div class="otp-form-content">
-                    <div>
-                        <h2 class="text-[38px] font-bold tracking-tight text-[#1e2530] mb-1">Verify Your Identity</h2>
-                        <p class="text-[15px] text-[#475569] font-medium mb-4">
-                            We've sent a 6-digit verification code to<br>
-                            <span class="font-semibold text-[#1e2530]" id="displayMobile">+91 ******1234</span>
-                        </p>
+            <!-- OTP -->
+            <div id="otpForm" class="form-container otp-box">
+                <h2>Verify Your Identity</h2>
+                <p class="subtitle">
+                    We've sent a 6-digit verification code to<br>
+                    <span id="displayMobile">+91 ******1234</span>
+                </p>
+
+                <form>
+                    <div class="otp-input-container">
+                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
+                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
+                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
+                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
+                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
+                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
                     </div>
 
-                    <form class="space-y-5 w-full">
-                        <div class="otp-input-container">
-                            <input type="text" maxlength="1" class="otp-input" placeholder="0">
-                            <input type="text" maxlength="1" class="otp-input" placeholder="0">
-                            <input type="text" maxlength="1" class="otp-input" placeholder="0">
-                            <input type="text" maxlength="1" class="otp-input" placeholder="0">
-                            <input type="text" maxlength="1" class="otp-input" placeholder="0">
-                            <input type="text" maxlength="1" class="otp-input" placeholder="0">
-                        </div>
+                    <div class="resend-section">
+                        <span class="resend-text">Resend in <span class="timer-text" id="timer">00:34</span></span>
+                        <a href="#" class="resend-link disabled" id="resendLink" onclick="resendOTP(event)">Resend Code</a>
+                    </div>
 
-                        <div class="resend-section">
-                            <span class="resend-text">Resend in <span class="timer-text" id="timer">00:34</span></span>
-                            <a href="#" class="resend-link disabled" id="resendLink" onclick="resendOTP(event)">Resend Code</a>
-                        </div>
-
-                        <button type="submit" 
-                                class="btn-verify w-full py-4 px-4 bg-[#ffc341] hover:bg-[#eeb130] text-[#1e2530] font-bold text-[17px] rounded-xl shadow-sm transition-all transform active:scale-[0.99] mt-2">
-                            Verify & Continue
-                        </button>
-                    </form>
-                </div>
+                    <button type="submit" class="btn-send btn-verify">Verify & Continue</button>
+                </form>
             </div>
 
         </div>
@@ -339,44 +377,43 @@
 </div>
 
 <script>
-    // Validation function
-    function validateMobile(inputId, errorId) {
+    function validateMobile(inputId, errorId, wrapperId) {
         const input = document.getElementById(inputId);
         const error = document.getElementById(errorId);
+        const wrapper = document.getElementById(wrapperId);
         const value = input.value.trim();
         
         if (value.length === 10 && /^[0-9]{10}$/.test(value)) {
-            input.classList.remove('error');
+            wrapper.classList.remove('error');
             error.classList.remove('show');
             return true;
         } else {
-            input.classList.add('error');
+            wrapper.classList.add('error');
             error.classList.add('show');
             return false;
         }
     }
 
-    // Validate and show OTP
     function validateAndShowOTP(event, type) {
         event.preventDefault();
         
-        let inputId, errorId;
+        let inputId, errorId, wrapperId;
         if (type === 'signin') {
             inputId = 'mobile_no';
             errorId = 'signinError';
+            wrapperId = 'signinWrapper';
         } else {
             inputId = 'register_mobile';
             errorId = 'registerError';
+            wrapperId = 'registerWrapper';
         }
         
-        if (validateMobile(inputId, errorId)) {
+        if (validateMobile(inputId, errorId, wrapperId)) {
             const mobile = document.getElementById(inputId).value;
-            // Show OTP form
             document.getElementById('signinForm').classList.remove('active');
             document.getElementById('registerForm').classList.remove('active');
             document.getElementById('otpForm').classList.add('active');
             
-            // Update mobile number display (masked)
             const masked = '+91 ******' + mobile.slice(-4);
             document.getElementById('displayMobile').textContent = masked;
             
@@ -384,7 +421,6 @@
         }
     }
 
-    // Toggle between Sign In and Register
     function toggleForms(type) {
         const signinForm = document.getElementById('signinForm');
         const registerForm = document.getElementById('registerForm');
@@ -392,11 +428,10 @@
         
         otpForm.classList.remove('active');
         
-        // Clear errors
         document.getElementById('signinError').classList.remove('show');
         document.getElementById('registerError').classList.remove('show');
-        document.getElementById('mobile_no').classList.remove('error');
-        document.getElementById('register_mobile').classList.remove('error');
+        document.getElementById('signinWrapper').classList.remove('error');
+        document.getElementById('registerWrapper').classList.remove('error');
         
         if (type === 'signin') {
             signinForm.classList.remove('active');
@@ -407,7 +442,6 @@
         }
     }
 
-    // Timer functionality
     let timeLeft = 34;
     let timerInterval;
 
@@ -456,7 +490,6 @@
         alert('OTP resent successfully!');
     }
 
-    // OTP Auto-focus
     document.querySelectorAll('.otp-input').forEach((input, index, inputs) => {
         input.addEventListener('input', function() {
             if (this.value.length === 1 && index < inputs.length - 1) {
@@ -464,7 +497,6 @@
             }
         });
         
-        // Backspace support
         input.addEventListener('keydown', function(e) {
             if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
                 inputs[index - 1].focus();

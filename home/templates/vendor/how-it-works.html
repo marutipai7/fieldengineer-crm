@@ -1,0 +1,375 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}
+Vendor Management Platform | Grow Your Field Service Business | Field Engage
+{% endblock %}
+
+{% block content %}
+
+{# Hero Section #}
+<section class="w-full bg-gradient-to-r from-[#FFFBEB] via-[#E2F1DD] to-[#CCE7C6] py-8 px-4 sm:px-6 md:px-8 lg:px-10 flex items-center min-h-[200px]">
+    <div class="max-w-full w-full flex flex-col justify-center">
+        <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-primary-green mb-4 block">
+            The FE Workflow
+        </span>
+        
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black-dark tracking-tight leading-[1.15] mb-5">
+            From job post to job done —<br class="hidden sm:inline" /> here's exactly how it works
+        </h1>
+        
+        <p class="text-sm sm:text-base text-light-dark font-normal leading-relaxed max-w-xl">
+            FE is a marketplace, not a dispatch system. You always choose who works for you.
+        </p>
+    </div>
+</section>
+
+{# Step 01 Section #}
+<section class="w-full bg-[#FAFDF9] py-8 lg:py-10 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-gray-100">
+    <div class="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left Side: Content Column -->
+        <div class="lg:col-span-7 flex flex-col justify-center">
+            <span class="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary-green mb-2 block">
+                Step 01
+            </span>
+            
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black-dark tracking-tight mb-3">
+                Post your job with full context
+            </h2>
+            
+            <p class="text-sm sm:text-base text-light-dark font-normal leading-relaxed mb-6 max-w-2xl">
+                Fill out a structured booking form: job title, service category, site address, access timing, scope of work, and your budget range. Upload floor plans, diagrams, photos, and work instructions.
+            </p>
+            
+            <!-- Checklist Feature Items -->
+            <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-black-darkk font-medium">Set a minimum and maximum budget range</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-black-darkk font-medium">Specify exact site access details and security requirements</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-black-darkk font-medium">Upload relevant documents for engineers to review</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-black-darkk font-medium">Define number of engineers, rack count, device count, and scope</span>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Right Side: Graphic UI Card Mockup -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end w-full">
+            <div class="w-full max-w-xl bg-white border border-[#E5E7EB]/60 rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="text-base">📋</span>
+                    <h3 class="text-sm sm:text-base font-bold text-black-darkk">New Job Posting</h3>
+                </div>
+                
+                <div class="bg-[#F8FAF7] rounded-xl p-4 mb-4 border border-[#EDF2EC]">
+                    <label class="block text-xs font-semibold text-[#9CA3AF] tracking-wide mb-1">Job Title</label>
+                    <div class="text-xs sm:text-sm font-bold text-[#1F2937]">
+                        Network Cabling – 3 Floors, Andheri Office
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div class="bg-[#F8FAF7] rounded-xl p-4 border border-[#EDF2EC]">
+                        <label class="block text-xs font-semibold text-[#9CA3AF] tracking-wide mb-1">Min Budget</label>
+                        <div class="text-sm sm:text-base font-bold text-[#047857]">
+                            ₹8,000
+                        </div>
+                    </div>
+                    <div class="bg-[#F8FAF7] rounded-xl p-4 border border-[#EDF2EC]">
+                        <label class="block text-xs font-semibold text-[#9CA3AF] tracking-wide mb-1">Max Budget</label>
+                        <div class="text-sm sm:text-base font-bold text-[#047857]">
+                            ₹14,000
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-[#E6F4EA] border border-[#C2E7CD] text-[#137333] text-xs sm:text-sm font-semibold rounded-xl py-3 px-4 flex items-center gap-2">
+                    <span class="text-sm">✓</span>
+                    <span>3 documents attached · Ready to post</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# Step 02 Section (Flipped Design) #}
+<section class="w-full bg-[#FAFDF9] py-8 lg:py-10 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-gray-100">
+    <div class="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left Side: Graphic UI Card Mockup -->
+        <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center lg:justify-start w-full">
+            <div class="w-full max-w-xl bg-white border border-[#E5E7EB]/60 rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-base">📥</span>
+                    <h3 class="text-sm sm:text-base font-bold text-[#1F2937]">Lead (Engineer View)</h3>
+                </div>
+                
+                <!-- Inner Lead Item -->
+                <div class="border border-[#E5E7EB] rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <h4 class="text-sm sm:text-base font-bold text-[#111827] mb-1">Network Cabling – Andheri</h4>
+                        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[#6B7280] font-medium">
+                            <span class="flex items-center gap-1">📍 2.4 km away</span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1">🔌 Cabling</span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1">👥 2 needed</span>
+                        </div>
+                    </div>
+                    <div class="text-right flex sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-4 sm:gap-1">
+                        <span class="text-sm sm:text-base font-bold text-[#059669] whitespace-nowrap">₹8K–₹14K</span>
+                    </div>
+                </div>
+                
+                <!-- Inner Lead Action Row -->
+                <div class="flex items-center gap-3 mt-4 justify-start">
+                    <button class="px-4 py-2 text-xs sm:text-sm font-semibold text-[#374151] bg-white border border-[#D1D5DB] rounded-lg hover:bg-gray-50 transition-colors">
+                        View Details
+                    </button>
+                    <button class="px-5 py-2 text-xs sm:text-sm font-bold text-[#1F2937] bg-[#FBBF24] rounded-lg hover:bg-[#F59E0B] transition-colors">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side: Content Column -->
+        <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center">
+            <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#10B981] mb-2 block">
+                Step 02
+            </span>
+            
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111827] tracking-tight mb-3">
+                Nearby engineers see your lead
+            </h2>
+            
+            <p class="text-sm sm:text-base text-[#4B5563] font-normal leading-relaxed mb-6 max-w-2xl">
+                Once posted, engineers within range get notified immediately. They review your scope, attachments, and budget — and decide whether to apply. No auto-assignment, ever.
+            </p>
+            
+            <!-- Checklist Feature Items -->
+            <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">Only engineers near your site receive the lead</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">Engineers see full job details before applying</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">Multiple engineers can apply — you get options</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">System never assigns anyone automatically</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{# Step 03 Section #}
+<section class="w-full bg-[#FAFDF9] py-8 lg:py-10 px-4 sm:px-6 md:px-8 lg:px-10">
+    <div class="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left Side: Content Column -->
+        <div class="lg:col-span-7 flex flex-col justify-center">
+            <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#10B981] mb-2 block">
+                Step 03
+            </span>
+            
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111827] tracking-tight mb-3">
+                You pick the engineer you trust
+            </h2>
+            
+            <p class="text-sm sm:text-base text-[#4B5563] font-normal leading-relaxed mb-6 max-w-2xl">
+                Review every applicant's profile — ratings, completed jobs, skills, and certifications. Select the engineer (or engineers) you feel most confident about. The job is awarded only when you approve.
+            </p>
+            
+            <!-- Checklist Feature Items -->
+            <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">See full profiles with ratings and job history</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">Hire one or multiple engineers for a single job</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">You're always in control — no system decides for you</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">Rejected applicants are notified automatically</span>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Right Side: Graphic UI Card Mockup -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end w-full">
+            <div class="w-full max-w-xl bg-white border border-[#E5E7EB]/60 rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="text-base">👥</span>
+                    <h3 class="text-sm sm:text-base font-bold text-[#1F2937]">Applicants (3 received)</h3>
+                </div>
+                
+                <!-- Applicant List Structure -->
+                <div class="divide-y divide-gray-100">
+                    <!-- Applicant 1 -->
+                    <div class="flex items-center justify-between py-3.5 first:pt-0 last:pb-0">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-[#E6F4EA] text-[#137333] font-bold text-sm flex items-center justify-center shrink-0">
+                                AS
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-[#1F2937]">Arjun Sharma</h4>
+                                <p class="text-xs text-[#6B7280]">84 jobs <span class="mx-0.5">·</span> ⭐ 4.9 <span class="mx-0.5">·</span> Network Cabling</p>
+                            </div>
+                        </div>
+                        <button class="px-4 py-1.5 text-xs font-bold text-white bg-[#10B981] hover:bg-[#059669] rounded-lg transition-colors">
+                            Select
+                        </button>
+                    </div>
+
+                    <!-- Applicant 2 -->
+                    <div class="flex items-center justify-between py-3.5 first:pt-0 last:pb-0">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-[#EBF5FF] text-[#1D4ED8] font-bold text-sm flex items-center justify-center shrink-0">
+                                RK
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-[#1F2937]">Rohan Kumar</h4>
+                                <p class="text-xs text-[#6B7280]">56 jobs <span class="mx-0.5">·</span> ⭐ 4.7 <span class="mx-0.5">·</span> Cabling & DC</p>
+                            </div>
+                        </div>
+                        <button class="px-4 py-1.5 text-xs font-semibold text-[#374151] bg-white border border-[#D1D5DB] hover:bg-gray-50 rounded-lg transition-colors">
+                            View
+                        </button>
+                    </div>
+
+                    <!-- Applicant 3 -->
+                    <div class="flex items-center justify-between py-3.5 first:pt-0 last:pb-0">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-[#F3F4F6] text-[#374151] font-bold text-sm flex items-center justify-center shrink-0">
+                                PT
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-[#1F2937]">Priya Trivedi</h4>
+                                <p class="text-xs text-[#6B7280]">112 jobs <span class="mx-0.5">·</span> ⭐ 5.0 <span class="mx-0.5">·</span> Smart Hands</p>
+                            </div>
+                        </div>
+                        <button class="px-4 py-1.5 text-xs font-semibold text-[#374151] bg-white border border-[#D1D5DB] hover:bg-gray-50 rounded-lg transition-colors">
+                            View
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# Step 04 Section (Flipped Design) #}
+<section class="w-full bg-[#FAFDF9] py-8 lg:py-10 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-gray-100">
+    <div class="max-w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left Side: Graphic UI Card Mockup -->
+        <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center lg:justify-start w-full">
+            <div class="w-full max-w-xl bg-white border border-[#E5E7EB]/60 rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-base">🚀</span>
+                    <h3 class="text-sm sm:text-base font-bold text-[#1F2937]">Job In Progress</h3>
+                </div>
+                
+                <!-- Inner Progress Container -->
+                <div class="bg-[#F8FAF7] border border-[#EDF2EC] rounded-xl p-5 mb-4">
+                    <div class="text-xs sm:text-sm font-bold text-[#1F2937] mb-3">
+                        Network Cabling – Andheri · <span class="text-gray-500 font-medium">Arjun Sharma</span>
+                    </div>
+                    
+                    <!-- Progress Bar Track -->
+                    <div class="w-full bg-gray-200/70 h-2 rounded-full overflow-hidden mb-2">
+                        <div class="bg-[#10B981] h-full w-[65%] rounded-full"></div>
+                    </div>
+                    
+                    <!-- Progress Info -->
+                    <div class="text-[11px] sm:text-xs text-[#6B7280] font-medium">
+                        65% complete · Est. 2 hrs remaining
+                    </div>
+                </div>
+                
+                <!-- Escrow Badge -->
+                <div class="bg-[#E6F4EA] border border-[#C2E7CD] text-[#137333] text-xs sm:text-sm font-semibold rounded-xl py-3 px-4 flex items-center gap-2">
+                    <span class="text-sm">💳</span>
+                    <span>安定 ₹12,000 in escrow — released on your approval</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side: Content Column -->
+        <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center">
+            <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#10B981] mb-2 block">
+                Step 04
+            </span>
+            
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111827] tracking-tight mb-3">
+                Track progress. Pay when done.
+            </h2>
+            
+            <p class="text-sm sm:text-base text-[#4B5563] font-normal leading-relaxed mb-6 max-w-2xl">
+                Once the engineer is on-site, you track real-time progress. Engineers upload proof of completion. You verify and release payment — securely held in escrow until work is approved.
+            </p>
+            
+            <!-- Checklist Feature Items -->
+            <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">Real-time job progress updates from the engineer</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">Photo and document uploads as proof of completion</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">Payment released only after your approval</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                    <span class="text-sm sm:text-base text-[#374151] font-medium">Leave a rating to help the community</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{# Ready To Try CTA Banner #}
+<section class="w-full bg-[#FAFDF9] py-8 px-4 sm:px-6 md:px-8 lg:px-10">
+    <div class="max-w-full mx-auto">
+        <div class="w-full bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5] rounded-3xl py-10 px-6 sm:px-12 flex flex-col items-center text-center shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1C241E] tracking-tight mb-3">
+                Ready to try it yourself?
+            </h2>
+            <p class="text-sm sm:text-base text-[#556353] font-medium mb-6 max-w-lg">
+                Create a free account and post your first job in under 5 minutes.
+            </p>
+            <a href="#" class="px-6 py-3 text-sm sm:text-base font-bold text-[#1C241E] bg-[#FBBF24] hover:bg-[#F59E0B] rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                Get Started Free →
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
