@@ -115,6 +115,12 @@
   --color-light-cyan-blue: #E6F9FF;
   --color-bright-cyan-blue: #06B6D4;
   --color-midnight-navy-blue: #021537;
+  --color-hero-gradient: linear-gradient(
+    160deg,
+    #FBF2C0 0%,
+    #D8EDBC 50%,
+    #C0DFA8 100%
+  );
   --color-help-center-bg: #2d3b2d;
 
   /*Request Service*/
@@ -408,6 +414,11 @@
 
 .btn-tiny {
   @apply gap-1.5 rounded-md px-4 py-2 text-c2;
+}
+
+
+.logo-gradient {
+    background: var(--color-hero-gradient);
 }
 
 /* Frosted glass panel */
