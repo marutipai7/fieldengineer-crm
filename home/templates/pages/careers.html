@@ -1,5 +1,7 @@
 {% extends 'home/layout.html' %}
 
+{% load static %}
+
 {% block title %}Careers — FieldEngineer{% endblock %}
 
 {% block content %}
@@ -49,8 +51,10 @@
       </div>
 
       <div class="lg:col-span-6 relative w-full flex justify-center lg:justify-end">
-        <img src="/static/img/careerpage.png" alt="Field Operations Team"
-          class="w-full max-w-2xl lg:max-w-none object-contain" />
+          <img src="{% static 'img/careerpage.png' %}" 
+     alt="Field Operations Team"
+     class="w-full max-w-2xl lg:max-w-none object-contain" 
+     loading="lazy" />
       </div>
 
     </div>
@@ -255,20 +259,26 @@ group
 
           <div
             class="relative aspect-[4/3] sm:aspect-video rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-slate-100">
-            <img src="/static/img/careerpage.png" alt="FE Team gathering"
-              class="absolute inset-0 w-full h-full object-cover" />
+           <img src="{% static 'img/careerpage.png' %}" 
+     alt="FE Team gathering"
+     class="absolute inset-0 w-full h-full object-cover" 
+     loading="lazy" />
           </div>
           <!-- Image 2 -->
           <div
             class="relative aspect-[4/3] sm:aspect-video rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-slate-100">
-            <img src="/static/img/feLife2.png" alt="FE Team meeting"
-              class="absolute inset-0 w-full h-full object-cover" />
+          <img src="{% static 'img/feLife2.png' %}" 
+     alt="FE Team meeting"
+     class="absolute inset-0 w-full h-full object-cover" 
+     loading="lazy" />
           </div>
           <!-- Image 3 -->
           <div
             class="relative aspect-[4/3] sm:aspect-video rounded-xl overflow-hidden border border-slate-100 shadow-sm bg-slate-100">
-            <img src="/static/img/feLife3.png" alt="FE Team recreation"
-              class="absolute inset-0 w-full h-full object-cover" />
+           <img src="{% static 'img/feLife3.png' %}" 
+     alt="FE Team recreation"
+     class="absolute inset-0 w-full h-full object-cover" 
+     loading="lazy" />
           </div>
         </div>
 

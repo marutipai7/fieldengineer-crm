@@ -56,3 +56,6 @@ def customer_contactus(request):
 
 def profile(request):
     return render(request, 'fieldengineer-crm/profile.html')
+
+def how_it_works(request):
+    return render(request, 'vendor/how-it-works.html')
