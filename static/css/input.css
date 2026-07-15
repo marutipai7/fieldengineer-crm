@@ -130,6 +130,8 @@
     #C0DFA8 100%
   );
   --color-help-center-bg: #2d3b2d;
+  --color-help-center-text: #e1f7ef;
+  --color-icon-light-green: #0ce99b;
 
   /*Request Service*/
   --color-sea-green: #3b974c;
@@ -186,6 +188,38 @@
   --color-spend-green: #16A34A;
   --shadow-metric-card: 0px 2px 8px 0px #0000000F;
 
+/* About FE Theme */
+
+--color-about-amber: #F5B530;
+--color-about-amber-dark: #D9980F;
+
+--color-about-green: #2DBB8A;
+--color-about-green-dark: #1E9B6F;
+--color-about-green-light: #E1F7EF;
+
+--color-about-cream: #FBF2C0;
+--color-about-sage: #C8E0B4;
+--color-about-sage-mid: #A8D494;
+
+--color-about-dark: #1C2B1C;
+--color-about-text: #2D3B2D;
+--color-about-muted: #6B7B6B;
+
+--color-about-card: #FFFFFF;
+--color-about-border: #E0ECD8;
+
+--color-about-bg-start: #FBF2C0;
+--color-about-bg-middle: #D8EDBC;
+--color-about-bg-end: #C0DFA8;
+--color-dark-green1: #05855B;
+--color-dark-green1: #05855b;
+--color-about-primary: #1E9B6F;
+--about-gradient: linear-gradient(
+    160deg,
+    #FBF2C0 0%,
+    #D8EDBC 50%,
+    #C0DFA8 100%
+);
 
   /* Glassmorphism */
   --glass-background: radial-gradient(90.16% 143.01% at 15.32% 21.04%,
@@ -306,7 +340,9 @@
 }
 
 @layer base {
-
+  article h3 {
+    @apply text-black !important;
+  }
   *,
   *::before,
   *::after {
@@ -2457,6 +2493,86 @@
 
 .contact-cta-actions {
   @apply flex w-full flex-col gap-3 sm:w-auto sm:flex-row;
+}
+
+/* About FE Hero */
+
+.about-hero{
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        160deg,
+        var(--color-about-bg-start),
+        var(--color-about-bg-middle),
+        var(--color-about-bg-end)
+    );
+}
+
+.about-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120px;
+
+    right:-150px;
+
+    width:600px;
+
+    height:600px;
+
+    border-radius:50%;
+
+    background:rgba(45,187,138,.08);
+}
+
+/*.about-hero::after {
+    content: "";
+    position: absolute;
+    top: -150px;
+    right: -250px;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: rgba(205, 237, 190, 0.45);
+    pointer-events: none;
+}*/
+
+.about-title-label {
+    color: var(--color-dark-green);
+}
+
+.about-fe-green {
+    color: var(--color-about-primary);
+}
+
+.about-fe-icon {
+    background: #E8F8EE;      /* Light green background */
+    color: #05855B;           /* Your About FE green */
+}
+
+.about-fe-arrow {
+    color: #05855B;
+}
+
+.about-green {
+    color: var(--teal-dark);
+}
+
+.about-primary-btn {
+    background: #F5B530;
+    color: #1A1A00;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.about-primary-btn:hover {
+    background: #D9980F;
+    color: #1A1A00;
 }
 
 /* Blog page */
