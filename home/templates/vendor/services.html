@@ -15,21 +15,42 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 .service-card-image {
     background-color: #fff;
 }
+.service-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    border-color: #10b981; /* emerald-500 green */
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15);
+    transform: translateY(-2px);
+}
+
+/* If you want only border effect without transform */
+.service-card:hover {
+    border-color: #10b981; /* emerald-500 green */
+}
 </style>
-</style>
+
+{# Hero Section #}
+{# Hero Section #}
 <section class="w-full bg-gradient-to-r from-[#FFFBEB] via-[#E2F1DD] to-[#CCE7C6] py-8 sm:py-12 lg:py-16">
-    <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col justify-center">
-        <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-primary-green mb-4 block">
-            What we work
-        </span>
-        
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black-dark tracking-tight leading-[1.15] mb-5">
-            Services for every IT & field need
-        </h1>
-        
-        <p class="text-sm sm:text-base text-light-dark font-normal leading-relaxed max-w-xl">
-           From day-to-day smart hands to full data center buildouts — FE engineers handle the full scope of technical field work.
-        </p>
+    <div class="popular-services-card"> <!-- Same container as cards -->
+        <div class="px-4"> <!-- Same padding as cards grid -->
+            <div class="max-w-5xl"> <!-- Removed mx-auto, only max-width -->
+                <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-primary-green mb-4 block">
+                    What we work
+                </span>
+                
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black-dark tracking-tight leading-[1.15] mb-5">
+                    Services for every IT & field need
+                </h1>
+                
+                <p class="text-sm sm:text-base text-light-dark font-normal leading-relaxed max-w-xl">
+                    From day-to-day smart hands to full data center buildouts — FE engineers handle the full scope of technical field work.
+                </p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -175,28 +196,29 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 </section>
 
     
-
 {# CTA Banner #}
-<section class="w-full bg-[#FAFDF9] py-4" style="padding-bottom: 2rem;">
-    <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-       <div class="w-full bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5] rounded-3xl py-10 px-6 sm:px-12 flex flex-col items-center text-center">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black-dark tracking-tight mb-3">
-        Ready to post your first job?
-    </h2>
-    <p class="text-sm sm:text-base text-light-dark font-medium mb-6 max-w-xl">
-        It takes less than 5 minutes. Engineers in your city get notified instantly.
-    </p>
-    
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-        <button onclick="openSignupPopup()" class="w-full sm:w-auto px-6 py-2 text-sm sm:text-base font-bold text-black-bright bg-bright-yellow hover:bg-amber-500 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer">
-            Post a Job Free →
-        </button>
-        
-     <button class="w-full sm:w-auto px-6 py-3 text-sm sm:text-base font-medium text-black-darkk border border-transparent hover:text-emerald-600 hover:border-emerald-500 hover:bg-emerald-50/40 rounded-xl transition-all flex items-center justify-center cursor-pointer">
-    See how it works
-</button>
-    </div>
-</div>
+<section class="w-full bg-[#FAFDF9] py-2" style="padding-bottom: 2rem;">
+    <div class="popular-services-card"> <!-- Same container as cards -->
+        <div class="px-4"> <!-- Same padding as cards grid -->
+            <div class="w-full bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5] rounded-3xl py-8 px-6 sm:px-10 flex flex-col items-center text-center">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black-dark tracking-tight mb-3">
+                    Ready to post your first job?
+                </h2>
+                <p class="text-sm sm:text-base text-light-dark font-medium mb-6 max-w-xl">
+                    It takes less than 5 minutes. Engineers in your city get notified instantly.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+                    <button onclick="openSignupPopup()" class="w-full sm:w-auto px-6 py-2 text-sm sm:text-base font-bold text-black-bright bg-bright-yellow hover:bg-amber-500 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer">
+                        Post a Job Free →
+                    </button>
+                    
+                    <button class="w-full sm:w-auto px-6 py-3 text-sm sm:text-base font-medium text-black-darkk border border-transparent hover:text-emerald-600 hover:border-emerald-500 hover:bg-emerald-50/40 rounded-xl transition-all flex items-center justify-center cursor-pointer">
+                        See how it works
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
