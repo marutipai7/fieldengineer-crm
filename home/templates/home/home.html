@@ -233,6 +233,16 @@
         color: var(--color-ink, #111827);
     }
 
+
+    .service-card {
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .service-card:hover {
+        border-color: #10b981;
+    }
+
     /* Keep the mobile stats and service selector visually separated. */
     @media (max-width: 1023px) {
         .hero-mobile-stats+.hero-service-card {
@@ -335,7 +345,7 @@
     .popular-services-title {
         font-size: 1.75rem;
         font-weight: 700;
-        color: #1a202c;
+        /* color: #1a202c; */
         margin: 0;
     }
 
@@ -374,6 +384,21 @@
 
     .popular-services-view-all:hover .material-symbols-outlined {
         transform: translateX(3px);
+    }
+
+
+    /* Subscribe Button Custom Yellow Color */
+    .stay-updated-submit {
+        background-color: #F5B530 !important;
+        color: rgb(56, 49, 49) !important;
+        transition: all 0.2s ease-in-out !important;
+    }
+
+    /* Hover effects and matching Warm Glow Shadow */
+    .stay-updated-submit:hover {
+        background-color: #dfa024 !important;
+        box-shadow: 0 10px 15px -3px rgba(245, 181, 48, 0.3),
+            0 4px 6px -4px rgba(245, 181, 48, 0.3) !important;
     }
 
     /* ============================================
@@ -635,9 +660,6 @@
                     and enterprise IT services across India.
 
                 </p>
-                <!-- =======================================================
-                    Search Card
-                ======================================================== -->
 
                 <div class="mt-10">
 
@@ -717,11 +739,9 @@
 
                 </div>
 
-
                 <!-- =======================================================
                     Statistics
                 ======================================================== -->
-
                 <div class="mt-12 flex flex-wrap gap-12">
 
                     <div>
@@ -751,23 +771,15 @@
                         <p class="mt-2 text-sm text-granite-gray">
 
                             Cities Covered
-
                         </p>
-
                     </div>
-
                     <div>
-
                         <h3 class="text-4xl font-bold text-charcoal-black">
-
                             98%
-
                         </h3>
 
                         <p class="mt-2 text-sm text-granite-gray">
-
                             Customer Satisfaction
-
                         </p>
 
                     </div>
@@ -783,76 +795,86 @@
 </section>
 
 <!-- ════════════ HOW IT WORKS ════════════ -->
-<section class="how-it-works" aria-labelledby="how-it-works-title" style="padding-bottom: 3rem" ;>
+<section class="how-it-works pb-12" aria-labelledby="how-it-works-title">
     <div class="how-it-works-card glass-border-white">
-        <!-- ===== HEADER WITH VIEW PROCESS DETAILS BUTTON ===== -->
-        <div class="how-it-works-header">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-8 sm:flex-col sm:items-start sm:gap-3">
             <div>
-                <h2 id="how-it-works-title">How it Works?</h2>
-                <p class="how-it-works-subtitle">A seamless process from booking to completion</p>
+                <h2 id="how-it-works-title" class="m-0 text-xl sm:text-2xl font-bold text-black-dark">How it Works?</h2>
+                <p class="mt-1 text-base text-light-dark">A seamless process from booking to completion</p>
             </div>
-
-            </a>
         </div>
 
         <ol class="how-it-works-steps">
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
-                    <span class="material-symbols-outlined">assignment</span>
+                <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20"
+                    aria-hidden="true">
+                    <span class="material-symbols-outlined !text-[#1E9B6F]">assignment</span>
                 </div>
                 <div class="how-it-works-step-body">
                     <h3 class="how-it-works-step-title">Create Booking</h3>
                     <p class="how-it-works-step-desc">Share your details, requirements &amp; preferred scheduled</p>
                 </div>
             </li>
+
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
-                    <span class="material-symbols-outlined">description</span>
+                <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20"
+                    aria-hidden="true">
+                    <span class="material-symbols-outlined !text-[#1E9B6F]">description</span>
                 </div>
                 <div class="how-it-works-step-body">
                     <h3 class="how-it-works-step-title">Receive Offer</h3>
                     <p class="how-it-works-step-desc">Verified vendors submit best quotes</p>
                 </div>
             </li>
+
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
-                    <span class="material-symbols-outlined">person_add</span>
+                <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20"
+                    aria-hidden="true">
+                    <span class="material-symbols-outlined !text-[#1E9B6F]">person_add</span>
                 </div>
                 <div class="how-it-works-step-body">
                     <h3 class="how-it-works-step-title">Vendor Assigned</h3>
                     <p class="how-it-works-step-desc">You assign the best FE Vendor for your job</p>
                 </div>
             </li>
+
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
-                    <span class="material-symbols-outlined">engineering</span>
+                <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20"
+                    aria-hidden="true">
+                    <span class="material-symbols-outlined !text-[#1E9B6F]">engineering</span>
                 </div>
                 <div class="how-it-works-step-body">
                     <h3 class="how-it-works-step-title">Engineer Deployed</h3>
                     <p class="how-it-works-step-desc">Certified engineers arrive on-site as per schedule</p>
                 </div>
             </li>
+
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
-                    <span class="material-symbols-outlined">pin_drop</span>
+                <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20"
+                    aria-hidden="true">
+                    <span class="material-symbols-outlined !text-[#1E9B6F]">pin_drop</span>
                 </div>
                 <div class="how-it-works-step-body">
                     <h3 class="how-it-works-step-title">Track Live Progress</h3>
                     <p class="how-it-works-step-desc">Real live tracking, work logs &amp; milestone updates</p>
                 </div>
             </li>
+
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
-                    <span class="material-symbols-outlined">monitoring</span>
+                <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20"
+                    aria-hidden="true">
+                    <span class="material-symbols-outlined !text-[#1E9B6F]">monitoring</span>
                 </div>
                 <div class="how-it-works-step-body">
                     <h3 class="how-it-works-step-title">Completion &amp; Report</h3>
                     <p class="how-it-works-step-desc">AI generated report with work proof &amp; documentation</p>
                 </div>
             </li>
+
             <li class="how-it-works-step">
-                <div class="how-it-works-step-icon water-drop-glass" aria-hidden="true">
-                    <span class="material-symbols-outlined">credit_card</span>
+                <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20"
+                    aria-hidden="true">
+                    <span class="material-symbols-outlined !text-[#1E9B6F]">credit_card</span>
                 </div>
                 <div class="how-it-works-step-body">
                     <h3 class="how-it-works-step-title">Payment &amp; Closure</h3>
@@ -864,18 +886,15 @@
 </section>
 
 <!-- ════════════ POPULAR SERVICES ════════════ -->
-<section class="popular-services" aria-labelledby="popular-services-title" style="padding-bottom: 3rem" ;>
+<section class="popular-services pb-12" aria-labelledby="popular-services-title">
     <div class="popular-services-card glass-border-white">
-        <!-- ===== HEADER WITH VIEW ALL BUTTON ===== -->
         <div class="popular-services-header">
-            <h2 id="popular-services-title" class="popular-services-title">
-                Explore Our <span>Popular Services</span>
+            <h2 id="popular-services-title" class="m-0 text-2xl font-bold md:text-[1.75rem]">
+                Explore Our <span class="text-primary-green">Popular Services</span>
             </h2>
-
         </div>
 
         <div class="popular-services-grid">
-            <!-- Card 1: Network Cabling -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
                     <img src="{% static 'img/popular-services/network-cabiling.svg' %}"
@@ -885,16 +904,9 @@
                 <p class="service-card-desc">Structured cabling, routing &amp; patching</p>
                 <div class="service-card-footer">
                     <div>
-                        <!--span class="service-card-price-label">Starts from</span>
-                        <span class="service-card-price-value">₹12,000</span>
-                    </div>
-                    <a href="#" class="service-card-btn" aria-label="View Network Cabling">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </a-->
                     </div>
             </article>
 
-            <!-- Card 2: Rack Installation -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
                     <img src="{% static 'img/popular-services/rack-installation.svg' %}"
@@ -903,17 +915,9 @@
                 <h3 class="service-card-title">Rack Installation</h3>
                 <p class="service-card-desc">Rack setup, expansion &amp; migration</p>
                 <div class="service-card-footer">
-                    <!--div>
-                        <span class="service-card-price-label">Starts from</span>
-                        <span class="service-card-price-value">₹15,000</span>
-                    </div>
-                    <a href="#" class="service-card-btn" aria-label="View Rack Installation">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </a-->
                 </div>
             </article>
 
-            <!-- Card 3: Fiber Deployment -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
                     <img src="{% static 'img/popular-services/fibre-deployment.svg' %}"
@@ -922,17 +926,9 @@
                 <h3 class="service-card-title">Fiber Deployment</h3>
                 <p class="service-card-desc">Fiber installation, splicing &amp; testing</p>
                 <div class="service-card-footer">
-                    <!--div>
-                        <span class="service-card-price-label">Starts from</span>
-                        <span class="service-card-price-value">₹20,000</span>
-                    </div>
-                    <a href="#" class="service-card-btn" aria-label="View Fiber Deployment">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </a-->
                 </div>
             </article>
 
-            <!-- Card 4: Server Setup -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
                     <img src="{% static 'img/popular-services/server-setup.svg' %}"
@@ -941,17 +937,9 @@
                 <h3 class="service-card-title">Server Setup</h3>
                 <p class="service-card-desc">Server installation, configuration &amp; testing</p>
                 <div class="service-card-footer">
-                    <!--div>
-                        <span class="service-card-price-label">Starts from</span>
-                        <span class="service-card-price-value">₹18,000</span>
-                    </div>
-                    <a href="#" class="service-card-btn" aria-label="View Server Setup">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </a-->
                 </div>
             </article>
 
-            <!-- Card 5: CCTV & Security -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
                     <img src="{% static 'img/popular-services/cctv-security.svg' %}"
@@ -960,17 +948,9 @@
                 <h3 class="service-card-title">CCTV &amp; Security</h3>
                 <p class="service-card-desc">CCTV installation &amp; access control</p>
                 <div class="service-card-footer">
-                    <!--div>
-                        <span class="service-card-price-label">Starts from</span>
-                        <span class="service-card-price-value">₹10,000</span>
-                    </div>
-                    <a href="#" class="service-card-btn" aria-label="View CCTV and Security">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </a-->
                 </div>
             </article>
 
-            <!-- Card 6: Smart Hands -->
             <article class="service-card glass-border-white">
                 <div class="service-card-image">
                     <img src="{% static 'img/popular-services/smart-hands.svg' %}"
@@ -979,13 +959,6 @@
                 <h3 class="service-card-title">Smart Hands</h3>
                 <p class="service-card-desc">Remote Hands &amp; eyes support</p>
                 <div class="service-card-footer">
-                    <!--div>
-                        <span class="service-card-price-label">Starts from</span>
-                        <span class="service-card-price-value">₹8,000</span>
-                    </div>
-                    <a href="#" class="service-card-btn" aria-label="View Smart Hands">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </a-->
                 </div>
             </article>
         </div>
@@ -1003,8 +976,9 @@
             <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
                 <div
                     class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
-                    <img src="{% static 'img/additional-task.svg' %}" alt="Additional Tasks icon" loading="lazy"
-                        class="w-8 h-8 object-contain">
+                    <span class="material-symbols-outlined text-[#1E9B6F]">
+                        assignment_add
+                    </span>
                 </div>
                 <h3 class="why-feature-title text-sm font-bold">Additional Tasks</h3>
                 <p class="why-feature-desc text-xs text-gray-600">Add tasks during active jobs.</p>
@@ -1013,8 +987,9 @@
             <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
                 <div
                     class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
-                    <img src="{% static 'img/tracking.svg' %}" alt="Live Tracking icon" loading="lazy"
-                        class="w-8 h-8 object-contain">
+                    <span class="material-symbols-outlined text-[#1E9B6F]">
+                        location_on
+                    </span>
                 </div>
                 <h3 class="why-feature-title text-sm font-bold">Live Tracking</h3>
                 <p class="why-feature-desc text-xs text-gray-600">Track engineers in real time.</p>
@@ -1022,8 +997,9 @@
             <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
                 <div
                     class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
-                    <img src="{% static 'img/work-logs.svg' %}" alt="Work Logs icon" loading="lazy"
-                        class="w-8 h-8 object-contain">
+                    <span class="material-symbols-outlined text-[#1E9B6F]">
+                        content_copy
+                    </span>
                 </div>
                 <h3 class="why-feature-title text-sm font-bold">Work Logs</h3>
                 <p class="why-feature-desc text-xs text-gray-600">Detailed logs, photos &amp; checklists.</p>
@@ -1031,8 +1007,9 @@
             <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
                 <div
                     class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
-                    <img src="{% static 'img/ai-reports.svg' %}" alt="AI Reports icon" loading="lazy"
-                        class="w-8 h-8 object-contain">
+                    <span class="material-symbols-outlined text-[#1E9B6F]">
+                        hotel_class
+                    </span>
                 </div>
                 <h3 class="why-feature-title text-sm font-bold">AI Reports</h3>
                 <p class="why-feature-desc text-xs text-gray-600">Automated reports with insights.</p>
@@ -1040,8 +1017,9 @@
             <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
                 <div
                     class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
-                    <img src="{% static 'img/team-workspace.svg' %}" alt="Team Workspace icon" loading="lazy"
-                        class="w-8 h-8 object-contain">
+                    <span class="material-symbols-outlined text-[#1E9B6F]">
+                        group_add
+                    </span>
                 </div>
                 <h3 class="why-feature-title text-sm font-bold">Team Workspace</h3>
                 <p class="why-feature-desc text-xs text-gray-600">Collaborate with engineers and teams.</p>
@@ -1049,8 +1027,9 @@
             <article class="why-feature-card glass-border-white text-center p-3 rounded-xl hover:bg-white transition">
                 <div
                     class="why-feature-icon water-drop-glass w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2 bg-blue-50/50">
-                    <img src="{% static 'img/secure-complain.svg' %}" alt="Secure and Compliant icon" loading="lazy"
-                        class="w-8 h-8 object-contain">
+                    <span class="material-symbols-outlined text-[#1E9B6F]">
+                        encrypted
+                    </span>
                 </div>
                 <h3 class="why-feature-title text-sm font-bold">Secure &amp; Compliant</h3>
                 <p class="why-feature-desc text-xs text-gray-600">Enterprise-grade security and compliance.</p>
@@ -1059,116 +1038,65 @@
     </div>
 </section>
 
-<!-- ════════════ PLATFORM IN YOUR HANDS ════════════ -->
-<!--section class="platform-hands" aria-labelledby="platform-hands-title"
-    style="padding-bottom: 1.5rem";>
-    <div class="platform-hands-card glass-border-white">
-        <div class="platform-hands-inner">
-            <div class="platform-hands-content">
-                <h2 id="platform-hands-title" class="platform-hands-title">Platform in Your Hands</h2>
-
-                <ul class="platform-hands-list">
-                    <li>
-                        <img src="{% static 'img/tick.svg' %}" alt="Check mark" aria-hidden="true" loading="lazy">
-                        Easy booking &amp; approvals
-                    </li>
-                    <li>
-                        <img src="{% static 'img/tick.svg' %}" alt="Check mark" aria-hidden="true" loading="lazy">
-                        Real-time tracking &amp; updates
-                    </li>
-                    <li>
-                        <img src="{% static 'img/tick.svg' %}" alt="Check mark" aria-hidden="true" loading="lazy">
-                        Secure payments &amp; invoicing
-                    </li>
-                    <li>
-                        <img src="{% static 'img/tick.svg' %}" alt="Check mark" aria-hidden="true" loading="lazy">
-                        AI reports &amp; analytics
-                    </li>
-                </ul>
-
-                <a href="{% url 'about_fe' %}" 
-   class="platform-hands-btn btn-glass-modern water-drop-glass" 
-   style="display: inline-flex; align-self: flex-start; margin-right: auto;">
-    Explore All Features
-    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</a>
-            </div>
-
-            <div class="platform-hands-apps">
-                <div class="platform-hands-app">
-                    <p class="platform-hands-app-label">Customer App</p>
-                    <div class="platform-hands-phone">
-                        <img src="{% static 'img/app-img.svg' %}" alt="Customer App preview on mobile" loading="lazy">
-                    </div>
-                </div>
-                <div class="platform-hands-app">
-                    <p class="platform-hands-app-label">Vendor App</p>
-                    <div class="platform-hands-phone">
-                        <img src="{% static 'img/app-img.svg' %}" alt="Vendor App preview on mobile" loading="lazy">
-                    </div>
-                </div>
-                <div class="platform-hands-app">
-                    <p class="platform-hands-app-label">Engineer App</p>
-                    <div class="platform-hands-phone">
-                        <img src="{% static 'img/app-img.svg' %}" alt="Engineer App preview on mobile" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section-->
 
 <!-- ════════════ COVERAGE ACROSS INDIA ════════════ -->
 <section class="coverage-india" aria-labelledby="coverage-india-title" style="padding-bottom: 3rem" ;>
     <div class="coverage-india-card glass-border-blue-light">
         <div class="coverage-india-inner">
             <div class="coverage-india-content">
-                <h2 id="coverage-india-title" class="coverage-india-title">
+                <!-- <h2 id="coverage-india-title" class="coverage-india-title">
                     Our Coverage
-                    <span class="pt-1">Across India</span>
+                    <span class="pt-1 text-red">Across India</span>
+                </h2> -->
+                <h2 id="coverage-india-title"
+                    class="text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight leading-tight">
+                    Our Coverage
+                    <span class="block mt-1 text-primary-green">Across India</span>
                 </h2>
                 <p class="coverage-india-desc">
                     A strong network of engineers &amp; vendors in every major city.
                 </p>
 
                 <div class="coverage-india-stats">
+
+                    <!-- Stat Card 1: Certified Engineers -->
                     <article class="coverage-stat-card water-drop-glass">
                         <span class="coverage-stat-icon" aria-hidden="true">
-                            <span class="material-symbols-outlined large-icon">groups</span>
+                            <span class="material-symbols-outlined large-icon text-[#1E9B6F]">groups</span>
                         </span>
                         <p class="coverage-stat-value">
                             <span class="hero-counter" data-target="15000" data-suffix="+" data-format="comma">0</span>
                         </p>
                         <p class="coverage-stat-label">Certified engineers</p>
                     </article>
+
+                    <!-- Stat Card 2: Verified Vendors -->
                     <article class="coverage-stat-card water-drop-glass">
                         <span class="coverage-stat-icon" aria-hidden="true">
-                            <span class="material-symbols-outlined large-icon">verified</span>
+                            <span class="material-symbols-outlined large-icon text-[#1E9B6F]">verified</span>
                         </span>
                         <p class="coverage-stat-value">
                             <span class="hero-counter" data-target="350" data-suffix="+">0</span>
                         </p>
                         <p class="coverage-stat-label">Verified Vendors</p>
                     </article>
+
+                    <!-- Stat Card 3: Cities Covered -->
                     <article class="coverage-stat-card water-drop-glass">
                         <span class="coverage-stat-icon" aria-hidden="true">
-                            <span class="material-symbols-outlined large-icon">apartment</span>
+                            <span class="material-symbols-outlined large-icon text-[#1E9B6F]">apartment</span>
                         </span>
                         <p class="coverage-stat-value">
                             <span class="hero-counter" data-target="120" data-suffix="+">0</span>
                         </p>
                         <p class="coverage-stat-label">Cities Covered</p>
                     </article>
-                </div>
 
-                <!-- <a href="#" class="coverage-india-btn btn-glass-modern water-drop-glass">
-                    View All Cities
-                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                </a> -->
+                </div>
             </div>
 
             <div class="coverage-india-map-wrap">
-                <img src="{% static 'img/Indian_map.png' %}" alt="Network Cabling" class="" loading="lazy">
+                <img src="{% static 'img/India-green-map.png' %}" alt="Network Cabling" class="" loading="lazy">
             </div>
         </div>
     </div>
@@ -1187,11 +1115,11 @@
                 </p>
                 <div class="deploy-cta-actions">
                     <a href="{% url 'help_center' %}" class="deploy-cta-btn-expert btn-glass-modern water-drop-glass">
-                        <span class="material-symbols-outlined">headset_mic</span>
+                        <span class="material-symbols-outlined text-[#1E9B6F]">headset_mic</span>
                         Talk to Expert
                     </a>
                     <a href="{% url 'request_service' %}"
-                        class="btn btn-primary btn-md btn-modern deploy-cta-btn-service inline-flex">
+                        class="btn btn-md btn-modern deploy-cta-btn-service inline-flex items-center justify-center gap-2 bg-bright-yellow hover:bg-[#dfa024] text-[rgb(56, 49, 49)] font-semibold px-5 py-2.5 rounded-lg transition-all duration-200">
                         Request Service
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                     </a>
@@ -1199,38 +1127,45 @@
             </div>
 
             <div class="deploy-cta-stats">
+
                 <article class="deploy-cta-stat">
                     <span class="deploy-cta-stat-icon water-drop-glass" aria-hidden="true">
-                        <span class="material-symbols-outlined">check_circle</span>
+                        <span class="material-symbols-outlined text-[#1E9B6F]"
+                            style="color: #1E9B6F;">check_circle</span>
                     </span>
                     <p class="deploy-cta-stat-value">
                         <span class="hero-counter" data-target="99.2" data-decimals="1" data-suffix="%">0</span>
                     </p>
                     <p class="deploy-cta-stat-label">SLA Success</p>
                 </article>
+
                 <article class="deploy-cta-stat">
                     <span class="deploy-cta-stat-icon water-drop-glass" aria-hidden="true">
-                        <span class="material-symbols-outlined">assignment</span>
+                        <span class="material-symbols-outlined text-[#1E9B6F]" style="color: #1E9B6F;">assignment</span>
                     </span>
                     <p class="deploy-cta-stat-value">
                         <span class="hero-counter" data-target="10" data-suffix="M+">0</span>
                     </p>
                     <p class="deploy-cta-stat-label">Jobs Completed</p>
                 </article>
+
                 <article class="deploy-cta-stat">
                     <span class="deploy-cta-stat-icon water-drop-glass" aria-hidden="true">
-                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined text-[#1E9B6F]" style="color: #1E9B6F;">star</span>
                     </span>
                     <p class="deploy-cta-stat-value">4.8/5</p>
                     <p class="deploy-cta-stat-label">Customer Rating</p>
                 </article>
+
                 <article class="deploy-cta-stat">
                     <span class="deploy-cta-stat-icon water-drop-glass" aria-hidden="true">
-                        <span class="material-symbols-outlined">headset_mic</span>
+                        <span class="material-symbols-outlined text-[#1E9B6F]"
+                            style="color: #1E9B6F;">headset_mic</span>
                     </span>
                     <p class="deploy-cta-stat-value">24/7</p>
                     <p class="deploy-cta-stat-label">Support Available</p>
                 </article>
+
             </div>
         </div>
     </div>
@@ -1246,7 +1181,7 @@
             <div class="stay-updated-content flex items-center gap-3 w-full lg:flex-1 min-w-0">
                 <!-- Email Icon -->
                 <div
-                    class="stay-updated-icon flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                    class="stay-updated-icon flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-50 flex items-center justify-center text-[#1E9B6F]">
                     <span class="material-symbols-outlined text-xl md:text-2xl">email</span>
                 </div>
 
@@ -1272,7 +1207,7 @@
                         placeholder="Enter your business email" autocomplete="email" required>
                     <!-- Subscribe button: full width on mobile, auto on desktop -->
                     <button type="submit"
-                        class="stay-updated-submit w-full sm:w-auto flex-shrink-0 inline-flex items-center justify-center gap-1.5 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-blue-600/25 whitespace-nowrap">
+                        class="stay-updated-submit w-full sm:w-auto flex-shrink-0 inline-flex items-center justify-center gap-1.5 px-5 py-3 text-white font-semibold text-sm rounded-lg whitespace-nowrap group">
                         Subscribe
                         <span
                             class="material-symbols-outlined text-base transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>
@@ -1290,9 +1225,6 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="{% static 'script/customer-home/customer-home.js' %}"></script>
-<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /> -->
-<!-- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> -->
-
 
 
 {% endblock %}
