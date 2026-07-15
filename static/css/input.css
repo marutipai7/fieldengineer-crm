@@ -64,14 +64,12 @@
  --color-black-dark: #1C2B1C;
  --color-light-dark : #6B7B6B;
   --color-black-darkk: #2D3B2D;
-=======
  --color-black-darkk: #2D3B2D;
  --color-green-light: #1E9B6F;
 --color-bright-yellow: #F5B530;
 --color-black-bright: #1A1A00;
 
 
->>>>>>> 726dc3789d58f0ef6a42d89beee52c78e7e069c9
   /* Neutrals */
 
   --glass-input-border: 0.5px solid;
@@ -131,7 +129,6 @@
   --color-help-center-bg: #2d3b2d;
   --color-help-center-text: #e1f7ef;
   --color-icon-light-green: #0ce99b;
-  726dc3789d58f0ef6a42d89beee52c78e7e069c9
 
   /*Request Service*/
   --color-sea-green: #3b974c;
@@ -339,10 +336,10 @@
   --text-label--line-height: 16px;
 }
 
-@layer base {
-  article h3 {
-    @apply text-black !important;
-  }
+article h3 {
+  @apply text-black;
+  color: black !important;
+}
   *,
   *::before,
   *::after {
@@ -402,7 +399,7 @@
   .material-symbols-outlined.large-icon {
     font-size: 32px !important;
   }
-}
+
 
 @layer components {
   .btn {
