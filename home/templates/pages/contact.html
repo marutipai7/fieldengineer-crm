@@ -8,7 +8,7 @@
 <main>
 
     {# ========== BREADCRUMB ========== #}
-    <section class="contact-breadcrumb-bar" aria-label="Breadcrumb">
+    <!-- <section class="contact-breadcrumb-bar" aria-label="Breadcrumb">
         <div class="contact-breadcrumb-bar-inner">
             <nav class="contact-breadcrumb" aria-label="Breadcrumb">
                 <a href="{% url 'home' %}">Home</a>
@@ -18,120 +18,96 @@
                 <span class="contact-breadcrumb-current" aria-current="page">Contact Us</span>
             </nav>
         </div>
-    </section>
+    </section> -->
 
     {# ========== HERO ========== #}
-    <section class="contact-hero" aria-labelledby="contact-hero-title">
-        <img src="{% static 'img/contact-hero.png' %}" alt="" aria-hidden="true" class="contact-hero-bg">
-        <div class="contact-hero-overlay" aria-hidden="true"></div>
+  <section class="relative overflow-hidden" style="margin: 0; padding: 0;">
 
-        <div class="contact-hero-inner">
-            <div class="contact-hero-grid">
-                <div class="contact-hero-content">
-                    <p class="contact-hero-watermark" aria-hidden="true">CONTACT FE</p>
-                    <h1 id="contact-hero-title" class="contact-hero-title">Let's Build Better Field Operations Together</h1>
-                    <p class="contact-hero-desc">
+    <div class="relative z-10" style="max-width: 100%; padding: 0; margin: 0;">
+
+        <div class="flex py-12 md:py-16 items-center" style="margin: 0; padding: 0;">
+
+            <div class="w-full" style="margin: 0; padding: 0;">
+
+                <div class="contact-hero-content bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5] py-8 md:py-10 lg:py-12 px-6 md:px-10 lg:px-14" style="border-radius: 0; margin: 0;">
+                    
+                    <h1 id="contact-hero-title" class="contact-hero-title text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3" style="color: #1a1a1a;">
+                        Let's Build Better Field Operations Together
+                    </h1>
+                    
+                    <p class="contact-hero-desc text-sm sm:text-base font-medium mb-6 max-w-xl" style="color: #4a4a4a;">
                         Connect with FE's enterprise team for workforce deployment, vendor partnerships,
                         large-scale projects, and platform support.
                     </p>
 
-                    <div class="contact-hero-stats">
-                        <div class="contact-hero-stat">
-                            <div class="contact-hero-stat-icon" aria-hidden="true">
-                                <span class="material-symbols-outlined">groups</span>
+                    <div class="contact-hero-stats grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+                        <div class="contact-hero-stat flex items-center gap-3">
+                            <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                                <span class="material-symbols-outlined" style="color: #1a1a1a;">groups</span>
                             </div>
                             <div>
-                                <strong>15,000+</strong>
-                                <span>Engineers</span>
+                                <strong class="text-lg font-bold block" style="color: #1a1a1a;">15,000+</strong>
+                                <span class="text-sm" style="color: #4a4a4a;">Engineers</span>
                             </div>
                         </div>
-                        <div class="contact-hero-stat">
-                            <div class="contact-hero-stat-icon" aria-hidden="true">
-                                <span class="material-symbols-outlined">verified_user</span>
+                        <div class="contact-hero-stat flex items-center gap-3">
+                            <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                                <span class="material-symbols-outlined" style="color: #1a1a1a;">verified_user</span>
                             </div>
                             <div>
-                                <strong>350+</strong>
-                                <span>Vendors</span>
+                                <strong class="text-lg font-bold block" style="color: #1a1a1a;">350+</strong>
+                                <span class="text-sm" style="color: #4a4a4a;">Vendors</span>
                             </div>
                         </div>
-                        <div class="contact-hero-stat">
-                            <div class="contact-hero-stat-icon" aria-hidden="true">
-                                <span class="material-symbols-outlined">location_city</span>
+                        <div class="contact-hero-stat flex items-center gap-3">
+                            <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                                <span class="material-symbols-outlined" style="color: #1a1a1a;">location_city</span>
                             </div>
                             <div>
-                                <strong>120+</strong>
-                                <span>Cities</span>
+                                <strong class="text-lg font-bold block" style="color: #1a1a1a;">120+</strong>
+                                <span class="text-sm" style="color: #4a4a4a;">Cities</span>
                             </div>
                         </div>
-                        <div class="contact-hero-stat">
-                            <div class="contact-hero-stat-icon" aria-hidden="true">
-                                <span class="material-symbols-outlined">schedule</span>
+                        <div class="contact-hero-stat flex items-center gap-3">
+                            <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                                <span class="material-symbols-outlined" style="color: #1a1a1a;">schedule</span>
                             </div>
                             <div>
-                                <strong>10M+</strong>
-                                <span>Work Hours</span>
+                                <strong class="text-lg font-bold block" style="color: #1a1a1a;">10M+</strong>
+                                <span class="text-sm" style="color: #4a4a4a;">Work Hours</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="contact-hero-actions">
-    <a href="#contact-form"
-       class="btn btn-primary btn-md px-8 py-3 rounded-md inline-flex items-center gap-2 min-w-[180px] justify-center">
-        Contact Sales
-        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-    </a>
+                    <div class="contact-hero-actions flex flex-col sm:flex-row items-center gap-4">
+                        <a href="#contact-form"
+                           class="btn btn-primary btn-md px-8 py-3 rounded-xl inline-flex items-center gap-2 min-w-[180px] justify-center font-bold transition-all hover:shadow-md" style="background: #F5B530; color: #1a1a1a;">
+                            Contact Sales
+                            <span class="material-symbols-outlined" aria-hidden="true" style="color: #1a1a1a; font-size: 20px;">arrow_forward</span>
+                        </a>
 
-    <a href="{% url 'vendor' %}"
-       class="btn btn-md px-6 py-3 rounded-md border border-white/80 bg-transparent text-white hover:bg-white/10 inline-flex items-center gap-2 min-w-[180px] justify-center">
-        Become Vendor
-        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-    </a>
-</div>
-                </div>
-
-                <div class="contact-hero-aside">
-                    <div class="contact-status-cards">
-                        <div class="contact-status-card">
-                            <div class="contact-status-card-icon" aria-hidden="true">
-                                <span class="material-symbols-outlined">person_pin_circle</span>
-                            </div>
-                            <div class="contact-status-card-body">
-                                <p class="contact-status-card-label">Live Tracking</p>
-                                <p class="contact-status-card-value">2,450 Jobs</p>
-                            </div>
-                        </div>
-                        <div class="contact-status-card">
-                            <div class="contact-status-card-icon" aria-hidden="true">
-                                <span class="material-symbols-outlined">person_heart</span>
-                            </div>
-                            <div class="contact-status-card-body">
-                                <p class="contact-status-card-label">Engineers Online</p>
-                                <p class="contact-status-card-value contact-status-card-value--live">
-                                    <span class="contact-status-dot" aria-hidden="true"></span> 2,350
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contact-status-card">
-                            <div class="contact-status-card-icon" aria-hidden="true">
-                                <span class="material-symbols-outlined">check_circle</span>
-                            </div>
-                            <div class="contact-status-card-body">
-                                <p class="contact-status-card-label">Jobs Completed</p>
-                                <p class="contact-status-card-value">98.4%</p>
-                            </div>
-                        </div>
+                        <a href="{% url 'vendor' %}"
+                           class="btn btn-md px-6 py-3 rounded-xl border inline-flex items-center gap-2 min-w-[180px] justify-center font-medium transition-all hover:bg-black/5" style="border-color: #1a1a1a; color: #1a1a1a; background: transparent;">
+                            Become Vendor
+                            <span class="material-symbols-outlined" aria-hidden="true" style="color: #1a1a1a; font-size: 20px;">arrow_forward</span>
+                        </a>
                     </div>
                 </div>
+
             </div>
+
         </div>
-    </section>
+
+    </div>
+
+</section>
 
     {# ========== CONTACT INFO CARDS ========== #}
     <section class="contact-info-grid" aria-label="Contact channels">
         <article class="contact-info-card">
             <div class="flex items-center gap-4">
-                <div class="contact-info-icon bg-powder-blue text-primary" aria-hidden="true">
-                    <span class="material-symbols-outlined">business_center</span>
+                <div class="contact-info-icon bg-lightest-green text-primary" aria-hidden="true">
+                    <span class="material-symbols-outlined text-green">business_center</span>
                 </div>
                 <div>
                     <h2 class="contact-info-title">Enterprise Sales</h2>
@@ -152,7 +128,7 @@
         <article class="contact-info-card">
             <div class="flex items-center gap-4">
                 <div class="contact-info-icon bg-lightest-green text-dark-green" aria-hidden="true">
-                    <span class="material-symbols-outlined">headset_mic</span>
+                    <span class="material-symbols-outlined text-green">headset_mic</span>
                 </div>
                 <div>
                     <h2 class="contact-info-title">Customer Support</h2>
@@ -172,8 +148,8 @@
 
         <article class="contact-info-card">
             <div class="flex items-center gap-4">
-                <div class="contact-info-icon bg-lavender-mist text-light-purple" aria-hidden="true">
-                    <span class="material-symbols-outlined">handshake</span>
+                <div class="contact-info-icon bg-lightest-green text-light-purple" aria-hidden="true">
+                    <span class="material-symbols-outlined text-green">handshake</span>
                 </div>
                 <div>
                     <h2 class="contact-info-title">Vendor Partnership</h2>
@@ -193,8 +169,8 @@
 
         <article class="contact-info-card">
             <div class="flex items-center gap-4">
-                <div class="contact-info-icon bg-light-ochre-yellow text-amber-orange" aria-hidden="true">
-                    <span class="material-symbols-outlined">engineering</span>
+                <div class="contact-info-icon bg-lightest-green text-amber-orange" aria-hidden="true">
+                    <span class="material-symbols-outlined text-green">engineering</span>
                 </div>
                 <div>
                     <h2 class="contact-info-title">Engineer Support</h2>
@@ -287,17 +263,19 @@
                     </div>
                 </div>
 
-                <label class="contact-upload" for="contact-attachment">
-                    <span class="material-symbols-outlined contact-upload-icon text-[32px]" aria-hidden="true">upload_file</span>
-                    <span class="contact-upload-text">Click to upload or drag and drop</span>
-                    <span class="contact-upload-hint">PDF, DOC, XLS, ZIP (Max. 10MB)</span>
-                    <input type="file" id="contact-attachment" name="attachment" class="sr-only" accept=".pdf,.doc,.docx,.xls,.xlsx,.zip">
-                </label>
+                <label class="flex flex-col items-center justify-center p-8 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 cursor-pointer transition-all duration-300 hover:border-[#1E9B6F] hover:bg-green-50/50 text-center" for="contact-attachment">
+    <span class="material-symbols-outlined text-[32px] text-[#1E9B6F]" aria-hidden="true">upload_file</span>
+    <span class="text-sm font-medium text-gray-700 mt-2">Click to upload or drag and drop</span>
+    <span class="text-xs text-gray-500 mt-1">PDF, DOC, XLS, ZIP (Max. 10MB)</span>
+    <input type="file" id="contact-attachment" name="attachment" class="sr-only" accept=".pdf,.doc,.docx,.xls,.xlsx,.zip">
+</label>
 
-                <button type="submit" class="btn btn-primary btn-md rounded-md mt-5 w-full">
-                    Submit Inquiry
-                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-                </button>
+               <button type="submit" class="btn btn-md rounded-md mt-5 w-full" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #F5B530; color: rgb(56, 49, 49); padding: 0.625rem 1.5rem; font-weight: 600; border: none; transition: all 0.3s ease; cursor: pointer;"
+onmouseover="this.style.background='#dfa024'"
+onmouseout="this.style.background='#F5B530'">
+    Submit Inquiry
+    <span class="material-symbols-outlined" aria-hidden="true" style="font-size: 1.125rem;">arrow_forward</span>
+</button>
             </form>
         </div>
 
@@ -413,160 +391,265 @@
     </div-->
             </div>
 
-            <div class="contact-offices-cities">
-                <article class="contact-city-card">
-                    <div class="contact-city-icon" aria-hidden="true">
-                        <span class="material-symbols-outlined">apartment</span>
-                    </div>
-                    <div class="contact-city-info">
-                        <h3 class="contact-city-name">Delhi NCR</h3>
-                        <p class="contact-city-meta">Head Office</p>
-                        <p class="contact-city-meta">Enterprise Operations</p>
-                    </div>
-                </article>
+           <div class="contact-offices-cities">
+    <article class="contact-city-card">
+        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
+            <span class="material-symbols-outlined text-[#1E9B6F]">apartment</span>
+        </div>
+        <div class="contact-city-info">
+            <h3 class="contact-city-name">Delhi NCR</h3>
+            <p class="contact-city-meta">Head Office</p>
+            <p class="contact-city-meta">Enterprise Operations</p>
+        </div>
+    </article>
 
-                <article class="contact-city-card">
-                    <div class="contact-city-icon" aria-hidden="true">
-                        <span class="material-symbols-outlined">location_city</span>
-                    </div>
-                    <div class="contact-city-info">
-                        <h3 class="contact-city-name">Mumbai</h3>
-                        <p class="contact-city-meta">West Region Operations</p>
-                    </div>
-                </article>
+    <article class="contact-city-card">
+        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
+            <span class="material-symbols-outlined text-[#1E9B6F]">location_city</span>
+        </div>
+        <div class="contact-city-info">
+            <h3 class="contact-city-name">Mumbai</h3>
+            <p class="contact-city-meta">West Region Operations</p>
+        </div>
+    </article>
 
-                <article class="contact-city-card">
-                    <div class="contact-city-icon" aria-hidden="true">
-                        <span class="material-symbols-outlined">person_pin_circle</span>
-                    </div>
-                    <div class="contact-city-info">
-                        <h3 class="contact-city-name">Bengaluru</h3>
-                        <p class="contact-city-meta">South Region Operations</p>
-                    </div>
-                </article>
+    <article class="contact-city-card">
+        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
+            <span class="material-symbols-outlined text-[#1E9B6F]">person_pin_circle</span>
+        </div>
+        <div class="contact-city-info">
+            <h3 class="contact-city-name">Bengaluru</h3>
+            <p class="contact-city-meta">South Region Operations</p>
+        </div>
+    </article>
 
-                <article class="contact-city-card">
-                    <div class="contact-city-icon" aria-hidden="true">
-                        <span class="material-symbols-outlined">person_pin_circle</span>
-                    </div>
-                    <div class="contact-city-info">
-                        <h3 class="contact-city-name">Hyderabad</h3>
-                        <p class="contact-city-meta">Technology Center</p>
-                    </div>
-                </article>
+    <article class="contact-city-card">
+        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
+            <span class="material-symbols-outlined text-[#1E9B6F]">person_pin_circle</span>
+        </div>
+        <div class="contact-city-info">
+            <h3 class="contact-city-name">Hyderabad</h3>
+            <p class="contact-city-meta">Technology Center</p>
+        </div>
+    </article>
 
-                <article class="contact-city-card">
-                    <div class="contact-city-icon" aria-hidden="true">
-                        <span class="material-symbols-outlined">account_balance</span>
-                    </div>
-                    <div class="contact-city-info">
-                        <h3 class="contact-city-name">Chennai</h3>
-                        <p class="contact-city-meta">Field Operations Hub</p>
-                    </div>
-                </article>
+    <article class="contact-city-card">
+        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
+            <span class="material-symbols-outlined text-[#1E9B6F]">account_balance</span>
+        </div>
+        <div class="contact-city-info">
+            <h3 class="contact-city-name">Chennai</h3>
+            <p class="contact-city-meta">Field Operations Hub</p>
+        </div>
+    </article>
 
-                <article class="contact-city-card">
-                    <div class="contact-city-icon" aria-hidden="true">
-                        <span class="material-symbols-outlined">location_on</span>
-                    </div>
-                    <div class="contact-city-info">
-                        <h3 class="contact-city-name contact-city-name--accent">120+ Cities</h3>
-                        <p class="contact-city-meta">Nationwide Coverage</p>
-                    </div>
-                </article>
-            </div>
+    <article class="contact-city-card">
+        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
+            <span class="material-symbols-outlined text-[#1E9B6F]">location_on</span>
+        </div>
+        <div class="contact-city-info">
+            <h3 class="contact-city-name contact-city-name-accent">120+ Cities</h3>
+            <p class="contact-city-meta">Nationwide Coverage</p>
+        </div>
+    </article>
+</div>
         </div>
     </section>
 
     {# ========== FAQ ========== #}
     <section class="contact-faq" aria-labelledby="faq-heading">
-        <div class="contact-faq-inner">
-            <h2 id="faq-heading" class="contact-faq-title">Frequently Asked Questions</h2>
-            <div class="contact-faq-grid">
-                <div class="contact-faq-item" data-faq-item>
-                    <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
-                        How quickly can FE deploy engineers?
-                        <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
-                    </button>
-                    <div class="contact-faq-panel" data-faq-panel hidden>
-                        FE can deploy certified engineers within 4–24 hours depending on location, skill requirements, and project scale.
-                    </div>
+    <div class="contact-faq-inner">
+        <h2 id="faq-heading" class="contact-faq-title">Frequently Asked Questions</h2>
+        <div class="contact-faq-grid">
+            <div class="contact-faq-item" data-faq-item>
+                <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
+                    <span class="contact-faq-text">How quickly can FE deploy engineers?</span>
+                    <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
+                </button>
+                <div class="contact-faq-panel" data-faq-panel hidden>
+                    FE can deploy certified engineers within 4–24 hours depending on location, skill requirements, and project scale.
                 </div>
-                <div class="contact-faq-item" data-faq-item>
-                    <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
-                        What industries does FE support?
-                        <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
-                    </button>
-                    <div class="contact-faq-panel" data-faq-panel hidden>
-                        We support IT infrastructure, telecom, data centers, retail, banking, healthcare, and enterprise facility management.
-                    </div>
+            </div>
+            <div class="contact-faq-item" data-faq-item>
+                <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
+                    <span class="contact-faq-text">What industries does FE support?</span>
+                    <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
+                </button>
+                <div class="contact-faq-panel" data-faq-panel hidden>
+                    We support IT infrastructure, telecom, data centers, retail, banking, healthcare, and enterprise facility management.
                 </div>
-                <div class="contact-faq-item" data-faq-item>
-                    <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
-                        How do I become a vendor partner?
-                        <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
-                    </button>
-                    <div class="contact-faq-panel" data-faq-panel hidden>
-                        Submit a vendor partnership inquiry through this page or email partners@fieldengineer.com. Our team will review your profile within one business day.
-                    </div>
+            </div>
+            <div class="contact-faq-item" data-faq-item>
+                <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
+                    <span class="contact-faq-text">How do I become a vendor partner?</span>
+                    <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
+                </button>
+                <div class="contact-faq-panel" data-faq-panel hidden>
+                    Submit a vendor partnership inquiry through this page or email partners@fieldengineer.com. Our team will review your profile within one business day.
                 </div>
-                <div class="contact-faq-item" data-faq-item>
-                    <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
-                        Is support available after project completion?
-                        <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
-                    </button>
-                    <div class="contact-faq-panel" data-faq-panel hidden>
-                        Yes. FE provides post-deployment support, warranty assistance, and ongoing maintenance contracts through our 24/7 support team.
-                    </div>
+            </div>
+            <div class="contact-faq-item" data-faq-item>
+                <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
+                    <span class="contact-faq-text">Is support available after project completion?</span>
+                    <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
+                </button>
+                <div class="contact-faq-panel" data-faq-panel hidden>
+                    Yes. FE provides post-deployment support, warranty assistance, and ongoing maintenance contracts through our 24/7 support team.
                 </div>
-                <div class="contact-faq-item" data-faq-item>
-                    <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
-                        Can I track engineers in real time?
-                        <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
-                    </button>
-                    <div class="contact-faq-panel" data-faq-panel hidden>
-                        Yes. The FE platform offers live GPS tracking, job status updates, and digital work logs accessible from your dashboard.
-                    </div>
+            </div>
+            <div class="contact-faq-item" data-faq-item>
+                <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
+                    <span class="contact-faq-text">Can I track engineers in real time?</span>
+                    <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
+                </button>
+                <div class="contact-faq-panel" data-faq-panel hidden>
+                    Yes. The FE platform offers live GPS tracking, job status updates, and digital work logs accessible from your dashboard.
                 </div>
-                <div class="contact-faq-item" data-faq-item>
-                    <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
-                        What payment options are available?
-                        <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
-                    </button>
-                    <div class="contact-faq-panel" data-faq-panel hidden>
-                        We accept bank transfers, corporate POs, and online payments. Enterprise clients can set up monthly billing with custom SLAs.
-                    </div>
+            </div>
+            <div class="contact-faq-item" data-faq-item>
+                <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">
+                    <span class="contact-faq-text">What payment options are available?</span>
+                    <span class="material-symbols-outlined contact-faq-icon" aria-hidden="true">add</span>
+                </button>
+                <div class="contact-faq-panel" data-faq-panel hidden>
+                    We accept bank transfers, corporate POs, and online payments. Enterprise clients can set up monthly billing with custom SLAs.
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<style>
+    /* Hover effect - question text turns green on hover */
+    .contact-faq-trigger:hover .contact-faq-text {
+        color: #059669 !important; /* emerald-600 */
+        transition: color 0.2s ease;
+    }
+
+    /* Hover effect - icon turns green on hover */
+    .contact-faq-trigger:hover .contact-faq-icon {
+        color: #059669 !important; /* emerald-600 */
+        transition: color 0.2s ease;
+    }
+
+    /* Base styles for the FAQ text and icon */
+    .contact-faq-text {
+        transition: color 0.2s ease;
+        color: #1e293b; /* slate-800 */
+    }
+
+    .contact-faq-icon {
+        transition: color 0.2s ease;
+        color: #94a3b8; /* slate-400 */
+    }
+
+    /* Optional: keep the trigger as a flex container */
+    .contact-faq-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 1rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    /* Panel styling */
+    .contact-faq-panel {
+        padding: 0 1rem 1rem 1rem;
+        font-size: 0.875rem;
+        color: #475569;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 0.75rem;
+    }
+
+    /* Grid and item styling */
+    .contact-faq-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .contact-faq-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .contact-faq-item {
+        border: 1px solid #f1f5f9;
+        border-radius: 0.75rem;
+        background: white;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        transition: border-color 0.2s ease;
+    }
+
+    .contact-faq-item:hover {
+        border-color: #e2e8f0;
+    }
+
+    .contact-faq-title {
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: #0f172a;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-faq-inner {
+        max-width: 90rem;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    @media (min-width: 640px) {
+        .contact-faq-inner {
+            padding: 1.5rem 2rem;
+        }
+        .contact-faq-title {
+            font-size: 1.5rem;
+        }
+    }
+
+    .contact-faq {
+        background: white;
+        padding: 1.5rem 0;
+    }
+</style>
 
     {# ========== FOOTER CTA ========== #}
-    <section class="contact-cta" aria-labelledby="cta-heading">
-        <div class="contact-cta-inner">
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 border border-white/80 rounded-full flex items-center justify-center" aria-hidden="true">
-                    <span class="material-symbols-outlined text-white large-icon">group</span>
+  <section class="contact-cta bg-white py-0 px-6 md:px-16" aria-labelledby="cta-heading" style="padding-bottom: 3rem;">
+    <div class="max-w-8xl mx-auto">
+        <div class="contact-cta-inner rounded-2xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 shadow-md" style="background: linear-gradient(to right, #EBEFCE, #DCEBD2, #C9E5C5);">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start md:items-center gap-4 text-center sm:text-left w-full md:w-auto">
+                <div class="w-16 h-16 bg-black/10 rounded-full flex items-center justify-center text-black shrink-0 shadow-sm" aria-hidden="true">
+                    <span class="material-symbols-outlined text-black text-3xl">group</span>
                 </div>
                 <div>
-                    <h2 id="cta-heading" class="contact-cta-title">Ready to deploy engineers at your site?</h2>
-                    <div class="contact-cta-services">
+                    <h2 id="cta-heading" class="text-xl sm:text-2xl font-bold text-black tracking-wide">
+                        Ready to deploy engineers at your site?
+                    </h2>
+                    <p class="text-gray-700 text-sm md:text-base font-normal">
                         Network Cabling, Server setup, CCTV, Smart hands, fibre deployment and enterprise field services.
-                    </div>
+                    </p>
                 </div>
             </div>
-            <div class="contact-cta-actions">
-                <a href="{% url 'request_service' %}" class="btn btn-md bg-white text-primary rounded-lg hover:bg-blue-light">
-                    Request Service
-                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            <div class="shrink-0 w-full md:w-auto text-center flex flex-wrap gap-3 justify-center md:justify-end">
+                <a href="#" class="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 py-3.5 rounded-xl shadow-sm transition-all duration-200 w-full md:w-auto" style="background: #F5B530; color: #1a1a1a;">
+                    <span>Request Service</span>
+                    <span class="material-symbols-outlined text-[20px] sm:text-[24px] md:text-[28px]">arrow_forward</span>
                 </a>
-                <a href="#contact-form" class="btn btn-md border border-white/80 bg-transparent text-white rounded-lg hover:bg-white/10">
-                    Talk To Sales
-                    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                <a href="#" class="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 py-3.5 rounded-xl shadow-sm transition-all duration-200 w-full md:w-auto" style="background: transparent; color: #1a1a1a; border: 2px solid #1a1a1a;">
+                    <span>Talk To Sales</span>
+                    <span class="material-symbols-outlined text-[20px] sm:text-[24px] md:text-[28px]">arrow_forward</span>
                 </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 </main>
 
@@ -575,3 +658,10 @@
 {% block extra_js %}
 <script src="{% static 'script/pages/contact.js' %}"></script>
 {% endblock %}
+
+
+
+
+
+
+
