@@ -45,13 +45,8 @@
 {% block content %}
 
 <!-- ════════════ HERO ════════════ -->
-<section class="relative min-h-[calc(100vh-70px)] overflow-hidden bg-blue-light">
+<section class="relative overflow-hidden hero-gradient">
 
-    <!-- Background -->
-    <img src="{% static 'img/customer-herobg.svg' %}" alt="" aria-hidden="true"
-        class="absolute inset-0 h-full w-full object-cover object-right md:object-[center_20%] lg:object-right"> {#
-    ADDED: fetchpriority="high" for hero image #}
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/30"></div>
 
     <div
         class="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
@@ -60,8 +55,7 @@
         <div class="max-w-xl lg:max-w-none">
             <div class="mb-4">
                 <p
-                    class="inline-flex items-center gap-2 text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
-
+                    class="inline-flex items-center gap-2 rounded-full border border-muted-sage bg-greenish-white px-4 py-2 text-label font-bold uppercase tracking-wide text-emerald-teal">
                     <span class="material-symbols-outlined text-[14px]">
                         person
                     </span>
@@ -71,13 +65,14 @@
             </div>
 
             <h1
-                class="hero-rise hero-rise-d1 text-h3 font-bold leading-[1.1] tracking-tight text-deep-indigo md:text-h2 lg:text-h1">
+                class="hero-rise hero-rise-d1 text-h3 font-bold leading-[1.1] tracking-tight text-charcoal-black md:text-h2 lg:text-h1">
                 Find Opportunities,<br>
                 Complete Projects,<br>
-                and <span class="text-brand-blue">Grow Your Career</span>
+                and <span class="text-emerald-teal">Grow Your Career</span>
             </h1>
 
-            <p class="hero-rise hero-rise-d2 mt-5 max-w-md text-b1 leading-relaxed text-gray-dark font-semibold">
+            <p
+                class="hero-rise hero-rise-d2 mt-5 max-w-md text-b1 leading-relaxed text-text-granite-gray font-semibold">
                 Join a network of skilled field professionals, discover service
                 opportunities, manage assignments, and build your reputation
                 while earning on your schedule.
@@ -85,7 +80,7 @@
 
             <!-- CTA row -->
             <div class="hero-rise hero-rise-d4 mt-6 flex flex-wrap items-center gap-3">
-                <a href="{% url 'contact' %}" class="btn btn-primary btn-md inline-flex rounded-[18px]">
+                <a href="{% url 'contact' %}" class="btn bg-amber-orange1 btn-md inline-flex rounded-[18px]">
                     Join the Network
                     <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </a>
@@ -94,19 +89,19 @@
 
             <div class="mt-8 flex flex-wrap gap-6 text-b3 font-medium text-deep-navy-blue">
                 <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-bright-blue">verified_user</span>
+                    <span class="material-symbols-outlined text-emerald-teal">verified_user</span>
                     Safe & Secure
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-bright-blue">groups</span>
+                    <span class="material-symbols-outlined text-emerald-teal">groups</span>
                     Verified Network
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-bright-blue">payments</span>
+                    <span class="material-symbols-outlined text-emerald-teal">payments</span>
                     On-time Payments
                 </div>
                 <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-bright-blue">handshake</span>
+                    <span class="material-symbols-outlined text-emerald-teal">handshake</span>
                     Trusted by 15K+ Engineers
                 </div>
             </div>
@@ -117,8 +112,8 @@
             <div class="flex flex-col gap-6 w-full lg:max-w-[360px]">
                 <!-- Card 1 -->
                 <div class="flex items-center gap-4 rounded-2xl bg-white px-6 py-6 min-h-[110px]">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-ice-blue">
-                        <span class="material-symbols-outlined text-bright-blue text-[28px]">work</span>
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-sage-green1">
+                        <span class="material-symbols-outlined text-emerald-teal text-[28px]">work</span>
                     </div>
                     <div>
                         <p class="text-b3 font-semibold text-deep-indigo">Available Opportunities</p>
@@ -128,8 +123,8 @@
                 </div>
                 <!-- Card 2 -->
                 <!-- <div class=" flex items-center gap-4 rounded-2xl bg-white px-5 py-4 ">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-ice-blue">
-                        <span class="material-symbols-outlined text-bright-blue text-[28px]">payments</span>
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-sage-green1">
+                        <span class="material-symbols-outlined text-emerald-teal text-[28px]">payments</span>
                     </div>
                     <div>
                         <p class="text-b3 font-semibold text-deep-indigo">Earnings This Month</p>
@@ -150,8 +145,8 @@
                 </div> -->
                 <!-- Card 4 -->
                 <div class="flex items-center gap-4 rounded-2xl bg-white px-6 py-6 min-h-[110px]">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-ice-blue">
-                        <span class="material-symbols-outlined text-bright-blue text-[28px]">location_on</span>
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-sage-green1">
+                        <span class="material-symbols-outlined text-emerald-teal text-[28px]">location_on</span>
                     </div>
 
                     <div>
@@ -178,8 +173,8 @@
             <div class="grid grid-cols-2 lg:grid-cols-4">
                 <!-- Item 1 -->
                 <div class="flex items-center gap-4 px-8 py-7 border-r border-[#EEF2F7]">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-ice-blue">
-                        <span class="material-symbols-outlined text-bright-blue">groups</span>
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-sage-green1">
+                        <span class="material-symbols-outlined text-emerald-teal">groups</span>
                     </div>
                     <div>
                         <h3 class="text-h5 font-semibold text-dark-indigo">15K+</h3>
@@ -188,8 +183,8 @@
                 </div>
                 <!-- Item 2 -->
                 <div class="flex items-center gap-4 px-8 py-7 border-r border-[#EEF2F7]">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-ice-blue">
-                        <span class="material-symbols-outlined text-bright-blue">assignment</span>
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-sage-green1">
+                        <span class="material-symbols-outlined text-emerald-teal">assignment</span>
                     </div>
                     <div>
                         <h3 class="text-h5 font-semibold text-dark-indigo">25K+</h3>
@@ -198,8 +193,8 @@
                 </div>
                 <!-- Item 3 -->
                 <div class="flex items-center gap-4 px-8 py-7 border-r border-[#EEF2F7]">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-ice-blue">
-                        <span class="material-symbols-outlined text-bright-blue">business</span>
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-sage-green1">
+                        <span class="material-symbols-outlined text-emerald-teal">business</span>
                     </div>
                     <div>
                         <h3 class="text-h5 font-semibold text-dark-indigo">500+</h3>
@@ -208,8 +203,8 @@
                 </div>
                 <!-- Item 4 -->
                 <div class="flex items-center gap-4 px-8 py-7">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-ice-blue">
-                        <span class="material-symbols-outlined text-bright-blue">account_balance_wallet</span>
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-sage-green1">
+                        <span class="material-symbols-outlined text-emerald-teal">account_balance_wallet</span>
                     </div>
                     <div>
                         <h3 class="text-h5 font-semibold text-dark-indigo">₹12Cr+</h3>
@@ -226,7 +221,7 @@
     <div class="max-w-7xl mx-auto px-5 md:px-8">
         <div class="text-center mb-12">
             <p
-                class="inline-block text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
+                class="inline-block text-label font-bold text-emerald-teal uppercase tracking-wide px-4 py-2 rounded-md bg-sage-green1">
                 REQUIREMENTS TO JOIN
             </p>
             <h2 class="mt-2 text-h3 font-semibold text-deep-indigo">Join the Engineer Network</h2>
@@ -237,53 +232,53 @@
         <div class="grid grid-cols-2 lg:grid-cols-6 gap-4">
             <!-- Card 1 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
-                    <span class="material-symbols-outlined text-bright-blue">engineering</span>
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl ">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+                    <span class="material-symbols-outlined text-emerald-teal">engineering</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Relevant technical skills and field service
                     experience</p>
             </div>
             <!-- Card 2 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
-                    <span class="material-symbols-outlined text-bright-blue">badge</span>
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+                    <span class="material-symbols-outlined text-emerald-teal">badge</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Complete professional profile with work history
                 </p>
             </div>
             <!-- Card 3 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
-                    <span class="material-symbols-outlined text-bright-blue">assignment</span>
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+                    <span class="material-symbols-outlined text-emerald-teal">assignment</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Ability to manage assignments and meet deadlines
                 </p>
             </div>
             <!-- Card 4 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
-                    <span class="material-symbols-outlined text-bright-blue">verified_user</span>
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+                    <span class="material-symbols-outlined text-emerald-teal">verified_user</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Commitment to quality workmanship and customer
                     satisfaction</p>
             </div>
             <!-- Card 5 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
-                    <span class="material-symbols-outlined text-bright-blue">forum</span>
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+                    <span class="material-symbols-outlined text-emerald-teal">forum</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Strong communication and professional conduct</p>
             </div>
             <!-- Card 6 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
-                    <span class="material-symbols-outlined text-bright-blue">schedule</span>
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+                    <span class="material-symbols-outlined text-emerald-teal">schedule</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Availability to accept projects based on your
                     schedule and expertise</p>
@@ -293,11 +288,11 @@
 </section>
 
 <!--HOW TO JOIN-->
-<section class="py-8 md:py-12 lg:py-16 bg-white bg-light-ice-blue">
+<section class="bg-greenish-white pt-4 pb-8 md:pt-6 md:pb-12 lg:pt-8 lg:pb-16">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
         <div class="text-center mb-16">
             <p
-                class="inline-block text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
+                class="inline-block text-label font-bold text-emerald-teal uppercase tracking-wide px-4 py-2 rounded-md bg-sage-green1">
                 HOW TO JOIN
             </p>
             <h2 class="mt-2 text-h3 font-semibold text-deep-indigo">How to Join the Engineer Network</h2>
@@ -314,11 +309,11 @@
                 <div class="text-center">
                     <div class="relative inline-flex">
                         <div
-                            class="w-24 h-24 rounded-full border-2 border-light-pastel-blue bg-white flex items-center justify-center">
-                            <span class="material-symbols-outlined text-[40px] text-bright-blue">person</span>
+                            class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[40px] text-emerald-teal">person</span>
                         </div>
                         <div
-                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-bright-blue text-white text-c1 font-bold flex items-center justify-center">
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
                             1</div>
                     </div>
                     <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Create Your Profile</h3>
@@ -331,11 +326,11 @@
                 <div class="text-center">
                     <div class="relative inline-flex">
                         <div
-                            class="w-24 h-24 rounded-full border-2 border-light-pastel-blue bg-white flex items-center justify-center">
-                            <span class="material-symbols-outlined text-[40px] text-bright-blue">verified_user</span>
+                            class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[40px] text-emerald-teal">verified_user</span>
                         </div>
                         <div
-                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-bright-blue text-white text-c1 font-bold flex items-center justify-center">
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
                             2</div>
                     </div>
                     <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Verification & Review</h3>
@@ -347,11 +342,11 @@
                 <div class="text-center">
                     <div class="relative inline-flex">
                         <div
-                            class="w-24 h-24 rounded-full border-2 border-light-pastel-blue bg-white flex items-center justify-center">
-                            <span class="material-symbols-outlined text-[40px] text-bright-blue">work</span>
+                            class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[40px] text-emerald-teal">work</span>
                         </div>
                         <div
-                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-bright-blue text-white text-c1 font-bold flex items-center justify-center">
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
                             3</div>
                     </div>
                     <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Start Receiving Opportunities</h3>
@@ -370,7 +365,7 @@
     <div class="max-w-7xl mx-auto px-5 md:px-8">
         <div class="text-center mb-12">
             <p
-                class="inline-block text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
+                class="inline-block text-label font-bold text-emerald-teal uppercase tracking-wide px-4 py-2 rounded-md bg-sage-green1">
                 WHY ENGINEERS CHOOSE OUR PLATFORM
             </p>
             <h2 class="mt-2 text-h3 font-semibold text-deep-indigo">Why Engineers Choose Our Platform</h2>
@@ -381,16 +376,16 @@
         <div class="grid grid-cols-2 lg:grid-cols-6 gap-5">
             <!-- Card 1 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ice-blue">
-                    <span class="material-symbols-outlined text-[28px] text-bright-blue">work</span>
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+                    <span class="material-symbols-outlined text-[28px] text-emerald-teal">work</span>
                 </div>
                 <h3 class="mt-4 text-s2 font-bold text-deep-indigo">Quality Work Opportunities</h3>
                 <p class="mt-3 text-b3 text-deep-indigo">Access projects from trusted businesses across industries.</p>
             </div>
             <!-- Card 2 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lavender-mist">
                     <span class="material-symbols-outlined text-[28px] text-light-purple">schedule</span>
                 </div>
@@ -400,7 +395,7 @@
             </div>
             <!-- Card 3 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lightest-green">
                     <span class="material-symbols-outlined text-[28px] text-light-green">account_balance_wallet</span>
                 </div>
@@ -410,7 +405,7 @@
             </div>
             <!-- Card 4 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lavender-mist">
                     <span class="material-symbols-outlined text-[28px] text-light-purple">monitoring</span>
                 </div>
@@ -419,16 +414,16 @@
             </div>
             <!-- Card 5 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-light-ochre-yellow">
-                    <span class="material-symbols-outlined text-[28px] text-ochre-yellow">verified_user</span>
+                    <span class="material-symbols-outlined text-[28px] text-amber-orange1">verified_user</span>
                 </div>
                 <h3 class="mt-4 text-s2 font-bold text-deep-indigo">Verified Business Network</h3>
                 <p class="mt-3 text-b3 text-deep-indigo">Connect with verified vendors and reliable businesses.</p>
             </div>
             <!-- Card 6 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-light-cyan-blue">
                     <span class="material-symbols-outlined text-[28px] text-bright-cyan-blue">grid_view</span>
                 </div>
@@ -441,13 +436,13 @@
 </section>
 
 <!--POWERFUL TOOLS TO MANAGE-->
-<section class="py-8 md:py-12 lg:py-16 bg-white bg-very-light-soft-blue1">
+<section class="py-8 md:py-12 lg:py-16 bg-greenish-white">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <!-- Left Content -->
             <div>
                 <p
-                    class="inline-block text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
+                    class="inline-block text-label font-bold text-emerald-teal uppercase tracking-wide px-4 py-2 rounded-md bg-sage-green1">
                     BUILT FOR MODERN FIELD ENGINEERS
                 </p>
                 <h2 class="mt-4 text-h2 font-semibold text-deep-indigo">
@@ -459,20 +454,20 @@
                 </p>
                 <div class="mt-8 space-y-4">
                     <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-bright-blue">check_circle</span>
+                        <span class="material-symbols-outlined text-emerald-teal">check_circle</span>
                         <span class="text-b3 text-deep-indigo">Discover opportunities that match your skills</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-bright-blue">check_circle</span>
+                        <span class="material-symbols-outlined text-emerald-teal">check_circle</span>
                         <span class="text-b3 text-deep-indigo">Manage assignments and update progress in
                             real-time</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-bright-blue">check_circle</span>
+                        <span class="material-symbols-outlined text-emerald-teal">check_circle</span>
                         <span class="text-b3 text-deep-indigo">Communicate and deliver quality service with ease</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-bright-blue">check_circle</span>
+                        <span class="material-symbols-outlined text-emerald-teal">check_circle</span>
                         <span class="text-b3 text-deep-indigo">Track earnings and build your reputation</span>
                     </div>
                 </div>
@@ -491,10 +486,10 @@
 <!--TRUSTED BY LEADING BUSINESS-->
 <section class="py-10">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
-        <div class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center">
+        <div class="bg-white rounded-3xl shadow-lg border border-greenish-white p-6 text-center">
             <div class="text-center mb-8">
                 <p
-                    class="inline-block text-label font-bold text-bright-blue uppercase tracking-wide px-4 py-2 rounded-md bg-very-light-soft-blue">
+                    class="inline-block text-label font-bold text-emerald-teal uppercase tracking-wide px-4 py-2 rounded-md bg-sage-green1">
                     TRUSTED BY LEADING BUSINESSES
                 </p>
             </div>
@@ -522,8 +517,7 @@
 <!--READY TO STAR WORKING-->
 <section class="py-12">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
-        <div
-            class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#1a5cf5] to-[#0a3fd4] px-6 py-10 text-center shadow-xl">
+        <div class="relative overflow-hidden rounded-3xl bg-black-darkk px-6 py-10 text-center shadow-xl">
 
             <canvas id="constellation" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
 
@@ -539,7 +533,7 @@
                 </p>
                 <div class="mt-8">
                     <a href="{% url 'contact' %}"
-                        class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3 text-b3 font-semibold text-[#2563EB] transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3 text-b3 font-semibold text-emerald-teal transition-all duration-300 hover:scale-105 hover:shadow-lg">
                         Join the Network
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                     </a>
