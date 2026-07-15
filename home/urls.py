@@ -18,6 +18,7 @@ from .views import (
      profile,
      customer_contactus,
      how_it_works,
+     services,
 )
 
 urlpatterns = [
@@ -37,5 +38,6 @@ urlpatterns = [
     path('term-condition/', term_condition, name='term_condition'),
     path('profile/', profile, name='profile'),
     path('customer-contactus/', customer_contactus, name='customer_contactus'),
-    path('vendor/how-it-works/', how_it_works, name='how_it_works')
+    path('vendor/how-it-works/', how_it_works, name='how_it_works'),
+    path('vendor/services/', services, name='services')
 ]

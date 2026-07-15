@@ -34,54 +34,68 @@
         Search & Filter
     ======================================================== -->
     <!-- Search + Sort + Add Address -->
-    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
+    <!-- Search -->
 
-        <!-- Left -->
-        <div class="flex flex-col md:flex-row gap-3">
+    <div class="flex items-center gap-3 flex-wrap">
 
-            <!-- Search -->
-            <!-- Search -->
-            <div class="relative w-full md:w-[320px]">
-
-                <div class="absolute left-4 inset-y-0 flex items-center pointer-events-none">
-                    <span class="material-symbols-outlined text-slate-400 text-[20px]">
-                        search
-                    </span>
-                </div>
-
-                <input type="text" placeholder="Search addresses"
-                    class="w-full h-12 border border-slate-200 rounded-xl pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-
+        <!-- Search -->
+        <div class="relative w-[320px] shrink-0">
+            <div class="absolute left-4 inset-y-0 flex items-center pointer-events-none">
+                <span class="material-symbols-outlined text-slate-400 text-[20px]">
+                    search
+                </span>
             </div>
 
-            <!-- Sort -->
+            <input type="text" placeholder="Search addresses"
+                class="w-full h-12 border border-slate-200 rounded-xl pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Filter -->
+        <div class="relative shrink-0">
+
             <button
-                class="h-12 px-5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center gap-2 whitespace-nowrap">
+                class="filter-btn h-12 px-5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-center gap-2">
 
                 <span class="material-symbols-outlined text-[18px]">
-                    swap_vert
+                    tune
                 </span>
 
-                Sort By
+                <span class="filter-text">
+                    Filter
+                </span>
+
+                <span class="material-symbols-outlined text-[18px]">
+                    keyboard_arrow_down
+                </span>
 
             </button>
 
+            <div
+                class="filter-dropdown hidden absolute top-full left-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-lg z-50 overflow-hidden">
+
+                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50">Default Address</button>
+                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50">Office</button>
+                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50">Branch Office</button>
+                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50">Warehouse</button>
+                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50">Other</button>
+
+            </div>
+
         </div>
 
-        <!-- Right -->
+        <!-- Sort -->
         <button
-            class="h-12 px-6 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium flex items-center justify-center gap-2 whitespace-nowrap shrink-0">
+            class="h-12 px-5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-center gap-2 shrink-0">
 
-            <span class="material-symbols-outlined text-[20px]">
-                add
+            <span class="material-symbols-outlined text-[18px]">
+                swap_vert
             </span>
 
-            Add New Address
+            Sort By
 
         </button>
 
     </div>
-
     <!-- =======================================================
         Saved Address Cards
     ======================================================== -->
@@ -440,3 +454,7 @@
 </section>
 
 {% endblock %}
+
+{% load static %}
+
+<script src="{% static 'script/profile/saved-address.js' %}"></script>

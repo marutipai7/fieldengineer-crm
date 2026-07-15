@@ -11,8 +11,6 @@
   /* Typography */
   --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
 
-  /* Ahad */
-  --color-primary-yellow: #FFC949;
 
   /* Brand */
   --color-primary-gray: #3C3F42;
@@ -27,6 +25,7 @@
   --color-primary-light-1: #1591EA;
   --color-transparent-black: #0000004D;
   /* Ahad */
+  --color-primary-yellow: #FFC949;
   --color-blue-dark: #2f56cf;
   --color-dark-black: #18144f;
   --color-light-blue: #084de5;
@@ -63,7 +62,10 @@
   --color-primary-green:#2DBB8A;
  --color-black-dark: #1C2B1C;
  --color-light-dark : #6B7B6B;
-  --color-black-darkk: #2D3B2D;
+ --color-black-darkk: #2D3B2D;
+ --color-green-light: #1E9B6F;
+--color-bright-yellow: #F5B530;
+--color-black-bright: #1A1A00;
   /* Neutrals */
 
   --glass-input-border: 0.5px solid;
@@ -93,6 +95,7 @@
   --color-deep-navy-blue: #090831;
   --color-brand-blue: #7196f9;
   --color-amber-orange: #ea750a;
+  --color-amber-orange1: #F5B530;
   --color-ochre-yellow: #F59E0B;
   --color-light-ochre-yellow: #FFF7ED;
   --color-deep-indigo: #3c3864;
@@ -110,9 +113,21 @@
   --color-lavender-mist: #F3E8FF;
   --color-light-purple: #8B5CF6;
   --color-violet: #6d49e9;
+  --color-greenish-white: #F8FAF5;
+  --color-sage-green1: #E1F7EF;
+  --color-muted-sage: #E0ECD8;
+  --color-emerald-teal: #1E9B6F;
   --color-light-cyan-blue: #E6F9FF;
   --color-bright-cyan-blue: #06B6D4;
   --color-midnight-navy-blue: #021537;
+  
+  --color-hero-gradient: linear-gradient(
+    160deg,
+    #FBF2C0 0%,
+    #D8EDBC 50%,
+    #C0DFA8 100%
+  );
+  --color-help-center-bg: #2d3b2d;
 
   /*Request Service*/
   --color-sea-green: #3b974c;
@@ -437,6 +452,15 @@
 
 .btn-tiny {
   @apply gap-1.5 rounded-md px-4 py-2 text-c2;
+}
+
+
+.logo-gradient {
+    background: var(--color-hero-gradient);
+}
+
+.hero-gradient {
+    background: var(--color-hero-gradient);
 }
 
 /* Frosted glass panel */

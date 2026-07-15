@@ -477,6 +477,18 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
+        const switchToEditUpiBtn = document.getElementById("switchToEditUpiBtn");
+        if (switchToEditUpiBtn) {
+            switchToEditUpiBtn.addEventListener("click", () => {
+                const addUpiMainContent = document.getElementById("addUpiMainContent");
+                const editUpiMainContent = document.getElementById("editUpiMainContent");
+                if (addUpiMainContent && editUpiMainContent) {
+                    addUpiMainContent.classList.add("hidden");
+                    editUpiMainContent.classList.remove("hidden");
+                }
+            });
+        }
+
         const cancelEditCardBtn = document.getElementById("cancelEditCardBtn");
         if (cancelEditCardBtn) {
             cancelEditCardBtn.addEventListener("click", () => {
