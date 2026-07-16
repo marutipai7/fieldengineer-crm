@@ -33,7 +33,6 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 </style>
 
 {# Hero Section #}
-{# Hero Section #}
 <section class="w-full bg-gradient-to-r from-[#FFFBEB] via-[#E2F1DD] to-[#CCE7C6] py-8 sm:py-12 lg:py-16">
     <div class="popular-services-card"> <!-- Same container as cards -->
         <div class="px-4"> <!-- Same padding as cards grid -->
@@ -223,7 +222,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 </section>
 
 {# ====== STEP 1: SIGNUP POPUP ====== #}
-<div id="signupPopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-all duration-300 opacity-0 pointer-events-none">
+<div id="signupPopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-sm transition-all duration-300 opacity-0 pointer-events-none">
     <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl relative transform transition-all duration-300 scale-95 max-h-[90vh] overflow-y-auto">
         
         <!-- Close Button -->
@@ -296,14 +295,84 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
             </button>
         </form>
 
-        <p class="text-center text-sm text-primary-green mt-6">
-            Already have an account? <a href="#" class="text-text-light-dark font-semibold hover:underline">Log in</a>
+      <p class="text-center text-sm text-primary-green mt-6">
+    Already have an account? <a href="#" onclick="switchToLogin()" class="text-text-light-dark font-semibold hover:underline">Log in</a>
+</p>
+
+    </div>
+</div>
+
+
+{# ====== LOGIN POPUP ====== #}
+<div id="loginPopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 transition-all duration-300 opacity-0 pointer-events-none">
+    <div class="relative w-full max-w-[450px] transform rounded-[32px] bg-white p-8 shadow-xl transition-all duration-300 scale-95">
+        
+        <!-- Close Button -->
+        <button onclick="closeLoginPopup()" class="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full bg-gray-50 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-700">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <!-- FE Logo -->
+        <div class="mb-7 flex items-center gap-2">
+            <div class="rounded-xl bg-[#dcfce7] px-2.5 py-1 text-xs font-bold tracking-wider text-emerald-800">
+                FE
+            </div>
+            <span class="text-xl font-bold text-slate-900 tracking-tight">
+                Field<span class="text-emerald-600">Engineer</span>
+            </span>
+        </div>
+
+        <h2 class="text-[32px] font-extrabold tracking-tight text-slate-900 leading-tight">
+            Welcome back
+        </h2>
+        <p class="mt-1.5 text-[15px] font-normal text-gray-500/90">
+            Enter your mobile number to continue
         </p>
+        
+        <form class="mt-8" id="loginForm" onsubmit="return handleLogin(event)">
+            <label class="block text-sm font-bold text-slate-800 tracking-wide">
+                Mobile Number
+            </label>
+            
+            <div class="mt-2.5 flex gap-3">
+                <div class="flex items-center justify-center rounded-xl border border-emerald-100/80 bg-[#fbfdfa] px-4 py-3.5 font-bold text-slate-800 text-sm">
+                    IN +91
+                </div>
+                
+                <div class="flex-1 rounded-xl border border-emerald-100/80 bg-[#fbfdfa] px-4 py-3.5 focus-within:border-emerald-500 focus-within:ring-1 focus-within:ring-emerald-500 transition-all">
+                    <input 
+                        type="tel" 
+                        id="loginMobile"
+                        placeholder="98765 43210" 
+                        maxlength="10"
+                        class="w-full bg-transparent text-base font-semibold text-slate-700 placeholder-gray-400/80 outline-none tracking-wide"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                        required
+                    />
+                </div>
+            </div>
+
+            <button type="submit" class="mt-6 flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#f5b335] py-4 text-base font-bold text-slate-900 transition-colors hover:bg-[#e0a025] shadow-sm">
+                Send OTP &rarr;
+            </button>
+        </form>
+
+        <div class="mt-6 text-center">
+            <p class="text-sm font-medium text-gray-500">
+                Don't have an account? 
+              <a href="#" onclick="switchToSignup()" class="font-bold text-emerald-600 hover:underline ml-0.5">
+    Sign up free
+</a>
+            </p>
+        </div>
+        
     </div>
 </div>
 
 {# ====== STEP 2: OTP VERIFICATION POPUP ====== #}
-<div id="otpPopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-all duration-300 opacity-0 pointer-events-none">
+<div id="otpPopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-sm transition-all duration-300 opacity-0 pointer-events-none">
     <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl relative transform transition-all duration-300 scale-95">
         
         <!-- Close Button -->
@@ -359,5 +428,6 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
     </div>
 </div>
 
-<script src="{% static 'script/pages/services.js' %}"></script>
+<!-- <script src="{% static 'script/pages/services.js' %}"></script> -->
+<script src="{% static 'script/pages/how-it-works.js' %}"></script>
 {% endblock %}

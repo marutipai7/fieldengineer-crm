@@ -557,21 +557,22 @@
 
                     <div class="hidden lg:flex items-center gap-4">
 
-                        <a href="#"
+                        <a  onclick="switchToLogin()"
                             class="rounded-xl border border-muted-sage px-4 py-2 text-sm font-medium text-slate-700 transition">
 
                             Log In
 
                         </a>
 
-                        <a href="#"
-                            class="rounded-xl bg-amber-orange1 px-4 py-2 text-sm font-medium text-slate-700  transition shadow">
+                        <a onclick="openSignupPopup()"
+                            class=" rounded-xl bg-amber-orange1 px-4 py-2 text-sm font-medium text-slate-700  transition shadow cursor-pointer">
 
                             Sign Up Free
 
                         </a>
 
                     </div>
+                    
 
                     <!-- ================= MOBILE BUTTON ================= -->
 
@@ -1521,6 +1522,9 @@ duration-300">
         </div>
 
     </div>
+
+    <script src="{% static 'script/pages/how-it-works.js' %}"></script>
+
     <!-- Your existing modal script -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
