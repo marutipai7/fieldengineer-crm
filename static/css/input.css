@@ -2064,7 +2064,12 @@
 }
 
 .contact-hero-inner {
-  @apply relative z-10 mx-auto flex h-full min-h-[inherit] max-w-[90rem] items-center px-5 py-10 md:px-8 md:py-8;
+  @apply relative z-10 mx-auto flex h-full min-h-[inherit] max-w-[90rem]
+  items-center
+  px-5
+  pt-6 pb-10
+  md:px-8
+  md:pt-8 md:pb-8;
 }
 
 .contact-hero-grid {
@@ -3019,22 +3024,34 @@
 
     display:grid;
     grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:20px;
 
-    background:#1B2F1B;   /* Dark green */
+    background:transparent;
 
-    border-radius:24px;
-    overflow:hidden;
+    border-radius:0;
+    overflow:visible;
 
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    box-shadow:none;
 }
 
-.blog-stat{
-    min-width:0;
-    padding:30px 20px;
-    display:flex;
-    align-items:center;
-    gap:16px;
-    border-right:1px solid #E5E7EB;
+.blog-stat {
+    min-width: 0;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    background: #F7FBF4;
+    border: 1px solid #D8E9D6;
+    border-radius: 16px;
+
+    box-shadow: 0 4px 10px rgba(22, 43, 24, 0.05);
+    transition: all .3s ease;
+}
+
+.blog-stat:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(22, 43, 24, 0.10);
 }
 
 .blog-stat:last-child {
@@ -3042,10 +3059,10 @@
 }
 
 .blog-stat-icon {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background: #EAF3FF;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(30,155,111,.12);
 
     display: flex;
     align-items: center;
@@ -3053,20 +3070,23 @@
     flex-shrink: 0;
 }
 
-.blog-stat-icon .material-symbols-outlined {
-    font-size: 34px !important;
-    color: #5F6D7A !important;
-    line-height: 1;
+.blog-stat-icon .material-symbols-outlined{
+    font-size:26px;
+    color:#1E9B6F;
 }
 
-.blog-stat strong {
-    color: #ffffff;
+.blog-stat strong{
+    display:block;
+    font-size:22px;
+    font-weight:700;
+    color:#162B18;
 }
 
-.blog-stat span {
-    color: rgba(255,255,255,0.85);
+.blog-stat span{
+    display:block;
+    font-size:14px;
+    color:#5F6D63;
 }
-
 @media (max-width: 1024px) {
     .blog-stats-bar {
         margin-top: 30px;
@@ -3074,28 +3094,20 @@
 
     .blog-stats-bar-inner {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .blog-stat:nth-child(2n) {
-        border-right: none;
+        gap: 18px;
     }
 }
 
 @media (max-width: 640px) {
     .blog-stats-bar-inner {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .blog-stat {
-        border-right: none;
-        border-bottom: 1px solid #E5E7EB;
-    }
-
-    .blog-stat:last-child {
-        border-bottom: none;
+        padding: 20px 18px;
     }
 }
-
 /* Careers Hero Background */
 .careers-hero {
     position: relative;

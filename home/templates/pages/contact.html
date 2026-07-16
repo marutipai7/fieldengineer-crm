@@ -21,15 +21,18 @@
     </section> -->
 
     {# ========== HERO ========== #}
-  <section class="relative overflow-hidden" style="margin: 0; padding: 0;">
-
+  <section
+    class="relative overflow-hidden pt-6 md:pt-10 lg:pt-12 bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5]"
+    style="margin:0;">
     <div class="relative z-10" style="max-width: 100%; padding: 0; margin: 0;">
 
-        <div class="flex py-12 md:py-16 items-center" style="margin: 0; padding: 0;">
-
-            <div class="w-full" style="margin: 0; padding: 0;">
-
-                <div class="contact-hero-content bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5] py-8 md:py-10 lg:py-12 px-6 md:px-10 lg:px-14" style="border-radius: 0; margin: 0;">
+       
+            <div class="w-full bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5]">
+                <div class="contact-hero-content bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5]
+    pt-12 pb-8
+    md:pt-14 md:pb-10
+    lg:pt-16 lg:pb-12
+    px-6 md:px-10 lg:px-14">
                     
                     <h1 id="contact-hero-title" class="contact-hero-title text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3" style="color: #1a1a1a;">
                         Let's Build Better Field Operations Together
@@ -102,8 +105,114 @@
 
 </section>
 
-    {# ========== CONTACT INFO CARDS ========== #}
-    <section class="contact-info-grid" aria-label="Contact channels">
+   
+        
+  
+
+    {# ========== FORM + HELP + CALENDAR ========== #}
+   <section
+    class="max-w-[1400px] mx-auto px-5 lg:px-8 py-10"
+    aria-labelledby="contact-form-title">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- LEFT : CONTACT FORM -->
+       <div class="lg:col-span-8">
+
+    <div class="bg-white border border-gray-200 rounded-2xl shadow-sm px-6 pt-6 pb-8">
+
+        <h2 id="contact-form-title" class="contact-form-title">
+            Send Us a Message
+        </h2>
+            <form class="mt-4" action="#" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="contact-form-grid">
+                    <div class="contact-field">
+                        <label for="contact-first-name">First Name</label>
+                        <input type="text" id="contact-first-name" name="first_name" placeholder="John" required>
+                    </div>
+                    <div class="contact-field">
+                        <label for="contact-last-name">Last Name</label>
+                        <input type="text" id="contact-last-name" name="last_name" placeholder="Doe" required>
+                    </div>
+                    <div class="contact-field">
+                        <label for="contact-email">Business Email</label>
+                        <input type="email" id="contact-email" name="email" placeholder="john@company.com" required>
+                    </div>
+                    <div class="contact-field">
+                        <label for="contact-phone">Phone Number</label>
+                        <input type="tel" id="contact-phone" name="phone" placeholder="+91 98765 43210">
+                    </div>
+                    <div class="contact-field contact-field--full">
+                        <label for="contact-company">Company Name</label>
+                        <input type="text" id="contact-company" name="company" placeholder="Your company">
+                    </div>
+                    <div class="contact-field">
+                        <label id="contact-city-label">City</label>
+                        <div class="contact-dropdown" data-contact-dropdown>
+                            <button type="button" class="contact-dropdown-trigger" aria-labelledby="contact-city-label" aria-expanded="false" aria-haspopup="listbox">
+                                <span class="contact-dropdown-value is-placeholder" data-contact-dropdown-value data-placeholder="Select city">Select city</span>
+                                <span class="material-symbols-outlined contact-dropdown-chevron" aria-hidden="true">expand_more</span>
+                            </button>
+                            <ul class="contact-dropdown-menu" role="listbox" aria-labelledby="contact-city-label" hidden>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="delhi-ncr">Delhi NCR</button></li>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="mumbai">Mumbai</button></li>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="bengaluru">Bengaluru</button></li>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="hyderabad">Hyderabad</button></li>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="chennai">Chennai</button></li>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="pune">Pune</button></li>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="other">Other</button></li>
+                            </ul>
+                            <input type="hidden" name="city" value="" data-contact-dropdown-input>
+                        </div>
+                    </div>
+                    <div class="contact-field">
+                        <label id="contact-inquiry-label">Inquiry Type</label>
+                        <div class="contact-dropdown" data-contact-dropdown>
+                            <button type="button" class="contact-dropdown-trigger" aria-labelledby="contact-inquiry-label" aria-expanded="false" aria-haspopup="listbox">
+                                <span class="contact-dropdown-value is-placeholder" data-contact-dropdown-value data-placeholder="Select inquiry type">Select inquiry type</span>
+                                <span class="material-symbols-outlined contact-dropdown-chevron" aria-hidden="true">expand_more</span>
+                            </button>
+                            <ul class="contact-dropdown-menu" role="listbox" aria-labelledby="contact-inquiry-label" hidden>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="enterprise-sales">Enterprise Sales</button></li>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="customer-support">Customer Support</button></li>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="vendor-partnership">Vendor Partnership</button></li>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="engineer-support">Engineer Support</button></li>
+                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="general">General Inquiry</button></li>
+                            </ul>
+                            <input type="hidden" name="inquiry_type" value="" data-contact-dropdown-input>
+                        </div>
+                    </div>
+                    <div class="contact-field contact-field--full">
+                        <label for="contact-message">Message</label>
+                        <div class="contact-message-wrap">
+                            <textarea id="contact-message" name="message" maxlength="1000" placeholder="Tell us about your project or inquiry..."></textarea>
+                            <span class="contact-message-count" id="contact-message-count">0/1000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="flex flex-col items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 cursor-pointer transition-all duration-300 hover:border-[#1E9B6F] hover:bg-green-50/50 text-center" for="contact-attachment">
+    <span class="material-symbols-outlined text-[32px] text-[#1E9B6F]" aria-hidden="true">upload_file</span>
+    <span class="text-sm font-medium text-gray-700 mt-2">Click to upload or drag and drop</span>
+    <span class="text-xs text-gray-500 mt-1">PDF, DOC, XLS, ZIP (Max. 10MB)</span>
+    <input type="file" id="contact-attachment" name="attachment" class="sr-only" accept=".pdf,.doc,.docx,.xls,.xlsx,.zip">
+</label>
+
+               <button type="submit" class="btn btn-md rounded-md mt-6 w-full" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #F5B530; color: rgb(56, 49, 49); padding: 0.625rem 1.5rem; font-weight: 600; border: none; transition: all 0.3s ease; cursor: pointer;"
+onmouseover="this.style.background='#dfa024'"
+onmouseout="this.style.background='#F5B530'">
+    Submit Inquiry
+    <span class="material-symbols-outlined" aria-hidden="true" style="font-size: 1.125rem;">arrow_forward</span>
+</button>
+            </form>
+        </div>
+</div>
+
+<div class="lg:col-span-4 self-start">
+
+    <div class="grid grid-cols-1 gap-5">
+
         <article class="contact-info-card">
             <div class="flex items-center gap-4">
                 <div class="contact-info-icon bg-lightest-green text-primary" aria-hidden="true">
@@ -187,97 +296,11 @@
             </a>
             <p class="contact-info-response">Response Time: 24/7</p>
         </article>
-    </section>
 
-    {# ========== FORM + HELP + CALENDAR ========== #}
-    <section class="contact-main-grid" aria-labelledby="contact-form-title">
+     </div>
 
-        {# Contact Form #}
-        <div class="contact-form-card" id="contact-form">
-            <h2 id="contact-form-title" class="contact-form-title">Send Us a Message</h2>
-            <form class="mt-5" action="#" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="contact-form-grid">
-                    <div class="contact-field">
-                        <label for="contact-first-name">First Name</label>
-                        <input type="text" id="contact-first-name" name="first_name" placeholder="John" required>
-                    </div>
-                    <div class="contact-field">
-                        <label for="contact-last-name">Last Name</label>
-                        <input type="text" id="contact-last-name" name="last_name" placeholder="Doe" required>
-                    </div>
-                    <div class="contact-field">
-                        <label for="contact-email">Business Email</label>
-                        <input type="email" id="contact-email" name="email" placeholder="john@company.com" required>
-                    </div>
-                    <div class="contact-field">
-                        <label for="contact-phone">Phone Number</label>
-                        <input type="tel" id="contact-phone" name="phone" placeholder="+91 98765 43210">
-                    </div>
-                    <div class="contact-field contact-field--full">
-                        <label for="contact-company">Company Name</label>
-                        <input type="text" id="contact-company" name="company" placeholder="Your company">
-                    </div>
-                    <div class="contact-field">
-                        <label id="contact-city-label">City</label>
-                        <div class="contact-dropdown" data-contact-dropdown>
-                            <button type="button" class="contact-dropdown-trigger" aria-labelledby="contact-city-label" aria-expanded="false" aria-haspopup="listbox">
-                                <span class="contact-dropdown-value is-placeholder" data-contact-dropdown-value data-placeholder="Select city">Select city</span>
-                                <span class="material-symbols-outlined contact-dropdown-chevron" aria-hidden="true">expand_more</span>
-                            </button>
-                            <ul class="contact-dropdown-menu" role="listbox" aria-labelledby="contact-city-label" hidden>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="delhi-ncr">Delhi NCR</button></li>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="mumbai">Mumbai</button></li>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="bengaluru">Bengaluru</button></li>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="hyderabad">Hyderabad</button></li>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="chennai">Chennai</button></li>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="pune">Pune</button></li>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="other">Other</button></li>
-                            </ul>
-                            <input type="hidden" name="city" value="" data-contact-dropdown-input>
-                        </div>
-                    </div>
-                    <div class="contact-field">
-                        <label id="contact-inquiry-label">Inquiry Type</label>
-                        <div class="contact-dropdown" data-contact-dropdown>
-                            <button type="button" class="contact-dropdown-trigger" aria-labelledby="contact-inquiry-label" aria-expanded="false" aria-haspopup="listbox">
-                                <span class="contact-dropdown-value is-placeholder" data-contact-dropdown-value data-placeholder="Select inquiry type">Select inquiry type</span>
-                                <span class="material-symbols-outlined contact-dropdown-chevron" aria-hidden="true">expand_more</span>
-                            </button>
-                            <ul class="contact-dropdown-menu" role="listbox" aria-labelledby="contact-inquiry-label" hidden>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="enterprise-sales">Enterprise Sales</button></li>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="customer-support">Customer Support</button></li>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="vendor-partnership">Vendor Partnership</button></li>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="engineer-support">Engineer Support</button></li>
-                                <li><button type="button" class="contact-dropdown-option" role="option" data-value="general">General Inquiry</button></li>
-                            </ul>
-                            <input type="hidden" name="inquiry_type" value="" data-contact-dropdown-input>
-                        </div>
-                    </div>
-                    <div class="contact-field contact-field--full">
-                        <label for="contact-message">Message</label>
-                        <div class="contact-message-wrap">
-                            <textarea id="contact-message" name="message" maxlength="1000" placeholder="Tell us about your project or inquiry..."></textarea>
-                            <span class="contact-message-count" id="contact-message-count">0/1000</span>
-                        </div>
-                    </div>
-                </div>
+</div>    
 
-                <label class="flex flex-col items-center justify-center p-8 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 cursor-pointer transition-all duration-300 hover:border-[#1E9B6F] hover:bg-green-50/50 text-center" for="contact-attachment">
-    <span class="material-symbols-outlined text-[32px] text-[#1E9B6F]" aria-hidden="true">upload_file</span>
-    <span class="text-sm font-medium text-gray-700 mt-2">Click to upload or drag and drop</span>
-    <span class="text-xs text-gray-500 mt-1">PDF, DOC, XLS, ZIP (Max. 10MB)</span>
-    <input type="file" id="contact-attachment" name="attachment" class="sr-only" accept=".pdf,.doc,.docx,.xls,.xlsx,.zip">
-</label>
-
-               <button type="submit" class="btn btn-md rounded-md mt-5 w-full" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #F5B530; color: rgb(56, 49, 49); padding: 0.625rem 1.5rem; font-weight: 600; border: none; transition: all 0.3s ease; cursor: pointer;"
-onmouseover="this.style.background='#dfa024'"
-onmouseout="this.style.background='#F5B530'">
-    Submit Inquiry
-    <span class="material-symbols-outlined" aria-hidden="true" style="font-size: 1.125rem;">arrow_forward</span>
-</button>
-            </form>
-        </div>
 
         {# Immediate Help #}
         <!--aside class="contact-help-card" aria-labelledby="help-heading">
@@ -375,87 +398,147 @@ onmouseout="this.style.background='#F5B530'">
     </section>
 
     {# ========== OFFICES & COVERAGE ========== #}
-    <section class="contact-offices" aria-labelledby="offices-heading">
-        <div class="contact-offices-inner">
-            <div class="contact-offices-content">
-                <h2 id="offices-heading" class="contact-offices-title">Our Offices &amp; Coverage</h2>
-                <p class="contact-offices-desc">
-                    We are present across India to serve you better. Our teams are ready to support
-                    your operations wherever you are.
-                </p>
-                <!--div class="flex justify-start mt-6">
-        <a href="#" class="contact-offices-btn btn btn-md border border-primary bg-white text-primary hover:bg-blue-light">
-            View All Cities
-            <span class="material-symbols-outlined">arrow_forward</span>
-        </a>
-    </div-->
-            </div>
+    <section class="max-w-[1400px] mx-auto px-5 lg:px-8 py-10" aria-labelledby="offices-heading">
 
-           <div class="contact-offices-cities">
-    <article class="contact-city-card">
-        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-            <span class="material-symbols-outlined text-[#1E9B6F]">apartment</span>
-        </div>
-        <div class="contact-city-info">
-            <h3 class="contact-city-name">Delhi NCR</h3>
-            <p class="contact-city-meta">Head Office</p>
-            <p class="contact-city-meta">Enterprise Operations</p>
-        </div>
-    </article>
+    <div class="bg-[#F2FFF8] border border-green-100 rounded-3xl p-8 lg:p-10 shadow-sm">
 
-    <article class="contact-city-card">
-        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-            <span class="material-symbols-outlined text-[#1E9B6F]">location_city</span>
-        </div>
-        <div class="contact-city-info">
-            <h3 class="contact-city-name">Mumbai</h3>
-            <p class="contact-city-meta">West Region Operations</p>
-        </div>
-    </article>
+        <!-- Heading -->
+        <div class="text-center max-w-3xl mx-auto mb-10">
 
-    <article class="contact-city-card">
-        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-            <span class="material-symbols-outlined text-[#1E9B6F]">person_pin_circle</span>
-        </div>
-        <div class="contact-city-info">
-            <h3 class="contact-city-name">Bengaluru</h3>
-            <p class="contact-city-meta">South Region Operations</p>
-        </div>
-    </article>
+            <span class="inline-flex items-center rounded-full bg-green-100 text-[#1E9B6F] px-4 py-1 text-sm font-semibold">
+                Our Presence
+            </span>
 
-    <article class="contact-city-card">
-        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-            <span class="material-symbols-outlined text-[#1E9B6F]">person_pin_circle</span>
-        </div>
-        <div class="contact-city-info">
-            <h3 class="contact-city-name">Hyderabad</h3>
-            <p class="contact-city-meta">Technology Center</p>
-        </div>
-    </article>
+            <h2 id="offices-heading"
+                class="mt-4 text-2xl lg:text-3xl font-bold text-slate-900">
+                Our Offices &amp; Coverage
+            </h2>
 
-    <article class="contact-city-card">
-        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-            <span class="material-symbols-outlined text-[#1E9B6F]">account_balance</span>
-        </div>
-        <div class="contact-city-info">
-            <h3 class="contact-city-name">Chennai</h3>
-            <p class="contact-city-meta">Field Operations Hub</p>
-        </div>
-    </article>
+            <p class="mt-3 text-base text-slate-600 leading-relaxed">
+                We are present across India to support businesses with certified field
+                engineers. Our regional offices ensure fast response times and
+                seamless operations wherever you are.
+            </p>
 
-    <article class="contact-city-card">
-        <div class="contact-city-icon" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-            <span class="material-symbols-outlined text-[#1E9B6F]">location_on</span>
         </div>
-        <div class="contact-city-info">
-            <h3 class="contact-city-name contact-city-name-accent">120+ Cities</h3>
-            <p class="contact-city-meta">Nationwide Coverage</p>
-        </div>
-    </article>
-</div>
-        </div>
-    </section>
 
+        <!-- City Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <!-- Delhi -->
+            <article class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center gap-4">
+
+                    <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[#1E9B6F]">
+                            apartment
+                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Delhi NCR</h3>
+                        <p class="text-sm text-slate-500">Head Office</p>
+                        <p class="text-sm text-slate-500">Enterprise Operations</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- Mumbai -->
+            <article class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center gap-4">
+
+                    <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[#1E9B6F]">
+                            location_city
+                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Mumbai</h3>
+                        <p class="text-sm text-slate-500">West Region Operations</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- Bengaluru -->
+            <article class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center gap-4">
+
+                    <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[#1E9B6F]">
+                            person_pin_circle
+                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Bengaluru</h3>
+                        <p class="text-sm text-slate-500">South Region Operations</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- Hyderabad -->
+            <article class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center gap-4">
+
+                    <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[#1E9B6F]">
+                            person_pin_circle
+                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Hyderabad</h3>
+                        <p class="text-sm text-slate-500">Technology Center</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- Chennai -->
+            <article class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center gap-4">
+
+                    <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[#1E9B6F]">
+                            account_balance
+                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Chennai</h3>
+                        <p class="text-sm text-slate-500">Field Operations Hub</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- Coverage -->
+            <article class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex items-center gap-4">
+
+                    <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[#1E9B6F]">
+                            public
+                        </span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">120+ Cities</h3>
+                        <p class="text-sm text-slate-500">Nationwide Coverage</p>
+                    </div>
+
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
     {# ========== FAQ ========== #}
     <section class="contact-faq" aria-labelledby="faq-heading">
     <div class="contact-faq-inner">
