@@ -187,6 +187,7 @@
     --color-teal-blue: #22b5b5;
     --color-deep-navy-blue: #090831;
     --color-amber-orange: #ea750a;
+    --color-amber-orange1: #F5B530;
     --color-ochre-yellow: #F59E0B;
     --color-light-ochre-yellow: #FFF7ED;
     --color-deep-indigo: #2c2b59;
@@ -198,6 +199,10 @@
     --color-dark-gray: #484848;
     --color-dark-green: #05855b;
     --color-lightest-green: #E8F8EE;
+    --color-greenish-white: #F8FAF5;
+    --color-sage-green1: #E1F7EF;
+    --color-muted-sage: #E0ECD8;
+    --color-emerald-teal: #1E9B6F;
     --color-lavender-mist: #F3F0FF;
     --color-light-purple: #8B5CF6;
     --color-violet: #6d49e9;
@@ -1964,6 +1969,9 @@
   .border-emerald-500 {
     border-color: var(--color-emerald-500);
   }
+  .border-emerald-teal {
+    border-color: var(--color-emerald-teal);
+  }
   .border-gray-100 {
     border-color: var(--color-gray-100);
   }
@@ -1997,6 +2005,9 @@
   .border-green-light {
     border-color: var(--color-green-light);
   }
+  .border-greenish-white {
+    border-color: var(--color-greenish-white);
+  }
   .border-light-medium {
     border-color: var(--color-light-medium);
   }
@@ -2011,6 +2022,9 @@
   }
   .border-morning-mist {
     border-color: var(--color-morning-mist);
+  }
+  .border-muted-sage {
+    border-color: var(--color-muted-sage);
   }
   .border-orange-500 {
     border-color: var(--color-orange-500);
@@ -2282,6 +2296,9 @@
   .bg-amber-orange {
     background-color: var(--color-amber-orange);
   }
+  .bg-amber-orange1 {
+    background-color: var(--color-amber-orange1);
+  }
   .bg-arctic-mist {
     background-color: var(--color-arctic-mist);
   }
@@ -2363,6 +2380,9 @@
   .bg-emerald-50 {
     background-color: var(--color-emerald-50);
   }
+  .bg-emerald-teal {
+    background-color: var(--color-emerald-teal);
+  }
   .bg-forest-green {
     background-color: var(--color-forest-green);
   }
@@ -2404,6 +2424,9 @@
   }
   .bg-green-light {
     background-color: var(--color-green-light);
+  }
+  .bg-greenish-white {
+    background-color: var(--color-greenish-white);
   }
   .bg-help-center-bg {
     background-color: var(--color-help-center-bg);
@@ -2476,6 +2499,9 @@
   }
   .bg-royal-blue {
     background-color: var(--color-royal-blue);
+  }
+  .bg-sage-green1 {
+    background-color: var(--color-sage-green1);
   }
   .bg-sea-green {
     background-color: var(--color-sea-green);
@@ -3406,6 +3432,9 @@
   .text-amber-orange {
     color: var(--color-amber-orange);
   }
+  .text-amber-orange1 {
+    color: var(--color-amber-orange1);
+  }
   .text-black {
     color: var(--color-black);
   }
@@ -3510,6 +3539,9 @@
   }
   .text-emerald-800 {
     color: var(--color-emerald-800);
+  }
+  .text-emerald-teal {
+    color: var(--color-emerald-teal);
   }
   .text-forest-green {
     color: var(--color-forest-green);
@@ -3944,6 +3976,13 @@
       }
     }
   }
+  .group-hover\:text-emerald-teal {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        color: var(--color-emerald-teal);
+      }
+    }
+  }
   .group-hover\:text-primary {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
@@ -4117,6 +4156,13 @@
       }
     }
   }
+  .hover\:border-emerald-teal {
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--color-emerald-teal);
+      }
+    }
+  }
   .hover\:border-gray-300 {
     &:hover {
       @media (hover: hover) {
@@ -4218,6 +4264,13 @@
       }
     }
   }
+  .hover\:bg-amber-orange1 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-amber-orange1);
+      }
+    }
+  }
   .hover\:bg-black\/5 {
     &:hover {
       @media (hover: hover) {
@@ -4315,6 +4368,13 @@
         @supports (color: color-mix(in lab, red, red)) {
           background-color: color-mix(in oklab, var(--color-green-50) 50%, transparent);
         }
+      }
+    }
+  }
+  .hover\:bg-greenish-white {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-greenish-white);
       }
     }
   }
@@ -4447,6 +4507,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-emerald-600);
+      }
+    }
+  }
+  .hover\:text-emerald-teal {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-emerald-teal);
       }
     }
   }
