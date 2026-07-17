@@ -110,23 +110,79 @@
         }, 300);
     }
 
-    // ====== CLOSE POPUPS ON OUTSIDE CLICK ======
-    document.addEventListener('click', function(event) {
-        const signupPopup = document.getElementById('signupPopup');
-        const otpPopup = document.getElementById('otpPopup');
-        
-        if (event.target === signupPopup) {
-            closeSignupPopup();
-        }
-        if (event.target === otpPopup) {
-            closeOtpPopup();
-        }
-    });
+   // ====== CLOSE POPUPS ON OUTSIDE CLICK ======
+document.addEventListener('click', function(event) {
+    const signupPopup = document.getElementById('signupPopup');
+    const otpPopup = document.getElementById('otpPopup');
+    const loginPopup = document.getElementById('loginPopup');
+    
+    if (event.target === signupPopup) {
+        closeSignupPopup();
+    }
+    if (event.target === otpPopup) {
+        closeOtpPopup();
+    }
+    if (event.target === loginPopup) {
+        closeLoginPopup();
+    }
+});
 
-    // ====== CLOSE WITH ESCAPE KEY ======
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            closeSignupPopup();
-            closeOtpPopup();
-        }
-    });
+// ====== CLOSE WITH ESCAPE KEY ======
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeSignupPopup();
+        closeOtpPopup();
+        closeLoginPopup();
+    }
+});
+     // ====== LOGIN POPUP FUNCTIONS ======
+function openLoginPopup() {
+    const popup = document.getElementById('loginPopup');
+    popup.classList.remove('opacity-0', 'pointer-events-none');
+    popup.classList.add('opacity-100', 'pointer-events-auto');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('loginMobile').value = '';
+}
+
+function closeLoginPopup() {
+    const popup = document.getElementById('loginPopup');
+    popup.classList.remove('opacity-100', 'pointer-events-auto');
+    popup.classList.add('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = 'auto';
+}
+
+// ====== SWITCH FUNCTIONS ======
+function switchToLogin() {
+    closeSignupPopup(); // Signup close karo
+    setTimeout(() => {
+        openLoginPopup(); // Login open karo
+    }, 300);
+}
+
+function switchToSignup() {
+    closeLoginPopup(); // Login close karo
+    setTimeout(() => {
+        openSignupPopup(); // Signup open karo
+    }, 300);
+}
+
+// ====== HANDLE LOGIN FORM ======
+function handleLogin(event) {
+    event.preventDefault();
+    
+    const mobile = document.getElementById('loginMobile').value.trim();
+    
+    if (!/^[0-9]{10}$/.test(mobile)) {
+        alert('❌ Please enter a valid 10-digit mobile number');
+        return false;
+    }
+    
+    closeLoginPopup();
+    
+    const formattedMobile = '+91 ' + mobile.slice(0, 5) + ' ' + mobile.slice(5);
+    setTimeout(() => {
+        openOtpPopup(formattedMobile);
+    }, 300);
+    
+    return false;
+}

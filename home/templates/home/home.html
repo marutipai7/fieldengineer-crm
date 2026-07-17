@@ -360,21 +360,21 @@
         padding: 0.6rem 1.5rem;
         font-size: 0.875rem;
         font-weight: 600;
-        color: #1a56db;
-        background: #ffffff;
-        border: 1.5px solid #e2e8f0;
-        border-radius: 50px;
+        /* color: #1a56db; */
+        /* background: #ffffff; */
+        /* border: 1.5px solid #e2e8f0; */
+        /* border-radius: 50px; */
         text-decoration: none;
-        white-space: nowrap;
-        transition: all 0.25s ease;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        /* white-space: nowrap; */
+        /* transition: all 0.25s ease; */
+        /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); */
     }
 
     .popular-services-view-all:hover {
-        background: #f7fafc;
-        border-color: #1a56db;
+        /* background: #f7fafc; */
+        /* border-color: #1a56db; */
         transform: translateX(2px);
-        box-shadow: 0 4px 12px rgba(26, 86, 219, 0.12);
+        /* box-shadow: 0 4px 12px rgba(26, 86, 219, 0.12); */
     }
 
     .popular-services-view-all .material-symbols-outlined {
@@ -741,7 +741,7 @@
                 <!-- =======================================================
                     Statistics
                 ======================================================== -->
-                <div class="mt-12 flex flex-wrap gap-12">
+                <!-- <div class="mt-12 flex flex-wrap gap-12">
 
                     <div>
 
@@ -783,7 +783,35 @@
 
                     </div>
 
-                </div>
+                </div> -->
+
+
+<!-- =======================================================
+    Statistics (With Animated Counting Effect to 5k)
+======================================================== -->
+<div class="mt-12 flex flex-wrap gap-12">
+    <div>
+        <!-- Notice we removed the explicit '+' from the HTML here since we handle it dynamically -->
+        <h3 class="text-4xl font-bold text-charcoal-black">
+            <span class="stat-count" data-count="5000">0</span>
+        </h3>
+        <p class="mt-2 text-sm text-granite-gray">Verified Engineers</p>
+    </div>
+
+    <div>
+        <h3 class="text-4xl font-bold text-charcoal-black">
+            <span class="stat-count" data-count="50">0</span>+
+        </h3>
+        <p class="mt-2 text-sm text-granite-gray">Cities Covered</p>
+    </div>
+
+    <div>
+        <h3 class="text-4xl font-bold text-charcoal-black">
+            <span class="stat-count" data-count="98">0</span>%
+        </h3>
+        <p class="mt-2 text-sm text-granite-gray">Customer Satisfaction</p>
+    </div>
+</div>
 
             </div>
 
@@ -794,7 +822,7 @@
 </section>
 
 <!-- ════════════ HOW IT WORKS ════════════ -->
-<section class="how-it-works pb-12" aria-labelledby="how-it-works-title">
+<section class="how-it-works pb-12" aria-labelledby="how-it-works-title" style="padding-bottom: 2rem" ;>
     <div class="how-it-works-card glass-border-white">
         <div class="flex flex-wrap items-center justify-between gap-4 mb-8 sm:flex-col sm:items-start sm:gap-3">
             <div>
@@ -877,14 +905,20 @@
     </div>
 </section>
 
+
 <!-- ════════════ POPULAR SERVICES ════════════ -->
-<section class="popular-services pb-12" aria-labelledby="popular-services-title">
-    <div class="popular-services-card glass-border-white">
+<section class="popular-services pb-12" aria-labelledby="popular-services-title" style="padding-bottom: 2rem" ;>
+    <div class="popular-services-card bg-gradient-to-br from-green-50 via-emerald-50/50 to-green-50/30 border border-green-200/50 rounded-2xl p-6 md:p-8">
         <div class="popular-services-header">
             <h2 id="popular-services-title" class="m-0 text-2xl font-bold md:text-[1.75rem]">
                 Explore Our <span class="text-primary-green">Popular Services</span>
             </h2>
+            <a href="#" class="popular-services-view-all text-primary-green font-bold">
+    View All
+    <span class="material-symbols-outlined">arrow_forward</span>
+</a>
         </div>
+        
 
         <div class="popular-services-grid">
             <article class="service-card glass-border-white">
@@ -959,8 +993,8 @@
 
 
 <!-- ════════════ WHY CHOOSE ════════════ -->
-<section class="why-choose" aria-labelledby="why-choose-title" style="padding-bottom: 3rem" ;>
-    <div class="why-choose-card glass-border-white">
+<section class="why-choose" aria-labelledby="why-choose-title" style="padding-bottom: 2rem" ;>
+    <div class="why-choose-card">
         <h2 id="why-choose-title" class="why-choose-title">Why Choose Field Engineer</h2>
 
        <div class="why-choose-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
@@ -1030,7 +1064,7 @@
 
 
 <!-- ════════════ COVERAGE ACROSS INDIA ════════════ -->
-<section class="coverage-india" aria-labelledby="coverage-india-title" style="padding-bottom: 3rem;">
+<section class="coverage-india" aria-labelledby="coverage-india-title" style="padding-bottom: 2rem;">
     <div class="coverage-india-card bg-gradient-to-br from-green-50 via-emerald-50/50 to-green-50/30 border border-green-200/50 rounded-2xl p-6 md:p-8 relative overflow-hidden">
         <div class="coverage-india-inner flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative z-10">
             <div class="coverage-india-content flex-1 min-w-0">
@@ -1086,7 +1120,7 @@
 </section>
 
 <!-- ════════════ DEPLOY CTA ════════════ -->
-<section class="deploy-cta" aria-labelledby="deploy-cta-title" style="padding-bottom: 3rem;">
+<section class="deploy-cta" aria-labelledby="deploy-cta-title" style="padding-bottom: 2rem;">
     <div class="deploy-cta-card bg-gradient-to-br from-green-50 via-emerald-50/50 to-green-50/30 border border-green-200/50 rounded-2xl p-6 md:p-8">
         <div class="deploy-cta-inner">
             <div class="deploy-cta-content">
@@ -1151,7 +1185,7 @@
 </section>
 
 <!-- ════════════ STAY UPDATED ════════════ -->
-<section class="stay-updated" aria-labelledby="stay-updated-title" style="padding-bottom: 3rem" ;>
+<section class="stay-updated" aria-labelledby="stay-updated-title" style="padding-bottom: 1rem" ;>
     <div class="stay-updated-card glass-border-white p-2">
         <div
             class="stay-updated-inner flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-4 px-3 py-3 md:px-4 md:py-3">
@@ -1203,6 +1237,65 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="{% static 'script/customer-home/customer-home.js' %}"></script>
+<script>
+     document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll('.stat-count');
+        const animationDuration = 1500; // 1.5 seconds
+
+        const formatNumber = (val, target) => {
+            // If it's the 5000 element and it has reached the target, show '5k'
+            if (target === 5000 && val >= 5000) {
+                return "5k+";
+            }
+            // While animating towards 5000, keep it clean with a '+' suffix
+            if (target === 5000) {
+                return val.toLocaleString() + "+";
+            }
+            // Return standard value for other numbers
+            return val;
+        };
+
+        const startCounting = (element) => {
+            const target = parseInt(element.getAttribute('data-count'), 10);
+            const startTime = performance.now();
+
+            const updateCount = (currentTime) => {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / animationDuration, 1);
+                
+                // Premium ease-out cubic curve
+                const easeOutProgress = 1 - Math.pow(1 - progress, 3);
+                const currentValue = Math.floor(easeOutProgress * target);
+
+                element.innerText = formatNumber(currentValue, target);
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCount);
+                } else {
+                    element.innerText = formatNumber(target, target);
+                }
+            };
+
+            requestAnimationFrame(updateCount);
+        };
+
+        const observerOptions = {
+            root: null,
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCounting(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => observer.observe(counter));
+    });
+</script>
 
 
 {% endblock %}
