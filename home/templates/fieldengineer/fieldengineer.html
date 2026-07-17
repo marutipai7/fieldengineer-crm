@@ -106,65 +106,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Right — floating cards -->
-        <div class="hero-rise hero-rise-d5 flex flex-col gap-4 lg:items-end">
-            <div class="flex flex-col gap-6 w-full lg:max-w-[360px]">
-                <!-- Card 1 -->
-                <div class="flex items-center gap-4 rounded-2xl bg-white px-6 py-6 min-h-[110px]">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-sage-green1">
-                        <span class="material-symbols-outlined text-emerald-teal text-[28px]">work</span>
-                    </div>
-                    <div>
-                        <p class="text-b3 font-semibold text-deep-indigo">Available Opportunities</p>
-                        <h3 class="text-h5 font-semibold text-deep-navy-blue mt-1">128</h3>
-                        <span class="text-b3 font-medium text-green">↑ 15% this week</span>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <!-- <div class=" flex items-center gap-4 rounded-2xl bg-white px-5 py-4 ">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-sage-green1">
-                        <span class="material-symbols-outlined text-emerald-teal text-[28px]">payments</span>
-                    </div>
-                    <div>
-                        <p class="text-b3 font-semibold text-deep-indigo">Earnings This Month</p>
-                        <h3 class="text-h5 font-semibold text-deep-navy-blue mt-1">₹48,750</h3>
-                        <span class="text-b3 font-medium text-green">↑ 24% vs last month</span>
-                    </div>
-                </div> -->
-                <!-- Card 3 -->
-                <!-- <div class=" flex items-center gap-4 rounded-2xl bg-white px-6 py-4 ">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-light-ochre-yellow">
-                        <span class="material-symbols-outlined text-ochre-yellow text-[28px]">star</span>
-                    </div>
-                    <div>
-                        <p class="text-b3 font-semibold text-deep-indigo">Engineer Rating</p>
-                        <h3 class="text-h5 font-semibold text-deep-navy-blue mt-1">4.8/5</h3>
-                        <span class="text-b3 font-semibold text-deep-indigo">Based on 120+ reviews</span>
-                    </div>
-                </div> -->
-                <!-- Card 4 -->
-                <div class="flex items-center gap-4 rounded-2xl bg-white px-6 py-6 min-h-[110px]">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-sage-green1">
-                        <span class="material-symbols-outlined text-emerald-teal text-[28px]">location_on</span>
-                    </div>
-
-                    <div>
-                        <p class="text-b3 font-semibold text-deep-indigo">
-                            Opportunities Near You
-                        </p>
-
-                        <h3 class="text-h5 font-semibold text-deep-navy-blue mt-1">
-                            18
-                        </h3>
-
-                        <span class="text-b3 font-medium text-green">
-                            New projects available
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Stats Bar -->
@@ -177,7 +118,12 @@
                         <span class="material-symbols-outlined text-emerald-teal">groups</span>
                     </div>
                     <div>
-                        <h3 class="text-h5 font-semibold text-dark-indigo">15K+</h3>
+                        <h3 class="text-h5 font-semibold text-dark-indigo counter"
+    data-target="15000"
+    data-prefix=""
+    data-suffix="+">
+    0
+</h3>
                         <p class="text-b3 font-semibold text-cool-gray-blue1">Active Engineers</p>
                     </div>
                 </div>
@@ -187,7 +133,12 @@
                         <span class="material-symbols-outlined text-emerald-teal">assignment</span>
                     </div>
                     <div>
-                        <h3 class="text-h5 font-semibold text-dark-indigo">25K+</h3>
+                        <h3 class="text-h5 font-semibold text-dark-indigo counter"
+    data-target="25000"
+    data-prefix=""
+    data-suffix="+">
+    0
+</h3>
                         <p class="text-b3 font-semibold text-cool-gray-blue1">Projects Completed</p>
                     </div>
                 </div>
@@ -197,7 +148,12 @@
                         <span class="material-symbols-outlined text-emerald-teal">business</span>
                     </div>
                     <div>
-                        <h3 class="text-h5 font-semibold text-dark-indigo">500+</h3>
+                        <h3 class="text-h5 font-semibold text-dark-indigo counter"
+    data-target="500"
+    data-prefix=""
+    data-suffix="+">
+    0
+</h3>
                         <p class="text-b3 font-semibold text-cool-gray-blue1">Verified Businesses</p>
                     </div>
                 </div>
@@ -207,7 +163,12 @@
                         <span class="material-symbols-outlined text-emerald-teal">account_balance_wallet</span>
                     </div>
                     <div>
-                        <h3 class="text-h5 font-semibold text-dark-indigo">₹12Cr+</h3>
+                        <h3 class="text-h5 font-semibold text-dark-indigo counter"
+    data-target="12"
+    data-prefix="₹"
+    data-suffix="Cr+">
+    ₹0
+</h3>
                         <p class="text-b3 font-semibold text-cool-gray-blue1">Paid to Engineers</p>
                     </div>
                 </div>
@@ -231,53 +192,47 @@
         </div>
         <div class="grid grid-cols-2 lg:grid-cols-6 gap-4">
             <!-- Card 1 -->
-            <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl ">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+            <div class="bg-white rounded-xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-sage-green1">
                     <span class="material-symbols-outlined text-emerald-teal">engineering</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Relevant technical skills and field service
                     experience</p>
             </div>
             <!-- Card 2 -->
-            <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+            <div class="bg-white rounded-xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-sage-green1">
                     <span class="material-symbols-outlined text-emerald-teal">badge</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Complete professional profile with work history
                 </p>
             </div>
             <!-- Card 3 -->
-            <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+            <div class="bg-white rounded-xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-sage-green1">
                     <span class="material-symbols-outlined text-emerald-teal">assignment</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Ability to manage assignments and meet deadlines
                 </p>
             </div>
             <!-- Card 4 -->
-            <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+            <div class="bg-white rounded-xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-sage-green1">
                     <span class="material-symbols-outlined text-emerald-teal">verified_user</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Commitment to quality workmanship and customer
                     satisfaction</p>
             </div>
             <!-- Card 5 -->
-            <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+            <div class="bg-white rounded-xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-sage-green1">
                     <span class="material-symbols-outlined text-emerald-teal">forum</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Strong communication and professional conduct</p>
             </div>
             <!-- Card 6 -->
-            <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
+            <div class="bg-white rounded-xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-sage-green1">
                     <span class="material-symbols-outlined text-emerald-teal">schedule</span>
                 </div>
                 <p class="mt-4 text-b3 font-semibold text-deep-indigo">Availability to accept projects based on your
@@ -373,10 +328,10 @@
                 Built for skilled field professionals seeking flexibility, growth, and transparency.
             </p>
         </div>
-        <div class="grid grid-cols-2 lg:grid-cols-6 gap-5">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
             <!-- Card 1 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage-green1">
                     <span class="material-symbols-outlined text-[28px] text-emerald-teal">work</span>
                 </div>
@@ -385,7 +340,7 @@
             </div>
             <!-- Card 2 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lavender-mist">
                     <span class="material-symbols-outlined text-[28px] text-light-purple">schedule</span>
                 </div>
@@ -395,7 +350,7 @@
             </div>
             <!-- Card 3 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lightest-green">
                     <span class="material-symbols-outlined text-[28px] text-light-green">account_balance_wallet</span>
                 </div>
@@ -405,7 +360,7 @@
             </div>
             <!-- Card 4 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-lavender-mist">
                     <span class="material-symbols-outlined text-[28px] text-light-purple">monitoring</span>
                 </div>
@@ -414,7 +369,7 @@
             </div>
             <!-- Card 5 -->
             <div
-                class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
+    class="col-span-2 md:col-span-1 lg:col-span-1 justify-self-center w-full max-w-sm bg-white rounded-2xl shadow-lg border border-cool-gray-blue p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-light-ochre-yellow">
                     <span class="material-symbols-outlined text-[28px] text-amber-orange1">verified_user</span>
                 </div>
@@ -422,7 +377,7 @@
                 <p class="mt-3 text-b3 text-deep-indigo">Connect with verified vendors and reliable businesses.</p>
             </div>
             <!-- Card 6 -->
-            <div
+            <!--div
                 class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-emerald-teal hover:shadow-xl">
                 <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-light-cyan-blue">
                     <span class="material-symbols-outlined text-[28px] text-bright-cyan-blue">grid_view</span>
@@ -430,7 +385,7 @@
                 <h3 class="mt-4 text-s2 font-bold text-deep-indigo">Diverse Project Opportunities</h3>
                 <p class="mt-3 text-b3 text-deep-indigo">Installations, maintenance, repairs, networking, CCTV, and
                     more.</p>
-            </div>
+            </div-->
         </div>
     </div>
 </section>
@@ -485,67 +440,213 @@
 
 <!--TRUSTED BY LEADING BUSINESS-->
 <section class="py-10">
-    <div class="max-w-7xl mx-auto px-5 md:px-8">
-        <div class="bg-white rounded-3xl shadow-lg border border-greenish-white p-6 text-center">
-            <div class="text-center mb-8">
-                <p
-                    class="inline-block text-label font-bold text-emerald-teal uppercase tracking-wide px-4 py-2 rounded-md bg-sage-green1">
-                    TRUSTED BY LEADING BUSINESSES
-                </p>
-            </div>
-            <!-- Logos -->
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 items-center gap-8">
-                <img src="{% static 'img/logos/tata.svg' %}" alt="Tata" class="h-8 mx-auto object-contain"
-                    loading="lazy">
-                <img src="{% static 'img/logos/jio.svg' %}" alt="Reliance" class="h-8 mx-auto object-contain"
-                    loading="lazy">
-                <img src="{% static 'img/logos/wipro.svg' %}" alt="Wipro" class="h-8 mx-auto object-contain"
-                    loading="lazy">
-                <img src="{% static 'img/logos/hdfc-bank.svg' %}" alt="HDFC Bank" class="h-8 mx-auto object-contain"
-                    loading="lazy">
-                <img src="{% static 'img/logos/airtel.svg' %}" alt="Airtel" class="h-8 mx-auto object-contain"
-                    loading="lazy">
-                <img src="{% static 'img/logos/flipkart.svg' %}" alt="Flipkart" class="h-8 mx-auto object-contain"
-                    loading="lazy">
-                <img src="{% static 'img/logos/amazon.svg' %}" alt="Amazon" class="h-8 mx-auto object-contain"
-                    loading="lazy">
-            </div>
-        </div>
-    </div>
-</section>
+ <div class="max-w-7xl mx-auto px-5 md:px-8 space-y-8">
 
-<!--READY TO STAR WORKING-->
+            {# Trusted by Enterprises #}
+            <div class="space-y-8">
+                <div class="text-center">
+                    <span class="text-xs font-bold tracking-wider text-green-700 uppercase">
+        Trusted by Enterprises
+    </span>
+                    <h3 id="trust-heading" class="text-2xl font-bold text-black-one mt-1">Trusted by Leading Enterprises
+                    </h3>
+                </div>
+
+        <div class="bg-gradient-to-r from-green-50 via-green-50/40 to-transparent border border-green-100 rounded-3xl shadow-sm px-8 py-10">
+
+    <div class="overflow-hidden">
+    <div class="animate-marquee flex items-center gap-14 whitespace-nowrap">
+
+        <div class="min-w-[170px] text-center">
+            <span class="font-bold text-2xl text-slate-800">TATA</span><br>
+            <span class="text-xs tracking-wide text-slate-500">
+                CONSULTANCY SERVICES
+            </span>
+        </div>
+
+        <div class="min-w-[140px] text-center">
+            <span class="font-semibold text-4xl text-slate-800">
+                Wipro
+            </span>
+        </div>
+
+        <div class="min-w-[140px] text-center">
+            <span class="font-black text-5xl text-blue-700">
+                HCL
+            </span>
+        </div>
+
+        <div class="min-w-[140px] text-center">
+            <span class="font-bold text-4xl text-red-600">
+                airtel
+            </span>
+        </div>
+
+        <div class="min-w-[140px] text-center">
+            <span class="font-bold text-4xl text-orange-500">
+                amazon
+            </span>
+        </div>
+
+        <div class="min-w-[140px] text-center flex-shrink-0">
+    <span class="font-bold text-3xl text-slate-800">Infosys</span>
+</div>
+
+<div class="min-w-[140px] text-center flex-shrink-0">
+    <span class="font-bold text-3xl text-blue-600">Tech Mahindra</span>
+</div>
+
+<div class="min-w-[140px] text-center flex-shrink-0">
+    <span class="font-bold text-3xl text-red-500">IBM</span>
+</div>
+
+<div class="min-w-[140px] text-center flex-shrink-0">
+    <span class="font-bold text-3xl text-blue-700">Accenture</span>
+</div>
+
+<div class="min-w-[140px] text-center flex-shrink-0">
+    <span class="font-bold text-3xl text-indigo-600">Capgemini</span>
+</div>
+
+<div class="min-w-[140px] text-center flex-shrink-0">
+    <span class="font-bold text-3xl text-orange-600">Oracle</span>
+</div>
+
+<div class="min-w-[140px] text-center flex-shrink-0">
+    <span class="font-bold text-3xl text-red-600">Cisco</span>
+</div>
+
+<div class="min-w-[140px] text-center flex-shrink-0">
+    <span class="font-bold text-3xl text-sky-600">Dell</span>
+</div>
+
+        <!-- Microsoft -->
+<div
+    class="h-24 flex items-center justify-center hover:-translate-y-1 transition-all duration-300">
+
+    <span class="font-medium text-xl text-slate-600 whitespace-nowrap">
+        Microsoft
+    </span>
+
+</div>
+
+    </div>
+
+</div>
+            
+
+</section>            
+
+
+<!-- READY TO START WORKING -->
 <section class="py-12">
     <div class="max-w-7xl mx-auto px-5 md:px-8">
-        <div class="relative overflow-hidden rounded-3xl bg-black-darkk px-6 py-10 text-center shadow-xl">
 
+        <div
+            class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-green-50 via-green-50/40 to-transparent border border-green-100 px-6 py-10 text-center shadow-xl">
+
+            <!-- Background Animation -->
             <canvas id="constellation" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
 
             <div class="relative z-10">
+
+                <!-- Icon -->
                 <div
-                    class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm">
-                    <span class="material-symbols-outlined text-white text-[28px]">groups</span>
+                    class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
+                    <span class="material-symbols-outlined text-emerald-teal text-[28px]">
+                        groups
+                    </span>
                 </div>
-                <h2 class="text-h3 font-semibold text-white">Ready to Start Working on New Opportunities?</h2>
-                <p class="mx-auto mt-4 max-w-3xl text-b1 text-white/90">
-                    Join our network of skilled field engineers and gain access to installation, maintenance,
-                    networking, security, and technology projects.
+
+                <!-- Heading -->
+                <h2 class="text-h3 font-semibold text-deep-indigo">
+                    Ready to Start Working on New Opportunities?
+                </h2>
+
+                <!-- Description -->
+                <p class="mx-auto mt-4 max-w-3xl text-b1 text-deep-indigo">
+                    Join our network of skilled field engineers and gain access to installation,
+                    maintenance, networking, security, and technology projects.
                 </p>
+
+                <!-- Button -->
                 <div class="mt-8">
                     <a href="{% url 'contact' %}"
-                        class="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3 text-b3 font-semibold text-emerald-teal transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        class="inline-flex items-center gap-2 rounded-xl bg-emerald-teal px-8 py-3 text-b3 font-semibold text-white transition-all duration-300 hover:bg-deep-indigo hover:scale-105 hover:shadow-lg">
                         Join the Network
-                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        <span class="material-symbols-outlined text-[18px]">
+                            arrow_forward
+                        </span>
                     </a>
                 </div>
+
             </div>
 
         </div>
+
     </div>
 </section>
+<style>
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
 
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 18s linear infinite;
+}
+</style>
 {% endblock %}
 
 {% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
 
+    counters.forEach(counter => {
+        const target = +counter.dataset.target;
+        const prefix = counter.dataset.prefix || "";
+        const suffix = counter.dataset.suffix || "";
+
+        let count = 0;
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16);
+
+        function updateCounter() {
+            count += increment;
+
+            if (count < target) {
+                let display;
+
+                if (target >= 1000 && suffix === "+") {
+                    display = Math.floor(count / 1000) + "K";
+                } else {
+                    display = Math.floor(count);
+                }
+
+                counter.textContent = prefix + display + suffix;
+                requestAnimationFrame(updateCounter);
+            } else {
+                let finalDisplay;
+
+                if (target >= 1000 && suffix === "+") {
+                    finalDisplay = (target / 1000) + "K";
+                } else {
+                    finalDisplay = target;
+                }
+
+                counter.textContent = prefix + finalDisplay + suffix;
+            }
+        }
+
+        updateCounter();
+    });
+});
+</script>
 {% endblock %}
