@@ -39,5 +39,11 @@ urlpatterns = [
     path('profile/', profile, name='profile'),
     path('customer-contactus/', customer_contactus, name='customer_contactus'),
     path('vendor/how-it-works/', how_it_works, name='how_it_works'),
+<<<<<<< HEAD
     path('vendor/customer/', customer, name='customer')
 ]
+=======
+    path('vendor/services/', services, name='services'),
+    path('sales-enquiry/', sales_enquiry_submit, name='sales_enquiry_submit'),
+]
+>>>>>>> 7e042cb7429b132f667a321a6b8e0fdb06d88318

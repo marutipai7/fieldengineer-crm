@@ -1,4 +1,14 @@
 from django.shortcuts import render
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from .models import SalesEnquiry
+from .email_otp import send_email
+import json
+import asyncio
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def home(request):
