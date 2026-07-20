@@ -60,5 +60,5 @@ def profile(request):
 def how_it_works(request):
     return render(request, 'vendor/how-it-works.html')
 
-def services(request):
-    return render(request, 'vendor/services.html')
+def customer(request):
+    return render(request, 'vendor/customer.html')
