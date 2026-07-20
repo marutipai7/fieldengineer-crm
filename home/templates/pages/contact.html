@@ -114,13 +114,11 @@
     class="max-w-[1400px] mx-auto px-5 lg:px-8 py-10"
     aria-labelledby="contact-form-title">
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
         <!-- LEFT : CONTACT FORM -->
-       <div class="lg:col-span-8">
-
-    <div class="bg-white border border-gray-200 rounded-2xl shadow-sm px-6 pt-6 pb-8">
-
+       <div class="lg:col-span-8 flex">
+    <div class="bg-white border border-gray-200 rounded-2xl shadow-sm px-6 pt-6 pb-8 w-full h-full flex flex-col">
         <h2 id="contact-form-title" class="contact-form-title">
             Send Us a Message
         </h2>
@@ -209,11 +207,10 @@ onmouseout="this.style.background='#F5B530'">
         </div>
 </div>
 
-<div class="lg:col-span-4 self-start">
+<div class="lg:col-span-4 flex">
+    <div class="grid grid-rows-4 gap-5 h-full w-full">
 
-    <div class="grid grid-cols-1 gap-5">
-
-        <article class="contact-info-card">
+        <article class="contact-info-card p-6">
             <div class="flex items-center gap-4">
                 <div class="contact-info-icon bg-lightest-green text-primary" aria-hidden="true">
                     <span class="material-symbols-outlined text-green">business_center</span>
@@ -234,7 +231,7 @@ onmouseout="this.style.background='#F5B530'">
             <p class="contact-info-response">Response Time: Within 2 Hours</p>
         </article>
 
-        <article class="contact-info-card">
+        <article class="contact-info-card p-6">
             <div class="flex items-center gap-4">
                 <div class="contact-info-icon bg-lightest-green text-dark-green" aria-hidden="true">
                     <span class="material-symbols-outlined text-green">headset_mic</span>
@@ -255,7 +252,7 @@ onmouseout="this.style.background='#F5B530'">
             <p class="contact-info-response">Response Time: 24/7</p>
         </article>
 
-        <article class="contact-info-card">
+        <article class="contact-info-card p-6">
             <div class="flex items-center gap-4">
                 <div class="contact-info-icon bg-lightest-green text-light-purple" aria-hidden="true">
                     <span class="material-symbols-outlined text-green">handshake</span>
@@ -276,7 +273,7 @@ onmouseout="this.style.background='#F5B530'">
             <p class="contact-info-response">Response Time: 1 Business Day</p>
         </article>
 
-        <article class="contact-info-card">
+        <article class="contact-info-card p-6">
             <div class="flex items-center gap-4">
                 <div class="contact-info-icon bg-lightest-green text-amber-orange" aria-hidden="true">
                     <span class="material-symbols-outlined text-green">engineering</span>
@@ -300,101 +297,6 @@ onmouseout="this.style.background='#F5B530'">
      </div>
 
 </div>    
-
-
-        {# Immediate Help #}
-        <!--aside class="contact-help-card" aria-labelledby="help-heading">
-            <h2 id="help-heading" class="contact-help-title">Need immediate help?</h2>
-            <p class="text-c3 font-medium text-medium">Choose an option below to get quick assistance</p>
-            <div class="contact-help-list">
-                <a href="#" class="contact-help-link">
-                    <span class="flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary" aria-hidden="true">local_shipping</span>
-                        <div>
-                            <h3 class="text-b3 font-bold text-ink">Track your booking</h3>
-                            <p class="text-c3 font-medium text-medium">Get real-time status of your job</p>
-                        </div>
-                    </span>
-                    <span class="material-symbols-outlined text-medium" aria-hidden="true">chevron_right</span>
-                </a>
-                <a href="#" class="contact-help-link">
-                    <span class="flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary" aria-hidden="true">report_problem</span>
-                        <div>
-                            <h3 class="text-b3 font-bold text-ink">Raise an issue</h3>
-                            <p class="text-c3 font-medium text-medium">Report an issue and get support</p>
-                        </div>
-                    </span>
-                    <span class="material-symbols-outlined text-medium" aria-hidden="true">chevron_right</span>
-                </a>
-                <a href="#" class="contact-help-link">
-                    <span class="flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary" aria-hidden="true">support_agent</span>
-                        <div>
-                            <h3 class="text-b3 font-bold text-ink">Talk to support</h3>
-                            <p class="text-c3 font-medium text-medium">Connect with our support team</p>
-                        </div>
-                    </span>
-                    <span class="material-symbols-outlined text-medium" aria-hidden="true">chevron_right</span>
-                </a>
-                <a href="#" class="contact-help-link">
-                    <span class="flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary" aria-hidden="true">confirmation_number</span>
-                        <div>
-                            <h3 class="text-b3 font-bold text-ink">Open a ticket</h3>
-                            <p class="text-c3 font-medium text-medium">Submit a ticket for faster resolution</p>
-                        </div>
-                    </span>
-                    <span class="material-symbols-outlined text-medium" aria-hidden="true">chevron_right</span>
-                </a>
-            </div>
-        </aside-->
-
-        {# Book a Meeting #}
-        <!--aside class="contact-meeting-card" aria-labelledby="meeting-heading">
-            <h2 id="meeting-heading" class="contact-meeting-title">Book a Meeting</h2>
-            <p class="text-c3 font-medium text-medium">Schedule a call with our experts to discuss your requirements</p>
-            <div class="contact-field mt-4">
-                <label id="contact-meeting-type-label">Choose meeting type</label>
-                <div class="contact-dropdown" data-contact-dropdown>
-                    <button type="button" class="contact-dropdown-trigger" aria-labelledby="contact-meeting-type-label" aria-expanded="false" aria-haspopup="listbox">
-                        <span class="contact-dropdown-value is-placeholder" data-contact-dropdown-value data-placeholder="Select meeting type">Select meeting type</span>
-                        <span class="material-symbols-outlined contact-dropdown-chevron" aria-hidden="true">expand_more</span>
-                    </button>
-                    <ul class="contact-dropdown-menu" role="listbox" aria-labelledby="contact-meeting-type-label" hidden>
-                        <li><button type="button" class="contact-dropdown-option" role="option" data-value="sales">Sales Consultation</button></li>
-                        <li><button type="button" class="contact-dropdown-option" role="option" data-value="vendor">Vendor Onboarding</button></li>
-                        <li><button type="button" class="contact-dropdown-option" role="option" data-value="demo">Technical Demo</button></li>
-                        <li><button type="button" class="contact-dropdown-option" role="option" data-value="support">Support Call</button></li>
-                    </ul>
-                    <input type="hidden" name="meeting_type" value="" data-contact-dropdown-input>
-                </div>
-            </div>
-
-            <div class="contact-calendar" id="contact-calendar">
-                <div class="contact-calendar-header">
-                    <span class="contact-calendar-month" data-calendar-month></span>
-                    <div class="contact-calendar-nav">
-                        <button type="button" class="contact-calendar-nav-btn" data-calendar-prev aria-label="Previous month">
-                            <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
-                        </button>
-                        <button type="button" class="contact-calendar-nav-btn" data-calendar-next aria-label="Next month">
-                            <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="contact-calendar-weekdays" aria-hidden="true">
-                    <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                </div>
-                <div class="contact-calendar-grid" data-calendar-grid role="grid" aria-label="Calendar dates"></div>
-            </div>
-
-            <button type="button" class="btn btn-primary btn-md mt-4 w-full">
-                Schedule Meeting
-                <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-            </button>
-            <p class="text-c1 font-medium text-medium mt-4 text-center">Meeting led by FE experts</p>
-        </aside-->
     </section>
 
     {# ========== OFFICES & COVERAGE ========== #}

@@ -543,8 +543,13 @@
     <div class="max-w-7xl mx-auto px-5 md:px-8">
 
         <div
-            class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-green-50 via-green-50/40 to-transparent border border-green-100 px-6 py-10 text-center shadow-xl">
-
+    class="relative overflow-hidden rounded-3xl
+           bg-gradient-to-r
+           from-[#F4F0C2]
+           via-[#E8F2D6]
+           to-[#C8E6C2]
+           border border-[#D8E8CC]
+           px-6 py-10 text-center shadow-xl">
             <!-- Background Animation -->
             <canvas id="constellation" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
 
@@ -572,12 +577,19 @@
                 <!-- Button -->
                 <div class="mt-8">
                     <a href="{% url 'contact' %}"
-                        class="inline-flex items-center gap-2 rounded-xl bg-emerald-teal px-8 py-3 text-b3 font-semibold text-white transition-all duration-300 hover:bg-deep-indigo hover:scale-105 hover:shadow-lg">
-                        Join the Network
-                        <span class="material-symbols-outlined text-[18px]">
-                            arrow_forward
-                        </span>
-                    </a>
+   class="inline-flex items-center gap-2 rounded-xl
+          bg-[#F5B530] px-8 py-3
+          text-b3 font-semibold text-black
+          shadow-md
+          transition-colors duration-200
+          hover:bg-[#E8A400]
+          focus:outline-none focus:ring-0
+          active:bg-[#E8A400] active:scale-100">
+    Join the Network
+    <span class="material-symbols-outlined text-[18px]">
+        arrow_forward
+    </span>
+</a>
                 </div>
 
             </div>

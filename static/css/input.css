@@ -2179,8 +2179,15 @@
   @apply mx-auto grid max-w-[90rem] grid-cols-1 gap-4 px-5 py-10 sm:grid-cols-2 lg:grid-cols-4 md:px-8 md:py-12;
 }
 
-.contact-info-card {
-  @apply rounded-md border border-light-medium bg-white p-5 space-y-2 shadow-sm;
+.contact-info-card{
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 24px;          /* keeps the inner spacing */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
 }
 
 .contact-info-icon {
@@ -2514,7 +2521,7 @@
       var(--color-about-bg-end));
 }
 
-.about-hero::before {
+/*.about-hero::before {
 
   content: "";
 
@@ -2531,7 +2538,7 @@
   border-radius: 50%;
 
   background: rgba(45, 187, 138, .08);
-}
+}*/
 
 /*.about-hero::after {
     content: "";
@@ -2602,7 +2609,7 @@
     );
 }
 
-.blog-hero::after{
+/*.blog-hero::after{
     content:"";
     position:absolute;
 
@@ -2617,7 +2624,7 @@
     background:rgba(198,235,180,.55);
 
     pointer-events:none;
-}
+}*/
 
 .blog-hero-bg{
     display:none;
@@ -3122,7 +3129,7 @@
     );
 }
 
-.careers-hero::after {
+/*.careers-hero::after {
     content: "";
     position: absolute;
 
@@ -3136,7 +3143,7 @@
     background: rgba(198, 235, 180, 0.55);
 
     pointer-events: none;
-}
+}*/
 
 .careers-hero > .max-w-\[95\%\] {
     position: relative;

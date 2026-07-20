@@ -50,12 +50,12 @@
         </div>
       </div>
 
-      <div class="lg:col-span-6 relative w-full flex justify-center lg:justify-end">
+      <!--div class="lg:col-span-6 relative w-full flex justify-center lg:justify-end">
           <img src="{% static 'img/careerpage.png' %}" 
      alt="Field Operations Team"
      class="w-full max-w-2xl lg:max-w-none object-contain" 
      loading="lazy" />
-      </div>
+      </div-->
 
     </div>
 
@@ -71,7 +71,7 @@
     </span>
 </div>
           <div>
-            <div class="text-xl md:text-2xl font-bold text-black-one">600+</div>
+            <div class="count-up text-xl md:text-2xl font-bold text-black-one" data-target="600">0+</div>
             <div class="text-xs sm:text-sm font-medium text-black-two whitespace-nowrap">Team Members</div>
           </div>
         </div>
@@ -85,7 +85,7 @@
     </span>
 </div>
           <div>
-            <div class="text-xl md:text-2xl font-bold text-black-one">120+</div>
+            <div class="count-up text-xl md:text-2xl font-bold text-black-one" data-target="120">0+</div>
             <div class="text-xs sm:text-sm font-medium text-black-two whitespace-nowrap">Cities</div>
           </div>
         </div>
@@ -98,7 +98,7 @@
     </span>
 </div>
           <div>
-            <div class="text-xl md:text-2xl font-bold text-black-one">15+</div>
+            <div class="count-up text-xl md:text-2xl font-bold text-black-one" data-target="15">0+</div>
             <div class="text-xs sm:text-sm font-medium text-black-two whitespace-nowrap">Departments</div>
           </div>
         </div>
@@ -111,7 +111,7 @@
     </span>
 </div>
           <div>
-            <div class="text-xl md:text-2xl font-bold text-black-one">4.6/5</div>
+            <div class="count-up text-xl md:text-2xl font-bold text-black-one" data-target="4.6">0.0/5</div>
             <div class="text-xs sm:text-sm font-medium text-black-two whitespace-nowrap">Employee Rating</div>
           </div>
         </div>
@@ -124,7 +124,7 @@
     </span>
 </div>
           <div>
-            <div class="text-xl md:text-2xl font-bold text-black-one">85%</div>
+            <div class="count-up text-xl md:text-2xl font-bold text-black-one" data-target="85">0%</div>
             <div class="text-xs sm:text-sm font-medium text-black-two whitespace-nowrap">Employee Retention</div>
           </div>
         </div>
@@ -135,7 +135,7 @@
   </div>
 </section>
 
-<section class="pt-2  w-full bg-white font-sans antialiased">
+<section class="pt-12 w-full bg-white font-sans antialiased">
   <div class="max-w-[1440px] mx-auto px-4 md:px-12">
 
     <div class="text-center mb-6">
@@ -241,7 +241,7 @@
 </section>
 
 
-<section id="life-at-fe" class="py-8 w-full bg-white font-sans antialiased">
+<section id="life-at-fe" class="scroll-mt-40 py-8 w-full bg-white font-sans antialiased">
   <div class="max-w-[1440px] mx-auto px-4 md:px-12">
     <div class="bg-[#F2F9E8] rounded-2xl p-6 md:p-8 border border-[#DDEFC9]">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
@@ -297,7 +297,7 @@
 </section>
 
 <!-- SECTION: OPEN POSITIONS -->
-<section id="open-positions" class="py-2 w-full bg-white font-sans antialiased">
+<section id="open-positions" class="scroll-mt-40 py-2 w-full bg-white font-sans antialiased">
   <div class="max-w-[1440px] mx-auto px-4 md:px-12">
 
     <!-- Header Row -->
@@ -399,7 +399,7 @@
             <td class="py-3.5 px-5 text-right">
               <a href="#"
    class="inline-flex items-center justify-center border border-[#059669] text-black font-semibold text-xs px-4 py-2 rounded-lg hover:bg-[#ECFDF5] transition-colors group">
-    cancel 
+     Apply Now
     <span class="material-symbols-outlined text-[18px] ml-1 text-[#059669]">
         chevron_right
     </span>
@@ -501,4 +501,43 @@
     </div>
   </div>
 </section>
+{% endblock %}
+{% block extra_js %}
+<script>document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".count-up");
+
+    counters.forEach(counter => {
+        const target = parseFloat(counter.dataset.target);
+        const duration = 2000; // 2 seconds
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const value = target * progress;
+
+            if (target === 4.6) {
+                counter.textContent = value.toFixed(1) + "/5";
+            } else if (counter.dataset.target === "85") {
+                counter.textContent = Math.floor(value) + "%";
+            } else {
+                counter.textContent = Math.floor(value) + "+";
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                if (target === 4.6) {
+                    counter.textContent = "4.6/5";
+                } else if (counter.dataset.target === "85") {
+                    counter.textContent = "85%";
+                } else {
+                    counter.textContent = target + "+";
+                }
+            }
+        }
+
+        requestAnimationFrame(update);
+    });
+});
+</script>
 {% endblock %}
