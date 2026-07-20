@@ -18,11 +18,11 @@ from .views import (
      profile,
      customer_contactus,
      how_it_works,
-     services,
+     customer,
 )
 
 urlpatterns = [
-    path('home', home, name='home'),
+    path('', home, name='home'),
     path('home-2/', home_2, name='home_2'),
     path('fieldengineer/', fieldengineer, name='fieldengineer'),
     path('vendor/', vendor, name='vendor'),
@@ -39,5 +39,11 @@ urlpatterns = [
     path('profile/', profile, name='profile'),
     path('customer-contactus/', customer_contactus, name='customer_contactus'),
     path('vendor/how-it-works/', how_it_works, name='how_it_works'),
-    path('vendor/services/', services, name='services')
+<<<<<<< HEAD
+    path('vendor/customer/', customer, name='customer')
 ]
+=======
+    path('vendor/services/', services, name='services'),
+    path('sales-enquiry/', sales_enquiry_submit, name='sales_enquiry_submit'),
+]
+>>>>>>> 7e042cb7429b132f667a321a6b8e0fdb06d88318

@@ -255,7 +255,7 @@
     </section>
 
     {# ========== WHAT WE DO ========== #}
-   <section class="bg-white font-sans antialiased text-slate-800 py-16 sm:py-20 lg:py-24 px-8 lg:px-10"
+   <section class="bg-white font-sans antialiased text-slate-800 py-8 sm:py-10 lg:py-12 px-8 lg:px-10"
     aria-labelledby="whatwedo-heading">
     <div class="max-w-[1500px] mx-auto space-y-4">
 
@@ -335,7 +335,8 @@
         </div>
 
         <!-- ===== HOW FE WORKS ===== -->
-        <div class="space-y-8 sm:space-y-8 pt-10 sm:pt-12 lg:pt-14">
+        <!-- <div class="space-y-8 sm:space-y-8 pt-10 sm:pt-12 lg:pt-14"> -->
+            <div class="space-y-8 sm:space-y-8 pt-4 sm:pt-6 lg:pt-8">
             <div class="text-center space-y-1">
                 <span class="text-xs font-bold tracking-wider text-green-700 uppercase">
     How FE Works
@@ -460,7 +461,8 @@ assignment
         <hr class="border-slate-200" aria-hidden="true">
 
         <!-- ===== FE ECOSYSTEM ===== -->
-            <div class="space-y-4 pt-10 sm:pt-12 lg:pt-14">
+            <!-- <div class="space-y-4 pt-10 sm:pt-12 lg:pt-14"> -->
+                <div class="space-y-4 pt-4 sm:pt-6 lg:pt-8">
                 <div class="text-center space-y-1">
                     <span class="text-sm font-bold tracking-wider text-green-700 uppercase">
     The FE Ecosystem
@@ -633,7 +635,8 @@ assignment
             </div>
 
             {# Nationwide Coverage #}
-            <div class="flex justify-center pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 lg:pb-24">
+            <!-- <div class="flex justify-center pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-20 lg:pb-24"> -->
+                <div class="flex justify-center pt-6 md:pt-8 lg:pt-10 pb-6 md:pb-8 lg:pb-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
                     <div class="lg:col-span-4 space-y-3">
                         <span class="text-xs font-bold tracking-wider text-green-700 uppercase">
@@ -754,7 +757,8 @@ assignment
             </div>
 
             {# Why Companies Choose FE #}
-            <div class="space-y-6 py-8 sm:py-14 lg:py-16">
+            <!-- <div class="space-y-6 py-8 sm:py-14 lg:py-16"> -->
+                <div class="space-y-6 py-4 sm:py-6 lg:py-8">
                 <div class="text-center space-y-1">
                     <span class="text-xs font-bold tracking-wider text-green-700 uppercase">
     Why Companies Choose FE
@@ -858,8 +862,7 @@ assignment
 
             {# CTA Section #}
            <div
-    class="w-full mt-6 sm:mt-8 py-8 sm:py-10 px-4 sm:px-6 lg:px-8 text-slate-900 relative overflow-hidden shadow-xl rounded-2xl border border-green-100"
-    style="background: linear-gradient(135deg, #F2FFF8 0%, #E8F8EE 50%, #F2FFF8 100%);">
+    class="w-full mt-6 sm:mt-8 py-8 sm:py-10 px-4 sm:px-6 lg:px-8 text-slate-900 relative overflow-hidden shadow-xl rounded-2xl border border-green-100  bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5] " >
                 <div class="absolute inset-0 opacity-10"
                     style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 1px); background-size:24px 24px;"
                     aria-hidden="true"></div>
@@ -874,20 +877,17 @@ assignment
                     </div>
                     <div class="flex flex-row gap-4 items-center">
 
-    <a href="{% url 'help_center' %}"
-    class="inline-flex items-center justify-center gap-2 bg-white px-5 py-2.5 rounded-lg font-bold text-xs text-[#1B1B1B] shadow-md hover:bg-gray-100 transition">
-    <span class="material-symbols-outlined text-green-600 text-base">
-        support_agent
-    </span>
-    Talk to Expert
-</a>
+  
+<a href="{% url 'help_center' %}" class="deploy-cta-btn-expert btn-glass-modern water-drop-glass">
+                        <span class="material-symbols-outlined text-[#1E9B6F]">headset_mic</span>
+                        Talk to Expert
+                    </a>
 
-    <a href="{% url 'request_service' %}"
-    class="inline-flex items-center justify-center gap-2 bg-[#FDBA21] px-5 py-2.5 rounded-lg font-bold text-xs text-black hover:bg-[#F4A300] transition">
+   
+<a href="javascript:void(0)" onclick="switchToLogin()"
+    class="btn btn-md btn-modern deploy-cta-btn-service inline-flex items-center justify-center gap-2 bg-bright-yellow hover:bg-[#dfa024] text-[rgb(56, 49, 49)] font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 cursor-pointer">
     Request Service
-    <span class="material-symbols-outlined text-base">
-        arrow_right_alt
-    </span>
+    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
 </a>
 
 </div>

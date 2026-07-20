@@ -455,6 +455,7 @@
                         <a href="{% url 'how_it_works' %}" class="hover:text-emerald-teal transition">How it Works</a>
                     </li>
                     <li>
+                        <a href="{% url 'customer' %}" class="hover:text-emerald-teal transition">Customer</a>
                         <a href="{% url 'services' %}" class="hover:text-emerald-teal transition">For Customer</a>
                     </li>
                     <li>
@@ -494,34 +495,62 @@
                 </div>
 
                 <!-- MOBILE HAMBURGER -->
-                <button id="hamburger-btn" class="xl:hidden rounded-lg p-2 hover:bg-slate-100">
+                <!-- <button id="hamburger-btn" class="xl:hidden rounded-lg p-2 hover:bg-slate-100">
                     <span class="material-symbols-outlined">menu</span>
-                </button>
+                </button> -->
+                <button id="hamburger-btn" class="xl:hidden relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-all duration-300">
+    <span class="material-symbols-outlined text-3xl text-slate-700" id="hamburger-icon">menu</span>
+</button>
             </div>
         </div>
 
         <!-- ================= MOBILE MENU ================= -->
-        <div id="mobile-menu" class="fixed left-0 right-0 top-[80px] z-[90] origin-top scale-y-0 opacity-0 pointer-events-none transition-all duration-300">
-            <div id="mobile-overlay" class="fixed inset-0 bg-black/20 backdrop-blur-[2px]"></div>
-            <div class="relative bg-white border-t border-slate-200 shadow-2xl">
-                <!-- Mobile menu inner elements -->
-                <div class="mx-auto max-w-[1400px] px-6 py-5 flex items-center justify-between">
-                    <a href="{% url 'home' %}" class="flex items-center gap-3">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-xl logo-gradient border border-emerald-teal">
-                            <span class="font-extrabold text-emerald-teal">FE</span>
-                        </div>
-                        <div>
-                            <p class="text-lg font-bold text-slate-900">
-                                Field <span class="text-emerald-teal">Engineer</span>
-                            </p>
-                        </div>
-                    </a>
-                    <button id="close-mobile-menu" class="flex h-10 w-10 items-center justify-center rounded-xl hover:bg-greenish-white transition">
-                        <span class="material-symbols-outlined">close</span>
+      <!-- <div id="mobile-menu" class="fixed left-0 right-0  top-[80px] z-[90] origin-top scale-y-0 opacity-0 pointer-events-none transition-all duration-300"> -->
+        <!-- <div id="mobile-menu" class="md:hidden fixed left-0 right-0 top-[80px] z-[90] origin-top scale-y-0 opacity-0 pointer-events-none transition-all duration-300"> -->
+
+            <!-- Is line ko update karein -->
+<div id="mobile-menu" class="xl:hidden fixed left-0 right-0 top-[80px] z-[90] origin-top scale-y-0 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/30"></div>
+    <div class="relative bg-white border-t border-slate-200 shadow-2xl max-h-[calc(100vh-80px)] overflow-y-auto mx-4 sm:mx-6 rounded-b-2xl">
+        <!-- Mobile menu inner elements -->
+        <div class="px-4 sm:px-6 py-5">
+           
+            
+            <!-- Mobile Navigation Links -->
+            <ul class="flex flex-col gap-1">
+                <li><a href="{% url 'how_it_works' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">How it Works</a></li>
+                <li><a href="{% url 'customer' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">Customer</a></li>
+                <li><a href="{% url 'fieldengineer' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">For Engineers</a></li>
+                <li><a href="{% url 'vendor' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">For Vendors</a></li>
+                
+                <!-- Company Dropdown -->
+                <li>
+                    <button id="mobile-company-btn" class="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">
+                        Company
+                        <span id="mobile-company-arrow" class="material-symbols-outlined transition-transform duration-300">keyboard_arrow_down</span>
                     </button>
-                </div>
+                    <div id="mobile-company-menu" class="hidden pl-4 space-y-1 mt-1">
+                        <a href="{% url 'about_fe' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">About FE</a>
+                        <a href="{% url 'careers' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Careers</a>
+                        <a href="{% url 'blogs' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Blogs</a>
+                        <a href="{% url 'contact' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Contact Us</a>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Divider -->
+            <div class="my-4 border-t border-slate-100"></div>
+
+            <!-- Mobile Action Buttons -->
+            <div class="flex flex-col gap-3">
+                <a onclick="switchToLogin()" class="block text-center rounded-xl border border-muted-sage px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200 cursor-pointer">Log In</a>
+                <a onclick="openSignupPopup()" class="block text-center rounded-xl bg-amber-orange1 px-4 py-3.5 text-sm font-medium text-slate-700 shadow hover:bg-amber-400 transition-all duration-200 cursor-pointer">Sign Up Free</a>
+                <a href="javascript:void(0)" id="mobileSalesEnquiryBtn" class="block text-center rounded-xl border border-gray-200 px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200">Sales Enquiry</a>
             </div>
+
         </div>
+    </div>
+</div>
     </nav>
 </header>
     <!-- END HEADER -->
@@ -572,10 +601,10 @@
                     Services
                 </h4>
                 <ul class="space-y-2">
-                    <li><a href="{% url 'services' %}" class="footer-link text-sm text-gray-500">Network Cabling</a></li>
-                    <li><a href="{% url 'services' %}" class="footer-link text-sm text-gray-500">Data Center</a></li>
-                    <li><a href="{% url 'services' %}" class="footer-link text-sm text-gray-500">Smart Hands</a></li>
-                    <li><a href="{% url 'services' %}" class="footer-link text-sm text-gray-500">All Services</a></li>
+                    <li><a href="{% url 'customer' %}" class="footer-link text-sm text-gray-500">Network Cabling</a></li>
+                    <li><a href="{% url 'customer' %}" class="footer-link text-sm text-gray-500">Data Center</a></li>
+                    <li><a href="{% url 'customer' %}" class="footer-link text-sm text-gray-500">Smart Hands</a></li>
+                    <li><a href="{% url 'customer' %}" class="footer-link text-sm text-gray-500">All Services</a></li>
                 </ul>
             </div>
 
@@ -626,37 +655,39 @@
 </footer>
     <!-- END FOOTER -->
     
-    <div id="salesModal" class="fixed inset-0 hidden items-center justify-center bg-black/60 z-[9999]">
-
-        <div class="bg-white rounded-2xl w-[90%] max-w-5xl h-[95vh] overflow-y-auto relative">
-            <button id="closeSalesModal" class="absolute top-5 right-5 text-3xl">
+   <!-- ===== SALES ENQUIRY POPUP ===== -->
+<div id="salesModal" class="fixed inset-0 hidden items-center justify-center bg-black/60 z-[9999]">
+    
+    <!-- Popup Container - Saare corners rounded -->
+    <div class="bg-white rounded-2xl w-[92%] max-w-2xl max-h-[90vh] overflow-hidden relative shadow-2xl">
+        
+        <!-- Scrollable Content -->
+        <div class="overflow-y-auto max-h-[90vh]">
+            
+            <!-- Close Button -->
+            <button id="closeSalesModal" class="absolute top-3 right-4 z-10 text-2xl text-gray-400 hover:text-gray-600 transition">
                 ✕
             </button>
-
-            <div class="px-8 py-5">
-
-                <h2 class="text-2xl font-bold mb-6">
-                    Tell us how we can help
-                </h2>
-                <form id="salesEnquiryForm" class="mt-4 space-y-5">
+            
+            <!-- Content -->
+            <div class="px-5 py-4 pt-8">
+                
+                <h2 class="text-xl font-bold mb-4">Tell us how we can help</h2>
+                
+                <form id="salesEnquiryForm" class="mt-2 space-y-3">
+                    
                     <!-- Company Name -->
                     <div>
-                        <label class="block text-base font-medium mb-1.5">
-                            Company Name <span class="text-red-500">*</span>
-                        </label>
+                        <label class="block text-sm font-medium mb-1">Company Name <span class="text-red-500">*</span></label>
                         <input type="text" name="company_name" placeholder="Company Name" required
-                            class="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                     </div>
 
                     <!-- Industry -->
                     <div>
-                        <label class="block text-lg font-medium mb-2">
-                            Industry <span class="text-red-500">*</span>
-                        </label>
-
+                        <label class="block text-sm font-medium mb-1">Industry <span class="text-red-500">*</span></label>
                         <select name="industry" required
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                             <option value="">Select Industry</option>
                             <option>IT</option>
                             <option>Telecom</option>
@@ -667,174 +698,105 @@
                             <option>Finance</option>
                             <option>Construction</option>
                             <option>Other</option>
-
                         </select>
                     </div>
 
                     <!-- First Name & Last Name -->
-                    <div class="grid md:grid-cols-2 gap-6">
-
+                    <div class="grid grid-cols-2 gap-3">
                         <div>
-                            <label class="block text-lg font-medium mb-2">
-                                First Name <span class="text-red-500">*</span>
-                            </label>
-
-                            <input type="text" name="first_name" placeholder="First Name" required pattern="[A-Za-z ]+"
-                                title="First name should contain only letters."
-                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <label class="block text-sm font-medium mb-1">First Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="first_name" placeholder="First Name" required
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                         </div>
-
                         <div>
-                            <label class="block text-lg font-medium mb-2">
-                                Last Name <span class="text-red-500">*</span>
-                            </label>
-
-                            <input type="text" name="last_name" placeholder="Last Name" required pattern="[A-Za-z ]+"
-                                title="Last name should contain only letters."
-                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <label class="block text-sm font-medium mb-1">Last Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="last_name" placeholder="Last Name" required
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                         </div>
-
                     </div>
 
                     <!-- Contact Number & Email -->
-                    <div class="grid md:grid-cols-2 gap-6">
-
+                    <div class="grid grid-cols-2 gap-3">
                         <div>
-                            <label class="block text-lg font-medium mb-2">
-                                Contact Number <span class="text-red-500">*</span>
-                            </label>
-
-                            <div class="flex gap-3">
-
-                                <select name="country_code" class="w-56 border border-gray-300 rounded-lg px-3 py-3">
-
-                                    <option value="+1">United States (+1)</option>
-                                    <option value="+91">India (+91)</option>
-                                    <option value="+44">United Kingdom (+44)</option>
-                                    <option value="+971">United Arab Emirates (+971)</option>
-                                    <option value="+61">Australia (+61)</option>
-                                    <option value="+81">Japan (+81)</option>
-                                    <option value="+49">Germany (+49)</option>
-                                    <option value="+33">France (+33)</option>
-                                    <option value="+86">China (+86)</option>
-                                    <!-- Continue adding all countries -->
+                            <label class="block text-sm font-medium mb-1">Contact Number <span class="text-red-500">*</span></label>
+                            <div class="flex gap-2">
+                                <select name="country_code" class="w-20 border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                    <option value="+91">+91</option>
+                                    <option value="+1">+1</option>
+                                    <option value="+44">+44</option>
                                 </select>
-                                <input type="tel" name="phone" placeholder="Enter Contact Number" required
-                                    minlength="10" maxlength="10" pattern="[0-9]{10}"
-                                    title="Please enter a valid 10-digit phone number"
-                                    class="flex-1 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-
+                                <input type="tel" name="phone" placeholder="Phone" required
+                                    class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                             </div>
-
                         </div>
-
                         <div>
-                            <label class="block text-lg font-medium mb-2">
-                                Email <span class="text-red-500">*</span>
-                            </label>
-
+                            <label class="block text-sm font-medium mb-1">Email <span class="text-red-500">*</span></label>
                             <input type="email" name="email" placeholder="Email Address" required
-                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                         </div>
-
                     </div>
 
                     <!-- Website & Address -->
-                    <div class="grid md:grid-cols-2 gap-6">
-
+                    <div class="grid grid-cols-2 gap-3">
                         <div>
-                            <label class="block text-lg font-medium mb-2">
-                                Website <span class="text-red-500">*</span>
-                            </label>
-
+                            <label class="block text-sm font-medium mb-1">Website <span class="text-red-500">*</span></label>
                             <input type="url" name="website" placeholder="https://example.com" required
-                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                         </div>
-
                         <div>
-                            <label class="block text-lg font-medium mb-2">
-                                Company Address <span class="text-red-500">*</span>
-                            </label>
-
+                            <label class="block text-sm font-medium mb-1">Company Address <span class="text-red-500">*</span></label>
                             <input type="text" name="company_address" placeholder="Company Address" required
-                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                         </div>
-
                     </div>
 
                     <!-- City / State / Country -->
-                    <div class="grid md:grid-cols-3 gap-6">
-
+                    <div class="grid grid-cols-3 gap-3">
                         <div>
-                            <label class="block text-lg font-medium mb-2">
-                                City <span class="text-red-500">*</span>
-                            </label>
-
+                            <label class="block text-sm font-medium mb-1">City <span class="text-red-500">*</span></label>
                             <input type="text" name="city" placeholder="City" required
-                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                         </div>
-
                         <div>
-                            <label class="block text-lg font-medium mb-2">
-                                State <span class="text-red-500">*</span>
-                            </label>
-
+                            <label class="block text-sm font-medium mb-1">State <span class="text-red-500">*</span></label>
                             <input type="text" name="state" placeholder="State" required
-                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                         </div>
-
                         <div>
-                            <label class="block text-lg font-medium mb-2">
-                                Country <span class="text-red-500">*</span>
-                            </label>
-
+                            <label class="block text-sm font-medium mb-1">Country <span class="text-red-500">*</span></label>
                             <input type="text" name="country" placeholder="Country" required
-                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                         </div>
-
                     </div>
 
                     <!-- Service Required -->
                     <div>
-                        <label class="block text-lg font-medium mb-2">
-                            Service Required <span class="text-red-500">*</span>
-                        </label>
-
+                        <label class="block text-sm font-medium mb-1">Service Required <span class="text-red-500">*</span></label>
                         <input type="text" name="service_required" placeholder="Service Required" required
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
                     </div>
 
                     <!-- Message -->
                     <div>
-
-                        <label class="block text-lg font-medium mb-2">
-                            Message <span class="text-red-500">*</span>
-                        </label>
-
-                        <textarea name="message" rows="5" placeholder="Write your message..." required minlength="10"
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-
+                        <label class="block text-sm font-medium mb-1">Message <span class="text-red-500">*</span></label>
+                        <textarea name="message" rows="3" placeholder="Write your message..." required
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"></textarea>
                     </div>
 
-                    <!-- Submit Button -->
-                    <div class="flex justify-center mt-8">
-
+                    <!-- Submit Button - AMBER-ORANGE1 (TUMHARA THEME COLOR) -->
+                    <div class="flex justify-center mt-4 pb-1">
                         <button type="submit"
-                            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-3 rounded-lg transition duration-300">
-
+                            class="bg-amber-orange1 hover:bg-amber-400 text-slate-700 font-semibold px-8 py-2.5 rounded-lg transition duration-300 text-sm shadow-md hover:shadow-lg">
                             Submit Enquiry
-
                         </button>
-
                     </div>
-
+                    
                 </form>
-
             </div>
-
+            
         </div>
-
     </div>
+</div>
 
 
 
@@ -1024,7 +986,7 @@
             <p class="text-sm text-light-dark">Use any 6 digits for this demo (e.g. 123456)</p>
         </div>
 
-        <form id="otpForm" onsubmit="return handleOtp(event)">
+        <form  id="otpForm" onsubmit="return handleOtp(event)">
             <label class="block text-sm font-semibold text-slate-700 mb-2">Enter OTP</label>
             <div class="flex gap-3 mb-6">
                 <div class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-emerald-500">
@@ -1173,25 +1135,25 @@
             const mobileOverlay = document.getElementById("mobile-overlay");
             const closeMenuBtn = document.getElementById("close-mobile-menu");
 
-            function openMenu() {
+          function openMenu() {
+    mobileMenu.classList.remove("scale-y-0", "opacity-0", "pointer-events-none");
+    document.getElementById("hamburger-icon").textContent = "close";
+    document.body.classList.add("overflow-hidden");
+}
 
-                mobileMenu.classList.remove("scale-y-0");
-                mobileMenu.classList.remove("opacity-0");
-                mobileMenu.classList.remove("pointer-events-none");
-
-                document.body.classList.add("overflow-hidden");
-
-            }
-
-            function closeMenu() {
-
-                mobileMenu.classList.add("scale-y-0");
-                mobileMenu.classList.add("opacity-0");
-                mobileMenu.classList.add("pointer-events-none");
-
-                document.body.classList.remove("overflow-hidden");
-
-            }
+function closeMenu() {
+    mobileMenu.classList.add("scale-y-0", "opacity-0", "pointer-events-none");
+    document.getElementById("hamburger-icon").textContent = "menu";
+    document.body.classList.remove("overflow-hidden");
+    
+    // Close company dropdown
+    const companyMenu = document.getElementById("mobile-company-menu");
+    const companyArrow = document.getElementById("mobile-company-arrow");
+    if (companyMenu) {
+        companyMenu.classList.add("hidden");
+        companyArrow.classList.remove("rotate-180");
+    }
+}
 
             hamburgerBtn?.addEventListener("click", openMenu);
 
@@ -1245,7 +1207,273 @@
 
             });
 
+            /* =====================================================
+               SALES ENQUIRY FORM SUBMIT (AJAX - No page reload)
+            ====================================================== */
+            const enquiryForm = document.getElementById("salesEnquiryForm");
+            if (enquiryForm) {
+                enquiryForm.addEventListener("submit", async function (e) {
+                    e.preventDefault();
+
+                    const formData = new FormData(enquiryForm);
+                    const data = {};
+                    formData.forEach((value, key) => { data[key] = value; });
+
+                    const submitBtn = enquiryForm.querySelector("button[type='submit']");
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = "Submitting...";
+
+                    try {
+                        const response = await fetch(enquiryForm.action, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "X-CSRFToken": document.querySelector("[name='csrfmiddlewaretoken']").value,
+                            },
+                            body: JSON.stringify(data),
+                        });
+
+                        const result = await response.json();
+
+                        if (result.success) {
+                            enquiryForm.innerHTML = `
+                                <div class="text-center py-16">
+                                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 mb-6">
+                                        <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Enquiry Submitted!</h3>
+                                    <p class="text-gray-500 text-lg">Thank you! We'll get back to you shortly.</p>
+                                </div>
+                            `;
+                            setTimeout(() => {
+                                const modal = document.getElementById("salesModal");
+                                if (modal) {
+                                    modal.classList.remove("flex");
+                                    modal.classList.add("hidden");
+                                    document.body.classList.remove("overflow-hidden");
+                                }
+                            }, 3000);
+                        } else {
+                            alert("Error: " + (result.error || "Something went wrong. Please try again."));
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = originalText;
+                        }
+                    } catch (err) {
+                        alert("Network error. Please try again.");
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    }
+                });
+            }
+
         });
+
+        // Window resize par mobile menu ko reset karne ke liye
+window.addEventListener("resize", function () {
+    // Agar screen width 768px (md breakpoint) se badi ho jaye
+    if (window.innerWidth >= 768) { 
+        closeMenu(); // Pura menu close aur reset ho jayega
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    
+    // Aapka purana mobile menu ka code yahan hoga...
+
+    /* =====================================================
+       AUTO CLOSE MENU ON SCREEN RESIZE (Fix for Desktop)
+    ====================================================== */
+    window.addEventListener("resize", function () {
+        // Tailwind 'xl' breakpoint 1280px hota hai
+        if (window.innerWidth >= 1280) {
+            const mobileMenu = document.getElementById("mobile-menu");
+            const hamburgerIcon = document.getElementById("hamburger-icon");
+            
+            if (mobileMenu) {
+                // Menu ko wapas hide aur shrink kar do
+                mobileMenu.classList.add("scale-y-0", "opacity-0", "pointer-events-none");
+                // Icon ko 'menu' me badal do
+                if (hamburgerIcon) hamburgerIcon.textContent = "menu";
+                // Body se scroll lock hata do
+                document.body.classList.remove("overflow-hidden");
+                
+                // Dropdown agar khula hai to usko bhi close kar do
+                const companyMenu = document.getElementById("mobile-company-menu");
+                const companyArrow = document.getElementById("mobile-company-arrow");
+                if (companyMenu) {
+                    companyMenu.classList.add("hidden");
+                    if (companyArrow) companyArrow.classList.remove("rotate-180");
+                }
+            }
+        }
+    });
+
+});
+
+/* =====================================================
+   OTP VERIFICATION & REDIRECT
+====================================================== */
+
+function handleOtp(event) {
+    event.preventDefault();
+    
+    const otpInput = document.getElementById('otpInput');
+    const otp = otpInput ? otpInput.value : '';
+    
+    // Validate OTP - minimum 4 digits
+    if (!otp || otp.length < 4) {
+        alert('Please enter a valid OTP');
+        return false;
+    }
+    
+    // Show loading state
+    const submitBtn = document.querySelector('#otpForm button[type="submit"]');
+    const originalText = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+        submitBtn.innerHTML = 'Verifying...';
+        submitBtn.disabled = true;
+    }
+    
+    // Simulate API call - Replace with actual API call
+    setTimeout(function() {
+        // Close OTP popup
+        closeOtpPopup();
+        
+        // Close login popup
+        closeLoginPopup();
+        
+        // Reset button
+        if (submitBtn) {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+        
+        // Redirect to dashboard
+        window.location.href = '/dashboard/';
+    }, 1000);
+    
+    return false;
+}
+
+/* =====================================================
+   CLOSE OTP POPUP
+====================================================== */
+
+function closeOtpPopup() {
+    const otpPopup = document.getElementById('otpPopup');
+    if (otpPopup) {
+        otpPopup.classList.add('opacity-0', 'pointer-events-none');
+        otpPopup.classList.remove('opacity-100', 'pointer-events-auto');
+        document.body.classList.remove('overflow-hidden');
+    }
+}
+
+/* =====================================================
+   CLOSE LOGIN POPUP
+====================================================== */
+
+function closeLoginPopup() {
+    const loginPopup = document.getElementById('loginPopup');
+    if (loginPopup) {
+        loginPopup.classList.add('opacity-0', 'pointer-events-none');
+        loginPopup.classList.remove('opacity-100', 'pointer-events-auto');
+        document.body.classList.remove('overflow-hidden');
+    }
+}
+
+/* =====================================================
+   SWITCH TO LOGIN
+====================================================== */
+
+function switchToLogin() {
+    // Close signup popup if open
+    const signupPopup = document.getElementById('signupPopup');
+    if (signupPopup) {
+        signupPopup.classList.add('opacity-0', 'pointer-events-none');
+        signupPopup.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+    
+    // Close OTP popup if open
+    const otpPopup = document.getElementById('otpPopup');
+    if (otpPopup) {
+        otpPopup.classList.add('opacity-0', 'pointer-events-none');
+        otpPopup.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+    
+    // Open login popup
+    const loginPopup = document.getElementById('loginPopup');
+    if (loginPopup) {
+        loginPopup.classList.remove('opacity-0', 'pointer-events-none');
+        loginPopup.classList.add('opacity-100', 'pointer-events-auto');
+        document.body.classList.add('overflow-hidden');
+    }
+}
+
+/* =====================================================
+   SWITCH TO SIGNUP
+====================================================== */
+
+function switchToSignup() {
+    // Close login popup if open
+    const loginPopup = document.getElementById('loginPopup');
+    if (loginPopup) {
+        loginPopup.classList.add('opacity-0', 'pointer-events-none');
+        loginPopup.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+    
+    // Close OTP popup if open
+    const otpPopup = document.getElementById('otpPopup');
+    if (otpPopup) {
+        otpPopup.classList.add('opacity-0', 'pointer-events-none');
+        otpPopup.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+    
+    // Open signup popup
+    const signupPopup = document.getElementById('signupPopup');
+    if (signupPopup) {
+        signupPopup.classList.remove('opacity-0', 'pointer-events-none');
+        signupPopup.classList.add('opacity-100', 'pointer-events-auto');
+        document.body.classList.add('overflow-hidden');
+    }
+}
+
+/* =====================================================
+   OPEN SIGNUP POPUP (for header button)
+====================================================== */
+
+function openSignupPopup() {
+    const signupPopup = document.getElementById('signupPopup');
+    if (signupPopup) {
+        signupPopup.classList.remove('opacity-0', 'pointer-events-none');
+        signupPopup.classList.add('opacity-100', 'pointer-events-auto');
+        document.body.classList.add('overflow-hidden');
+    }
+}
+
+/* =====================================================
+   CLOSE SIGNUP POPUP
+====================================================== */
+
+function closeSignupPopup() {
+    const signupPopup = document.getElementById('signupPopup');
+    if (signupPopup) {
+        signupPopup.classList.add('opacity-0', 'pointer-events-none');
+        signupPopup.classList.remove('opacity-100', 'pointer-events-auto');
+        document.body.classList.remove('overflow-hidden');
+    }
+}
+
+// Make functions available globally
+window.handleOtp = handleOtp;
+window.closeOtpPopup = closeOtpPopup;
+window.closeLoginPopup = closeLoginPopup;
+window.switchToLogin = switchToLogin;
+window.switchToSignup = switchToSignup;
+window.openSignupPopup = openSignupPopup;
+window.closeSignupPopup = closeSignupPopup;
     
     </script>
 </body>

@@ -604,214 +604,124 @@
 <section class="relative overflow-hidden hero-gradient">
 
     <!-- Soft Background Glow -->
-
     <div class="absolute inset-0 pointer-events-none">
-
         <div class="absolute -top-40 -right-32 h-[520px] w-[520px] rounded-full bg-white/12 blur-3xl"></div>
-
         <div class="absolute -bottom-44 -left-32 h-[420px] w-[420px] rounded-full bg-white/8 blur-3xl"></div>
-
     </div>
 
     <!-- Container -->
-
     <div class="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10 xl:px-14">
 
         <div class="flex min-h-[calc(100vh-82px)] items-center">
 
-            <div class="max-w-[720px] py-24">
+            <!-- ===== GRID: LEFT TEXT + RIGHT IMAGE ===== -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full py-12 md:py-16 lg:py-20">
 
-                <!-- Badge -->
+                <!-- ===== LEFT COLUMN - TEXT CONTENT ===== -->
+                <div class="max-w-full">
 
-                <div
-                    class="inline-flex items-center gap-2 rounded-full border border-muted-sage bg-white/70 px-4 py-2 backdrop-blur">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 rounded-full border border-muted-sage bg-white/70 px-4 py-2 backdrop-blur">
+                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-teal"></span>
+                        <span class="text-sm font-semibold tracking-wide text-emerald-teal">
+                            INDIA'S #1 FIELD SERVICE MARKETPLACE
+                        </span>
+                    </div>
 
-                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-teal"></span>
+                    <!-- Heading -->
+                    <h1 class="mt-8 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight text-charcoal-black">
+                        Book Trusted Field
+                        <br class="hidden lg:block">
+                        Engineers,
+                        <span class="text-emerald-teal">
+                            Instantly.
+                        </span>
+                    </h1>
 
-                    <span class="text-sm font-semibold tracking-wide text-emerald-teal">
+                    <!-- Description -->
+                    <p class="mt-7 max-w-xl text-lg leading-8 text-granite-gray">
+                        Connect with verified engineers for network installation,
+                        structured cabling, smart hands, data center support
+                        and enterprise IT services across India.
+                    </p>
 
-                        INDIA'S #1 FIELD SERVICE MARKETPLACE
+                    <!-- Search Form -->
+                    <div class="mt-10">
+                        <div class="rounded-2xl border border-white/60 bg-white p-3 shadow-[0_12px_35px_rgba(2,21,55,0.08)]">
+                            <div class="grid gap-3 lg:grid-cols-[1fr_1fr_auto]">
 
-                    </span>
+                                <!-- Location -->
+                                <div class="flex h-14 items-center gap-3 rounded-xl border border-muted-sage bg-greenish-white px-4 transition hover:border-emerald-teal">
+                                    <span class="material-symbols-outlined text-amber-orange1">location_on</span>
+                                    <select class="h-full w-full bg-transparent text-sm font-medium text-charcoal-black outline-none">
+                                        <option>Select Location</option>
+                                        <option>Mumbai</option>
+                                        <option>Delhi</option>
+                                        <option>Bangalore</option>
+                                        <option>Hyderabad</option>
+                                        <option>Chennai</option>
+                                    </select>
+                                </div>
 
-                </div>
+                                <!-- Service -->
+                                <div class="flex h-14 items-center gap-3 rounded-xl border border-muted-sage bg-greenish-white px-4 transition hover:border-emerald-teal">
+                                    <span class="material-symbols-outlined text-emerald-teal">handyman</span>
+                                    <select class="h-full w-full bg-transparent text-sm font-medium text-charcoal-black outline-none">
+                                        <option>Select Service</option>
+                                        <option>Network Cabling</option>
+                                        <option>Rack Installation</option>
+                                        <option>Data Center Support</option>
+                                        <option>Server Installation</option>
+                                        <option>CCTV Installation</option>
+                                    </select>
+                                </div>
 
-                <!-- Heading -->
-
-                <h1 class="mt-8 text-5xl font-bold leading-[1.12] tracking-tight text-charcoal-black lg:text-6xl">
-
-                    Book Trusted Field
-                    <br class="hidden lg:block">
-
-                    Engineers,
-                    <span class="text-emerald-teal">
-                        Instantly.
-                    </span>
-
-                </h1>
-
-                <!-- Description -->
-
-                <p class="mt-7 max-w-xl text-lg leading-8 text-granite-gray">
-
-                    Connect with verified engineers for network installation,
-                    structured cabling, smart hands, data center support
-                    and enterprise IT services across India.
-
-                </p>
-
-                <div class="mt-10">
-
-                    <div
-                        class="rounded-2xl border border-white/60 bg-white p-3 shadow-[0_12px_35px_rgba(2,21,55,0.08)]">
-
-                        <div class="grid gap-3 lg:grid-cols-[1fr_1fr_auto]">
-
-                            <!-- Location -->
-
-                            <div
-                                class="flex h-14 items-center gap-3 rounded-xl border border-muted-sage bg-greenish-white px-4 transition hover:border-emerald-teal">
-
-                                <span class="material-symbols-outlined text-amber-orange1">
-
-                                    location_on
-
-                                </span>
-
-                                <select
-                                    class="h-full w-full bg-transparent text-sm font-medium text-charcoal-black outline-none">
-
-                                    <option>Select Location</option>
-                                    <option>Mumbai</option>
-                                    <option>Delhi</option>
-                                    <option>Bangalore</option>
-                                    <option>Hyderabad</option>
-                                    <option>Chennai</option>
-
-                                </select>
-
-                            </div>
-
-                            <!-- Service -->
-
-                            <div
-                                class="flex h-14 items-center gap-3 rounded-xl border border-muted-sage bg-greenish-white px-4 transition hover:border-emerald-teal">
-
-                                <span class="material-symbols-outlined text-emerald-teal">
-
-                                    handyman
-
-                                </span>
-
-                                <select
-                                    class="h-full w-full bg-transparent text-sm font-medium text-charcoal-black outline-none">
-
-                                    <option>Select Service</option>
-                                    <option>Network Cabling</option>
-                                    <option>Rack Installation</option>
-                                    <option>Data Center Support</option>
-                                    <option>Server Installation</option>
-                                    <option>CCTV Installation</option>
-
-                                </select>
+                                <!-- Button -->
+                                <!-- <button class="flex h-14 items-center justify-center gap-2 rounded-xl bg-amber-orange1 px-8 font-semibold text-charcoal-black transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
+                                    <span class="material-symbols-outlined">search</span>
+                                    Find Engineer
+                                </button> -->
+                                <button onclick="switchToLogin()" class="flex h-14 items-center justify-center gap-2 rounded-xl bg-amber-orange1 px-8 font-semibold text-charcoal-black transition-all duration-300 hover:scale-[1.02] hover:shadow-lg cursor-pointer">
+    <span class="material-symbols-outlined">search</span>
+    Find Engineer
+</button>
 
                             </div>
-
-                            <!-- Button -->
-
-                            <button
-                                class="flex h-14 items-center justify-center gap-2 rounded-xl bg-amber-orange1 px-8 font-semibold text-charcoal-black transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
-
-                                <span class="material-symbols-outlined">
-
-                                    search
-
-                                </span>
-
-                                Find Engineer
-
-                            </button>
-
                         </div>
+                    </div>
 
+                    <!-- Statistics -->
+                    <div class="mt-12 flex flex-wrap gap-8 md:gap-12">
+                        <div>
+                            <h3 class="text-3xl md:text-4xl font-bold text-charcoal-black">
+                                <span class="stat-count" data-count="5000">0</span>
+                            </h3>
+                            <p class="mt-2 text-sm text-granite-gray">Verified Engineers</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl md:text-4xl font-bold text-charcoal-black">
+                                <span class="stat-count" data-count="50">0</span>+
+                            </h3>
+                            <p class="mt-2 text-sm text-granite-gray">Cities Covered</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl md:text-4xl font-bold text-charcoal-black">
+                                <span class="stat-count" data-count="98">0</span>%
+                            </h3>
+                            <p class="mt-2 text-sm text-granite-gray">Customer Satisfaction</p>
+                        </div>
                     </div>
 
                 </div>
 
-                <!-- =======================================================
-                    Statistics
-                ======================================================== -->
-                <!-- <div class="mt-12 flex flex-wrap gap-12">
-
-                    <div>
-
-                        <h3 class="text-4xl font-bold text-charcoal-black">
-
-                            5K+
-
-                        </h3>
-
-                        <p class="mt-2 text-sm text-granite-gray">
-
-                            Verified Engineers
-
-                        </p>
-
-                    </div>
-
-                    <div>
-
-                        <h3 class="text-4xl font-bold text-charcoal-black">
-
-                            50+
-
-                        </h3>
-
-                        <p class="mt-2 text-sm text-granite-gray">
-
-                            Cities Covered
-                        </p>
-                    </div>
-                    <div>
-                        <h3 class="text-4xl font-bold text-charcoal-black">
-                            98%
-                        </h3>
-
-                        <p class="mt-2 text-sm text-granite-gray">
-                            Customer Satisfaction
-                        </p>
-
-                    </div>
-
-                </div> -->
-
-
-<!-- =======================================================
-    Statistics (With Animated Counting Effect to 5k)
-======================================================== -->
-<div class="mt-12 flex flex-wrap gap-12">
-    <div>
-        <!-- Notice we removed the explicit '+' from the HTML here since we handle it dynamically -->
-        <h3 class="text-4xl font-bold text-charcoal-black">
-            <span class="stat-count" data-count="5000">0</span>
-        </h3>
-        <p class="mt-2 text-sm text-granite-gray">Verified Engineers</p>
-    </div>
-
-    <div>
-        <h3 class="text-4xl font-bold text-charcoal-black">
-            <span class="stat-count" data-count="50">0</span>+
-        </h3>
-        <p class="mt-2 text-sm text-granite-gray">Cities Covered</p>
-    </div>
-
-    <div>
-        <h3 class="text-4xl font-bold text-charcoal-black">
-            <span class="stat-count" data-count="98">0</span>%
-        </h3>
-        <p class="mt-2 text-sm text-granite-gray">Customer Satisfaction</p>
-    </div>
-</div>
+                <!-- ===== RIGHT COLUMN - IMAGE ===== -->
+                <div class="flex items-center justify-center">
+                    <img src="/static/img/Hero_Section_img.png" 
+                         alt="Field Engineer Hero Image" 
+                         loading="lazy" 
+                         decoding="async"
+                         class="w-full max-w-[550px] h-auto object-contain drop-shadow-2xl">
+                </div>
 
             </div>
 
@@ -820,6 +730,8 @@
     </div>
 
 </section>
+
+
 
 <!-- ════════════ HOW IT WORKS ════════════ -->
 <section class="how-it-works pb-12" aria-labelledby="how-it-works-title" style="padding-bottom: 2rem" ;>
@@ -1131,15 +1043,26 @@
                     Book now and get the best offers from verified vendors
                 </p>
                 <div class="deploy-cta-actions">
+                    <!-- <a href="{% url 'help_center' %}" class="deploy-cta-btn-expert btn-glass-modern water-drop-glass">
+                        <span class="material-symbols-outlined text-[#1E9B6F]">headset_mic</span>
+                        Talk to Expert
+                    </a> -->
                     <a href="{% url 'help_center' %}" class="deploy-cta-btn-expert btn-glass-modern water-drop-glass">
                         <span class="material-symbols-outlined text-[#1E9B6F]">headset_mic</span>
                         Talk to Expert
                     </a>
-                    <a href="{% url 'request_service' %}"
+
+
+                    <!-- <a href="{% url 'request_service' %}"
                         class="btn btn-md btn-modern deploy-cta-btn-service inline-flex items-center justify-center gap-2 bg-bright-yellow hover:bg-[#dfa024] text-[rgb(56, 49, 49)] font-semibold px-5 py-2.5 rounded-lg transition-all duration-200">
                         Request Service
                         <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                    </a>
+                    </a> -->
+                    <a href="javascript:void(0)" onclick="switchToLogin()"
+    class="btn btn-md btn-modern deploy-cta-btn-service inline-flex items-center justify-center gap-2 bg-bright-yellow hover:bg-[#dfa024] text-[rgb(56, 49, 49)] font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 cursor-pointer">
+    Request Service
+    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
                 </div>
             </div>
 
