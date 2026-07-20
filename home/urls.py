@@ -19,6 +19,7 @@ from .views import (
      customer_contactus,
      how_it_works,
      services,
+     sales_enquiry_submit,
 )
 
 urlpatterns = [
@@ -39,5 +40,6 @@ urlpatterns = [
     path('profile/', profile, name='profile'),
     path('customer-contactus/', customer_contactus, name='customer_contactus'),
     path('vendor/how-it-works/', how_it_works, name='how_it_works'),
-    path('vendor/services/', services, name='services')
+    path('vendor/services/', services, name='services'),
+    path('sales-enquiry/', sales_enquiry_submit, name='sales_enquiry_submit'),
 ]
