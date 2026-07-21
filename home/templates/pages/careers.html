@@ -49,14 +49,6 @@
 </a>
         </div>
       </div>
-
-      <!--div class="lg:col-span-6 relative w-full flex justify-center lg:justify-end">
-          <img src="{% static 'img/careerpage.png' %}" 
-     alt="Field Operations Team"
-     class="w-full max-w-2xl lg:max-w-none object-contain" 
-     loading="lazy" />
-      </div-->
-
     </div>
 
     <div class="mt-8 lg:mt-10 bg-white rounded-2xl border border-slate-100 shadow-md p-6 sm:p-8">
@@ -253,14 +245,6 @@
             We are more than a workplace. We are a community of builders, problem solvers and innovators. Collaboration,
             transparency and respect define how we work.
           </p>
-          <!-- <a href="#"
-            class="inline-flex items-center gap-2 bg-white text-blue-600 border border-light-sky hover:border-blue-400 font-semibold text-xs px-5 py-2.5 rounded-lg transition-all shadow-sm hover:shadow-md group">
-            Explore Life at FE
-            <svg class="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none"
-              stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
-          </a> -->
         </div>
 
 
@@ -342,9 +326,12 @@
             <td class="py-3.5 px-5"><span class=" font-medium text-[14px] text-light-gray text-[11px]">Full-time</span>
             </td>
             <td class="py-3.5 px-5 text-right">
-              <a href="#"
+              <a href="javascript:void(0)"
+   onclick="openApplyModal('Senior Software Engineer')"
    class="inline-flex items-center justify-center border border-[#059669] text-black font-semibold text-xs px-4 py-2 rounded-lg hover:bg-[#ECFDF5] transition-colors group">
+
     Apply Now
+
     <span class="material-symbols-outlined text-[18px] ml-1 text-[#059669]">
         chevron_right
     </span>
@@ -370,9 +357,12 @@
             <td class="py-3.5 px-5"><span class="  text-[14px] font-medium text-light-gray text-[11px]">Full-time</span>
             </td>
             <td class="py-3.5 px-5 text-right">
-              <a href="#"
+              <a href="javascript:void(0)"
+   onclick="openApplyModal('Product Manager')"
    class="inline-flex items-center justify-center border border-[#059669] text-black font-semibold text-xs px-4 py-2 rounded-lg hover:bg-[#ECFDF5] transition-colors group">
+
     Apply Now
+
     <span class="material-symbols-outlined text-[18px] ml-1 text-[#059669]">
         chevron_right
     </span>
@@ -397,9 +387,12 @@
             <td class="py-3.5 px-5 text-[14px] text-light-gray">2-5 Years</td>
             <td class="py-3.5 px-5 "><span class=" font-medium text-light-gray text-[14px]">Full-time</span></td>
             <td class="py-3.5 px-5 text-right">
-              <a href="#"
+              <a href="javascript:void(0)"
+   onclick="openApplyModal('DevOps Engineer')"
    class="inline-flex items-center justify-center border border-[#059669] text-black font-semibold text-xs px-4 py-2 rounded-lg hover:bg-[#ECFDF5] transition-colors group">
-     Apply Now
+
+    Apply Now
+
     <span class="material-symbols-outlined text-[18px] ml-1 text-[#059669]">
         chevron_right
     </span>
@@ -424,9 +417,12 @@
             <td class="py-3.5 px-5 text-light-gray text-[14px]">2-4 Years</td>
             <td class="py-3.5 px-5"><span class=" font-medium text-[14px] text-light-gray">Full time</span></td>
             <td class="py-3.5 px-5 text-right">
-              <a href="#"
+              <a href="javascript:void(0)"
+   onclick="openApplyModal('Data Analyst')"
    class="inline-flex items-center justify-center border border-[#059669] text-black font-semibold text-xs px-4 py-2 rounded-lg hover:bg-[#ECFDF5] transition-colors group">
+
     Apply Now
+
     <span class="material-symbols-outlined text-[18px] ml-1 text-[#059669]">
         chevron_right
     </span>
@@ -453,9 +449,12 @@
             <td class="py-3.5 px-5 text-[14px]"><span class=" font-medium text-light-gray text-[14px]">Full-time</span>
             </td>
             <td class="py-3.5 px-5 text-right">
-              <a href="#"
+             <a href="javascript:void(0)"
+   onclick="openApplyModal('Business Development Manager')"
    class="inline-flex items-center justify-center border border-[#059669] text-black font-semibold text-xs px-4 py-2 rounded-lg hover:bg-[#ECFDF5] transition-colors group">
+
     Apply Now
+
     <span class="material-symbols-outlined text-[18px] ml-1 text-[#059669]">
         chevron_right
     </span>
@@ -501,6 +500,299 @@
     </div>
   </div>
 </section>
+<!-- Apply Job Modal -->
+<div id="applyModal"
+class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+
+<div class="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between px-8 py-6 border-b">
+
+        <div>
+            <h2 class="text-3xl font-bold text-slate-900">
+                Apply for this Position
+            </h2>
+
+            <p class="text-slate-500 mt-1">
+                We'd love to know more about you.
+            </p>
+        </div>
+
+        <button onclick="closeApplyModal()">
+            <span class="material-symbols-outlined text-3xl">
+                close
+            </span>
+        </button>
+
+    </div>
+
+    <form method="POST"
+          enctype="multipart/form-data"
+          class="p-8 space-y-6">
+
+        {% csrf_token %}
+
+        <input type="hidden"
+               id="jobTitleInput"
+               name="job_title">
+
+        <!-- Row 1 -->
+
+        <div class="grid md:grid-cols-2 gap-5">
+
+            <div>
+
+                <label class="block text-sm font-semibold mb-2">
+                    First Name *
+                </label>
+
+                <input
+                type="text"
+                name="first_name"
+                class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none">
+
+            </div>
+
+            <div>
+
+                <label class="block text-sm font-semibold mb-2">
+                    Last Name *
+                </label>
+
+                <input
+                type="text"
+                name="last_name"
+                class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+            </div>
+
+        </div>
+
+        <!-- Row 2 -->
+
+        <div class="grid md:grid-cols-2 gap-5">
+
+            <div>
+
+                <label class="block text-sm font-semibold mb-2">
+                    Email Address *
+                </label>
+
+                <input
+                type="email"
+                name="email"
+                class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+            </div>
+
+            <div>
+
+                <label class="block text-sm font-semibold mb-2">
+                    Mobile Number *
+                </label>
+
+                <input
+                type="tel"
+                name="phone"
+                class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+            </div>
+
+        </div>
+
+        <!-- Row 3 -->
+
+        <div class="grid md:grid-cols-2 gap-5">
+
+            <div>
+
+                <label class="block text-sm font-semibold mb-2">
+                    Current Location
+                </label>
+
+                <input
+                type="text"
+                name="location"
+                class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+            </div>
+
+            <div>
+
+                <label class="block text-sm font-semibold mb-2">
+                    Total Experience
+                </label>
+
+                <input
+                type="text"
+                name="experience"
+                placeholder="e.g. 3 Years"
+                class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+            </div>
+
+        </div>
+
+        <!-- Row 4 -->
+
+        <div class="grid md:grid-cols-2 gap-5">
+
+            <div>
+
+                <label class="block text-sm font-semibold mb-2">
+                    Current Company
+                </label>
+
+                <input
+                type="text"
+                name="company"
+                class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+            </div>
+
+            <div>
+
+                <label class="block text-sm font-semibold mb-2">
+                    Current CTC
+                </label>
+
+                <input
+                type="text"
+                name="ctc"
+                class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+            </div>
+
+        </div>
+
+        <!-- Row 5 -->
+
+        <div class="grid md:grid-cols-2 gap-5">
+
+            <div>
+
+                <label class="block text-sm font-semibold mb-2">
+                    Expected CTC
+                </label>
+
+                <input
+                type="text"
+                name="expected_ctc"
+                class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+            </div>
+
+            <div>
+
+                <label class="block text-sm font-semibold mb-2">
+                    Notice Period
+                </label>
+
+                <input
+                type="text"
+                name="notice_period"
+                class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+            </div>
+
+        </div>
+
+        <!-- Job -->
+
+        <div>
+
+            <label class="block text-sm font-semibold mb-2">
+                Applying For
+            </label>
+
+            <input
+            id="jobTitle"
+            readonly
+            class="w-full rounded-xl bg-slate-100 border border-slate-300 px-4 py-3">
+
+        </div>
+
+        <!-- LinkedIn -->
+
+        <div>
+
+            <label class="block text-sm font-semibold mb-2">
+                LinkedIn Profile
+            </label>
+
+            <input
+            type="url"
+            name="linkedin"
+            class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+        </div>
+
+        <!-- Resume -->
+
+        <div>
+
+            <label class="block text-sm font-semibold mb-2">
+                Upload Resume *
+            </label>
+
+            <input
+            type="file"
+            name="resume"
+            class="w-full border rounded-xl p-3">
+
+        </div>
+
+        <!-- Cover Letter -->
+
+        <div>
+
+            <label class="block text-sm font-semibold mb-2">
+                Cover Letter
+            </label>
+
+            <textarea
+            rows="5"
+            name="cover_letter"
+            class="w-full rounded-xl border border-slate-300 px-4 py-3"></textarea>
+
+        </div>
+
+        <div class="flex items-center gap-2">
+
+            <input type="checkbox" required>
+
+            <span class="text-sm text-slate-600">
+                I agree to the Privacy Policy.
+            </span>
+
+        </div>
+
+        <div class="flex justify-end gap-4 pt-4">
+
+            <button
+            type="button"
+            onclick="closeApplyModal()"
+            class="px-6 py-3 rounded-xl border">
+
+                Cancel
+
+            </button>
+
+            <button
+            type="submit"
+            class="px-8 py-3 rounded-xl bg-green-700 hover:bg-green-800 text-white font-semibold">
+
+                Apply Now
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+</div>
 {% endblock %}
 {% block extra_js %}
 <script>document.addEventListener("DOMContentLoaded", () => {
@@ -539,5 +831,23 @@
         requestAnimationFrame(update);
     });
 });
+</script>
+<script>
+function openApplyModal(job){
+
+    document.getElementById("applyModal").classList.remove("hidden");
+    document.getElementById("applyModal").classList.add("flex");
+
+    document.getElementById("jobTitle").value = job;
+    document.getElementById("jobTitleInput").value = job;
+
+}
+
+function closeApplyModal(){
+
+    document.getElementById("applyModal").classList.remove("flex");
+    document.getElementById("applyModal").classList.add("hidden");
+
+}
 </script>
 {% endblock %}

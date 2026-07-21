@@ -2589,6 +2589,28 @@
   color: #1A1A00;
 }
 
+.marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 0.5rem 0; /* Adds a little vertical breathing room */
+    width: max-content;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-track:hover{
+    animation-play-state:paused;
+}
+
+@keyframes marquee{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
 /* Blog page */
 .sr-only {
   @apply absolute -m-px h-px w-px overflow-hidden border-0 p-0 whitespace-nowrap;
