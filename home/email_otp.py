@@ -46,6 +46,15 @@ def _send_email_sync(recipient: str, subject: str, body: str) -> bool:
 
     return msg.send(fail_silently=False) > 0
 
+
+# Synchronous version for use in synchronous views (avoids asyncio.run() issues)
+def send_email_sync(recipient: str, subject: str, body: str) -> bool:
+    try:
+        return _send_email_sync(recipient, subject, body)
+    except Exception:
+        logger.exception("Failed to send email to %s", recipient)
+        return False
+
 async def send_email(recipient: str, subject: str, body: str):
     try:
         return await sync_to_async(_send_email_sync)(recipient, subject, body)

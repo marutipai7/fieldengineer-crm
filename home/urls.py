@@ -19,6 +19,8 @@ from .views import (
     customer_contactus,
     how_it_works,
     customer,
+    stay_updated_subscribe,
+    contact_submit,
     sales_enquiry_submit
 )
 
@@ -31,6 +33,7 @@ urlpatterns = [
     path('careers/', careers, name='careers'),
     path('blogs/', blogs, name='blogs'),
     path('contact/', contact, name='contact'),
+    path('contact-submit/', contact_submit, name='contact_submit'),
     path('help-center/', help_center, name='help_center'),
     path('help-center-2/', help_center_2, name='help_center_2'),
     path('vendor-responses/', vendor_responses, name='vendor_responses'),
@@ -41,5 +44,6 @@ urlpatterns = [
     path('customer-contactus/', customer_contactus, name='customer_contactus'),
     path('vendor/how-it-works/', how_it_works, name='how_it_works'),
     path('vendor/customer/', customer, name='customer'),
+    path('stay-updated-subscribe/', stay_updated_subscribe, name='stay_updated_subscribe'),
     path('sales-enquiry/', sales_enquiry_submit, name='sales_enquiry_submit'),
 ]

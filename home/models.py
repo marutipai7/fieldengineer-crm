@@ -39,3 +39,30 @@ class SalesEnquiry(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.company_name}"
+
+
+class StayUpdated(models.Model):
+    email = models.EmailField(unique=True)
+    subscribed_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        verbose_name = "Stay Updated Subscriber"
+        verbose_name_plural = "Stay Updated Subscribers"
+
+
+class ContactUs(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20, blank=True, default='')
+    company = models.CharField(max_length=255, blank=True, default='')
+    city = models.CharField(max_length=100, blank=True, default='')
+    inquiry_type = models.CharField(max_length=100, blank=True, default='')
+    message = models.TextField(blank=True, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.email}"

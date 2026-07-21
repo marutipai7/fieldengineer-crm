@@ -1,9 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
-  initContactCalendar();
+initContactCalendar();
   initMessageCounter();
   initContactFaq();
   initContactDropdowns();
+  initContactForm();
 });
+
+function initContactForm() {
+  const form = document.getElementById('contact-form-id');
+  const btn = document.getElementById('contact-submit-btn');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: {
+          'X-CSRFToken': csrfToken,
+        },
+        body: formData,
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert(result.message || 'Inquiry submitted successfully!');
+        form.reset();
+      } else {
+        alert(result.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      alert('Network error. Please try again.');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = `Submit Inquiry <span class="material-symbols-outlined" aria-hidden="true" style="font-size: 1.125rem;">arrow_forward</span>`;
+    }
+  });
+}
 
 function initContactCalendar() {
   const calendarRoot = document.getElementById('contact-calendar');

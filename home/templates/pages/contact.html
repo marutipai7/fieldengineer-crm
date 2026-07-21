@@ -222,7 +222,7 @@
         <h2 id="contact-form-title" class="contact-form-title">
             Send Us a Message
         </h2>
-            <form class="mt-4" action="#" method="post" enctype="multipart/form-data">
+            <form class="mt-4" action="{% url 'contact_submit' %}" method="post" enctype="multipart/form-data" id="contact-form-id">
                 {% csrf_token %}
                 <div class="contact-form-grid">
                     <div class="contact-field">
@@ -297,9 +297,10 @@
     <input type="file" id="contact-attachment" name="attachment" class="sr-only" accept=".pdf,.doc,.docx,.xls,.xlsx,.zip">
 </label>
 
-               <button type="submit" class="btn btn-md rounded-md mt-6 w-full" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #F5B530; color: rgb(56, 49, 49); padding: 0.625rem 1.5rem; font-weight: 600; border: none; transition: all 0.3s ease; cursor: pointer;"
+                <button type="submit" class="btn btn-md rounded-md mt-6 w-full" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #F5B530; color: rgb(56, 49, 49); padding: 0.625rem 1.5rem; font-weight: 600; border: none; transition: all 0.3s ease; cursor: pointer;"
 onmouseover="this.style.background='#dfa024'"
-onmouseout="this.style.background='#F5B530'">
+onmouseout="this.style.background='#F5B530'"
+id="contact-submit-btn">
     Submit Inquiry
     <span class="material-symbols-outlined" aria-hidden="true" style="font-size: 1.125rem;">arrow_forward</span>
 </button>

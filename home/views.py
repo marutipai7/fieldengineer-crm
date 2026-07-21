@@ -2,10 +2,9 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from .models import SalesEnquiry
-from .email_otp import send_email
+from .models import SalesEnquiry, StayUpdated, ContactUs
+from .email_otp import send_email_sync
 import json
-import asyncio
 import logging
 
 logger = logging.getLogger(__name__)
@@ -63,6 +62,151 @@ def term_condition(request):
 
 def customer_contactus(request):
     return render(request, 'fieldengineer-crm/customer-contactus.html')
+
+
+@require_POST
+@csrf_exempt
+def stay_updated_subscribe(request):
+    try:
+        data = json.loads(request.body) if request.body else request.POST
+        email = data.get('email', '').strip()
+
+        if not email:
+            return JsonResponse({'success': False, 'error': 'Email is required.'}, status=400)
+
+        # Save or get existing subscriber
+        subscriber, created = StayUpdated.objects.get_or_create(email=email)
+
+        # --- Send welcome email to the subscriber ---
+        subject = "Thank you for subscribing - FieldEngineer"
+        body = f"""Hi there,
+
+Thank you for subscribing to FieldEngineer updates!
+
+You'll now receive deployment insights, industry trends and product updates straight to your inbox.
+
+Best regards,
+FieldEngineer Team
+"""
+        try:
+            send_email_sync(email, subject, body)
+            logger.info(f"Welcome email sent to {email}")
+        except Exception as e:
+            logger.error(f"Failed to send welcome email to {email}: {e}")
+
+        # --- Send notification to admin (marutipai203@gmail.com) ---
+        admin_email = "marutipai203@gmail.com"
+        admin_subject = "New Stay Updated Subscriber - FieldEngineer"
+        admin_body = f"""A new subscriber has joined via the Stay Updated form.
+
+Email: {email}
+Subscribed At: {subscriber.subscribed_at.strftime('%Y-%m-%d %H:%M:%S') if created else 'Already existed'}
+"""
+        try:
+            send_email_sync(admin_email, admin_subject, admin_body)
+            logger.info(f"Admin notification sent to {admin_email}")
+        except Exception as e:
+            logger.error(f"Failed to send admin notification to {admin_email}: {e}")
+
+        if created:
+            return JsonResponse({'success': True, 'message': 'Subscribed successfully! Welcome email sent.'})
+        else:
+            return JsonResponse({'success': True, 'message': 'You are already subscribed!'})
+
+    except Exception as e:
+        logger.exception("Stay Updated subscription failed")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
+
+
+@require_POST
+@csrf_exempt
+def contact_submit(request):
+    try:
+        # Handle multipart/form-data (file uploads) or JSON
+        if request.content_type == 'application/json':
+            data = json.loads(request.body) if request.body else {}
+        else:
+            data = request.POST.dict()
+
+        first_name = data.get('first_name', '').strip()
+        last_name = data.get('last_name', '').strip()
+        email = data.get('email', '').strip()
+        phone = data.get('phone', '').strip()
+        company = data.get('company', '').strip()
+        city = data.get('city', '').strip()
+        inquiry_type = data.get('inquiry_type', '').strip()
+        message = data.get('message', '').strip()
+
+        if not first_name or not last_name or not email:
+            return JsonResponse({'success': False, 'error': 'First Name, Last Name, and Email are required.'}, status=400)
+
+        # Save to database
+        contact = ContactUs.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            company=company,
+            city=city,
+            inquiry_type=inquiry_type,
+            message=message,
+        )
+
+        # --- Send email to the user ---
+        user_subject = "Thank you for contacting FieldEngineer"
+        user_body = f"""Hi {first_name} {last_name},
+
+Thank you for reaching out to FieldEngineer! We have received your inquiry and our team will get back to you shortly.
+
+Inquiry Details:
+──────────────────────────────────────
+Name          : {first_name} {last_name}
+Email         : {email}
+Phone         : {phone}
+Company       : {company}
+City          : {city}
+Inquiry Type  : {inquiry_type}
+Message       : {message}
+──────────────────────────────────────
+
+Best regards,
+FieldEngineer Team
+"""
+        try:
+            send_email_sync(email, user_subject, user_body)
+            logger.info(f"Contact email sent to {email}")
+        except Exception as e:
+            logger.error(f"Failed to send contact email to {email}: {e}")
+
+        # --- Send notification to admin (marutipai203@gmail.com) ---
+        admin_email = "marutipai203@gmail.com"
+        admin_subject = f"New Contact Inquiry from {first_name} {last_name}"
+        admin_body = f"""A new contact inquiry has been submitted.
+
+──────────────────────────────────────
+First Name    : {first_name}
+Last Name     : {last_name}
+Email         : {email}
+Phone         : {phone}
+Company       : {company}
+City          : {city}
+Inquiry Type  : {inquiry_type}
+Message       : {message}
+──────────────────────────────────────
+
+Submitted At: {contact.created_at.strftime('%Y-%m-%d %H:%M:%S')}
+"""
+        try:
+            send_email_sync(admin_email, admin_subject, admin_body)
+            logger.info(f"Admin notification sent to {admin_email}")
+        except Exception as e:
+            logger.error(f"Failed to send admin notification to {admin_email}: {e}")
+
+        return JsonResponse({'success': True, 'message': 'Inquiry submitted successfully! Check your email for confirmation.'})
+
+    except Exception as e:
+        logger.exception("Contact form submission failed")
+        return JsonResponse({'success': False, 'error': str(e)}, status=500)
 
 def profile(request):
     return render(request, 'fieldengineer-crm/profile.html')
@@ -154,7 +298,7 @@ Best regards,
 FieldEngineer Team
 """
         try:
-            asyncio.run(send_email(email, customer_subject, customer_body))
+            send_email_sync(email, customer_subject, customer_body)
             logger.info(f"Customer email sent to {email}")
         except Exception as e:
             logger.error(f"Failed to send customer email to {email}: {e}")
@@ -183,7 +327,7 @@ Message         : {message}
 Submitted At: {enquiry.created_at.strftime('%Y-%m-%d %H:%M:%S')}
 """
         try:
-            asyncio.run(send_email(admin_email, admin_subject, admin_body))
+            send_email_sync(admin_email, admin_subject, admin_body)
             logger.info(f"Admin email sent to {admin_email}")
         except Exception as e:
             logger.error(f"Failed to send admin email to {admin_email}: {e}")
