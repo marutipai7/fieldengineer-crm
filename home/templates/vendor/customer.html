@@ -33,21 +33,35 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 </style>
 
 {# Hero Section #}
-<section class="w-full bg-gradient-to-r from-[#FFFBEB] via-[#E2F1DD] to-[#CCE7C6] py-8 sm:py-12 lg:py-16">
+<section class="w-full bg-gradient-to-r from-[#FFFBEB] via-[#E2F1DD] to-[#CCE7C6] py-6 sm:py-8 lg:py-10">
     <div class="popular-services-card"> <!-- Same container as cards -->
         <div class="px-4"> <!-- Same padding as cards grid -->
-            <div class="max-w-5xl"> <!-- Removed mx-auto, only max-width -->
-                <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-primary-green mb-4 block">
-                    What we work
-                </span>
+            <div class="max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black-dark tracking-tight leading-[1.15] mb-5">
-                    Services for every IT & field need
-                </h1>
-                
-                <p class="text-sm sm:text-base text-light-dark font-normal leading-relaxed max-w-xl">
-                    From day-to-day smart hands to full data center buildouts — FE engineers handle the full scope of technical field work.
-                </p>
+                <!-- Left Content Area -->
+                <div class="lg:col-span-7 flex flex-col justify-center">
+                    <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-primary-green mb-3 block">
+                        What we work
+                    </span>
+                    
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black-dark tracking-tight leading-tight mb-4">
+                        Services for every IT & field need
+                    </h1>
+                    
+                    <p class="text-sm sm:text-base text-light-dark font-normal leading-relaxed">
+                        From day-to-day smart hands to full data center buildouts — FE engineers handle the full scope of technical field work.
+                    </p>
+                </div>
+
+                <!-- Right Image Area -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end items-center">
+                    <img src="{% static 'img/Customer.svg' %}"
+                         alt="Illustration of a technician working with a server rack, representing the FE workflow"
+                         loading="lazy" 
+                         decoding="async"
+                         class="w-full h-auto ml-20 max-h-[180px] sm:max-h-[220px] lg:max-h-[250px] object-contain select-none pointer-events-none">
+                </div>
+
             </div>
         </div>
     </div>

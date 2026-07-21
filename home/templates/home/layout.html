@@ -417,11 +417,11 @@
                         Sales Enquiry
                     </a>
                     <span class="text-slate-300">|</span>
-                    <a href="#" class="hover:text-emerald-teal transition-colors duration-200">
+                    <a href="https://helpdesk.field-ai.aibuzz.net/submit-ticket" class="hover:text-emerald-teal transition-colors duration-200">
                         Submit a Ticket
                     </a>
                 </div>
-                <a href="#"
+                <a href="https://helpdesk.field-ai.aibuzz.net/staff/login"
                     class="inline-flex items-center rounded-lg text-emerald-teal px-5 py-2 text-base font-bold">
                     Support Login
                     <span class="material-symbols-outlined text-emerald-teal">
@@ -455,6 +455,7 @@
                         <a href="{% url 'how_it_works' %}" class="hover:text-emerald-teal transition">How it Works</a>
                     </li>
                     <li>
+                        
                     <a href="{% url 'customer' %}" class="hover:text-emerald-teal transition">For Customer</a>
                     </li>
                     <li>
@@ -474,8 +475,8 @@
                             <a href="{% url 'careers' %}" class="block px-5 py-3 hover:bg-greenish-white">Careers</a>
                             <a href="{% url 'blogs' %}" class="block px-5 py-3 hover:bg-greenish-white">Blogs</a>
                             <a href="{% url 'contact' %}" class="block px-5 py-3 hover:bg-greenish-white">Contact Us</a>
-                            <a href="{% url 'help_center' %}" class="block px-5 py-3 hover:bg-greenish-white">Help center </a>
-                            <a href="{% url 'privacy-policy' %}" class="block px-5 py-3 hover:bg-greenish-white">privacy policy</a>
+                            <a href="{% url 'help_center' %}" class="block px-5 py-3 hover:bg-greenish-white">Help Center </a>
+                            <a href="{% url 'privacy-policy' %}" class="block px-5 py-3 hover:bg-greenish-white">Privacy Policy</a>
                              <a href="{% url 'term_condition' %}" class="block px-5 py-3 hover:bg-greenish-white">Terms & Conditions</a>
                         </div>
                     </li>
@@ -508,17 +509,33 @@
         <!-- <div id="mobile-menu" class="md:hidden fixed left-0 right-0 top-[80px] z-[90] origin-top scale-y-0 opacity-0 pointer-events-none transition-all duration-300"> -->
 
             <!-- Is line ko update karein -->
-<div id="mobile-menu" class="xl:hidden fixed left-0 right-0 top-[80px] z-[90] origin-top scale-y-0 opacity-0 pointer-events-none transition-all duration-300">
-    <div id="mobile-overlay" class="fixed inset-0 bg-black/30"></div>
-    <div class="relative bg-white border-t border-slate-200 shadow-2xl max-h-[calc(100vh-80px)] overflow-y-auto mx-4 sm:mx-6 rounded-b-2xl">
-        <!-- Mobile menu inner elements -->
-        <div class="px-4 sm:px-6 py-5">
-           
+<!-- Mobile Fullscreen Backdrop & Menu -->
+<div id="mobile-menu" class="xl:hidden fixed inset-0 z-[999] opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col justify-start">
+    
+    <!-- Dark Backdrop Overlay -->
+    <div id="mobile-overlay" class="absolute inset-0 bg-black/50 backdrop-sm"></div>
+
+    <!-- Mobile Menu Modal / Container -->
+    <div class="relative w-full max-w-lg mx-auto bg-white shadow-2xl rounded-b-3xl overflow-hidden z-10 flex flex-col max-h-[90vh]">
+        
+        <!-- Mobile Header inside Sidebar View (Sticky) -->
+        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-white">
+            <a href="/" class="flex items-center gap-2">
+                <span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-lg text-sm">FE</span>
+                <span class="text-xl font-bold text-slate-900">Field <span class="text-emerald-600">Engineer</span></span>
+            </a>
+            <button id="close-mobile-menu" class="p-2 text-slate-500 hover:text-slate-900 rounded-full hover:bg-slate-100 transition">
+                <span class="material-symbols-outlined text-2xl block">close</span>
+            </button>
+        </div>
+
+        <!-- Scrollable Menu Content -->
+        <div class="overflow-y-auto px-6 py-5 space-y-4">
             
             <!-- Mobile Navigation Links -->
             <ul class="flex flex-col gap-1">
                 <li><a href="{% url 'how_it_works' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">How it Works</a></li>
-                <li><a href="{% url 'customer' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">Customer</a></li>
+                <li><a href="{% url 'customer' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">For Customer</a></li>
                 <li><a href="{% url 'fieldengineer' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">For Engineers</a></li>
                 <li><a href="{% url 'vendor' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">For Vendors</a></li>
                 
@@ -529,21 +546,24 @@
                         <span id="mobile-company-arrow" class="material-symbols-outlined transition-transform duration-300">keyboard_arrow_down</span>
                     </button>
                     <div id="mobile-company-menu" class="hidden pl-4 space-y-1 mt-1">
-                        <a href="{% url 'about_fe' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">About FE</a>
+                        <a href="{% url 'about_fe' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">About Us</a>
                         <a href="{% url 'careers' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Careers</a>
                         <a href="{% url 'blogs' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Blogs</a>
                         <a href="{% url 'contact' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Contact Us</a>
+                        <a href="{% url 'help_center' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Help Center</a>
+                        <a href="{% url 'privacy-policy' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Privacy Policy</a>
+                        <a href="{% url 'term_condition' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Term & Condition</a>
                     </div>
                 </li>
             </ul>
 
             <!-- Divider -->
-            <div class="my-4 border-t border-slate-100"></div>
+            <div class="border-t border-slate-100 my-2"></div>
 
             <!-- Mobile Action Buttons -->
             <div class="flex flex-col gap-3">
-                <a onclick="switchToLogin()" class="block text-center rounded-xl border border-muted-sage px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200 cursor-pointer">Log In</a>
-                <a onclick="openSignupPopup()" class="block text-center rounded-xl bg-amber-orange1 px-4 py-3.5 text-sm font-medium text-slate-700 shadow hover:bg-amber-400 transition-all duration-200 cursor-pointer">Sign Up Free</a>
+                <a onclick="switchToLogin()" class="block text-center rounded-xl border border-slate-200 px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200 cursor-pointer">Log In</a>
+                <a onclick="openSignupPopup()" class="block text-center rounded-xl bg-amber-400 px-4 py-3.5 text-sm font-medium text-slate-900 font-semibold shadow hover:bg-amber-500 transition-all duration-200 cursor-pointer">Sign Up Free</a>
                 <a href="javascript:void(0)" id="mobileSalesEnquiryBtn" class="block text-center rounded-xl border border-gray-200 px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200">Sales Enquiry</a>
             </div>
 
@@ -1450,6 +1470,32 @@ function openSignupPopup() {
         signupPopup.classList.remove('opacity-0', 'pointer-events-none');
         signupPopup.classList.add('opacity-100', 'pointer-events-auto');
         document.body.classList.add('overflow-hidden');
+    }
+}
+
+  function openMenu() {
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (!mobileMenu) return;
+    
+    mobileMenu.classList.remove("opacity-0", "pointer-events-none");
+    mobileMenu.classList.add("opacity-100");
+    document.body.classList.add("overflow-hidden");
+}
+
+function closeMenu() {
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (!mobileMenu) return;
+
+    mobileMenu.classList.add("opacity-0", "pointer-events-none");
+    mobileMenu.classList.remove("opacity-100");
+    document.body.classList.remove("overflow-hidden");
+
+    // Close company dropdown if open
+    const companyMenu = document.getElementById("mobile-company-menu");
+    const companyArrow = document.getElementById("mobile-company-arrow");
+    if (companyMenu) {
+        companyMenu.classList.add("hidden");
+        if (companyArrow) companyArrow.classList.remove("rotate-180");
     }
 }
 

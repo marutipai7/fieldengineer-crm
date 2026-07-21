@@ -121,88 +121,88 @@
     </section> -->
 
     {# ========== HERO ========== #}
-  <section
-    class="relative overflow-hidden pt-6 md:pt-10 lg:pt-12 bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5]"
-    style="margin:0;">
-    <div class="relative z-10" style="max-width: 100%; padding: 0; margin: 0;">
+  <section class="relative overflow-hidden pt-6 md:pt-10 lg:pt-12 bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5]" style="margin:0;">
+    <div class="relative z-10 w-full px-6 md:px-10 lg:px-14 pb-8 md:pb-10 lg:pb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-7xl mx-auto">
+            
+            <!-- Left Column (Text & Stats) -->
+            <div class="lg:col-span-7 flex flex-col justify-center">
+                <h1 id="contact-hero-title" class="contact-hero-title text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3" style="color: #1a1a1a;">
+                    Let's Build Better Field Operations Together
+                </h1>
+                
+                <p class="contact-hero-desc text-sm sm:text-base font-medium mb-6 max-w-xl" style="color: #4a4a4a;">
+                    Connect with FE's enterprise team for workforce deployment, vendor partnerships,
+                    large-scale projects, and platform support.
+                </p>
 
-       
-            <div class="w-full bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5]">
-                <div class="contact-hero-content bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5]
-    pt-12 pb-8
-    md:pt-14 md:pb-10
-    lg:pt-16 lg:pb-12
-    px-6 md:px-10 lg:px-14">
-                    
-                    <h1 id="contact-hero-title" class="contact-hero-title text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3" style="color: #1a1a1a;">
-                        Let's Build Better Field Operations Together
-                    </h1>
-                    
-                    <p class="contact-hero-desc text-sm sm:text-base font-medium mb-6 max-w-xl" style="color: #4a4a4a;">
-                        Connect with FE's enterprise team for workforce deployment, vendor partnerships,
-                        large-scale projects, and platform support.
-                    </p>
-
-                    <div class="contact-hero-stats grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
-                        <div class="contact-hero-stat flex items-center gap-3">
-                            <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
-                                <span class="material-symbols-outlined" style="color: #1a1a1a;">groups</span>
-                            </div>
-                            <div>
-                                <strong class="text-lg font-bold block" style="color: #1a1a1a;">15,000+</strong>
-                                <span class="text-sm" style="color: #4a4a4a;">Engineers</span>
-                            </div>
+                <!-- Stats Grid -->
+                <div class="contact-hero-stats grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                    <div class="contact-hero-stat flex items-center gap-3">
+                        <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                            <span class="material-symbols-outlined" style="color: #1a1a1a;">groups</span>
                         </div>
-                        <div class="contact-hero-stat flex items-center gap-3">
-                            <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
-                                <span class="material-symbols-outlined" style="color: #1a1a1a;">verified_user</span>
-                            </div>
-                            <div>
-                                <strong class="text-lg font-bold block" style="color: #1a1a1a;">350+</strong>
-                                <span class="text-sm" style="color: #4a4a4a;">Vendors</span>
-                            </div>
-                        </div>
-                        <div class="contact-hero-stat flex items-center gap-3">
-                            <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
-                                <span class="material-symbols-outlined" style="color: #1a1a1a;">location_city</span>
-                            </div>
-                            <div>
-                                <strong class="text-lg font-bold block" style="color: #1a1a1a;">120+</strong>
-                                <span class="text-sm" style="color: #4a4a4a;">Cities</span>
-                            </div>
-                        </div>
-                        <div class="contact-hero-stat flex items-center gap-3">
-                            <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
-                                <span class="material-symbols-outlined" style="color: #1a1a1a;">schedule</span>
-                            </div>
-                            <div>
-                                <strong class="text-lg font-bold block" style="color: #1a1a1a;">10M+</strong>
-                                <span class="text-sm" style="color: #4a4a4a;">Work Hours</span>
-                            </div>
+                        <div>
+                            <strong class="text-lg font-bold block" style="color: #1a1a1a;">15,000+</strong>
+                            <span class="text-sm" style="color: #4a4a4a;">Engineers</span>
                         </div>
                     </div>
-
-                    <div class="contact-hero-actions flex flex-col sm:flex-row items-center gap-4">
-                        <a href="#contact-form"
-                           class="btn btn-primary btn-md px-8 py-3 rounded-xl inline-flex items-center gap-2 min-w-[180px] justify-center font-bold transition-all hover:shadow-md" style="background: #F5B530; color: #1a1a1a;">
-                            Contact Sales
-                            <span class="material-symbols-outlined" aria-hidden="true" style="color: #1a1a1a; font-size: 20px;">arrow_forward</span>
-                        </a>
-
-                        <a href="{% url 'vendor' %}"
-                           class="btn btn-md px-6 py-3 rounded-xl border inline-flex items-center gap-2 min-w-[180px] justify-center font-medium transition-all hover:bg-black/5" style="border-color: #1a1a1a; color: #1a1a1a; background: transparent;">
-                            Become Vendor
-                            <span class="material-symbols-outlined" aria-hidden="true" style="color: #1a1a1a; font-size: 20px;">arrow_forward</span>
-                        </a>
+                    <div class="contact-hero-stat flex items-center gap-3">
+                        <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                            <span class="material-symbols-outlined" style="color: #1a1a1a;">verified_user</span>
+                        </div>
+                        <div>
+                            <strong class="text-lg font-bold block" style="color: #1a1a1a;">350+</strong>
+                            <span class="text-sm" style="color: #4a4a4a;">Vendors</span>
+                        </div>
+                    </div>
+                    <div class="contact-hero-stat flex items-center gap-3">
+                        <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                            <span class="material-symbols-outlined" style="color: #1a1a1a;">location_city</span>
+                        </div>
+                        <div>
+                            <strong class="text-lg font-bold block" style="color: #1a1a1a;">120+</strong>
+                            <span class="text-sm" style="color: #4a4a4a;">Cities</span>
+                        </div>
+                    </div>
+                    <div class="contact-hero-stat flex items-center gap-3">
+                        <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                            <span class="material-symbols-outlined" style="color: #1a1a1a;">schedule</span>
+                        </div>
+                        <div>
+                            <strong class="text-lg font-bold block" style="color: #1a1a1a;">10M+</strong>
+                            <span class="text-sm" style="color: #4a4a4a;">Work Hours</span>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Action Buttons -->
+                <div class="contact-hero-actions flex flex-col sm:flex-row items-center gap-4">
+                    <a href="#contact-form"
+                       class="btn btn-primary btn-md px-8 py-3 rounded-xl inline-flex items-center gap-2 min-w-[180px] justify-center font-bold transition-all hover:shadow-md" style="background: #F5B530; color: #1a1a1a;">
+                        Contact Sales
+                        <span class="material-symbols-outlined" aria-hidden="true" style="color: #1a1a1a; font-size: 20px;">arrow_forward</span>
+                    </a>
+
+                    <a href="{% url 'vendor' %}"
+                       class="btn btn-md px-6 py-3 rounded-xl border inline-flex items-center gap-2 min-w-[180px] justify-center font-medium transition-all hover:bg-black/5" style="border-color: #1a1a1a; color: #1a1a1a; background: transparent;">
+                        Become Vendor
+                        <span class="material-symbols-outlined" aria-hidden="true" style="color: #1a1a1a; font-size: 20px;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column (Image) -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-end items-center">
+                <img src="{% static 'img/contact_us.svg' %}" 
+                     alt="FE Team recreation"
+                     loading="lazy" 
+                     decoding="async"
+                     class="w-full h-auto max-h-[220px] sm:max-h-[260px] lg:max-h-[300px] object-contain select-none pointer-events-none" />
             </div>
 
         </div>
-
     </div>
-
 </section>
 
    
