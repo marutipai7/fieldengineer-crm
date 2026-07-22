@@ -1100,6 +1100,9 @@
   .max-h-\[220px\] {
     max-height: 220px;
   }
+  .max-h-\[320px\] {
+    max-height: 320px;
+  }
   .max-h-\[calc\(100vh-73px\)\] {
     max-height: calc(100vh - 73px);
   }
@@ -4935,6 +4938,11 @@
       max-height: 280px;
     }
   }
+  .sm\:max-h-\[380px\] {
+    @media (width >= 40rem) {
+      max-height: 380px;
+    }
+  }
   .sm\:min-h-\[170px\] {
     @media (width >= 40rem) {
       min-height: 170px;
@@ -5956,6 +5964,11 @@
       max-height: 300px;
     }
   }
+  .lg\:max-h-\[400px\] {
+    @media (width >= 64rem) {
+      max-height: 400px;
+    }
+  }
   .lg\:min-h-\[190px\] {
     @media (width >= 64rem) {
       min-height: 190px;
@@ -6540,6 +6553,16 @@
   .lg\:whitespace-nowrap {
     @media (width >= 64rem) {
       white-space: nowrap;
+    }
+  }
+  .xl\:col-span-5 {
+    @media (width >= 80rem) {
+      grid-column: span 5 / span 5;
+    }
+  }
+  .xl\:col-span-7 {
+    @media (width >= 80rem) {
+      grid-column: span 7 / span 7;
     }
   }
   .xl\:flex {
