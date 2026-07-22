@@ -1,0 +1,842 @@
+<!-- fieldengineer.html -->
+ <section class="relative overflow-hidden hero-gradient">
+
+    <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 md:px-8 md:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:py-20">
+
+        <!-- Left -->
+        <div class="max-w-xl lg:max-w-none">
+            <div class="mb-4">
+                <p class="inline-flex items-center gap-2 rounded-full border border-muted-sage bg-greenish-white px-4 py-2 text-label font-bold uppercase tracking-wide text-emerald-teal">
+                    <span class="material-symbols-outlined text-[14px]">
+                        person
+                    </span>
+
+                    FOR FIELD ENGINEERS
+                </p>
+            </div>
+
+            <h1 class="hero-rise hero-rise-d1 text-h3 font-bold leading-[1.1] tracking-tight text-charcoal-black md:text-h2 lg:text-h1">
+                Find Opportunities,<br>
+                Complete Projects,<br>
+                and <span class="text-emerald-teal">Grow Your Career</span>
+            </h1>
+
+            <p class="hero-rise hero-rise-d2 mt-5 max-w-md text-b1 leading-relaxed text-text-granite-gray font-semibold">
+                Join a network of skilled field professionals, discover service
+                opportunities, manage assignments, and build your reputation
+                while earning on your schedule.
+            </p>
+
+            <!-- CTA row -->
+            <div class="hero-rise hero-rise-d4 mt-6 flex flex-wrap items-center gap-3">
+                <a href="{% url 'contact' %}" class="btn bg-amber-orange1 btn-md inline-flex rounded-[18px]">
+                    Join the Network
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </a>
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-6 text-b3 font-medium text-deep-navy-blue">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-emerald-teal">verified_user</span>
+                    Safe & Secure
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-emerald-teal">groups</span>
+                    Verified Network
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-emerald-teal">payments</span>
+                    On-time Payments
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-emerald-teal">handshake</span>
+                    Trusted by 15K+ Engineers
+                </div>
+            </div>
+        </div>
+
+        <!-- Right (Image Container) -->
+        <div class="flex justify-center items-center">
+            <img src="{% static 'img/Engineers.svg' %}"
+                 alt="Illustration of a technician working with a server rack, representing the FE workflow"
+                 loading="lazy" 
+                 decoding="async"
+                 class="w-full h-auto max-h-[220px] sm:max-h-[280px] lg:max-h-[300px] object-contain select-none pointer-events-none">
+        </div>
+
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="relative z-20 max-w-7xl mx-auto px-5 md:px-8 -mt-8 mb-8">
+        <div class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue overflow-hidden">
+            <div class="grid grid-cols-2 lg:grid-cols-4">
+                <!-- Item 1 -->
+                <div class="flex items-center gap-4 px-8 py-7 border-r border-[#EEF2F7]">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-sage-green1">
+                        <span class="material-symbols-outlined text-emerald-teal">groups</span>
+                    </div>
+                    <div>
+                        <h3 class="text-h5 font-semibold text-dark-indigo counter"
+                            data-target="15000"
+                            data-prefix=""
+                            data-suffix="+">
+                            0
+                        </h3>
+                        <p class="text-b3 font-semibold text-cool-gray-blue1">Active Engineers</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="flex items-center gap-4 px-8 py-7 border-r border-[#EEF2F7]">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-sage-green1">
+                        <span class="material-symbols-outlined text-emerald-teal">assignment</span>
+                    </div>
+                    <div>
+                        <h3 class="text-h5 font-semibold text-dark-indigo counter"
+                            data-target="25000"
+                            data-prefix=""
+                            data-suffix="+">
+                            0
+                        </h3>
+                        <p class="text-b3 font-semibold text-cool-gray-blue1">Projects Completed</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="flex items-center gap-4 px-8 py-7 border-r border-[#EEF2F7]">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-sage-green1">
+                        <span class="material-symbols-outlined text-emerald-teal">business</span>
+                    </div>
+                    <div>
+                        <h3 class="text-h5 font-semibold text-dark-indigo counter"
+                            data-target="500"
+                            data-prefix=""
+                            data-suffix="+">
+                            0
+                        </h3>
+                        <p class="text-b3 font-semibold text-cool-gray-blue1">Verified Businesses</p>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="flex items-center gap-4 px-8 py-7">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-sage-green1">
+                        <span class="material-symbols-outlined text-emerald-teal">account_balance_wallet</span>
+                    </div>
+                    <div>
+                        <h3 class="text-h5 font-semibold text-dark-indigo counter"
+                            data-target="12"
+                            data-prefix="₹"
+                            data-suffix="Cr+">
+                            ₹0
+                        </h3>
+                        <p class="text-b3 font-semibold text-cool-gray-blue1">Paid to Engineers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Home.html -->
+  <img src="/static/img/Homepage.svg" 
+
+
+  ════════════ WHY CHOOSE ════════════
+<section class="why-choose" aria-labelledby="why-choose-title" style="padding-bottom: 0rem" ;>
+
+
+
+
+    <!-- ════════════ COVERAGE SECTION ════════════ -->
+<section class="coverage-section  py-10 px-4 sm:px-6 lg:px-8 font-sans">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Top Header -->
+        <div class="text-center mb-6">
+            <span class="inline-block px-4 py-1 bg-[#E8F5E9] text-[#1E9B6F] text-[11px] font-bold uppercase tracking-wider rounded-full mb-2">
+                Our Coverage
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight">
+                Across <span class="text-[#1E9B6F]">India & Beyond</span>
+            </h2>
+            <p class="text-gray-500 text-xs sm:text-sm mt-1.5">
+                A strong network of engineers & vendors in every major city.
+            </p>
+            <p class="text-gray-400 text-[11px] mt-0.5">
+                We are where you need us.
+            </p>
+            <div class="w-10 h-0.5 bg-[#1E9B6F]/30 mx-auto mt-2.5 rounded-full"></div>
+        </div>
+
+        <!-- Main Content Area (Stats + Map) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            
+            <!-- Left Side Stats Cards (Compact height & pure white background) -->
+           <!-- Left Side Stats Cards (Narrower width & larger icons) -->
+<div class="lg:col-span-3 flex flex-col justify-between gap-3">
+    
+    <!-- Stat Card 1 -->
+   <div class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer">
+    <!-- Circle size w-14 h-14 same hai -->
+    <div class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
+        <span class="material-symbols-outlined text-[38px]">groups</span>
+    </div>
+    <div>
+        <h3 class="text-lg font-bold text-gray-900 leading-tight">15,000+</h3>
+        <p class="text-[11px] text-gray-500 font-medium mt-0.5">Certified Engineers</p>
+    </div>
+</div>
+
+    <!-- Stat Card 2 -->
+    <div class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl border border-gray-200 shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer" style="background: transparent !important;">
+        <div class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
+            <span class="material-symbols-outlined text-4xl">verified</span>
+        </div>
+        <div>
+            <h3 class="text-xl font-extrabold text-gray-900 leading-tight">350+</h3>
+            <p class="text-xs text-gray-500 font-medium mt-0.5">Verified Vendors</p>
+        </div>
+    </div>
+
+    <!-- Stat Card 3 -->
+    <div class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl border border-gray-200 shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer" style="background: transparent !important;">
+        <div class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
+            <span class="material-symbols-outlined text-4xl">apartment</span>
+        </div>
+        <div>
+            <h3 class="text-xl font-extrabold text-gray-900 leading-tight">120+</h3>
+            <p class="text-xs text-gray-500 font-medium mt-0.5">Cities Covered</p>
+        </div>
+    </div>
+
+</div>
+
+            <!-- Right Side Interactive Map -->
+          <div class="lg:col-span-9 bg-white p-0 rounded-2xl border border-gray-100 shadow-sm relative h-full min-h-[380px] flex flex-col justify-between overflow-hidden">
+    
+    <!-- Leaflet Container (Expanded to fill full height, no white space) -->
+    <div id="coverageMap" class="w-full h-full min-h-[380px] rounded-2xl z-10"></div>
+
+    <!-- Map Radio Selection Bar (Floating over the map at bottom) -->
+    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 bg-white/95 backdrop-blur-md py-2.5 px-6 rounded-full border border-gray-100 shadow-md flex items-center justify-center gap-6 text-sm text-gray-700">
+        <label class="flex items-center gap-2 cursor-pointer font-medium">
+            <input type="radio" name="countrySelect" value="usa" checked class="accent-[#1E9B6F] w-4 h-4">
+            <span>United States</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer font-medium">
+            <input type="radio" name="countrySelect" value="india" class="accent-[#1E9B6F] w-4 h-4">
+            <span>India</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer font-medium">
+            <input type="radio" name="countrySelect" value="malaysia" class="accent-[#1E9B6F] w-4 h-4">
+            <span>Malaysia</span>
+        </label>
+    </div>
+</div>
+
+        </div>
+
+        <!-- Bottom Location Info Cards -->
+     <!-- Bottom Location Info Cards (Constrained width to match design) -->
+<!-- Bottom Location Info Cards (Aligned perfectly to the left grid edge) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8 w-full">
+    
+    <!-- Location 1: United States -->
+    <div id="card-usa" class="location-card bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm relative transition-all duration-300 overflow-hidden active-location group cursor-pointer">
+        <!-- Left-Side Green Vertical Line -->
+        <div class="line-indicator absolute top-0 left-0 bottom-0 w-1.5 bg-[#1E9B6F] rounded-l-2xl"></div>
+        
+        <div class="flex items-center justify-between mb-3 mt-0.5 pl-1.5">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-full bg-[#1E9B6F] flex items-center justify-center text-white shrink-0">
+                    <span class="material-symbols-outlined text-lg">apartment</span>
+                </div>
+                <h4 class="font-bold text-gray-900 text-base">United States</h4>
+            </div>
+            <button class="view-map-btn text-[11px] font-semibold text-[#1E9B6F] cursor-pointer  flex items-center gap-0.5 border border-gray-300 rounded-lg p-1">
+                <span class="material-symbols-outlined text-xs">location_on</span> View on Map
+            </button>
+        </div>
+
+        <p class="text-xs text-gray-500 flex items-start gap-1.5 mb-5 leading-relaxed pl-1.5 min-h-[36px]">
+            <span class="material-symbols-outlined text-sm text-[#1E9B6F] shrink-0 mt-0.5">location_on</span>
+            <span>218-10, Hillside Ave, Queens Village, New York, USA, 11427.</span>
+        </p>
+
+        <div class="border-t border-gray-100 pt-3 flex items-center justify-between text-[11px] text-gray-500 font-medium pl-1.5">
+            <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">call</span> +1 646 600 0123
+            </span>
+            <span class="text-gray-200">|</span>
+            <a href="mailto:hello@fieldengineer.com" class="flex items-center gap-1 hover:text-[#1E9B6F]">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">mail</span> hello@fieldengineer.com
+            </a>
+        </div>
+    </div>
+
+    <!-- Location 2: India -->
+    <div id="card-india" class="location-card bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm relative transition-all duration-300 overflow-hidden group cursor-pointer">
+        <!-- Left-Side Green Vertical Line -->
+        <div class="line-indicator absolute top-0 left-0 bottom-0 w-1.5 bg-[#1E9B6F] rounded-l-2xl hidden"></div>
+        
+        <div class="flex items-center justify-between mb-3 mt-0.5 pl-1.5">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-full bg-[#1E9B6F] flex items-center justify-center text-white shrink-0">
+                    <span class="material-symbols-outlined text-lg">apartment</span>
+                </div>
+                <h4 class="font-bold text-gray-900 text-base">India</h4>
+            </div>
+            <button class="view-map-btn text-[11px] font-semibold text-[#1E9B6F] cursor-pointer  flex items-center gap-0.5 border border-gray-300 rounded-lg p-1">
+                <span class="material-symbols-outlined text-xs">location_on</span> View on Map
+            </button>
+        </div>
+
+        <p class="text-xs text-gray-500 flex items-start gap-1.5 mb-5 leading-relaxed pl-1.5 min-h-[36px]">
+            <span class="material-symbols-outlined text-sm text-[#1E9B6F] shrink-0 mt-0.5">location_on</span>
+            <span>3102, 1st Floor, Rustomjee Eaze Zone, Sundar Nagar, Malad West – Mumbai 400064, MH - IN</span>
+        </p>
+
+        <div class="border-t border-gray-100 pt-3 flex items-center justify-between text-[11px] text-gray-500 font-medium pl-1.5">
+            <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">call</span> +91 99679 40928
+            </span>
+            <span class="text-gray-200">|</span>
+            <a href="mailto:hello@fieldengineer.com" class="flex items-center gap-1 hover:text-[#1E9B6F]">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">mail</span> hello@fieldengineer.com
+            </a>
+        </div>
+    </div>
+
+    <!-- Location 3: Malaysia -->
+    <div id="card-malaysia" class="location-card bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm relative transition-all duration-300 overflow-hidden group cursor-pointer">
+        <!-- Left-Side Green Vertical Line -->
+        <div class="line-indicator absolute top-0 left-0 bottom-0 w-1.5 bg-[#1E9B6F] rounded-l-2xl hidden"></div>
+        
+        <div class="flex items-center justify-between mb-3 mt-0.5 pl-1.5">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-full bg-[#1E9B6F] flex items-center justify-center text-white shrink-0">
+                    <span class="material-symbols-outlined text-lg">apartment</span>
+                </div>
+                <h4 class="font-bold text-gray-900 text-base">Malaysia</h4>
+            </div>
+            <button class="view-map-btn text-[11px] font-semibold text-[#1E9B6F] cursor-pointer flex items-center gap-0.5 border border-gray-300 rounded-lg p-1">
+                <span class="material-symbols-outlined text-xs">location_on</span> View on Map
+            </button>
+        </div>
+
+        <p class="text-xs text-gray-500 flex items-start gap-1.5 mb-5 leading-relaxed pl-1.5 min-h-[36px]">
+            <span class="material-symbols-outlined text-sm text-[#1E9B6F] shrink-0 mt-0.5">location_on</span>
+            <span>M116, Jalan Mega Mendung, Off Jalan Klang Lama, 58200, Kuala Lumpur, Malaysia.</span>
+        </p>
+
+        <div class="border-t border-gray-100 pt-3 flex items-center justify-between text-[11px] text-gray-500 font-medium pl-1.5">
+            <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">call</span> +60 1466 00012
+            </span>
+            <span class="text-gray-200">|</span>
+            <a href="mailto:hello@fieldengineer.com" class="flex items-center gap-1 hover:text-[#1E9B6F]">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">mail</span> hello@fieldengineer.com
+            </a>
+        </div>
+    </div>
+
+</div>
+
+    </div>
+</section>
+
+ <!-- Leaflet JS Initialization -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // 1. Initialize Map
+    const map = L.map('coverageMap', {
+        center: [20, 10],
+        zoom: 2,
+        zoomControl: true
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 18,
+        subdomains: 'abcd',
+    }).addTo(map);
+
+    const locations = {
+        usa: {
+            coords: [40.725, -73.743],
+            title: "United States",
+            address: "218-10, Hillside Ave, Queens Village, New York, USA, 11427."
+        },
+        india: {
+            coords: [19.186, 72.848],
+            title: "India",
+            address: "3102, 1st Floor, Rustomjee Eaze Zone, Malad West - Mumbai 400064"
+        },
+        malaysia: {
+            coords: [3.083, 101.674],
+            title: "Malaysia",
+            address: "M116, Jalan Mega Mendung, Off Jalan Klang Lama, 58200, Kuala Lumpur"
+        }
+    };
+
+    const createGreenMarkerIcon = () => L.divIcon({
+        className: 'custom-pin',
+        html: `<div style="background-color: #1E9B6F; width: 28px; height: 28px; border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                <div style="width: 8px; height: 8px; background-color: white; border-radius: 50%;"></div>
+               </div>`,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+    });
+
+    const markers = {};
+
+    Object.keys(locations).forEach(key => {
+        const loc = locations[key];
+        const marker = L.marker(loc.coords, { icon: createGreenMarkerIcon() }).addTo(map);
+
+        const popupContent = `
+            <div style="font-family: inherit; padding: 2px;">
+                <h5 style="color: #1E9B6F; font-weight: 700; margin-bottom: 4px;">${loc.title}</h5>
+                <p style="font-size: 11px; color: #6B7280; margin: 0 0 6px 0; line-height: 1.3;">${loc.address}</p>
+                <a href="#" style="font-size: 11px; color: #1E9B6F; font-weight: 600; text-decoration: none;">View Details &rarr;</a>
+            </div>
+        `;
+
+        marker.bindPopup(popupContent);
+        markers[key] = marker;
+    });
+
+    markers['usa'].openPopup();
+
+    function activateLocation(key) {
+        const loc = locations[key];
+        if (!loc) return;
+
+        map.flyTo(loc.coords, 5, { duration: 1.2 });
+        markers[key].openPopup();
+
+        const radio = document.querySelector(`input[name="countrySelect"][value="${key}"]`);
+        if (radio) radio.checked = true;
+
+        // Toggle Left Green Indicator Line
+        document.querySelectorAll('.location-card').forEach(card => {
+            const indicator = card.querySelector('.line-indicator');
+            if (card.id === `card-${key}`) {
+                indicator.classList.remove('hidden');
+                card.classList.add('shadow-md');
+            } else {
+                indicator.classList.add('hidden');
+                card.classList.remove('shadow-md');
+            }
+        });
+    }
+
+    document.querySelectorAll('input[name="countrySelect"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            activateLocation(e.target.value);
+        });
+    });
+
+    document.querySelectorAll('.location-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const key = card.id.replace('card-', '');
+            activateLocation(key);
+        });
+    });
+});
+
+</script>
+
+
+<!-- layout.html -->
+ <header class="sticky top-0 lg:top-[-44px] z-50 w-full bg-white shadow-sm">
+    <div class="hidden lg:block border-b border-slate-200 bg-white w-full">
+        <div class="mx-auto max-w-[1400px] px-6">
+            <div class="h-11 flex items-center justify-between">
+                <div class="flex items-center gap-6 text-sm text-slate-600">
+                    <a href="javascript:void(0)" id="salesEnquiryBtn"
+                        class="hover:text-emerald-teal transition-colors duration-200">
+                        Sales Enquiry
+                    </a>
+                    <span class="text-slate-300">|</span>
+                    <a href="https://helpdesk.field-ai.aibuzz.net/submit-ticket" class="hover:text-emerald-teal transition-colors duration-200">
+                        Submit a Ticket
+                    </a>
+                </div>
+                <a href="https://helpdesk.field-ai.aibuzz.net/staff/login"
+                    class="inline-flex items-center rounded-lg text-emerald-teal px-5 py-2 text-base font-bold">
+                    Support Login
+                    <span class="material-symbols-outlined text-emerald-teal">
+                        arrow_forward
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MAIN NAVBAR ================= -->
+    <nav class="bg-white border-b border-gray-100 w-full">
+        <div class="mx-auto max-w-[1400px] px-6">
+            <div class="flex h-20 items-center justify-between">
+                <!-- LOGO -->
+                <a href="{% url 'home' %}" class="flex items-center gap-3 flex-shrink-0">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-xl logo-gradient border border-emerald-teal">
+                        <span class="text-lg font-extrabold text-emerald-teal">FE</span>
+                    </div>
+                    <div class="leading-tight">
+                        <p class="text-xl font-bold text-slate-900">
+                            Field
+                            <span class="text-emerald-teal">Engineer</span>
+                        </p>
+                    </div>
+                </a>
+
+                <!-- DESKTOP MENU -->
+                <ul class="hidden xl:flex items-center gap-10 text-[15px] font-medium text-slate-700">
+                    <li>
+                        <a href="{% url 'how_it_works' %}" class="hover:text-emerald-teal transition">How it Works</a>
+                    </li>
+                    <li>
+                        
+                    <a href="{% url 'customer' %}" class="hover:text-emerald-teal transition">For Customer</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'fieldengineer' %}" class="hover:text-emerald-teal transition">For Engineers</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'vendor' %}" class="hover:text-emerald-teal transition">For Vendors</a>
+                    </li>
+                    <!-- COMPANY DROPDOWN -->
+                    <li class="relative group">
+                        <button class="flex items-center gap-1 hover:text-emerald-teal transition">
+                            Company
+                            <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+                        </button>
+                        <div class="absolute left-0 top-full mt-4 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 w-64 rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+                            <a href="{% url 'about_fe' %}" class="block px-5 py-3 hover:bg-greenish-white">About Us</a>
+                            <a href="{% url 'careers' %}" class="block px-5 py-3 hover:bg-greenish-white">Careers</a>
+                            <a href="{% url 'blogs' %}" class="block px-5 py-3 hover:bg-greenish-white">Blogs</a>
+                            <a href="{% url 'contact' %}" class="block px-5 py-3 hover:bg-greenish-white">Contact Us</a>
+                            <a href="{% url 'help_center' %}" class="block px-5 py-3 hover:bg-greenish-white">Help Center </a>
+                            <a href="{% url 'privacy-policy' %}" class="block px-5 py-3 hover:bg-greenish-white">Privacy Policy</a>
+                             <a href="{% url 'term_condition' %}" class="block px-5 py-3 hover:bg-greenish-white">Terms & Conditions</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- RIGHT SIDE - LOGIN & SIGNUP -->
+                <div class="hidden lg:flex items-center gap-4 flex-shrink-0">
+                    <a onclick="switchToLogin()"
+                        class="rounded-xl border border-muted-sage px-4 py-2 text-sm font-medium text-slate-700 transition cursor-pointer hover:bg-gray-50">
+                        Log In
+                    </a>
+                    <a onclick="openSignupPopup()"
+                        class="rounded-xl bg-amber-orange1 px-4 py-2 text-sm font-medium text-slate-700 transition shadow cursor-pointer hover:bg-amber-400">
+                        Sign Up Free
+                    </a>
+                </div>
+
+                <!-- MOBILE HAMBURGER -->
+                <!-- <button id="hamburger-btn" class="xl:hidden rounded-lg p-2 hover:bg-slate-100">
+                    <span class="material-symbols-outlined">menu</span>
+                </button> -->
+                <button id="hamburger-btn" class="xl:hidden relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-all duration-300">
+    <span class="material-symbols-outlined text-3xl text-slate-700" id="hamburger-icon">menu</span>
+</button>
+            </div>
+        </div>
+
+        <!-- ================= MOBILE MENU ================= -->
+      <!-- <div id="mobile-menu" class="fixed left-0 right-0  top-[80px] z-[90] origin-top scale-y-0 opacity-0 pointer-events-none transition-all duration-300"> -->
+        <!-- <div id="mobile-menu" class="md:hidden fixed left-0 right-0 top-[80px] z-[90] origin-top scale-y-0 opacity-0 pointer-events-none transition-all duration-300"> -->
+
+            <!-- Is line ko update karein -->
+<!-- Mobile Fullscreen Backdrop & Menu -->
+<div id="mobile-menu" class="xl:hidden fixed inset-0 z-[999] opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col justify-start">
+    
+    <!-- Dark Backdrop Overlay -->
+    <div id="mobile-overlay" class="absolute inset-0 bg-black/50 backdrop-sm"></div>
+
+    <!-- Mobile Menu Modal / Container -->
+    <div class="relative w-full max-w-lg mx-auto bg-white shadow-2xl rounded-b-3xl overflow-hidden z-10 flex flex-col max-h-[90vh]">
+        
+        <!-- Mobile Header inside Sidebar View (Sticky) -->
+        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-white">
+            <a href="/" class="flex items-center gap-2">
+                <span class="bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-lg text-sm">FE</span>
+                <span class="text-xl font-bold text-slate-900">Field <span class="text-emerald-600">Engineer</span></span>
+            </a>
+            <button id="close-mobile-menu" class="p-2 text-slate-500 hover:text-slate-900 rounded-full hover:bg-slate-100 transition">
+                <span class="material-symbols-outlined text-2xl block">close</span>
+            </button>
+        </div>
+
+        <!-- Scrollable Menu Content -->
+        <div class="overflow-y-auto px-6 py-5 space-y-4">
+            
+            <!-- Mobile Navigation Links -->
+            <ul class="flex flex-col gap-1">
+                <li><a href="{% url 'how_it_works' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">How it Works</a></li>
+                <li><a href="{% url 'customer' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">For Customer</a></li>
+                <li><a href="{% url 'fieldengineer' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">For Engineers</a></li>
+                <li><a href="{% url 'vendor' %}" class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">For Vendors</a></li>
+                
+                <!-- Company Dropdown -->
+                <li>
+                    <button id="mobile-company-btn" class="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-slate-700 hover:text-emerald-teal hover:bg-green-50 rounded-xl transition-all duration-200">
+                        Company
+                        <span id="mobile-company-arrow" class="material-symbols-outlined transition-transform duration-300">keyboard_arrow_down</span>
+                    </button>
+                    <div id="mobile-company-menu" class="hidden pl-4 space-y-1 mt-1">
+                        <a href="{% url 'about_fe' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">About Us</a>
+                        <a href="{% url 'careers' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Careers</a>
+                        <a href="{% url 'blogs' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Blogs</a>
+                        <a href="{% url 'contact' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Contact Us</a>
+                        <a href="{% url 'help_center' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Help Center</a>
+                        <a href="{% url 'privacy-policy' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Privacy Policy</a>
+                        <a href="{% url 'term_condition' %}" class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Term & Condition</a>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Divider -->
+            <div class="border-t border-slate-100 my-2"></div>
+
+            <!-- Mobile Action Buttons -->
+            <div class="flex flex-col gap-3">
+                <a onclick="switchToLogin()" class="block text-center rounded-xl border border-slate-200 px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200 cursor-pointer">Log In</a>
+                <a onclick="openSignupPopup()" class="block text-center rounded-xl bg-amber-400 px-4 py-3.5 text-sm font-medium text-slate-900 font-semibold shadow hover:bg-amber-500 transition-all duration-200 cursor-pointer">Sign Up Free</a>
+                <a href="javascript:void(0)" id="mobileSalesEnquiryBtn" class="block text-center rounded-xl border border-gray-200 px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200">Sales Enquiry</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+    </nav>
+</header>
+
+
+
+<script>
+    
+       function openMenu() {
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (!mobileMenu) return;
+    
+    mobileMenu.classList.remove("opacity-0", "pointer-events-none");
+    mobileMenu.classList.add("opacity-100");
+    document.body.classList.add("overflow-hidden");
+}
+
+function closeMenu() {
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (!mobileMenu) return;
+
+    mobileMenu.classList.add("opacity-0", "pointer-events-none");
+    mobileMenu.classList.remove("opacity-100");
+    document.body.classList.remove("overflow-hidden");
+
+    // Close company dropdown if open
+    const companyMenu = document.getElementById("mobile-company-menu");
+    const companyArrow = document.getElementById("mobile-company-arrow");
+    if (companyMenu) {
+        companyMenu.classList.add("hidden");
+        if (companyArrow) companyArrow.classList.remove("rotate-180");
+    }
+}
+</script>
+
+
+
+<!-- about.html -->
+   <img src="{% static 'img/About_1.svg' %}">
+    <img src="{% static 'img/About_2.svg' %}">
+
+
+
+
+     <!-- Cards overlay – right side, vertically centered -->
+<!-- <div class="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-2 sm:gap-2.5 lg:gap-3 min-w-[140px] sm:min-w-[160px] lg:min-w-[200px] max-w-[180px] sm:max-w-[200px] lg:max-w-[240px]"> -->
+    
+    <!-- Card 1 -->
+    <!-- <div class="bg-white/95 backdrop-blur-sm p-2 sm:p-2.5 lg:p-3 rounded-lg sm:rounded-xl shadow-md flex items-center justify-between transition-all hover:-translate-y-0.5 hover:shadow-lg">
+        <div class="flex items-center space-x-2 sm:space-x-2.5 lg:space-x-3 min-w-0">
+            <div class="about-fe-icon p-1.5 sm:p-2 lg:p-2.5 rounded-lg flex-shrink-0" aria-hidden="true">
+                <span class="material-symbols-outlined">
+            location_on
+            </span>
+            </div>
+            <div class="min-w-0">
+                <p class="text-xs sm:text-sm lg:text-base font-bold text-black-one truncate">Live Tracking</p>
+                <p class="text-xs sm:text-sm lg:text-base font-semibold text-black-two">124 Jobs</p>
+            </div>
+        </div>
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5text-[var(--color-dark-green)] flex-shrink-0 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+    </div> -->
+
+    <!-- Card 2 -->
+    <!-- <div class="bg-white/95 backdrop-blur-sm p-2 sm:p-2.5 lg:p-3 rounded-lg sm:rounded-xl shadow-md flex items-center justify-between transition-all hover:-translate-y-0.5 hover:shadow-lg">
+        <div class="flex items-center space-x-2 sm:space-x-2.5 lg:space-x-3 min-w-0">
+            <div class="p-1.5 sm:p-2 lg:p-2.5 bg-green-50 text-[var(--color-dark-green)] rounded-lg flex-shrink-0" aria-hidden="true">
+    <span class="material-symbols-outlined">
+        person
+    </span>
+</div>
+            <div class="min-w-0">
+                <p class="text-xs sm:text-sm lg:text-base font-bold text-black-one truncate">Engineer Online</p>
+                <p class="text-xs sm:text-sm lg:text-base font-semibold text-black-two">2,350</p>
+            </div>
+        </div>
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-[var(--color-dark-green)] flex-shrink-0 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+    </div> -->
+
+    <!-- Card 3 -->
+    <!-- <div class="bg-white/95 backdrop-blur-sm p-2 sm:p-2.5 lg:p-3 rounded-lg sm:rounded-xl shadow-md flex items-center justify-between transition-all hover:-translate-y-0.5 hover:shadow-lg">
+        <div class="flex items-center space-x-2 sm:space-x-2.5 lg:space-x-3 min-w-0">
+            <div class="p-1.5 sm:p-2 lg:p-2.5 bg-green-50 text-[var(--color-dark-green)] rounded-lg flex-shrink-0" aria-hidden="true">
+    <span class="material-symbols-outlined">
+        apartment
+    </span>
+</div>
+            <div class="min-w-0">
+                <p class="text-xs sm:text-sm lg:text-base font-bold text-black-one truncate">John Company</p>
+                <p class="text-xs sm:text-sm lg:text-base font-semibold text-black-two">90 Lakh</p>
+            </div>
+        </div>
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-[var(--color-dark-green)] flex-shrink-0 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+    </div> -->
+<!-- </div> -->
+
+
+
+
+<!-- careers -->
+  <div class="lg:col-span-6 relative w-full flex justify-center lg:justify-end">
+          <img src="{% static 'img/careers.svg' %}" 
+     alt="Field Operations Team"
+     class="w-full max-w-2xl lg:max-w-none object-contain" 
+     loading="lazy" />
+    </div>
+
+
+<!-- contact.html -->
+ <section class="relative overflow-hidden pt-6 md:pt-10 lg:pt-12 bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5]" style="margin:0;">
+    <div class="relative z-10 w-full px-6 md:px-10 lg:px-14 pb-8 md:pb-10 lg:pb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-7xl mx-auto">
+            
+            <!-- Left Column (Text & Stats) -->
+            <div class="lg:col-span-7 flex flex-col justify-center">
+                <h1 id="contact-hero-title" class="contact-hero-title text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3" style="color: #1a1a1a;">
+                    Let's Build Better Field Operations Together
+                </h1>
+                
+                <p class="contact-hero-desc text-sm sm:text-base font-medium mb-6 max-w-xl" style="color: #4a4a4a;">
+                    Connect with FE's enterprise team for workforce deployment, vendor partnerships,
+                    large-scale projects, and platform support.
+                </p>
+
+                <!-- Stats Grid -->
+                <div class="contact-hero-stats grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                    <div class="contact-hero-stat flex items-center gap-3">
+                        <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                            <span class="material-symbols-outlined" style="color: #1a1a1a;">groups</span>
+                        </div>
+                        <div>
+                            <strong class="text-lg font-bold block" style="color: #1a1a1a;">15,000+</strong>
+                            <span class="text-sm" style="color: #4a4a4a;">Engineers</span>
+                        </div>
+                    </div>
+                    <div class="contact-hero-stat flex items-center gap-3">
+                        <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                            <span class="material-symbols-outlined" style="color: #1a1a1a;">verified_user</span>
+                        </div>
+                        <div>
+                            <strong class="text-lg font-bold block" style="color: #1a1a1a;">350+</strong>
+                            <span class="text-sm" style="color: #4a4a4a;">Vendors</span>
+                        </div>
+                    </div>
+                    <div class="contact-hero-stat flex items-center gap-3">
+                        <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                            <span class="material-symbols-outlined" style="color: #1a1a1a;">location_city</span>
+                        </div>
+                        <div>
+                            <strong class="text-lg font-bold block" style="color: #1a1a1a;">120+</strong>
+                            <span class="text-sm" style="color: #4a4a4a;">Cities</span>
+                        </div>
+                    </div>
+                    <div class="contact-hero-stat flex items-center gap-3">
+                        <div class="contact-hero-stat-icon" aria-hidden="true" style="color: #1a1a1a;">
+                            <span class="material-symbols-outlined" style="color: #1a1a1a;">schedule</span>
+                        </div>
+                        <div>
+                            <strong class="text-lg font-bold block" style="color: #1a1a1a;">10M+</strong>
+                            <span class="text-sm" style="color: #4a4a4a;">Work Hours</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="contact-hero-actions flex flex-col sm:flex-row items-center gap-4">
+                    <a href="#contact-form"
+                       class="btn btn-primary btn-md px-8 py-3 rounded-xl inline-flex items-center gap-2 min-w-[180px] justify-center font-bold transition-all hover:shadow-md" style="background: #F5B530; color: #1a1a1a;">
+                        Contact Sales
+                        <span class="material-symbols-outlined" aria-hidden="true" style="color: #1a1a1a; font-size: 20px;">arrow_forward</span>
+                    </a>
+
+                    <a href="{% url 'vendor' %}"
+                       class="btn btn-md px-6 py-3 rounded-xl border inline-flex items-center gap-2 min-w-[180px] justify-center font-medium transition-all hover:bg-black/5" style="border-color: #1a1a1a; color: #1a1a1a; background: transparent;">
+                        Become Vendor
+                        <span class="material-symbols-outlined" aria-hidden="true" style="color: #1a1a1a; font-size: 20px;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column (Image) -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-end items-center">
+                <img src="{% static 'img/contact_us.svg' %}" 
+                     alt="FE Team recreation"
+                     loading="lazy" 
+                     decoding="async"
+                     class="w-full h-auto max-h-[220px] sm:max-h-[260px] lg:max-h-[300px] object-contain select-none pointer-events-none" />
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- how-it-work -->
+ <section class="w-full bg-gradient-to-r from-[#FFFBEB] via-[#E2F1DD] to-[#CCE7C6] py-6 sm:py-8 lg:py-10">
+    <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Content Column -->
+        <div class="lg:col-span-6 xl:col-span-5 flex flex-col justify-center py-2">
+            <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-primary-green mb-3 block">
+                The FE Workflow
+            </span>
+            
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black-dark tracking-tight leading-tight mb-4">
+                From job post to job done —<br class="hidden sm:inline" /> here's exactly how it works
+            </h1>
+            
+            <p class="text-sm text-light-dark font-normal leading-relaxed">
+                FE is a marketplace, not a dispatch system. You always choose who works for you.
+            </p>
+        </div>
+
+        <!-- Right Image Column -->
+        <div class="lg:col-span-6 xl:col-span-7 flex justify-center lg:justify-end items-center py-2">
+            <!-- Referencing the provided layout from image_0.png with reduced height limits -->
+            <img src="{% static 'img/how_it_works.svg' %}"
+                 alt="Illustration of a technician working with a server rack, representing the FE workflow"
+                 loading="lazy" 
+                 decoding="async"
+                 class="w-full h-auto max-h-[220px] sm:max-h-[280px] lg:max-h-[300px] object-contain select-none pointer-events-none">
+        </div>
+
+    </div>
+</section>
