@@ -43,7 +43,7 @@ urlpatterns = [
     path('profile/', profile, name='profile'),
     path('customer-contactus/', customer_contactus, name='customer_contactus'),
     path('vendor/how-it-works/', how_it_works, name='how_it_works'),
-    path('vendor/customer/', customer, name='customer'),
+    path('customer/customer/', customer, name='customer'),
     path('stay-updated-subscribe/', stay_updated_subscribe, name='stay_updated_subscribe'),
     path('sales-enquiry/', sales_enquiry_submit, name='sales_enquiry_submit'),
 ]

@@ -20,6 +20,9 @@ def home_2(request):
 def fieldengineer(request):
     return render(request, 'fieldengineer/fieldengineer.html')
 
+def customer(request):
+    return render(request, 'customer/customer.html')
+
 
 def vendor(request):
     return render(request, 'vendor/vendor.html')
@@ -214,8 +217,6 @@ def profile(request):
 def how_it_works(request):
     return render(request, 'vendor/how-it-works.html')
 
-def customer(request):
-    return render(request, 'vendor/customer.html')
 
 @require_POST
 @csrf_exempt

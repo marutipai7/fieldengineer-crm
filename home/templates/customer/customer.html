@@ -3,7 +3,7 @@
 
 {% block title %}
 Vendor Management Platform | Grow Your Field Service Business | Field Engage
-{% endblock %}
+<!-- {% endblock %} -->
 
 {% block content %}
 
@@ -89,7 +89,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                      alt="Illustration of a technician working with a server rack, representing the FE workflow"
                      loading="lazy" 
                      decoding="async"
-                     class="w-full h-auto max-h-[220px] sm:max-h-[280px] lg:max-h-[300px] object-contain select-none pointer-events-none">
+                     class="w-full h-auto max-h-[320px] sm:max-h-[380px] lg:max-h-[400px] object-contain select-none pointer-events-none">
             </div>
 
         </div>
@@ -102,7 +102,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
             
             <!-- Card 1: Network Cabling -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow">
+            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow" onclick="switchToLogin()">
                 <div class="service-card-image mb-2">
                     <img src="{% static 'img/customer_card1.svg' %}" 
                         alt="Network Cabling service illustration" loading="lazy" class="w-10 h-10">
@@ -113,7 +113,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
             </article>
 
             <!-- Card 2: Server Installation -->
-            <article class="service-card bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+            <article class="service-card bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
                 <div class="service-card-image mb-2">
                     <img src="{% static 'img/customer_card2.svg' %}" 
                         alt="Server Installation service illustration" loading="lazy" class="w-10 h-10">
@@ -124,7 +124,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
             </article>
 
             <!-- Card 3: Smart Hands Support -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
                 <div class="service-card-image mb-2">
                     <img src="{% static 'img/customer_card3.svg' %}" 
                         alt="Smart Hands Support service illustration" loading="lazy" class="w-10 h-10">
@@ -135,7 +135,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
             </article>
 
             <!-- Card 4: Rack & Stack -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
                 <div class="service-card-image mb-2">
                     <img src="{% static 'img/customer_card4.svg' %}" 
                         alt="Rack & Stack service illustration" loading="lazy" class="w-10 h-10">
@@ -146,7 +146,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
             </article>
 
             <!-- Card 5: Data Center Support -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
                 <div class="service-card-image mb-2">
                     <img src="{% static 'img/customer_card5.svg' %}" 
                         alt="Data Center Support service illustration" loading="lazy" class="w-10 h-10">
@@ -157,7 +157,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
             </article>
 
             <!-- Card 6: IT Support -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
                 <div class="service-card-image mb-2">
                     <img src="{% static 'img/customer_card6.svg' %}" 
                         alt="IT Support service illustration" loading="lazy" class="w-10 h-10">
@@ -169,7 +169,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
             <!-- Card 7: CCTV & Surveillance -->
             <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
-                <div class="service-card-image mb-2">
+                <div class="service-card-image mb-2" onclick="switchToLogin()">
                     <img src="{% static 'img/customer_card7.svg' %}" 
                         alt="CCTV & Surveillance service illustration" loading="lazy" class="w-10 h-10">
                 </div>
@@ -179,7 +179,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
             </article>
 
             <!-- Card 8: Telecom Support -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
                 <div class="service-card-image mb-2">
                     <img src="{% static 'img/customer_card8.svg' %}" 
                         alt="Telecom Support service illustration" loading="lazy" class="w-10 h-10">

@@ -8,6 +8,271 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 {% block content %}
 
 {# Main content wrapper #}
+
+<style>
+    /* Coverage Section Styles */
+.coverage-section {
+    /* Inline styles from the section tag */
+}
+
+/* Stat Cards - using Tailwind classes */
+.stat-card {
+    /* Classes used: !bg-transparent, py-3, px-3.5, rounded-2xl, shadow-none, flex, items-center, gap-3, relative, overflow-hidden, transition-all, duration-300, group, cursor-pointer */
+}
+
+/* Map Container */
+#coverageMap {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    border-radius: 16px;
+    z-index: 10;
+}
+
+/* Location Cards */
+.location-card {
+    /* Classes used: bg-white, rounded-2xl, p-4, sm:p-5, border, border-gray-100, shadow-sm, relative, transition-all, duration-300, overflow-hidden, group, cursor-pointer */
+}
+
+.location-card.active-location {
+    /* Active state for the default USA card */
+}
+
+.line-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 6px;
+    background-color: #1E9B6F;
+    border-radius: 12px 0 0 12px;
+}
+
+/* Map Radio Selection Bar */
+.map-radio-bar {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 10px 24px;
+    border-radius: 9999px;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.map-radio-bar label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.map-radio-bar input[type="radio"] {
+    accent-color: #1E9B6F;
+    width: 16px;
+    height: 16px;
+}
+
+/* View Map Button */
+.view-map-btn {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1E9B6F;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+.view-map-btn:hover {
+    background-color: #f3f4f6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .coverage-section {
+        padding: 0 16px;
+    }
+    
+    .map-radio-bar {
+        padding: 8px 16px;
+        gap: 12px;
+        font-size: 12px;
+    }
+}
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    
+    // Initialize the map if Leaflet is available
+    if (typeof L !== 'undefined') {
+        // Initialize map centered on India (default)
+        const map = L.map('coverageMap', {
+            center: [20.5937, 78.9629],
+            zoom: 4,
+            zoomControl: false,
+            attributionControl: false,
+            fadeAnimation: true,
+            zoomAnimation: true
+        });
+
+        // Custom tile layer with base styling
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '',
+            maxZoom: 18,
+            minZoom: 3
+        }).addTo(map);
+        
+        // Disable scroll zoom on map for better UX
+        map.scrollWheelZoom.disable();
+
+        // Define locations with their coordinates
+        const locations = {
+            india: {
+                name: 'India',
+                coordinates: [20.5937, 78.9629],
+                zoom: 4,
+                marker: null
+            },
+            usa: {
+                name: 'United States',
+                coordinates: [40.7128, -74.0060],
+                zoom: 3,
+                marker: null
+            },
+            malaysia: {
+                name: 'Malaysia',
+                coordinates: [3.1390, 101.6869],
+                zoom: 5,
+                marker: null
+            }
+        };
+
+        // Create custom marker icon
+        const createMarkerIcon = (isActive = true) => {
+            return L.divIcon({
+                className: 'custom-div-icon',
+                html: `<div style="
+                    background-color: ${isActive ? '#1E9B6F' : '#6B7280'};
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    border: 3px solid white;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                    transition: all 0.3s ease;
+                "></div>`,
+                iconSize: [16, 16],
+                iconAnchor: [8, 8]
+            });
+        };
+
+        // Add markers for each location
+        Object.keys(locations).forEach(key => {
+            const loc = locations[key];
+            loc.marker = L.marker(loc.coordinates, {
+                icon: createMarkerIcon(key === 'india')
+            }).addTo(map);
+            
+            // Add popup with location name
+            loc.marker.bindPopup(`
+                <div style="font-weight: 600; color: #111827; padding: 4px 8px;">
+                    ${loc.name}
+                </div>
+            `);
+        });
+
+        // Function to update map view and markers
+        function updateMapView(country) {
+            const loc = locations[country];
+            if (!loc) return;
+
+            // Update marker colors
+            Object.keys(locations).forEach(key => {
+                const marker = locations[key].marker;
+                if (marker) {
+                    const isActive = key === country;
+                    marker.setIcon(createMarkerIcon(isActive));
+                }
+            });
+
+            // Fly to location with smooth animation
+            map.flyTo(loc.coordinates, loc.zoom, {
+                duration: 1.2,
+                easeLinearity: 0.25
+            });
+        }
+
+        // Handle radio button changes
+        document.querySelectorAll('input[name="countrySelect"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.checked) {
+                    updateMapView(this.value);
+                    
+                    // Update active state on location cards
+                    document.querySelectorAll('.location-card').forEach(card => {
+                        const cardId = card.id;
+                        const country = cardId.replace('card-', '');
+                        
+                        if (country === this.value) {
+                            card.classList.add('active-location');
+                            card.querySelector('.line-indicator').classList.remove('hidden');
+                        } else {
+                            card.classList.remove('active-location');
+                            card.querySelector('.line-indicator').classList.add('hidden');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Handle "View on Map" button clicks
+        document.querySelectorAll('.view-map-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const card = this.closest('.location-card');
+                if (!card) return;
+                
+                const cardId = card.id;
+                const country = cardId.replace('card-', '');
+                
+                // Find and click the corresponding radio button
+                document.querySelectorAll('input[name="countrySelect"]').forEach(radio => {
+                    if (radio.value === country) {
+                        radio.checked = true;
+                        radio.dispatchEvent(new Event('change'));
+                    }
+                });
+            });
+        });
+
+        // Wait a moment then trigger initial view
+        setTimeout(() => {
+            const defaultRadio = document.querySelector('input[name="countrySelect"][checked]');
+            if (defaultRadio) {
+                defaultRadio.dispatchEvent(new Event('change'));
+            }
+        }, 100);
+    }
+});
+</script>
+<!-- Head mein add karein -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <main>
 
     <section class="relative overflow-hidden hero-gradient overflow-hidden py-12 md:py-16 lg:py-20">
@@ -376,103 +641,199 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
     {# ========== COVERAGE SECTION ========== #}
     <!-- OPERATIONAL VISIBILITY ACROSS INDIA -->
-<section class="py-10" aria-labelledby="coverage-heading">
-    <div class="max-w-7xl mx-auto px-6">
+<section class="coverage-section   py-0 px-4 sm:px-6 lg:px-8 font-sans">
+    <div class="max-w-7xl mx-auto p-6 md:p-8">
 
-        <div
-            class="bg-greenish-white rounded-3xl border border-slate-100 shadow-xl p-6 sm:p-8 md:p-10 lg:p-12 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative overflow-hidden">
+        <!-- Top Header -->
+        <div class="text-center mb-6">
+            <span class="inline-block px-4 py-1 bg-[#E8F5E9] text-[#1E9B6F] text-[11px] font-bold uppercase tracking-wider rounded-full mb-2">
+                Our Coverage
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight">
+                Across <span class="text-[#1E9B6F]">India & Beyond</span>
+            </h2>
+            <p class="text-gray-500 text-xs sm:text-sm mt-1.5">
+                A strong network of engineers & vendors in every major city.
+            </p>
+            <p class="text-gray-400 text-[11px] mt-0.5">
+                We are where you need us.
+            </p>
+            <div class="w-10 h-0.5 bg-[#1E9B6F]/30 mx-auto mt-2.5 rounded-full"></div>
+        </div>
 
-            <!-- Left Content -->
-            <div class="lg:col-span-4">
-                <h2 id="coverage-heading"
-                    class="text-xl sm:text-2xl md:text-3xl font-extrabold text-dark-black tracking-tight mb-3">
-                    Operational Visibility Across India
-                </h2>
+        <!-- Main Content Area (Stats + Map) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            
+            <!-- Left Side Stats Cards (Compact height & pure white background) -->
+           <!-- Left Side Stats Cards (Narrower width & larger icons) -->
+<div class="lg:col-span-3 flex flex-col justify-between gap-3">
+    
+    <!-- Stat Card 1 -->
+   <div class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer">
+    <!-- Circle size w-14 h-14 same hai -->
+    <div class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
+        <span class="material-symbols-outlined text-[38px]">groups</span>
+    </div>
+    <div>
+        <h3 class="text-lg font-bold text-gray-900  leading-tight">15,000+</h3>
+        <p class="text-[11px] text-gray-500 font-medium mt-0.5">Certified Engineers</p>
+    </div>
+</div>
 
-                <p class="text-sm sm:text-base text-light-black mb-8">
-                    Manage operations in every corner of the country.
-                </p>
+    <!-- Stat Card 2 -->
+    <div class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl border border-gray-200 shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer" style="background: transparent !important;">
+        <div class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
+            <span class="material-symbols-outlined text-4xl">verified</span>
+        </div>
+        <div>
+            <h3 class="text-xl font-extrabold text-gray-900 leading-tight">350+</h3>
+            <p class="text-xs text-gray-500 font-medium mt-0.5">Verified Vendors</p>
+        </div>
+    </div>
 
-                <div class="space-y-5">
+    <!-- Stat Card 3 -->
+    <div class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl border border-gray-200 shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer" style="background: transparent !important;">
+        <div class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
+            <span class="material-symbols-outlined text-4xl">apartment</span>
+        </div>
+        <div>
+            <h3 class="text-xl font-extrabold text-gray-900 leading-tight">120+</h3>
+            <p class="text-xs text-gray-500 font-medium mt-0.5">Cities Covered</p>
+        </div>
+    </div>
 
-                    <!-- 350+ Cities -->
-                    <div class="flex items-start gap-4">
-                        <div
-                            class="w-10 h-10 bg-sage-green1 text-emerald-teal rounded-xl flex items-center justify-center shrink-0">
-                            <span class="material-symbols-outlined text-[26px]">
-                                location_on
-                            </span>
-                        </div>
+</div>
 
-                        <div>
-                            <h3 class="text-base font-bold text-dark-black">
-                                350+ Cities
-                            </h3>
+            <!-- Right Side Interactive Map -->
+          <div class="lg:col-span-9 bg-white p-0 rounded-2xl border border-gray-100 shadow-sm relative h-full min-h-[380px] flex flex-col justify-between overflow-hidden">
+    
+    <!-- Leaflet Container (Expanded to fill full height, no white space) -->
+    <div id="coverageMap" class="w-full h-full min-h-[380px] rounded-2xl z-10"></div>
 
-                            <p class="text-sm text-light-black mt-1 leading-relaxed">
-                                Strong presence across metros and tier-2 cities.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- 15,000+ Vendors -->
-                    <div class="flex items-start gap-4">
-                        <div
-                            class="w-10 h-10 bg-sage-green1 text-emerald-teal rounded-xl flex items-center justify-center shrink-0">
-                            <span class="material-symbols-outlined text-[26px]">
-                                groups
-                            </span>
-                        </div>
-
-                        <div>
-                            <h3 class="text-base font-bold text-dark-black">
-                                15,000+ Vendors
-                            </h3>
-
-                            <p class="text-sm text-light-black mt-1 leading-relaxed">
-                                Trusted partners across India.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- 99.5% SLA -->
-                    <div class="flex items-start gap-4">
-                        <div
-                            class="w-10 h-10 bg-sage-green1 text-emerald-teal rounded-xl flex items-center justify-center shrink-0">
-                            <span class="material-symbols-outlined text-[26px]">
-                                local_police
-                            </span>
-                        </div>
-
-                        <div>
-                            <h3 class="text-base font-bold text-dark-black">
-                                99.5% SLA
-                            </h3>
-
-                            <p class="text-sm text-light-black mt-1 leading-relaxed">
-                                Commitment to quality and on-time delivery.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Right Content -->
-            <div
-                class="lg:col-span-8 flex items-center justify-center min-h-[300px] md:min-h-[420px]">
-
-                <div class="w-full max-w-[500px]">
-                    <img src="{% static 'img/indiamap.png' %}"
-                        alt="Map of India showing Field Engage operational coverage across 350+ cities"
-                        class="w-full h-auto object-contain opacity-90 mix-blend-multiply"
-                        loading="lazy"
-                        decoding="async">
-                </div>
-
-            </div>
+    <!-- Map Radio Selection Bar (Floating over the map at bottom) -->
+    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 bg-white/95 backdrop-blur-md py-2.5 px-6 rounded-full border border-gray-100 shadow-md flex items-center justify-center gap-6 text-sm text-gray-700">
+        <label class="flex items-center gap-2 cursor-pointer font-medium">
+            <input type="radio" name="countrySelect" value="usa" checked class="accent-[#1E9B6F] w-4 h-4">
+            <span>United States</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer font-medium">
+            <input type="radio" name="countrySelect" value="india" class="accent-[#1E9B6F] w-4 h-4">
+            <span>India</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer font-medium">
+            <input type="radio" name="countrySelect" value="malaysia" class="accent-[#1E9B6F] w-4 h-4">
+            <span>Malaysia</span>
+        </label>
+    </div>
+</div>
 
         </div>
+
+        <!-- Bottom Location Info Cards -->
+     <!-- Bottom Location Info Cards (Constrained width to match design) -->
+<!-- Bottom Location Info Cards (Aligned perfectly to the left grid edge) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8 w-full">
+    
+    <!-- Location 1: United States -->
+    <div id="card-usa" class="location-card bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm relative transition-all duration-300 overflow-hidden active-location group cursor-pointer">
+        <!-- Left-Side Green Vertical Line -->
+        <div class="line-indicator absolute top-0 left-0 bottom-0 w-1.5 bg-[#1E9B6F] rounded-l-2xl"></div>
+        
+        <div class="flex items-center justify-between mb-3 mt-0.5 pl-1.5">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-full bg-[#1E9B6F] flex items-center justify-center text-white shrink-0">
+                    <span class="material-symbols-outlined text-lg">apartment</span>
+                </div>
+                <h4 class="font-bold text-gray-900 text-base">United States</h4>
+            </div>
+            <button class="view-map-btn text-[11px] font-semibold text-[#1E9B6F] cursor-pointer  flex items-center gap-0.5 border border-gray-300 rounded-lg p-1">
+                <span class="material-symbols-outlined text-xs">location_on</span> View on Map
+            </button>
+        </div>
+
+        <p class="text-xs text-gray-500 flex items-start gap-1.5 mb-5 leading-relaxed pl-1.5 min-h-[36px]">
+            <span class="material-symbols-outlined text-sm text-[#1E9B6F] shrink-0 mt-0.5">location_on</span>
+            <span>218-10, Hillside Ave, Queens Village, New York, USA, 11427.</span>
+        </p>
+
+        <div class="border-t border-gray-100 pt-3 flex items-center justify-between text-[11px] text-gray-500 font-medium pl-1.5">
+            <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">call</span> +1 646 600 0123
+            </span>
+            <span class="text-gray-200">|</span>
+            <a href="mailto:hello@fieldengineer.com" class="flex items-center gap-1 hover:text-[#1E9B6F]">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">mail</span> hello@fieldengineer.com
+            </a>
+        </div>
+    </div>
+
+    <!-- Location 2: India -->
+    <div id="card-india" class="location-card bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm relative transition-all duration-300 overflow-hidden group cursor-pointer">
+        <!-- Left-Side Green Vertical Line -->
+        <div class="line-indicator absolute top-0 left-0 bottom-0 w-1.5 bg-[#1E9B6F] rounded-l-2xl hidden"></div>
+        
+        <div class="flex items-center justify-between mb-3 mt-0.5 pl-1.5">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-full bg-[#1E9B6F] flex items-center justify-center text-white shrink-0">
+                    <span class="material-symbols-outlined text-lg">apartment</span>
+                </div>
+                <h4 class="font-bold text-gray-900 text-base">India</h4>
+            </div>
+            <button class="view-map-btn text-[11px] font-semibold text-[#1E9B6F] cursor-pointer  flex items-center gap-0.5 border border-gray-300 rounded-lg p-1">
+                <span class="material-symbols-outlined text-xs">location_on</span> View on Map
+            </button>
+        </div>
+
+        <p class="text-xs text-gray-500 flex items-start gap-1.5 mb-5 leading-relaxed pl-1.5 min-h-[36px]">
+            <span class="material-symbols-outlined text-sm text-[#1E9B6F] shrink-0 mt-0.5">location_on</span>
+            <span>3102, 1st Floor, Rustomjee Eaze Zone, Sundar Nagar, Malad West – Mumbai 400064, MH - IN</span>
+        </p>
+
+        <div class="border-t border-gray-100 pt-3 flex items-center justify-between text-[11px] text-gray-500 font-medium pl-1.5">
+            <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">call</span> +91 99679 40928
+            </span>
+            <span class="text-gray-200">|</span>
+            <a href="mailto:hello@fieldengineer.com" class="flex items-center gap-1 hover:text-[#1E9B6F]">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">mail</span> hello@fieldengineer.com
+            </a>
+        </div>
+    </div>
+
+    <!-- Location 3: Malaysia -->
+    <div id="card-malaysia" class="location-card bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm relative transition-all duration-300 overflow-hidden group cursor-pointer">
+        <!-- Left-Side Green Vertical Line -->
+        <div class="line-indicator absolute top-0 left-0 bottom-0 w-1.5 bg-[#1E9B6F] rounded-l-2xl hidden"></div>
+        
+        <div class="flex items-center justify-between mb-3 mt-0.5 pl-1.5">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-full bg-[#1E9B6F] flex items-center justify-center text-white shrink-0">
+                    <span class="material-symbols-outlined text-lg">apartment</span>
+                </div>
+                <h4 class="font-bold text-gray-900 text-base">Malaysia</h4>
+            </div>
+            <button class="view-map-btn text-[11px] font-semibold text-[#1E9B6F] cursor-pointer flex items-center gap-0.5 border border-gray-300 rounded-lg p-1">
+                <span class="material-symbols-outlined text-xs">location_on</span> View on Map
+            </button>
+        </div>
+
+        <p class="text-xs text-gray-500 flex items-start gap-1.5 mb-5 leading-relaxed pl-1.5 min-h-[36px]">
+            <span class="material-symbols-outlined text-sm text-[#1E9B6F] shrink-0 mt-0.5">location_on</span>
+            <span>M116, Jalan Mega Mendung, Off Jalan Klang Lama, 58200, Kuala Lumpur, Malaysia.</span>
+        </p>
+
+        <div class="border-t border-gray-100 pt-3 flex items-center justify-between text-[11px] text-gray-500 font-medium pl-1.5">
+            <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">call</span> +60 1466 00012
+            </span>
+            <span class="text-gray-200">|</span>
+            <a href="mailto:hello@fieldengineer.com" class="flex items-center gap-1 hover:text-[#1E9B6F]">
+                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">mail</span> hello@fieldengineer.com
+            </a>
+        </div>
+    </div>
+
+</div>
 
     </div>
 </section>
