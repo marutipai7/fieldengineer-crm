@@ -21,8 +21,14 @@
     </section>
 
     {# ========== HERO SECTION ========== #}
-    <section class="relative overflow-hidden bg-help-center-bg" aria-labelledby="help-hero-title">
-
+    <section
+    class="relative overflow-hidden"
+    style="background:
+        radial-gradient(circle at 12% 25%, rgba(255,239,170,.85) 0%, transparent 35%),
+        radial-gradient(circle at 88% 20%, rgba(213,239,173,.80) 0%, transparent 38%),
+        radial-gradient(circle at 55% 65%, rgba(236,245,194,.75) 0%, transparent 45%),
+        linear-gradient(90deg, #FFFDF5 0%, #F8F9DF 45%, #EAF5D3 100%);"
+    aria-labelledby="help-hero-title">
         <div class="absolute inset-0 opacity-20" aria-hidden="true">
             <div
                 class="absolute inset-0 bg-[radial-gradient(circle_at_center,#2563EB_1px,transparent_1px)] bg-[size:40px_40px]">
@@ -34,10 +40,11 @@
             <div class="grid lg:grid-cols-2 items-center gap-10">
 
                 <div>
-                    <p class="text-label font-bold uppercase tracking-wide text-emerald-teal mb-4">HELP CENTER</p>
-                    <h1 id="help-hero-title" class="text-h1 font-bold text-white leading-[1.1]">How can we help you?
+                   <p class="text-label font-bold uppercase tracking-wide text-emerald-teal mb-4">HELP CENTER</p>
+                    <h1 id="help-hero-title"
+    class="text-h1 font-bold text-deep-indigo leading-[1.1]">How can we help you?
                     </h1>
-                    <p class="mt-5 text-b1 text-white/80 max-w-lg">
+                    <p class="mt-5 text-b1 text-light-black max-w-lg">
                         Find answers, guides and support for all things related to Field Engineer platform.
                     </p>
 
@@ -56,20 +63,20 @@
 
                     {# Popular Searches #}
                     <div class="mt-6 flex flex-wrap items-center gap-3">
-                        <span class="text-b3 text-white/80">Popular Searches:</span>
+                        <span class="text-b3 text-light-black">Popular Searches:</span>
                         <a href="#"
-                            class="px-4 py-2 rounded-full border border-white/20 text-white text-b3 hover:bg-white/10">Track
+                            class="px-4 py-2 rounded-full border border-slate-300 text-dark-black text-b3 bg-white hover:bg-slate-50 transition">Track
                             Booking</a>
                         <a href="#"
-                            class="px-4 py-2 rounded-full border border-white/20 text-white text-b3 hover:bg-white/10">Engineer
+                            class="px-4 py-2 rounded-full border border-slate-300 text-dark-black text-b3 bg-white hover:bg-slate-50 transition">Engineer
                             App</a>
                         <a href="#"
-                            class="px-4 py-2 rounded-full border border-white/20 text-white text-b3 hover:bg-white/10">Invoices</a>
+                            class="px-4 py-2 rounded-full border border-slate-300 text-dark-black text-b3 bg-white hover:bg-slate-50 transition">Invoices</a>
                         <a href="#"
-                            class="px-4 py-2 rounded-full border border-white/20 text-white text-b3 hover:bg-white/10">Work
+                           class="px-4 py-2 rounded-full border border-slate-300 text-dark-black text-b3 bg-white hover:bg-slate-50 transition">Work
                             Reports</a>
                         <a href="#"
-                            class="px-4 py-2 rounded-full border border-white/20 text-white text-b3 hover:bg-white/10">Vendor
+                            class="px-4 py-2 rounded-full border border-slate-300 text-dark-black text-b3 bg-white hover:bg-slate-50 transition">Vendor
                             Registration</a>
                     </div>
                 </div>
@@ -94,8 +101,11 @@
     </section>
 
     {# ========== BROWSE BY CATEGORY ========== #}
-    <section class="py-12 bg-white" aria-labelledby="categories-heading">
-        <div class="max-w-7xl mx-auto px-6">
+
+<div class="bg-[#F7FCF8] min-h-screen">
+
+    <section class="py-12" aria-labelledby="categories-heading">
+        <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
 
             <div class="text-center mb-10">
                 <h2 id="categories-heading" class="text-h3 font-semibold text-black">Browse by Category</h2>
@@ -106,10 +116,14 @@
                 {# Card 1 #}
                 <article
                     class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                    <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
-                        aria-hidden="true">
-                        <span class="material-symbols-outlined text-white text-[32px]">groups</span>
-                    </div>
+                  <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
+    aria-hidden="true">
+    <span
+        class="material-symbols-outlined text-white !text-[42px]"
+        style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">
+        groups
+    </span>
+</div>
                     <h3 class="mt-5 text-s2 font-bold text-deep-indigo">For Customers</h3>
                     <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Manage service requests, track jobs, view reports, invoices, and more.</p>
                     <a href="#"
@@ -122,10 +136,15 @@
                 {# Card 2 #}
                 <article
                     class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                    <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
-                        aria-hidden="true">
-                        <span class="material-symbols-outlined text-white text-[32px]">engineering</span>
-                    </div>
+                   <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
+    aria-hidden="true">
+    <span
+    class="material-symbols-outlined text-white !text-[42px]"
+    style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">
+    engineering
+</span>
+
+</div>
                     <h3 class="mt-5 text-s2 font-bold text-deep-indigo">For Engineers</h3>
                     <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Find projects, manage your work, track earnings, and get app support.</p>
                     <a href="#"
@@ -139,9 +158,14 @@
                 <article
                     class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
-                        aria-hidden="true">
-                        <span class="material-symbols-outlined text-white text-[32px]">store</span>
-                    </div>
+    aria-hidden="true">
+    <span
+    class="material-symbols-outlined text-white !text-[42px]"
+    style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">
+    store
+</span>
+
+</div>
                     <h3 class="mt-5 text-s2 font-bold text-deep-indigo">For Vendors</h3>
                     <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Learn about registration, service areas, payments, and your dashboard.</p>
                     <a href="#"
@@ -155,9 +179,13 @@
                 <article
                     class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
-                        aria-hidden="true">
-                        <span class="material-symbols-outlined text-white text-[32px]">receipt_long</span>
-                    </div>
+    aria-hidden="true">
+    <span
+    class="material-symbols-outlined text-white !text-[42px]"
+    style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">
+    receipt_long
+</span>
+</div>
                     <h3 class="mt-5 text-s2 font-bold text-deep-indigo">Billing &amp; Payments</h3>
                     <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Get help with invoices, payments, refunds, and tax-related questions.</p>
                     <a href="#"
@@ -171,9 +199,13 @@
                 <article
                     class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
-                        aria-hidden="true">
-                        <span class="material-symbols-outlined text-white text-[32px]">shield</span>
-                    </div>
+    aria-hidden="true">
+   <span
+    class="material-symbols-outlined text-white !text-[42px]"
+    style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">
+    shield
+</span>
+</div>
                     <h3 class="mt-5 text-s2 font-bold text-deep-indigo">Account &amp; Security</h3>
                     <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Manage your account, passwords, login, and security settings.</p>
                     <a href="#"
@@ -187,9 +219,14 @@
                 <article
                     class="bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                     <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
-                        aria-hidden="true">
-                        <span class="material-symbols-outlined text-white text-[32px]">settings</span>
-                    </div>
+    aria-hidden="true">
+   
+<span
+    class="material-symbols-outlined text-white !text-[42px]"
+    style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">
+    settings
+</span>
+</div>
                     <h3 class="mt-5 text-s2 font-bold text-deep-indigo">Technical Support</h3>
                     <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Get help with platform issues, errors, and using platform features.</p>
                     <a href="#"
@@ -206,8 +243,7 @@
 
     {# ========== POPULAR ARTICLES ========== #}
     <section class="py-6 bg-white" aria-labelledby="popular-heading">
-        <div class="max-w-7xl mx-auto px-6">
-
+        <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
             <div class="grid lg:grid-cols-[2fr_0.9fr] gap-3">
 
                 {# LEFT SIDE #}
@@ -326,30 +362,48 @@
                     </div>
 
                     {# Bottom Banner #}
-                    <div
-                        class="mt-5 bg-very-light-soft-blue1 border border-cool-gray-blue rounded-2xl p-5 flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div class="flex items-center gap-4">
-                            <div class="h-14 w-14 rounded-full bg-green-100 flex items-center justify-center"
-                                aria-hidden="true">
-                                <span class="material-symbols-outlined text-bright-blue">lightbulb</span>
-                            </div>
-                            <div>
-                                <h3 class="text-s2 font-bold ">Can't find what you're looking for?</h3>
-                                <p class="text-b3 text-slate-gray mt-1">Our support team is here to help you with any
-                                    questions or issues.</p>
-                            </div>
-                        </div>
-                        <a href="{% url 'contact' %}">
-                            <button
-                                class="btn bg-bright-yellow text-black hover:opacity-90 transition-opacity btn-md inline-flex rounded-md">
-                                Contact Support
-                                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">
-                                    arrow_forward
-                                </span>
-                            </button>
-                        </a>
-                    </div>
+                   <div
+    class="mt-5 bg-greenish-white border border-sage-green1 rounded-2xl p-5 flex flex-col md:flex-row items-center justify-between gap-4">
 
+    <!-- Left Content -->
+    <div class="flex items-center gap-4">
+
+        <!-- Icon -->
+        <div class="h-14 w-14 rounded-full bg-white shadow-sm flex items-center justify-center"
+            aria-hidden="true">
+            <span class="material-symbols-outlined text-emerald-teal text-[32px]">
+                lightbulb
+            </span>
+        </div>
+
+        <!-- Text -->
+        <div>
+            <h3 class="text-s2 font-bold text-dark-black">
+                Can't find what you're looking for?
+            </h3>
+
+            <p class="text-b3 text-light-black mt-1">
+                Our support team is here to help you with any questions or issues.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Button -->
+    <a href="{% url 'contact' %}">
+        <button
+            class="inline-flex items-center gap-2 bg-amber-orange1 text-white font-semibold px-6 py-3 rounded-xl shadow-sm hover:opacity-90 transition-all duration-300">
+
+            Contact Support
+
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">
+                arrow_forward
+            </span>
+
+        </button>
+    </a>
+
+</div>
                 </div>
 
                 {# RIGHT SIDE #}
@@ -482,7 +536,7 @@
 
     {# ========== WHY CUSTOMERS LOVE OUR SUPPORT ========== #}
     <section class="py-5" aria-labelledby="love-heading">
-        <div class="max-w-7xl mx-auto px-6">
+       <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
             <div class="bg-help-center-text border border-cool-gray-blue rounded-3xl p-6">
                 <h2 id="love-heading" class="text-center text-s1 font-bold text-black mb-6">Why Customers Love Our
                     Support</h2>
@@ -537,7 +591,7 @@
             </div>
         </div>
     </section>
-
+</div>
 </main>
 
 {% endblock %}
