@@ -17,11 +17,14 @@ def home_2(request):
     return render(request, 'pages/home-2.html')
 
 
-def fieldengineer(request):
-    return render(request, 'fieldengineer/fieldengineer.html')
+def engineer(request):
+    return render(request, 'engineer/engineer.html')
 
 def customer(request):
     return render(request, 'customer/customer.html')
+
+def how_it_works(request):
+    return render(request, 'how-it-works/how-it-works.html')
 
 
 def vendor(request):
@@ -213,9 +216,6 @@ Submitted At: {contact.created_at.strftime('%Y-%m-%d %H:%M:%S')}
 
 def profile(request):
     return render(request, 'fieldengineer-crm/profile.html')
-
-def how_it_works(request):
-    return render(request, 'vendor/how-it-works.html')
 
 
 @require_POST

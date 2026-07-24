@@ -5,7 +5,7 @@ from .views import (
     blogs,
     careers,
     contact,
-    fieldengineer,
+    engineer,
     help_center,
     help_center_2,
     home,
@@ -27,7 +27,7 @@ from .views import (
 urlpatterns = [
     path('', home, name='home'),
     path('home-2/', home_2, name='home_2'),
-    path('fieldengineer/', fieldengineer, name='fieldengineer'),
+    path('engineer/', engineer, name='engineer'),
     path('vendor/', vendor, name='vendor'),
     path('about-fe/', about_fe, name='about_fe'),
     path('careers/', careers, name='careers'),
@@ -42,8 +42,8 @@ urlpatterns = [
     path('term-condition/', term_condition, name='term_condition'),
     path('profile/', profile, name='profile'),
     path('customer-contactus/', customer_contactus, name='customer_contactus'),
-    path('vendor/how-it-works/', how_it_works, name='how_it_works'),
-    path('customer/customer/', customer, name='customer'),
+    path('how-it-works/', how_it_works, name='how_it_works'),
+    path('customer/', customer, name='customer'),
     path('stay-updated-subscribe/', stay_updated_subscribe, name='stay_updated_subscribe'),
     path('sales-enquiry/', sales_enquiry_submit, name='sales_enquiry_submit'),
 ]
