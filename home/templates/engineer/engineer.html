@@ -3,44 +3,6 @@
 
 {% block title %}FieldEngineer — Deploy Certified Engineers Anywhere in India{% endblock %}
 
-{# ===== SEO ADDITIONS: extra_head block ===== #}
-{% block extra_head %}
-<!-- Meta Description & Open Graph -->
-<meta name="description"
-    content="Join FieldEngineer network - find field service opportunities, manage projects, and grow your career. Trusted by 15K+ engineers. Apply now!">
-<meta property="og:title" content="FieldEngineer — Deploy Certified Engineers Anywhere in India">
-<meta property="og:description"
-    content="Join our network of skilled field engineers. Access quality opportunities, flexible schedule, transparent earnings, and professional growth.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ request.build_absolute_uri }}">
-<meta property="og:image" content="{% static 'img/powerful-tools.png' %}">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FieldEngineer — Deploy Certified Engineers Anywhere in India">
-<meta name="twitter:description"
-    content="Join our network of skilled field engineers. Access quality opportunities, flexible schedule, transparent earnings, and professional growth.">
-<meta name="twitter:image" content="{% static 'img/powerful-tools.png' %}">
-<link rel="canonical" href="{{ request.build_absolute_uri }}">
-
-<!-- Preconnect to Google Fonts (used by Material Symbols) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Structured Data (JSON‑LD) -->
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "FieldEngineer — Deploy Certified Engineers Anywhere in India",
-      "description": "Join a network of skilled field professionals, discover service opportunities, manage assignments, and build your reputation while earning on your schedule.",
-      "url": "{{ request.build_absolute_uri }}",
-      "about": {
-        "@type": "Organization",
-        "name": "FieldEngineer",
-        "description": "Platform connecting skilled field engineers with service opportunities across India."
-      }
-    }
-    </script>
-{% endblock %}
 
 {% block content %}
 

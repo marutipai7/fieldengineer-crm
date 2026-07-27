@@ -10,15 +10,6 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 {# Main content wrapper #}
 
 <style>
-    /* Coverage Section Styles */
-.coverage-section {
-    /* Inline styles from the section tag */
-}
-
-/* Stat Cards - using Tailwind classes */
-.stat-card {
-    /* Classes used: !bg-transparent, py-3, px-3.5, rounded-2xl, shadow-none, flex, items-center, gap-3, relative, overflow-hidden, transition-all, duration-300, group, cursor-pointer */
-}
 
 /* Map Container */
 #coverageMap {
@@ -27,15 +18,6 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
     min-height: 380px;
     border-radius: 16px;
     z-index: 10;
-}
-
-/* Location Cards */
-.location-card {
-    /* Classes used: bg-white, rounded-2xl, p-4, sm:p-5, border, border-gray-100, shadow-sm, relative, transition-all, duration-300, overflow-hidden, group, cursor-pointer */
-}
-
-.location-card.active-location {
-    /* Active state for the default USA card */
 }
 
 .line-indicator {
@@ -114,165 +96,8 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
     }
 }
 </style>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-    
-    // Initialize the map if Leaflet is available
-    if (typeof L !== 'undefined') {
-        // Initialize map centered on India (default)
-        const map = L.map('coverageMap', {
-            center: [20.5937, 78.9629],
-            zoom: 4,
-            zoomControl: false,
-            attributionControl: false,
-            fadeAnimation: true,
-            zoomAnimation: true
-        });
-
-        // Custom tile layer with base styling
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '',
-            maxZoom: 18,
-            minZoom: 3
-        }).addTo(map);
-        
-        // Disable scroll zoom on map for better UX
-        map.scrollWheelZoom.disable();
-
-        // Define locations with their coordinates
-        const locations = {
-            india: {
-                name: 'India',
-                coordinates: [20.5937, 78.9629],
-                zoom: 4,
-                marker: null
-            },
-            usa: {
-                name: 'United States',
-                coordinates: [40.7128, -74.0060],
-                zoom: 3,
-                marker: null
-            },
-            malaysia: {
-                name: 'Malaysia',
-                coordinates: [3.1390, 101.6869],
-                zoom: 5,
-                marker: null
-            }
-        };
-
-        // Create custom marker icon
-        const createMarkerIcon = (isActive = true) => {
-            return L.divIcon({
-                className: 'custom-div-icon',
-                html: `<div style="
-                    background-color: ${isActive ? '#1E9B6F' : '#6B7280'};
-                    width: 16px;
-                    height: 16px;
-                    border-radius: 50%;
-                    border: 3px solid white;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-                    transition: all 0.3s ease;
-                "></div>`,
-                iconSize: [16, 16],
-                iconAnchor: [8, 8]
-            });
-        };
-
-        // Add markers for each location
-        Object.keys(locations).forEach(key => {
-            const loc = locations[key];
-            loc.marker = L.marker(loc.coordinates, {
-                icon: createMarkerIcon(key === 'india')
-            }).addTo(map);
-            
-            // Add popup with location name
-            loc.marker.bindPopup(`
-                <div style="font-weight: 600; color: #111827; padding: 4px 8px;">
-                    ${loc.name}
-                </div>
-            `);
-        });
-
-        // Function to update map view and markers
-        function updateMapView(country) {
-            const loc = locations[country];
-            if (!loc) return;
-
-            // Update marker colors
-            Object.keys(locations).forEach(key => {
-                const marker = locations[key].marker;
-                if (marker) {
-                    const isActive = key === country;
-                    marker.setIcon(createMarkerIcon(isActive));
-                }
-            });
-
-            // Fly to location with smooth animation
-            map.flyTo(loc.coordinates, loc.zoom, {
-                duration: 1.2,
-                easeLinearity: 0.25
-            });
-        }
-
-        // Handle radio button changes
-        document.querySelectorAll('input[name="countrySelect"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                if (this.checked) {
-                    updateMapView(this.value);
-                    
-                    // Update active state on location cards
-                    document.querySelectorAll('.location-card').forEach(card => {
-                        const cardId = card.id;
-                        const country = cardId.replace('card-', '');
-                        
-                        if (country === this.value) {
-                            card.classList.add('active-location');
-                            card.querySelector('.line-indicator').classList.remove('hidden');
-                        } else {
-                            card.classList.remove('active-location');
-                            card.querySelector('.line-indicator').classList.add('hidden');
-                        }
-                    });
-                }
-            });
-        });
-
-        // Handle "View on Map" button clicks
-        document.querySelectorAll('.view-map-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const card = this.closest('.location-card');
-                if (!card) return;
-                
-                const cardId = card.id;
-                const country = cardId.replace('card-', '');
-                
-                // Find and click the corresponding radio button
-                document.querySelectorAll('input[name="countrySelect"]').forEach(radio => {
-                    if (radio.value === country) {
-                        radio.checked = true;
-                        radio.dispatchEvent(new Event('change'));
-                    }
-                });
-            });
-        });
-
-        // Wait a moment then trigger initial view
-        setTimeout(() => {
-            const defaultRadio = document.querySelector('input[name="countrySelect"][checked]');
-            if (defaultRadio) {
-                defaultRadio.dispatchEvent(new Event('change'));
-            }
-        }, 100);
-    }
-});
-</script>
 <!-- Head mein add karein -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <main>
 
     <section class="relative overflow-hidden hero-gradient overflow-hidden py-12 md:py-16 lg:py-20">
@@ -1060,6 +885,8 @@ checklist
 </div>
 </main>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <script defer>
     // Tab switching
     document.querySelectorAll('.tab-link').forEach(link => {
@@ -1145,6 +972,160 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+    document.addEventListener("DOMContentLoaded", function() {
+    
+    // Initialize the map if Leaflet is available
+    if (typeof L !== 'undefined') {
+        // Initialize map centered on India (default)
+        const map = L.map('coverageMap', {
+            center: [20.5937, 78.9629],
+            zoom: 4,
+            zoomControl: false,
+            attributionControl: false,
+            fadeAnimation: true,
+            zoomAnimation: true
+        });
+
+        // Custom tile layer with base styling
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '',
+            maxZoom: 18,
+            minZoom: 3
+        }).addTo(map);
+        
+        // Disable scroll zoom on map for better UX
+        map.scrollWheelZoom.disable();
+
+        // Define locations with their coordinates
+        const locations = {
+            india: {
+                name: 'India',
+                coordinates: [20.5937, 78.9629],
+                zoom: 4,
+                marker: null
+            },
+            usa: {
+                name: 'United States',
+                coordinates: [40.7128, -74.0060],
+                zoom: 3,
+                marker: null
+            },
+            malaysia: {
+                name: 'Malaysia',
+                coordinates: [3.1390, 101.6869],
+                zoom: 5,
+                marker: null
+            }
+        };
+
+        // Create custom marker icon
+        const createMarkerIcon = (isActive = true) => {
+            return L.divIcon({
+                className: 'custom-div-icon',
+                html: `<div style="
+                    background-color: ${isActive ? '#1E9B6F' : '#6B7280'};
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    border: 3px solid white;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                    transition: all 0.3s ease;
+                "></div>`,
+                iconSize: [16, 16],
+                iconAnchor: [8, 8]
+            });
+        };
+
+        // Add markers for each location
+        Object.keys(locations).forEach(key => {
+            const loc = locations[key];
+            loc.marker = L.marker(loc.coordinates, {
+                icon: createMarkerIcon(key === 'india')
+            }).addTo(map);
+            
+            // Add popup with location name
+            loc.marker.bindPopup(`
+                <div style="font-weight: 600; color: #111827; padding: 4px 8px;">
+                    ${loc.name}
+                </div>
+            `);
+        });
+
+        // Function to update map view and markers
+        function updateMapView(country) {
+            const loc = locations[country];
+            if (!loc) return;
+
+            // Update marker colors
+            Object.keys(locations).forEach(key => {
+                const marker = locations[key].marker;
+                if (marker) {
+                    const isActive = key === country;
+                    marker.setIcon(createMarkerIcon(isActive));
+                }
+            });
+
+            // Fly to location with smooth animation
+            map.flyTo(loc.coordinates, loc.zoom, {
+                duration: 1.2,
+                easeLinearity: 0.25
+            });
+        }
+
+        // Handle radio button changes
+        document.querySelectorAll('input[name="countrySelect"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.checked) {
+                    updateMapView(this.value);
+                    
+                    // Update active state on location cards
+                    document.querySelectorAll('.location-card').forEach(card => {
+                        const cardId = card.id;
+                        const country = cardId.replace('card-', '');
+                        
+                        if (country === this.value) {
+                            card.classList.add('active-location');
+                            card.querySelector('.line-indicator').classList.remove('hidden');
+                        } else {
+                            card.classList.remove('active-location');
+                            card.querySelector('.line-indicator').classList.add('hidden');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Handle "View on Map" button clicks
+        document.querySelectorAll('.view-map-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const card = this.closest('.location-card');
+                if (!card) return;
+                
+                const cardId = card.id;
+                const country = cardId.replace('card-', '');
+                
+                // Find and click the corresponding radio button
+                document.querySelectorAll('input[name="countrySelect"]').forEach(radio => {
+                    if (radio.value === country) {
+                        radio.checked = true;
+                        radio.dispatchEvent(new Event('change'));
+                    }
+                });
+            });
+        });
+
+        // Wait a moment then trigger initial view
+        setTimeout(() => {
+            const defaultRadio = document.querySelector('input[name="countrySelect"][checked]');
+            if (defaultRadio) {
+                defaultRadio.dispatchEvent(new Event('change'));
+            }
+        }, 100);
+    }
+});
 </script>
 
 {% endblock %}

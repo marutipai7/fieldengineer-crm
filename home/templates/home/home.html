@@ -3,52 +3,6 @@
 
 {% block title %}FieldEngineer — Deploy Certified Engineers Anywhere in India{% endblock %}
 
-{# ===== SEO ADDITIONS: extra_head block ===== #}
-{% block extra_head %}
-<!-- Meta Description & Open Graph -->
-<meta name="description"
-    content="Deploy certified field engineers across India. Network cabling, rack installation, server setup, CCTV, and smart hands – track live, get AI reports.">
-<meta property="og:title" content="FieldEngineer — Deploy Certified Engineers Anywhere in India">
-<meta property="og:description"
-    content="Book skilled field engineers for network, server, security, and infrastructure projects. Live tracking, AI reports, and verified vendors.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ request.build_absolute_uri }}">
-<meta property="og:image" content="{% static 'img/customer-herobg.svg' %}">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FieldEngineer — Deploy Certified Engineers Anywhere in India">
-<meta name="twitter:description"
-    content="Deploy certified field engineers across India. Live tracking, AI reports, and verified vendors.">
-<meta name="twitter:image" content="{% static 'img/customer-herobg.svg' %}">
-<link rel="canonical" href="{{ request.build_absolute_uri }}">
-
-<!-- Preconnect to Google Fonts (used by Material Symbols) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Structured Data (JSON‑LD) -->
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "FieldEngineer — Deploy Certified Engineers Anywhere in India",
-      "description": "Deploy certified field engineers across India. Network cabling, rack installation, server setup, CCTV, and smart hands – track live, get AI reports.",
-      "url": "{{ request.build_absolute_uri }}",
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.build_absolute_uri }}" }
-        ]
-      },
-      "about": {
-        "@type": "Organization",
-        "name": "FieldEngineer",
-        "description": "Platform for deploying certified field engineers and managing service requests across India.",
-        "url": "{{ request.build_absolute_uri }}"
-      }
-    }
-    </script>
-{% endblock %}
-
 {% block extra_css %}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
