@@ -22,7 +22,9 @@ from .views import (
     customer,
     stay_updated_subscribe,
     contact_submit,
-    sales_enquiry_submit
+    sales_enquiry_submit,
+    articles,
+    job_description
 )
 
 urlpatterns = [
@@ -48,4 +50,6 @@ urlpatterns = [
     path('customer/', customer, name='customer'),
     path('stay-updated-subscribe/', stay_updated_subscribe, name='stay_updated_subscribe'),
     path('sales-enquiry/', sales_enquiry_submit, name='sales_enquiry_submit'),
+    path('articles/', articles, name='articles'),
+    path('job-description/', job_description, name='job_description'),
 ]

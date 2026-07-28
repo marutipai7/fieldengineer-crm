@@ -6,7 +6,7 @@
     "@tailwindcss/cli": "^4.3.0"
   },
   "scripts": {
-    "tw:build": "npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css",
-    "tw:watch": "npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css --watch"
+    "tw:build": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css",
+    "tw:watch": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch"
   }
 }

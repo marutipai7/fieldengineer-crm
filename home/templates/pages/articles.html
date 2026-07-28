@@ -1,0 +1,494 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}Articles | FieldEngineer{% endblock %}
+
+{% block content %}
+    <main class="bg-[#F8FAF5]/40 min-h-screen">
+        {# ========== BREADCRUMB ========== #}
+        <section class="bg-white py-2" aria-label="Breadcrumb">
+            <div class="max-w-7xl mx-auto px-5 md:px-8 py-3 overflow-x-auto whitespace-nowrap">
+                <nav class="flex items-center gap-2 text-b3 text-slate-gray" aria-label="Breadcrumb">
+                    <a href="{% url 'help_center' %}" class="hover:text-bright-blue transition-colors">Help Center</a>
+                    <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+                    <a href="#" class="hover:text-bright-blue transition-colors">For Customers</a>
+                    <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+                    <span class="hover:text-bright-blue transition-colors" aria-current="page">Getting Started</span>
+                    <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+                    <span class="font-semibold text-deep-indigo" aria-current="page">How to Post Your First Job</span>
+                </nav>
+            </div>
+        </section>
+
+        {# ========== MAIN CONTENT GRID ========== #}
+        <div class="max-w-7xl mx-auto px-5 md:px-8 py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                {# ========== LEFT COLUMN: ARTICLE CONTENT ========== #}
+                <article class="lg:col-span-8">
+
+                    <div class="bg-white border border-slate-mist shadow-article p-6 md:px-8 md:py-8 rounded-2xl">
+                        {# Category & Reading Meta #}
+                        <div class="flex flex-col items-start gap-2 mb-2">
+                            <span class="bg-article-light-green border border-article-medium-green text-primary-green font-semibold text-label px-3 py-1 rounded-full tracking-wider">
+                                Getting Started
+                            </span>
+                            <div class="flex items-center gap-1.5 text-xs text-article-light-gray">
+                                <span class="material-symbols-outlined text-[16px]">schedule</span>
+                                <span>5 min read</span>
+                                <span class="text-slate-300">&bull;</span>
+                                <span>Updated 18 Jul 2026</span>
+                            </div>
+                        </div>
+
+                        {# Article Main Title #}
+                        <h1 class="text-xl md:text-4xl font-bold text-article-black leading-tight pb-6 border-b border-slate-mist">
+                            How to Post Your First Job on FE
+                        </h1>
+
+                        {# Author Widget #}
+                        <div class="flex items-center gap-3 pt-6">
+                            <div class="w-10 h-10 rounded-full bg-about-green flex items-center justify-center text-white font-medium text-sm shadow-sm">
+                                FE
+                            </div>
+                            <div>
+                                <p class="font-semibold text-article-black text-b3">FE Support Team</p>
+                                <p class="text-article-light-gray text-c1">Help Center</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-slate-mist shadow-article p-6 md:px-8 md:py-8 rounded-2xl mt-8">
+                        {# Intro Paragraph #}
+                        <div class="prose max-w-none text-b2 font-normal text-article-medium-gray leading-relaxed mb-8">
+                            <p>
+                                Posting your first job on FE &ndash; FieldEngineer is simple and takes less than 5 minutes. Once your request is live, verified field engineers in your area will review the details and submit their applications. This guide walks you through every step so you can get started with confidence.
+                            </p>
+                        </div>
+
+                        {# Section: What You'll Need #}
+                        <section id="what-you-need" class="mb-10 scroll-mt-24">
+                            <h2 class="text-xl font-bold text-article-black mb-4 border-b border-slate-mist pb-1">What You'll Need</h2>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-b2 text-article-medium-gray font-normal">
+                                    <img src="/static/img/tick-green.svg" alt="check">
+                                    <span>An active FE account (sign up free at fieldengineer.com)</span>
+                                </li>
+                                <li class="flex items-center gap-3 text-b2 text-article-medium-gray font-normal">
+                                    <img src="/static/img/tick-green.svg" alt="check">
+                                    <span>Your site address and contact person details</span>
+                                </li>
+                                <li class="flex items-center gap-3 text-b2 text-article-medium-gray font-normal">
+                                    <img src="/static/img/tick-green.svg" alt="check">
+                                    <span>A clear description of the work required and an approximate budget</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        {# Section: Step-by-Step #}
+                        <section id="step-by-step" class="mb-10 scroll-mt-24">
+                            <h2 class="text-xl font-bold text-article-black mb-4 border-b border-slate-mist pb-1">Step-by-Step: Posting Your Job</h2>
+                            <div class="space-y-6">
+                                {# Step 1 #}
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-7 h-7 rounded-full bg-primary-green text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                                        1
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-b2 font-bold text-article-black mb-1">Log in and go to your Dashboard</h3>
+                                        <p class="text-b2 text-article-medium-gray font-normal leading-relaxed">
+                                            Once logged in, navigate to your customer dashboard. You will see a prominent 'Post a Job' or 'Create New Request' button in the top action bar. Click it to begin the job creation flow.
+                                        </p>
+                                    </div>
+                                </div>
+                                {# Step 2 #}
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-7 h-7 rounded-full bg-primary-green text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                                        2
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-b2 font-bold text-article-black mb-1">Select a Service Category</h3>
+                                        <p class="text-b2 text-article-medium-gray font-normal leading-relaxed">
+                                            Choose the service category that best describes the work needed &mdash; for example, Electrical, Networking, HVAC, or Facility Management. Sub-categories help engineers understand the scope instantly and improve match quality.
+                                        </p>
+                                    </div>
+                                </div>
+                                {# Step 3 #}
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-7 h-7 rounded-full bg-primary-green text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                                        3
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-b2 font-bold text-article-black mb-1">Describe the Work & Set Your Budget</h3>
+                                        <p class="text-b2 text-article-medium-gray font-normal leading-relaxed">
+                                            Write a clear, detailed description of what needs to be done. Include expected hours, any special tools or certifications required, and site access details. Set a realistic budget range using the slider &mdash; competitive budgets attract more qualified engineers. <span class="italic text-slate-gray font-medium">Note: FE Admin does NOT assign engineers &mdash; you always review all applicants and personally choose the right fit for your job.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                {# Step 4 #}
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-7 h-7 rounded-full bg-primary-green text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                                        4
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-b2 font-bold text-article-black mb-1">Add Site Details & Upload Documents</h3>
+                                        <p class="text-b2 text-article-medium-gray font-normal leading-relaxed">
+                                            Enter the full site address, contact person name, and any parking or access instructions. Upload supporting documents such as floor plans, site photos, network diagrams, or previous job reports. Well-documented jobs receive higher quality applications.
+                                        </p>
+                                    </div>
+                                </div>
+                                {# Step 5 #}
+                                <div class="flex gap-4 items-start">
+                                    <div class="w-7 h-7 rounded-full bg-primary-green text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                                        5
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-b2 font-bold text-article-black mb-1">Review and Submit</h3>
+                                        <p class="text-b2 text-article-medium-gray font-normal leading-relaxed">
+                                            Review all details on the summary screen. Once satisfied, click Submit Job Request. Your request will be instantly visible to verified engineers nearby. You will receive a confirmation email and can track applications in real time from your dashboard.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        {# Section: Tips for a Better Job Post #}
+                        <section id="tips" class="mb-10 scroll-mt-24">
+                            <h2 class="text-xl font-bold text-article-black mb-4 border-b border-slate-mist pb-1">Tips for a Better Job Post</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                {# Card 1 #}
+                                <div class="bg-article-light-green border border-article-medium-green rounded-2xl p-5 shadow-xs hover:shadow-md transition-all duration-200">
+                                    <div class="w-5 h-5 rounded-full border-2 border-about-green flex items-center justify-center text-emerald-teal mb-3">
+                                        <span class="material-symbols-outlined">check_small</span>
+                                    </div>
+                                    <h3 class="font-bold text-article-black text-b3 mb-1.5">Be Specific About Scope</h3>
+                                    <p class="text-b3 font-normal text-article-medium leading-relaxed">
+                                        Vague job descriptions attract fewer applicants. Specify the exact issue, the environment (office, warehouse, data center), and any compliance requirements.
+                                    </p>
+                                </div>
+                                {# Card 2 #}
+                                <div class="bg-article-light-green border border-article-medium-green rounded-2xl p-5 shadow-xs hover:shadow-md transition-all duration-200">
+                                    <div class="w-5 h-5 rounded-full border-2 border-about-green flex items-center justify-center text-emerald-teal mb-3">
+                                        <span class="material-symbols-outlined">check_small</span>
+                                    </div>
+                                    <h3 class="font-bold text-article-black text-b3 mb-1.5">Upload Clear Photos</h3>
+                                    <p class="text-b3 font-normal text-article-medium leading-relaxed">
+                                        A picture is worth a thousand words. Photos of the equipment, fault, or site layout help engineers submit accurate bids and arrive better prepared.
+                                    </p>
+                                </div>
+                                {# Card 3 #}
+                                <div class="bg-article-light-green border border-article-medium-green rounded-2xl p-5 shadow-xs hover:shadow-md transition-all duration-200">
+                                    <div class="w-5 h-5 rounded-full border-2 border-about-green flex items-center justify-center text-emerald-teal mb-3">
+                                        <span class="material-symbols-outlined">check_small</span>
+                                    </div>
+                                    <h3 class="font-bold text-article-black text-b3 mb-1.5">Set a Realistic Budget</h3>
+                                    <p class="text-b3 font-normal text-article-medium leading-relaxed">
+                                        Research typical rates for your category. Jobs with realistic budgets fill 3x faster than those with below-market ranges. You can always negotiate once engineers apply.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        {# Section: What Happens After You Post? #}
+                        <section id="after-posting" class="mb-10 scroll-mt-24">
+                            <h2 class="text-xl font-bold text-article-black mb-4 border-b border-slate-mist pb-1">What Happens After You Post?</h2>
+                            <p class="text-b3 text-article-medium-gray font-normal leading-relaxed mb-4">Once your job is live, here is what to expect:</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-start gap-3 text-b3 text-article-medium-gray font-normal">
+                                    <span class="material-symbols-outlined text-emerald-teal mt-0.5">arrow_forward</span>
+                                    <span>Nearby verified engineers receive an instant notification about your request</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-b3 text-article-medium-gray font-normal">
+                                    <span class="material-symbols-outlined text-emerald-teal mt-0.5">arrow_forward</span>
+                                    <span>Engineers review your job details and submit their applications with profiles and bids</span>
+                                </li>
+                                <li class="flex items-start gap-3 text-b3 text-article-medium-gray font-normal">
+                                    <span class="material-symbols-outlined text-emerald-teal mt-0.5">arrow_forward</span>
+                                    <span>You compare applicants, check ratings and certifications, and award the job to your chosen engineer</span>
+                                </li>
+                            </ul>
+                            <p class="text-b3 text-article-medium-gray font-normal">
+                                The whole process typically takes just a few hours from posting to awarding.
+                                <a href="{% url 'home' %}" class="inline-flex items-center gap-1 font-bold text-primary-green hover:text-primary-hover hover:underline transition-all">
+                                    Ready? Post your first job <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                </a>
+                            </p>
+                        </section>
+                    </div>
+
+                    {# Feedback Card #}
+                    <div class="border border-slate-mist bg-white rounded-2xl shadow-article p-6 md:px-8 md:py-8 flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
+                        <span class="font-semibold text-article-black text-b3">Was this article helpful?</span>
+                        <div class="flex items-center gap-3">
+                            <button class="px-5 py-2 rounded-full border border-slate-mist text-article-medium-gray text-b3 font-normal bg-white transition-all flex items-center gap-2 cursor-pointer">
+                                👍 Yes, helpful
+                            </button>
+                            <button class="px-5 py-2 rounded-full border border-slate-mist text-article-medium-gray text-b3 font-normal bg-white transition-all flex items-center gap-2 cursor-pointer">
+                                👎 Needs improvement
+                            </button>
+                        </div>
+                    </div>
+
+                    {# Tag list #}
+                    <div class="mt-8 flex flex-wrap items-center gap-2.5 text-b3 text-slate-gray">
+                        <span class="font-medium text-article-light-gray">Tags:</span>
+                        <a href="#" class="px-3 py-1 bg-arctic-white text-article-light-gray text-xs border border-slate-mist rounded-full hover:bg-slate-200 transition-colors">#Getting Started</a>
+                        <a href="#" class="px-3 py-1 bg-arctic-white text-article-light-gray text-xs border border-slate-mist rounded-full hover:bg-slate-200 transition-colors">#Booking</a>
+                        <a href="#" class="px-3 py-1 bg-arctic-white text-article-light-gray text-xs border border-slate-mist rounded-full hover:bg-slate-200 transition-colors">#First Job</a>
+                        <a href="#" class="px-3 py-1 bg-arctic-white text-article-light-gray text-xs border border-slate-mist rounded-full hover:bg-slate-200 transition-colors">#Service Request</a>
+                    </div>
+
+                    {# ========== RELATED ARTICLES SECTION ========== #}
+                    <section class="mt-8">
+                        <h2 class="text-s1 font-bold text-article-black mb-8">Related Articles</h2>
+                        <div class="space-y-4">
+                            {# Related Article Card 1 #}
+                            <article class="bg-white border border-slate-mist rounded-2xl p-5 md:p-6 shadow-article hover:shadow-md transition-all duration-200 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                                <div class="flex items-start md:items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-article-light-green text-emerald-teal flex items-center justify-center font-bold text-[15px] shrink-0 uppercase">
+                                        en
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-article-black text-s2 mb-1 hover:text-emerald-teal transition-colors cursor-pointer">
+                                            How the Engineer Selection Process Works
+                                        </h3>
+                                        <p class="text-b3 text-article-light-gray leading-relaxed max-w-2xl">
+                                            Understand how verified engineers apply for your job, how to review profiles, and how to award the job.
+                                        </p>
+                                        <div class="flex items-center gap-3 mt-2 text-c1 text-article-light-gray">
+                                            <span class="px-2 py-0.5 text-primary-green font-medium rounded-full bg-article-light-green">4 min read</span>
+                                            <span>&bull;</span>
+                                            <span class="bg-article-light-yellow text-article-medium-yellow font-medium px-2 py-0.5 rounded-full text-[10px]">Getting Started</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="self-end md:self-center shrink-0">
+                                    <a href="#" class="inline-flex items-center gap-1 font-bold text-primary-green hover:text-primary-hover text-b3">
+                                        <span>Read Article</span>
+                                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </article>
+
+                            {# Related Article Card 2 #}
+                            <article class="bg-white border border-slate-mist rounded-2xl p-5 md:p-6 shadow-article hover:shadow-md transition-all duration-200 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                                <div class="flex items-start md:items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-article-light-green text-emerald-teal flex items-center justify-center font-bold text-[15px] shrink-0 uppercase">
+                                        ac
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-article-black text-s2 mb-1 hover:text-emerald-teal transition-colors cursor-pointer">
+                                            Understanding Budget Range & Bidding
+                                        </h3>
+                                        <p class="text-b3 text-article-light-gray leading-relaxed max-w-2xl">
+                                            Learn how to set competitive budgets, how engineers submit bids, and how to compare offers effectively.
+                                        </p>
+                                        <div class="flex items-center gap-3 mt-2 text-c1 text-article-light-gray">
+                                            <span class="px-2 py-0.5 text-primary-green font-medium rounded-full bg-article-light-green">4 min read</span>
+                                            <span>&bull;</span>
+                                            <span class="bg-article-light-yellow text-article-medium-yellow font-medium px-2 py-0.5 rounded-full text-[10px]">Booking a Job</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="self-end md:self-center shrink-0">
+                                    <a href="#" class="inline-flex items-center gap-1 font-bold text-primary-green hover:text-primary-hover text-b3">
+                                        <span>Read Article</span>
+                                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </article>
+
+                            {# Related Article Card 3 #}
+                            <article class="bg-white border border-slate-mist rounded-2xl p-5 md:p-6 shadow-article hover:shadow-md transition-all duration-200 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                                <div class="flex items-start md:items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-article-light-green text-emerald-teal flex items-center justify-center font-bold text-[15px] shrink-0 uppercase">
+                                        up
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-article-black text-s2 mb-1 hover:text-emerald-teal transition-colors cursor-pointer">
+                                            How to Upload Site Documents & Floor Plans
+                                        </h3>
+                                        <p class="text-b3 text-article-light-gray leading-relaxed max-w-2xl">
+                                            Attach relevant documents, floor plans, and photos to help engineers understand your site layout and instructions.
+                                        </p>
+                                        <div class="flex items-center gap-3 mt-2 text-c1 text-article-light-gray">
+                                            <span class="px-2 py-0.5 text-primary-green font-medium rounded-full bg-article-light-green">4 min read</span>
+                                            <span>&bull;</span>
+                                            <span class="bg-article-light-yellow text-article-medium-yellow font-medium px-2 py-0.5 rounded-full text-[10px]">Booking a Job</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="self-end md:self-center shrink-0">
+                                    <a href="#" class="inline-flex items-center gap-1 font-bold text-primary-green hover:text-primary-hover text-b3">
+                                        <span>Read Article</span>
+                                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                </article>
+
+                {# ========== RIGHT COLUMN: SIDEBAR ========== #}
+                <aside class="lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-24">
+                    
+                    {# In This Article (TOC) #}
+                    <div class="bg-white border border-slate-mist rounded-2xl p-6 shadow-article">
+                        <h2 class="font-bold text-article-black text-b3 mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary-green">import_contacts</span>
+                            <span>In this article</span>
+                        </h2>
+                        <ul id="toc-list" class="space-y-3 text-b3">
+                            <li>
+                                <a href="#what-you-need" class="toc-link block border-l-2 pl-3 border-primary-green text-primary-green font-semibold hover:text-primary-hover transition-colors">
+                                    What You'll Need
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#step-by-step" class="toc-link block border-l-2 pl-3 border-transparent text-article-light-gray hover:text-primary-green transition-colors">
+                                    Step-by-Step: Posting Your Job
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#tips" class="toc-link block border-l-2 pl-3 border-transparent text-article-light-gray hover:text-primary-green transition-colors">
+                                    Tips for a Better Job Post
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#after-posting" class="toc-link block border-l-2 pl-3 border-transparent text-article-light-gray hover:text-primary-green transition-colors">
+                                    What Happens After You Post?
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {# Still Need Help? #}
+                    <div class="bg-article-green-2 border border-article-medium-green rounded-2xl p-6 shadow-sm flex flex-col items-start text-start gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary-green flex items-center justify-center text-emerald-teal">
+                            <span class="material-symbols-outlined text-white">headphones</span>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-article-black text-b2 mb-1">Still need help?</h2>
+                            <p class="text-b3 text-article-medium-gray leading-relaxed">
+                                Our support team responds within 2 hours on business days.
+                            </p>
+                        </div>
+                        <div class="w-full flex flex-col gap-2">
+                            <a href="#" class="w-full py-3.5 bg-primary-green hover:bg-primary-hover text-white text-center font-bold text-b3 rounded-full shadow-sm hover:shadow transition-all">
+                                Submit a Ticket &rarr;
+                            </a>
+                            <a href="#" class="w-full py-3.5 border border-primary-green hover:bg-slate-50 text-primary-green text-center font-bold text-b3 rounded-full transition-all">
+                                Talk to Expert
+                            </a>
+                        </div>
+                    </div>
+
+                    {# Popular in Getting Started #}
+                    <div class="bg-white border border-slate-mist rounded-2xl p-6 shadow-article">
+                        <h2 class="font-bold text-article-black text-b3 mb-4">
+                            Popular in Getting Started
+                        </h2>
+                        <ul class="space-y-3.5 text-b3 list-disc px-3.5 text-primary-green font-medium">
+                            <li>
+                                <a href="#" class="block transition-colors leading-relaxed">
+                                    How the Engineer Selection Process Works
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="block transition-colors leading-relaxed">
+                                    Setting Up Your FE Account
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="block transition-colors leading-relaxed">
+                                    Understanding Your Customer Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="block transition-colors leading-relaxed">
+                                    How to Track Your Engineer Live
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="block transition-colors leading-relaxed">
+                                    What Happens After Job Completion?
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </aside>
+
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        function updateActiveToc() {
+            const scrollPosition = window.scrollY || window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            let activeId = '';
+
+            // If user has scrolled near/to the bottom of the page, highlight the last section
+            if (scrollPosition + windowHeight >= documentHeight - 120) {
+                if (sections.length > 0) {
+                    activeId = sections[sections.length - 1].getAttribute('id');
+                }
+            } else {
+                // Find the section that has its top closest to/above the scroll threshold
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top + scrollPosition - 150; // 150px offset for sticky header
+                    if (scrollPosition >= sectionTop) {
+                        activeId = section.getAttribute('id');
+                    }
+                });
+            }
+
+            // Default to the first section if none match (i.e. we are at the top)
+            if (!activeId && sections.length > 0) {
+                activeId = sections[0].getAttribute('id');
+            }
+
+            tocLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === `#${activeId}`) {
+                    link.classList.add('border-primary-green', 'text-primary-green', 'font-semibold');
+                    link.classList.remove('border-transparent', 'text-article-light-gray');
+                } else {
+                    link.classList.remove('border-primary-green', 'text-primary-green', 'font-semibold');
+                    link.classList.add('border-transparent', 'text-article-light-gray');
+                }
+            });
+        }
+
+        // Smooth scroll when clicking TOC link
+        tocLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const targetTop = targetSection.getBoundingClientRect().top + window.scrollY - 100; // 100px offset
+                    window.scrollTo({
+                        top: targetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', updateActiveToc);
+        // Initial check
+        setTimeout(updateActiveToc, 100);
+    });
+</script>
+{% endblock %}

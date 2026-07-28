@@ -73,6 +73,12 @@ def disclaimer(request):
 def customer_contactus(request):
     return render(request, 'fieldengineer-crm/customer-contactus.html')
 
+def articles(request):
+    return render(request, 'pages/articles.html')
+
+def job_description(request):
+    return render(request, 'pages/job-description.html')
+
 
 @require_POST
 @csrf_exempt
