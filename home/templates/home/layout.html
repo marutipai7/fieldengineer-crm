@@ -22,9 +22,8 @@
 
 
     {% block extra_css %}
-    <link rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-{% endblock %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    {% endblock %}
 
     <style>
         /* ===== DROPDOWN FIXES - HOVER PAR OPEN RAHE ===== */
@@ -485,10 +484,16 @@
                                 <a href="{% url 'careers' %}"
                                     class="block px-5 py-3 hover:bg-greenish-white">Careers</a>
                                 <a href="{% url 'blogs' %}" class="block px-5 py-3 hover:bg-greenish-white">Blogs</a>
+
+                                <a href="#" class="block px-5 py-3 hover:bg-greenish-white">News</a>
                                 <a href="{% url 'contact' %}" class="block px-5 py-3 hover:bg-greenish-white">Contact
                                     Us</a>
                                 <a href="{% url 'help_center' %}" class="block px-5 py-3 hover:bg-greenish-white">Help
                                     Center </a>
+
+                                <a href="{% url 'disclaimer' %}"
+                                    class="block px-5 py-3 hover:bg-greenish-white">Disclaimer</a>
+
                                 <a href="{% url 'privacy-policy' %}"
                                     class="block px-5 py-3 hover:bg-greenish-white">Privacy Policy</a>
                                 <a href="{% url 'term_condition' %}"
@@ -595,12 +600,19 @@
                                         class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Careers</a>
                                     <a href="{% url 'blogs' %}"
                                         class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Blogs</a>
+
+                                    <a href="#"
+                                        class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">News
+                                    </a>
                                     <a href="{% url 'contact' %}"
                                         class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Contact
                                         Us</a>
                                     <a href="{% url 'help_center' %}"
                                         class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Help
                                         Center</a>
+                                    <a href="{% url 'disclaimer' %}"
+                                        class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Disclaimer
+                                    </a>
                                     <a href="{% url 'privacy-policy' %}"
                                         class="block py-2.5 px-4 text-sm text-slate-600 hover:text-emerald-teal hover:bg-green-50 rounded-lg transition-all duration-200">Privacy
                                         Policy</a>
@@ -688,8 +700,10 @@
                     </h4>
                     <ul class="space-y-2">
                         <li><a href="{% url 'about_fe' %}" class="footer-link text-sm text-gray-500">About Us</a></li>
-                        <li><a href="{% url 'careers' %}" class="footer-link text-sm text-gray-500">Careers</a></li>
+
                         <li><a href="{% url 'blogs' %}" class="footer-link text-sm text-gray-500">Blogs</a></li>
+
+                        <li><a href="#" class="footer-link text-sm text-gray-500">News</a></li>
 
                     </ul>
                 </div>
@@ -700,10 +714,13 @@
                         Contact Us
                     </h4>
                     <ul class="space-y-2">
-                        <li><a href="{% url 'contact' %}" class="footer-link text-sm text-gray-500">Contact Us</a></li>
+                        <li><a href="{% url 'careers' %}" class="footer-link text-sm text-gray-500">Careers</a></li>
+
                         <li>
                             <a href="{% url 'help_center' %}" class="footer-link text-sm text-gray-500">Help Center</a>
                         </li>
+
+                        <li><a href="{% url 'contact' %}" class="footer-link text-sm text-gray-500">Contact Us</a></li>
 
                     </ul>
                 </div>
@@ -714,6 +731,10 @@
                         Legal
                     </h4>
                     <ul class="space-y-2">
+                        <li>
+                            <a href="{% url 'disclaimer' %}" class="footer-link text-sm text-gray-500">Disclaimer
+                            </a>
+                        </li>
                         <li>
                             <a href="{% url 'privacy-policy' %}" class="footer-link text-sm text-gray-500">Privacy
                                 Policy</a>
@@ -1708,86 +1729,86 @@
 
 
     </script>
-     <script>
-document.addEventListener("DOMContentLoaded", function () {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
 
-    const map = L.map("coverageMap", {
-        zoomControl: false,
-        scrollWheelZoom: true,
-        dragging: true
-    });
-
-
-    // CARTO light theme
-    L.tileLayer(
-    "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-    {
-        attribution: "",
-        subdomains: "abcd",
-        maxZoom: 20
-    }
-).addTo(map);
+            const map = L.map("coverageMap", {
+                zoomControl: false,
+                scrollWheelZoom: true,
+                dragging: true
+            });
 
 
-
-    // Locations
-    const locations = {
-
-        USA: {
-            name: "United States",
-            center: [39.8283, -98.5795],
-            zoom: 4
-        },
-
-        India: {
-            name: "India",
-            center: [22.9734, 78.6569],
-            zoom: 5
-        },
-
-        Malaysia: {
-            name: "Malaysia",
-            center: [4.2105, 101.9758],
-            zoom: 6
-        }
-
-    };
+            // CARTO light theme
+            L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+                {
+                    attribution: "",
+                    subdomains: "abcd",
+                    maxZoom: 20
+                }
+            ).addTo(map);
 
 
-    // Initial map
-    map.setView(
-        locations.USA.center,
-        locations.USA.zoom
-    );
+
+            // Locations
+            const locations = {
+
+                USA: {
+                    name: "United States",
+                    center: [39.8283, -98.5795],
+                    zoom: 4
+                },
+
+                India: {
+                    name: "India",
+                    center: [22.9734, 78.6569],
+                    zoom: 5
+                },
+
+                Malaysia: {
+                    name: "Malaysia",
+                    center: [4.2105, 101.9758],
+                    zoom: 6
+                }
+
+            };
 
 
-    let marker;
+            // Initial map
+            map.setView(
+                locations.USA.center,
+                locations.USA.zoom
+            );
 
 
-    function showLocation(country){
-
-        const data = locations[country];
+            let marker;
 
 
-        map.flyTo(
-            data.center,
-            data.zoom,
-            {
-                duration:1.2
-            }
-        );
+            function showLocation(country) {
+
+                const data = locations[country];
 
 
-        if(marker){
-            map.removeLayer(marker);
-        }
+                map.flyTo(
+                    data.center,
+                    data.zoom,
+                    {
+                        duration: 1.2
+                    }
+                );
 
 
-        marker = L.marker(data.center,{
-            icon:L.divIcon({
+                if (marker) {
+                    map.removeLayer(marker);
+                }
 
-                className:"",
-                html:`
+
+                marker = L.marker(data.center, {
+                    icon: L.divIcon({
+
+                        className: "",
+                        html: `
                 <div style="
                     width:34px;
                     height:34px;
@@ -1804,44 +1825,44 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 `,
 
-                iconSize:[34,34],
-                iconAnchor:[17,17]
+                        iconSize: [34, 34],
+                        iconAnchor: [17, 17]
 
-            })
-        })
-        .addTo(map);
+                    })
+                })
+                    .addTo(map);
 
-    }
-
-
-    showLocation("USA");
+            }
 
 
-
-    // Buttons
-    document.querySelectorAll(".map-tab").forEach(btn=>{
-
-        btn.addEventListener("click",function(){
-
-            document
-            .querySelectorAll(".map-tab")
-            .forEach(b=>b.classList.remove("active"));
+            showLocation("USA");
 
 
-            this.classList.add("active");
+
+            // Buttons
+            document.querySelectorAll(".map-tab").forEach(btn => {
+
+                btn.addEventListener("click", function () {
+
+                    document
+                        .querySelectorAll(".map-tab")
+                        .forEach(b => b.classList.remove("active"));
 
 
-            showLocation(
-                this.dataset.country
-            );
+                    this.classList.add("active");
+
+
+                    showLocation(
+                        this.dataset.country
+                    );
+
+                });
+
+            });
+
 
         });
-
-    });
-
-
-});
-</script>
+    </script>
 </body>
 
 
