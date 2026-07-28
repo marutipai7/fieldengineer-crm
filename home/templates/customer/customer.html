@@ -86,7 +86,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
             <!-- Right Image Column -->
             <div class="lg:col-span-6 xl:col-span-7 flex justify-center lg:justify-end items-center py-2">
                 <img src="{% static 'img/customer.svg' %}"
-                     alt="Illustration of a technician working with a server rack, representing the FE workflow"
+                     alt="technician working "
                      loading="lazy" 
                      decoding="async"
                      class="w-full h-auto max-h-[320px] sm:max-h-[380px] lg:max-h-[400px] object-contain select-none pointer-events-none">
@@ -100,95 +100,248 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 <section class="popular-services mt-0" aria-labelledby="popular-services-title" style="padding-bottom: 1rem;">
     <div class="popular-services-card">
         
-        <div class="grid grid-cols-1 mt-8 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+      <div class="grid grid-cols-1 mt-8 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
             
-            <!-- Card 1: Network Cabling -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow" onclick="switchToLogin()">
-                <div class="service-card-image mb-2">
-                    <img src="{% static 'img/customer_card1.svg' %}" 
-                        alt="Network Cabling service illustration" loading="lazy" class="w-10 h-10">
-                </div>
-                <h3 class="service-card-title text-sm font-bold text-gray-800 mb-0.5">Network Cabling</h3>
-                <!-- <p class="text-xs font-semibold text-emerald-600 mb-1">From ₹1,200/hr</p> -->
-                <p class="service-card-desc text-xl text-gray-600 line-clamp-2">Install and organize network cables for a fast, stable, and reliable connection.</p>
-            </article>
+    <!-- Card 1: Network Cabling -->
+    <article class="service-card bg-white rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer flex flex-col items-center text-center overflow-hidden" onclick="switchToLogin()">
+    <!-- Full-width Image Container - removes padding -->
+    <div class="service-card-image -mx-4 sm:-mx-5 mb-4 w-[calc(100%+2rem)] sm:w-[calc(100%+2.5rem)] overflow-hidden">
+        <img src="{% static 'img/network_cabling.svg' %}" 
+            alt="Network Cabling service illustration" loading="lazy" 
+            class="w-full h-40 sm:h-48 object-cover">
+    </div>
+    <h3 class="service-card-title text-base font-bold text-gray-800 mb-1.5 px-1">Network Cabling</h3>
+    <p class="service-card-desc text-xs text-gray-600 line-clamp-2 leading-relaxed px-1">Install and organize network cables for a fast, stable, and reliable connection.</p>
+</article>
 
-            <!-- Card 2: Server Installation -->
-            <article class="service-card bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
-                <div class="service-card-image mb-2">
-                    <img src="{% static 'img/customer_card2.svg' %}" 
-                        alt="Server Installation service illustration" loading="lazy" class="w-10 h-10">
-                </div>
-                <h3 class="service-card-title text-sm font-bold text-gray-800 mb-0.5">Server Install</h3>
-                <!-- <p class="text-xs font-semibold text-emerald-600 mb-1">From ₹1,500/hr</p> -->
-                <p class="service-card-desc text-xs text-gray-600 line-clamp-2">Set up and configure servers to keep your business systems running smoothly.</p>
-            </article>
+    <!-- Card 2: Server Installation -->
+    <article class="service-card bg-white rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer flex flex-col items-center text-center" onclick="switchToLogin()">
+        <div class="service-card-image mb-4 w-full overflow-hidden rounded-xl">
+            <img src="{% static 'img/server_install.svg' %}" 
+                alt="Server Installation service illustration" loading="lazy" class="w-full h-40 sm:h-48 object-cover rounded-xl">
+        </div>
+        <h3 class="service-card-title text-base font-bold text-gray-800 mb-1.5">Server Install</h3>
+        <p class="service-card-desc text-xs text-gray-600 line-clamp-2 leading-relaxed">Set up and configure servers to keep your business systems running smoothly.</p>
+    </article>
 
-            <!-- Card 3: Smart Hands Support -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
-                <div class="service-card-image mb-2">
-                    <img src="{% static 'img/customer_card3.svg' %}" 
-                        alt="Smart Hands Support service illustration" loading="lazy" class="w-10 h-10">
-                </div>
-                <h3 class="service-card-title text-sm font-bold text-gray-800 mb-0.5">Rack Mgmt</h3>
-                <!-- <p class="text-xs font-semibold text-emerald-600 mb-1">From ₹1,000/hr</p> -->
-                <p class="service-card-desc text-xs text-gray-600 line-clamp-2">Organize, install, and manage server racks for a safe and tidy setup.</p>
-            </article>
+    <!-- Card 3: Smart Hands Support -->
+    <article class="service-card bg-white rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer flex flex-col items-center text-center" onclick="switchToLogin()">
+        <div class="service-card-image mb-4 w-full overflow-hidden rounded-xl">
+            <img src="{% static 'img/rack_mgmt.svg' %}" 
+                alt="Smart Hands Support service illustration" loading="lazy" class="w-full h-40 sm:h-48 object-cover rounded-xl">
+        </div>
+        <h3 class="service-card-title text-base font-bold text-gray-800 mb-1.5">Rack Mgmt</h3>
+        <p class="service-card-desc text-xs text-gray-600 line-clamp-2 leading-relaxed">Organize, install, and manage server racks for a safe and tidy setup.</p>
+    </article>
 
-            <!-- Card 4: Rack & Stack -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
-                <div class="service-card-image mb-2">
-                    <img src="{% static 'img/customer_card4.svg' %}" 
-                        alt="Rack & Stack service illustration" loading="lazy" class="w-10 h-10">
-                </div>
-                <h3 class="service-card-title text-sm font-bold text-gray-800 mb-0.5">Power & UPS</h3>
-                <!-- <p class="text-xs font-semibold text-emerald-600 mb-1">From ₹900/hr</p> -->
-                <p class="service-card-desc text-xs text-gray-600 line-clamp-1">Install and maintain power systems and UPS units to keep your equipment running during power interruptions.</p>
-            </article>
+    <!-- Card 4: Rack & Stack -->
+    <article class="service-card bg-white rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer flex flex-col items-center text-center" onclick="switchToLogin()">
+        <div class="service-card-image mb-4 w-full overflow-hidden rounded-xl">
+            <img src="{% static 'img/power_&_ups.svg' %}" 
+                alt="Rack & Stack service illustration" loading="lazy" class="w-full h-40 sm:h-48 object-cover rounded-xl">
+        </div>
+        <h3 class="service-card-title text-base font-bold text-gray-800 mb-1.5">Power & UPS</h3>
+        <p class="service-card-desc text-xs text-gray-600 line-clamp-2 leading-relaxed">Install and maintain power systems and UPS units to keep equipment running.</p>
+    </article>
 
-            <!-- Card 5: Data Center Support -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
-                <div class="service-card-image mb-2">
-                    <img src="{% static 'img/customer_card5.svg' %}" 
-                        alt="Data Center Support service illustration" loading="lazy" class="w-10 h-10">
-                </div>
-                <h3 class="service-card-title text-sm font-bold text-gray-800 mb-0.5">Fiber Splicing</h3>
-                <!-- <p class="text-xs font-semibold text-emerald-600 mb-1">From ₹2,000/hr</p> -->
-                <p class="service-card-desc text-xs text-gray-600 line-clamp-2">Connect and test fiber optic cables for fast and reliable network performance.</p>
-            </article>
+    <!-- Card 5: Data Center Support -->
+    <article class="service-card bg-white rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer flex flex-col items-center text-center" onclick="switchToLogin()">
+        <div class="service-card-image mb-4 w-full overflow-hidden rounded-xl">
+            <img src="{% static 'img/fiber_splicing.svg' %}" 
+                alt="Data Center Support service illustration" loading="lazy" class="w-full h-40 sm:h-48 object-cover rounded-xl">
+        </div>
+        <h3 class="service-card-title text-base font-bold text-gray-800 mb-1.5">Fiber Splicing</h3>
+        <p class="service-card-desc text-xs text-gray-600 line-clamp-2 leading-relaxed">Connect and test fiber optic cables for fast and reliable network performance.</p>
+    </article>
 
-            <!-- Card 6: IT Support -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
-                <div class="service-card-image mb-2">
-                    <img src="{% static 'img/customer_card6.svg' %}" 
-                        alt="IT Support service illustration" loading="lazy" class="w-10 h-10">
-                </div>
-                <h3 class="service-card-title text-sm font-bold text-gray-800 mb-0.5">DC Audit</h3>
-                <!-- <p class="text-xs font-semibold text-emerald-600 mb-1">From ₹800/hr</p> -->
-                <p class="service-card-desc text-xs text-gray-600 line-clamp-2">Inspect your data center and provide a detailed report to help improve performance and reliability.</p>
-            </article>
+    <!-- Card 6: IT Support -->
+    <article class="service-card bg-white rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer flex flex-col items-center text-center" onclick="switchToLogin()">
+        <div class="service-card-image mb-4 w-full overflow-hidden rounded-xl">
+            <img src="{% static 'img/dc_audit.svg' %}" 
+                alt="IT Support service illustration" loading="lazy" class="w-full h-40 sm:h-48 object-cover rounded-xl">
+        </div>
+        <h3 class="service-card-title text-base font-bold text-gray-800 mb-1.5">DC Audit</h3>
+        <p class="service-card-desc text-xs text-gray-600 line-clamp-2 leading-relaxed">Inspect your data center and provide a detailed report to help improve performance.</p>
+    </article>
 
-            <!-- Card 7: CCTV & Surveillance -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100">
-                <div class="service-card-image mb-2" onclick="switchToLogin()">
-                    <img src="{% static 'img/customer_card7.svg' %}" 
-                        alt="CCTV & Surveillance service illustration" loading="lazy" class="w-10 h-10">
-                </div>
-                <h3 class="service-card-title text-sm font-bold text-gray-800 mb-0.5">Hardware</h3>
-                <!-- <p class="text-xs font-semibold text-emerald-600 mb-1">From ₹1,100/hr</p> -->
-                <p class="service-card-desc text-xs text-gray-600 line-clamp-2">Install, replace, and maintain computer hardware and other IT equipment.</p>
-            </article>
+    <!-- Card 7: CCTV & Surveillance -->
+    <article class="service-card bg-white rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer flex flex-col items-center text-center" onclick="switchToLogin()">
+        <div class="service-card-image mb-4 w-full overflow-hidden rounded-xl">
+            <img src="{% static 'img/hardware.svg' %}" 
+                alt="CCTV & Surveillance service illustration" loading="lazy" class="w-full h-40 sm:h-48 object-cover rounded-xl">
+        </div>
+        <h3 class="service-card-title text-base font-bold text-gray-800 mb-1.5">Hardware</h3>
+        <p class="service-card-desc text-xs text-gray-600 line-clamp-2 leading-relaxed">Install, replace, and maintain computer hardware and other IT equipment.</p>
+    </article>
 
-            <!-- Card 8: Telecom Support -->
-            <article class="service-card rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-gray-100" onclick="switchToLogin()">
-                <div class="service-card-image mb-2">
-                    <img src="{% static 'img/customer_card8.svg' %}" 
-                        alt="Telecom Support service illustration" loading="lazy" class="w-10 h-10">
+    <!-- Card 8: Telecom Support -->
+    <article class="service-card bg-white rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer flex flex-col items-center text-center" onclick="switchToLogin()">
+        <div class="service-card-image mb-4 w-full overflow-hidden rounded-xl">
+            <img src="{% static 'img/structured.svg' %}" 
+                alt="Telecom Support service illustration" loading="lazy" class="w-full h-40 sm:h-48 object-cover rounded-xl">
+        </div>
+        <h3 class="service-card-title text-base font-bold text-gray-800 mb-1.5">Structured Cabling</h3>
+        <p class="service-card-desc text-xs text-gray-600 line-clamp-2 leading-relaxed">Install and organize network cables for a clean, reliable, and efficient connection.</p>
+    </article>
+</div>
+    </div>
+</section>
+
+<section class="w-full bg-[#FAFDF9] sm:py-5" style="padding-bottom: 1rem;">
+    <div class="popular-services-card"> <!-- Same width container -->
+        <div class="px-4"> <!-- Same inner horizontal padding -->
+            
+            <div class="why-choose-card">
+                
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <span class="inline-block px-4 py-1 bg-[#E8F5E9] text-[#1E9B6F] text-[11px] font-bold uppercase tracking-wider rounded-full mb-3">
+                        Why Choose Us
+                    </span>
+                    <h2 id="why-choose-title" class="text-2xl md:text-[1.75rem] font-bold text-gray-900">
+                        Why Choose <span class="text-[#1E9B6F]">Field Engineer</span>
+                    </h2>
+                    <p class="mt-2 text-sm text-gray-500">Built for enterprise field operations, not one-off jobs</p>
+                    <div class="w-12 h-0.5 bg-[#1E9B6F]/30 mx-auto mt-3 rounded-full"></div>
                 </div>
-                <h3 class="service-card-title text-sm font-bold text-gray-800 mb-0.5">Structured Cabling</h3>
-                <!-- <p class="text-xs font-semibold text-emerald-600 mb-1">From ₹950/hr</p> -->
-                <p class="service-card-desc text-xs text-gray-600 line-clamp-2">Install and organize network cables for a clean, reliable, and efficient connection.</p>
-            </article>
+
+                <!-- Cards Grid - 6 Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+                    
+                    <!-- Card 1: Add More Work -->
+                    <article class="why-feature-card bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100 cursor-pointer flex flex-col" onclick="switchToLogin()">
+                        <div class="why-feature-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background: rgba(16, 185, 129, 0.12) !important;">
+                            <span class="material-symbols-outlined text-[#1E9B6F] text-xl">assignment_add</span>
+                        </div>
+                        <h3 class="why-feature-title text-sm font-bold text-gray-900 mb-1">Add More Work</h3>
+                        <p class="why-feature-desc text-xs text-gray-500 leading-relaxed">Add new tasks even after your job has started.</p>
+                    </article>
+
+                    <!-- Card 2: Track Your Engineer -->
+                    <article class="why-feature-card bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100 cursor-pointer flex flex-col" onclick="switchToLogin()">
+                        <div class="why-feature-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background: rgba(16, 185, 129, 0.12) !important;">
+                            <span class="material-symbols-outlined text-[#1E9B6F] text-xl">location_on</span>
+                        </div>
+                        <h3 class="why-feature-title text-sm font-bold text-gray-900 mb-1">Track Your Engineer</h3>
+                        <p class="why-feature-desc text-xs text-gray-500 leading-relaxed">Track your engineer's location in real time.</p>
+                    </article>
+
+                    <!-- Card 3: Work Updates -->
+                    <article class="why-feature-card bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100 cursor-pointer flex flex-col" onclick="switchToLogin()">
+                        <div class="why-feature-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background: rgba(16, 185, 129, 0.12) !important;">
+                            <span class="material-symbols-outlined text-[#1E9B6F] text-xl">content_copy</span>
+                        </div>
+                        <h3 class="why-feature-title text-sm font-bold text-gray-900 mb-1">Work Updates</h3>
+                        <p class="why-feature-desc text-xs text-gray-500 leading-relaxed">View work updates, photos, and completed tasks.</p>
+                    </article>
+
+                    <!-- Card 4: Service Report -->
+                    <article class="why-feature-card bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100 cursor-pointer flex flex-col" onclick="switchToLogin()">
+                        <div class="why-feature-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background: rgba(16, 185, 129, 0.12) !important;">
+                            <span class="material-symbols-outlined text-[#1E9B6F] text-xl">hotel_class</span>
+                        </div>
+                        <h3 class="why-feature-title text-sm font-bold text-gray-900 mb-1">Service Report</h3>
+                        <p class="why-feature-desc text-xs text-gray-500 leading-relaxed">Get detailed reports with proof of completed work.</p>
+                    </article>
+
+                    <!-- Card 5: Work Together -->
+                    <article class="why-feature-card bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100 cursor-pointer flex flex-col" onclick="switchToLogin()">
+                        <div class="why-feature-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background: rgba(16, 185, 129, 0.12) !important;">
+                            <span class="material-symbols-outlined text-[#1E9B6F] text-xl">group_add</span>
+                        </div>
+                        <h3 class="why-feature-title text-sm font-bold text-gray-900 mb-1">Work Together</h3>
+                        <p class="why-feature-desc text-xs text-gray-500 leading-relaxed">Work together with your team and engineers.</p>
+                    </article>
+
+                    <!-- Card 6: Safe & Secure -->
+                    <article class="why-feature-card bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100 cursor-pointer flex flex-col" onclick="switchToLogin()">
+                        <div class="why-feature-icon w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background: rgba(16, 185, 129, 0.12) !important;">
+                            <span class="material-symbols-outlined text-[#1E9B6F] text-xl">encrypted</span>
+                        </div>
+                        <h3 class="why-feature-title text-sm font-bold text-gray-900 mb-1">Safe &amp; Secure</h3>
+                        <p class="why-feature-desc text-xs text-gray-500 leading-relaxed">Your data is protected with trusted security measures.</p>
+                    </article>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="w-full bg-[#FAFDF9] py-8 sm:py-12">
+    <div class="popular-services-card"> <!-- Same container wrapper -->
+        <div class="px-4"> <!-- Same horizontal padding structure -->
+            
+            <div class="w-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+                
+                <!-- Left Column: Content -->
+                <div class="w-full md:w-1/2 flex flex-col items-start text-left">
+                    
+                    <!-- Kicker / Category Tag -->
+                    <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#E91E63] mb-2">
+                        Flexible Booking
+                    </span>
+                    
+                    <!-- Heading -->
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight mb-6">
+                        Dishwashing at your time, your schedule
+                    </h2>
+                    
+                    <!-- Feature List -->
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm sm:text-base text-gray-700 font-medium">
+                            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[#E91E63] text-white flex items-center justify-center text-xs font-bold">
+                                ✓
+                            </span>
+                            Instant or scheduled booking
+                        </li>
+                        
+                        <li class="flex items-center gap-3 text-sm sm:text-base text-gray-700 font-medium">
+                            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[#E91E63] text-white flex items-center justify-center text-xs font-bold">
+                                ✓
+                            </span>
+                            No contracts or long-term commitment
+                        </li>
+                        
+                        <li class="flex items-center gap-3 text-sm sm:text-base text-gray-700 font-medium">
+                            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[#E91E63] text-white flex items-center justify-center text-xs font-bold">
+                                ✓
+                            </span>
+                            Hourly based — book by the hour
+                        </li>
+                        
+                        <li class="flex items-center gap-3 text-sm sm:text-base text-gray-700 font-medium">
+                            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[#E91E63] text-white flex items-center justify-center text-xs font-bold">
+                                ✓
+                            </span>
+                            Choose from flexible booking options
+                        </li>
+                        
+                        <li class="flex items-center gap-3 text-sm sm:text-base text-gray-700 font-medium">
+                            <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[#E91E63] text-white flex items-center justify-center text-xs font-bold">
+                                ✓
+                            </span>
+                            Manage everything through the Snabbit app
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right Column: Image Container -->
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="w-full overflow-hidden rounded-2xl shadow-lg border border-gray-100/50">
+                        <img src="{% static 'img/customer_engineer.svg' %}" 
+                          alt="technician working "
+                     loading="lazy" 
+                     decoding="async"
+                     class="w-full h-auto max-h-[380px] sm:max-h-[380px] lg:max-h-[400px] object-contain select-none pointer-events-none object-cover rounded-2xl"
+                        />
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
 </section>
@@ -219,6 +372,8 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
         </div>
     </div>
 </section>
+
+
 
 {# ====== STEP 1: SIGNUP POPUP ====== #}
 <div id="signupPopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-sm transition-all duration-300 opacity-0 pointer-events-none">

@@ -5,7 +5,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzR Cf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 {% endblock %}
 
 {% block content %}
@@ -354,6 +354,20 @@
         box-shadow: 0 10px 15px -3px rgba(245, 181, 48, 0.3),
             0 4px 6px -4px rgba(245, 181, 48, 0.3) !important;
     }
+
+    .popular-services {
+    background-image: url("/static/img/home-bg.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 650px;
+    display: flex;
+    align-items: flex-end;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+ 
 
     /* ============================================
    RESPONSIVE - MOBILE
@@ -834,177 +848,163 @@
 
 <!-- ════════════ HOW IT WORKS ════════════ -->
  <main class="bg-greenish-white">
-<section class="how-it-works " aria-labelledby="how-it-works-title"  style="padding-top: 3rem; padding-bottom: 1rem;">
-    <div class="mx-auto max-w-[1400px] px-6 md:px-10 xl:px-14">
-        <div class="how-it-works-card glass-border-white p-8 md:p-10 rounded-2xl">
-            <div class="flex flex-wrap items-center justify-between gap-4 mb-10">
-                <div>
-                    <h2 id="how-it-works-title" class="m-0 text-xl sm:text-2xl font-bold text-black-dark">How it Works?</h2>
-                    <p class="mt-1 text-base text-light-dark">A seamless process from booking to completion</p>
+<!--HOW TO JOIN-->
+<section class="bg-greenish-white pt-4 pb-8 md:pt-6 md:pb-12 lg:pt-8 lg:pb-16">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="text-center mb-16">
+            <p
+                class="inline-block text-label font-bold text-emerald-teal uppercase tracking-wide px-4 py-2 rounded-md bg-sage-green1">
+                HOW TO JOIN
+            </p>
+            <h2 class="mt-2 text-h3 font-semibold text-deep-indigo">How to Join the Engineer Network</h2>
+            <p class="mt-3 text-b3 font-medium text-deep-indigo">
+                Follow these simple steps to join our network and start receiving opportunities.
+            </p>
+        </div>
+        <div class="relative">
+            <!-- Connecting line - adjusted for 4 columns -->
+            <div
+                class="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] border-t-2 border-dashed border-soft-sky-blue">
+            </div>
+            <div class="grid lg:grid-cols-4 gap-10 relative z-10">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="relative inline-flex">
+                        <div
+                            class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1E9B6F"><path d="M370.33-524.33Q326.67-568 326.67-634t43.66-109.67Q414-787.33 480-787.33t109.67 43.66Q633.33-700 633.33-634t-43.66 109.67Q546-480.67 480-480.67t-109.67-43.66ZM160-160v-100q0-36.67 18.5-64.17T226.67-366q65.33-30.33 127.66-45.5 62.34-15.17 125.67-15.17t125.33 15.5q62 15.5 127.34 45.17 30.33 14.33 48.83 41.83T800-260v100H160Zm66.67-66.67h506.66V-260q0-14.33-8.16-27-8.17-12.67-20.5-19-60.67-29.67-114.34-41.83Q536.67-360 480-360t-111 12.17Q314.67-335.67 254.67-306q-12.34 6.33-20.17 19-7.83 12.67-7.83 27v33.33Zm315.16-345.5Q566.67-597 566.67-634t-24.84-61.83Q517-720.67 480-720.67t-61.83 24.84Q393.33-671 393.33-634t24.84 61.83Q443-547.33 480-547.33t61.83-24.84ZM480-634Zm0 407.33Z"/></svg>
+                        </div>
+                        <div
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
+                            1</div>
+                    </div>
+                    <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Book Service</h3>
+                    <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
+                       Tell us what need to happen, where and when.
+                    </p>
+                </div>
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="relative inline-flex">
+                        <div
+                            class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
+                           <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1E9B6F"><path d="M436.67-344 664-571.33l-47-46.34-178.33 178.34-95.34-95.34L295-486.33 436.67-344ZM480-80.67q-139.67-35-229.83-161.5Q160-368.67 160-520.67v-240l320-120 320 120v240q0 152-90.17 278.5Q619.67-115.67 480-80.67Zm0-69.33q111.33-36.33 182.33-139.67 71-103.33 71-231v-193.66L480-809.67l-253.33 95.34v193.66q0 127.67 71 231Q368.67-186.33 480-150Zm0-330Z"/></svg>
+                        </div>
+                        <div
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
+                            2</div>
+                    </div>
+                    <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Choose Engineer</h3>
+                    <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
+                       Review Verified profiles matched to your requirement 
+                    </p>
+                </div>
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="relative inline-flex">
+                        <div
+                            class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1E9B6F"><path d="M146.67-120q-27 0-46.84-19.83Q80-159.67 80-186.67v-466.66q0-27 19.83-46.84Q119.67-720 146.67-720H320v-93.33q0-27 19.83-46.84Q359.67-880 386.67-880h186.66q27 0 46.84 19.83Q640-840.33 640-813.33V-720h173.33q27 0 46.84 19.83Q880-680.33 880-653.33v466.66q0 27-19.83 46.84Q840.33-120 813.33-120H146.67Zm0-66.67h666.66v-466.66H146.67v466.66Zm240-533.33h186.66v-93.33H386.67V-720Zm-240 533.33v-466.66 466.66Z"/></svg>
+                        </div>
+                        <div
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
+                            3</div>
+                    </div>
+                    <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Track Progress</h3>
+                    <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
+                       Follow arrival , work status and SLA milestones.
+                    </p>
+                </div>
+                <!-- Step 4 - NEW -->
+                <div class="text-center">
+                    <div class="relative inline-flex">
+                        <div
+                            class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1E9B6F"><path d="M320-240h320v-80H320v80ZM200-440h560v-80H200v80Zm120-160h320v-80H320v80ZM80-120v-720h800v720H80Zm80-80h640v-560H160v560Zm0 0v-560 560Z"/></svg>
+                        </div>
+                        <div
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
+                            4</div>
+                    </div>
+                    <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Receive Digital Report</h3>
+                    <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
+                        Get photo, notes, sign-off for your records.
+                    </p>
                 </div>
             </div>
-
-            <ol class="how-it-works-steps grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Step 1: Create Booking - Icon Fixed -->
-                <li class="how-it-works-step flex items-start gap-4">
-                    <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-                        <span class="material-symbols-outlined !text-[#1E9B6F] text-2xl">assignment</span>
-                    </div>
-                    <div class="how-it-works-step-body">
-                        <h3 class="how-it-works-step-title font-semibold text-gray-900">Create Booking</h3>
-                        <p class="how-it-works-step-desc text-sm text-gray-500">Share your job details and choose a time.</p>
-                    </div>
-                </li>
-
-                <!-- Step 2: Receive Offers -->
-                <li class="how-it-works-step flex items-start gap-4">
-                    <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-                        <span class="material-symbols-outlined !text-[#1E9B6F] text-2xl">description</span>
-                    </div>
-                    <div class="how-it-works-step-body">
-                        <h3 class="how-it-works-step-title font-semibold text-gray-900">Receive Offers</h3>
-                        <p class="how-it-works-step-desc text-sm text-gray-500">Trusted service providers send you their best prices.</p>
-                    </div>
-                </li>
-
-                <!-- Step 3: Choose a Service Provider -->
-                <li class="how-it-works-step flex items-start gap-4">
-                    <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-                        <span class="material-symbols-outlined !text-[#1E9B6F] text-2xl">person_add</span>
-                    </div>
-                    <div class="how-it-works-step-body">
-                        <h3 class="how-it-works-step-title font-semibold text-gray-900">Choose a Service Provider</h3>
-                        <p class="how-it-works-step-desc text-sm text-gray-500">You assign the best FE Vendor for your job.</p>
-                    </div>
-                </li>
-
-                <!-- Step 4: Engineer Arrives -->
-                <li class="how-it-works-step flex items-start gap-4">
-                    <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-                        <span class="material-symbols-outlined !text-[#1E9B6F] text-2xl">engineering</span>
-                    </div>
-                    <div class="how-it-works-step-body">
-                        <h3 class="how-it-works-step-title font-semibold text-gray-900">Engineer Arrives</h3>
-                        <p class="how-it-works-step-desc text-sm text-gray-500">A skilled field engineer visits your location at the scheduled time.</p>
-                    </div>
-                </li>
-
-                <!-- Step 5: Track Progress -->
-                <li class="how-it-works-step flex items-start gap-4">
-                    <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-                        <span class="material-symbols-outlined !text-[#1E9B6F] text-2xl">pin_drop</span>
-                    </div>
-                    <div class="how-it-works-step-body">
-                        <h3 class="how-it-works-step-title font-semibold text-gray-900">Track Progress</h3>
-                        <p class="how-it-works-step-desc text-sm text-gray-500">Stay updated with live job progress and work updates.</p>
-                    </div>
-                </li>
-
-                <!-- Step 6: Completion & Report -->
-                <li class="how-it-works-step flex items-start gap-4">
-                    <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-                        <span class="material-symbols-outlined !text-[#1E9B6F] text-2xl">monitoring</span>
-                    </div>
-                    <div class="how-it-works-step-body">
-                        <h3 class="how-it-works-step-title font-semibold text-gray-900">Completion &amp; Report</h3>
-                        <p class="how-it-works-step-desc text-sm text-gray-500">Receive a detailed service report with proof of the completed work.</p>
-                    </div>
-                </li>
-
-                <!-- Step 7: Payment & Closure -->
-                <li class="how-it-works-step flex items-start gap-4">
-                    <div class="how-it-works-step-icon water-drop-glass !text-[#1E9B6F] !border-[#1E9B6F]/20" aria-hidden="true" style="background: rgba(16, 185, 129, 0.15) !important;">
-                        <span class="material-symbols-outlined !text-[#1E9B6F] text-2xl">credit_card</span>
-                    </div>
-                    <div class="how-it-works-step-body">
-                        <h3 class="how-it-works-step-title font-semibold text-gray-900">Payment &amp; Closure</h3>
-                        <p class="how-it-works-step-desc text-sm text-gray-500">Make a secure payment and complete your booking.</p>
-                    </div>
-                </li>
-
-            </ol>
         </div>
     </div>
 </section>
 
-
 <!-- ════════════ POPULAR SERVICES ════════════ -->
-<!-- ════════════ POPULAR SERVICES ════════════ -->
-<!-- ════════════ POPULAR SERVICES ════════════ -->
-<section class="popular-services py-12" aria-labelledby="popular-services-title"  style="padding-top: 2rem; padding-bottom: 1rem;">
-    <div class="mx-auto max-w-[1400px] px-6 md:px-10 xl:px-14">
+<section class="popular-services py-20 md:py-28 mx-auto" aria-labelledby="popular-services-title" >
+    <div class="mx-auto max-w-6xl px-5 md:px-8 w-full">
         
-        <!-- Outer Box with Green Gradient BG Restored -->
-        <div class="popular-services-card bg-gradient-to-br from-green-50 via-emerald-50/50 to-green-50/30 border border-green-200/50 rounded-2xl p-6 md:p-8">
+        <!-- Outer Box - Transparent -->
+        <div class="popular-services-card rounded-3xl p-4 md:p-6 lg:p-8" style="background: transparent !important;">
             
-            <!-- Heading -->
-            <div class="popular-services-header flex flex-wrap items-center justify-between gap-4 mb-8">
-                <h2 id="popular-services-title" class="m-0 text-2xl font-bold md:text-[1.75rem]">
-                    Explore Our <span class="text-primary-green">Popular Services</span>
-                </h2>
-                <a href="../customer" class="popular-services-view-all text-primary-green font-bold inline-flex items-center gap-1 hover:underline">
-                    View All
-                    <span class="material-symbols-outlined text-base">arrow_forward</span>
-                </a>
-            </div>
-
-            <!-- Cards Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Cards Grid - Shifted further down with pt-24 md:pt-32 -->
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 pt-24 md:pt-32">
                 
-                <!-- Card 1: Network Cabling -->
-                <article class="service-card rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer border border-gray-100" 
-                         style="background-color: #ffffff !important; background-image: none !important;" 
-                         onclick="switchToLogin()">
-                    <div class="service-card-image mb-3">
-                        <img src="{% static 'img/customer_card1.svg' %}" 
-                            alt="Network Cabling service illustration" loading="lazy" class="w-10 h-10">
+                <!-- Card 1 -->
+                <article class="service-card relative rounded-2xl min-h-[260px] sm:min-h-[300px] shadow-md hover:shadow-xl transition-all border border-gray-100 cursor-pointer flex flex-col justify-end p-5 overflow-hidden group">
+                    <!-- Image filling the entire article box -->
+                    <img src="{% static 'img/network_cabling.svg' %}" 
+                        alt="Network Cabling" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    
+                    <!-- Dark Gradient Overlay for optimal text contrast -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+
+                    <!-- Overlaid Pure White Text Content -->
+                    <div class="relative z-10 text-center flex flex-col items-center">
+                        <h3 class="service-card-title text-base font-bold text-white mb-1.5 drop-shadow-sm">Network Cabling</h3>
+                        <p class="service-card-desc text-xs text-white line-clamp-2 leading-relaxed">Install and organize network cables for a fast, stable connection.</p>
                     </div>
-                    <h3 class="service-card-title text-sm font-bold text-gray-800 mb-1">Network Cabling</h3>
-                    <p class="service-card-desc text-xs text-gray-500 leading-relaxed line-clamp-2">Install and organize network cables for a fast, stable, and reliable connection.</p>
                 </article>
 
-                <!-- Card 2: Server Installation -->
-                <article class="service-card rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer border border-gray-100" 
-                         style="background-color: #ffffff !important; background-image: none !important;" 
-                         onclick="switchToLogin()">
-                    <div class="service-card-image mb-3">
-                        <img src="{% static 'img/customer_card2.svg' %}" 
-                            alt="Server Installation service illustration" loading="lazy" class="w-10 h-10">
+                <!-- Card 2 -->
+                <article class="service-card relative rounded-2xl min-h-[260px] sm:min-h-[300px] shadow-md hover:shadow-xl transition-all border border-gray-100 cursor-pointer flex flex-col justify-end p-5 overflow-hidden group">
+                    <img src="{% static 'img/server_install.svg' %}" 
+                        alt="Server Install" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+
+                    <div class="relative z-10 text-center flex flex-col items-center">
+                        <h3 class="service-card-title text-base font-bold text-white mb-1.5 drop-shadow-sm">Server Install</h3>
+                        <p class="service-card-desc text-xs text-white line-clamp-2 leading-relaxed">Set up and configure servers to keep systems running smoothly.</p>
                     </div>
-                    <h3 class="service-card-title text-sm font-bold text-gray-800 mb-1">Server Install</h3>
-                    <p class="service-card-desc text-xs text-gray-500 leading-relaxed line-clamp-2">Set up and configure servers to keep your business systems running smoothly.</p>
                 </article>
 
-                <!-- Card 3: Rack Mgmt -->
-                <article class="service-card rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer border border-gray-100" 
-                         style="background-color: #ffffff !important; background-image: none !important;" 
-                         onclick="switchToLogin()">
-                    <div class="service-card-image mb-3">
-                        <img src="{% static 'img/customer_card3.svg' %}" 
-                            alt="Smart Hands Support service illustration" loading="lazy" class="w-10 h-10">
+                <!-- Card 3 -->
+                <article class="service-card relative rounded-2xl min-h-[260px] sm:min-h-[300px] shadow-md hover:shadow-xl transition-all border border-gray-100 cursor-pointer flex flex-col justify-end p-5 overflow-hidden group">
+                    <img src="{% static 'img/rack_mgmt.svg' %}" 
+                        alt="Rack Management" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+
+                    <div class="relative z-10 text-center flex flex-col items-center">
+                        <h3 class="service-card-title text-base font-bold text-white mb-1.5 drop-shadow-sm">Rack Mgmt</h3>
+                        <p class="service-card-desc text-xs text-white line-clamp-2 leading-relaxed">Organize, install, and manage server racks safely.</p>
                     </div>
-                    <h3 class="service-card-title text-sm font-bold text-gray-800 mb-1">Rack Mgmt</h3>
-                    <p class="service-card-desc text-xs text-gray-500 leading-relaxed line-clamp-2">Organize, install, and manage server racks for a safe and tidy setup.</p>
                 </article>
 
-                <!-- Card 4: Power & UPS -->
-                <article class="service-card rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer border border-gray-100" 
-                         style="background-color: #ffffff !important; background-image: none !important;" 
-                         onclick="switchToLogin()">
-                    <div class="service-card-image mb-3">
-                        <img src="{% static 'img/customer_card4.svg' %}" 
-                            alt="Rack & Stack service illustration" loading="lazy" class="w-10 h-10">
+                <!-- Card 4 -->
+                <article class="service-card relative rounded-2xl min-h-[260px] sm:min-h-[300px] shadow-md hover:shadow-xl transition-all border border-gray-100 cursor-pointer flex flex-col justify-end p-5 overflow-hidden group">
+                    <img src="{% static 'img/power_&_ups.svg' %}" 
+                        alt="Power & UPS" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
+
+                    <div class="relative z-10 text-center flex flex-col items-center">
+                        <h3 class="service-card-title text-base font-bold text-white mb-1.5 drop-shadow-sm">Power & UPS</h3>
+                        <p class="service-card-desc text-xs text-white line-clamp-2 leading-relaxed">Install and maintain power systems and UPS units.</p>
                     </div>
-                    <h3 class="service-card-title text-sm font-bold text-gray-800 mb-1">Power & UPS</h3>
-                    <p class="service-card-desc text-xs text-gray-500 leading-relaxed line-clamp-1">Install and maintain power systems and UPS units to keep your equipment running during power interruptions.</p>
                 </article>
 
             </div>
         </div>
     </div>
 </section>
-
 
 
 <!-- ════════════ WHY CHOOSE ════════════ -->
