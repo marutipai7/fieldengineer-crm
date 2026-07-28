@@ -5,19 +5,19 @@
 
 {% block content %}
 <style>
-   
+    /* Hover effect - question text turns green on hover */
     .contact-faq-trigger:hover .contact-faq-text {
         color: #059669 !important; /* emerald-600 */
         transition: color 0.2s ease;
     }
 
-    
+    /* Hover effect - icon turns green on hover */
     .contact-faq-trigger:hover .contact-faq-icon {
         color: #059669 !important; /* emerald-600 */
         transition: color 0.2s ease;
     }
 
-    
+    /* Base styles for the FAQ text and icon */
     .contact-faq-text {
         transition: color 0.2s ease;
         color: #1e293b; /* slate-800 */
@@ -104,6 +104,107 @@
         padding: 1.5rem 0;
     }
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+    /* Coverage Section Styles */
+.coverage-section {
+    /* Inline styles from the section tag */
+}
+
+/* Stat Cards - using Tailwind classes */
+.stat-card {
+    /* Classes used: !bg-transparent, py-3, px-3.5, rounded-2xl, shadow-none, flex, items-center, gap-3, relative, overflow-hidden, transition-all, duration-300, group, cursor-pointer */
+}
+
+/* Map Container */
+#coverageMap {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    border-radius: 16px;
+    z-index: 10;
+}
+
+.line-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 6px;
+    background-color: #1E9B6F;
+    border-radius: 12px 0 0 12px;
+}
+
+/* Map Radio Selection Bar */
+.map-radio-bar {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 10px 24px;
+    border-radius: 9999px;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.map-radio-bar label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.map-radio-bar input[type="radio"] {
+    accent-color: #1E9B6F;
+    width: 16px;
+    height: 16px;
+}
+
+/* View Map Button */
+.view-map-btn {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1E9B6F;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+.view-map-btn:hover {
+    background-color: #f3f4f6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .coverage-section {
+        padding: 0 16px;
+    }
+    
+    .map-radio-bar {
+        padding: 8px 16px;
+        gap: 12px;
+        font-size: 12px;
+    }
+}
+
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
 
 <main>
 
@@ -226,16 +327,18 @@
                 <!-- Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4">
 
-                    <a href="#contact-form"
-                        class="inline-flex items-center justify-center gap-2 bg-[#F5B530] hover:bg-[#dfa024] text-[#1A1A1A] font-semibold px-7 py-3 rounded-xl transition-all duration-300">
+                  <a
+    href="javascript:void(0);"
+    id="contactSalesBtn"
+    class="inline-flex items-center justify-center gap-2 bg-[#F5B530] hover:bg-[#dfa024] text-[#1A1A1A] font-semibold px-7 py-3 rounded-xl transition-all duration-300">
 
-                        Contact Sales
+    Contact Sales
 
-                        <span class="material-symbols-outlined text-[20px]">
-                            arrow_forward
-                        </span>
+    <span class="material-symbols-outlined text-[20px]">
+        arrow_forward
+    </span>
 
-                    </a>
+</a>
 
                     <a href="{% url 'vendor' %}"
                         class="inline-flex items-center justify-center gap-2 border-2 border-[#1A1A1A] text-[#1A1A1A] hover:bg-black/5 font-semibold px-7 py-3 rounded-xl transition-all duration-300">
@@ -375,9 +478,9 @@ id="contact-submit-btn">
 </div>
 
 <div class="lg:col-span-4 flex">
-    <div class="grid grid-rows-4 gap-5 h-full w-full">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5 h-full w-full">
 
-        <article class="contact-info-card p-6">
+       <article class="contact-info-card p-5 sm:p-6 h-full">
             <div class="flex items-center gap-4">
                 <div class="contact-info-icon bg-lightest-green text-primary" aria-hidden="true">
                     <span class="material-symbols-outlined text-green">business_center</span>
@@ -391,14 +494,15 @@ id="contact-submit-btn">
                 <span class="material-symbols-outlined text-primary tiny-icon" aria-hidden="true">phone</span>
                 +91 1800-123-456
             </a>
-            <a href="mailto:sales@fieldengineer.com" class="contact-info-link">
+           <a href="mailto:sales@fieldengineer.com"
+   class="contact-info-link break-all">
                 <span class="material-symbols-outlined text-primary tiny-icon" aria-hidden="true">mail</span>
                 <span>sales@fieldengineer.com</span>
             </a>
             <p class="contact-info-response">Response Time: Within 2 Hours</p>
         </article>
 
-        <article class="contact-info-card p-6">
+        <article class="contact-info-card p-5 sm:p-6 h-full">
             <div class="flex items-center gap-4">
                 <div class="contact-info-icon bg-lightest-green text-dark-green" aria-hidden="true">
                     <span class="material-symbols-outlined text-green">headset_mic</span>
@@ -412,14 +516,15 @@ id="contact-submit-btn">
                 <span class="material-symbols-outlined text-primary tiny-icon" aria-hidden="true">phone</span>
                 +91 1800-789-012
             </a>
-            <a href="mailto:support@fieldengineer.com" class="contact-info-link">
+           <a href="mailto:sales@fieldengineer.com"
+   class="contact-info-link break-all">
                 <span class="material-symbols-outlined text-primary tiny-icon" aria-hidden="true">mail</span>
                 <span>support@fieldengineer.com</span>
             </a>
             <p class="contact-info-response">Response Time: 24/7</p>
         </article>
 
-        <article class="contact-info-card p-6">
+        <article class="contact-info-card p-5 sm:p-6 h-full">
             <div class="flex items-center gap-4">
                 <div class="contact-info-icon bg-lightest-green text-light-purple" aria-hidden="true">
                     <span class="material-symbols-outlined text-green">handshake</span>
@@ -433,14 +538,15 @@ id="contact-submit-btn">
                 <span class="material-symbols-outlined text-primary tiny-icon" aria-hidden="true">phone</span>
                 +91 1800-345-678
             </a>
-            <a href="mailto:partners@fieldengineer.com" class="contact-info-link">
+            <a href="mailto:sales@fieldengineer.com"
+   class="contact-info-link break-all">
                 <span class="material-symbols-outlined text-primary tiny-icon" aria-hidden="true">mail</span>
                 <span>partners@fieldengineer.com</span>
             </a>
             <p class="contact-info-response">Response Time: 1 Business Day</p>
         </article>
 
-        <article class="contact-info-card p-6">
+       <article class="contact-info-card p-5 sm:p-6 h-full">
             <div class="flex items-center gap-4">
                 <div class="contact-info-icon bg-lightest-green text-amber-orange" aria-hidden="true">
                     <span class="material-symbols-outlined text-green">engineering</span>
@@ -454,7 +560,8 @@ id="contact-submit-btn">
                 <span class="material-symbols-outlined text-primary tiny-icon" aria-hidden="true">phone</span>
                 +91 1800-901-234
             </a>
-            <a href="mailto:engineers@fieldengineer.com" class="contact-info-link">
+            <a href="mailto:sales@fieldengineer.com"
+   class="contact-info-link break-all">
                 <span class="material-symbols-outlined text-primary tiny-icon" aria-hidden="true">mail</span>
                 <span>engineers@fieldengineer.com</span>
             </a>
@@ -499,7 +606,10 @@ id="contact-submit-btn">
    <div class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer">
     <!-- Circle size w-14 h-14 same hai -->
     <div class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
-        <span class="material-symbols-outlined text-[38px]">groups</span>
+        <!-- <span class="material-symbols-outlined text-[38px]">groups</span> -->
+          <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#1E9B6F">
+                <path d="M40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm720 0v-120q0-44-24.5-84.5T666-434q51 6 96 20.5t84 35.5q36 20 55 44.5t19 53.5v120H760ZM247-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47Zm466 0q-47 47-113 47-11 0-28-2.5t-28-5.5q27-32 41.5-71t14.5-81q0-42-14.5-81T544-792q14-5 28-6.5t28-1.5q66 0 113 47t47 113q0 66-47 113ZM120-240h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q440-607 440-640t-23.5-56.5Q393-720 360-720t-56.5 23.5Q280-673 280-640t23.5 56.5Q327-560 360-560t56.5-23.5ZM360-240Zm0-400Z"/>
+            </svg>
     </div>
     <div>
         <h3 class="text-lg font-bold text-gray-900  leading-tight">15,000+</h3>
@@ -510,7 +620,10 @@ id="contact-submit-btn">
     <!-- Stat Card 2 -->
     <div class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl border border-gray-200 shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer" style="background: transparent !important;">
         <div class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
-            <span class="material-symbols-outlined text-4xl">verified</span>
+            <!-- <span class="material-symbols-outlined text-4xl">verified</span> -->
+             <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#1E9B6F">
+                <path d="M621.5-338.5Q680-397 680-480t-58.5-141.5Q563-680 480-680t-141.5 58.5Q280-563 280-480t58.5 141.5Q397-280 480-280t141.5-58.5ZM546-386l-86-86v-128h40v112l74 74-28 28ZM480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z"/>
+            </svg>
         </div>
         <div>
             <h3 class="text-xl font-extrabold text-gray-900 leading-tight">350+</h3>
@@ -521,7 +634,10 @@ id="contact-submit-btn">
     <!-- Stat Card 3 -->
     <div class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl border border-gray-200 shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer" style="background: transparent !important;">
         <div class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
-            <span class="material-symbols-outlined text-4xl">apartment</span>
+            <!-- <span class="material-symbols-outlined text-4xl">apartment</span> -->
+              <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#1E9B6F">
+                <path d="M120-120v-560h240v-80l120-120 120 120v240h240v400H120Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm240 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm240 480h80v-80h-80v80Zm0-160h80v-80h-80v80Z"/>
+            </svg>
         </div>
         <div>
             <h3 class="text-xl font-extrabold text-gray-900 leading-tight">120+</h3>
@@ -556,9 +672,7 @@ id="contact-submit-btn">
 
         </div>
 
-        <!-- Bottom Location Info Cards -->
-     <!-- Bottom Location Info Cards (Constrained width to match design) -->
-<!-- Bottom Location Info Cards (Aligned perfectly to the left grid edge) -->
+     
 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8 w-full">
     
     <!-- Location 1: United States -->
@@ -663,10 +777,47 @@ id="contact-submit-btn">
 </div>
 
     </div>
-    
 </section>
+
+<section class="bg-white font-sans antialiased text-slate-800 pt-8 pb-8 sm:pt-10 sm:pb-10">
+    <div class="max-w-[1500px] mx-auto px-6 sm:px-8 md:px-10 lg:px-14 xl:px-16 space-y-4">
+        {# Mission #}
+        <div class="w-full">
+            <div
+                class="bg-gradient-to-r from-green-50 via-green-50/40 to-transparent border border-green-100 rounded-2xl py-5 px-8 sm:py-6 sm:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 w-full md:max-w-xl">
+                    <div class="p-4 bg-green-100 text-green-700 rounded-xl shadow-md border border-green-200 flex-shrink-0"
+                        aria-hidden="true">
+                        <span class="material-symbols-outlined">
+                            check_circle
+                        </span>
+                    </div>
+
+                    <div class="space-y-1 sm:space-y-2">
+                        <span class="text-xs font-bold tracking-wider text-green-700 uppercase">
+                            Our Mission
+                        </span>
+
+                        <h2 id="mission-heading"
+                            class="text-xl sm:text-2xl font-bold text-black-one leading-snug">
+                            To make field service management simple, reliable, and efficient for every business. <br class="hidden sm:inline">
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="w-full md:max-w-md">
+                    <p class="text-sm text-black-two leading-relaxed">
+                        We aim to bring transparency, efficiency, and accountability to every field service project in India by connecting businesses with a trusted network of skilled professionals through technology.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+</section>
+
     {# ========== FAQ ========== #}
-   <section class="py-10" aria-labelledby="faq-heading">
+   <section class="pt-16 pb-10" aria-labelledby="faq-heading">
     <div class="max-w-[1500px] mx-auto px-6 sm:px-8 md:px-10 lg:px-14 xl:px-16">
 
         <div class="bg-white">
@@ -732,7 +883,7 @@ id="contact-submit-btn">
 </section>
 
     {# ========== FOOTER CTA ========== #}
-  <section class="contact-cta bg-white py-0" aria-labelledby="cta-heading" style="padding-bottom: 3rem;">
+ <section class="contact-cta bg-white pt-10 pb-12" aria-labelledby="cta-heading">
     <div class="max-w-[1500px] mx-auto px-6 sm:px-8 md:px-10 lg:px-14 xl:px-16">
 
         <div class="contact-cta-inner rounded-2xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 shadow-md"
@@ -776,6 +927,278 @@ id="contact-submit-btn">
 
 {% block extra_js %}
 <script src="{% static 'script/pages/contact.js' %}"></script>
+
+<script>
+    // Stay Updated Form - AJAX Submission
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector('.stay-updated-form');
+        const messageDiv = document.getElementById('stay-updated-message');
+        const emailInput = document.getElementById('stay-updated-email');
+        const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const email = emailInput.value.trim();
+                if (!email) return;
+
+                // Disable button and show loading
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = 'Subscribing...';
+                }
+                messageDiv.innerHTML = '';
+                messageDiv.className = 'mt-2 text-sm';
+
+                // Get CSRF token from the form
+                const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
+
+                fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken
+                    },
+                    body: JSON.stringify({ email: email })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        messageDiv.textContent = data.message;
+                        messageDiv.className = 'mt-2 text-sm text-green-600 font-medium';
+                        emailInput.value = '';
+                    } else {
+                        messageDiv.textContent = data.error || 'Something went wrong.';
+                        messageDiv.className = 'mt-2 text-sm text-red-600 font-medium';
+                    }
+                })
+                .catch(error => {
+                    messageDiv.textContent = 'Network error. Please try again.';
+                    messageDiv.className = 'mt-2 text-sm text-red-600 font-medium';
+                })
+                .finally(() => {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = 'Subscribe <span class="material-symbols-outlined text-base transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>';
+                    }
+                });
+            });
+        }
+    });
+
+    // Hero counter animation
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll('.stat-count');
+        const animationDuration = 1500; // 1.5 seconds
+
+        const formatNumber = (val, target) => {
+            // If it's the 5000 element and it has reached the target, show '5k'
+            if (target === 5000 && val >= 5000) {
+                return "5k+";
+            }
+            // While animating towards 5000, keep it clean with a '+' suffix
+            if (target === 5000) {
+                return val.toLocaleString() + "+";
+            }
+            // Return standard value for other numbers
+            return val;
+        };
+
+        const startCounting = (element) => {
+            const target = parseInt(element.getAttribute('data-count'), 10);
+            const startTime = performance.now();
+
+            const updateCount = (currentTime) => {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / animationDuration, 1);
+                
+                // Premium ease-out cubic curve
+                const easeOutProgress = 1 - Math.pow(1 - progress, 3);
+                const currentValue = Math.floor(easeOutProgress * target);
+
+                element.innerText = formatNumber(currentValue, target);
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCount);
+                } else {
+                    element.innerText = formatNumber(target, target);
+                }
+            };
+
+            requestAnimationFrame(updateCount);
+        };
+
+        const observerOptions = {
+            root: null,
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCounting(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => observer.observe(counter));
+    });
+
+     document.addEventListener("DOMContentLoaded", function () {
+    // 1. Initialize Map
+    const map = L.map('coverageMap', {
+        center: [20, 10],
+        zoom: 2,
+        zoomControl: true
+    });
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 18,
+        subdomains: 'abcd',
+    }).addTo(map);
+
+    const locations = {
+        usa: {
+            coords: [40.725, -73.743],
+            title: "United States",
+            address: "218-10, Hillside Ave, Queens Village, New York, USA, 11427."
+        },
+        india: {
+            coords: [19.186, 72.848],
+            title: "India",
+            address: "3102, 1st Floor, Rustomjee Eaze Zone, Malad West - Mumbai 400064"
+        },
+        malaysia: {
+            coords: [3.083, 101.674],
+            title: "Malaysia",
+            address: "M116, Jalan Mega Mendung, Off Jalan Klang Lama, 58200, Kuala Lumpur"
+        }
+    };
+
+    const createGreenMarkerIcon = () => L.divIcon({
+        className: 'custom-pin',
+        html: `<div style="background-color: #1E9B6F; width: 28px; height: 28px; border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                <div style="width: 8px; height: 8px; background-color: white; border-radius: 50%;"></div>
+               </div>`,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
+    });
+
+    const markers = {};
+
+    Object.keys(locations).forEach(key => {
+        const loc = locations[key];
+        const marker = L.marker(loc.coords, { icon: createGreenMarkerIcon() }).addTo(map);
+
+        const popupContent = `
+            <div style="font-family: inherit; padding: 2px;">
+                <h5 style="color: #1E9B6F; font-weight: 700; margin-bottom: 4px;">${loc.title}</h5>
+                <p style="font-size: 11px; color: #6B7280; margin: 0 0 6px 0; line-height: 1.3;">${loc.address}</p>
+                <a href="#" style="font-size: 11px; color: #1E9B6F; font-weight: 600; text-decoration: none;">View Details &rarr;</a>
+            </div>
+        `;
+
+        marker.bindPopup(popupContent);
+        markers[key] = marker;
+    });
+
+    markers['usa'].openPopup();
+
+    function activateLocation(key) {
+        const loc = locations[key];
+        if (!loc) return;
+
+        map.flyTo(loc.coords, 5, { duration: 1.2 });
+        markers[key].openPopup();
+
+        const radio = document.querySelector(`input[name="countrySelect"][value="${key}"]`);
+        if (radio) radio.checked = true;
+
+        // Toggle Left Green Indicator Line
+        document.querySelectorAll('.location-card').forEach(card => {
+            const indicator = card.querySelector('.line-indicator');
+            if (card.id === `card-${key}`) {
+                indicator.classList.remove('hidden');
+                card.classList.add('shadow-md');
+            } else {
+                indicator.classList.add('hidden');
+                card.classList.remove('shadow-md');
+            }
+        });
+    }
+
+    document.querySelectorAll('input[name="countrySelect"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            activateLocation(e.target.value);
+        });
+    });
+
+    document.querySelectorAll('.location-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const key = card.id.replace('card-', '');
+            activateLocation(key);
+        });
+    });
+});
+
+function toggleDropdown(id) {
+    const isLocation = id === 'location-dropdown';
+    const currentMenu = document.getElementById(isLocation ? 'location-menu' : 'service-menu');
+    const otherMenu = document.getElementById(isLocation ? 'service-menu' : 'location-menu');
+    const currentArrow = document.getElementById(isLocation ? 'location-arrow' : 'service-arrow');
+    const otherArrow = document.getElementById(isLocation ? 'service-arrow' : 'location-arrow');
+
+    // Close other dropdown
+    if (otherMenu) otherMenu.classList.add('hidden');
+    if (otherArrow) otherArrow.classList.remove('rotate-180');
+
+    // Toggle current dropdown
+    currentMenu.classList.toggle('hidden');
+    currentArrow.classList.toggle('rotate-180');
+}
+
+function selectOption(id, value) {
+    const isLocation = id === 'location-dropdown';
+    const textEl = document.getElementById(isLocation ? 'location-text' : 'service-text');
+    const inputEl = document.getElementById(isLocation ? 'location-input' : 'service-input');
+    
+    textEl.textContent = value;
+    inputEl.value = value;
+    
+    toggleDropdown(id); // Close menu on select
+}
+
+// Close if click outside
+window.addEventListener('click', function(e) {
+    if (!e.target.closest('#location-dropdown') && !e.target.closest('#service-dropdown')) {
+        document.getElementById('location-menu').classList.add('hidden');
+        document.getElementById('service-menu').classList.add('hidden');
+        document.getElementById('location-arrow').classList.remove('rotate-180');
+        document.getElementById('service-arrow').classList.remove('rotate-180');
+    }
+});
+
+</script>
+
+<!-- Leaflet JS Initialization -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function () {
+
+    const contactBtn = document.getElementById("contactSalesBtn");
+    const salesModal = document.getElementById("salesModal");
+
+    if (contactBtn && salesModal) {
+        contactBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            salesModal.classList.remove("hidden");
+            salesModal.classList.add("flex");
+        });
+    }
+
+});</script>
+
 {% endblock %}
 
 
