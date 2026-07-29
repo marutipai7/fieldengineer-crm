@@ -3486,3 +3486,520 @@
 .bg-green-light {
   background-color: var(--color-green-light);
 }
+/* ======================================================
+   JOB DESCRIPTION PAGE
+   ====================================================== */
+
+@layer components {
+
+    .job-gradient {
+        @apply bg-gradient-to-r from-[#FFF7CC] via-[#ECF8CF] to-[#CBEFBA];
+    }
+
+    .job-container {
+        @apply max-w-[1500px] mx-auto px-6 lg:px-10 xl:px-12;
+    }
+
+    .job-card {
+        @apply bg-white rounded-[28px] shadow-lg p-8 transition-all duration-300;
+    }
+
+    .job-card:hover {
+        @apply -translate-y-1;
+    }
+
+    .job-title {
+        @apply text-[36px] md:text-[48px] lg:text-[58px] font-bold leading-tight text-[#1C2B1C];
+    }
+
+    .job-section-title {
+        @apply text-[28px] md:text-[34px] font-bold text-[#1C2B1C] mb-6;
+    }
+
+    .job-text {
+        @apply text-[16px] leading-8 text-[#5B6B65];
+    }
+
+    .job-meta {
+        @apply flex items-center gap-2 text-[#5B6B65];
+    }
+
+    .job-icon {
+        @apply text-[#18B37B] text-[22px];
+    }
+
+    .job-btn-primary {
+        @apply inline-flex items-center justify-center px-7 py-4 rounded-xl bg-[#F5B530] hover:bg-[#E3A21A] text-[#1C2B1C] font-semibold transition-all duration-300;
+    }
+
+    .job-btn-secondary {
+        @apply inline-flex items-center justify-center px-7 py-4 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 text-[#1C2B1C] font-semibold transition-all duration-300;
+    }
+
+    .job-check {
+        @apply w-8 h-8 rounded-full bg-[#EAF9F3] flex items-center justify-center text-[#18B37B] shrink-0;
+    }
+
+}
+/*=====================================================
+    JOB DESCRIPTION - ABOUT ROLE
+======================================================*/
+
+@layer components {
+
+    .job-content-card {
+
+        @apply bg-white rounded-[28px] p-10 shadow-[0_8px_40px_rgba(0,0,0,0.06)];
+
+    }
+
+    .job-section-title {
+
+        @apply text-[34px]
+        font-bold
+        text-[#1C2B1C]
+        mb-8;
+
+    }
+
+    .job-paragraph {
+
+        @apply text-[17px]
+        leading-8
+        text-[#5B6B65];
+
+    }
+
+    .job-apply-card {
+
+        @apply rounded-[28px]
+        p-8
+        sticky
+        top-28;
+
+        background: linear-gradient(
+            135deg,
+            #FFF5C8 0%,
+            #DDF3C8 100%
+        );
+
+    }
+
+
+   .hero-apply-btn{
+        @apply inline-flex items-center justify-center gap-2
+        px-6 py-3
+        rounded-xl
+        bg-[#F5B530]
+        hover:bg-[#E3A11F]
+        text-[#1C2B1C]
+        font-semibold
+        transition-all
+        duration-300;
+    }
+
+    .hero-save-btn{
+        @apply inline-flex items-center justify-center gap-2
+        px-6 py-3
+        rounded-xl
+        border border-gray-200
+        bg-white
+        hover:bg-gray-50
+        text-[#1C2B1C]
+        font-semibold
+        transition-all
+        duration-300;
+    }
+
+    /* Sidebar Buttons */
+
+    .job-apply-btn{
+        @apply w-full flex items-center justify-center gap-2
+        py-4
+        rounded-xl
+        bg-[#F5B530]
+        hover:bg-[#E3A11F]
+        text-[#1C2B1C]
+        font-semibold
+        transition-all
+        duration-300;
+    }
+
+   .job-save-later-btn {
+
+        @apply inline-flex
+        items-center
+        justify-center
+        w-full
+        bg-transparent
+        border-0
+        text-[#18B37B]
+        hover:text-[#159A69]
+        font-semibold
+        py-2
+        transition-all
+        duration-300;
+
+    }
+
+    .job-save-later-btn:hover {
+
+        @apply underline;
+
+    }
+
+
+}
+/*=====================================================
+    WHAT YOU'LL DO
+======================================================*/
+
+@layer components {
+
+    .job-list-item {
+
+        @apply flex
+        items-start
+        gap-5;
+
+    }
+
+    .job-check-icon {
+
+        @apply w-11
+        h-11
+        rounded-full
+        bg-[#E8FAF3]
+        flex
+        items-center
+        justify-center
+        shrink-0;
+
+    }
+
+    .job-check-icon span {
+
+        @apply text-[#18B37B]
+        text-[22px];
+
+    }
+
+    .job-list-title {
+
+        @apply text-[20px]
+        font-semibold
+        text-[#1C2B1C]
+        mb-2;
+
+    }
+
+    .job-list-text {
+
+        @apply text-[16px]
+        leading-8
+        text-[#5B6B65];
+
+    }
+
+    .job-info-card {
+
+        @apply bg-white
+        rounded-[28px]
+        p-8
+        shadow-[0_8px_40px_rgba(0,0,0,0.06)]
+        sticky
+        top-28;
+
+    }
+
+    .job-sidebar-title {
+
+        @apply text-[28px]
+        font-bold
+        text-[#1C2B1C];
+
+    }
+
+}
+/*=====================================================
+    WHAT WE'RE LOOKING FOR
+======================================================*/
+
+@layer components {
+
+    .job-section-subtitle {
+
+        @apply text-[#66756F]
+        text-lg
+        max-w-3xl
+        mt-3;
+
+    }
+
+    .job-green-icon {
+
+        @apply w-14
+        h-14
+        rounded-2xl
+        bg-[#E8FAF3]
+        flex
+        items-center
+        justify-center;
+
+    }
+
+    .job-green-icon span {
+
+        @apply text-[#18B37B]
+        text-[30px];
+
+    }
+
+    .job-yellow-icon {
+
+        @apply w-14
+        h-14
+        rounded-2xl
+        bg-[#FFF4D8]
+        flex
+        items-center
+        justify-center;
+
+    }
+
+    .job-yellow-icon span {
+
+        @apply text-[#F5B530]
+        text-[30px];
+
+    }
+
+    .job-skill-item {
+
+        @apply flex
+        items-start
+        gap-4;
+
+    }
+
+    .job-skill-item span {
+
+        @apply text-[#18B37B]
+        text-[22px]
+        mt-1
+        shrink-0;
+
+    }
+
+    .job-skill-item p {
+
+        @apply text-[16px]
+        leading-7
+        text-[#5B6B65];
+
+    }
+
+}
+/*=====================================================
+    TECH STACK
+======================================================*/
+
+@layer components {
+
+    .job-tech-chip{
+
+        @apply inline-flex
+        items-center
+        justify-center
+        px-6
+        py-3
+        rounded-full
+        bg-[#F7FCF8]
+        border
+        border-[#DCEEE4]
+        text-[#1C2B1C]
+        font-medium
+        transition-all
+        duration-300
+        cursor-default;
+
+    }
+
+    .job-tech-chip:hover{
+
+        @apply bg-[#18B37B]
+        text-white
+        border-[#18B37B]
+        -translate-y-1;
+
+    }
+
+}
+/*=====================================================
+    BENEFITS & PERKS
+======================================================*/
+
+@layer components {
+
+    .job-benefit-card{
+
+        @apply bg-white
+        rounded-[28px]
+        p-8
+        shadow-[0_8px_40px_rgba(0,0,0,0.06)]
+        transition-all
+        duration-300;
+
+    }
+
+    .job-benefit-card:hover{
+
+        @apply -translate-y-2;
+
+    }
+
+    .job-benefit-icon{
+
+        @apply w-16
+        h-16
+        rounded-2xl
+        bg-[#EAF9F3]
+        flex
+        items-center
+        justify-center
+        mb-6;
+
+    }
+
+    .job-benefit-icon span{
+
+        @apply text-[#18B37B]
+        text-[34px];
+
+    }
+
+    .job-benefit-card h3{
+
+        @apply text-[22px]
+        font-bold
+        text-[#1C2B1C]
+        mb-3;
+
+    }
+
+    .job-benefit-card p{
+
+        @apply text-[#66756F]
+        leading-7;
+
+    }
+
+}
+/*=====================================================
+    HIRING PROCESS
+======================================================*/
+
+@layer components {
+
+    .job-process-card{
+
+        @apply relative
+        bg-white
+        rounded-[28px]
+        p-8
+        border
+        border-[#E7ECE8]
+        shadow-[0_8px_35px_rgba(0,0,0,0.05)]
+        transition-all
+        duration-300;
+
+    }
+
+    .job-process-card:hover{
+
+        @apply -translate-y-2;
+
+        border-color:#18B37B;
+
+    }
+
+    .job-process-number{
+
+        @apply w-16
+        h-16
+        rounded-full
+        bg-[#18B37B]
+        text-white
+        flex
+        items-center
+        justify-center
+        text-xl
+        font-bold
+        mb-6;
+
+    }
+
+    .job-process-card h3{
+
+        @apply text-[22px]
+        font-bold
+        text-[#1C2B1C]
+        mb-3;
+
+    }
+
+    .job-process-card p{
+
+        @apply text-[#66756F]
+        leading-7;
+
+    }
+
+}
+/*=====================================================
+    COMPANY CARD
+======================================================*/
+
+@layer components {
+
+    .job-company-card{
+        @apply bg-white rounded-[28px] p-8 shadow-[0_8px_40px_rgba(0,0,0,0.06)];
+    }
+
+    .job-company-stat{
+        @apply rounded-2xl bg-[#F7FCF8] p-5 text-center;
+    }
+
+    .job-company-stat h4{
+        @apply text-[22px] font-bold text-[#1C2B1C];
+    }
+
+    .job-company-stat p{
+        @apply text-sm text-[#66756F] mt-1;
+    }
+
+    .job-company-link{
+        @apply mt-8 inline-flex items-center gap-2 text-[#18B37B] font-semibold;
+    }
+
+    .job-opening{
+        @apply flex justify-between items-center pb-5 border-b border-gray-100;
+    }
+
+    .job-opening:last-child{
+        @apply border-0 pb-0;
+    }
+
+    .job-opening h4{
+        @apply font-semibold text-[#1C2B1C];
+    }
+
+    .job-opening p{
+        @apply text-sm text-[#66756F] mt-1;
+    }
+
+    .job-opening span{
+        @apply text-[#18B37B];
+    }
+
+}
