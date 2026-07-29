@@ -1,0 +1,86 @@
+
+ 
+/* Map Container */
+#coverageMap {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    border-radius: 16px;
+    z-index: 10;
+}
+
+.line-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 6px;
+    background-color: #1E9B6F;
+    border-radius: 12px 0 0 12px;
+}
+
+/* Map Radio Selection Bar */
+.map-radio-bar {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 10px 24px;
+    border-radius: 9999px;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.map-radio-bar label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.map-radio-bar input[type="radio"] {
+    accent-color: #1E9B6F;
+    width: 16px;
+    height: 16px;
+}
+
+/* View Map Button */
+.view-map-btn {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1E9B6F;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+.view-map-btn:hover {
+    background-color: #f3f4f6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .coverage-section {
+        padding: 0 16px;
+    }
+    
+    .map-radio-bar {
+        padding: 8px 16px;
+        gap: 12px;
+        font-size: 12px;
+    }
+}

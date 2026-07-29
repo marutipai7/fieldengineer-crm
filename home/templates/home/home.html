@@ -3,15 +3,10 @@
 
 {% block title %}FieldEngineer — Deploy Certified Engineers Anywhere in India{% endblock %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzR Cf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-{% endblock %}
-
 {% block content %}
 
 <style>
-    @keyframes hero-rise {
+     @keyframes hero-rise {
         from {
             opacity: 0;
             transform: translateY(28px);
@@ -356,18 +351,18 @@
     }
 
     .popular-services {
-        background-image: url("/static/img/home-bg.svg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 650px;
-        display: flex;
-        align-items: flex-end;
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
+    background-image: url("/static/img/popular-bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 650px;
+    display: flex;
+    align-items: flex-end;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+ 
 
     /* ============================================
    RESPONSIVE - MOBILE
@@ -470,7 +465,7 @@
 
     /* Force blue background on subscribe button */
     .stay-updated-submit {
-
+       
         /* color: #ffffff !important; */
         /* Force white text */
         border: none !important;
@@ -569,16 +564,26 @@
 </style>
 
 <!-- ════════════ HERO ════════════ -->
-<section class="relative overflow-hidden hero-gradient">
+<section class="relative overflow-hidden min-h-screen flex items-center mb-12 md:mb-16 lg:mb-24" 
+         style="background-image: url('/static/img/hero_homepage.webp'); 
+                background-size: cover; 
+                background-position: center; 
+                background-repeat: no-repeat;">
+
+    <!-- Dark Overlay for Text Contrast -->
+    <div class="absolute inset-0 bg-black/40 pointer-events-none "></div>
+    
+    <!-- Soft Gradient Overlay for Better Readability -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent pointer-events-none"></div>
 
     <!-- Soft Background Glow -->
     <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute -top-40 -right-32 h-[520px] w-[520px] rounded-full bg-white/12 blur-3xl"></div>
-        <div class="absolute -bottom-44 -left-32 h-[420px] w-[420px] rounded-full bg-white/8 blur-3xl"></div>
+        <div class="absolute -top-40 -right-32 h-[520px] w-[520px] rounded-full bg-white/5 blur-3xl"></div>
+        <div class="absolute -bottom-44 -left-32 h-[420px] w-[420px] rounded-full bg-white/5 blur-3xl"></div>
     </div>
 
     <!-- Container -->
-    <div class="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10 xl:px-14">
+    <div class="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10 xl:px-14 w-full">
 
         <div class="flex min-h-[calc(100vh-82px)] items-center">
 
@@ -589,17 +594,15 @@
                 <div class="max-w-full">
 
                     <!-- Badge -->
-                    <div
-                        class="inline-flex items-center gap-2 rounded-full border border-muted-sage bg-white/70 px-4 py-2 backdrop-blur">
+                    <div class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 backdrop-blur-md px-4 py-2">
                         <span class="h-2.5 w-2.5 rounded-full bg-emerald-teal"></span>
-                        <span class="text-sm font-semibold tracking-wide text-emerald-teal">
+                        <span class="text-sm font-semibold tracking-wide text-white">
                             INDIA'S #1 FIELD SERVICE MARKETPLACE
                         </span>
                     </div>
 
                     <!-- Heading -->
-                    <h1
-                        class="mt-8 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight text-charcoal-black">
+                    <h1 class="mt-8 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight text-white">
                         Book Trusted Field
                         <br class="hidden lg:block">
                         Engineers,
@@ -609,99 +612,59 @@
                     </h1>
 
                     <!-- Description -->
-                    <p class="mt-7 max-w-xl text-lg leading-8 text-granite-gray">
-                        Connect with trusted, verified engineers for network setup, cabling, data center support, and
-                        other IT services across India.
+                    <p class="mt-7 max-w-xl text-lg leading-8 text-white">
+                       Connect with trusted, verified engineers for network setup, cabling, data center support, and other IT services across India.
                     </p>
 
                     <!-- Search Form -->
                     <div class="mt-10">
-                        <div
-                            class="rounded-2xl border border-white/60 bg-white p-3 shadow-[0_12px_35px_rgba(2,21,55,0.08)]">
+                        <div class="rounded-2xl border border-white/30 bg-white/95 backdrop-blur-md p-3 shadow-[0_12px_35px_rgba(0,0,0,0.2)]">
                             <div class="grid gap-3 lg:grid-cols-[1fr_1fr_auto]">
 
-                                <!-- Location -->
                                 <!-- Location Custom Dropdown -->
                                 <div class="relative w-full" id="location-dropdown">
-                                    <div onclick="toggleDropdown('location-dropdown')"
-                                        class="flex h-14 cursor-pointer items-center justify-between gap-3 rounded-xl border border-muted-sage bg-greenish-white px-4 transition hover:border-emerald-600 hover:bg-emerald-50">
+                                    <div onclick="toggleDropdown('location-dropdown')" class="flex h-14 cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 bg-white px-4 transition hover:border-emerald-600 hover:bg-emerald-50">
                                         <div class="flex items-center gap-3">
-                                            <span
-                                                class="material-symbols-outlined text-amber-orange1">location_on</span>
-                                            <span id="location-text"
-                                                class="text-sm font-medium text-charcoal-black">Select Location</span>
+                                            <span class="material-symbols-outlined text-amber-orange1">location_on</span>
+                                            <span id="location-text" class="text-sm font-medium text-charcoal-black">Select Location</span>
                                         </div>
-                                        <span id="location-arrow"
-                                            class="material-symbols-outlined text-gray-400 transition-transform duration-200">expand_more</span>
+                                        <span id="location-arrow" class="material-symbols-outlined text-gray-400 transition-transform duration-200">expand_more</span>
                                     </div>
 
                                     <input type="hidden" name="location" id="location-input" value="">
 
-                                    <!-- Dropdown List with Yellow Hover -->
-                                    <ul id="location-menu"
-                                        class="absolute left-0 top-full z-50 mt-1 hidden w-full rounded-xl border border-gray-100 bg-white py-1 shadow-lg max-h-60 overflow-y-auto">
-                                        <li onclick="selectOption('location-dropdown', 'Mumbai')"
-                                            class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">
-                                            Mumbai</li>
-                                        <li onclick="selectOption('location-dropdown', 'Delhi')"
-                                            class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">
-                                            Delhi</li>
-                                        <li onclick="selectOption('location-dropdown', 'Bangalore')"
-                                            class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">
-                                            Bangalore</li>
-                                        <li onclick="selectOption('location-dropdown', 'Hyderabad')"
-                                            class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">
-                                            Hyderabad</li>
-                                        <li onclick="selectOption('location-dropdown', 'Chennai')"
-                                            class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">
-                                            Chennai</li>
+                                    <ul id="location-menu" class="absolute left-0 top-full z-50 mt-1 hidden w-full rounded-xl border border-gray-100 bg-white py-1 shadow-lg max-h-60 overflow-y-auto">
+                                        <li onclick="selectOption('location-dropdown', 'Mumbai')" class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">Mumbai</li>
+                                        <li onclick="selectOption('location-dropdown', 'Delhi')" class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">Delhi</li>
+                                        <li onclick="selectOption('location-dropdown', 'Bangalore')" class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">Bangalore</li>
+                                        <li onclick="selectOption('location-dropdown', 'Hyderabad')" class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">Hyderabad</li>
+                                        <li onclick="selectOption('location-dropdown', 'Chennai')" class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">Chennai</li>
                                     </ul>
                                 </div>
 
                                 <!-- Service Custom Dropdown -->
                                 <div class="relative w-full" id="service-dropdown">
-                                    <div onclick="toggleDropdown('service-dropdown')"
-                                        class="flex h-14 cursor-pointer items-center justify-between gap-3 rounded-xl border border-muted-sage bg-greenish-white px-4 transition hover:border-emerald-600 hover:bg-emerald-50">
+                                    <div onclick="toggleDropdown('service-dropdown')" class="flex h-14 cursor-pointer items-center justify-between gap-3 rounded-xl border border-gray-200 bg-white px-4 transition hover:border-emerald-600 hover:bg-emerald-50">
                                         <div class="flex items-center gap-3">
                                             <span class="material-symbols-outlined text-emerald-teal">handyman</span>
-                                            <span id="service-text"
-                                                class="text-sm font-medium text-charcoal-black">Select Service</span>
+                                            <span id="service-text" class="text-sm font-medium text-charcoal-black">Select Service</span>
                                         </div>
-                                        <span id="service-arrow"
-                                            class="material-symbols-outlined text-gray-400 transition-transform duration-200">expand_more</span>
+                                        <span id="service-arrow" class="material-symbols-outlined text-gray-400 transition-transform duration-200">expand_more</span>
                                     </div>
 
                                     <input type="hidden" name="service" id="service-input" value="">
 
-                                    <!-- Dropdown List with Yellow Hover -->
-                                    <ul id="service-menu"
-                                        class="absolute left-0 top-full z-50 mt-1 hidden w-full rounded-xl border border-gray-100 bg-white py-1 shadow-lg max-h-60 overflow-y-auto">
-                                        <li onclick="selectOption('service-dropdown', 'Network Cabling')"
-                                            class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">
-                                            Network Cabling</li>
-                                        <li onclick="selectOption('service-dropdown', 'Rack Installation')"
-                                            class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">
-                                            Rack Installation</li>
-                                        <li onclick="selectOption('service-dropdown', 'Data Center Support')"
-                                            class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">
-                                            Data Center Support</li>
-                                        <li onclick="selectOption('service-dropdown', 'Server Installation')"
-                                            class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">
-                                            Server Installation</li>
-                                        <li onclick="selectOption('service-dropdown', 'CCTV Installation')"
-                                            class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">
-                                            CCTV Installation</li>
+                                    <ul id="service-menu" class="absolute left-0 top-full z-50 mt-1 hidden w-full rounded-xl border border-gray-100 bg-white py-1 shadow-lg max-h-60 overflow-y-auto">
+                                        <li onclick="selectOption('service-dropdown', 'Network Cabling')" class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">Network Cabling</li>
+                                        <li onclick="selectOption('service-dropdown', 'Rack Installation')" class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">Rack Installation</li>
+                                        <li onclick="selectOption('service-dropdown', 'Data Center Support')" class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">Data Center Support</li>
+                                        <li onclick="selectOption('service-dropdown', 'Server Installation')" class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">Server Installation</li>
+                                        <li onclick="selectOption('service-dropdown', 'CCTV Installation')" class="cursor-pointer px-4 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-amber-400 hover:text-black">CCTV Installation</li>
                                     </ul>
                                 </div>
 
-
                                 <!-- Button -->
-                                <!-- <button class="flex h-14 items-center justify-center gap-2 rounded-xl bg-amber-orange1 px-8 font-semibold text-charcoal-black transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
-                                    <span class="material-symbols-outlined">search</span>
-                                    Find Engineer
-                                </button> -->
-                                <button onclick="switchToLogin()"
-                                    class="flex h-14 items-center justify-center gap-2 rounded-xl bg-amber-orange1 px-8 font-semibold text-charcoal-black transition-all duration-300 hover:scale-[1.02] hover:shadow-lg cursor-pointer">
+                                <button onclick="switchToLogin()" class="flex h-14 items-center justify-center gap-2 rounded-xl bg-amber-orange1 px-8 font-semibold text-charcoal-black transition-all duration-300 hover:scale-[1.02] hover:shadow-lg cursor-pointer">
                                     <span class="material-symbols-outlined">search</span>
                                     Find Engineer
                                 </button>
@@ -710,114 +673,92 @@
                         </div>
                     </div>
 
-
-
                     <!-- Statistics -->
-                    <!-- Grid Container: Teeno elements ek hi row me constraint rahenge -->
                     <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 items-center gap-4 md:gap-6 pt-2 w-full max-w-2xl">
-
+                        
                         <!-- Stat 1: Verified Engineers -->
                         <div class="flex items-center gap-3">
                             <div class="shrink-0 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960"
-                                    width="32px" fill="#1E9B6F">
-                                    <path
-                                        d="M40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm720 0v-120q0-44-24.5-84.5T666-434q51 6 96 20.5t84 35.5q36 20 55 44.5t19 53.5v120H760ZM247-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47Zm466 0q-47 47-113 47-11 0-28-2.5t-28-5.5q27-32 41.5-71t14.5-81q0-42-14.5-81T544-792q14-5 28-6.5t28-1.5q66 0 113 47t47 113q0 66-47 113ZM120-240h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q440-607 440-640t-23.5-56.5Q393-720 360-720t-56.5 23.5Q280-673 280-640t23.5 56.5Q327-560 360-560t56.5-23.5ZM360-240Zm0-400Z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#1E9B6F">
+                                    <path d="M40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm720 0v-120q0-44-24.5-84.5T666-434q51 6 96 20.5t84 35.5q36 20 55 44.5t19 53.5v120H760ZM247-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47Zm466 0q-47 47-113 47-11 0-28-2.5t-28-5.5q27-32 41.5-71t14.5-81q0-42-14.5-81T544-792q14-5 28-6.5t28-1.5q66 0 113 47t47 113q0 66-47 113ZM120-240h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q440-607 440-640t-23.5-56.5Q393-720 360-720t-56.5 23.5Q280-673 280-640t23.5 56.5Q327-560 360-560t56.5-23.5ZM360-240Zm0-400Z"/>
                                 </svg>
                             </div>
                             <div class="min-w-0 shrink-0">
-                                <h3 class="text-2xl md:text-3xl font-extrabold text-charcoal-black leading-none">
+                                <h3 class="text-2xl md:text-3xl font-extrabold text-white leading-none">
                                     <span class="stat-count" data-count="5">0</span>k+
                                 </h3>
-                                <p class="mt-1 text-xs md:text-sm font-medium text-granite-gray whitespace-nowrap">
-                                    Verified Engineers</p>
+                                <p class="mt-1 text-xs md:text-sm font-medium text-white whitespace-nowrap">Verified Engineers</p>
                             </div>
                         </div>
 
                         <!-- Stat 2: Cities Covered -->
                         <div class="flex items-center gap-3">
                             <div class="shrink-0 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960"
-                                    width="32px" fill="#1E9B6F">
-                                    <path
-                                        d="M120-120v-560h240v-80l120-120 120 120v240h240v400H120Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm240 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm240 480h80v-80h-80v80Zm0-160h80v-80h-80v80Z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#1E9B6F">
+                                    <path d="M120-120v-560h240v-80l120-120 120 120v240h240v400H120Zm80-80h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm240 320h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm240 480h80v-80h-80v80Zm0-160h80v-80h-80v80Z"/>
                                 </svg>
                             </div>
                             <div class="min-w-0 shrink-0">
-                                <h3 class="text-2xl md:text-3xl font-extrabold text-charcoal-black leading-none">
+                                <h3 class="text-2xl md:text-3xl font-extrabold text-white leading-none">
                                     <span class="stat-count" data-count="50">0</span>+
                                 </h3>
-                                <p class="mt-1 text-xs md:text-sm font-medium text-granite-gray whitespace-nowrap">
-                                    Cities Covered</p>
+                                <p class="mt-1 text-xs md:text-sm font-medium text-white whitespace-nowrap">Cities Covered</p>
                             </div>
                         </div>
 
                         <!-- Stat 3: Customer Satisfaction -->
                         <div class="flex items-center gap-3">
                             <div class="shrink-0 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960"
-                                    width="32px" fill="#1E9B6F">
-                                    <path
-                                        d="M621.5-338.5Q680-397 680-480t-58.5-141.5Q563-680 480-680t-141.5 58.5Q280-563 280-480t58.5 141.5Q397-280 480-280t141.5-58.5ZM546-386l-86-86v-128h40v112l74 74-28 28ZM480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#1E9B6F">
+                                    <path d="M621.5-338.5Q680-397 680-480t-58.5-141.5Q563-680 480-680t-141.5 58.5Q280-563 280-480t58.5 141.5Q397-280 480-280t141.5-58.5ZM546-386l-86-86v-128h40v112l74 74-28 28ZM480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z"/>
                                 </svg>
                             </div>
                             <div class="min-w-0 shrink-0">
-                                <h3 class="text-2xl md:text-3xl font-extrabold text-charcoal-black leading-none">
+                                <h3 class="text-2xl md:text-3xl font-extrabold text-white leading-none">
                                     <span class="stat-count" data-count="98">0</span>%
                                 </h3>
-                                <p class="mt-1 text-xs md:text-sm font-medium text-granite-gray whitespace-nowrap">
-                                    Customer Satisfaction</p>
+                                <p class="mt-1 text-xs md:text-sm font-medium text-white whitespace-nowrap">Customer Satisfaction</p>
                             </div>
                         </div>
 
                     </div>
 
                     <!-- App Download Banner -->
-                    <div class="mt-8 border-t border-gray-300 bg-transparent">
+                    <div class="mt-8 border-t border-white/20 bg-white/10 backdrop-blur-sm rounded-xl">
                         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 md:p-5">
-
+                            
                             <!-- Left: Phone Icon + Text -->
                             <div class="flex items-center gap-3.5">
-                                <!-- Custom Mobile Icon - Smaller -->
-                                <div
-                                    class="w-8 h-12 border-2 border-emerald-teal rounded-xl flex flex-col items-center justify-between p-1 shrink-0 bg-white/50">
+                                <div class="w-8 h-12 border-2 border-emerald-teal rounded-xl flex flex-col items-center justify-between p-1 shrink-0 bg-white/30">
                                     <div class="w-1.5 h-0.5 bg-emerald-teal rounded-full"></div>
-                                    <div
-                                        class="w-4 h-4 border-2 border-emerald-teal rounded flex items-center justify-center">
+                                    <div class="w-4 h-4 border-2 border-emerald-teal rounded flex items-center justify-center">
                                         <div class="w-2 h-2 bg-emerald-teal rounded-sm"></div>
                                     </div>
                                     <div class="w-0.5 h-0.5 border border-emerald-teal rounded-full"></div>
                                 </div>
 
-                                <!-- Title & Subtitle -->
                                 <div>
-                                    <h4 class="text-base sm:text-lg font-bold text-charcoal-black leading-snug">
+                                    <h4 class="text-base sm:text-lg font-bold text-white leading-snug">
                                         Download the <span class="text-emerald-teal">FE App</span>
                                     </h4>
-                                    <p class="text-xs sm:text-sm text-granite-gray mt-0.5">
+                                    <p class="text-xs sm:text-sm text-white mt-0.5">
                                         Manage field service jobs anytime, anywhere.
                                     </p>
-                                    <!-- Gray Line Below Subtitle -->
-                                    <div class="w-full h-[1px] bg-gray-300 mt-2"></div>
+                                    <div class="w-full h-[1px] bg-white/20 mt-2"></div>
                                 </div>
                             </div>
 
                             <!-- Right: QR Code + Divider + App Store Buttons -->
                             <div class="flex items-center gap-3 sm:gap-4 shrink-0">
-
-                                <!-- Vertical Gray Line - Left of QR Code -->
-                                <div class="hidden sm:block w-[1px] h-16 bg-gray-300"></div>
+                                
+                                <div class="hidden sm:block w-[1px] h-16 bg-white/20"></div>
 
                                 <!-- QR Code Container -->
-                                <div
-                                    class="w-20 h-20 bg-white p-1.5 rounded-lg shadow-sm border border-gray-200/80 shrink-0 flex items-center justify-center relative">
+                                <div class="w-20 h-20 bg-white p-1.5 rounded-lg shadow-sm border border-white/30 shrink-0 flex items-center justify-center relative">
                                     <svg class="w-16 h-16 text-gray-900" viewBox="0 0 100 100" fill="currentColor">
-                                        <path
-                                            d="M 5 5 H 35 V 35 H 5 Z M 10 10 V 30 H 30 V 10 Z M 15 15 H 25 V 25 H 15 Z" />
-                                        <path
-                                            d="M 65 5 H 95 V 35 H 65 Z M 70 10 V 30 H 90 V 10 Z M 75 15 H 85 V 25 H 75 Z" />
-                                        <path
-                                            d="M 5 65 H 35 V 95 H 5 Z M 10 70 V 90 H 30 V 70 Z M 15 75 H 25 V 85 H 15 Z" />
+                                        <path d="M 5 5 H 35 V 35 H 5 Z M 10 10 V 30 H 30 V 10 Z M 15 15 H 25 V 25 H 15 Z" />
+                                        <path d="M 65 5 H 95 V 35 H 65 Z M 70 10 V 30 H 90 V 10 Z M 75 15 H 85 V 25 H 75 Z" />
+                                        <path d="M 5 65 H 35 V 95 H 5 Z M 10 70 V 90 H 30 V 70 Z M 15 75 H 25 V 85 H 15 Z" />
                                         <rect x="42" y="8" width="8" height="8" />
                                         <rect x="52" y="18" width="8" height="8" />
                                         <rect x="42" y="28" width="8" height="8" />
@@ -833,56 +774,37 @@
                                         <rect x="82" y="75" width="10" height="8" />
                                         <rect x="75" y="85" width="18" height="8" />
                                     </svg>
-                                    <!-- FE Badge - Larger -->
                                     <div class="absolute inset-0 flex items-center justify-center">
-                                        <div
-                                            class="bg-[#1E9B6F] text-white text-[11px] font-extrabold px-1.5 py-1 rounded shadow-xs">
-                                            FE</div>
+                                        <div class="bg-[#1E9B6F] text-white text-[11px] font-extrabold px-1.5 py-1 rounded shadow-xs">FE</div>
                                     </div>
                                 </div>
 
-                                <!-- Vertical Divider Between QR and Buttons -->
-                                <div class="hidden sm:block w-[1px] h-16 bg-gray-300"></div>
+                                <div class="hidden sm:block w-[1px] h-16 bg-white/20"></div>
 
-                                <!-- Store Buttons - Vertical Stack -->
+                                <!-- Store Buttons -->
                                 <div class="flex flex-col gap-2 items-center">
-
-                                    <!-- Google Play Button -->
-                                    <a href="#"
-                                        class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
+                                    <a href="#" class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
                                         <svg class="w-6 h-6 shrink-0" viewBox="0 0 512 512">
-                                            <path fill="#00f076"
-                                                d="M12 28.1C10.2 30.2 9 33.6 9 38v436c0 4.4 1.2 7.8 3 9.9l2.2 2.1L266 234.3v-4.6L14.2 26z" />
-                                            <path fill="#00d7ff"
-                                                d="M346.7 315l-80.7-80.7v-4.6l80.7-80.7 2.3 1.3 95.6 54.3c27.3 15.5 27.3 40.9 0 56.4l-95.6 54-2.3 0z" />
-                                            <path fill="#ff1744"
-                                                d="M349 315l-83-83L12 483.9c8.8 9.3 23.3 10.4 39.8 1.1L349 315z" />
-                                            <path fill="#ffbe00"
-                                                d="M349 197L51.8 28c-16.5-9.3-31-8.2-39.8 1.1L266 214l83-17z" />
+                                            <path fill="#00f076" d="M12 28.1C10.2 30.2 9 33.6 9 38v436c0 4.4 1.2 7.8 3 9.9l2.2 2.1L266 234.3v-4.6L14.2 26z"/>
+                                            <path fill="#00d7ff" d="M346.7 315l-80.7-80.7v-4.6l80.7-80.7 2.3 1.3 95.6 54.3c27.3 15.5 27.3 40.9 0 56.4l-95.6 54-2.3 0z"/>
+                                            <path fill="#ff1744" d="M349 315l-83-83L12 483.9c8.8 9.3 23.3 10.4 39.8 1.1L349 315z"/>
+                                            <path fill="#ffbe00" d="M349 197L51.8 28c-16.5-9.3-31-8.2-39.8 1.1L266 214l83-17z"/>
                                         </svg>
                                         <div class="text-left leading-none">
-                                            <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">GET
-                                                IT ON</p>
-                                            <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
-                                                Google Play</p>
+                                            <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">GET IT ON</p>
+                                            <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">Google Play</p>
                                         </div>
                                     </a>
 
-                                    <!-- App Store Button -->
-                                    <a href="#"
-                                        class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
+                                    <a href="#" class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
                                         <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.97.04-2.14.65-2.83 1.46-.62.72-1.16 1.88-1.01 3 .01 0 .04.01.07.01 1.08 0 2.19-.55 2.78-1.37z" />
+                                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.97.04-2.14.65-2.83 1.46-.62.72-1.16 1.88-1.01 3 .01 0 .04.01.07.01 1.08 0 2.19-.55 2.78-1.37z"/>
                                         </svg>
                                         <div class="text-left leading-none">
-                                            <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
-                                                Download on</p>
-                                            <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
-                                                App Store</p>
+                                            <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">Download on</p>
+                                            <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">App Store</p>
                                         </div>
                                     </a>
-
                                 </div>
 
                             </div>
@@ -892,10 +814,7 @@
                 </div>
 
                 <!-- ===== RIGHT COLUMN - IMAGE ===== -->
-                <div class="flex items-center justify-center">
-                    <img src="/static/img/homepage.svg" alt="Field Engineer Hero Image" loading="lazy" decoding="async"
-                        class="w-full max-w-[550px] h-auto object-contain drop-shadow-2xl">
-                </div>
+             
 
             </div>
 
@@ -905,195 +824,168 @@
 
 </section>
 
+
+
+
+<section class="popular-services py-20 md:py-20 mx-auto" aria-labelledby="popular-services-title">
+    <div class="mx-auto max-w-7xl  px-8 md:px-12 w-full pb-20 md:pb-28">
+        
+        <!-- Outer Box -->
+        <!-- <div class="popular-services-card rounded-3xl p-4  md:p-6 lg:p-8" style="background: transparent !important;"> -->
+            
+            <!-- Cards Grid - Added mt-40 to push cards down -->
+            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-32 md:mt-48 lg:mt-72">
+                <!-- Card 1 - Network Cabling -->
+                <article class="service-card relative rounded-2xl min-h-[380px] sm:min-h-[440px] shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 cursor-pointer flex flex-col justify-end p-6 overflow-hidden group">
+                    <img src="{% static 'img/network_cabling.webp' %}" 
+                        alt="Network Cabling" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-600/90 via-blue-600/40 to-blue-400/10 pointer-events-none"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+
+                    <div class="relative z-10 text-center flex flex-col items-center">
+                        <h3 class="service-card-title text-lg md:text-xl font-bold !text-white mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">Network Cabling</h3>
+                        <p class="service-card-desc text-xs md:text-sm !text-white/95 line-clamp-3 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] font-medium">Install and organize network cables for a fast, stable connection.</p>
+                    </div>
+                </article>
+
+                <!-- Card 2 - Server Install -->
+                <article class="service-card relative rounded-2xl min-h-[380px] sm:min-h-[440px] shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 cursor-pointer flex flex-col justify-end p-6 overflow-hidden group">
+                    <img src="{% static 'img/server_install.webp' %}" 
+                        alt="Server Install" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-purple-600/90 via-purple-600/40 to-purple-400/10 pointer-events-none"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+
+                    <div class="relative z-10 text-center flex flex-col items-center">
+                        <h3 class="service-card-title text-lg md:text-xl font-bold !text-white mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">Server Install</h3>
+                        <p class="service-card-desc text-xs md:text-sm !text-white/95 line-clamp-3 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] font-medium">Set up and configure servers to keep systems running smoothly.</p>
+                    </div>
+                </article>
+
+                <!-- Card 3 - Rack Mgmt -->
+                <article class="service-card relative rounded-2xl min-h-[380px] sm:min-h-[440px] shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 cursor-pointer flex flex-col justify-end p-6 overflow-hidden group">
+                    <img src="{% static 'img/rack_mgmt.webp' %}" 
+                        alt="Rack Management" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-green-600/90 via-green-600/40 to-green-400/10 pointer-events-none"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+
+                    <div class="relative z-10 text-center flex flex-col items-center">
+                        <h3 class="service-card-title text-lg md:text-xl font-bold !text-white mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">Rack Mgmt</h3>
+                        <p class="service-card-desc text-xs md:text-sm !text-white/95 line-clamp-3 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] font-medium">Organize, install, and manage server racks safely.</p>
+                    </div>
+                </article>
+
+                <!-- Card 4 - Power & UPS -->
+                <article class="service-card relative rounded-2xl min-h-[380px] sm:min-h-[440px] shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 cursor-pointer flex flex-col justify-end p-6 overflow-hidden group">
+                    <img src="{% static 'img/power_ups.webp' %}" 
+                        alt="Power & UPS" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-amber-600/90 via-amber-600/40 to-amber-400/10 pointer-events-none"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+
+                    <div class="relative z-10 text-center flex flex-col items-center">
+                        <h3 class="service-card-title text-lg md:text-xl font-bold !text-white mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-wide">Power & UPS</h3>
+                        <p class="service-card-desc text-xs md:text-sm !text-white/95 line-clamp-3 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] font-medium">Install and maintain power systems and UPS units.</p>
+                    </div>
+                </article>
+
+            <!-- </div> -->
+        </div>
+    </div>
+</section>
+
 <!-- ════════════ HOW IT WORKS ════════════ -->
 <main class="bg-greenish-white">
     <!--HOW TO JOIN-->
-    <section class="bg-greenish-white pt-4 pb-8 md:pt-6 md:pb-12 lg:pt-8 lg:pb-16">
-        <div class="max-w-7xl mx-auto px-5 md:px-8">
-            <div class="text-center mb-16">
-                <p
-                    class="inline-block text-label font-bold text-emerald-teal uppercase tracking-wide px-4 py-2 rounded-md bg-sage-green1">
-                    HOW TO JOIN
-                </p>
-                <h2 class="mt-2 text-h3 font-semibold text-deep-indigo">How to Join the Engineer Network</h2>
-                <p class="mt-3 text-b3 font-medium text-deep-indigo">
-                    Follow these simple steps to join our network and start receiving opportunities.
-                </p>
+   <section class="bg-greenish-white pt-4 pb-8 md:pt-6 md:pb-12 lg:pt-8 lg:pb-16">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+        <div class="text-center mb-16">
+            <p
+                class="inline-block text-label font-bold text-emerald-teal uppercase tracking-wide px-4 py-2 rounded-md bg-sage-green1">
+                HOW IT WORKS?
+            </p>
+            <h2 class="mt-2 text-h3 font-semibold text-deep-indigo">How it works?</h2>
+            <p class="mt-3 text-b3 font-medium text-deep-indigo">
+                A seamless process from booking to  completion
+            </p>
+        </div>
+        <div class="relative">
+            <!-- Connecting line - adjusted for 4 columns -->
+            <div
+                class="hidden lg:block absolute left-0 right-0 top-12 z-0">
+                 <div class="mx-auto w-[87%] border-t-2 border-dashed border-soft-sky-blue"></div>
             </div>
-            <div class="relative">
-                <!-- Connecting line - adjusted for 4 columns -->
-                <div
-                    class="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] border-t-2 border-dashed border-soft-sky-blue">
+            <div class="grid lg:grid-cols-4 gap-10 relative z-10">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="relative inline-flex">
+                        <div
+                            class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1E9B6F"><path d="M370.33-524.33Q326.67-568 326.67-634t43.66-109.67Q414-787.33 480-787.33t109.67 43.66Q633.33-700 633.33-634t-43.66 109.67Q546-480.67 480-480.67t-109.67-43.66ZM160-160v-100q0-36.67 18.5-64.17T226.67-366q65.33-30.33 127.66-45.5 62.34-15.17 125.67-15.17t125.33 15.5q62 15.5 127.34 45.17 30.33 14.33 48.83 41.83T800-260v100H160Zm66.67-66.67h506.66V-260q0-14.33-8.16-27-8.17-12.67-20.5-19-60.67-29.67-114.34-41.83Q536.67-360 480-360t-111 12.17Q314.67-335.67 254.67-306q-12.34 6.33-20.17 19-7.83 12.67-7.83 27v33.33Zm315.16-345.5Q566.67-597 566.67-634t-24.84-61.83Q517-720.67 480-720.67t-61.83 24.84Q393.33-671 393.33-634t24.84 61.83Q443-547.33 480-547.33t61.83-24.84ZM480-634Zm0 407.33Z"/></svg>
+                        </div>
+                        <div
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
+                            1</div>
+                    </div>
+                    <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Book Service</h3>
+                    <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
+                       Tell us what need to happen, where and when.
+                    </p>
                 </div>
-                <div class="grid lg:grid-cols-4 gap-10 relative z-10">
-                    <!-- Step 1 -->
-                    <div class="text-center">
-                        <div class="relative inline-flex">
-                            <div
-                                class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
-                                    width="40px" fill="#1E9B6F">
-                                    <path
-                                        d="M370.33-524.33Q326.67-568 326.67-634t43.66-109.67Q414-787.33 480-787.33t109.67 43.66Q633.33-700 633.33-634t-43.66 109.67Q546-480.67 480-480.67t-109.67-43.66ZM160-160v-100q0-36.67 18.5-64.17T226.67-366q65.33-30.33 127.66-45.5 62.34-15.17 125.67-15.17t125.33 15.5q62 15.5 127.34 45.17 30.33 14.33 48.83 41.83T800-260v100H160Zm66.67-66.67h506.66V-260q0-14.33-8.16-27-8.17-12.67-20.5-19-60.67-29.67-114.34-41.83Q536.67-360 480-360t-111 12.17Q314.67-335.67 254.67-306q-12.34 6.33-20.17 19-7.83 12.67-7.83 27v33.33Zm315.16-345.5Q566.67-597 566.67-634t-24.84-61.83Q517-720.67 480-720.67t-61.83 24.84Q393.33-671 393.33-634t24.84 61.83Q443-547.33 480-547.33t61.83-24.84ZM480-634Zm0 407.33Z" />
-                                </svg>
-                            </div>
-                            <div
-                                class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
-                                1</div>
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="relative inline-flex">
+                        <div
+                            class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
+                           <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1E9B6F"><path d="M436.67-344 664-571.33l-47-46.34-178.33 178.34-95.34-95.34L295-486.33 436.67-344ZM480-80.67q-139.67-35-229.83-161.5Q160-368.67 160-520.67v-240l320-120 320 120v240q0 152-90.17 278.5Q619.67-115.67 480-80.67Zm0-69.33q111.33-36.33 182.33-139.67 71-103.33 71-231v-193.66L480-809.67l-253.33 95.34v193.66q0 127.67 71 231Q368.67-186.33 480-150Zm0-330Z"/></svg>
                         </div>
-                        <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Book Service</h3>
-                        <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
-                            Tell us what need to happen, where and when.
-                        </p>
+                        <div
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
+                            2</div>
                     </div>
-                    <!-- Step 2 -->
-                    <div class="text-center">
-                        <div class="relative inline-flex">
-                            <div
-                                class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
-                                    width="40px" fill="#1E9B6F">
-                                    <path
-                                        d="M436.67-344 664-571.33l-47-46.34-178.33 178.34-95.34-95.34L295-486.33 436.67-344ZM480-80.67q-139.67-35-229.83-161.5Q160-368.67 160-520.67v-240l320-120 320 120v240q0 152-90.17 278.5Q619.67-115.67 480-80.67Zm0-69.33q111.33-36.33 182.33-139.67 71-103.33 71-231v-193.66L480-809.67l-253.33 95.34v193.66q0 127.67 71 231Q368.67-186.33 480-150Zm0-330Z" />
-                                </svg>
-                            </div>
-                            <div
-                                class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
-                                2</div>
+                    <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Choose Engineer</h3>
+                    <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
+                       Review Verified profiles matched to your requirement 
+                    </p>
+                </div>
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="relative inline-flex">
+                        <div
+                            class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
+                         <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1E9B6F"><path d="M146.67-120q-27 0-46.84-19.83Q80-159.67 80-186.67v-466.66q0-27 19.83-46.84Q119.67-720 146.67-720H320v-93.33q0-27 19.83-46.84Q359.67-880 386.67-880h186.66q27 0 46.84 19.83Q640-840.33 640-813.33V-720h173.33q27 0 46.84 19.83Q880-680.33 880-653.33v466.66q0 27-19.83 46.84Q840.33-120 813.33-120H146.67Zm0-66.67h666.66v-466.66H146.67v466.66Zm240-533.33h186.66v-93.33H386.67V-720Zm-240 533.33v-466.66 466.66Z"/></svg>
                         </div>
-                        <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Choose Engineer</h3>
-                        <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
-                            Review Verified profiles matched to your requirement
-                        </p>
+                        <div
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
+                            3</div>
                     </div>
-                    <!-- Step 3 -->
-                    <div class="text-center">
-                        <div class="relative inline-flex">
-                            <div
-                                class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
-                                    width="40px" fill="#1E9B6F">
-                                    <path
-                                        d="M146.67-120q-27 0-46.84-19.83Q80-159.67 80-186.67v-466.66q0-27 19.83-46.84Q119.67-720 146.67-720H320v-93.33q0-27 19.83-46.84Q359.67-880 386.67-880h186.66q27 0 46.84 19.83Q640-840.33 640-813.33V-720h173.33q27 0 46.84 19.83Q880-680.33 880-653.33v466.66q0 27-19.83 46.84Q840.33-120 813.33-120H146.67Zm0-66.67h666.66v-466.66H146.67v466.66Zm240-533.33h186.66v-93.33H386.67V-720Zm-240 533.33v-466.66 466.66Z" />
-                                </svg>
-                            </div>
-                            <div
-                                class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
-                                3</div>
+                    <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Track Progress</h3>
+                    <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
+                       Follow arrival , work status and SLA milestones.
+                    </p>
+                </div>
+                <!-- Step 4 - NEW -->
+                <div class="text-center">
+                    <div class="relative inline-flex">
+                        <div
+                            class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1E9B6F"><path d="M320-240h320v-80H320v80ZM200-440h560v-80H200v80Zm120-160h320v-80H320v80ZM80-120v-720h800v720H80Zm80-80h640v-560H160v560Zm0 0v-560 560Z"/></svg>
                         </div>
-                        <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Track Progress</h3>
-                        <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
-                            Follow arrival , work status and SLA milestones.
-                        </p>
+                        <div
+                            class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
+                            4</div>
                     </div>
-                    <!-- Step 4 - NEW -->
-                    <div class="text-center">
-                        <div class="relative inline-flex">
-                            <div
-                                class="w-24 h-24 rounded-full border-2 border-muted-sage bg-white flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960"
-                                    width="40px" fill="#1E9B6F">
-                                    <path
-                                        d="M320-240h320v-80H320v80ZM200-440h560v-80H200v80Zm120-160h320v-80H320v80ZM80-120v-720h800v720H80Zm80-80h640v-560H160v560Zm0 0v-560 560Z" />
-                                </svg>
-                            </div>
-                            <div
-                                class="absolute -top-2 right-0 w-7 h-7 rounded-full bg-emerald-teal text-white text-c1 font-bold flex items-center justify-center">
-                                4</div>
-                        </div>
-                        <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Receive Digital Report</h3>
-                        <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
-                            Get photo, notes, sign-off for your records.
-                        </p>
-                    </div>
+                    <h3 class="mt-5 text-s2 font-semibold text-deep-indigo">Receive Digital Report</h3>
+                    <p class="mt-2 text-b3 text-slate-gray max-w-[220px] mx-auto">
+                        Get photo, notes, sign-off for your records.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- ════════════ POPULAR SERVICES ════════════ -->
-    <section class="popular-services py-20 md:py-28 mx-auto" aria-labelledby="popular-services-title">
-        <div class="mx-auto max-w-6xl px-5 md:px-8 w-full">
-
-            <!-- Outer Box - Transparent -->
-            <div class="popular-services-card rounded-3xl p-4 md:p-6 lg:p-8"
-                style="background: transparent !important;">
-
-                <!-- Cards Grid - Shifted further down with pt-24 md:pt-32 -->
-                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 pt-24 md:pt-32">
-
-                    <!-- Card 1 -->
-                    <article
-                        class="service-card relative rounded-2xl min-h-[260px] sm:min-h-[300px] shadow-md hover:shadow-xl transition-all border border-gray-100 cursor-pointer flex flex-col justify-end p-5 overflow-hidden group">
-                        <!-- Image filling the entire article box -->
-                        <img src="{% static 'img/network_cabling.svg' %}" alt="Network Cabling" loading="lazy"
-                            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-
-                        <!-- Dark Gradient Overlay for optimal text contrast -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
-
-                        <!-- Overlaid Pure White Text Content -->
-                        <div class="relative z-10 text-center flex flex-col items-center">
-                            <h3 class="service-card-title text-base font-bold text-white mb-1.5 drop-shadow-sm">Network
-                                Cabling</h3>
-                            <p class="service-card-desc text-xs text-white line-clamp-2 leading-relaxed">Install and
-                                organize network cables for a fast, stable connection.</p>
-                        </div>
-                    </article>
-
-                    <!-- Card 2 -->
-                    <article
-                        class="service-card relative rounded-2xl min-h-[260px] sm:min-h-[300px] shadow-md hover:shadow-xl transition-all border border-gray-100 cursor-pointer flex flex-col justify-end p-5 overflow-hidden group">
-                        <img src="{% static 'img/server_install.svg' %}" alt="Server Install" loading="lazy"
-                            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
-
-                        <div class="relative z-10 text-center flex flex-col items-center">
-                            <h3 class="service-card-title text-base font-bold text-white mb-1.5 drop-shadow-sm">Server
-                                Install</h3>
-                            <p class="service-card-desc text-xs text-white line-clamp-2 leading-relaxed">Set up and
-                                configure servers to keep systems running smoothly.</p>
-                        </div>
-                    </article>
-
-                    <!-- Card 3 -->
-                    <article
-                        class="service-card relative rounded-2xl min-h-[260px] sm:min-h-[300px] shadow-md hover:shadow-xl transition-all border border-gray-100 cursor-pointer flex flex-col justify-end p-5 overflow-hidden group">
-                        <img src="{% static 'img/rack_mgmt.svg' %}" alt="Rack Management" loading="lazy"
-                            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
-
-                        <div class="relative z-10 text-center flex flex-col items-center">
-                            <h3 class="service-card-title text-base font-bold text-white mb-1.5 drop-shadow-sm">Rack
-                                Mgmt</h3>
-                            <p class="service-card-desc text-xs text-white line-clamp-2 leading-relaxed">Organize,
-                                install, and manage server racks safely.</p>
-                        </div>
-                    </article>
-
-                    <!-- Card 4 -->
-                    <article
-                        class="service-card relative rounded-2xl min-h-[260px] sm:min-h-[300px] shadow-md hover:shadow-xl transition-all border border-gray-100 cursor-pointer flex flex-col justify-end p-5 overflow-hidden group">
-                        <img src="{% static 'img/power_&_ups.svg' %}" alt="Power & UPS" loading="lazy"
-                            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent"></div>
-
-                        <div class="relative z-10 text-center flex flex-col items-center">
-                            <h3 class="service-card-title text-base font-bold text-white mb-1.5 drop-shadow-sm">Power &
-                                UPS</h3>
-                            <p class="service-card-desc text-xs text-white line-clamp-2 leading-relaxed">Install and
-                                maintain power systems and UPS units.</p>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
+    </div>
+</section>
 
     <!-- ════════════ WHY CHOOSE ════════════ -->
     <section class="why-choose" style="padding-top: 2rem; padding-bottom: 2rem;">
@@ -1749,268 +1641,4 @@
         </div>
     </section>
 </main>
-{% endblock %}
-
-{% block extra_js %}
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="{% static 'script/customer-home/customer-home.js' %}"></script>
-<script>
-    // Stay Updated Form - AJAX Submission
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.querySelector('.stay-updated-form');
-        const messageDiv = document.getElementById('stay-updated-message');
-        const emailInput = document.getElementById('stay-updated-email');
-        const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
-
-        if (form) {
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                const email = emailInput.value.trim();
-                if (!email) return;
-
-                // Disable button and show loading
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = 'Subscribing...';
-                }
-                messageDiv.innerHTML = '';
-                messageDiv.className = 'mt-2 text-sm';
-
-                // Get CSRF token from the form
-                const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
-
-                fetch(form.action, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': csrfToken
-                    },
-                    body: JSON.stringify({ email: email })
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            messageDiv.textContent = data.message;
-                            messageDiv.className = 'mt-2 text-sm text-green-600 font-medium';
-                            emailInput.value = '';
-                        } else {
-                            messageDiv.textContent = data.error || 'Something went wrong.';
-                            messageDiv.className = 'mt-2 text-sm text-red-600 font-medium';
-                        }
-                    })
-                    .catch(error => {
-                        messageDiv.textContent = 'Network error. Please try again.';
-                        messageDiv.className = 'mt-2 text-sm text-red-600 font-medium';
-                    })
-                    .finally(() => {
-                        if (submitBtn) {
-                            submitBtn.disabled = false;
-                            submitBtn.innerHTML = 'Subscribe <span class="material-symbols-outlined text-base transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>';
-                        }
-                    });
-            });
-        }
-    });
-
-    // Hero counter animation
-    document.addEventListener("DOMContentLoaded", () => {
-        const counters = document.querySelectorAll('.stat-count');
-        const animationDuration = 1500; // 1.5 seconds
-
-        const formatNumber = (val, target) => {
-            // If it's the 5000 element and it has reached the target, show '5k'
-            if (target === 5000 && val >= 5000) {
-                return "5k+";
-            }
-            // While animating towards 5000, keep it clean with a '+' suffix
-            if (target === 5000) {
-                return val.toLocaleString() + "+";
-            }
-            // Return standard value for other numbers
-            return val;
-        };
-
-        const startCounting = (element) => {
-            const target = parseInt(element.getAttribute('data-count'), 10);
-            const startTime = performance.now();
-
-            const updateCount = (currentTime) => {
-                const elapsedTime = currentTime - startTime;
-                const progress = Math.min(elapsedTime / animationDuration, 1);
-
-                // Premium ease-out cubic curve
-                const easeOutProgress = 1 - Math.pow(1 - progress, 3);
-                const currentValue = Math.floor(easeOutProgress * target);
-
-                element.innerText = formatNumber(currentValue, target);
-
-                if (progress < 1) {
-                    requestAnimationFrame(updateCount);
-                } else {
-                    element.innerText = formatNumber(target, target);
-                }
-            };
-
-            requestAnimationFrame(updateCount);
-        };
-
-        const observerOptions = {
-            root: null,
-            threshold: 0.2
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    startCounting(entry.target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        counters.forEach(counter => observer.observe(counter));
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-        // 1. Initialize Map
-        const map = L.map('coverageMap', {
-            center: [20, 10],
-            zoom: 2,
-            zoomControl: true
-        });
-
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            maxZoom: 18,
-            subdomains: 'abcd',
-        }).addTo(map);
-
-        const locations = {
-            usa: {
-                coords: [40.725, -73.743],
-                title: "United States",
-                address: "218-10, Hillside Ave, Queens Village, New York, USA, 11427."
-            },
-            india: {
-                coords: [19.186, 72.848],
-                title: "India",
-                address: "3102, 1st Floor, Rustomjee Eaze Zone, Malad West - Mumbai 400064"
-            },
-            malaysia: {
-                coords: [3.083, 101.674],
-                title: "Malaysia",
-                address: "M116, Jalan Mega Mendung, Off Jalan Klang Lama, 58200, Kuala Lumpur"
-            }
-        };
-
-        const createGreenMarkerIcon = () => L.divIcon({
-            className: 'custom-pin',
-            html: `<div style="background-color: #1E9B6F; width: 28px; height: 28px; border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
-                <div style="width: 8px; height: 8px; background-color: white; border-radius: 50%;"></div>
-               </div>`,
-            iconSize: [28, 28],
-            iconAnchor: [14, 14]
-        });
-
-        const markers = {};
-
-        Object.keys(locations).forEach(key => {
-            const loc = locations[key];
-            const marker = L.marker(loc.coords, { icon: createGreenMarkerIcon() }).addTo(map);
-
-            const popupContent = `
-            <div style="font-family: inherit; padding: 2px;">
-                <h5 style="color: #1E9B6F; font-weight: 700; margin-bottom: 4px;">${loc.title}</h5>
-                <p style="font-size: 11px; color: #6B7280; margin: 0 0 6px 0; line-height: 1.3;">${loc.address}</p>
-                <a href="#" style="font-size: 11px; color: #1E9B6F; font-weight: 600; text-decoration: none;">View Details &rarr;</a>
-            </div>
-        `;
-
-            marker.bindPopup(popupContent);
-            markers[key] = marker;
-        });
-
-        markers['usa'].openPopup();
-
-        function activateLocation(key) {
-            const loc = locations[key];
-            if (!loc) return;
-
-            map.flyTo(loc.coords, 5, { duration: 1.2 });
-            markers[key].openPopup();
-
-            const radio = document.querySelector(`input[name="countrySelect"][value="${key}"]`);
-            if (radio) radio.checked = true;
-
-            // Toggle Left Green Indicator Line
-            document.querySelectorAll('.location-card').forEach(card => {
-                const indicator = card.querySelector('.line-indicator');
-                if (card.id === `card-${key}`) {
-                    indicator.classList.remove('hidden');
-                    card.classList.add('shadow-md');
-                } else {
-                    indicator.classList.add('hidden');
-                    card.classList.remove('shadow-md');
-                }
-            });
-        }
-
-        document.querySelectorAll('input[name="countrySelect"]').forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                activateLocation(e.target.value);
-            });
-        });
-
-        document.querySelectorAll('.location-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const key = card.id.replace('card-', '');
-                activateLocation(key);
-            });
-        });
-    });
-
-    function toggleDropdown(id) {
-        const isLocation = id === 'location-dropdown';
-        const currentMenu = document.getElementById(isLocation ? 'location-menu' : 'service-menu');
-        const otherMenu = document.getElementById(isLocation ? 'service-menu' : 'location-menu');
-        const currentArrow = document.getElementById(isLocation ? 'location-arrow' : 'service-arrow');
-        const otherArrow = document.getElementById(isLocation ? 'service-arrow' : 'location-arrow');
-
-        // Close other dropdown
-        if (otherMenu) otherMenu.classList.add('hidden');
-        if (otherArrow) otherArrow.classList.remove('rotate-180');
-
-        // Toggle current dropdown
-        currentMenu.classList.toggle('hidden');
-        currentArrow.classList.toggle('rotate-180');
-    }
-
-    function selectOption(id, value) {
-        const isLocation = id === 'location-dropdown';
-        const textEl = document.getElementById(isLocation ? 'location-text' : 'service-text');
-        const inputEl = document.getElementById(isLocation ? 'location-input' : 'service-input');
-
-        textEl.textContent = value;
-        inputEl.value = value;
-
-        toggleDropdown(id); // Close menu on select
-    }
-
-    // Close if click outside
-    window.addEventListener('click', function (e) {
-        if (!e.target.closest('#location-dropdown') && !e.target.closest('#service-dropdown')) {
-            document.getElementById('location-menu').classList.add('hidden');
-            document.getElementById('service-menu').classList.add('hidden');
-            document.getElementById('location-arrow').classList.remove('rotate-180');
-            document.getElementById('service-arrow').classList.remove('rotate-180');
-        }
-    });
-
-</script>
-
-<!-- Leaflet JS Initialization -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-
 {% endblock %}
