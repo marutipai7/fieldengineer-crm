@@ -79,6 +79,9 @@ def articles(request):
 def job_description(request):
     return render(request, 'pages/job-description.html')
 
+def news(request):
+    return render(request, 'pages/news.html')
+
 
 @require_POST
 @csrf_exempt
