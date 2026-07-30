@@ -132,22 +132,23 @@
                 <!-- Buttons -->
 
                 <div class="flex flex-wrap gap-4 mt-10">
-<button
+
+    <button
     type="button"
-    class="hero-apply-btn openJobApplyModal mt-8">
+    class="hero-apply-btn openJobApplyModal">
 
     Apply Now
 
-    <span class="material-symbols-outlined text-[20px]">
+    <span class="material-symbols-outlined text-[18px]">
         arrow_forward
     </span>
 
 </button>
 
-<button
+    <button
     type="button"
-    class="hero-save-btn mt-8">
-
+    class="hero-save-btn">
+    
     <span class="material-symbols-outlined text-[20px]">
         bookmark_add
     </span>
@@ -155,8 +156,7 @@
     Save Job
 
 </button>
-                </div>
-
+</div>
             </div>
 
             <!-- RIGHT CARD -->
@@ -353,16 +353,16 @@
                         <strong>15 August 2026</strong>
                     </p>
 
-                   <button
+                 <button
     type="button"
-    class="job-apply-btn openJobApplyModal mt-8">
+    class="job-apply-btn mt-8"
+    onclick="openApplyModal('Software Engineer')">
 
     Apply Now
 
     <span class="material-symbols-outlined text-[20px]">
         arrow_forward
     </span>
-
 </button>
 
 <button
@@ -1193,25 +1193,249 @@
     </div>
 
 </section>
+<div id="applyModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+
+  <div class="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto hide-scrollbar">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between px-8 py-6 border-b">
+
+      <div>
+        <h2 class="text-3xl font-bold text-slate-900">
+          Apply for this Position
+        </h2>
+
+        <p class="text-slate-500 mt-1">
+          We'd love to know more about you.
+        </p>
+      </div>
+
+      <button onclick="closeApplyModal()">
+        <span class="material-symbols-outlined text-3xl">
+          close
+        </span>
+      </button>
+
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" class="p-8 space-y-6">
+
+      {% csrf_token %}
+
+      <input type="hidden" id="jobTitleInput" name="job_title">
+
+      <!-- Row 1 -->
+
+      <div class="grid md:grid-cols-2 gap-5">
+
+        <div>
+
+          <label class="block text-sm font-semibold mb-2">
+            First Name *
+          </label>
+
+          <input type="text" name="first_name"
+            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none">
+
+        </div>
+
+        <div>
+
+          <label class="block text-sm font-semibold mb-2">
+            Last Name *
+          </label>
+
+          <input type="text" name="last_name" class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+        </div>
+
+      </div>
+
+      <!-- Row 2 -->
+
+      <div class="grid md:grid-cols-2 gap-5">
+
+        <div>
+
+          <label class="block text-sm font-semibold mb-2">
+            Email Address *
+          </label>
+
+          <input type="email" name="email" class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+        </div>
+
+        <div>
+
+          <label class="block text-sm font-semibold mb-2">
+            Mobile Number *
+          </label>
+
+          <input type="tel" name="phone" class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+        </div>
+
+      </div>
+
+      <!-- Row 3 -->
+
+      <div class="grid md:grid-cols-2 gap-5">
+
+        <div>
+
+          <label class="block text-sm font-semibold mb-2">
+            Current Location
+          </label>
+
+          <input type="text" name="location" class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+        </div>
+
+        <div>
+
+          <label class="block text-sm font-semibold mb-2">
+            Total Experience
+          </label>
+
+          <input type="text" name="experience" placeholder="e.g. 3 Years"
+            class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+        </div>
+
+      </div>
+
+      <!-- Row 4 -->
+
+      <div class="grid md:grid-cols-2 gap-5">
+
+        <div>
+
+          <label class="block text-sm font-semibold mb-2">
+            Current Company
+          </label>
+
+          <input type="text" name="company" class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+        </div>
+
+        <div>
+
+          <label class="block text-sm font-semibold mb-2">
+            Current CTC
+          </label>
+
+          <input type="text" name="ctc" class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+        </div>
+
+      </div>
+
+      <!-- Row 5 -->
+
+      <div class="grid md:grid-cols-2 gap-5">
+
+        <div>
+
+          <label class="block text-sm font-semibold mb-2">
+            Expected CTC
+          </label>
+
+          <input type="text" name="expected_ctc" class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+        </div>
+
+        <div>
+
+          <label class="block text-sm font-semibold mb-2">
+            Notice Period
+          </label>
+
+          <input type="text" name="notice_period" class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+        </div>
+
+      </div>
+
+      <!-- Job -->
+
+      <div>
+
+        <label class="block text-sm font-semibold mb-2">
+          Applying For
+        </label>
+
+        <input id="jobTitle" readonly class="w-full rounded-xl bg-slate-100 border border-slate-300 px-4 py-3">
+
+      </div>
+
+      <!-- LinkedIn -->
+
+      <div>
+
+        <label class="block text-sm font-semibold mb-2">
+          LinkedIn Profile
+        </label>
+
+        <input type="url" name="linkedin" class="w-full rounded-xl border border-slate-300 px-4 py-3">
+
+      </div>
+
+      <!-- Resume -->
+
+      <div>
+
+        <label class="block text-sm font-semibold mb-2">
+          Upload Resume *
+        </label>
+
+        <input type="file" name="resume" class="w-full border rounded-xl p-3">
+
+      </div>
+
+      <!-- Cover Letter -->
+
+      <div>
+
+        <label class="block text-sm font-semibold mb-2">
+          Cover Letter
+        </label>
+
+        <textarea rows="5" name="cover_letter" class="w-full rounded-xl border border-slate-300 px-4 py-3"></textarea>
+
+      </div>
+
+      <div class="flex items-center gap-2">
+
+        <input type="checkbox" required>
+
+        <span class="text-sm text-slate-600">
+          I agree to the Privacy Policy.
+        </span>
+
+      </div>
+
+      <div class="flex justify-end gap-4 pt-4">
+
+        <button type="button" onclick="closeApplyModal()" class="px-6 py-3 rounded-xl border">
+
+          Cancel
+
+        </button>
+
+        <button type="submit" class="px-8 py-3 rounded-xl bg-amber-orange1 text-white font-semibold">
+
+          Apply Now
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
 
     </main>
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
 
-    const applyButtons = document.querySelectorAll(".openJobApplyModal");
-    const salesModal = document.getElementById("salesModal");
-
-    applyButtons.forEach(function(button) {
-
-        button.addEventListener("click", function () {
-
-            salesModal.classList.remove("hidden");
-            salesModal.classList.add("flex");
-
-        });
-
-    });
-
-});
-</script>
+    <script src="{% static 'script/pages/job-description.js' %}"></script>
 {% endblock %}

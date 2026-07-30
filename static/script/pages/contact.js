@@ -244,3 +244,95 @@ function initContactDropdowns() {
     }
   });
 }
+
+// Stay Updated Form - AJAX Submission
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector('.stay-updated-form');
+    const messageDiv = document.getElementById('stay-updated-message');
+    const emailInput = document.getElementById('stay-updated-email');
+    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = emailInput.value.trim();
+            if (!email) return;
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Subscribing...';
+            }
+
+            messageDiv.innerHTML = '';
+            messageDiv.className = 'mt-2 text-sm';
+
+            const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
+
+            fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify({ email: email })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    messageDiv.textContent = data.message;
+                    messageDiv.className = 'mt-2 text-sm text-green-600 font-medium';
+                    emailInput.value = '';
+                } else {
+                    messageDiv.textContent = data.error || 'Something went wrong.';
+                    messageDiv.className = 'mt-2 text-sm text-red-600 font-medium';
+                }
+            })
+            .catch(() => {
+                messageDiv.textContent = 'Network error. Please try again.';
+                messageDiv.className = 'mt-2 text-sm text-red-600 font-medium';
+            })
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Subscribe <span class="material-symbols-outlined text-base transition-transform duration-200 group-hover:translate-x-1">arrow_forward</span>';
+                }
+            });
+        });
+    }
+});
+
+// Hero Counter Animation
+document.addEventListener("DOMContentLoaded", () => {
+    // ... your existing hero counter code ...
+});
+
+// Coverage Map
+document.addEventListener("DOMContentLoaded", function () {
+    // ... your existing Leaflet map code ...
+});
+
+function toggleDropdown(id) {
+    // ... your existing code ...
+}
+
+function selectOption(id, value) {
+    // ... your existing code ...
+}
+
+window.addEventListener("click", function (e) {
+    // ... your existing code ...
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const contactBtn = document.getElementById("contactSalesBtn");
+    const salesModal = document.getElementById("salesModal");
+
+    if (contactBtn && salesModal) {
+        contactBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            salesModal.classList.remove("hidden");
+            salesModal.classList.add("flex");
+        });
+    }
+});
