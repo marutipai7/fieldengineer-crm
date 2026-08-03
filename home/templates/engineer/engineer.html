@@ -54,22 +54,26 @@
 
 <main class="bg-greenish-white">
 <!--REQUIREMENTS TO JOIN-->
-<section class="py-14 bg-white">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+<section class="pt-0 pb-14 bg-white">
+
+    <div class="max-w-[1400px] mx-auto">
 
         <div class="bg-[#FCFAF3] rounded-[30px] p-8 lg:p-14">
 
             <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-                <!-- LEFT -->
+                <!-- ================= LEFT ================= -->
+
                 <div>
 
                     <!-- Logo -->
+
                     <div class="flex items-center gap-3 mb-6">
 
-                        <img src="{% static 'img/fepage-logo.svg' %}"
-                             class="w-10 h-10 rounded-lg"
-                             alt="FE">
+                        <img
+                            src="{% static 'img/fepage-logo.svg' %}"
+                            alt="FE"
+                            class="w-10 h-10 rounded-lg">
 
                         <span class="font-semibold text-gray-700">
                             Field Engineer
@@ -77,9 +81,12 @@
 
                     </div>
 
+                    <!-- Heading -->
+
                     <h2 class="text-5xl font-bold leading-tight text-[#222]">
 
                         Trusted
+
                         <span class="text-[#F5B530]">
                             Field Engineers
                         </span>
@@ -89,50 +96,77 @@
 
                     </h2>
 
-                    <p class="mt-6 text-gray-600 leading-8 max-w-xl">
+                    <!-- Description -->
 
-                        Our certified Field IT Engineers provide rapid onsite support,
-                        hardware deployment, network installation, maintenance,
-                        and IT infrastructure services for businesses of every size.
+                    <p class="mt-6 max-w-xl text-gray-600 leading-8">
+
+                        Our certified Field IT Engineers provide rapid onsite
+                        support, hardware deployment, network installation,
+                        maintenance and IT infrastructure services for
+                        businesses of every size.
 
                     </p>
 
                     <!-- Stats -->
 
-                    <div class="flex gap-5 mt-10">
+                    <div class="flex flex-wrap gap-5 mt-10">
 
-                        <div class="bg-white rounded-2xl shadow-sm px-8 py-5 text-center">
+                        <!-- Countries -->
 
-                            <h3 class="text-3xl font-bold text-[#F5B530]">
-                                7
+                        <div class="bg-white rounded-2xl shadow-sm px-8 py-5 text-center min-w-[140px]">
+
+                            <h3
+                                class="counter text-3xl font-bold text-[#F5B530]"
+                                data-target="7">
+
+                                0
+
                             </h3>
 
-                            <p class="text-sm text-gray-500">
+                            <p class="mt-1 text-sm text-gray-500">
+
                                 Countries
+
                             </p>
 
                         </div>
 
-                        <div class="bg-white rounded-2xl shadow-sm px-8 py-5 text-center">
+                        <!-- Cities -->
 
-                            <h3 class="text-3xl font-bold text-[#0095FF]">
-                                113
+                        <div class="bg-white rounded-2xl shadow-sm px-8 py-5 text-center min-w-[140px]">
+
+                            <h3
+                                class="counter text-3xl font-bold text-[#0095FF]"
+                                data-target="113">
+
+                                0
+
                             </h3>
 
-                            <p class="text-sm text-gray-500">
+                            <p class="mt-1 text-sm text-gray-500">
+
                                 Cities
+
                             </p>
 
                         </div>
 
-                        <div class="bg-white rounded-2xl shadow-sm px-8 py-5 text-center">
+                        <!-- Locations -->
 
-                            <h3 class="text-3xl font-bold text-[#0095FF]">
-                                4905
+                        <div class="bg-white rounded-2xl shadow-sm px-8 py-5 text-center min-w-[140px]">
+
+                            <h3
+                                class="counter text-3xl font-bold text-[#0095FF]"
+                                data-target="4905">
+
+                                0
+
                             </h3>
 
-                            <p class="text-sm text-gray-500">
+                            <p class="mt-1 text-sm text-gray-500">
+
                                 Locations
+
                             </p>
 
                         </div>
@@ -141,24 +175,14 @@
 
                 </div>
 
-                <!-- RIGHT -->
+                <!-- ================= RIGHT ================= -->
 
                 <div class="relative">
 
                     <img
                         src="{% static 'img/engineer-sec2.jpg' %}"
-                        class="w-full h-[520px] object-cover rounded-3xl"
-                        alt="Field Engineer">
-
-                    <!-- Floating Logo -->
-
-                    <!--div class="absolute -bottom-5 -right-5 w-24 h-24 rounded-full bg-white shadow-xl flex items-center justify-center">
-
-                        <img src="{% static 'img/logo.png' %}"
-                             class="w-14"
-                             alt="logo">
-
-                    </div-->
+                        alt="Field Engineer"
+                        class="w-full h-[520px] rounded-3xl object-cover">
 
                 </div>
 
@@ -167,18 +191,55 @@
         </div>
 
     </div>
+
 </section>
 
 
 <!--HOW TO JOIN-->
-<section class="bg-[#FCFAF5] py-12 lg:py-16">
+<!-- ========================================= -->
+<!-- FIELD ENGINEER SERVICE NETWORK -->
+<!-- PART 1 -->
+<!-- ========================================= -->
 
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+<section class="relative py-16 lg:py-20 bg-[#FCFAF5] overflow-hidden">
+
+    <!-- Background Decoration -->
+    <div class="absolute inset-0 pointer-events-none">
+
+        <!-- Left Circle -->
+        <div class="absolute -left-40 top-0 w-[380px] h-[380px] rounded-full bg-[#F5B530]/10 blur-3xl"></div>
+
+        <!-- Right Circle -->
+        <div class="absolute -right-40 bottom-0 w-[420px] h-[420px] rounded-full bg-[#22C55E]/10 blur-3xl"></div>
+
+    </div>
+
+    <div class="relative max-w-[1450px] mx-auto px-6 lg:px-10">
+
+        <!-- Badge -->
+        <div class="flex justify-center">
+
+            <div class="inline-flex items-center gap-2 bg-white border border-[#F5B530]/30 rounded-full px-5 py-2 shadow-sm">
+
+                <span class="material-symbols-outlined text-[#F5B530] text-[18px]">
+                    public
+                </span>
+
+                <span class="text-[13px] font-semibold uppercase tracking-[2px] text-[#1C2B39]">
+
+                    Global Coverage
+
+                </span>
+
+            </div>
+
+        </div>
 
         <!-- Heading -->
-        <div class="text-center max-w-5xl mx-auto">
 
-            <h2 class="text-[34px] md:text-[42px] font-bold tracking-tight leading-tight text-[#1C2B39]">
+        <div class="mt-6 text-center max-w-5xl mx-auto">
+
+            <h2 class="text-[36px] md:text-[48px] font-bold leading-tight text-[#1C2B39]">
 
                 FIELD ENGINEER
 
@@ -188,318 +249,347 @@
 
             </h2>
 
-            <p class="mt-4 text-[22px] font-semibold text-[#26323D]">
+            <p class="mt-5 text-[22px] font-semibold text-[#26323D]">
 
                 <span class="text-[#F5B530] mr-2">
                     ▲
                 </span>
 
-                Delivering On-Site IT Infrastructure, Network, Hardware &
-                Data Center Support Across India.
+                Delivering On-Site IT Infrastructure,
+                Network, Hardware &
+                Data Center Support Across India
+                and Worldwide.
 
             </p>
 
-            <p class="mt-3 text-[15px] leading-7 text-slate-500 max-w-4xl mx-auto">
+            <p class="mt-5 max-w-4xl mx-auto text-[16px] leading-8 text-slate-600">
 
-                Our certified field engineers provide installation,
-                maintenance, break-fix, IMAC, smart hands,
-                and network support services across major cities and local
-                regions throughout India, ensuring rapid response
-                and reliable IT operations.
+                Our certified Field Engineers provide installation,
+                IMAC, smart hands, break-fix, maintenance,
+                data center support, network deployment,
+                hardware replacement, and enterprise IT services
+                across major cities and countries with rapid response
+                and reliable execution.
 
             </p>
 
         </div>
 
+        <!-- Service Highlights -->
 
-        <!-- Map Card -->
-        <div class="mt-12">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
 
-            <div class="relative rounded-[20px] overflow-hidden">
-    <img
-        src="{% static 'img/femap-2.png' %}"
-        alt="Field Engineer Service Network"
-        class="w-full h-auto block">
+            <!-- Card -->
+
+            <div class="bg-white rounded-2xl border border-[#F5B530]/20 shadow-sm p-6 text-center transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+                <span class="material-symbols-outlined text-[42px] text-[#F5B530]">
+
+                    language
+
+                </span>
+
+                <h3 class="mt-4 text-lg font-bold text-[#1C2B39]">
+
+                    Global Reach
+
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                    Coverage across multiple countries with verified engineers.
+
+                </p>
+
+            </div>
+
+            <!-- Card -->
+
+            <div class="bg-white rounded-2xl border border-[#22C55E]/20 shadow-sm p-6 text-center transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+                <span class="material-symbols-outlined text-[42px] text-[#22C55E]">
+
+                    schedule
+
+                </span>
+
+                <h3 class="mt-4 text-lg font-bold text-[#1C2B39]">
+
+                    Fast Response
+
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                    Engineers available for same-day and scheduled visits.
+
+                </p>
+
+            </div>
+
+            <!-- Card -->
+
+            <div class="bg-white rounded-2xl border border-[#F5B530]/20 shadow-sm p-6 text-center transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+                <span class="material-symbols-outlined text-[42px] text-[#F5B530]">
+
+                    verified
+
+                </span>
+
+                <h3 class="mt-4 text-lg font-bold text-[#1C2B39]">
+
+                    Certified Experts
+
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                    Skilled professionals for enterprise IT infrastructure.
+
+                </p>
+
+            </div>
+
+            <!-- Card -->
+
+            <div class="bg-white rounded-2xl border border-[#22C55E]/20 shadow-sm p-6 text-center transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+                <span class="material-symbols-outlined text-[42px] text-[#22C55E]">
+
+                    hub
+
+                </span>
+
+                <h3 class="mt-4 text-lg font-bold text-[#1C2B39]">
+
+                    Connected Network
+
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+
+                    Seamless coordination between customers and field teams.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- PART 2 STARTS BELOW -->
+         <!-- ========================================= -->
+<!-- PART 2 - Animated World Map -->
+<!-- ========================================= -->
+
+<div class="mt-16">
+
+    <div
+        class="relative
+               bg-white
+               rounded-[30px]
+               border border-[#F5B530]/20
+               shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+               overflow-hidden">
+
+        <!-- Background Glow -->
+
+        <div class="absolute inset-0">
+
+            <div class="absolute left-0 top-0 w-80 h-80 rounded-full bg-[#F5B530]/10 blur-3xl"></div>
+
+            <div class="absolute right-0 bottom-0 w-80 h-80 rounded-full bg-[#22C55E]/10 blur-3xl"></div>
+
+        </div>
+
+        <!-- Grid Pattern -->
+
+        <div class="absolute inset-0 opacity-[0.05]">
+
+            <div class="w-full h-full
+                        bg-[linear-gradient(to_right,#1C2B39_1px,transparent_1px),linear-gradient(to_bottom,#1C2B39_1px,transparent_1px)]
+                        bg-[size:40px_40px]">
+            </div>
+
+        </div>
+
+        <!-- Map Wrapper -->
+
+        <div class="relative p-8 lg:p-12">
+
+            <img
+                src="{% static 'img/femap-2.png' %}"
+                alt="Field Engineer Service Network"
+                class="w-full h-auto select-none">
+
+            <!-- ================================= -->
+            <!-- LOCATION PINS -->
+            <!-- ================================= -->
+
+            <!-- USA -->
+
+            <div class="absolute top-[27%] left-[17%] fe-pin">
+
+                <span class="ping"></span>
+                <span class="dot"></span>
+
+            </div>
+
+            <!-- UK -->
+
+            <div class="absolute top-[22%] left-[46%] fe-pin">
+
+                <span class="ping"></span>
+                <span class="dot"></span>
+
+            </div>
+
+            <!-- Germany -->
+
+            <div class="absolute top-[25%] left-[50%] fe-pin">
+
+                <span class="ping"></span>
+                <span class="dot"></span>
+
+            </div>
+
+            <!-- UAE -->
+
+            <div class="absolute top-[38%] left-[56%] fe-pin">
+
+                <span class="ping"></span>
+                <span class="dot"></span>
+
+            </div>
+
+            <!-- India -->
+
+            <div class="absolute top-[41%] left-[63%] fe-pin">
+
+                <span class="ping"></span>
+                <span class="dot"></span>
+
+            </div>
+
+            <!-- Singapore -->
+
+            <div class="absolute top-[54%] left-[71%] fe-pin">
+
+                <span class="ping"></span>
+                <span class="dot"></span>
+
+            </div>
+
+            <!-- Australia -->
+
+            <div class="absolute top-[72%] left-[82%] fe-pin">
+
+                <span class="ping"></span>
+                <span class="dot"></span>
+
+            </div>
+
+            <!-- South Africa -->
+
+            <div class="absolute top-[70%] left-[56%] fe-pin">
+
+                <span class="ping"></span>
+                <span class="dot"></span>
+
+            </div>
+
+            <!-- ================================= -->
+            <!-- Animated Floating Dots -->
+            <!-- ================================= -->
+
+            <span class="absolute top-[18%] left-[25%] fe-particle"></span>
+
+            <span class="absolute top-[40%] left-[35%] fe-particle delay-1000"></span>
+
+            <span class="absolute top-[65%] left-[42%] fe-particle delay-500"></span>
+
+            <span class="absolute top-[32%] left-[74%] fe-particle delay-700"></span>
+
+            <span class="absolute top-[52%] left-[81%] fe-particle delay-300"></span>
+
+            <span class="absolute top-[80%] left-[60%] fe-particle delay-1000"></span>
+
+            <!-- ================================= -->
+            <!-- Statistics -->
+            <!-- ================================= -->
+
+            <div
+                class="absolute
+                       left-8
+                       bottom-8
+                       bg-white/90
+                       backdrop-blur-md
+                       rounded-2xl
+                       px-6
+                       py-4
+                       shadow-lg">
+
+                <div class="flex items-center gap-8">
+
+                    <div>
+
+                        <h3 class="text-2xl font-bold text-[#F5B530]">
+
+                            7+
+
+                        </h3>
+
+                        <p class="text-xs text-slate-500">
+
+                            Countries
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-2xl font-bold text-[#22C55E]">
+
+                            113+
+
+                        </h3>
+
+                        <p class="text-xs text-slate-500">
+
+                            Cities
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-2xl font-bold text-[#1C2B39]">
+
+                            4905+
+
+                        </h3>
+
+                        <p class="text-xs text-slate-500">
+
+                            Locations
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
-        </div>
 
-        <!-- Region Cards Start Here -->
-        <!-- PART 2 continues from here -->
-         <!-- Region Cards -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-
-    <!-- North India -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-
-        <div class="bg-[#F5B530] text-white px-5 py-3 flex items-center justify-center gap-2">
-
-            <span class="material-symbols-outlined text-[18px]">
-                location_on
-            </span>
-
-            <span class="font-semibold text-sm uppercase tracking-wide">
-                North India
-            </span>
-
-        </div>
-
-        <div class="p-5">
-
-            <ul class="space-y-2 text-[13px] text-slate-700">
-
-                <li>• Delhi (20)</li>
-                <li>• Gurugram (10)</li>
-                <li>• Noida (8)</li>
-                <li>• Chandigarh (6)</li>
-                <li>• Jaipur (10)</li>
-                <li>• Lucknow (8)</li>
-                <li>• Dehradun (6)</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-    <!-- West India -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-
-        <div class="bg-[#F5B530] text-white px-5 py-3 flex items-center justify-center gap-2">
-
-            <span class="material-symbols-outlined text-[18px]">
-                location_on
-            </span>
-
-            <span class="font-semibold text-sm uppercase tracking-wide">
-                West India
-            </span>
-
-        </div>
-
-        <div class="p-5">
-
-            <ul class="space-y-2 text-[13px] text-slate-700">
-
-                <li>• Mumbai (14)</li>
-                <li>• Pune (8)</li>
-                <li>• Ahmedabad (10)</li>
-                <li>• Surat (6)</li>
-                <li>• Vadodara (4)</li>
-                <li>• Nagpur (4)</li>
-                <li>• Goa (4)</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-    <!-- South India -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-
-        <div class="bg-[#F5B530] text-white px-5 py-3 flex items-center justify-center gap-2">
-
-            <span class="material-symbols-outlined text-[18px]">
-                location_on
-            </span>
-
-            <span class="font-semibold text-sm uppercase tracking-wide">
-                South India
-            </span>
-
-        </div>
-
-        <div class="p-5">
-
-            <ul class="space-y-2 text-[13px] text-slate-700">
-
-                <li>• Bengaluru (20)</li>
-                <li>• Chennai (10)</li>
-                <li>• Hyderabad (12)</li>
-                <li>• Kochi (5)</li>
-                <li>• Coimbatore (5)</li>
-                <li>• Trivandrum (4)</li>
-                <li>• Visakhapatnam (4)</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-    <!-- East India -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-
-        <div class="bg-[#F5B530] text-white px-5 py-3 flex items-center justify-center gap-2">
-
-            <span class="material-symbols-outlined text-[18px]">
-                location_on
-            </span>
-
-            <span class="font-semibold text-sm uppercase tracking-wide">
-                East India
-            </span>
-
-        </div>
-
-        <div class="p-5">
-
-            <ul class="space-y-2 text-[13px] text-slate-700">
-
-                <li>• Kolkata (10)</li>
-                <li>• Bhubaneswar (8)</li>
-                <li>• Ranchi (6)</li>
-                <li>• Patna (8)</li>
-                <li>• Guwahati (10)</li>
-                <li>• Siliguri (6)</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- PART 3 starts after this -->
- <!-- Second Row -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-
-    <!-- Asia -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-
-        <div class="bg-[#F5B530] text-white px-5 py-3 flex items-center justify-center gap-2">
-
-            <span class="material-symbols-outlined text-[18px]">
-                public
-            </span>
-
-            <span class="font-semibold text-sm uppercase tracking-wide">
-                Asia
-            </span>
-
-        </div>
-
-        <div class="p-5">
-
-            <ul class="space-y-2 text-[13px] text-slate-700">
-
-                <li>• Azerbaijan (6)</li>
-                <li>• China (10)</li>
-                <li>• Japan (10)</li>
-                <li>• Kazakhstan (10)</li>
-                <li>• Singapore (10)</li>
-                <li>• South Korea (10)</li>
-                <li>• Vietnam (10)</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-    <!-- Africa -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-
-        <div class="bg-[#F5B530] text-white px-5 py-3 flex items-center justify-center gap-2">
-
-            <span class="material-symbols-outlined text-[18px]">
-                public
-            </span>
-
-            <span class="font-semibold text-sm uppercase tracking-wide">
-                Africa
-            </span>
-
-        </div>
-
-        <div class="p-5">
-
-            <ul class="space-y-2 text-[13px] text-slate-700">
-
-                <li>• Algeria (10)</li>
-                <li>• Angola (10)</li>
-                <li>• Egypt (10)</li>
-                <li>• Kenya (10)</li>
-                <li>• Morocco (10)</li>
-                <li>• Nigeria (10)</li>
-                <li>• South Africa (10)</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-    <!-- Europe -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-
-        <div class="bg-[#F5B530] text-white px-5 py-3 flex items-center justify-center gap-2">
-
-            <span class="material-symbols-outlined text-[18px]">
-                public
-            </span>
-
-            <span class="font-semibold text-sm uppercase tracking-wide">
-                Europe
-            </span>
-
-        </div>
-
-        <div class="p-5">
-
-            <ul class="space-y-2 text-[13px] text-slate-700">
-
-                <li>• Austria (10)</li>
-                <li>• Belgium (10)</li>
-                <li>• Denmark (10)</li>
-                <li>• France (10)</li>
-                <li>• Germany (10)</li>
-                <li>• Italy (10)</li>
-                <li>• Netherlands (10)</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-    <!-- USA -->
-    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-
-        <div class="bg-[#F5B530] text-white px-5 py-3 flex items-center justify-center gap-2">
-
-            <span class="material-symbols-outlined text-[18px]">
-                public
-            </span>
-
-            <span class="font-semibold text-sm uppercase tracking-wide">
-                USA
-            </span>
-
-        </div>
-
-        <div class="p-5">
-
-            <ul class="space-y-2 text-[13px] text-slate-700">
-
-                <li>• New York, NY (10)</li>
-                <li>• Los Angeles, CA (10)</li>
-                <li>• Chicago, IL (10)</li>
-                <li>• Houston, TX (10)</li>
-                <li>• Dallas, TX (10)</li>
-                <li>• Miami, FL (10)</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</div>
-
-</div>
-</section>
+<!-- PART 3 STARTS BELOW -->
 
 <!--WHY ENGINEERS CHOOSE OUR PLATFORM-->
 <section class="bg-[#F6FEFC] py-12 md:py-16 lg:py-20">
@@ -975,113 +1065,148 @@
 </section>
 
 <!--TRUSTED BY LEADING BUSINESS-->
-<section class="py-14 bg-[#FCF8EF]">
-    <div class="max-w-[1500px] mx-auto px-8">
+<section class="pt-8 pb-0 bg-[#FFFDF8] overflow-hidden">
+    <div class="max-w-[1550px] mx-auto px-8">
 
-        <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
+        <div class="grid lg:grid-cols-[1.3fr_0.7fr] items-start gap-2">
 
-            <!-- ================= LEFT SIDE ================= -->
-            <div>
+           <!-- ================= LEFT ================= -->
 
-                <span class="text-[12px] font-bold tracking-[3px] uppercase text-[#F5B530]">
-                    Testimonials
-                </span>
+    <div>
 
-                <h2 class="mt-3 text-[48px] leading-[1.05] font-bold text-[#1C2B39]">
-                    What Our <br>
-                    <span class="text-[#F5B530]">Customers</span> Say
-                </h2>
+    <!-- Label -->
 
-                <p class="mt-5 max-w-md text-[16px] leading-8 text-slate-500">
-                    Real experiences from customers who booked trusted
-                    Field Engineers through our platform.
-                </p>
+    <span class="text-[12px] font-bold tracking-[3px] uppercase text-[#F5B530]">
+        Testimonials
+    </span>
 
-                <!-- Testimonial Card -->
+    <!-- Heading -->
+
+    <h2 class="mt-2 text-[44px] leading-[1.05] font-bold text-[#1C2B39]">
+
+        What Our
+
+        <br>
+
+        <span class="text-[#F5B530]">
+            Customers
+        </span>
+
+        Say
+
+    </h2>
+
+    <!-- Description -->
+
+    <p class="mt-3 max-w-[430px] text-[15px] leading-7 text-slate-500">
+
+        Real experiences from customers who booked trusted
+        Field Engineers through our platform.
+
+    </p>
+
+    <!-- Testimonial Card -->
+
+    <div
+        class="mt-5
+    w-full
+    max-w-[760px]
+    rounded-[24px]
+    bg-gradient-to-r
+    from-[#F8FDF9]
+    to-[#DDF7E5]
+    px-7
+    py-4
+    shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+
+        <!-- Stars -->
+
+        <div class="flex gap-1">
+
+            <span class="material-symbols-outlined text-[#F5B530] text-[15px]">star</span>
+            <span class="material-symbols-outlined text-[#F5B530] text-[15px]">star</span>
+            <span class="material-symbols-outlined text-[#F5B530] text-[15px]">star</span>
+            <span class="material-symbols-outlined text-[#F5B530] text-[15px]">star</span>
+            <span class="material-symbols-outlined text-[#F5B530] text-[15px]">star</span>
+
+        </div>
+
+        <!-- Quote -->
+
+        <span class="material-symbols-outlined text-[#F5B530] text-[24px] mt-2 block">
+            format_quote
+        </span>
+
+        <!-- Testimonial Text -->
+
+        <p
+            id="testimonialText"
+           class="mt-3
+text-[15px]
+leading-7
+text-slate-600
+min-h-[70px]">
+
+            Booking an engineer through FE took less than a minute.
+            The professional arrived on time, completed the work
+            efficiently and kept us informed throughout the visit.
+            The entire experience was smooth and reliable.
+
+        </p>
+
+        <!-- Bottom -->
+
+        <div class="mt-4 flex items-center justify-between">
+
+            <!-- Customer -->
+
+            <div class="flex items-center gap-3">
+
                 <div
-                    class="mt-10 rounded-[24px] bg-gradient-to-r from-[#F8FDF9] to-[#DDF7E5] px-10 py-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+                    class="w-12
+                    h-12
+                    rounded-full
+                    overflow-hidden
+                    border-2
+                    border-white
+                    shadow-md">
 
-                    <!-- Stars -->
-                    <div class="flex gap-1">
-                        <span class="material-symbols-outlined text-[#F5B530] text-[16px]">star</span>
-                        <span class="material-symbols-outlined text-[#F5B530] text-[16px]">star</span>
-                        <span class="material-symbols-outlined text-[#F5B530] text-[16px]">star</span>
-                        <span class="material-symbols-outlined text-[#F5B530] text-[16px]">star</span>
-                        <span class="material-symbols-outlined text-[#F5B530] text-[16px]">star</span>
-                    </div>
+                    <img
+                        id="customerImage"
+                        src="{% static 'img/fe-wocs.jpg' %}"
+                        alt="Customer"
+                        class="w-full h-full object-cover">
 
-                    <!-- Quote -->
-                    <span class="material-symbols-outlined text-[#F5B530] text-[28px] mt-3 block">
-                        format_quote
-                    </span>
+                </div>
 
-                    <!-- Content -->
-                    <p class="mt-4 text-[15px] leading-8 text-slate-600 max-w-[650px]">
-                        Booking an engineer through FE took less than a minute.
-                        The professional arrived on time, completed the work
-                        efficiently, and kept us informed throughout the visit.
-                        The entire experience was smooth and reliable.
-                    </p>
+                <div>
 
-                    <!-- Bottom -->
-                    <div class="mt-8 flex items-center justify-between">
+                    <h4
+                        id="customerName"
+                        class="font-semibold text-[17px] text-[#1C2B39]">
 
-                        <!-- Profile -->
-                        <div class="flex items-center gap-4">
+                        Priya Sharma
 
-                            <div class="w-[48px] h-[48px] rounded-full overflow-hidden border-2 border-white shadow-md">
+                    </h4>
 
-                                <img
-                                    src="{% static 'img/fe-wocs.jpg' %}"
-                                    alt="Priya Sharma"
-                                    class="w-full h-full object-cover object-center">
+                    <div class="flex items-center gap-1">
 
-                            </div>
+                        <span
+                            id="customerRole"
+                            class="text-[13px] text-slate-500">
 
-                            <div>
+                            Verified Customer
 
-                                <h4 class="text-[18px] font-semibold text-[#1C2B39]">
-                                    Priya Sharma
-                                </h4>
+                        </span>
 
-                                <div class="flex items-center gap-1">
+                        <span
+                            class="material-symbols-outlined
+                            text-green-500
+                            text-[15px]">
 
-                                    <span class="text-[14px] text-slate-500">
-                                        Verified Customer
-                                    </span>
+                            verified
 
-                                    <span class="material-symbols-outlined text-green-500 text-[16px]">
-                                        verified
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- Buttons -->
-                        <div class="flex gap-3">
-
-                            <button
-                                class="w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:bg-[#F5B530] hover:text-white transition">
-
-                                <span class="material-symbols-outlined">
-                                    chevron_left
-                                </span>
-
-                            </button>
-
-                            <button
-                                class="w-11 h-11 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:bg-[#F5B530] hover:text-white transition">
-
-                                <span class="material-symbols-outlined">
-                                    chevron_right
-                                </span>
-
-                            </button>
-
-                        </div>
+                        </span>
 
                     </div>
 
@@ -1089,96 +1214,257 @@
 
             </div>
 
-            <!-- ================= RIGHT SIDE ================= -->
-            <div class="flex justify-center lg:justify-end">
+            <!-- Navigation -->
 
-                <div
-                    class="relative w-[420px] h-[520px] rounded-tl-[220px] overflow-hidden">
+            <div class="flex gap-2">
 
-                    <!-- Image -->
-                    <img
-                        src="{% static 'img/fe-wocs2.jpg' %}"
-                        alt="Engineer"
-                        class="w-full h-full object-cover object-center">
+                <button
+                    id="testimonialPrev"
+                    class="w-10
+                    h-10
+                    rounded-full
+                    bg-white
+                    border
+                    border-slate-200
+                    flex
+                    items-center
+                    justify-center
+                    hover:bg-[#F5B530]
+                    hover:text-white
+                    transition">
 
-                    <!-- Yellow Border -->
-                    <div
-                        class="absolute inset-0 rounded-tl-[220px] border-l-[3px] border-t-[3px] border-[#F5B530] pointer-events-none">
-                    </div>
+                    <span class="material-symbols-outlined">
+                        chevron_left
+                    </span>
 
-                </div>
+                </button>
+
+                <button
+                    id="testimonialNext"
+                    class="w-10
+                    h-10
+                    rounded-full
+                    bg-white
+                    border
+                    border-slate-200
+                    flex
+                    items-center
+                    justify-center
+                    hover:bg-[#F5B530]
+                    hover:text-white
+                    transition">
+
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+
+                </button>
 
             </div>
 
         </div>
 
+        <!-- Dots -->
+
+        <div class="flex gap-2 mt-3">
+
+            <button
+                class="testimonial-dot
+                w-2.5
+                h-2.5
+                rounded-full
+                bg-[#F5B530]"
+                data-index="0"></button>
+
+            <button
+                class="testimonial-dot
+                w-2.5
+                h-2.5
+                rounded-full
+                bg-slate-300"
+                data-index="1"></button>
+
+            <button
+                class="testimonial-dot
+                w-2.5
+                h-2.5
+                rounded-full
+                bg-slate-300"
+                data-index="2"></button>
+
+        </div>
+
     </div>
+
+</div>
+
+
+<!-- ================= RIGHT ================= -->
+<div class="flex justify-end items-start overflow-hidden">
+
+    <div
+        class="relative
+               w-[450px]
+               h-[450px]
+               rounded-full
+               overflow-hidden
+               border-[4px]
+               border-[#F5B530]
+               shadow-[0_12px_30px_rgba(0,0,0,0.08)]
+               translate-x-16
+               translate-y-12">
+
+        <img
+    id="engineerImage"
+    src="{% static 'img/fe-wocs2.jpg' %}"
+    alt="Engineer"
+    class="w-full h-full object-cover object-center scale-[1.15] translate-y-8">
+
+    </div>
+
+</div>
+
+        </div>
+
+    </div>
+
 </section>
 
-
 <!-- READY TO START WORKING -->
-<section class="py-16 bg-white">
+<section class="pt-8 pb-0 bg-[#FFFDF8]">
+    <div class="max-w-[1400px] mx-auto">
 
-    <div class="max-w-[1200px] mx-auto px-4 lg:px-6">
+        <div
+            class="bg-gradient-to-r
+                   from-[#F5FBF7]
+                   via-[#EDF9F1]
+                   to-[#E3F8E9]
+                   py-8">
 
-        <div class="bg-gradient-to-r from-[#EEF8F2] via-[#E8F8EF] to-[#D7F7DE] rounded-[28px] p-8 md:p-12">
+            <div class="grid lg:grid-cols-2 items-center gap-8 px-8 lg:px-12">
 
-            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <!-- ================= Left ================= -->
 
-                <!-- Left -->
                 <div>
 
                     <!-- Badge -->
-                    <div class="inline-flex items-center gap-2 border border-[#22C55E] rounded-full px-4 py-2 bg-white/50">
-                        <span class="material-symbols-outlined text-[16px] text-[#22C55E]">
+
+                    <div
+                        class="inline-flex
+                               items-center
+                               gap-2
+                               rounded-full
+                               border
+                               border-[#22C55E]
+                               bg-white
+                               px-4
+                               py-1.5">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-[15px]
+                                   text-[#22C55E]">
                             download
                         </span>
-                        <span class="text-[#22C55E] text-sm font-medium">
+
+                        <span
+                            class="text-[12px]
+                                   font-semibold
+                                   text-[#22C55E]">
+
                             Get the FE App
+
                         </span>
+
                     </div>
 
                     <!-- Heading -->
-                    <h2 class="mt-6 text-[42px] font-bold leading-tight text-[#1E293B]">
+
+                    <h2
+                        class="mt-5
+                               text-[36px]
+                               lg:text-[40px]
+                               font-bold
+                               leading-tight
+                               text-[#1E293B]">
+
                         Download the
+
                         <span class="text-[#22C55E]">
                             FE App
                         </span>
+
                     </h2>
 
-                    <!-- Subtitle -->
-                    <p class="mt-3 text-lg text-slate-600">
+                    <!-- Description -->
+
+                    <p
+                        class="mt-3
+                               max-w-[500px]
+                               text-[14px]
+                               leading-6
+                               text-slate-600">
+
                         Manage field service jobs anytime, anywhere.
+                        Book engineers, track service requests and stay
+                        connected with real-time updates.
+
                     </p>
 
                     <!-- Store Buttons -->
-                    <div class="flex flex-wrap gap-5 mt-10">
+
+                    <div class="flex items-center gap-4 mt-6">
 
                         <a href="#">
+
                             <img
                                 src="{% static 'img/google-playbtn.png' %}"
                                 alt="Google Play"
-                                class="h-14 w-auto hover:scale-105 transition duration-300">
+                                class="h-[42px] w-auto transition duration-300 hover:scale-105">
+
                         </a>
 
                         <a href="#">
+
                             <img
                                 src="{% static 'img/app-storebtn.png' %}"
                                 alt="App Store"
-                                class="h-14 w-auto hover:scale-105 transition duration-300">
+                                class="h-[42px] w-auto transition duration-300 hover:scale-105">
+
                         </a>
 
                     </div>
 
                 </div>
 
-                <!-- Right -->
+                <!-- ================= Right ================= -->
+
                 <div class="flex justify-center lg:justify-end">
 
-                    <img
-                        src="{% static 'img/about-qr.png' %}"
-                        alt="Scan to Download"
-                        class="w-[240px] md:w-[270px] object-contain">
+                    <div class="text-center">
+
+                        <p
+                            class="mb-4
+                                   text-[11px]
+                                   font-semibold
+                                   uppercase
+                                   tracking-[2px]
+                                   text-slate-500">
+
+                            Scan to Download
+
+                        </p>
+
+                        <img
+                            src="{% static 'img/about-qr.png' %}"
+                            alt="Download FE App"
+                            class="w-[160px]
+                                   md:w-[180px]
+                                   lg:w-[190px]
+                                   object-contain
+                                   mx-auto">
+
+                    </div>
 
                 </div>
 
@@ -1187,9 +1473,11 @@
         </div>
 
     </div>
+
 </section>
 
 </main>
+<script src="{% static 'script/pages/engineer.js' %}"></script>
 
 {% endblock %}
 

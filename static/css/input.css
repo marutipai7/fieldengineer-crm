@@ -1887,6 +1887,447 @@ max-width:100%;
         display: block !important;
     }
 }
+.network-dot{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    background:#F5B530;
+    opacity:.35;
+    animation:networkPulse 4s infinite ease-in-out;
+}
+
+.network-dot:nth-child(2){animation-delay:.8s;}
+.network-dot:nth-child(3){animation-delay:1.5s;}
+.network-dot:nth-child(4){animation-delay:2.3s;}
+.network-dot:nth-child(5){animation-delay:3s;}
+.network-dot:nth-child(6){animation-delay:1.2s;}
+.network-dot:nth-child(7){animation-delay:2.8s;}
+
+@keyframes networkPulse{
+
+0%,100%{
+    transform:scale(.6);
+    opacity:.2;
+}
+
+50%{
+    transform:scale(1.5);
+    opacity:.8;
+}
+
+}
+/*=============================
+ FE NETWORK CARDS
+==============================*/
+
+.fe-network-card{
+
+    position:relative;
+
+    background:rgba(255,255,255,.72);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(245,181,48,.25);
+
+    border-radius:26px;
+
+    padding:24px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.06);
+
+}
+
+.fe-network-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(245,181,48,.08),
+        rgba(34,197,94,.05)
+    );
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.fe-network-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 20px 55px rgba(0,0,0,.12);
+
+}
+
+.fe-network-card:hover::before{
+
+    opacity:1;
+
+}
+
+.fe-card-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin-bottom:22px;
+
+}
+
+.fe-card-icon{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        #F5B530,
+        #F7D05F
+    );
+
+    color:#fff;
+
+    font-size:28px;
+
+    animation:floatIcon 4s ease-in-out infinite;
+
+}
+
+.fe-card-title{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#1C2B39;
+
+}
+
+.fe-card-subtitle{
+
+    margin-top:4px;
+
+    font-size:13px;
+
+    color:#64748B;
+
+}
+
+.fe-city-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.fe-city-list li{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-bottom:10px;
+
+    border-bottom:1px dashed rgba(148,163,184,.25);
+
+    font-size:15px;
+
+    color:#334155;
+
+}
+
+.fe-city-list span{
+
+    background:#F5B530;
+
+    color:#fff;
+
+    min-width:34px;
+
+    height:34px;
+
+    border-radius:999px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+    font-size:13px;
+
+}
+
+@keyframes floatIcon{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-6px);
+
+}
+
+}
+/* =========================================
+   FE NETWORK ANIMATIONS
+========================================= */
+
+/* Floating particles */
+.fe-particle{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:9999px;
+    background:#F5B530;
+    opacity:.25;
+    animation:feFloat 8s ease-in-out infinite;
+}
+
+.fe-particle.green{
+    background:#22C55E;
+}
+
+@keyframes feFloat{
+
+    0%{
+        transform:translateY(0) scale(.8);
+        opacity:.2;
+    }
+
+    50%{
+        transform:translateY(-22px) scale(1.2);
+        opacity:.7;
+    }
+
+    100%{
+        transform:translateY(0) scale(.8);
+        opacity:.2;
+    }
+
+}
+
+
+/* Animated network line */
+
+.fe-network-line{
+
+    stroke:#F5B530;
+    stroke-width:2;
+    fill:none;
+
+    stroke-dasharray:14 10;
+
+    animation:networkMove 18s linear infinite;
+
+}
+
+@keyframes networkMove{
+
+    from{
+        stroke-dashoffset:0;
+    }
+
+    to{
+        stroke-dashoffset:-450;
+    }
+
+}
+
+
+/* Map Glow */
+
+.fe-map-glow{
+
+    animation:mapGlow 4s ease-in-out infinite;
+
+}
+
+@keyframes mapGlow{
+
+    0%,100%{
+
+        box-shadow:0 0 0 rgba(245,181,48,0);
+
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 35px rgba(245,181,48,.35);
+
+    }
+
+}
+
+
+/* Country cards */
+
+.fe-country-card{
+
+    transition:
+    transform .45s,
+    box-shadow .45s,
+    border-color .45s;
+
+}
+
+.fe-country-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#F5B530;
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.18);
+
+}
+
+
+/* Icon animation */
+
+.fe-country-icon{
+
+    transition:.45s;
+
+}
+
+.fe-country-card:hover .fe-country-icon{
+
+    transform:rotate(-8deg) scale(1.12);
+
+}
+
+
+/* Background glow */
+
+.fe-background{
+
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.fe-background::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    background:radial-gradient(circle,
+    rgba(245,181,48,.18),
+    transparent 70%);
+
+    top:-240px;
+    left:-220px;
+
+    animation:bgMove1 12s ease-in-out infinite;
+
+}
+
+.fe-background::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    background:radial-gradient(circle,
+    rgba(34,197,94,.18),
+    transparent 70%);
+
+    right:-220px;
+    bottom:-220px;
+
+    animation:bgMove2 15s ease-in-out infinite;
+
+}
+
+@keyframes bgMove1{
+
+    50%{
+
+        transform:translate(40px,35px);
+
+    }
+
+}
+
+@keyframes bgMove2{
+
+    50%{
+
+        transform:translate(-50px,-40px);
+
+    }
+
+}
+
+
+/* Fade Up */
+
+.fe-reveal{
+
+    opacity:0;
+
+    transform:translateY(45px);
+
+    transition:
+    opacity .9s,
+    transform .9s;
+
+}
+
+.fe-reveal.active{
+
+    opacity:1;
+
+    transform:none;
+
+}
 
 /* How it Works */
 .how-it-works {
