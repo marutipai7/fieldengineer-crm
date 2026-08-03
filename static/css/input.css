@@ -134,6 +134,21 @@
   --color-light-bluish-grey: #C3C6D74D;
   --color-lightest-pastel-green: #EEFCF4;
   --color-light-pastel-green: #D1FADF;
+  --color-butter-white: #FFFBEB;
+  --color-butter-white1: #FF8D28;
+  --color-light-fresh-green: #EEFDF3;
+  --color-light-cyan-green: #F0FDFA;
+  --color-dark-slate: #111827B2;
+   --color-dark-slate1: #111827;
+  --color-midnight-slate: #0F172A;
+  --color-medium-dark-cool-gray: #4B5563;
+  --color-light-warm-beige: #FAF8EF;
+  --color-rich-golden-yellow: #F3BB36;
+  --color-warm-golden-orange: #F5A623;
+  --color-light-neutral-gray: #E5E7EB;
+  --color-fresh-mint-tone: #EFFCF3;
+  --color-light-off-white: #FBFDF9;
+  --color-deep-rich-green: #166534;
 
 
   --color-hero-gradient: linear-gradient(160deg,
@@ -5364,3 +5379,101 @@ max-width:100%;
          }
 
 }
+
+
+/* HOW IT WORKS */
+/* ===========================
+   How It Works Hero Section
+=========================== */
+
+.how-it-works-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.how-it-works-hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: object-position 0.3s ease;
+}
+
+/* Large Tablet */
+@media (max-width: 1024px) {
+    .how-it-works-hero__bg {
+        object-position: 65% center;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .how-it-works-hero__bg {
+        object-position: 72% center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .how-it-works-hero__bg {
+        object-position: 78% center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .how-it-works-hero__bg {
+        object-position: 82% center;
+    }
+}
+
+
+/* ==========================================
+   Ready Deploy Hero Section
+========================================== */
+
+.ready-deploy-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.ready-deploy-section__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: object-position 0.3s ease;
+}
+
+/* Laptop / Tablet */
+@media (max-width: 1024px) {
+    .ready-deploy-section__bg {
+        object-position: 65% center;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .ready-deploy-section__bg {
+        object-position: 72% center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .ready-deploy-section__bg {
+        object-position: 78% center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .ready-deploy-section__bg {
+        object-position: 82% center;
+    }
+}
+

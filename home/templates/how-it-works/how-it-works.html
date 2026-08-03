@@ -8,85 +8,81 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 {% block content %}
 
 {# Hero Section #}
-<section class="relative overflow-hidden w-full min-h-[340px] sm:min-h-[400px] lg:min-h-[440px] flex items-center">
+<section
+    class="how-it-works-hero relative overflow-hidden w-full min-h-[400px] sm:min-h-[420px] lg:min-h-[440px] flex items-center">
 
     <!-- Hero Background Image -->
-    <img src="{% static 'img/how-it-works-hero.svg' %}" alt="Field Engineer workflow" width="1920" height="800"
-        loading="eager" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+    <img src="{% static 'img/how-it-works-hero.png' %}" alt="Field Engineer workflow" width="1920" height="800"
+        loading="eager" fetchpriority="high" decoding="async" class="how-it-works-hero__bg">
 
     <!-- Dark Overlay -->
     <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/40"></div>
 
     <!-- Content -->
     <div class="relative z-10 container mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-
         <div class="max-w-2xl py-8 sm:py-10 lg:py-12">
-
             <span class="text-base sm:text-xs font-extrabold uppercase tracking-widest text-light-green mb-3 block">
                 The FE Workflow
             </span>
-
-            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight mb-4">
+            <h1
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
                 From posting a job to getting it done —
-                <br class="hidden sm:inline">
-                here's how it works.
+                here's <span class="text-rich-golden-yellow">how it works.</span>
             </h1>
-
-            <p class="text-sm sm:text-base text-white/90 leading-relaxed">
+            <p class="text-sm sm:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed">
                 Field Engineer is a marketplace where you choose the right service provider for your job.
             </p>
-
         </div>
-
     </div>
 
 </section>
 
+
 {# Step 01 Section #}
-<main class="bg-soft-white mt-4">
-    <section class="w-full bg-soft-white py-8 lg:py-10 ">
+<main class="bg-light-warm-beige mt-4">
+    <section class="w-full bg-light-warm-beige py-8 lg:py-10 ">
         <div
             class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
             <div class="lg:col-span-7 flex flex-col justify-center">
                 <span
-                    class="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary-yellow mb-2">
+                    class="inline-flex items-center gap-1 text-[11px] sm:text-xs lg:text-base font-bold uppercase tracking-widest text-warm-golden-orange mb-2">
                     Step 01
                     <span class="material-symbols-outlined text-sm leading-none">
                         arrow_forward_ios
                     </span>
-
                 </span>
 
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight mb-3">
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight mt-3 sm:mt-4 lg:mt-5 mb-3">
                     Post Your Job with All the Details
                 </h2>
 
-                <p class="text-sm sm:text-base text-granite-gray font-normal leading-relaxed mb-6 max-w-2xl">
+                <p class="text-sm sm:text-base text-granite-gray font-normal leading-relaxed mb-6 max-w-2xl mt-2">
                     Fill out a simple booking form with your job details, service
                     type, location, preferred schedule, work requirements, and
                     budget. You can also upload photos, documents, or
                     instructions to help the engineer understand the job.
                 </p>
 
-                <ul class="space-y-3">
+                <ul class="space-y-3 mt-2">
                     <li class="flex items-start gap-3">
-                        <span class="text-primary-yellow text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-ink font-medium">Set your minimum and maximum
                             budget</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-primary-yellow text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-ink font-medium"> Share site access details and
                             any special requirements</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-primary-yellow text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-ink font-medium">Upload photos, documents, or
                             work instructions</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-primary-yellow text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-ink font-medium"> Mention the number of
                             engineers, devices, or work needed</span>
                     </li>
@@ -95,7 +91,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
             <div class="lg:col-span-5 flex justify-center lg:justify-end w-full">
                 <div
-                    class="w-full max-w-xl bg-transparent-white border border-light-medium rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                    class="w-full max-w-xl bg-white border border-light-medium rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
                     <div class="flex items-center gap-2 mb-6">
                         <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-light-cool-gray">
                             <span class="material-symbols-outlined text-granite-gray text-xl">
@@ -117,21 +113,21 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                         <div class="bg-soft-ivory rounded-xl p-4 border border-light-bluish-grey">
                             <label class="block text-sm font-medium text-granite-gray tracking-wide mb-1">Min
                                 Budget</label>
-                            <div class="text-sm sm:text-base font-bold text-primary-yellow">
-                                ₹8,000
+                            <div class="text-sm sm:text-base font-bold text-warm-golden-orange">
+                                ₹5,000
                             </div>
                         </div>
                         <div class="bg-soft-ivory rounded-xl p-4 border border-light-bluish-grey">
                             <label class="block text-sm font-medium text-granite-gray tracking-wide mb-1">Max
                                 Budget</label>
-                            <div class="text-sm sm:text-base font-bold text-primary-yellow">
+                            <div class="text-sm sm:text-base font-bold text-warm-golden-orange">
                                 ₹14,000
                             </div>
                         </div>
                     </div>
 
                     <div
-                        class="bg-lightest-pastel-green border border-light-pastel-green text-primary-yellow text-xs sm:text-sm font-semibold rounded-xl py-3 px-4 flex items-center gap-2">
+                        class="bg-lightest-pastel-green border border-light-pastel-green text-light-green text-xs sm:text-sm font-semibold rounded-xl py-3 px-4 flex items-center gap-2">
 
                         <span class="material-symbols-outlined">
                             check_circle
@@ -144,18 +140,20 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
     </section>
 
     {# Step 02 #}
-    <section class="w-full bg-soft-white mt-3 sm:mt-6 lg:mt-10 py-8 lg:py-10">
+    <section class="w-full bg-light-warm-beige mt-3 sm:mt-6 lg:mt-10 py-8 lg:py-10">
         <div
             class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
             <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center lg:justify-start w-full">
                 <div
-                    class="w-full max-w-xl bg-transparent-white border border-light-medium rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                    class="w-full max-w-xl bg-white border border-light-medium rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
                     <div class="flex items-center gap-2 mb-4">
-                        <span class="material-symbols-outlined text-xl text-golden-orange">
-                            work
+                        <span class="material-symbols-outlined text-xl text-warm-golden-orange">
+                            assignment
                         </span>
-                        <h3 class="text-lg sm:text-base font-semibold text-ink">Lead (Engineer View)</h3>
+                        <h3 class="text-lg sm:text-base lg:text-base font-semibold  text-ink">
+                            Lead (Engineer View)
+                        </h3>
                     </div>
 
                     <div
@@ -164,7 +162,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                             <h4 class="text-base sm:text-lg font-bold text-ink mb-1">Network Cabling – Andheri
                             </h4>
                             <div
-                                class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-granite-gray font-medium">
+                                class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-granite-gray font-normal">
 
                                 <span class="flex items-center gap-1">
                                     <span class="material-symbols-outlined text-base text-granite-gray">
@@ -177,7 +175,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                                 <span class="flex items-center gap-1">
                                     <span class="material-symbols-outlined text-base text-granite-gray">
-                                        cable
+                                        grid_on
                                     </span>
                                     Cabling
                                 </span>
@@ -196,17 +194,18 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                         <div
                             class="text-right flex sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-4 sm:gap-1">
                             <span
-                                class="text-sm sm:text-base font-bold text-primary-yellow whitespace-nowrap">₹8K–₹14K</span>
+                                class="text-sm sm:text-base font-bold text-warm-golden-orange whitespace-nowrap">₹8K–₹14K</span>
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-3 mt-4 justify-start">
+                    <div class="flex w-full gap-3 mt-4">
                         <button
-                            class="px-4 py-2 text-sm sm:text-base font-semibold text-ink bg-white border border-light-medium rounded-lg ">
+                            class="flex-1 px-4 py-2 text-sm sm:text-base font-semibold text-ink bg-white border border-light-neutral-gray rounded-lg">
                             View Details
                         </button>
+
                         <button
-                            class="px-5 py-2 text-sm sm:text-base font-semibold text-white bg-primary-yellow rounded-lg hover:bg-bright-yellow transition-colors">
+                            class="flex-1 px-5 py-2 text-sm sm:text-base font-semibold text-white bg-warm-golden-orange rounded-lg hover:bg-bright-yellow transition-colors">
                             Apply Now
                         </button>
                     </div>
@@ -215,48 +214,42 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
             <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center">
                 <span
-                    class="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary-yellow mb-2">
+                    class="inline-flex items-center gap-1 text-[11px] sm:text-xs lg:text-base font-bold uppercase tracking-widest text-warm-golden-orange mb-2">
                     Step 02
                     <span class="material-symbols-outlined text-sm leading-none">
                         arrow_forward_ios
                     </span>
                 </span>
 
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight mb-3">
+
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight mb-3 mt-3 sm:mt-4 lg:mt-5">
                     Nearby Engineers Get Your Job
                 </h2>
 
-                <p class="text-lg sm:text-base text-ink font-normal leading-relaxed mb-6 max-w-2xl">
+                <p class="text-lg sm:text-base text-ink font-normal leading-relaxed mb-6 max-w-2xl mt-2">
                     Once your job is posted, nearby engineers are notified. They review your job details, documents, and
                     budget before deciding to apply. You always choose who to hire.
                 </p>
 
-                <ul class="space-y-3">
+                <ul class="space-y-3 mt-2">
                     <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary-yellow text-xl leading-none mt-0.5">
-                            check_circle
-                        </span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium">Only nearby engineers receive
                             your job request</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary-yellow text-xl leading-none mt-0.5">
-                            check_circle
-                        </span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium"> Engineers review all job
                             details before applying</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary-yellow text-xl leading-none mt-0.5">
-                            check_circle
-                        </span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium"> Receive applications from
                             multiple engineers</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary-yellow text-xl leading-none mt-0.5">
-                            check_circle
-                        </span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium"> You choose the engineer who
                             fits your needs best</span>
                     </li>
@@ -266,212 +259,170 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
     </section>
 
     {# Step 03 #}
-    <section class="w-full bg-soft-white mt-3 sm:mt-6 lg:mt-10 py-8 lg:py-10">
+    <section class="w-full bg-light-warm-beige mt-3 sm:mt-6 lg:mt-10 py-8 lg:py-10">
         <div
-            class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+            class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
+            <!-- Left Content Block -->
             <div class="lg:col-span-6 flex flex-col justify-center h-full">
                 <span
-                    class="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary-yellow mb-2">
+                    class="inline-flex items-center gap-1 text-[11px] sm:text-xs lg:text-base font-bold uppercase tracking-widest text-warm-golden-orange mb-2">
                     Step 03
                     <span class="material-symbols-outlined text-sm leading-none">
                         arrow_forward_ios
                     </span>
-
                 </span>
 
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight mb-3">
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight mb-3 mt-3 sm:mt-4 lg:mt-5">
                     Choose the Engineer You Trust
                 </h2>
 
-                <p class="text-lg sm:text-base text-ink font-normal leading-relaxed mb-6 max-w-2xl">
+                <p class="text-sm sm:text-base text-light-dark font-normal leading-relaxed mb-6 max-w-2xl mt-2">
                     Review each engineer's profile, ratings, completed jobs,
                     skills, and certifications. Choose the engineer (or
                     engineers) you trust most. The job starts only after your
                     approval.
                 </p>
 
-                <ul class="space-y-3">
+                <ul class="space-y-3 mt-2">
                     <li class="flex items-start gap-3">
-                        <span class="text-primary-yellow text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium"> View profiles, ratings, and
                             work history</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-primary-yellow text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium"> Hire one or more engineers for
                             the job</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-primary-yellow text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium">You decide who works on your
                             project</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-primary-yellow text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium">Other applicants are informed
                             automatically</span>
+                    </li>
                 </ul>
             </div>
 
-            <div class="lg:col-span-6 flex h-full">
-                <div class="w-full max-w-3xl bg-white border border-gray-200 rounded-3xl shadow-lg p-4">
+            <!-- Right Content Block (Applicants Card) -->
+            <div class="lg:col-span-6 flex justify-center lg:justify-end w-full">
+                <div
+                    class="w-full max-w-[550px] bg-white rounded-[30px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden border-2 border-warm-golden-orange">
+
                     <!-- Header -->
-                    <div class="text-center mb-5">
-                        <span class="material-symbols-outlined text-4xl text-green-600">
-                            groups
-                        </span>
-
-                        <h3 class="text-2xl font-bold text-gray-900 mt-1">
+                    <div class="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-soft-slate">
+                        <h3 class="text-2xl font-semibold text-ink">
                             Applicants
-                            <span class="text-green-600">(3 received)</span>
                         </h3>
-
-                        <p class="text-sm text-gray-500 mt-2">
-                            Review profiles, compare pricing and connect with the right engineer.
-                        </p>
+                        <span
+                            class="px-4 py-1.5 rounded-full  bg-fresh-mint-tone text-light-green text-sm font-semibold">
+                            Connected
+                        </span>
                     </div>
 
-                    <!-- Applicant 1 -->
-                    <div class="border border-gray-200 rounded-2xl p-5 bg-white hover:shadow-lg transition">
+                    <!-- Applicant 1 (Arjun Sharma - Select) -->
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center justify-between px-6 sm:px-8 py-5 border-b border-soft-slate gap-4 sm:gap-0">
 
-                        <div class="grid lg:grid-cols-[2.2fr_1fr_auto] gap-6 items-center">
-                            <!-- Left -->
-                            <div class="flex items-center gap-4">
-
-                                <div class="relative">
-
-                                    <div
-                                        class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center text-2xl font-bold text-green-700">
-                                        AS
-                                    </div>
-
-                                    <span
-                                        class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
-
-                                </div>
-
-                                <div>
-
-                                    <h4 class="font-bold text-xl text-gray-900">
-                                        Arjun Sharma
-                                    </h4>
-
-                                    <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mt-1">
-
-                                        <span>💼 84 Jobs</span>
-
-                                        <span>⭐ 4.9</span>
-
-                                        <span>Network Cabling</span>
-
-                                    </div>
-
-                                    <div class="flex gap-2 mt-2">
-
-                                        <span class="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full">
-                                            ✔ Verified
-                                        </span>
-
-                                        <span class="bg-green-50 text-green-700 text-xs px-3 py-1 rounded-full">
-                                            ● Available Now
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
+                        <div class="flex items-center gap-4">
+                            <!-- Avatar -->
+                            <div
+                                class="w-14 h-14 rounded-full bg-primary-yellow text-white text-lg font-bold flex items-center justify-center shrink-0">
+                                AS
                             </div>
 
-                            <!-- Price -->
+                            <div>
+                                <h4 class="text-sm font-semibold text-ink">
+                                    Arjun Sharma
+                                </h4>
 
-                            <div class="bg-green-50 rounded-xl px-5 py-4 text-center">
+                                <div class="flex items-center gap-1.5 mt-1 text-xs font-medium text-granite-gray">
+                                    <span class="material-symbols-outlined text-[16px] text-primary-yellow">star</span>
+                                    <span class="font-medium">4.9</span>
+                                    <span class="text-[#D1D5DB]">·</span>
+                                    <span>42 jobs</span>
+                                </div>
 
-                                <p class="text-xs text-gray-500 uppercase tracking-wide">
-                                    Quoted Price
-                                </p>
-
-                                <h3 class="text-2xl font-bold text-green-700 mt-1">
-                                    ₹2,500
-                                </h3>
-
-                                <p class="text-sm text-gray-500">
-                                    per day
-                                </p>
-
-                            </div>
-                            <!-- Buttons -->
-
-                            <div class="flex flex-col gap-2 lg:w-[120px]">
-                                <button
-                                    class="h-10 rounded-xl border border-green-200 bg-white hover:bg-green-50 text-green-700 transition flex items-center justify-center gap-2 text-sm font-medium">
-                                    <span class="material-symbols-outlined text-[18px]">
-                                        call
-                                    </span>
-                                    Call
-                                </button>
-
-                                <button
-                                    class="h-10 rounded-xl bg-green-600 hover:bg-green-700 text-white transition flex items-center justify-center gap-2 text-sm font-medium shadow-sm">
-                                    <span class="material-symbols-outlined text-[18px]">
-                                        chat
-                                    </span>
-                                    Message
-                                </button>
+                                <span
+                                    class="inline-flex items-center mt-2.5 rounded-full  bg-fresh-mint-tone px-3 py-1 text-xs font-semibold text-light-green">
+                                    Available Now
+                                </span>
                             </div>
                         </div>
 
-                    </div>
-
-                    <!-- Applicant 2 -->
-                    <!-- Copy Applicant 1 and change: -->
-                    <!-- AS → RK -->
-                    <!-- Arjun Sharma → Rohan Kumar -->
-                    <!-- ₹2500 → ₹2100 -->
-                    <!-- Network Cabling → Cabling & DC -->
-                    <!-- Available Now → Available in 2 hrs -->
-
-                    <!-- Applicant 3 -->
-                    <!-- Copy Applicant 1 and change: -->
-                    <!-- AS → PT -->
-                    <!-- Arjun Sharma → Priya Trivedi -->
-                    <!-- ₹2500 → ₹1800 -->
-                    <!-- 84 Jobs → 112 Jobs -->
-                    <!-- ⭐4.9 → ⭐5.0 -->
-                    <!-- Available Now → Available Tomorrow -->
-
-                    <!-- Bottom Box -->
-
-                    <div class="mt-3 bg-green-50 border border-green-100 rounded-2xl p-3 flex items-center gap-3">
-                        <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center">
-
-                            <span class="material-symbols-outlined text-green-700">
-                                verified_user
-                            </span>
-
-                        </div>
-
-                        <div>
-
-                            <h4 class="font-semibold text-gray-900">
-                                All engineers are verified & background checked
-                            </h4>
-
-                            <p class="text-sm text-gray-500">
-                                You're in safe hands with our trusted network.
+                        <div class="flex items-center gap-5 pl-[72px] sm:pl-0">
+                            <p class="text-sm font-bold text-warm-golden-orange whitespace-nowrap tracking-tight">
+                                ₹1,500/day
                             </p>
+                            <button
+                                class="h-11 px-8 rounded-xl bg-warm-golden-orange text-black font-medium hover:opacity-90 transition text-base select-btn">
+                                Select
+                            </button>
+                        </div>
+                    </div>
 
+                    <!-- Applicant 2 (Raj Kumar - Selected) -->
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center justify-between px-6 sm:px-8 py-5 border-b border-soft-slate gap-4 sm:gap-0">
+
+                        <div class="flex items-center gap-4">
+                            <!-- Avatar -->
+                            <div
+                                class="w-14 h-14 rounded-full bg-primary-yellow text-white text-lg font-bold flex items-center justify-center shrink-0">
+                                RK
+                            </div>
+
+                            <div>
+                                <h4 class="text-sm font-semibold text-ink">
+                                    Raj Kumar
+                                </h4>
+
+                                <div class="flex items-center gap-1.5 mt-1 text-xs font-medium text-granite-gray">
+                                    <span class="material-symbols-outlined text-[16px] text-primary-yellow">star</span>
+                                    <span class="font-medium">4.7</span>
+                                    <span class="text-[#D1D5DB]">·</span>
+                                    <span>28 jobs</span>
+                                </div>
+
+                                <span
+                                    class="inline-flex items-center mt-2.5 rounded-full  bg-fresh-mint-tone px-3 py-1 text-xs font-semibold text-light-green">
+                                    Available Now
+                                </span>
+                            </div>
                         </div>
 
+                        <div class="flex items-center gap-5 pl-[72px] sm:pl-0">
+                            <p class="text-sm font-bold text-warm-golden-orange whitespace-nowrap tracking-tight">
+                                ₹1,200/day
+                            </p>
+                            <button
+                                class="h-11 px-8 rounded-xl bg-warm-golden-orange text-black font-medium hover:opacity-90 transition text-base select-btn">
+                                Select
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Banner -->
+                    <div class="bg-fresh-mint-tone px-6 sm:px-8 py-4 flex items-center gap-3 ">
+                        <span class="material-symbols-outlined text-base text-light-green font-normal">shield</span>
+                        <p class="text-base font-medium text-light-green">
+                            All engineers are verified &amp; background checked
+                        </p>
                     </div>
 
                 </div>
             </div>
+
         </div>
     </section>
 
     {# Step 04 #}
-    <section class="w-full bg-[#FAFDF9] py-8 lg:py-10 border-b border-gray-100">
+    <section class="w-full bg-light-warm-beige mt-3 sm:mt-6 lg:mt-10 py-8 lg:py-10">
         <div
             class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
@@ -483,7 +434,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                         <h3 class="text-sm sm:text-base font-bold text-black-dark">Job In Progress</h3>
                     </div>
 
-                    <div class="bg-[#F8FAF7] border border-[#EDF2EC] rounded-xl p-5 mb-4">
+                    <div class="bg-light-off-white  rounded-xl p-5 mb-4">
                         <div class="text-xs sm:text-sm font-bold text-black-dark mb-3">
                             Network Cabling – Andheri · <span class="text-gray-500 font-medium">Arjun Sharma</span>
                         </div>
@@ -498,44 +449,50 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                     </div>
 
                     <div
-                        class="bg-[#E6F4EA] border border-[#C2E7CD] text-green-light text-xs sm:text-sm font-semibold rounded-xl py-3 px-4 flex items-center gap-2">
-                        <span class="text-sm">💳</span>
+                        class="bg-fresh-mint-tone border border-light-green text-deep-rich-green text-xs sm:text-sm font-semibold rounded-xl py-3 px-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">lock</span>
                         <span>Secure ₹12,000 in escrow — released on your approval</span>
                     </div>
                 </div>
             </div>
 
             <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center">
-                <span class="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-primary-green mb-2 block">
+                <span
+                    class="inline-flex items-center gap-1 text-[11px] sm:text-xs lg:text-base font-bold uppercase tracking-widest text-warm-golden-orange mb-2">
                     Step 04
+                    <span class="material-symbols-outlined text-sm leading-none">
+                        arrow_forward_ios
+                    </span>
                 </span>
 
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#111827] tracking-tight mb-3">
+
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight mb-3 mt-3 sm:mt-4 lg:mt-5">
                     Track Progress. Pay with Confidence.
                 </h2>
 
-                <p class="text-sm sm:text-base text-light-dark font-normal leading-relaxed mb-6 max-w-2xl">
+                <p class="text-sm sm:text-base text-light-dark font-normal leading-relaxed mb-6 max-w-2xl mt-2">
                     Track your job in real time as the engineer completes the work. Review the completed work and
                     release payment only after you're satisfied.
                 </p>
 
-                <ul class="space-y-3">
+                <ul class="space-y-3 mt-2">
                     <li class="flex items-start gap-3">
-                        <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium"> Get real-time updates from your
                             engineer</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium"> View photos and documents as
                             proof of work</span>
                     <li class="flex items-start gap-3">
-                        <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium"> Pay only after you approve the
                             completed job</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <span class="text-[#10B981] text-base font-bold mt-0.5">✓</span>
+                        <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
                         <span class="text-sm sm:text-base text-black-darkk font-medium"> Rate your experience to help
                             other customers</span>
                     </li>
@@ -548,20 +505,80 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
 
     {# CTA Banner #}
-    <section class="w-full bg-[#FAFDF9] py-8">
-        <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-            <div
-                class="w-full bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5] rounded-3xl py-10 px-6 sm:px-12 flex flex-col items-center text-center">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black-dark tracking-tight mb-3">
-                    Ready to try it yourself?
-                </h2>
-                <p class="text-sm sm:text-base text-light-dark font-medium mb-6 max-w-lg">
-                    Create a free account and post your first job in under 5 minutes.
-                </p>
-                <button onclick="openSignupPopup()"
-                    class="px-6 py-3 text-sm sm:text-base font-bold text-black-bright bg-bright-yellow hover:bg-[#F59E0B] rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer">
-                    Get Started Free →
-                </button>
+
+    <!-- Section 5: Ready to Deploy Certified Engineers -->
+    <section class="ready-deploy-section w-full bg-midnight-slate relative overflow-hidden flex flex-col"
+        aria-labelledby="deploy-engineers-title">
+
+        <!-- Responsive Background Image Wrapper -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <img src="{% static 'img/how-it-works-ready.jpg' %}" alt="Construction site with engineers at night"
+                width="1920" height="1080" class="ready-deploy-section__bg" loading="lazy" decoding="async" />
+
+            <!-- Dark gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0F172A]/95 via-[#0F172A]/80 to-[#0F172A]/50"></div>
+        </div>
+
+        <!-- Main Container -->
+        <div class="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10 py-16 md:py-20 lg:py-24 flex-1">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+                <!-- Left Content -->
+                <div class="flex flex-col items-start max-w-lg">
+                    <h2 id="deploy-engineers-title"
+                        class="text-3xl sm:text-4xl md:text-[42px] font-bold text-white leading-tight mb-4">
+                        Ready to Deploy Certified
+                        Engineers at Your Site?
+                    </h2>
+
+                    <p class="text-[15px] sm:text-base text-white font-normal leading-relaxed mb-8 max-w-md">
+                        Book now and get the best offers from verified engineers.
+                    </p>
+
+                    <button onclick="openSignupPopup()"
+                        class="group h-12 px-8 rounded-xl bg-primary-yellow text-black font-bold text-base inline-flex items-center gap-2  transition-all shadow-lg shadow-[#F5C34C]/20 cursor-pointer"
+                        aria-label="Request engineer deployment services">
+                        Request Service
+                        <span
+                            class="material-symbols-outlined text-[20px] font-normal transition-transform group-hover:translate-x-1">
+                            arrow_forward
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Right Content (2x2 Grid Stats) -->
+                <div class="grid grid-cols-2 gap-4 sm:gap-5 md:gap-6 stat-grid" aria-label="Key performance metrics">
+
+                    <!-- Stat Card 1 -->
+                    <article
+                        class="bg-white rounded-2xl p-3 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center shadow-lg h-full">
+                        <p class="text-2xl sm:text-3xl font-bold text-dark-slate1 mb-1">99.2%</p>
+                        <p class="text-[13px] text-medium-dark-cool-gray font-medium">SLA Success</p>
+                    </article>
+
+                    <!-- Stat Card 2 -->
+                    <article
+                        class="bg-white rounded-2xl p-3 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center shadow-lg h-full">
+                        <p class="text-2xl sm:text-3xl font-bold text-dark-slate1 mb-1">158K+</p>
+                        <p class="text-[13px] text-medium-dark-cool-gray font-medium">Jobs Completed</p>
+                    </article>
+
+                    <!-- Stat Card 3 -->
+                    <article
+                        class="bg-white rounded-2xl p-3 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center shadow-lg h-full">
+                        <p class="text-2xl sm:text-3xl font-bold text-dark-slate1 mb-1">4.8/5</p>
+                        <p class="text-[13px] text-medium-dark-cool-gray font-medium">Customer Rating</p>
+                    </article>
+
+                    <!-- Stat Card 4 -->
+                    <article
+                        class="bg-white rounded-2xl p-3 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center shadow-lg h-full">
+                        <p class="text-2xl sm:text-3xl font-bold text-dark-slate1 mb-1">24/7</p>
+                        <p class="text-[13px] text-medium-dark-cool-gray font-medium">Support Available</p>
+                    </article>
+
+                </div>
+
             </div>
         </div>
     </section>
