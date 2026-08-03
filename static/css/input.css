@@ -1196,10 +1196,9 @@
 ========================================== */
 
 .mission-image{
-
     display:flex;
-
     justify-content:flex-end;
+    transform:translateX(30px);
 }
 
 .mission-image img{
@@ -1300,7 +1299,7 @@
 ==========================================*/
 
 .services-section{
-    padding:90px 0;
+    padding: 5px 35px 35px;
     background:#FCFCFA;
 }
 
@@ -1464,7 +1463,7 @@ min-height:auto;
 ==========================================================*/
 
 .field-engineer-section{
-    padding:90px 0;
+    padding:40px 0 90px;
     background:#ffffff;
 }
 
@@ -1734,6 +1733,13 @@ min-height:auto;
     display:block;
     border-radius:8px;
 }
+.faq-item:not([open]) > div {
+    display: none;
+}
+
+.faq-item[open] > div {
+    display: block;
+}
 /*==========================================================
   TABLET
 ==========================================================*/
@@ -1866,6 +1872,15 @@ max-width:100%;
         width:90px;
 
         height:90px;
+    }
+}
+.timeline-arrow {
+    display: none !important;
+}
+
+@media (min-width: 1280px) {
+    .timeline-arrow {
+        display: block !important;
     }
 }
 
