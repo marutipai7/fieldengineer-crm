@@ -129,7 +129,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
     </section>
 
-    <div class="bg-[#F7FCF8]">
+    
 
         <section id="features" class="py-10 lg:py-12 bg-warm-off-white" aria-labelledby="features-heading">
             <div class="max-w-[1500px] mx-auto px-6 md:px-10 lg:px-14 xl:px-16">
@@ -188,7 +188,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                         class="bg-muted-off-white rounded-3xl shadow-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
 
                         <div class="p-3 pb-0">
-                            <img src="{% static 'img/service-requests.svg' %}"
+                            <img src="{% static 'img/work-orders.svg' %}"
                                 alt="Illustration of service request management dashboard for field service operations"
                                 width="400" height="320" loading="lazy" decoding="async" fetchpriority="low"
                                 class="w-full h-44 object-cover rounded-2xl">
@@ -196,7 +196,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                         <div class="px-6 py-6 text-center flex-1 flex flex-col">
                             <h3 class="text-lg font-bold text-ink mb-4">
-                                Work Orders 
+                                Work Orders
                             </h3>
 
                             <p class="text-base font-medium text-granite-gray leading-7">
@@ -211,7 +211,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                         class="bg-muted-off-white rounded-3xl shadow-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
 
                         <div class="p-3 pb-0">
-                            <img src="{% static 'img/service-requests.svg' %}"
+                            <img src="{% static 'img/work-management.svg' %}"
                                 alt="Illustration of service request management dashboard for field service operations"
                                 width="400" height="320" loading="lazy" decoding="async" fetchpriority="low"
                                 class="w-full h-44 object-cover rounded-2xl">
@@ -219,13 +219,11 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                         <div class="px-6 py-6 text-center flex-1 flex flex-col">
                             <h3 class="text-lg font-bold text-ink mb-4">
-                                Service Requests
+                                Work Management
                             </h3>
 
                             <p class="text-base font-medium text-granite-gray leading-7">
-                                Receive and manage all
-                                customer service requests in
-                                one place
+                                Easily create, assign, monitor and track work orders to keep every job on schedule.
                             </p>
                         </div>
 
@@ -236,7 +234,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                         class="bg-muted-off-white rounded-3xl shadow-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
 
                         <div class="p-3 pb-0">
-                            <img src="{% static 'img/service-requests.svg' %}"
+                            <img src="{% static 'img/team-management.svg' %}"
                                 alt="Illustration of service request management dashboard for field service operations"
                                 width="400" height="320" loading="lazy" decoding="async" fetchpriority="low"
                                 class="w-full h-44 object-cover rounded-2xl">
@@ -244,13 +242,11 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                         <div class="px-6 py-6 text-center flex-1 flex flex-col">
                             <h3 class="text-lg font-bold text-ink mb-4">
-                                Service Requests
+                                Team Management
                             </h3>
 
                             <p class="text-base font-medium text-granite-gray leading-7">
-                                Receive and manage all
-                                customer service requests in
-                                one place
+                                Manage your technicians, schedules, skills and performance in one place.
                             </p>
                         </div>
 
@@ -261,7 +257,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                         class="bg-muted-off-white rounded-3xl shadow-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
 
                         <div class="p-3 pb-0">
-                            <img src="{% static 'img/service-requests.svg' %}"
+                            <img src="{% static 'img/job-tracking.svg' %}"
                                 alt="Illustration of service request management dashboard for field service operations"
                                 width="400" height="320" loading="lazy" decoding="async" fetchpriority="low"
                                 class="w-full h-44 object-cover rounded-2xl">
@@ -269,13 +265,11 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                         <div class="px-6 py-6 text-center flex-1 flex flex-col">
                             <h3 class="text-lg font-bold text-ink mb-4">
-                                Service Requests
+                                Job Tracking
                             </h3>
 
                             <p class="text-base font-medium text-granite-gray leading-7">
-                                Receive and manage all
-                                customer service requests in
-                                one place
+                                Track job progress, status, and field updates in real time.
                             </p>
                         </div>
 
@@ -286,39 +280,48 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
             </div>
         </section>
         {# ========== DASHBOARD PREVIEW ========== #}
-        <section class="bg-greenish-white pt-5  border-y border-slate-100 py-1" aria-labelledby="dashboard-heading"
-            style="padding-bottom: 2rem" ;>
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center">
-                    <span
-                        class="text-[11px] font-bold tracking-wider uppercase  bg-sage-green1 text-emerald-teal px-3 py-1.5 rounded-md">POWERFUL.
-                        INTUITIVE. COMPLETE</span>
-                    <h2 id="dashboard-heading" class="mt-2 text-xl font-extrabold text-slate-900 leading-tight">Your
-                        Operations, All in One Place</h2>
-                    <p class="mt-2 text-sm text-slate-500">Get full visibility and control across your business.</p>
+        <section class="bg-mint-tint-white py-10 lg:py-12" aria-labelledby="dashboard-heading">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- Header Section -->
+                <div class="text-center mb-6 sm:mb-8 lg:mb-12">
+                    <span class="text-xs sm:text-sm font-bold tracking-wider uppercase text-rich-golden-yellow">
+                        Powerful intuitive complete
+                    </span>
+                    <h2 id="dashboard-heading"
+                        class="mt-2 text-xl sm:text-2xl lg:text-4xl font-bold text-ink leading-tight">
+                        Your Operations All in One Place
+                    </h2>
+                    <p class="mt-2 text-xs sm:text-sm lg:text-base font-medium text-granite-gray">
+                        Get full visibility and Control across your business
+                    </p>
                 </div>
 
-                <div class=" rounded-[32px] ">
-                    <img src="/static/img/Vendorgraph.png" alt="">
+                <!-- Image Section - No white background -->
+                <div class="w-full rounded-[24px] sm:rounded-[32px] overflow-hidden">
+                    <img src="/static/img/vendor-graph.svg" alt="Vendor dashboard overview"
+                        class="w-full h-auto object-contain max-h-[400px] sm:max-h-[500px] lg:max-h-[600px] mx-auto"
+                        loading="lazy" decoding="async">
                 </div>
+
             </div>
         </section>
-
         {# ========== WHY VENDORS CHOOSE FE ========== #}
-        <section class="bg-white pt-8 sm:pt-12 md:pt-16" aria-labelledby="why-heading" style="padding-bottom: 3rem" ;>
+        <section class="bg-light-warm-beige py-10 lg:py-12" aria-labelledby="why-heading" style="padding-bottom: 3rem"
+            ;>
             <div class="max-w-[1500px] mx-auto px-6 md:px-10 lg:px-14 xl:px-16">
 
                 <!-- Header -->
                 <div class="text-center mb-8 sm:mb-10 md:mb-12">
                     <span
-                        class="text-[10px] sm:text-[11px] md:text-xs px-3 py-1.5 tracking-wider font-bold bg-sage-green1 text-emerald-teal uppercase inline-block">
+                        class="text-xs sm:text-sm md:text-sm lg:text-base px-3 py-1.5 tracking-wider font-medium sm:font-medium md:font-medium lg:font-bold bg-butter-cream text-rich-golden-yellow uppercase inline-block">
                         Why Vendors Choose FE
                     </span>
                     <h2 id="why-heading"
-                        class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-dark-black tracking-tight mt-2 sm:mt-3 mb-1">
+                        class="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-dark-black tracking-tight mt-2 sm:mt-3 mb-1">
                         A Platform That Helps Your Business Grow
                     </h2>
-                    <p class="text-xs sm:text-sm text-light-black px-2 sm:px-0">
+                    <p class="text-xs sm:text-sm font-medium text-granite-gray mt-3 sm:mt-5">
                         Everything you need to manage your field service business more efficiently.
                     </p>
                 </div>
@@ -328,9 +331,9 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                     <!-- Card 1: Increase Efficiency -->
                     <article
-                        class="bg-white p-4 sm:p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-teal transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
+                        class="bg-soft-white1 p-4 sm:p-5 md:p-6 rounded-2xl  shadow-xl hover:shadow-md  transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
                         <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
+                            class="w-12 h-12 sm:w-14 sm:h-14 bg-soft-amber-yellow text-primary-yellow rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
                             <span class="material-symbols-outlined text-[28px] sm:text-[34px] md:text-[38px]">
                                 electric_bolt
                             </span>
@@ -346,9 +349,9 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                     <!-- Card 2: Improve Visibility -->
                     <article
-                        class="bg-white p-4 sm:p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-teal transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
+                        class="bg-soft-white1 p-4 sm:p-5 md:p-6 rounded-2xl  shadow-xl hover:shadow-md  transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
                         <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
+                            class="w-12 h-12 sm:w-14 sm:h-14 bg-soft-amber-yellow text-primary-yellow rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
                             <span class="material-symbols-outlined text-[28px] sm:text-[34px] md:text-[38px]">
                                 visibility
                             </span>
@@ -362,10 +365,10 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                     <!-- Card 3: Deliver Quality Service -->
                     <article
-                        class="bg-white p-4 sm:p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-teal transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
+                        class="bg-soft-white1 p-4 sm:p-5 md:p-6 rounded-2xl  shadow-xl hover:shadow-md  transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
 
                         <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
+                            class="w-12 h-12 sm:w-14 sm:h-14 bg-soft-amber-yellow text-primary-yellow rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
                             <span class="material-symbols-outlined text-[28px] sm:text-[34px] md:text-[38px]">
                                 verified
                             </span>
@@ -384,9 +387,9 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                     <!-- Card 4: Scale Your Business -->
                     <article
-                        class="bg-white p-4 sm:p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-teal transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
+                        class="bg-soft-white1 p-4 sm:p-5 md:p-6 rounded-2xl  shadow-xl hover:shadow-md  transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
                         <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
+                            class="w-12 h-12 sm:w-14 sm:h-14 bg-soft-amber-yellow text-primary-yellow rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
                             <span class="material-symbols-outlined text-[28px] sm:text-[34px] md:text-[38px]">
                                 domain
                             </span>
@@ -401,9 +404,9 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                     <!-- Card 5: Get Paid Faster -->
                     <article
-                        class="bg-white p-4 sm:p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-teal transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
+                        class="bg-soft-white1 p-4 sm:p-5 md:p-6 rounded-2xl  shadow-xl hover:shadow-md  transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
                         <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
+                            class="w-12 h-12 sm:w-14 sm:h-14 bg-soft-amber-yellow text-primary-yellow rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
                             <span class="material-symbols-outlined text-[28px] sm:text-[34px] md:text-[38px]">
                                 payments
                             </span>
@@ -419,9 +422,9 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                     <!-- Card 6: Data-Driven Growth -->
                     <article
-                        class="bg-white p-4 sm:p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-teal transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
+                        class="bg-soft-white1 p-4 sm:p-5 md:p-6 rounded-2xl  shadow-xl hover:shadow-md  transition-all duration-200 hover:-translate-y-1 text-center flex flex-col items-center justify-center min-h-[160px] sm:min-h-[170px] md:min-h-[180px]">
                         <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
+                            class="w-12 h-12 sm:w-14 sm:h-14 bg-soft-amber-yellow text-primary-yellow rounded-full flex items-center justify-center mb-3 sm:mb-4 shrink-0">
                             <span class="material-symbols-outlined text-[28px] sm:text-[34px] md:text-[38px]">
                                 trending_up
                             </span>
@@ -439,713 +442,237 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
             </div>
         </section>
 
-        {# ========== COVERAGE SECTION ========== #}
-        <!-- OPERATIONAL VISIBILITY ACROSS INDIA -->
-        <section class="coverage-section   py-0 px-4 sm:px-6 lg:px-8 font-sans">
-            <div class="max-w-7xl mx-auto p-6 md:p-8">
+        <!--TESTIMONIAL-->
+        <section class=" py-8 lg:py-10 bg-warm-off-white overflow-hidden">
+            <div class="max-w-[1550px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
 
-                <!-- Top Header -->
-                <div class="text-center mb-6">
-                    <span
-                        class="inline-block px-4 py-1 bg-[#E8F5E9] text-[#1E9B6F] text-[11px] font-bold uppercase tracking-wider rounded-full mb-2">
-                        Our Coverage
-                    </span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight">
-                        Across <span class="text-[#1E9B6F]">India & Beyond</span>
-                    </h2>
-                    <p class="text-gray-500 text-xs sm:text-sm mt-1.5">
-                        A strong network of engineers & vendors in every major city.
-                    </p>
-                    <p class="text-gray-400 text-[11px] mt-0.5">
-                        We are where you need us.
-                    </p>
-                    <div class="w-10 h-0.5 bg-[#1E9B6F]/30 mx-auto mt-2.5 rounded-full"></div>
-                </div>
+                <div class="grid lg:grid-cols-[1.3fr_0.7fr] items-start gap-2">
 
-                <!-- Main Content Area (Stats + Map) -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                    <!-- ================= LEFT ================= -->
+                    <div>
 
-                    <!-- Left Side Stats Cards (Compact height & pure white background) -->
-                    <!-- Left Side Stats Cards (Narrower width & larger icons) -->
-                    <div class="lg:col-span-3 flex flex-col justify-between gap-3">
-
-                        <!-- Stat Card 1 -->
-                        <div
-                            class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer">
-                            <!-- Circle size w-14 h-14 same hai -->
-                            <div
-                                class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
-                                <!-- <span class="material-symbols-outlined text-[38px]">groups</span> -->
-                                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960"
-                                    width="32px" fill="#1E9B6F">
-                                    <path
-                                        d="M40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm720 0v-120q0-44-24.5-84.5T666-434q51 6 96 20.5t84 35.5q36 20 55 44.5t19 53.5v120H760ZM247-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47Zm466 0q-47 47-113 47-11 0-28-2.5t-28-5.5q27-32 41.5-71t14.5-81q0-42-14.5-81T544-792q14-5 28-6.5t28-1.5q66 0 113 47t47 113q0 66-47 113ZM120-240h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q440-607 440-640t-23.5-56.5Q393-720 360-720t-56.5 23.5Q280-673 280-640t23.5 56.5Q327-560 360-560t56.5-23.5ZM360-240Zm0-400Z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-gray-900  leading-tight">15,000+</h3>
-                                <p class="text-[11px] text-gray-500 font-medium mt-0.5">Certified Engineers</p>
-                            </div>
-                        </div>
-
-                        <!-- Stat Card 2 -->
-                        <div class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl border border-gray-200 shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer"
-                            style="background: transparent !important;">
-                            <div
-                                class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
-                                <span class="material-symbols-outlined text-4xl">verified</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-extrabold text-gray-900 leading-tight">350+</h3>
-                                <p class="text-xs text-gray-500 font-medium mt-0.5">Verified Vendors</p>
-                            </div>
-                        </div>
-
-                        <!-- Stat Card 3 -->
-                        <div class="stat-card !bg-transparent py-3 px-3.5 rounded-2xl border border-gray-200 shadow-none flex items-center gap-3 relative overflow-hidden transition-all duration-300 group cursor-pointer"
-                            style="background: transparent !important;">
-                            <div
-                                class="w-14 h-14 rounded-full bg-[#E8F5E9] flex items-center justify-center text-[#1E9B6F] shrink-0">
-                                <span class="material-symbols-outlined text-4xl">apartment</span>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-extrabold text-gray-900 leading-tight">120+</h3>
-                                <p class="text-xs text-gray-500 font-medium mt-0.5">Cities Covered</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Right Side Interactive Map -->
-                    <div
-                        class="lg:col-span-9 bg-white p-0 rounded-2xl border border-gray-100 shadow-sm relative h-full min-h-[380px] flex flex-col justify-between overflow-hidden">
-
-                        <!-- Leaflet Container (Expanded to fill full height, no white space) -->
-                        <div id="coverageMap" class="w-full h-full min-h-[380px] rounded-2xl z-10"></div>
-
-                        <!-- Map Radio Selection Bar (Floating over the map at bottom) -->
-                        <div
-                            class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 bg-white/95 backdrop-blur-md py-2.5 px-6 rounded-full border border-gray-100 shadow-md flex items-center justify-center gap-6 text-sm text-gray-700">
-                            <label class="flex items-center gap-2 cursor-pointer font-medium">
-                                <input type="radio" name="countrySelect" value="usa" checked
-                                    class="accent-[#1E9B6F] w-4 h-4">
-                                <span>United States</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer font-medium">
-                                <input type="radio" name="countrySelect" value="india" class="accent-[#1E9B6F] w-4 h-4">
-                                <span>India</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer font-medium">
-                                <input type="radio" name="countrySelect" value="malaysia"
-                                    class="accent-[#1E9B6F] w-4 h-4">
-                                <span>Malaysia</span>
-                            </label>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Bottom Location Info Cards -->
-                <!-- Bottom Location Info Cards (Constrained width to match design) -->
-                <!-- Bottom Location Info Cards (Aligned perfectly to the left grid edge) -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8 w-full">
-
-                    <!-- Location 1: United States -->
-                    <div id="card-usa"
-                        class="location-card bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm relative transition-all duration-300 overflow-hidden active-location group cursor-pointer">
-                        <!-- Left-Side Green Vertical Line -->
-                        <div class="line-indicator absolute top-0 left-0 bottom-0 w-1.5 bg-[#1E9B6F] rounded-l-2xl">
-                        </div>
-
-                        <div class="flex items-center justify-between mb-3 mt-0.5 pl-1.5">
-                            <div class="flex items-center gap-2.5">
-                                <div
-                                    class="w-9 h-9 rounded-full bg-[#1E9B6F] flex items-center justify-center text-white shrink-0">
-                                    <span class="material-symbols-outlined text-lg">apartment</span>
-                                </div>
-                                <h4 class="font-bold text-gray-900 text-base">United States</h4>
-                            </div>
-                            <button
-                                class="view-map-btn text-[11px] font-semibold text-[#1E9B6F] cursor-pointer  flex items-center gap-0.5 border border-gray-300 rounded-lg p-1">
-                                <span class="material-symbols-outlined text-xs">location_on</span> View on Map
-                            </button>
-                        </div>
-
-                        <p
-                            class="text-xs text-gray-500 flex items-start gap-1.5 mb-5 leading-relaxed pl-1.5 min-h-[36px]">
-                            <span
-                                class="material-symbols-outlined text-sm text-[#1E9B6F] shrink-0 mt-0.5">location_on</span>
-                            <span>218-10, Hillside Ave, Queens Village, New York, USA, 11427.</span>
-                        </p>
-
-                        <div
-                            class="border-t border-gray-100 pt-3 flex items-center justify-between text-[11px] text-gray-500 font-medium pl-1.5">
-                            <span class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">call</span> +1 646 600
-                                0123
-                            </span>
-                            <span class="text-gray-200">|</span>
-                            <a href="mailto:hello@fieldengineer.com"
-                                class="flex items-center gap-1 hover:text-[#1E9B6F]">
-                                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">mail</span>
-                                hello@fieldengineer.com
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Location 2: India -->
-                    <div id="card-india"
-                        class="location-card bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm relative transition-all duration-300 overflow-hidden group cursor-pointer">
-                        <!-- Left-Side Green Vertical Line -->
-                        <div
-                            class="line-indicator absolute top-0 left-0 bottom-0 w-1.5 bg-[#1E9B6F] rounded-l-2xl hidden">
-                        </div>
-
-                        <div class="flex items-center justify-between mb-3 mt-0.5 pl-1.5">
-                            <div class="flex items-center gap-2.5">
-                                <div
-                                    class="w-9 h-9 rounded-full bg-[#1E9B6F] flex items-center justify-center text-white shrink-0">
-                                    <span class="material-symbols-outlined text-lg">apartment</span>
-                                </div>
-                                <h4 class="font-bold text-gray-900 text-base">India</h4>
-                            </div>
-                            <button
-                                class="view-map-btn text-[11px] font-semibold text-[#1E9B6F] cursor-pointer  flex items-center gap-0.5 border border-gray-300 rounded-lg p-1">
-                                <span class="material-symbols-outlined text-xs">location_on</span> View on Map
-                            </button>
-                        </div>
-
-                        <p
-                            class="text-xs text-gray-500 flex items-start gap-1.5 mb-5 leading-relaxed pl-1.5 min-h-[36px]">
-                            <span
-                                class="material-symbols-outlined text-sm text-[#1E9B6F] shrink-0 mt-0.5">location_on</span>
-                            <span>3102, 1st Floor, Rustomjee Eaze Zone, Sundar Nagar, Malad West – Mumbai 400064, MH -
-                                IN</span>
-                        </p>
-
-                        <div
-                            class="border-t border-gray-100 pt-3 flex items-center justify-between text-[11px] text-gray-500 font-medium pl-1.5">
-                            <span class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">call</span> +91 99679
-                                40928
-                            </span>
-                            <span class="text-gray-200">|</span>
-                            <a href="mailto:hello@fieldengineer.com"
-                                class="flex items-center gap-1 hover:text-[#1E9B6F]">
-                                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">mail</span>
-                                hello@fieldengineer.com
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Location 3: Malaysia -->
-                    <div id="card-malaysia"
-                        class="location-card bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm relative transition-all duration-300 overflow-hidden group cursor-pointer">
-                        <!-- Left-Side Green Vertical Line -->
-                        <div
-                            class="line-indicator absolute top-0 left-0 bottom-0 w-1.5 bg-[#1E9B6F] rounded-l-2xl hidden">
-                        </div>
-
-                        <div class="flex items-center justify-between mb-3 mt-0.5 pl-1.5">
-                            <div class="flex items-center gap-2.5">
-                                <div
-                                    class="w-9 h-9 rounded-full bg-[#1E9B6F] flex items-center justify-center text-white shrink-0">
-                                    <span class="material-symbols-outlined text-lg">apartment</span>
-                                </div>
-                                <h4 class="font-bold text-gray-900 text-base">Malaysia</h4>
-                            </div>
-                            <button
-                                class="view-map-btn text-[11px] font-semibold text-[#1E9B6F] cursor-pointer flex items-center gap-0.5 border border-gray-300 rounded-lg p-1">
-                                <span class="material-symbols-outlined text-xs">location_on</span> View on Map
-                            </button>
-                        </div>
-
-                        <p
-                            class="text-xs text-gray-500 flex items-start gap-1.5 mb-5 leading-relaxed pl-1.5 min-h-[36px]">
-                            <span
-                                class="material-symbols-outlined text-sm text-[#1E9B6F] shrink-0 mt-0.5">location_on</span>
-                            <span>M116, Jalan Mega Mendung, Off Jalan Klang Lama, 58200, Kuala Lumpur, Malaysia.</span>
-                        </p>
-
-                        <div
-                            class="border-t border-gray-100 pt-3 flex items-center justify-between text-[11px] text-gray-500 font-medium pl-1.5">
-                            <span class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">call</span> +60 1466
-                                00012
-                            </span>
-                            <span class="text-gray-200">|</span>
-                            <a href="mailto:hello@fieldengineer.com"
-                                class="flex items-center gap-1 hover:text-[#1E9B6F]">
-                                <span class="material-symbols-outlined text-xs text-[#1E9B6F]">mail</span>
-                                hello@fieldengineer.com
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        {# ========== CTA BANNER ========== #}
-        <!-- READY TO GROW YOUR BUSINESS -->
-        <section class="py-10" aria-labelledby="cta-heading">
-            <div class="max-w-[1500px] mx-auto px-6 md:px-10 lg:px-14 xl:px-16">
-
-                <div
-                    class="bg-gradient-to-r from-green-50 via-green-50/40 to-transparent border border-green-100 rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 shadow-md">
-
-                    <!-- Left -->
-                    <div
-                        class="flex flex-col sm:flex-row items-center sm:items-start md:items-center gap-4 text-center sm:text-left w-full md:w-auto">
-
-                        <!-- Icon -->
-                        <div
-                            class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-emerald-teal shrink-0 shadow-sm">
-
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 11h4m-4 4h4" />
-                            </svg>
-
-                        </div>
-
-                        <!-- Text -->
-                        <div>
-                            <h3 id="cta-heading" class="text-xl sm:text-2xl font-bold text-deep-indigo tracking-wide">
-                                Ready to Grow Your Business?
-                            </h3>
-
-                            <p class="mt-2 text-sm md:text-base text-deep-indigo">
-                                Join thousands of successful vendors on Field Engage
-                                <br class="hidden sm:inline">
-                                and take your operations to the next level.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Button -->
-                    <div class="w-full md:w-auto">
-
-                        <a href="#"
-                            class="inline-flex w-full md:w-auto items-center justify-center gap-2 rounded-xl bg-emerald-teal px-6 py-3.5 text-sm font-bold text-white shadow-sm transition-all duration-300 hover:bg-deep-indigo hover:shadow-lg">
-
-                            <span>Join as Vendor</span>
-
-                            <span class="material-symbols-outlined text-[20px]">
-                                arrow_forward
-                            </span>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-        {# ========== FAQ SECTION ========== #}
-        <section class="py-4 bg-white" aria-labelledby="faq-heading">
-            <div class="max-w-[1500px] mx-auto px-6 md:px-10 lg:px-14 xl:px-16">
-                <div
-                    class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-100 pb-3 sm:pb-0 mb-1 sm:mb-0.5">
-                    <h2 id="faq-heading"
-                        class="text-xl sm:text-2xl font-black text-dark-black tracking-tight mb-1 mt-2 sm:mb-0">
-                        Frequently
-                        Asked Questions</h2>
-                    <a href="#"
-                        class="inline-flex items-center gap-1 text-emerald-teal text-xs font-bold  tracking-wide transition"
-                        aria-label="View all FAQs">
-                        View all FAQs
-                        <span class="material-symbols-outlined text-[20px] sm:text-[24px] md:text-[28px]">
-                            arrow_forward
+                        <!-- Label -->
+                        <span class="text-[12px] font-bold tracking-[3px] uppercase text-primary-yellow">
+                            Testimonials
                         </span>
-                    </a>
-                </div>
 
-                <div class="grid md:grid-cols-2 gap-4 sm:gap-x-8 sm:gap-y-4 mt-4">
-                    <div class="space-y-3 sm:space-y-4">
-                        <article
-                            class="faq-item border border-slate-100 rounded-xl bg-white shadow-sm hover:border-slate-200 transition">
-                            <div class="faq-question flex items-center justify-between p-4 sm:p-4 cursor-pointer group"
-                                role="button" tabindex="0" aria-expanded="false">
-                                <span
-                                    class="text-xs sm:text-sm font-semibold text-light-black group-hover:text-emerald-teal transition">How
-                                    does Field Engage work for vendors?</span>
-                                <svg class="faq-icon w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 group-hover:text-emerald-teal transition transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </div>
-                            <div
-                                class="faq-answer hidden px-3 sm:px-4 pb-3 sm:pb-4 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-2 sm:pt-3 leading-relaxed">
-                                Field Engage provides a complete platform for vendors to manage work orders, track field
-                                teams, automate workflows, and get real-time insights. You can onboard your team, assign
-                                tasks, and monitor performance from a single dashboard.
-                            </div>
-                        </article>
+                        <!-- Heading -->
+                        <h2 class="mt-2 text-[32px] sm:text-[38px] lg:text-[44px] leading-[1.05] font-bold text-dark">
+                            What Our
+                            <br>
+                            <span class="text-primary-yellow">
+                                Customers
+                            </span>
+                            Say
+                        </h2>
 
-                        <article
-                            class="faq-item border border-slate-100 rounded-xl bg-white shadow-sm hover:border-slate-200 transition">
-                            <div class="faq-question flex items-center justify-between p-4 sm:p-4 cursor-pointer group"
-                                role="button" tabindex="0" aria-expanded="false">
-                                <span
-                                    class="text-xs sm:text-sm font-semibold text-light-black group-hover:text-emerald-teal transition">Is
-                                    there any onboarding or setup fee?</span>
-                                <svg class="faq-icon w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 group-hover:text-emerald-teal transition transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </div>
-                            <div
-                                class="faq-answer hidden px-3 sm:px-4 pb-3 sm:pb-4 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-2 sm:pt-3 leading-relaxed">
-                                No, there is no onboarding or setup fee. You can start with a free trial and choose a
-                                plan
-                                that fits your business needs. Our team provides free training and support during
-                                onboarding.
-                            </div>
-                        </article>
+                        <!-- Description -->
+                        <p
+                            class="mt-3 max-w-[430px] text-[14px] sm:text-[15px] leading-6 sm:leading-7 text-granite-gray">
+                            Real experiences from customers who booked trusted
+                            Field Engineers through our platform.
+                        </p>
 
-                        <article
-                            class="faq-item border border-slate-100 rounded-xl bg-white shadow-sm hover:border-slate-200 transition">
-                            <div class="faq-question flex items-center justify-between p-4 sm:p-4 cursor-pointer group"
-                                role="button" tabindex="0" aria-expanded="false">
-                                <span
-                                    class="text-xs sm:text-sm font-semibold text-light-black group-hover:text-emerald-teal transition">How
-                                    do I get paid?</span>
-                                <svg class="faq-icon w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 group-hover:text-emerald-teal transition transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M19 9l-7 7-7-7" />
-                                </svg>
+                        <!-- Testimonial Card -->
+                        <div
+                            class="mt-5 w-full max-w-[760px] rounded-[24px] bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] px-6 sm:px-7 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+
+                            <!-- Stars -->
+                            <div class="flex gap-1">
+                                <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
+                                <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
+                                <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
+                                <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
+                                <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
                             </div>
-                            <div
-                                class="faq-answer hidden px-3 sm:px-4 pb-3 sm:pb-4 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-2 sm:pt-3 leading-relaxed">
-                                Payments are processed automatically through our secure payment gateway. You can set up
-                                your
-                                bank account and choose your payout schedule (weekly, bi‑weekly, or monthly). Invoices
-                                and
-                                payment history are available in your dashboard.
+
+                            <!-- Quote -->
+                            <span class="material-symbols-outlined text-warm-golden-orange text-[24px] mt-2 block">
+                                format_quote
+                            </span>
+
+                            <!-- Testimonial Text -->
+                            <p id="testimonialText"
+                                class="mt-3 text-[14px] sm:text-[15px] leading-6 sm:leading-7 text-light-blackk min-h-[70px]">
+                                Booking an engineer through FE took less than a minute.
+                                The professional arrived on time, completed the work
+                                efficiently and kept us informed throughout the visit.
+                                The entire experience was smooth and reliable.
+                            </p>
+
+                            <!-- Bottom -->
+                            <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+
+                                <!-- Customer -->
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-md flex-shrink-0">
+                                        <img id="customerImage" src="{% static 'img/fe-wocs.jpg' %}" alt="Customer"
+                                            class="w-full h-full object-cover">
+                                    </div>
+
+                                    <div>
+                                        <h4 id="customerName"
+                                            class="font-semibold text-[16px] sm:text-[17px] text-light-blackk">
+                                            Priya Sharma
+                                        </h4>
+                                        <div class="flex items-center gap-1">
+                                            <span id="customerRole"
+                                                class="text-[12px] sm:text-[13px] text-light-blackk">
+                                                Verified Customer
+                                            </span>
+                                            <span class="material-symbols-outlined text-green-500 text-[15px]">
+                                                verified
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Navigation -->
+                                <div class="flex gap-2 ml-auto sm:ml-0">
+                                    <button id="testimonialPrev"
+                                        class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:bg-[#F5B530] hover:text-white transition">
+                                        <span class="material-symbols-outlined">
+                                            chevron_left
+                                        </span>
+                                    </button>
+                                    <button id="testimonialNext"
+                                        class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:bg-[#F5B530] hover:text-white transition">
+                                        <span class="material-symbols-outlined">
+                                            chevron_right
+                                        </span>
+                                    </button>
+                                </div>
                             </div>
-                        </article>
+
+                            <!-- Dots -->
+                            <div class="flex gap-2 mt-3">
+                                <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-[#F5B530]"
+                                    data-index="0"></button>
+                                <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-slate-300"
+                                    data-index="1"></button>
+                                <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-slate-300"
+                                    data-index="2"></button>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="space-y-3 sm:space-y-4">
-                        <article
-                            class="faq-item border border-slate-100 rounded-xl bg-white shadow-sm hover:border-slate-200 transition">
-                            <div class="faq-question flex items-center justify-between p-4 sm:p-4 cursor-pointer group"
-                                role="button" tabindex="0" aria-expanded="false">
-                                <span
-                                    class="text-xs sm:text-sm font-semibold text-light-black group-hover:text-emerald-teal transition">Can
-                                    I manage multiple teams or locations?</span>
-                                <svg class="faq-icon w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 group-hover:text-emerald-teal transition transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </div>
-                            <div
-                                class="faq-answer hidden px-3 sm:px-4 pb-3 sm:pb-4 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-2 sm:pt-3 leading-relaxed">
-                                Yes, Field Engage supports multi‑location and multi‑team operations. You can create
-                                different teams, assign roles, and set location‑specific workflows. All data is
-                                centralized
-                                for easy tracking.
-                            </div>
-                        </article>
-
-                        <article
-                            class="faq-item border border-slate-100 rounded-xl bg-white shadow-sm hover:border-slate-200 transition">
-                            <div class="faq-question flex items-center justify-between p-4 sm:p-4 cursor-pointer group"
-                                role="button" tabindex="0" aria-expanded="false">
-                                <span
-                                    class="text-xs sm:text-sm font-semibold text-light-black group-hover:text-emerald-teal transition">Is
-                                    training provided for my team?</span>
-                                <svg class="faq-icon w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 group-hover:text-emerald-teal transition transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </div>
-                            <div
-                                class="faq-answer hidden px-3 sm:px-4 pb-3 sm:pb-4 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-2 sm:pt-3 leading-relaxed">
-                                Absolutely. We offer free training sessions, video tutorials, and documentation for you
-                                and
-                                your team. Our support team is also available to answer any questions during onboarding.
-                            </div>
-                        </article>
-
-                        <article
-                            class="faq-item border border-slate-100 rounded-xl bg-white shadow-sm hover:border-slate-200 transition">
-                            <div class="faq-question flex items-center justify-between p-4 sm:p-4 cursor-pointer group"
-                                role="button" tabindex="0" aria-expanded="false">
-                                <span
-                                    class="text-xs sm:text-sm font-semibold text-light-black group-hover:text-emerald-teal transition">Who
-                                    can I contact for support?</span>
-                                <svg class="faq-icon w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 group-hover:text-emerald-teal transition transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </div>
-                            <div
-                                class="faq-answer hidden px-3 sm:px-4 pb-3 sm:pb-4 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-2 sm:pt-3 leading-relaxed">
-                                You can reach our support team via email (support@fieldengage.com), live chat on the
-                                platform, or by submitting a ticket from your dashboard. We typically respond within 24
-                                hours.
-                            </div>
-                        </article>
+                    <!-- ================= RIGHT ================= -->
+                    <div class="hidden lg:flex justify-end items-start overflow-hidden">
+                        <div
+                            class="relative w-[450px] h-[450px] rounded-full overflow-hidden border-[4px] border-[#F5B530] shadow-[0_12px_30px_rgba(0,0,0,0.08)] translate-x-16 translate-y-12">
+                            <img id="engineerImage" src="{% static 'img/fe-wocs2.jpg' %}" alt="Engineer"
+                                class="w-full h-full object-cover object-center scale-[1.15] translate-y-8">
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
-    </div>
+
+        <!--DOWNLOAD FE SECTION-->
+        <section class=" bg-[#FFFDF8] w-full">
+            <!-- Full-width gradient background container -->
+            <div
+                class="w-full bg-gradient-to-r bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
+
+                <!-- Centered content container with max-width and extra padding -->
+                <div class="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+
+                    <!-- Changed from grid to flex-row to keep items on same line -->
+                    <div class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
+
+                        <!-- ================= Left ================= -->
+                        <div class="flex-1 min-w-[280px]">
+
+                            <!-- Badge -->
+                            <div
+                                class="inline-flex items-center gap-2 rounded-full border border-[#22C55E] bg-white px-4 py-1.5">
+                                <span class="material-symbols-outlined text-[15px] text-[#22C55E]">
+                                    download
+                                </span>
+                                <span class="text-[12px] font-semibold text-[#22C55E]">
+                                    Get the FE App
+                                </span>
+                            </div>
+
+                            <!-- Heading -->
+                            <h2
+                                class="mt-5 text-[32px] sm:text-[36px] lg:text-[40px] font-bold leading-tight text-[#1E293B]">
+                                Download the
+                                <span class="text-[#22C55E]">
+                                    FE App
+                                </span>
+                            </h2>
+
+                            <!-- Description -->
+                            <p class="mt-3 max-w-[500px] text-[14px] leading-6 text-slate-600">
+                                Manage field service jobs anytime, anywhere.
+                                Book engineers, track service requests and stay
+                                connected with real-time updates.
+                            </p>
+
+                            <!-- Store Buttons -->
+                            <div class="flex items-center gap-4 mt-6 flex-wrap">
+                                <a href="#"
+                                    class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
+                                    <svg class="w-6 h-6 shrink-0" viewBox="0 0 512 512">
+                                        <path fill="#00f076"
+                                            d="M12 28.1C10.2 30.2 9 33.6 9 38v436c0 4.4 1.2 7.8 3 9.9l2.2 2.1L266 234.3v-4.6L14.2 26z" />
+                                        <path fill="#00d7ff"
+                                            d="M346.7 315l-80.7-80.7v-4.6l80.7-80.7 2.3 1.3 95.6 54.3c27.3 15.5 27.3 40.9 0 56.4l-95.6 54-2.3 0z" />
+                                        <path fill="#ff1744"
+                                            d="M349 315l-83-83L12 483.9c8.8 9.3 23.3 10.4 39.8 1.1L349 315z" />
+                                        <path fill="#ffbe00"
+                                            d="M349 197L51.8 28c-16.5-9.3-31-8.2-39.8 1.1L266 214l83-17z" />
+                                    </svg>
+                                    <div class="text-left leading-none">
+                                        <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">GET IT
+                                            ON</p>
+                                        <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
+                                            Google Play</p>
+                                    </div>
+                                </a>
+                                <a href="#"
+                                    class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
+                                    <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.97.04-2.14.65-2.83 1.46-.62.72-1.16 1.88-1.01 3 .01 0 .04.01.07.01 1.08 0 2.19-.55 2.78-1.37z" />
+                                    </svg>
+                                    <div class="text-left leading-none">
+                                        <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
+                                            Download on</p>
+                                        <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">App
+                                            Store</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- ================= Right ================= -->
+                        <div class="flex-shrink-0 flex justify-center lg:justify-end">
+                            <div class="text-center">
+                                <p class="mb-4 text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
+                                    Scan to Download
+                                </p>
+                                <img src="{% static 'img/about-qr.png' %}" alt="Download FE App"
+                                    class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
 </main>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{% static 'script/pages/engineer.js' %}"></script>
 
-<script defer>
-    // Tab switching
-    document.querySelectorAll('.tab-link').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const tabId = this.getAttribute('data-tab');
-            document.querySelectorAll('.tab-link').forEach(tab => {
-                tab.classList.remove('bg-blue-600', 'text-white');
-                tab.classList.add('text-slate-600', 'hover:bg-slate-100');
-            });
-            this.classList.remove('text-slate-600', 'hover:bg-slate-100');
-            this.classList.add('bg-blue-600', 'text-white');
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.add('hidden');
-            });
-            const activeContent = document.getElementById(`${tabId}-content`);
-            if (activeContent) {
-                activeContent.classList.remove('hidden');
-            } else {
-                document.getElementById('dashboard-content').classList.remove('hidden');
-            }
-        });
-    });
 
-    // FAQ Accordion
-    document.querySelectorAll('.faq-question').forEach(question => {
-        question.addEventListener('click', function () {
-            const faqItem = this.closest('.faq-item');
-            const answer = faqItem.querySelector('.faq-answer');
-            const icon = this.querySelector('.faq-icon');
-            const isOpen = !answer.classList.contains('hidden');
 
-            // Close other open items (accordion behaviour)
-            document.querySelectorAll('.faq-answer').forEach(a => {
-                if (a !== answer) a.classList.add('hidden');
-            });
-            document.querySelectorAll('.faq-icon').forEach(i => {
-                if (i !== icon) i.classList.remove('rotate-180');
-            });
 
-            answer.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
-            this.setAttribute('aria-expanded', !isOpen);
-        });
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-        const counters = document.querySelectorAll(".counter");
-
-        counters.forEach(counter => {
-
-            const target = Number(counter.dataset.target);
-            const prefix = counter.dataset.prefix || "";
-            const suffix = counter.dataset.suffix || "";
-
-            let current = 0;
-            const duration = 2000; // 2 seconds
-            const increment = Math.max(1, Math.ceil(target / (duration / 16)));
-
-            function updateCounter() {
-
-                current += increment;
-
-                if (current < target) {
-
-                    counter.textContent =
-                        prefix + current.toLocaleString() + suffix;
-
-                    requestAnimationFrame(updateCounter);
-
-                } else {
-
-                    counter.textContent =
-                        prefix + target.toLocaleString() + suffix;
-
-                }
-            }
-
-            updateCounter();
-
-        });
-
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-
-        // Initialize the map if Leaflet is available
-        if (typeof L !== 'undefined') {
-            // Initialize map centered on India (default)
-            const map = L.map('coverageMap', {
-                center: [20.5937, 78.9629],
-                zoom: 4,
-                zoomControl: false,
-                attributionControl: false,
-                fadeAnimation: true,
-                zoomAnimation: true
-            });
-
-            // Custom tile layer with base styling
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '',
-                maxZoom: 18,
-                minZoom: 3
-            }).addTo(map);
-
-            // Disable scroll zoom on map for better UX
-            map.scrollWheelZoom.disable();
-
-            // Define locations with their coordinates
-            const locations = {
-                india: {
-                    name: 'India',
-                    coordinates: [20.5937, 78.9629],
-                    zoom: 4,
-                    marker: null
-                },
-                usa: {
-                    name: 'United States',
-                    coordinates: [40.7128, -74.0060],
-                    zoom: 3,
-                    marker: null
-                },
-                malaysia: {
-                    name: 'Malaysia',
-                    coordinates: [3.1390, 101.6869],
-                    zoom: 5,
-                    marker: null
-                }
-            };
-
-            // Create custom marker icon
-            const createMarkerIcon = (isActive = true) => {
-                return L.divIcon({
-                    className: 'custom-div-icon',
-                    html: `<div style="
-                    background-color: ${isActive ? '#1E9B6F' : '#6B7280'};
-                    width: 16px;
-                    height: 16px;
-                    border-radius: 50%;
-                    border: 3px solid white;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-                    transition: all 0.3s ease;
-                "></div>`,
-                    iconSize: [16, 16],
-                    iconAnchor: [8, 8]
-                });
-            };
-
-            // Add markers for each location
-            Object.keys(locations).forEach(key => {
-                const loc = locations[key];
-                loc.marker = L.marker(loc.coordinates, {
-                    icon: createMarkerIcon(key === 'india')
-                }).addTo(map);
-
-                // Add popup with location name
-                loc.marker.bindPopup(`
-                <div style="font-weight: 600; color: #111827; padding: 4px 8px;">
-                    ${loc.name}
-                </div>
-            `);
-            });
-
-            // Function to update map view and markers
-            function updateMapView(country) {
-                const loc = locations[country];
-                if (!loc) return;
-
-                // Update marker colors
-                Object.keys(locations).forEach(key => {
-                    const marker = locations[key].marker;
-                    if (marker) {
-                        const isActive = key === country;
-                        marker.setIcon(createMarkerIcon(isActive));
-                    }
-                });
-
-                // Fly to location with smooth animation
-                map.flyTo(loc.coordinates, loc.zoom, {
-                    duration: 1.2,
-                    easeLinearity: 0.25
-                });
-            }
-
-            // Handle radio button changes
-            document.querySelectorAll('input[name="countrySelect"]').forEach(radio => {
-                radio.addEventListener('change', function () {
-                    if (this.checked) {
-                        updateMapView(this.value);
-
-                        // Update active state on location cards
-                        document.querySelectorAll('.location-card').forEach(card => {
-                            const cardId = card.id;
-                            const country = cardId.replace('card-', '');
-
-                            if (country === this.value) {
-                                card.classList.add('active-location');
-                                card.querySelector('.line-indicator').classList.remove('hidden');
-                            } else {
-                                card.classList.remove('active-location');
-                                card.querySelector('.line-indicator').classList.add('hidden');
-                            }
-                        });
-                    }
-                });
-            });
-
-            // Handle "View on Map" button clicks
-            document.querySelectorAll('.view-map-btn').forEach(btn => {
-                btn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    const card = this.closest('.location-card');
-                    if (!card) return;
-
-                    const cardId = card.id;
-                    const country = cardId.replace('card-', '');
-
-                    // Find and click the corresponding radio button
-                    document.querySelectorAll('input[name="countrySelect"]').forEach(radio => {
-                        if (radio.value === country) {
-                            radio.checked = true;
-                            radio.dispatchEvent(new Event('change'));
-                        }
-                    });
-                });
-            });
-
-            // Wait a moment then trigger initial view
-            setTimeout(() => {
-                const defaultRadio = document.querySelector('input[name="countrySelect"][checked]');
-                if (defaultRadio) {
-                    defaultRadio.dispatchEvent(new Event('change'));
-                }
-            }, 100);
-        }
-    });
-</script>
 
 {% endblock %}
