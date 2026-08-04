@@ -1888,463 +1888,355 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 }
 
-.network-dot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #F5B530;
-  opacity: .35;
-  animation: networkPulse 4s infinite ease-in-out;
-}
+#chartdiv{
 
-.network-dot:nth-child(2) {
-  animation-delay: .8s;
-}
+    width:100%;
 
-.network-dot:nth-child(3) {
-  animation-delay: 1.5s;
-}
-
-.network-dot:nth-child(4) {
-  animation-delay: 2.3s;
-}
-
-.network-dot:nth-child(5) {
-  animation-delay: 3s;
-}
-
-.network-dot:nth-child(6) {
-  animation-delay: 1.2s;
-}
-
-.network-dot:nth-child(7) {
-  animation-delay: 2.8s;
-}
-
-@keyframes networkPulse {
-
-  0%,
-  100% {
-    transform: scale(.6);
-    opacity: .2;
-  }
-
-  50% {
-    transform: scale(1.5);
-    opacity: .8;
-  }
+    height:650px;
 
 }
 
-/*=============================
- FE NETWORK CARDS
-==============================*/
+@media(max-width:1024px){
 
-.fe-network-card {
+#chartdiv{
 
-  position: relative;
-
-  background: rgba(255, 255, 255, .72);
-
-  backdrop-filter: blur(14px);
-
-  border: 1px solid rgba(245, 181, 48, .25);
-
-  border-radius: 26px;
-
-  padding: 24px;
-
-  overflow: hidden;
-
-  transition: .35s;
-
-  box-shadow:
-    0 10px 35px rgba(0, 0, 0, .06);
+height:520px;
 
 }
 
-.fe-network-card::before {
+}
 
-  content: "";
+@media(max-width:768px){
 
-  position: absolute;
+#chartdiv{
 
-  inset: 0;
-
-  background:
-    linear-gradient(135deg,
-      rgba(245, 181, 48, .08),
-      rgba(34, 197, 94, .05));
-
-  opacity: 0;
-
-  transition: .35s;
+height:400px;
 
 }
 
-.fe-network-card:hover {
+}
+/*==================================================
+FE REGION CARDS
+==================================================*/
 
-  transform: translateY(-8px);
+.fe-region-card{
 
-  box-shadow:
-    0 20px 55px rgba(0, 0, 0, .12);
+    background:#fff;
+
+    border:1px solid rgba(245,181,48,.18);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.06);
 
 }
 
-.fe-network-card:hover::before {
+.fe-region-card:hover{
 
-  opacity: 1;
+    transform:translateY(-8px);
 
-}
-
-.fe-card-header {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 16px;
-
-  margin-bottom: 22px;
+    box-shadow:0 25px 55px rgba(245,181,48,.15);
 
 }
 
-.fe-card-icon {
+.fe-region-main{
 
-  width: 58px;
-
-  height: 58px;
-
-  border-radius: 18px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  background: linear-gradient(135deg,
-      #F5B530,
-      #F7D05F);
-
-  color: #fff;
-
-  font-size: 28px;
-
-  animation: floatIcon 4s ease-in-out infinite;
+    border:2px solid #F5B530;
 
 }
 
-.fe-card-title {
+.fe-region-header{
 
-  font-size: 22px;
+    display:flex;
 
-  font-weight: 700;
+    align-items:center;
 
-  color: #1C2B39;
+    gap:12px;
 
-}
+    background:#F5B530;
 
-.fe-card-subtitle {
+    color:#fff;
 
-  margin-top: 4px;
+    padding:18px 22px;
 
-  font-size: 13px;
+    font-size:18px;
 
-  color: #64748B;
-
-}
-
-.fe-city-list {
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 12px;
+    font-weight:700;
 
 }
 
-.fe-city-list li {
+.fe-region-header span{
 
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  padding-bottom: 10px;
-
-  border-bottom: 1px dashed rgba(148, 163, 184, .25);
-
-  font-size: 15px;
-
-  color: #334155;
+    font-size:24px;
 
 }
 
-.fe-city-list span {
+.fe-region-card ul{
 
-  background: #F5B530;
-
-  color: #fff;
-
-  min-width: 34px;
-
-  height: 34px;
-
-  border-radius: 999px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  font-weight: 700;
-
-  font-size: 13px;
+    padding:20px;
 
 }
 
-@keyframes floatIcon {
+.fe-region-card li{
 
-  0%,
-  100% {
+    padding:10px 0;
 
-    transform: translateY(0);
+    border-bottom:1px dashed #e5e7eb;
 
-  }
+    color:#475569;
 
-  50% {
-
-    transform: translateY(-6px);
-
-  }
+    font-size:15px;
 
 }
 
-/* =========================================
-   FE NETWORK ANIMATIONS
-========================================= */
+.fe-region-card li:last-child{
 
-/* Floating particles */
-.fe-particle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 9999px;
-  background: #F5B530;
-  opacity: .25;
-  animation: feFloat 8s ease-in-out infinite;
+    border-bottom:none;
+
 }
+.fe-region-card li{
 
-.fe-particle.green {
-  background: #22C55E;
-}
+    position:relative;
 
-@keyframes feFloat {
+    padding:12px 0 12px 22px;
 
-  0% {
-    transform: translateY(0) scale(.8);
-    opacity: .2;
-  }
+    border-bottom:1px dashed #E5E7EB;
 
-  50% {
-    transform: translateY(-22px) scale(1.2);
-    opacity: .7;
-  }
-
-  100% {
-    transform: translateY(0) scale(.8);
-    opacity: .2;
-  }
+    transition:.3s;
 
 }
 
+.fe-region-card li::before{
 
-/* Animated network line */
+    content:"";
 
-.fe-network-line {
+    position:absolute;
 
-  stroke: #F5B530;
-  stroke-width: 2;
-  fill: none;
+    left:0;
 
-  stroke-dasharray: 14 10;
+    top:50%;
 
-  animation: networkMove 18s linear infinite;
+    width:8px;
 
-}
+    height:8px;
 
-@keyframes networkMove {
+    border-radius:50%;
 
-  from {
-    stroke-dashoffset: 0;
-  }
+    background:#F5B530;
 
-  to {
-    stroke-dashoffset: -450;
-  }
+    transform:translateY(-50%);
 
 }
 
+.fe-region-card li:hover{
 
-/* Map Glow */
+    color:#B7791F;
 
-.fe-map-glow {
+    padding-left:30px;
 
-  animation: mapGlow 4s ease-in-out infinite;
+}
+/*==================================================
+PART 6 : MAP BACKGROUND EFFECTS
+==================================================*/
+
+.fe-map-particles{
+
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
 
 }
 
-@keyframes mapGlow {
+.fe-particle{
 
-  0%,
-  100% {
-
-    box-shadow: 0 0 0 rgba(245, 181, 48, 0);
-
-  }
-
-  50% {
-
-    box-shadow:
-      0 0 35px rgba(245, 181, 48, .35);
-
-  }
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#F5B530;
+    opacity:.25;
+    animation:particleFloat 10s linear infinite;
 
 }
 
+.p1{top:12%;left:10%;animation-duration:8s;}
+.p2{top:25%;right:12%;animation-duration:10s;}
+.p3{bottom:20%;left:18%;animation-duration:9s;}
+.p4{bottom:12%;right:20%;animation-duration:12s;}
+.p5{top:50%;left:48%;animation-duration:11s;}
+.p6{top:75%;right:40%;animation-duration:13s;}
 
-/* Country cards */
+@keyframes particleFloat{
 
-.fe-country-card {
+0%{
+transform:translateY(0);
+opacity:.2;
+}
 
-  transition:
-    transform .45s,
-    box-shadow .45s,
-    border-color .45s;
+50%{
+transform:translateY(-25px);
+opacity:.8;
+}
+
+100%{
+transform:translateY(0);
+opacity:.2;
+}
 
 }
 
-.fe-country-card:hover {
+/* Yellow Glow */
 
-  transform: translateY(-10px);
+.fe-map-glow{
 
-  border-color: #F5B530;
+    position:absolute;
 
-  box-shadow:
-    0 20px 45px rgba(0, 0, 0, .18);
+    left:50%;
+    top:50%;
 
-}
+    width:700px;
+    height:700px;
 
+    transform:translate(-50%,-50%);
 
-/* Icon animation */
+    border-radius:50%;
 
-.fe-country-icon {
+    background:radial-gradient(circle,
+    rgba(245,181,48,.12),
+    transparent 70%);
 
-  transition: .45s;
+    filter:blur(40px);
 
-}
-
-.fe-country-card:hover .fe-country-icon {
-
-  transform: rotate(-8deg) scale(1.12);
-
-}
-
-
-/* Background glow */
-
-.fe-background {
-
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.fe-background::before {
-
-  content: "";
-
-  position: absolute;
-
-  width: 700px;
-  height: 700px;
-
-  background: radial-gradient(circle,
-      rgba(245, 181, 48, .18),
-      transparent 70%);
-
-  top: -240px;
-  left: -220px;
-
-  animation: bgMove1 12s ease-in-out infinite;
+    z-index:0;
 
 }
 
-.fe-background::after {
+/* Rings */
 
-  content: "";
+.fe-ring{
 
-  position: absolute;
+    position:absolute;
 
-  width: 650px;
-  height: 650px;
+    border:1px solid rgba(245,181,48,.18);
 
-  background: radial-gradient(circle,
-      rgba(34, 197, 94, .18),
-      transparent 70%);
+    border-radius:50%;
 
-  right: -220px;
-  bottom: -220px;
-
-  animation: bgMove2 15s ease-in-out infinite;
+    animation:ringMove 8s ease-in-out infinite;
 
 }
 
-@keyframes bgMove1 {
+.fe-ring-1{
 
-  50% {
+    width:500px;
+    height:500px;
 
-    transform: translate(40px, 35px);
+    left:50%;
+    top:50%;
 
-  }
-
-}
-
-@keyframes bgMove2 {
-
-  50% {
-
-    transform: translate(-50px, -40px);
-
-  }
+    transform:translate(-50%,-50%);
 
 }
 
+.fe-ring-2{
 
-/* Fade Up */
+    width:620px;
+    height:620px;
 
-.fe-reveal {
+    left:50%;
+    top:50%;
 
-  opacity: 0;
-
-  transform: translateY(45px);
-
-  transition:
-    opacity .9s,
-    transform .9s;
+    transform:translate(-50%,-50%);
+    animation-delay:2s;
 
 }
 
-.fe-reveal.active {
+@keyframes ringMove{
 
-  opacity: 1;
+0%,100%{
 
-  transform: none;
+transform:translate(-50%,-50%) scale(1);
+
+}
+
+50%{
+
+transform:translate(-50%,-50%) scale(1.05);
+
+}
+
+}
+
+/* Floating Icons */
+
+.fe-floating-icon{
+
+    position:absolute;
+
+    width:56px;
+    height:56px;
+
+    border-radius:18px;
+
+    background:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    color:#F5B530;
+
+    z-index:2;
+
+    animation:iconFloat 6s ease-in-out infinite;
+
+}
+
+.icon-1{
+
+top:18%;
+left:8%;
+
+}
+
+.icon-2{
+
+top:22%;
+right:10%;
+
+animation-delay:2s;
+
+}
+
+.icon-3{
+
+bottom:18%;
+left:15%;
+
+animation-delay:4s;
+
+}
+
+@keyframes iconFloat{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
 
 }
 
