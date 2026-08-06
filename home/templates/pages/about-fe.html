@@ -10,9 +10,10 @@
 <main class="bg-greenish-white ">
 
     {# ========== HERO + BREADCRUMB ========== #}
-  <section class="about-hero-section">
+ <section class="about-hero-section">
 
-    <div class="about-container">
+    <!-- Same container as Field Engineer section -->
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="about-hero-grid">
 
@@ -21,57 +22,43 @@
             <div class="about-hero-left">
 
                 <!-- Breadcrumb -->
-
                 <nav class="about-breadcrumb">
-
                     <a href="/">Home</a>
-
                     <span>/</span>
-
                     <span>About Us</span>
-
                 </nav>
 
                 <!-- Small Label -->
-
                 <span class="about-label">
                     ABOUT US
                 </span>
 
                 <!-- Heading -->
-
                 <h1 class="about-heading">
-
                     Building the World's Trusted
-
                     <span class="about-highlight">Field Engineering</span><br>
                     Network
-
                 </h1>
 
                 <!-- Description -->
-
                 <p class="about-description">
-
                     Connecting businesses with trusted field engineers through one intelligent workforce management platform.
-
                 </p>
 
                 <!-- Buttons -->
-
                 <div class="about-btn-group">
 
-                   <a href="#" 
-   onclick="switchToLogin(); return false;" 
-   class="about-btn-primary text-white">
+                    <a href="#"
+                       onclick="switchToLogin(); return false;"
+                       class="about-btn-primary text-white">
 
-    Get Started
+                        Get Started
 
-    <span class="material-symbols-outlined text-white">
-        arrow_forward
-    </span>
+                        <span class="material-symbols-outlined text-white">
+                            arrow_forward
+                        </span>
 
-</a>
+                    </a>
 
                     <a href="{% url 'contact' %}" class="about-btn-secondary">
                         Become a Partner
@@ -91,7 +78,6 @@
                     class="about-world-map">
 
                 <!-- Card 1 -->
-
                 <div class="hero-stat stat-one">
 
                     <span class="material-symbols-outlined hero-stat-icon">
@@ -109,7 +95,6 @@
                 </div>
 
                 <!-- Card 2 -->
-
                 <div class="hero-stat stat-two">
 
                     <span class="material-symbols-outlined hero-stat-icon">
@@ -127,7 +112,6 @@
                 </div>
 
                 <!-- Card 3 -->
-
                 <div class="hero-stat stat-three">
 
                     <span class="material-symbols-outlined hero-stat-icon">
@@ -145,7 +129,6 @@
                 </div>
 
                 <!-- Card 4 -->
-
                 <div class="hero-stat stat-four">
 
                     <span class="material-symbols-outlined hero-stat-icon">
@@ -170,7 +153,7 @@
 
 </section>
 
-<section class="mission-section px-4 lg:px-6">
+<section class="mission-section pt-4 pb-10 px-4 lg:px-6">
 
     <div class="mission-container">
 
@@ -252,11 +235,12 @@
 
             <!-- RIGHT -->
 
-            <div class="mission-image">
+            <div class="mission-image flex justify-center items-center">
 
                 <img
                     src="{% static 'img/about-hero.png' %}"
-                    alt="Field Engineer Mission">
+                    alt="Field Engineer Mission"
+                    class="w-full h-auto object-contain max-w-[560px] lg:max-w-[560px] md:max-w-[450px] sm:max-w-[360px] max-w-[280px] mx-auto">
 
             </div>
 
@@ -266,950 +250,1129 @@
 
 </section>
 
-<section class="services-section px-4 lg:px-6">
+<section
+    class="relative min-h-[620px] lg:min-h-[680px] py-8 px-4 sm:px-6 lg:px-10 font-sans overflow-hidden bg-slate-900 flex flex-col justify-between">
 
-    <div class="services-container">
 
-        <div class="services-heading">
+    <!-- Dark Background Image -->
+    <div class="absolute inset-0 z-0">
 
-            <span class="services-label">WHAT WE DO</span>
+        <img 
+            src="/static/img/male-electrician.jpg" 
+            alt="Field Services Background"
+            class="w-full h-full object-cover object-top sm:object-center" />
 
-            <h2>Complete Field Engineering Services</h2>
+        <div class="absolute inset-0 bg-slate-950/75"></div>
+
+    </div>
+
+
+
+    <!-- Header Section -->
+    <div class="relative z-10 max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-10 pt-2">
+
+
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+
+
+            <div>
+
+                <p class="text-xs font-bold text-[#F3BA3F] uppercase tracking-widest mb-2">
+                    OUR SERVICES
+                </p>
+
+
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+                    Field Services We Cover
+                </h2>
+
+            </div>
+
+
+
+            <!-- View All Button -->
+            <div>
+
+                <a href="#all-services"
+                    class="inline-flex items-center gap-2 px-6 py-2.5 bg-[#F3BA3F] hover:bg-[#e0a832] text-slate-900 font-bold text-sm rounded-xl shadow-md transition-all duration-200">
+
+
+                    <span>
+                        View All
+                    </span>
+
+
+                    <svg class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        stroke-width="2.5">
+
+                        <path stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3">
+                        </path>
+
+                    </svg>
+
+
+                </a>
+
+            </div>
+
 
         </div>
 
-        <div class="services-grid">
+
+    </div>
+
+
+
+
+
+    <!-- Cards Section -->
+    <div class="relative z-10 max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-10 pb-2 pt-10">
+
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+
+
 
             <!-- Card 1 -->
-            <div class="service-card">
+            <div
+                class="relative group rounded-2xl overflow-hidden border border-white/20 bg-slate-800 shadow-2xl h-[260px]">
 
-                <span class="material-symbols-outlined service-icon">
-                    hub
-                </span>
 
-                <h3>Network Setup</h3>
+                <img 
+                    src="/static/img/male-electrician.jpg"
+                    alt="Network Cabling"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
 
-                <p>
-                    Network cabling, switch installation, setup and maintenance.
-                </p>
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+
+
+                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+
+
+                    <h3 class="text-base font-bold text-white drop-shadow-md">
+                        Network Cabling
+                    </h3>
+
+
+                    <div
+                        class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-primary-yellow shrink-0 group-hover:bg-[#F3BA3F] transition-colors duration-200">
+
+                        <svg class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            stroke-width="2.5">
+
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3">
+                            </path>
+
+                        </svg>
+
+                    </div>
+
+
+                </div>
+
 
             </div>
 
-            <div class="service-arrow">
-                <span class="material-symbols-outlined">
-                    trending_flat
-                </span>
-            </div>
+
+
+
 
             <!-- Card 2 -->
-            <div class="service-card">
+            <div
+                class="relative group rounded-2xl overflow-hidden border border-white/20 bg-slate-800 shadow-2xl h-[260px]">
 
-                <span class="material-symbols-outlined service-icon">
-                    dns
-                </span>
 
-                <h3>Data Center Services</h3>
+                <img 
+                    src="/static/img/customer-admin-monitoring.jpg"
+                    alt="Server Install"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
 
-                <p>
-                    Rack Setup, server installation, upgrade and on-site support.
-                </p>
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+
+
+                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+
+
+                    <h3 class="text-base font-bold text-white drop-shadow-md">
+                        Server Install
+                    </h3>
+
+
+                    <div
+                        class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-primary-yellow shrink-0 group-hover:bg-[#F3BA3F] transition-colors duration-200">
+
+
+                        <svg class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            stroke-width="2.5">
+
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3">
+                            </path>
+
+                        </svg>
+
+
+                    </div>
+
+
+                </div>
+
 
             </div>
 
-            <div class="service-arrow">
-                <span class="material-symbols-outlined">
-                    trending_flat
-                </span>
-            </div>
+
+
+
 
             <!-- Card 3 -->
-            <div class="service-card">
+            <div
+                class="relative group rounded-2xl overflow-hidden border border-white/20 bg-slate-800 shadow-2xl h-[260px]">
 
-                <span class="material-symbols-outlined service-icon">
-                    settings_input_component
-                </span>
 
-                <h3>Fiber Services</h3>
+                <img 
+                    src="/static/img/cyber-security-cloud.jpg"
+                    alt="IT Support"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
 
-                <p>
-                    Fiber cable installation, testing, repairs and reliable connectivity.
-                </p>
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+
+
+                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+
+
+                    <h3 class="text-base font-bold text-white drop-shadow-md">
+                        IT Support
+                    </h3>
+
+
+                    <div
+                        class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-primary-yellow shrink-0 group-hover:bg-[#F3BA3F] transition-colors duration-200">
+
+
+                        <svg class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            stroke-width="2.5">
+
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3">
+                            </path>
+
+                        </svg>
+
+
+                    </div>
+
+
+                </div>
+
 
             </div>
 
-            <div class="service-arrow">
-                <span class="material-symbols-outlined">
-                    trending_flat
-                </span>
-            </div>
+
+
+
 
             <!-- Card 4 -->
-            <div class="service-card">
+            <div
+                class="relative group rounded-2xl overflow-hidden border border-white/20 bg-slate-800 shadow-2xl h-[260px]">
 
-                <span class="material-symbols-outlined service-icon">
-                    engineering
-                </span>
 
-                <h3>On-Site Support</h3>
+                <img 
+                    src="/static/img/engineers-review.jpg"
+                    alt="Smart Wiring"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
 
-                <p>
-                    On-site technical support, troubleshooting, equipment checks and repairs.
-                </p>
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+
+
+                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+
+
+                    <h3 class="text-base font-bold text-white drop-shadow-md">
+                        Smart Wiring
+                    </h3>
+
+
+                    <div
+                        class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-primary-yellow shrink-0 group-hover:bg-[#F3BA3F] transition-colors duration-200">
+
+
+                        <svg class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            stroke-width="2.5">
+
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3">
+                            </path>
+
+                        </svg>
+
+
+                    </div>
+
+
+                </div>
+
 
             </div>
+
+
 
         </div>
 
+
     </div>
 
-</section>
 
+</section>
 
 <!-- =========================================
      FIELD ENGINEER SECTION
 ========================================= -->
 
-<section id="counterSection" class="py-10 bg-white">
+<section id="counterSection" class="pt-0 pb-6 bg-[#FCFAF5]">
 
-    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1500px] mx-auto px-8 sm:px-10 lg:px-16 xl:px-20">
 
-        <!-- Hero Card -->
-        <div class="relative overflow-hidden rounded-[12px]
-                    bg-[#DDF3E9]
-                    shadow-[0_12px_35px_rgba(0,0,0,0.18)]
-                    grid grid-cols-1 lg:grid-cols-2">
+        <div class="grid lg:grid-cols-2 items-center gap-16 pt-14 pb-6">
 
-
-            <!-- Left Content -->
-            <div class="bg-white p-5 sm:p-8 md:p-10">
+            <!-- LEFT CONTENT -->
+            <div>
 
                 <!-- Logo -->
-                <h3 class="text-[18px] sm:text-[20px] font-semibold text-[#1C2B1C] mb-5">
-                    Field Engineer
-                </h3>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-bold">
+                        FE
+                    </div>
 
+                    <span class="text-lg font-semibold text-slate-800">
+                        Field Engineer
+                    </span>
+                </div>
 
                 <!-- Heading -->
-                <h1 class="text-[24px] sm:text-[28px] md:text-[30px]
-                           leading-[1.1]
-                           font-bold text-[#1C2B1C]">
+                <h2 class="text-4xl sm:text-5xl lg:text-[52px] font-bold leading-[1.12] text-slate-900">
 
-                    Trusted 
-                    <span class="text-[#F5B530]">
-                        Field Engineers
-                    </span>
+                    Trusted
+                    <span class="text-amber-400">Field Engineers</span>
 
                     <br>
 
                     Delivering On-Site
+
                     <br>
 
                     Technology Solutions
+
                     <br>
 
                     Across the Globe.
 
-                </h1>
-
+                </h2>
 
                 <!-- Description -->
-                <p class="mt-4 max-w-[320px]
-                          text-[12px]
-                          leading-[1.6]
-                          text-gray-600">
+                <p class="mt-7 max-w-[520px] text-[17px] leading-8 text-slate-600">
 
-                    Our certified Field IT Engineers provide rapid
-                    on-site support, hardware deployment,
-                    network installation, maintenance, and IT
-                    infrastructure services for businesses of
-                    every size. We ensure reliable technology
-                    operations wherever your business needs us.
+                    Our certified Field IT Engineers provide rapid on-site support,
+                    hardware deployment, network installation, maintenance, and IT
+                    infrastructure services for businesses of every size. We ensure
+                    reliable technology operations wherever your business needs us.
 
                 </p>
 
-
-
                 <!-- Stats -->
-                <div class="flex flex-wrap gap-3 mt-6">
-
+                <div class="flex flex-wrap gap-5 mt-10">
 
                     <!-- Countries -->
-                    <div class="w-[85px] sm:w-[90px] h-[60px]
-                                rounded-lg
-                                border border-gray-200
-                                bg-[#F7FCF8]
-                                flex flex-col
-                                items-center justify-center">
+                    <div class="w-[135px] h-[95px] bg-white rounded-2xl border border-emerald-100 shadow-sm flex flex-col items-center justify-center">
 
                         <span id="countriesCount"
-                              class="text-[#F5B530] font-bold text-[20px]">
+                            class="text-3xl font-bold text-amber-400">
                             0
                         </span>
 
-                        <span class="text-[12px] sm:text-[14px] text-gray-500">
+                        <span class="mt-1 text-sm text-slate-500">
                             Countries
                         </span>
 
                     </div>
 
-
-
                     <!-- Cities -->
-                    <div class="w-[85px] sm:w-[90px] h-[60px]
-                                rounded-lg
-                                border border-gray-200
-                                bg-[#F7FCF8]
-                                flex flex-col
-                                items-center justify-center">
+                    <div class="w-[135px] h-[95px] bg-white rounded-2xl border border-emerald-100 shadow-sm flex flex-col items-center justify-center">
 
                         <span id="citiesCount"
-                              class="text-blue-600 font-bold text-[20px]">
+                            class="text-3xl font-bold text-blue-600">
                             0
                         </span>
 
-                        <span class="text-[12px] sm:text-[14px] text-gray-500">
+                        <span class="mt-1 text-sm text-slate-500">
                             Cities
                         </span>
 
                     </div>
 
-
-
                     <!-- Locations -->
-                    <div class="w-[85px] sm:w-[90px] h-[60px]
-                                rounded-lg
-                                border border-gray-200
-                                bg-[#F7FCF8]
-                                flex flex-col
-                                items-center justify-center">
+                    <div class="w-[135px] h-[95px] bg-white rounded-2xl border border-emerald-100 shadow-sm flex flex-col items-center justify-center">
 
                         <span id="locationsCount"
-                              class="text-blue-600 font-bold text-[20px]">
+                            class="text-3xl font-bold text-blue-600">
                             0
                         </span>
 
-                        <span class="text-[12px] sm:text-[14px] text-gray-500">
+                        <span class="mt-1 text-sm text-slate-500">
                             Locations
                         </span>
 
                     </div>
 
-
                 </div>
-
 
             </div>
 
+            <!-- RIGHT IMAGE -->
+            <div class="flex justify-center lg:justify-end">
 
-
-
-            <!-- Right Image Area -->
-            <div class="relative bg-[#DDF3E9]
-                        flex items-center justify-center
-                        p-5 sm:p-8">
-
-
-                <!-- dots -->
-                <div class="absolute top-4 right-5 flex gap-1">
-
-                    <span class="w-1 h-1 rounded-full bg-[#B6D8C8]"></span>
-                    <span class="w-1 h-1 rounded-full bg-[#B6D8C8]"></span>
-                    <span class="w-1 h-1 rounded-full bg-[#B6D8C8]"></span>
-
-                </div>
-
-
-
-                <!-- Image -->
-                <img
-                    src="{% static 'img/about-sectionfe.png' %}"
+                <img src="{% static 'img/about-sectionfe.png' %}"
                     alt="Field Engineer"
-                    class="w-full max-w-[400px]
-                           h-auto sm:h-[300px]
-                           object-cover
-                           rounded-lg
-                           shadow-sm"
-                />
-
+                    class="w-full max-w-[620px] h-[460px] object-cover rounded-[28px] shadow-xl">
 
             </div>
-
 
         </div>
 
-
     </div>
-
 
 </section>
 
 
     <!-- ================= HOW FE WORKS ================= -->
 
-   <section class="bg-white font-sans antialiased text-slate-800 py-8 sm:py-10 lg:py-12">
+  <section class="bg-white font-sans antialiased text-slate-800 pt-5 pb-8 sm:pt-6 sm:pb-10 lg:pt-8 lg:pb-12">
 
-    <div class="max-w-[1200px] mx-auto px-4 lg:px-6">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="space-y-8 pt-3 sm:pt-4 lg:pt-6">
+        <div class="space-y-8 pt-1 sm:pt-2 lg:pt-3">
+            <!-- Heading -->
+            <div class="text-center space-y-1">
 
-    <!-- Heading -->
-    <div class="text-center space-y-1">
-        <span class="text-xs font-bold tracking-wider uppercase text-yellow-500">
-            How FE Works
-        </span>
+                <span class="text-xs font-bold tracking-wider uppercase text-yellow-500">
+                    How FE Works
+                </span>
 
-        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-black">
-            A Simple, Transparent Process
-        </h2>
+                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-black">
+                    A Simple, Transparent Process
+                </h2>
+
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative flex flex-col lg:flex-row lg:justify-between lg:items-start items-center gap-8 lg:gap-0">
+                    <!-- ================= STEP 1 ================= -->
+
+    <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
+
+        <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
+            <span class="material-symbols-outlined text-[38px] text-yellow-500">
+                description
+            </span>
+        </div>
+
+        <img src="{% static 'img/arrow-3.svg' %}"
+             class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
+             alt="">
+
+        <div class="w-[2px] h-3 bg-slate-300"></div>
+
+        <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
+            1
+        </div>
+
+        <h3 class="text-[13px] font-bold mt-3 mb-1">
+            Submit Your Request
+        </h3>
+
+        <p class="text-[11px] leading-normal text-slate-600">
+            Share your service needs, location, and job details.
+        </p>
+
     </div>
 
-    <!-- Timeline -->
-    <div class="relative flex flex-col lg:flex-row lg:justify-between lg:items-start items-center gap-8 lg:gap-0 lg:px-0">
+    <!-- ================= STEP 2 ================= -->
 
-       <!-- Step 1 -->
-<div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
+    <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
 
-    <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
-        <span class="material-symbols-outlined text-[38px] text-yellow-500">
-            description
-        </span>
+        <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
+            <span class="material-symbols-outlined text-[38px] text-yellow-500">
+                groups
+            </span>
+        </div>
+
+        <img src="{% static 'img/arrow-3.svg' %}"
+             class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
+             alt="">
+
+        <div class="w-[2px] h-3 bg-slate-300"></div>
+
+        <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
+            2
+        </div>
+
+        <h3 class="text-[13px] font-bold mt-3 mb-1">
+            Find the Right Service Provider
+        </h3>
+
+        <p class="text-[11px] leading-normal text-slate-600">
+            We help connect you with the best service provider for your job.
+        </p>
+
     </div>
 
-    <img src="{% static 'img/arrow-3.svg' %}"
-     class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
-     alt="">
+    <!-- ================= STEP 3 ================= -->
 
-    <div class="w-[2px] h-3 bg-slate-300"></div>
+    <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
 
-    <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
-        1
+        <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
+            <span class="material-symbols-outlined text-[38px] text-yellow-500">
+                engineering
+            </span>
+        </div>
+
+        <img src="{% static 'img/arrow-3.svg' %}"
+             class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
+             alt="">
+
+        <div class="w-[2px] h-3 bg-slate-300"></div>
+
+        <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
+            3
+        </div>
+
+        <h3 class="text-[13px] font-bold mt-3 mb-1">
+            Engineer Assigned
+        </h3>
+
+        <p class="text-[11px] leading-normal text-slate-600">
+            A qualified engineer is assigned and visits your site.
+        </p>
+
     </div>
-
-    <h3 class="text-[13px] font-bold mt-3 mb-1">Submit Your Request</h3>
-
-    <p class="text-[11px] leading-normal text-slate-600">
-        Share your service needs, location, and job details.
-    </p>
-
-</div>
-
-        <!-- ================= STEP 2 ================= -->
-
-        <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
-
-    <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
-        <span class="material-symbols-outlined text-[38px] text-yellow-500">
-            groups
-        </span>
-    </div>
-
-    <img src="{% static 'img/arrow-3.svg' %}"
-     class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
-     alt="">
-
-    <div class="w-[2px] h-3 bg-slate-300"></div>
-
-    <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
-        2
-    </div>
-
-    <h3 class="text-[13px] font-bold mt-3 mb-1">Find the Right Service Provider</h3>
-
-    <p class="text-[11px] leading-normal text-slate-600">
-        We help connect you with the best service provider for your job.
-    </p>
-
-</div>
-
-                       <!-- ================= STEP 3 ================= -->
-
-       <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
-
-    <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
-        <span class="material-symbols-outlined text-[38px] text-yellow-500">
-            engineering
-        </span>
-    </div>
-
-    <img src="{% static 'img/arrow-3.svg' %}"
-     class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
-     alt="">
-
-    <div class="w-[2px] h-3 bg-slate-300"></div>
-
-    <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
-        3
-    </div>
-
-    <h3 class="text-[13px] font-bold mt-3 mb-1">Engineer Assigned</h3>
-
-    <p class="text-[11px] leading-normal text-slate-600">
-        A qualified engineer is assigned and visits your site.
-    </p>
-
-</div>
-
         <!-- ================= STEP 4 ================= -->
 
-       <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
+    <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
 
-    <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
-        <span class="material-symbols-outlined text-[38px] text-yellow-500">
-            location_on
-        </span>
+        <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
+            <span class="material-symbols-outlined text-[38px] text-yellow-500">
+                location_on
+            </span>
+        </div>
+
+        <img src="{% static 'img/arrow-3.svg' %}"
+             class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
+             alt="">
+
+        <div class="w-[2px] h-3 bg-slate-300"></div>
+
+        <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
+            4
+        </div>
+
+        <h3 class="text-[13px] font-bold mt-3 mb-1">
+            Track Progress
+        </h3>
+
+        <p class="text-[11px] leading-normal text-slate-600">
+            Follow the engineer's location and receive job updates in real time.
+        </p>
+
     </div>
 
-    <img src="{% static 'img/arrow-3.svg' %}"
-     class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
-     alt="">
+    <!-- ================= STEP 5 ================= -->
 
-    <div class="w-[2px] h-3 bg-slate-300"></div>
+    <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
 
-    <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
-        4
+        <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
+            <span class="material-symbols-outlined text-[38px] text-yellow-500">
+                assignment
+            </span>
+        </div>
+
+        <img src="{% static 'img/arrow-3.svg' %}"
+             class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
+             alt="">
+
+        <div class="w-[2px] h-3 bg-slate-300"></div>
+
+        <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
+            5
+        </div>
+
+        <h3 class="text-[13px] font-bold mt-3 mb-1">
+            Work Updates
+        </h3>
+
+        <p class="text-[11px] leading-normal text-slate-600">
+            The engineer uploads work details, completed tasks, and site photos.
+        </p>
+
     </div>
 
-    <h3 class="text-[13px] font-bold mt-3 mb-1">Track Progress</h3>
+    <!-- ================= STEP 6 ================= -->
 
-    <p class="text-[11px] leading-normal text-slate-600">
-        Follow the engineer's location and receive job updates in real time.
-    </p>
+    <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
+
+        <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
+            <span class="material-symbols-outlined text-[38px] text-yellow-500">
+                description
+            </span>
+        </div>
+
+        <img src="{% static 'img/arrow-3.svg' %}"
+             class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
+             alt="">
+
+        <div class="w-[2px] h-3 bg-slate-300"></div>
+
+        <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
+            6
+        </div>
+
+        <h3 class="text-[13px] font-bold mt-3 mb-1">
+            Service Report
+        </h3>
+
+        <p class="text-[11px] leading-normal text-slate-600">
+            Receive a detailed report with photos, work updates, and completed tasks.
+        </p>
+
+    </div>
+
+    <!-- ================= STEP 7 ================= -->
+
+    <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
+
+        <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
+            <span class="material-symbols-outlined text-[38px] text-yellow-500">
+                task_alt
+            </span>
+        </div>
+
+        <div class="w-[2px] h-3 bg-slate-300"></div>
+
+        <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
+            7
+        </div>
+
+        <h3 class="text-[13px] font-bold mt-3 mb-1">
+            Job Completed
+        </h3>
+
+        <p class="text-[11px] leading-normal text-slate-600">
+            Review the completed work, share your feedback, and close the job.
+        </p>
+
+    </div>
 
 </div>
-
-
-        <!-- ================= STEP 5 ================= -->
-
-       <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
-
-    <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
-        <span class="material-symbols-outlined text-[38px] text-yellow-500">
-            assignment
-        </span>
-    </div>
-
-    <img src="{% static 'img/arrow-3.svg' %}"
-     class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
-     alt="">
-
-    <div class="w-[2px] h-3 bg-slate-300"></div>
-
-    <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
-        5
-    </div>
-
-    <h3 class="text-[13px] font-bold mt-3 mb-1">Work Updates</h3>
-
-    <p class="text-[11px] leading-normal text-slate-600">
-        The engineer uploads work details, completed tasks, and site photos.
-    </p>
-
-</div>
-
-                        <!-- ================= STEP 6 ================= -->
-
-       <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
-
-    <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
-        <span class="material-symbols-outlined text-[38px] text-yellow-500">
-            description
-        </span>
-    </div>
-
-    <img src="{% static 'img/arrow-3.svg' %}"
-     class="timeline-arrow absolute top-6 left-[72%] w-[90px] z-20"
-     alt="">
-
-    <div class="w-[2px] h-3 bg-slate-300"></div>
-
-    <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
-        6
-    </div>
-
-    <h3 class="text-[13px] font-bold mt-3 mb-1">Service Report</h3>
-
-    <p class="text-[11px] leading-normal text-slate-600">
-        Receive a detailed report with photos, work updates, and completed tasks.
-    </p>
-
-</div>
-
-
-        <!-- ================= STEP 7 ================= -->
-
-       <div class="relative z-10 flex flex-col items-center text-center w-full lg:w-[150px]">
-
-    <div class="w-14 h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center">
-        <span class="material-symbols-outlined text-[38px] text-yellow-500">
-            task_alt
-        </span>
-    </div>
-
-    <div class="w-[2px] h-3 bg-slate-300"></div>
-
-    <div class="w-6 h-6 rounded-full bg-yellow-500 text-white text-xs font-bold flex items-center justify-center shadow">
-        7
-    </div>
-
-    <h3 class="text-[13px] font-bold mt-3 mb-1">Job Completed</h3>
-
-    <p class="text-[11px] leading-normal text-slate-600">
-        Review the completed work, share your feedback, and close the job.
-    </p>
-
-</div>
-
-    </div>
-
-</div>
+</section>
 
 <!-- ================= END HOW FE WORKS ================= -->
-        
-        <!-- ===== FE ECOSYSTEM ===== -->
-            <!-- <div class="space-y-4 pt-10 sm:pt-12 lg:pt-14"> -->
-               <div class="space-y-6 pt-10 sm:pt-12 lg:pt-14">
-
-    <div class="text-center space-y-1">
-        <span class="text-sm font-bold tracking-wider text-yellow-500 uppercase">
-            The FE Ecosystem
-        </span>
-
-        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-            One Platform. Three Powerful Ecosystems.
-        </h2>
-    </div>
 
 
-    <div class="w-full">
+<section class="bg-white pt-4 pb-8 sm:pt-5 sm:pb-10 lg:pt-6 lg:pb-12">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-            <!-- Customer Platform -->
-            <article class="bg-gradient-to-b from-yellow-50/50 to-white border border-yellow-100 rounded-2xl p-4 sm:p-6 flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow w-full max-w-sm">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
-                <div class="space-y-5 sm:space-y-6">
+        <div class="space-y-6 pt-4 sm:pt-5 lg:pt-6">
 
-                    <div class="flex items-center space-x-3">
+            <!-- Heading -->
+            <div class="text-center space-y-1">
 
-                        <div class="p-3 bg-yellow-500 text-white rounded-xl shadow-md shadow-yellow-200" aria-hidden="true">
-                            <span class="material-symbols-outlined">
-                                person
-                            </span>
-                        </div>
+                <span class="text-sm font-bold tracking-wider uppercase text-yellow-500">
+                    The FE Ecosystem
+                </span>
 
-                        <h3 class="text-base sm:text-lg font-bold text-black-one">
-                            Customer Platform
-                        </h3>
+                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+                    One Platform. Three Powerful Ecosystems.
+                </h2>
 
-                    </div>
+            </div>
 
+            <!-- Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                    <ul class="space-y-2 sm:space-y-3">
+                <!-- ================= CUSTOMER PLATFORM ================= -->
 
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>Request Services</span>
-                        </li>
+                <article class="bg-gradient-to-b from-yellow-50/50 to-white border border-yellow-100 rounded-2xl p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
 
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>Track Jobs in Real Time</span>
-                        </li>
+                    <div>
 
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>View Service Updates & Reports</span>
-                        </li>
+                        <div class="flex items-center gap-3 mb-6">
 
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>Manage Multiple Locations</span>
-                        </li>
+                            <div class="w-12 h-12 rounded-xl bg-yellow-500 text-white flex items-center justify-center shadow-md">
 
-                    </ul>
+                                <span class="material-symbols-outlined">
+                                    person
+                                </span>
 
-                </div>
+                            </div>
 
-
-                <a href="{% url 'home' %}" 
-                   class="inline-flex items-center text-xs sm:text-sm font-bold text-yellow-500 hover:text-yellow-600 transition-colors group pt-4 border-t border-slate-100">
-
-                    Explore Customer Platform
-
-                    <span class="material-symbols-outlined">
-                        chevron_forward
-                    </span>
-
-                </a>
-
-            </article>
-
-
-
-            <!-- Vendor Platform -->
-            <article class="bg-gradient-to-b from-yellow-50/50 to-white border border-yellow-100 rounded-2xl p-4 sm:p-6 flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow w-full max-w-sm">
-
-                <div class="space-y-5 sm:space-y-6">
-
-                    <div class="flex items-center space-x-3">
-
-                        <div class="p-3 bg-yellow-500 text-white rounded-xl shadow-md shadow-yellow-200">
-                            <span class="material-symbols-outlined">
-                                tabs
-                            </span>
-                        </div>
-
-
-                        <h3 class="text-base sm:text-lg font-bold text-slate-900">
-                            Vendor Platform
-                        </h3>
-
-                    </div>
-
-
-                    <ul class="space-y-2 sm:space-y-3">
-
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>Register and Get Verified</span>
-                        </li>
-
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>Manage Engineers & Projects</span>
-                        </li>
-
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>Manage Service Areas & Availability</span>
-                        </li>
-
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>Track Payments & Invoices</span>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <a href="{% url 'vendor' %}" 
-                   class="inline-flex items-center text-xs sm:text-sm font-bold text-yellow-500 hover:text-yellow-600 transition-colors group pt-4 border-t border-slate-100">
-
-                    Explore Vendor Platform
-
-                    <span class="material-symbols-outlined">
-                        chevron_forward
-                    </span>
-
-                </a>
-
-            </article>
-
-
-
-            <!-- Engineer Platform -->
-            <article class="bg-gradient-to-b from-yellow-50/50 to-white border border-yellow-100 rounded-2xl p-4 sm:p-6 flex flex-col justify-between space-y-6 hover:shadow-md transition-shadow w-full max-w-sm">
-
-
-                <div class="space-y-5 sm:space-y-6">
-
-
-                    <div class="flex items-center space-x-3">
-
-                        <div class="p-3 bg-yellow-500 text-white rounded-xl shadow-md shadow-yellow-200">
-
-                            <span class="material-symbols-outlined">
-                                card_travel
-                            </span>
+                            <h3 class="text-lg font-bold text-slate-900">
+                                Customer Platform
+                            </h3>
 
                         </div>
 
+                        <ul class="space-y-3">
 
-                        <h3 class="text-base sm:text-lg font-bold text-slate-900">
-                            Engineer Platform
-                        </h3>
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>Request Services</span>
+                            </li>
 
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>Track Jobs in Real Time</span>
+                            </li>
+
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>View Service Updates & Reports</span>
+                            </li>
+
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>Manage Multiple Locations</span>
+                            </li>
+
+                        </ul>
 
                     </div>
 
+                    <a href="{% url 'home' %}"
+                       class="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between text-sm font-semibold text-yellow-500 hover:text-yellow-600 transition">
 
+                        Explore Customer Platform
 
-                    <ul class="space-y-2 sm:space-y-3">
+                        <span class="material-symbols-outlined">
+                            chevron_forward
+                        </span>
 
+                    </a>
 
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>Find Nearby Jobs</span>
-                        </li>
+                </article>
 
+                <!-- ================= VENDOR PLATFORM ================= -->
 
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>Accept &amp; Manage Jobs</span>
-                        </li>
+                <article class="bg-gradient-to-b from-yellow-50/50 to-white border border-yellow-100 rounded-2xl p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
 
+                    <div>
 
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>Upload Work Updates & Reports</span>
-                        </li>
+                        <div class="flex items-center gap-3 mb-6">
 
+                            <div class="w-12 h-12 rounded-xl bg-yellow-500 text-white flex items-center justify-center shadow-md">
 
-                        <li class="flex items-start space-x-2 text-xs sm:text-sm text-slate-600">
-                            <span class="text-yellow-500 mt-1 font-bold">✓</span>
-                            <span>Track Earnings & Wallet</span>
-                        </li>
+                                <span class="material-symbols-outlined">
+                                    tabs
+                                </span>
 
+                            </div>
 
-                    </ul>
+                            <h3 class="text-lg font-bold text-slate-900">
+                                Vendor Platform
+                            </h3>
 
+                        </div>
 
-                </div>
+                        <ul class="space-y-3">
 
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>Register and Get Verified</span>
+                            </li>
 
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>Manage Engineers & Projects</span>
+                            </li>
 
-                <a href="{% url 'engineer' %}" 
-                   class="inline-flex items-center text-xs sm:text-sm font-bold text-yellow-500 hover:text-yellow-600 transition-colors group pt-4 border-t border-slate-100">
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>Manage Service Areas & Availability</span>
+                            </li>
 
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>Track Payments & Invoices</span>
+                            </li>
 
-                    Explore Engineer Platform
+                        </ul>
 
+                    </div>
 
-                    <span class="material-symbols-outlined">
-                        chevron_forward
-                    </span>
+                    <a href="{% url 'vendor' %}"
+                       class="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between text-sm font-semibold text-yellow-500 hover:text-yellow-600 transition">
 
+                        Explore Vendor Platform
 
-                </a>
+                        <span class="material-symbols-outlined">
+                            chevron_forward
+                        </span>
 
+                    </a>
 
-            </article>
+                </article>
 
+                <!-- ================= ENGINEER PLATFORM ================= -->
+
+                <article class="bg-gradient-to-b from-yellow-50/50 to-white border border-yellow-100 rounded-2xl p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+
+                    <div>
+
+                        <div class="flex items-center gap-3 mb-6">
+
+                            <div class="w-12 h-12 rounded-xl bg-yellow-500 text-white flex items-center justify-center shadow-md">
+
+                                <span class="material-symbols-outlined">
+                                    engineering
+                                </span>
+
+                            </div>
+
+                            <h3 class="text-lg font-bold text-slate-900">
+                                Engineer Platform
+                            </h3>
+
+                        </div>
+
+                        <ul class="space-y-3">
+
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>Find Nearby Jobs</span>
+                            </li>
+
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>Accept &amp; Manage Jobs</span>
+                            </li>
+
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>Upload Work Updates &amp; Reports</span>
+                            </li>
+
+                            <li class="flex items-start gap-2 text-sm text-slate-600">
+                                <span class="text-yellow-500 font-bold">✓</span>
+                                <span>Track Earnings &amp; Wallet</span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <a href="{% url 'engineer' %}"
+                       class="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between text-sm font-semibold text-yellow-500 hover:text-yellow-600 transition">
+
+                        Explore Engineer Platform
+
+                        <span class="material-symbols-outlined">
+                            chevron_forward
+                        </span>
+
+                    </a>
+
+                </article>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
-        </div>
-
-    </div>
 </section>
 
     {# ========== TRUST & ENTERPRISE SECTION ========== #}
-    <section class="bg-slate-50 font-sans antialiased text-slate-800 py-8 sm:py-12 lg:py-14">
+<section class="bg-slate-50 py-8 sm:py-10 lg:py-12">
 
-    <div class="max-w-[1500px] mx-auto px-6 sm:px-8 md:px-10 lg:px-14 xl:px-16">
+    <!-- Same container as Field Engineer section -->
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Trusted by Enterprises -->
-        <div class="space-y-8">
+        <!-- Heading -->
+        <div class="text-center mb-8">
 
-            <div class="text-center">
-                <span class="text-xs font-bold tracking-wider text-yellow-500 uppercase">
-                    Trusted by Enterprises
-                </span>
+            <span class="text-xs font-bold tracking-wider uppercase text-yellow-500">
+                Trusted by Enterprises
+            </span>
 
-                <h3 id="trust-heading" class="text-2xl font-bold text-black-one mt-1">
-                    Trusted by Leading Enterprises
-                </h3>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
-
-    <!-- AT&T -->
-    <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-        <img
-            src="{% static 'img/at&t.jpg' %}"
-            alt="AT&T"
-            class="w-full h-full object-cover">
-    </div>
-
-    <!-- China Telecom -->
-    <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-    <img
-        src="{% static 'img/china.jpg' %}"
-        alt="China Telecom"
-        class="w-[80%] h-[80%] object-contain">
-</div>
-
-    <!-- Airtel -->
-    <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-    <img
-        src="{% static 'img/airtel.jpg' %}"
-        alt="Airtel"
-        class="w-[80%] h-[80%] object-contain">
-</div>
-
-    <!-- TCS -->
-    <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-        <img
-            src="{% static 'img/tata.png' %}"
-            alt="TCS"
-            class="w-full h-full object-cover">
-    </div>
-
-    <!-- NTT -->
-    <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-        <img
-            src="{% static 'img/ntt.jpg' %}"
-            alt="NTT"
-            class="w-full h-full object-cover">
-    </div>
-
-    <!-- Verizon -->
-    <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-        <img
-            src="{% static 'img/verizon.jpg' %}"
-            alt="Verizon"
-            class="w-full h-full object-cover">
-    </div>
-
-</div>
-
-        </div>
-
-    </div>
-
-</section>
-<section class="py-16 bg-white px-4 lg:px-6">
-
-    <div class="max-w-[1150px] mx-auto">
-
-        <div class="text-center mb-10">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937] leading-tight">
-                Frequently by Leading Enterprises
+            <h2 class="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+                Trusted by Leading Enterprises
             </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-            <details name="faq" class="border border-gray-300 rounded-xl overflow-hidden group">
-                <summary class="flex justify-between items-center px-5 py-5 cursor-pointer text-[15px] text-gray-600 font-medium list-none">
-                    <span>How quickly can FE deploy engineers?</span>
-                    <span class="text-3xl text-gray-500 transition-all group-open:rotate-45">+</span>
-                </summary>
-                <div class="px-5 pb-5 text-gray-600 text-sm leading-7">
-                    FE can deploy certified field engineers within hours or based on your project requirements across multiple locations.
-                </div>
-            </details>
-
-            <details name="faq" class="border border-gray-300 rounded-xl overflow-hidden group">
-                <summary class="flex justify-between items-center px-5 py-5 cursor-pointer text-[15px] text-gray-600 font-medium list-none">
-                    <span>What industries does FE support?</span>
-                    <span class="text-3xl text-gray-500 transition-all group-open:rotate-45">+</span>
-                </summary>
-                <div class="px-5 pb-5 text-gray-600 text-sm leading-7">
-                    FE supports telecom, IT infrastructure, networking, data centers, banking, retail, healthcare, and many other industries.
-                </div>
-            </details>
-
-            <details name="faq" class="border border-gray-300 rounded-xl overflow-hidden group">
-                <summary class="flex justify-between items-center px-5 py-5 cursor-pointer text-[15px] text-gray-600 font-medium list-none">
-                    <span>How do I become a vendor partner?</span>
-                    <span class="text-3xl text-gray-500 transition-all group-open:rotate-45">+</span>
-                </summary>
-                <div class="px-5 pb-5 text-gray-600 text-sm leading-7">
-                    Register with FE, complete your company profile, submit verification documents, and start receiving project opportunities.
-                </div>
-            </details>
-
-            <details name="faq" class="border border-gray-300 rounded-xl overflow-hidden group">
-                <summary class="flex justify-between items-center px-5 py-5 cursor-pointer text-[15px] text-gray-600 font-medium list-none">
-                    <span>Is Support available after project completion?</span>
-                    <span class="text-3xl text-gray-500 transition-all group-open:rotate-45">+</span>
-                </summary>
-                <div class="px-5 pb-5 text-gray-600 text-sm leading-7">
-                    Yes. FE provides post-project support, reporting, and assistance whenever required.
-                </div>
-            </details>
-
-            <details name="faq" class="border border-gray-300 rounded-xl overflow-hidden group">
-                <summary class="flex justify-between items-center px-5 py-5 cursor-pointer text-[15px] text-gray-600 font-medium list-none">
-                    <span>Can I track engineers in real time?</span>
-                    <span class="text-3xl text-gray-500 transition-all group-open:rotate-45">+</span>
-                </summary>
-                <div class="px-5 pb-5 text-gray-600 text-sm leading-7">
-                    Yes. FE offers real-time tracking, job status updates, and project visibility through its platform.
-                </div>
-            </details>
-
-            <details name="faq" class="border border-gray-300 rounded-xl overflow-hidden group">
-                <summary class="flex justify-between items-center px-5 py-5 cursor-pointer text-[15px] text-gray-600 font-medium list-none">
-                    <span>What payment options are available?</span>
-                    <span class="text-3xl text-gray-500 transition-all group-open:rotate-45">+</span>
-                </summary>
-                <div class="px-5 pb-5 text-gray-600 text-sm leading-7">
-                    FE supports secure online payments, invoicing, and enterprise billing options based on customer requirements.
-                </div>
-            </details>
 
         </div>
+
+        <!-- Logo Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
+
+            <!-- AT&T -->
+            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+                <img
+                    src="{% static 'img/at&t.jpg' %}"
+                    alt="AT&T"
+                    class="w-full h-full object-cover">
+            </div>
+
+            <!-- China Telecom -->
+            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+                <img
+                    src="{% static 'img/china.jpg' %}"
+                    alt="China Telecom"
+                    class="w-[80%] h-[80%] object-contain">
+            </div>
+
+            <!-- Airtel -->
+            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+                <img
+                    src="{% static 'img/airtel.jpg' %}"
+                    alt="Airtel"
+                    class="w-[80%] h-[80%] object-contain">
+            </div>
+
+            <!-- TCS -->
+            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+                <img
+                    src="{% static 'img/tata.png' %}"
+                    alt="TCS"
+                    class="w-full h-full object-cover">
+            </div>
+
+            <!-- NTT -->
+            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+                <img
+                    src="{% static 'img/ntt.jpg' %}"
+                    alt="NTT"
+                    class="w-full h-full object-cover">
+            </div>
+
+            <!-- Verizon -->
+            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+                <img
+                    src="{% static 'img/verizon.jpg' %}"
+                    alt="Verizon"
+                    class="w-full h-full object-cover">
+            </div>
+
+        </div>
+
     </div>
+
 </section>
-<section class="py-16 bg-white">
 
-    <div class="max-w-[1200px] mx-auto px-4 lg:px-6">
+<section class="pt-16 pb-12 bg-white" aria-labelledby="faq-heading">
 
-        <div class="bg-gradient-to-r from-[#EEF8F2] via-[#E8F8EF] to-[#D7F7DE] rounded-[28px] p-8 md:p-12">
+    <div class="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10 xl:px-14">
 
-            <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <!-- Heading -->
+        <h2 id="faq-heading"
+            class="text-center text-4xl md:text-5xl font-bold text-slate-800 mb-14">
+            Frequently Asked Questions
+        </h2>
 
-                <!-- Left -->
-                <div>
 
-                    <!-- Badge -->
-                    <div class="inline-flex items-center gap-2 border border-[#22C55E] rounded-full px-4 py-2 bg-white/50">
-                        <span class="material-symbols-outlined text-[16px] text-[#22C55E]">
-                            download
-                        </span>
-                        <span class="text-[#22C55E] text-sm font-medium">
-                            Get the FE App
-                        </span>
-                    </div>
+        <!-- FAQ Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-7 gap-y-7">
 
-                    <!-- Heading -->
-                    <h2 class="mt-6 text-[42px] font-bold leading-tight text-[#1E293B]">
-                        Download the
-                        <span class="text-[#22C55E]">
-                            FE App
-                        </span>
-                    </h2>
+            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                 data-faq-item>
 
-                    <!-- Subtitle -->
-                    <p class="mt-3 text-lg text-slate-600">
-                        Manage field service jobs anytime, anywhere.
-                    </p>
+                <button type="button"
+                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
+                    data-faq-trigger
+                    aria-expanded="false">
 
-                    <!-- Store Buttons -->
-                    <div class="flex flex-wrap gap-5 mt-10">
+                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
+                        How quickly can FE deploy engineers?
+                    </span>
 
-                        <a href="#">
-                            <img
-                                src="{% static 'img/google-playbtn.png' %}"
-                                alt="Google Play"
-                                class="h-14 w-auto hover:scale-105 transition duration-300">
-                        </a>
+                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
+                          aria-hidden="true">
+                        add
+                    </span>
 
-                        <a href="#">
-                            <img
-                                src="{% static 'img/app-storebtn.png' %}"
-                                alt="App Store"
-                                class="h-14 w-auto hover:scale-105 transition duration-300">
-                        </a>
+                </button>
 
-                    </div>
-
+                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
+                     data-faq-panel
+                     hidden>
+                    FE can deploy certified engineers within 4–24 hours depending on location, skill requirements, and project scale.
                 </div>
 
-                <!-- Right -->
-                <div class="flex justify-center lg:justify-end">
+            </div>
 
-                    <img
-                        src="{% static 'img/about-qr.png' %}"
-                        alt="Scan to Download"
-                        class="w-[240px] md:w-[270px] object-contain">
 
+
+            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                 data-faq-item>
+
+                <button type="button"
+                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
+                    data-faq-trigger
+                    aria-expanded="false">
+
+                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
+                        What industries does FE support?
+                    </span>
+
+                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
+                          aria-hidden="true">
+                        add
+                    </span>
+
+                </button>
+
+                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
+                     data-faq-panel
+                     hidden>
+                    We support IT infrastructure, telecom, data centers, retail, banking, healthcare, and enterprise facility management.
+                </div>
+
+            </div>
+
+
+
+            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                 data-faq-item>
+
+                <button type="button"
+                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
+                    data-faq-trigger
+                    aria-expanded="false">
+
+                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
+                        How do I become a vendor partner?
+                    </span>
+
+                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
+                          aria-hidden="true">
+                        add
+                    </span>
+
+                </button>
+
+                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
+                     data-faq-panel
+                     hidden>
+                    Submit a vendor partnership inquiry through this page or email partners@fieldengineer.com. Our team will review your profile within one business day.
+                </div>
+
+            </div>
+
+
+
+            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                 data-faq-item>
+
+                <button type="button"
+                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
+                    data-faq-trigger
+                    aria-expanded="false">
+
+                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
+                        Is support available after project completion?
+                    </span>
+
+                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
+                          aria-hidden="true">
+                        add
+                    </span>
+
+                </button>
+
+                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
+                     data-faq-panel
+                     hidden>
+                    Yes. FE provides post-deployment support, warranty assistance, and ongoing maintenance contracts through our 24/7 support team.
+                </div>
+
+            </div>
+
+
+
+            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                 data-faq-item>
+
+                <button type="button"
+                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
+                    data-faq-trigger
+                    aria-expanded="false">
+
+                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
+                        Can I track engineers in real time?
+                    </span>
+
+                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
+                          aria-hidden="true">
+                        add
+                    </span>
+
+                </button>
+
+                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
+                     data-faq-panel
+                     hidden>
+                    Yes. The FE platform offers live GPS tracking, job status updates, and digital work logs accessible from your dashboard.
+                </div>
+
+            </div>
+
+
+
+            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                 data-faq-item>
+
+                <button type="button"
+                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
+                    data-faq-trigger
+                    aria-expanded="false">
+
+                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
+                        What payment options are available?
+                    </span>
+
+                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
+                          aria-hidden="true">
+                        add
+                    </span>
+
+                </button>
+
+                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
+                     data-faq-panel
+                     hidden>
+                    We accept bank transfers, corporate POs, and online payments. Enterprise clients can set up monthly billing with custom SLAs.
                 </div>
 
             </div>
@@ -1217,7 +1380,105 @@
         </div>
 
     </div>
+
 </section>
+
+
+<section class=" bg-[#FFFDF8] w-full">
+        <!-- Full-width gradient background container -->
+        <div
+            class="w-full bg-gradient-to-r bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
+
+            <!-- Centered content container with max-width and extra padding -->
+            <div class="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+
+                <!-- Changed from grid to flex-row to keep items on same line -->
+                <div class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
+
+                    <!-- ================= Left ================= -->
+                    <div class="flex-1 min-w-[280px]">
+
+                        <!-- Badge -->
+                        <div
+                            class="inline-flex items-center gap-2 rounded-full border border-[#22C55E] bg-white px-4 py-1.5">
+                            <span class="material-symbols-outlined text-[15px] text-[#22C55E]">
+                                download
+                            </span>
+                            <span class="text-[12px] font-semibold text-[#22C55E]">
+                                Get the FE App
+                            </span>
+                        </div>
+
+                        <!-- Heading -->
+                        <h2
+                            class="mt-5 text-[32px] sm:text-[36px] lg:text-[40px] font-bold leading-tight text-[#1E293B]">
+                            Download the
+                            <span class="text-[#22C55E]">
+                                FE App
+                            </span>
+                        </h2>
+
+                        <!-- Description -->
+                        <p class="mt-3 max-w-[500px] text-[14px] leading-6 text-slate-600">
+                            Manage field service jobs anytime, anywhere.
+                            Book engineers, track service requests and stay
+                            connected with real-time updates.
+                        </p>
+
+                        <!-- Store Buttons -->
+                        <div class="flex items-center gap-4 mt-6 flex-wrap">
+                            <a href="#"
+                                class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
+                                <svg class="w-6 h-6 shrink-0" viewBox="0 0 512 512">
+                                    <path fill="#00f076"
+                                        d="M12 28.1C10.2 30.2 9 33.6 9 38v436c0 4.4 1.2 7.8 3 9.9l2.2 2.1L266 234.3v-4.6L14.2 26z" />
+                                    <path fill="#00d7ff"
+                                        d="M346.7 315l-80.7-80.7v-4.6l80.7-80.7 2.3 1.3 95.6 54.3c27.3 15.5 27.3 40.9 0 56.4l-95.6 54-2.3 0z" />
+                                    <path fill="#ff1744"
+                                        d="M349 315l-83-83L12 483.9c8.8 9.3 23.3 10.4 39.8 1.1L349 315z" />
+                                    <path fill="#ffbe00"
+                                        d="M349 197L51.8 28c-16.5-9.3-31-8.2-39.8 1.1L266 214l83-17z" />
+                                </svg>
+                                <div class="text-left leading-none">
+                                    <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">GET IT
+                                        ON</p>
+                                    <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
+                                        Google Play</p>
+                                </div>
+                            </a>
+                            <a href="#"
+                                class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
+                                <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.97.04-2.14.65-2.83 1.46-.62.72-1.16 1.88-1.01 3 .01 0 .04.01.07.01 1.08 0 2.19-.55 2.78-1.37z" />
+                                </svg>
+                                <div class="text-left leading-none">
+                                    <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
+                                        Download on</p>
+                                    <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">App
+                                        Store</p>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- ================= Right ================= -->
+                    <div class="flex-shrink-0 flex justify-center lg:justify-end">
+                        <div class="text-center">
+                            <p class="mb-4 text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
+                                Scan to Download
+                            </p>
+                            <img src="{% static 'img/about-qr.png' %}" alt="Download FE App"
+                                class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 </main>
 <script src="{% static 'script/pages/about-fe.js' %}"></script>

@@ -104,14 +104,41 @@ if (counterSection) {
     observer.observe(counterSection);
 
 }
-document.querySelectorAll('details[name="faq"]').forEach((detail) => {
-    detail.addEventListener('toggle', () => {
-        if (detail.open) {
-            document.querySelectorAll('details[name="faq"]').forEach((other) => {
-                if (other !== detail) {
-                    other.removeAttribute('open');
-                }
+function initContactFaq() {
+    const faqItems = document.querySelectorAll("[data-faq-item]");
+
+    faqItems.forEach((item) => {
+        const trigger = item.querySelector("[data-faq-trigger]");
+        const panel = item.querySelector("[data-faq-panel]");
+
+        // Hide all panels initially
+        panel.hidden = true;
+        trigger.setAttribute("aria-expanded", "false");
+
+        trigger.addEventListener("click", () => {
+            const isOpen = item.classList.contains("is-open");
+
+            // Close all FAQs
+            faqItems.forEach((faq) => {
+                faq.classList.remove("is-open");
+
+                const faqTrigger = faq.querySelector("[data-faq-trigger]");
+                const faqPanel = faq.querySelector("[data-faq-panel]");
+
+                faqTrigger.setAttribute("aria-expanded", "false");
+                faqPanel.hidden = true;
             });
-        }
+
+            // Open clicked FAQ if it wasn't already open
+            if (!isOpen) {
+                item.classList.add("is-open");
+                trigger.setAttribute("aria-expanded", "true");
+                panel.hidden = false;
+            }
+        });
     });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    initContactFaq();
 });

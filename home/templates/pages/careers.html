@@ -5,131 +5,335 @@
 {% block title %}Careers — FieldEngineer{% endblock %}
 
 {% block content %}
-<section class="relative pt-6 pb-4 md:pt-8 md:pb-6 overflow-hidden w-full careers-hero">
-  <div class="max-w-7xl mx-auto px-6">
+<section class="relative overflow-hidden bg-[#FCFDF0] py-5 sm:py-6 lg:py-8 careers-hero">
 
-    <nav class="flex items-center gap-2 text-xs md:text-sm font-medium text-slate-500 mb-6 lg:mb-8">
-      <a href="{% url 'home' %}" class="hover:text-blue-600 transition-colors">Home</a>
-      <span class="material-symbols-outlined">
-        chevron_right
-      </span>
-      <span class="text-slate-800 font-semibold">Careers</span>
-    </nav>
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-8">
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs md:text-sm font-medium text-slate-500 mb-6">
+            <a href="{% url 'home' %}" class="hover:text-green-600 transition">
+                Home
+            </a>
 
-      <div class="lg:col-span-6 text-left z-10 max-w-xl xl:max-w-2xl">
-        <p class="text-[#0F6B3E] font-bold uppercase tracking-[0.08em] text-sm mb-3">
-          Careers at FE
-        </p>
-        <h1
-          class="text-3xl sm:text-4xl lg:text-[54px] font-extrabold text-black-one tracking-tight leading-[1.15] mb-6">
-          Build the future of <br class="hidden lg:inline" />field services with us.
-        </h1>
-        <p class="text-base sm:text-lg text-black-two leading-relaxed mb-8 max-w-xl">
-          Join Field Engineer and help build India's trusted field engineering network. Be part of a team that's solving
-          real-world challenges and making a difference every day.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 max-w-md sm:max-w-none">
-          <a href="#open-positions"
-            class="inline-flex items-center justify-center gap-2 bg-[#F5B530] text-black font-semibold px-7 py-3.5 rounded-xl shadow-md hover:bg-[#E8A400] transition-colors group">
-            View Open Positions
-            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">
-              arrow_forward
+            <span class="material-symbols-outlined text-base">
+                chevron_right
             </span>
-          </a>
 
-          <a href="#life-at-fe"
-            class="inline-flex items-center justify-center gap-2 bg-white text-black border border-slate-200 font-semibold px-7 py-3.5 rounded-xl shadow-sm hover:bg-slate-50 transition-colors group">
-            Life at FE
-            <span class="material-symbols-outlined text-black transition-transform group-hover:translate-x-1">
-              arrow_forward
+            <span class="text-slate-800 font-semibold">
+                Careers
             </span>
-          </a>
+        </nav>
+
+
+        <!-- Hero Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+
+
+            <!-- Left Content -->
+            <div class="lg:col-span-5 max-w-xl">
+
+                <p class="text-[#059669] uppercase tracking-[0.08em] text-xs font-bold mb-3">
+                    Careers at FE
+                </p>
+
+
+                <h1 class="
+                    text-3xl
+                    sm:text-4xl
+                    lg:text-[52px]
+                    leading-[1.15]
+                    font-extrabold
+                    text-slate-900
+                    tracking-tight
+                    mb-5
+                ">
+                    Build the future of
+                    <br class="hidden lg:block">
+                    field services with us.
+                </h1>
+
+
+                <p class="
+                    text-sm
+                    sm:text-base
+                    text-slate-600
+                    leading-relaxed
+                    max-w-lg
+                    mb-7
+                ">
+                    Join Field Engineer and help build India's trusted field engineering network.
+                    Be part of a team that's solving real-world challenges and making a difference every day.
+                </p>
+
+
+
+                <!-- Buttons -->
+                <div class="flex flex-wrap gap-3">
+
+                    <a href="#open-positions"
+                        class="
+                        inline-flex items-center justify-center gap-2
+                        bg-[#F5B530]
+                        hover:bg-[#E8A400]
+                        text-black
+                        font-semibold
+                        text-sm
+                        px-6 py-3
+                        rounded-xl
+                        transition
+                        ">
+
+                        View Open Positions
+
+                        <span class="material-symbols-outlined text-base">
+                            arrow_forward
+                        </span>
+
+                    </a>
+
+
+
+                    <a href="#life-at-fe"
+                        class="
+                        inline-flex items-center justify-center gap-2
+                        bg-white
+                        border border-slate-200
+                        text-slate-800
+                        font-semibold
+                        text-sm
+                        px-6 py-3
+                        rounded-xl
+                        transition
+                        hover:bg-slate-50
+                        ">
+
+                        Life at FE
+
+                        <span class="material-symbols-outlined text-base">
+                            arrow_forward
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Right Image -->
+            <div class="lg:col-span-7 flex justify-end">
+
+                <div class="
+                    w-full
+                    max-w-[600px]
+                    overflow-hidden
+                    rounded-2xl
+                ">
+
+                    <img 
+                    src="{% static 'img/career-hero.png' %}"
+                    alt="Field Operations Team"
+                    class="
+                        w-full
+                        h-full
+                        object-cover
+                    "
+                    />
+
+                </div>
+
+            </div>
+
+
         </div>
-      </div>
-      <div class="lg:col-span-6 relative w-full flex justify-center lg:justify-end">
-        <img src="{% static 'img/careers.svg' %}" alt="Field Operations Team"
-          class="w-full max-w-2xl lg:max-w-none object-contain" loading="lazy" />
-      </div>
+
+
+
+
+        <!-- Stats Card -->
+        <div class="
+            mt-8
+            lg:mt-10
+            bg-white
+            rounded-2xl
+            shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+            border border-slate-100
+            px-5
+            py-5
+            sm:px-8
+        ">
+
+
+            <div class="
+                grid
+                grid-cols-2
+                md:grid-cols-5
+                gap-6
+            ">
+
+
+                <!-- Item -->
+                <div class="flex items-center gap-3">
+
+                    <div class="
+                        w-11 h-11
+                        rounded-full
+                        bg-green-50
+                        flex items-center justify-center
+                    ">
+                        <span class="material-symbols-outlined text-[#22C55E]">
+                            groups
+                        </span>
+                    </div>
+
+
+                    <div>
+                        <div class="font-bold text-slate-900 text-lg stat-number"
+     data-target="600"
+     data-suffix="+">
+    0
+</div>
+
+                        <p class="text-xs text-slate-500">
+                            Team Members
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+                <div class="flex items-center gap-3">
+
+                    <div class="
+                        w-11 h-11
+                        rounded-full
+                        bg-green-50
+                        flex items-center justify-center
+                    ">
+                        <span class="material-symbols-outlined text-[#22C55E]">
+                            apartment
+                        </span>
+                    </div>
+
+
+                    <div>
+                        <div class="font-bold text-slate-900 text-lg stat-number"
+     data-target="120"
+     data-suffix="+">
+    0
+</div>
+
+                        <p class="text-xs text-slate-500">
+                            Cities Covered
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="flex items-center gap-3">
+
+                    <div class="
+                        w-11 h-11
+                        rounded-full
+                        bg-green-50
+                        flex items-center justify-center
+                    ">
+                        <span class="material-symbols-outlined text-[#22C55E]">
+                            apps
+                        </span>
+                    </div>
+
+
+                    <div>
+                        <div class="font-bold text-slate-900 text-lg stat-number"
+     data-target="15"
+     data-suffix="+">
+    0
+</div>
+
+                        <p class="text-xs text-slate-500">
+                            Departments
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="flex items-center gap-3">
+
+                    <div class="
+                        w-11 h-11
+                        rounded-full
+                        bg-green-50
+                        flex items-center justify-center
+                    ">
+                        <span class="material-symbols-outlined text-[#22C55E]">
+                            star
+                        </span>
+                    </div>
+
+
+                    <div>
+                        <div class="font-bold text-slate-900 text-lg stat-number"
+     data-target="4.6"
+     data-suffix="/5">
+    0
+</div>
+
+                        <p class="text-xs text-slate-500">
+                            Employee Rating
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="flex items-center gap-3">
+
+                    <div class="
+                        w-11 h-11
+                        rounded-full
+                        bg-green-50
+                        flex items-center justify-center
+                    ">
+                        <span class="material-symbols-outlined text-[#22C55E]">
+                            verified_user
+                        </span>
+                    </div>
+
+
+                    <div>
+                        <div class="font-bold text-slate-900 text-lg stat-number"
+     data-target="85"
+     data-suffix="%">
+    0
+</div>
+
+                        <p class="text-xs text-slate-500">
+                            Employee Retention
+                        </p>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
     </div>
 
-
-    <div class="mt-8 lg:mt-10 bg-white rounded-2xl border border-slate-100 shadow-md p-6 sm:p-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-
-        <div
-          class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 lg:border-0 lg:rounded-none lg:p-0 lg:justify-start lg:pl-2">
-          <div class="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-[#059669] extra-large-icon">
-              groups
-            </span>
-          </div>
-          <div>
-            <div class="count-up text-xl md:text-2xl font-bold text-black-one" data-target="600">0+</div>
-            <div class="text-xs sm:text-sm font-medium text-black-two whitespace-nowrap">Team Members</div>
-          </div>
-        </div>
-
-        <div
-          class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 lg:border-0 lg:rounded-none lg:p-0 lg:justify-start lg:pl-6 lg:border-l lg:border-slate-100">
-          <div class="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-[#059669] extra-large-icon">
-              apartment
-            </span>
-          </div>
-          <div>
-            <div class="count-up text-xl md:text-2xl font-bold text-black-one" data-target="120">0+</div>
-            <div class="text-xs sm:text-sm font-medium text-black-two whitespace-nowrap">Cities</div>
-          </div>
-        </div>
-
-        <div
-          class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 lg:border-0 lg:rounded-none lg:p-0 lg:justify-start lg:pl-6 lg:border-l lg:border-slate-100">
-          <div class="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-[#059669] extra-large-icon">
-              desktop_landscape
-            </span>
-          </div>
-          <div>
-            <div class="count-up text-xl md:text-2xl font-bold text-black-one" data-target="15">0+</div>
-            <div class="text-xs sm:text-sm font-medium text-black-two whitespace-nowrap">Departments</div>
-          </div>
-        </div>
-
-        <div
-          class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 lg:border-0 lg:rounded-none lg:p-0 lg:justify-start lg:pl-6 lg:border-l lg:border-slate-100">
-          <div class="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-[#059669] extra-large-icon">
-              star_rate
-            </span>
-          </div>
-          <div>
-            <div class="count-up text-xl md:text-2xl font-bold text-black-one" data-target="4.6">0.0/5</div>
-            <div class="text-xs sm:text-sm font-medium text-black-two whitespace-nowrap">Employee Rating</div>
-          </div>
-        </div>
-
-        <div
-          class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 lg:border-0 lg:rounded-none lg:p-0 lg:justify-start lg:pl-6 lg:border-l lg:border-slate-100">
-          <div class="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 flex items-center justify-center shrink-0">
-            <span class="material-symbols-outlined text-[#059669] extra-large-icon">
-              verified_user
-            </span>
-          </div>
-          <div>
-            <div class="count-up text-xl md:text-2xl font-bold text-black-one" data-target="85">0%</div>
-            <div class="text-xs sm:text-sm font-medium text-black-two whitespace-nowrap">Employee Retention</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
 </section>
-
 
 <section class="pt-12 w-full bg-greenish-white font-sans antialiased">
   <div class="max-w-7xl mx-auto px-6">
@@ -737,6 +941,7 @@
   </div>
 </div>
 
+<script src="{% static 'script/pages/careers.js' %}"></script>
 
 {% endblock %}
 {% block extra_js %}

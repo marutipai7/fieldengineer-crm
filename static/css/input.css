@@ -768,7 +768,7 @@ input[type="number"]::-webkit-inner-spin-button {
 ========================================================== */
 
 .about-hero-section {
-  @apply bg-[#FCFCF8] py-12 md:py-16 lg:py-20 overflow-hidden;
+  @apply bg-[#FCFCF8] pt-6 pb-12 md:pt-8 md:pb-16 lg:pt-10 lg:pb-20 overflow-hidden;
 }
 
 .about-container {
@@ -1010,7 +1010,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .mission-section {
   background: #FCFCFA;
-  padding: 90px 0;
+  padding-top: 10px;
+  padding-bottom: 90px;
 }
 
 .mission-container {
@@ -1023,11 +1024,11 @@ input[type="number"]::-webkit-inner-spin-button {
    GRID
 ========================================== */
 
-.mission-grid {
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  align-items: center;
-  gap: 70px;
+.mission-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    align-items:center;
+    gap:70px;
 }
 
 .mission-left {
@@ -1294,6 +1295,76 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 100%;
   }
 }
+.mission-image{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.mission-image img{
+    width:100%;
+    max-width:560px;
+    height:auto;
+    display:block;
+    object-fit:contain;
+}
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width:1024px){
+
+    .mission-grid{
+        grid-template-columns:1fr;
+        gap:50px;
+    }
+
+    .mission-left{
+        order:2;
+    }
+
+    .mission-image{
+        order:1;
+    }
+
+    .mission-image img{
+        max-width:450px;
+    }
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width:768px){
+
+    .mission-grid{
+        grid-template-columns:1fr;
+        gap:36px;
+    }
+
+    .mission-left{
+        text-align:center;
+    }
+
+    .mission-image img{
+        max-width:340px;
+    }
+
+}
+
+/* ==========================================
+   Small Mobile
+========================================== */
+
+@media (max-width:480px){
+
+    .mission-image img{
+        max-width:260px;
+    }
+
+}
 
 /*=========================================
         WHAT WE DO SECTION
@@ -1457,6 +1528,193 @@ input[type="number"]::-webkit-inner-spin-button {
 
     min-height: auto;
   }
+
+}
+/* =========================================
+   About Page FAQ Section
+========================================= */
+
+.about-faq-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+}
+
+.about-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.5rem;
+}
+
+.about-faq-item {
+    background: #ffffff;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all .3s ease;
+}
+
+.about-faq-item:hover {
+    border-color: #9CA3AF;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.about-faq-trigger {
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 20px;
+    text-align: left;
+}
+
+.about-faq-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    line-height: 1.5;
+    padding-right: 20px;
+}
+
+.about-faq-icon {
+    font-size: 22px;
+    color: #6B7280;
+    transition: transform .3s ease;
+    flex-shrink: 0;
+}
+
+.about-faq-item.is-open .about-faq-icon {
+    transform: rotate(45deg);
+}
+
+.about-faq-panel {
+    padding: 0 20px 18px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6B7280;
+    border-top: 1px solid #F3F4F6;
+}
+
+/* Tablet */
+
+@media (max-width:991px){
+
+.about-faq-grid{
+    grid-template-columns:1fr;
+}
+
+.about-faq-title{
+    font-size:2rem;
+}
+
+}
+
+/* Mobile */
+
+@media (max-width:640px){
+
+.about-faq-title{
+    font-size:1.75rem;
+    margin-bottom:2rem;
+}
+
+.about-faq-trigger{
+    padding:14px 16px;
+}
+
+.about-faq-text{
+    font-size:13px;
+}
+
+.about-faq-panel{
+    padding:0 16px 16px;
+    font-size:13px;
+}
+
+}
+/*==========================================================
+  ENGINEER HERO SECTION
+==========================================================*/
+
+.engineer-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.engineer-hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: object-position .3s ease;
+}
+
+/* Large Laptop */
+@media (max-width:1200px){
+    .engineer-hero{
+        min-height:500px;
+    }
+}
+
+/* Tablet */
+@media (max-width:1024px){
+
+    .engineer-hero{
+        min-height:480px;
+    }
+
+    .engineer-hero__bg{
+        object-position:65% center;
+    }
+
+}
+
+/* Tablet Portrait */
+@media (max-width:768px){
+
+    .engineer-hero{
+        min-height:440px;
+    }
+
+    .engineer-hero__bg{
+        object-position:72% center;
+    }
+
+}
+
+/* Mobile */
+@media (max-width:640px){
+
+    .engineer-hero{
+        min-height:400px;
+    }
+
+    .engineer-hero__bg{
+        object-position:78% center;
+    }
+
+}
+
+/* Small Mobile */
+@media (max-width:480px){
+
+    .engineer-hero{
+        min-height:360px;
+    }
+
+    .engineer-hero__bg{
+        object-position:82% center;
+    }
 
 }
 

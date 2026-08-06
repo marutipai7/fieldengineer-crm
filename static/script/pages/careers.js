@@ -53,3 +53,43 @@ function closeApplyModal() {
     document.documentElement.style.overflow = "";
     document.body.style.overflow = "";
 }
+document.addEventListener("DOMContentLoaded", () => {
+
+    const counters = document.querySelectorAll(".stat-number");
+
+    counters.forEach(counter => {
+
+        const target = parseFloat(counter.dataset.target);
+        const suffix = counter.dataset.suffix || "";
+
+        let current = 0;
+        const duration = 1800; // Animation time (ms)
+        const frameRate = 60;
+        const totalFrames = Math.round(duration / (1000 / frameRate));
+        const increment = target / totalFrames;
+
+        function updateCounter() {
+
+            current += increment;
+
+            if (current >= target) {
+                current = target;
+            }
+
+            if (Number.isInteger(target)) {
+                counter.textContent = Math.floor(current) + suffix;
+            } else {
+                counter.textContent = current.toFixed(1) + suffix;
+            }
+
+            if (current < target) {
+                requestAnimationFrame(updateCounter);
+            }
+
+        }
+
+        updateCounter();
+
+    });
+
+});
