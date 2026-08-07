@@ -1,3 +1,423 @@
+ document.addEventListener('DOMContentLoaded', function() {
+
+        // ============================================================
+        // 1. COUNTRY-STATE-CITY DYNAMIC DATA
+        // ============================================================
+        const locationData = {
+            "India": {
+                states: {
+                    "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", "Solapur", "Amravati", "Kolhapur", "Sangli", "Jalgaon"],
+                    "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Navsari"],
+                    "Karnataka": ["Bengaluru", "Mysuru", "Hubballi", "Belagavi", "Mangaluru", "Davanagere", "Ballari", "Shivamogga", "Tumakuru", "Raichur"],
+                    "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tirunelveli", "Erode", "Vellore", "Thoothukkudi", "Dindigul"],
+                    "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra", "Prayagraj", "Ghaziabad", "Noida", "Meerut", "Aligarh", "Bareilly"],
+                    "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Kota", "Bikaner", "Ajmer", "Bhilwara", "Alwar", "Sikar", "Pali"],
+                    "Delhi": ["New Delhi", "Delhi", "South Delhi", "North Delhi", "East Delhi", "West Delhi"],
+                    "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur", "Alappuzha", "Kollam", "Palakkad", "Kannur", "Malappuram", "Kottayam"],
+                    "West Bengal": ["Kolkata", "Howrah", "Durgapur", "Siliguri", "Asansol", "Kharagpur", "Haldia", "Darjeeling", "Jalpaiguri", "Bardhaman"],
+                    "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Ramagundam", "Khammam", "Mahabubnagar", "Nalgonda", "Adilabad", "Suryapet"],
+                    "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda", "Mohali", "Chandigarh", "Hoshiarpur", "Moga", "Malerkotla"],
+                    "Haryana": ["Gurugram", "Faridabad", "Panipat", "Ambala", "Rohtak", "Hisar", "Karnal", "Sonipat", "Yamunanagar", "Rewari"],
+                    "Madhya Pradesh": ["Bhopal", "Indore", "Jabalpur", "Gwalior", "Ujjain", "Sagar", "Dewas", "Satna", "Ratlam", "Rewa"],
+                    "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Purnia", "Darbhanga", "Munger", "Saharsa", "Sitamarhi", "Hajipur"],
+                    "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur", "Puri", "Balasore", "Bhadrak", "Jharsuguda", "Paradeep"],
+                    "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool", "Rajahmundry", "Tirupati", "Kakinada", "Kadapa", "Anantapur"],
+                    "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar", "Hazaribagh", "Giridih", "Ramgarh", "Medininagar", "Chaibasa"]
+                }
+            },
+            "USA": {
+                states: {
+                    "California": ["Los Angeles", "San Francisco", "San Diego", "Sacramento", "San Jose", "Oakland", "Fresno", "Long Beach", "Bakersfield", "Anaheim"],
+                    "Texas": ["Houston", "Dallas", "Austin", "San Antonio", "Fort Worth", "El Paso", "Arlington", "Corpus Christi", "Plano", "Laredo"],
+                    "New York": ["New York City", "Buffalo", "Rochester", "Yonkers", "Syracuse", "Albany", "Niagara Falls", "Schenectady", "Utica", "Binghamton"],
+                    "Florida": ["Miami", "Orlando", "Tampa", "Jacksonville", "St. Petersburg", "Fort Lauderdale", "Tallahassee", "Gainesville", "Naples", "Sarasota"],
+                    "Illinois": ["Chicago", "Aurora", "Rockford", "Joliet", "Naperville", "Springfield", "Peoria", "Elgin", "Waukegan", "Cicero"],
+                    "Pennsylvania": ["Philadelphia", "Pittsburgh", "Allentown", "Erie", "Scranton", "Bethlehem", "Harrisburg", "Lancaster", "York", "Reading"],
+                    "Ohio": ["Columbus", "Cleveland", "Cincinnati", "Toledo", "Akron", "Dayton", "Youngstown", "Canton", "Parma", "Lorain"],
+                    "Michigan": ["Detroit", "Grand Rapids", "Warren", "Sterling Heights", "Ann Arbor", "Lansing", "Flint", "Dearborn", "Livonia", "Troy"],
+                    "Georgia": ["Atlanta", "Augusta", "Columbus", "Savannah", "Athens", "Macon", "Roswell", "Albany", "Johns Creek", "Marietta"],
+                    "North Carolina": ["Charlotte", "Raleigh", "Greensboro", "Durham", "Winston-Salem", "Fayetteville", "Cary", "Wilmington", "High Point", "Asheville"],
+                    "New Jersey": ["Newark", "Jersey City", "Paterson", "Elizabeth", "Trenton", "Camden", "Clifton", "Passaic", "Union City", "Bayonne"],
+                    "Virginia": ["Virginia Beach", "Norfolk", "Chesapeake", "Arlington", "Richmond", "Newport News", "Alexandria", "Hampton", "Roanoke", "Portsmouth"],
+                    "Washington": ["Seattle", "Spokane", "Tacoma", "Vancouver", "Bellevue", "Kent", "Everett", "Renton", "Yakima", "Federal Way"],
+                    "Arizona": ["Phoenix", "Tucson", "Mesa", "Chandler", "Glendale", "Scottsdale", "Gilbert", "Tempe", "Peoria", "Surprise"],
+                    "Massachusetts": ["Boston", "Worcester", "Springfield", "Cambridge", "Lowell", "Brockton", "Quincy", "Lynn", "Newton", "Somerville"],
+                    "Colorado": ["Denver", "Colorado Springs", "Aurora", "Fort Collins", "Lakewood", "Thornton", "Arvada", "Westminster", "Pueblo", "Centennial"]
+                }
+            },
+            "UK": {
+                states: {
+                    "England": ["London", "Manchester", "Birmingham", "Liverpool", "Bristol", "Sheffield", "Leeds", "Newcastle", "Nottingham", "Southampton"],
+                    "Scotland": ["Edinburgh", "Glasgow", "Aberdeen", "Dundee", "Inverness", "Stirling", "Perth", "Dunfermline", "Kirkcaldy", "Ayr"],
+                    "Wales": ["Cardiff", "Swansea", "Newport", "Wrexham", "Bangor", "St Davids", "Llandudno", "Conwy", "Caernarfon", "Merthyr Tydfil"],
+                    "Northern Ireland": ["Belfast", "Derry", "Lisburn", "Newry", "Armagh", "Bangor", "Omagh", "Enniskillen", "Coleraine", "Dungannon"]
+                }
+            },
+            "Malaysia": {
+                states: {
+                    "Selangor": ["Kuala Lumpur", "Petaling Jaya", "Shah Alam", "Klang", "Subang Jaya", "Ampang", "Puchong", "Cheras", "Kajang"],
+                    "Johor": ["Johor Bahru", "Iskandar Puteri", "Pasir Gudang", "Muar", "Batu Pahat", "Kluang", "Segamat", "Kota Tinggi", "Pontian", "Mersing"],
+                    "Penang": ["George Town", "Bukit Mertajam", "Nibong Tebal", "Balik Pulau", "Bayan Lepas", "Gelugor", "Tanjung Bungah", "Batu Ferringhi"],
+                    "Sarawak": ["Kuching", "Miri", "Sibu", "Bintulu", "Kota Samarahan", "Sarikei", "Limbang", "Kapit", "Mukah", "Lawas"],
+                    "Sabah": ["Kota Kinabalu", "Sandakan", "Tawau", "Lahad Datu", "Keningau", "Semporna", "Kudat", "Beaufort", "Tambunan", "Ranau"]
+                }
+            },
+            "Singapore": {
+                states: {
+                    "Central": ["Singapore", "Marina Bay", "Orchard", "Sentosa", "Jurong", "Woodlands", "Tampines", "Bedok", "Changi", "Punggol"]
+                }
+            },
+            "Australia": {
+                states: {
+                    "New South Wales": ["Sydney", "Newcastle", "Wollongong", "Central Coast", "Coffs Harbour", "Wagga Wagga", "Albury", "Tamworth", "Dubbo", "Orange"],
+                    "Victoria": ["Melbourne", "Geelong", "Ballarat", "Bendigo", "Shepparton", "Melton", "Sunbury", "Werribee", "Traralgon", "Mildura"],
+                    "Queensland": ["Brisbane", "Gold Coast", "Sunshine Coast", "Townsville", "Cairns", "Toowoomba", "Ipswich", "Mackay", "Rockhampton", "Bundaberg"],
+                    "Western Australia": ["Perth", "Bunbury", "Kalgoorlie", "Albany", "Geraldton", "Mandurah", "Karratha", "Broome", "Port Hedland", "Esperance"]
+                }
+            }
+        };
+
+        // ============================================================
+        // 2. POPULATE COUNTRY DROPDOWN
+        // ============================================================
+        const countrySelect = document.getElementById('countrySelect');
+        const stateSelect = document.getElementById('stateSelect');
+        const citySelect = document.getElementById('citySelect');
+
+        Object.keys(locationData).forEach(country => {
+            const option = document.createElement('option');
+            option.value = country;
+            option.textContent = country;
+            countrySelect.appendChild(option);
+        });
+
+        // ============================================================
+        // 3. COUNTRY CHANGE - LOAD STATES
+        // ============================================================
+        countrySelect.addEventListener('change', function() {
+            const selectedCountry = this.value;
+            
+            stateSelect.innerHTML = '<option value="">Select State</option>';
+            citySelect.innerHTML = '<option value="">Select City</option>';
+
+            if (selectedCountry && locationData[selectedCountry]) {
+                const states = locationData[selectedCountry].states;
+                Object.keys(states).forEach(state => {
+                    const option = document.createElement('option');
+                    option.value = state;
+                    option.textContent = state;
+                    stateSelect.appendChild(option);
+                });
+                stateSelect.disabled = false;
+            } else {
+                stateSelect.disabled = true;
+                citySelect.disabled = true;
+            }
+
+            clearError(countrySelect);
+            clearError(stateSelect);
+            clearError(citySelect);
+        });
+
+        // ============================================================
+        // 4. STATE CHANGE - LOAD CITIES
+        // ============================================================
+        stateSelect.addEventListener('change', function() {
+            const selectedCountry = countrySelect.value;
+            const selectedState = this.value;
+            
+            citySelect.innerHTML = '<option value="">Select City</option>';
+
+            if (selectedCountry && selectedState && locationData[selectedCountry]) {
+                const cities = locationData[selectedCountry].states[selectedState];
+                if (cities) {
+                    cities.forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city;
+                        option.textContent = city;
+                        citySelect.appendChild(option);
+                    });
+                    citySelect.disabled = false;
+                }
+            } else {
+                citySelect.disabled = true;
+            }
+
+            clearError(stateSelect);
+            clearError(citySelect);
+        });
+
+        // ============================================================
+        // 5. CUSTOM COUNTRY CODE DROPDOWN (FIXED - No API Call)
+        // ============================================================
+        const dropdownBtn = document.getElementById('countryDropdownBtn');
+        const dropdownList = document.getElementById('countryDropdownList');
+        const selectedFlagImg = document.getElementById('selectedFlagImg');
+        const selectedCodeText = document.getElementById('selectedCodeText');
+        const countryCodeInput = document.getElementById('countryCodeInput');
+
+        // Use fallback countries directly (no API call to avoid CORS errors)
+        const fallbackCountries = [
+            { code: '+91', flag: 'https://flagcdn.com/w20/in.png', name: 'India' },
+            { code: '+1', flag: 'https://flagcdn.com/w20/us.png', name: 'United States' },
+            { code: '+44', flag: 'https://flagcdn.com/w20/gb.png', name: 'United Kingdom' },
+            { code: '+61', flag: 'https://flagcdn.com/w20/au.png', name: 'Australia' },
+            { code: '+81', flag: 'https://flagcdn.com/w20/jp.png', name: 'Japan' },
+            { code: '+86', flag: 'https://flagcdn.com/w20/cn.png', name: 'China' },
+            { code: '+49', flag: 'https://flagcdn.com/w20/de.png', name: 'Germany' },
+            { code: '+33', flag: 'https://flagcdn.com/w20/fr.png', name: 'France' },
+            { code: '+39', flag: 'https://flagcdn.com/w20/it.png', name: 'Italy' },
+            { code: '+55', flag: 'https://flagcdn.com/w20/br.png', name: 'Brazil' },
+            { code: '+7', flag: 'https://flagcdn.com/w20/ru.png', name: 'Russia' },
+            { code: '+82', flag: 'https://flagcdn.com/w20/kr.png', name: 'South Korea' },
+            { code: '+31', flag: 'https://flagcdn.com/w20/nl.png', name: 'Netherlands' },
+            { code: '+46', flag: 'https://flagcdn.com/w20/se.png', name: 'Sweden' },
+            { code: '+41', flag: 'https://flagcdn.com/w20/ch.png', name: 'Switzerland' },
+            { code: '+60', flag: 'https://flagcdn.com/w20/my.png', name: 'Malaysia' },
+            { code: '+65', flag: 'https://flagcdn.com/w20/sg.png', name: 'Singapore' },
+            { code: '+971', flag: 'https://flagcdn.com/w20/ae.png', name: 'UAE' },
+            { code: '+966', flag: 'https://flagcdn.com/w20/sa.png', name: 'Saudi Arabia' },
+        ];
+
+        // Populate dropdown list
+        function populateDropdown() {
+            if (!dropdownList) return;
+            
+            dropdownList.innerHTML = '';
+            const fragment = document.createDocumentFragment();
+
+            fallbackCountries.forEach(({ flag, code, name }) => {
+                const item = document.createElement('div');
+                item.className = 'country-item';
+                item.innerHTML = `
+                    <img src="${flag}" alt="${name}">
+                    <span>${code}</span>
+                `;
+
+                item.addEventListener('click', () => {
+                    selectedFlagImg.src = flag;
+                    selectedCodeText.textContent = code;
+                    countryCodeInput.value = code;
+                    dropdownList.classList.add('hidden');
+                });
+
+                fragment.appendChild(item);
+            });
+
+            dropdownList.appendChild(fragment);
+
+            // Set default to India (+91)
+            const india = fallbackCountries.find(c => c.code === '+91');
+            if (india) {
+                selectedFlagImg.src = india.flag;
+                selectedCodeText.textContent = india.code;
+                countryCodeInput.value = india.code;
+            }
+        }
+
+        // Populate immediately
+        populateDropdown();
+
+        // Dropdown toggle
+        if (dropdownBtn && dropdownList) {
+            dropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdownList.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', (e) => {
+                const container = document.getElementById('countryDropdownContainer');
+                if (container && !container.contains(e.target)) {
+                    dropdownList.classList.add('hidden');
+                }
+            });
+        }
+
+        // ============================================================
+        // 6. CLOSE MODAL
+        // ============================================================
+        const modal = document.getElementById('salesModal');
+        const closeBtn = document.getElementById('closeSalesModal');
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            });
+        }
+
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }
+            });
+        }
+
+        // ============================================================
+        // 7. HELPER FUNCTIONS
+        // ============================================================
+        function showError(input, msg) {
+            const container = input.closest('div');
+            const errorDiv = container ? container.querySelector('.error-message') : null;
+            input.classList.add('error-border');
+            if (errorDiv) {
+                if (msg) errorDiv.textContent = msg;
+                errorDiv.classList.remove('hidden');
+            }
+        }
+
+        function clearError(input) {
+            const container = input.closest('div');
+            const errorDiv = container ? container.querySelector('.error-message') : null;
+            input.classList.remove('error-border');
+            if (errorDiv) {
+                errorDiv.classList.add('hidden');
+            }
+        }
+
+        // ============================================================
+       function validateCompanyName(input) {
+    const value = input.value;
+    if (/[^a-zA-Z0-9\s.-]/.test(value)) {
+        input.value = value.replace(/[^a-zA-Z0-9\s.-]/g, '');
+        showError(input, 'Please enter a valid company name.');
+        return false;
+    } else {
+        clearError(input);
+        return true;
+    }
+}
+
+function validateName(input) {
+    const value = input.value;
+    if (/[^a-zA-Z\s]/.test(value)) {
+        input.value = value.replace(/[^a-zA-Z\s]/g, '');
+        showError(input, 'Please enter letters only.');
+        return false;
+    } else {
+        clearError(input);
+        return true;
+    }
+}
+
+function validatePhone(input) {
+    const value = input.value;
+    if (/\D/.test(value)) {
+        input.value = value.replace(/\D/g, '');
+        showError(input, 'Please enter numbers only.');
+        return false;
+    } else {
+        clearError(input);
+        return true;
+    }
+}
+
+function validateEmail(input) {
+    const value = input.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (value.length > 0 && !emailRegex.test(value)) {
+        showError(input, 'Please enter a valid email address.');
+        return false;
+    } else {
+        clearError(input);
+        return true;
+    }
+}
+
+function validateURL(input) {
+    const value = input.value.trim();
+    const urlRegex = /^https?:\/\/[^\s]+$/;
+    if (value.length > 0 && !urlRegex.test(value)) {
+        showError(input, 'Please enter a valid URL (e.g., https://example.com).');
+        return false;
+    } else {
+        clearError(input);
+        return true;
+    }
+}
+        // ============================================================
+        // 9. EVENT LISTENERS
+        // ============================================================
+        const companyNameInput = document.getElementById('companyNameInput');
+        if (companyNameInput) {
+            companyNameInput.addEventListener('input', function() { validateCompanyName(this); });
+            companyNameInput.addEventListener('blur', function() { validateCompanyName(this); });
+        }
+
+        document.querySelectorAll('.name-input').forEach(input => {
+            input.addEventListener('input', function() { validateName(this); });
+            input.addEventListener('blur', function() { validateName(this); });
+        });
+
+        const phoneInput = document.getElementById('phoneInput');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function() { validatePhone(this); });
+            phoneInput.addEventListener('blur', function() { validatePhone(this); });
+        }
+
+        const emailInput = document.getElementById('emailInput');
+        if (emailInput) {
+            emailInput.addEventListener('blur', function() { validateEmail(this); });
+            emailInput.addEventListener('input', function() { 
+                if (this.classList.contains('error-border')) {
+                    validateEmail(this);
+                }
+            });
+        }
+
+        const websiteInput = document.getElementById('websiteInput');
+        if (websiteInput) {
+            websiteInput.addEventListener('blur', function() { validateURL(this); });
+            websiteInput.addEventListener('input', function() {
+                if (this.classList.contains('error-border')) {
+                    validateURL(this);
+                }
+            });
+        }
+
+        countrySelect.addEventListener('change', function() { validateSelect(this); });
+        stateSelect.addEventListener('change', function() { validateSelect(this); });
+        citySelect.addEventListener('change', function() { validateSelect(this); });
+
+        // ============================================================
+        // 10. FORM SUBMISSION VALIDATION
+        // ============================================================
+        const form = document.getElementById('salesEnquiryForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                let isValid = true;
+
+                if (companyNameInput && !validateCompanyName(companyNameInput)) isValid = false;
+
+                document.querySelectorAll('.name-input').forEach(input => {
+                    if (!validateName(input)) isValid = false;
+                });
+
+                if (phoneInput && !validatePhone(phoneInput)) isValid = false;
+                if (emailInput && !validateEmail(emailInput)) isValid = false;
+                if (websiteInput && !validateURL(websiteInput)) isValid = false;
+
+                if (!validateSelect(countrySelect)) isValid = false;
+                if (!validateSelect(stateSelect)) isValid = false;
+                if (!validateSelect(citySelect)) isValid = false;
+
+                if (!isValid) {
+                    e.preventDefault();
+                    const firstError = document.querySelector('.error-border');
+                    if (firstError) {
+                        firstError.focus();
+                    }
+                }
+            });
+        }
+
+    });
+
+
+
+
 
         document.addEventListener("DOMContentLoaded", function () {
 
