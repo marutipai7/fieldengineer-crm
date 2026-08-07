@@ -21,95 +21,76 @@
     </section>
 
     {# ========== HERO SECTION ========== #}
-    <section class="relative overflow-hidden" style="background:
-        radial-gradient(circle at 12% 25%, rgba(255,239,170,.85) 0%, transparent 35%),
-        radial-gradient(circle at 88% 20%, rgba(213,239,173,.80) 0%, transparent 38%),
-        radial-gradient(circle at 55% 65%, rgba(236,245,194,.75) 0%, transparent 45%),
-        linear-gradient(90deg, #FFFDF5 0%, #F8F9DF 45%, #EAF5D3 100%);" aria-labelledby="help-hero-title">
-        <div class="absolute inset-0 opacity-20" aria-hidden="true">
-            <div
-                class="absolute inset-0 bg-[radial-gradient(circle_at_center,#2563EB_1px,transparent_1px)] bg-[size:40px_40px]">
-            </div>
-        </div>
+    <section class="relative overflow-hidden w-full min-h-[400px] sm:min-h-[420px] lg:min-h-[440px] flex items-center"
+        aria-labelledby="help-hero-title">
 
-        <div class="max-w-7xl mx-auto px-6 py-12 lg:py-10 relative z-10">
+        <!-- Hero Background Image -->
+        <img src="{% static 'img/help-center-hero.webp' %}"
+            alt="Field Engineer Help Center - Support and guidance for platform users"
+            title="Field Engineer - Help Center" width="1920" height="1080" loading="lazy" decoding="async"
+            class="help-center-hero z-0">
 
-            <div class="grid lg:grid-cols-2 items-center gap-10">
+        <!-- Dark Overlay with gradient (same as how-it-works) -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/40"></div>
+        <div class="max-w-[1500px] mx-auto px-12 sm:px-16 lg:px-20 xl:px-24 relative z-10 w-full">
+            <div class="py-8 sm:py-10 lg:py-12 max-w-2xl">
 
-                <div>
-                    <p class="text-label font-bold uppercase tracking-wide text-emerald-teal mb-4">HELP CENTER</p>
-                    <h1 id="help-hero-title" class="text-h1 font-bold text-deep-indigo leading-[1.1]">How can we help
-                        you?
-                    </h1>
-                    <p class="mt-5 text-b1 text-light-black max-w-lg">
-                        Find answers, guides and support for all things related to Field Engineer platform.
-                    </p>
+                <p class="text-label font-bold uppercase tracking-wide text-light-green mb-4">HELP CENTER</p>
+                <h1 id="help-hero-title"
+                    class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
+                    How can we help you?
+                </h1>
+                <p class="text-sm sm:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed max-w-lg">
+                    Find answers, guides and support for all things related to Field Engineer platform.
+                </p>
 
-                    {# Search #}
-                    <div class="mt-8 flex max-w-2xl" role="search">
-                        <div class="relative flex-1">
-                            <span
-                                class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-dusty-gray"
-                                aria-hidden="true">search</span>
-                            <input type="text" id="help-search-input"
-                                placeholder="Search for articles, guides and more..."
-                                class="w-full h-14 rounded-l-xl bg-white pl-12 pr-4 text-b1 outline-none"
-                                aria-label="Search for articles, guides and more">
-                        </div>
-                        <button type="button" id="help-search-button"
-                            class="bg-emerald-teal px-8 rounded-r-xl text-white font-semibold">
-                            Search
-                        </button>
+                <!-- Search -->
+                <div class="mt-8 flex max-w-2xl" role="search">
+                    <div class="relative flex-1">
+                        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-dusty-gray"
+                            aria-hidden="true">search</span>
+                        <input type="text" id="help-search-input" placeholder="Search for articles, guides and more..."
+                            class="w-full h-14 rounded-l-xl bg-white pl-12 pr-4 text-b1 outline-none"
+                            aria-label="Search for articles, guides and more">
                     </div>
-
-                    <p id="help-search-status" class="mt-3 text-b3 text-article-medium-gray hidden" role="status"
-                        aria-live="polite"></p>
-
-
-                    {# Popular Searches #}
-                    <div class="mt-6 flex flex-wrap items-center gap-3">
-                        <span class="text-b3 text-light-black">Popular Searches:</span>
-
-                        <button type="button" data-search-term="Track Booking"
-                            class="help-search-tag px-4 py-2 rounded-full border border-slate-300 text-dark-black text-b3 bg-white hover:bg-slate-50 transition">
-                            Track Booking
-                        </button>
-                        <button type="button" data-search-term="Engineer App"
-                            class="help-search-tag px-4 py-2 rounded-full border border-slate-300 text-dark-black text-b3 bg-white hover:bg-slate-50 transition">
-                            Engineer App
-                        </button>
-                        <button type="button" data-search-term="Invoices"
-                            class="help-search-tag px-4 py-2 rounded-full border border-slate-300 text-dark-black text-b3 bg-white hover:bg-slate-50 transition">
-                            Invoices
-                        </button>
-                        <button type="button" data-search-term="Work Reports"
-                            class="help-search-tag px-4 py-2 rounded-full border border-slate-300 text-dark-black text-b3 bg-white hover:bg-slate-50 transition">
-                            Work Reports
-                        </button>
-                        <button type="button" data-search-term="Vendor Registration"
-                            class="help-search-tag px-4 py-2 rounded-full border border-slate-300 text-dark-black text-b3 bg-white hover:bg-slate-50 transition">
-                            Vendor Registration
-                        </button>
-                    </div>
+                    <button type="button" id="help-search-button"
+                        class="bg-emerald-teal px-8 rounded-r-xl text-white font-semibold">
+                        Search
+                    </button>
                 </div>
 
-                {# Right Illustration #}
-                <div class="relative flex justify-center lg:justify-end">
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none"
-                        aria-hidden="true">
-                        <div class="h-[320px] w-[320px] rounded-full blur-3xl"></div>
-                    </div>
-                    <div class="relative z-10">
-                        <!-- <img src="{% static 'img/help-center.png' %}"
-                            alt="Help Center illustration showing support and guidance"
-                            class="w-full max-w-[500px] lg:max-w-[580px] object-contain" loading="lazy"
-                            decoding="async"> -->
-                    </div>
+                <p id="help-search-status" class="mt-3 text-b3 text-article-medium-gray hidden" role="status"
+                    aria-live="polite"></p>
+
+                <!-- Popular Searches -->
+                <div class="mt-6 flex flex-wrap items-center gap-3">
+                    <span class="text-sm text-white/80">Popular Searches:</span>
+
+                    <button type="button" data-search-term="Track Booking"
+                        class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+                        Track Booking
+                    </button>
+                    <button type="button" data-search-term="Engineer App"
+                        class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+                        Engineer App
+                    </button>
+                    <button type="button" data-search-term="Invoices"
+                        class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+                        Invoices
+                    </button>
+                    <button type="button" data-search-term="Work Reports"
+                        class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+                        Work Reports
+                    </button>
+                    <button type="button" data-search-term="Vendor Registration"
+                        class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+                        Vendor Registration
+                    </button>
                 </div>
 
             </div>
-
         </div>
+
     </section>
 
     {# ========== BROWSE BY CATEGORY ========== #}
@@ -605,17 +586,16 @@
             </div>
         </section>
 
-         <!--DOWNLOAD THE FE APP-->
+        <!--DOWNLOAD THE FE APP-->
 
-        <section class=" bg-[#FFFDF8] w-full">
+        <section class="bg-[#FFFDF8] w-full">
         <!-- Full-width gradient background container -->
-        <div
-            class="w-full bg-gradient-to-r bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
+        <div class="w-full bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
 
-            <!-- Centered content container with max-width and extra padding -->
-            <div class="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+            <!-- Centered content container matching step sections -->
+            <div class="container mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
 
-                <!-- Changed from grid to flex-row to keep items on same line -->
+                <!-- Flex row with items on same line -->
                 <div class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
 
                     <!-- ================= Left ================= -->
@@ -663,10 +643,10 @@
                                         d="M349 197L51.8 28c-16.5-9.3-31-8.2-39.8 1.1L266 214l83-17z" />
                                 </svg>
                                 <div class="text-left leading-none">
-                                    <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">GET IT
-                                        ON</p>
-                                    <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
-                                        Google Play</p>
+                                    <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">GET IT ON
+                                    </p>
+                                    <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">Google
+                                        Play</p>
                                 </div>
                             </a>
                             <a href="#"
@@ -676,10 +656,10 @@
                                         d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.97.04-2.14.65-2.83 1.46-.62.72-1.16 1.88-1.01 3 .01 0 .04.01.07.01 1.08 0 2.19-.55 2.78-1.37z" />
                                 </svg>
                                 <div class="text-left leading-none">
-                                    <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
-                                        Download on</p>
-                                    <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">App
-                                        Store</p>
+                                    <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">Download on
+                                    </p>
+                                    <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">App Store
+                                    </p>
                                 </div>
                             </a>
                         </div>

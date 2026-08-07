@@ -26,18 +26,28 @@
     </section> -->
 
     {# ========== HERO ========== #}
-    <section
-        class="relative overflow-hidden pt-6 md:pt-10 lg:pt-12 bg-gradient-to-r from-[#EBEFCE] via-[#DCEBD2] to-[#C9E5C5]">
+    <section class="relative overflow-hidden pt-6 md:pt-10 lg:pt-12 bg-[#EBEFCE]">
 
-        <div class="max-w-[1500px] mx-auto px-6 sm:px-8 md:px-10 lg:px-14 xl:px-16 pb-8 md:pb-10 lg:pb-12">
+        <!-- Background Image -->
+        <img src="{% static 'img/contact-us-hero.webp' %}"
+            alt="FE Team connecting with customers for field operations support"
+            title="Field Engineer - Contact Sales Team" width="1920" height="1080" loading="lazy" decoding="async"
+            class="contact-hero-updated-bg z-0">
+
+        <!-- Whitish Overlay -->
+        <div class="absolute inset-0"></div>
+
+        <div class="max-w-[1500px] mx-auto px-12 sm:px-16 lg:px-20 xl:px-24 pb-8 md:pb-10 lg:pb-12 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
                 <!-- Left Content -->
-                <div class="lg:col-span-7">
+                <div class="lg:col-span-12">
 
                     <h1 id="contact-hero-title"
                         class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#1A1A1A] mb-4">
-                        Let's Build Better Field Operations Together
+                        Let's Build Better Field Operations
+                        <br class="hidden lg:block">
+                        Together
                     </h1>
 
                     <p class="text-base sm:text-lg text-[#4A4A4A] max-w-xl leading-relaxed mb-8">
@@ -45,7 +55,6 @@
                         vendor partnerships, large-scale projects, and platform support.
                     </p>
 
-                    <!-- Stats -->
                     <!-- Stats -->
                     <div
                         class="contact-hero-stats grid grid-cols-2 sm:grid-cols-2 lg:flex lg:flex-wrap xl:flex-nowrap gap-x-8 gap-y-8 w-full max-w-[820px] mb-10">
@@ -58,7 +67,6 @@
                                     groups
                                 </span>
                             </div>
-
                             <div>
                                 <h3 class="text-[24px] font-bold leading-none text-[#1A1A1A]">
                                     15,000+
@@ -77,7 +85,6 @@
                                     verified_user
                                 </span>
                             </div>
-
                             <div>
                                 <h3 class="text-[24px] font-bold leading-none text-[#1A1A1A]">
                                     350+
@@ -96,7 +103,6 @@
                                     location_city
                                 </span>
                             </div>
-
                             <div>
                                 <h3 class="text-[24px] font-bold leading-none text-[#1A1A1A]">
                                     120+
@@ -115,7 +121,6 @@
                                     schedule
                                 </span>
                             </div>
-
                             <div>
                                 <h3 class="text-[24px] font-bold leading-none text-[#1A1A1A]">
                                     10M+
@@ -127,44 +132,31 @@
                         </div>
 
                     </div>
+
                     <!-- Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4">
 
                         <a href="javascript:void(0);" id="contactSalesBtn"
                             class="inline-flex items-center justify-center gap-2 bg-[#F5B530] hover:bg-[#dfa024] text-[#1A1A1A] font-semibold px-7 py-3 rounded-xl transition-all duration-300">
-
                             Contact Sales
-
                             <span class="material-symbols-outlined text-[20px]">
                                 arrow_forward
                             </span>
-
                         </a>
 
                         <a href="{% url 'vendor' %}"
                             class="inline-flex items-center justify-center gap-2 border-2 border-[#1A1A1A] text-[#1A1A1A] hover:bg-black/5 font-semibold px-7 py-3 rounded-xl transition-all duration-300">
-
                             Become Vendor
-
                             <span class="material-symbols-outlined text-[20px]">
                                 arrow_forward
                             </span>
-
                         </a>
 
                     </div>
 
                 </div>
 
-                <!-- Right Image -->
-                <div class="lg:col-span-5 flex justify-center lg:justify-end lg:pl-6">
-                    <img src="{% static 'img/contact_us.svg' %}" alt="FE Team" loading="lazy"
-                        class="w-full max-w-[480px] sm:max-w-[500px] lg:max-w-[500px] h-auto object-contain">
-
-                </div>
-
             </div>
-
         </div>
 
     </section>
@@ -416,350 +408,351 @@
 
         {# ========== OFFICES & COVERAGE ========== #}
         <!-- ════════════ COVERAGE SECTION ════════════ -->
-    <section class="coverage-section py-12 px-4 sm:px-6 lg:px-8 font-sans bg-white relative overflow-hidden">
-        <!-- Decorative background circles -->
-        <div class="absolute -top-16 -left-16 w-80 h-80 rounded-full bg-[#FEF9E7] -z-0 opacity-80"></div>
-        <div class="absolute -top-8 -left-8 w-60 h-60 rounded-full bg-[#FEF3C7] -z-0 opacity-60"></div>
-        <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-[#FEF3C7] -z-0 opacity-50"></div>
+        <section class="coverage-section py-12 px-4 sm:px-6 lg:px-8 font-sans bg-white relative overflow-hidden">
+            <!-- Decorative background circles -->
+            <div class="absolute -top-16 -left-16 w-80 h-80 rounded-full bg-[#FEF9E7] -z-0 opacity-80"></div>
+            <div class="absolute -top-8 -left-8 w-60 h-60 rounded-full bg-[#FEF3C7] -z-0 opacity-60"></div>
+            <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-[#FEF3C7] -z-0 opacity-50"></div>
 
-        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="max-w-7xl mx-auto relative z-10">
 
-            <!-- Top Header -->
-            <div class="text-center mb-10">
-                <span
-                    class="inline-block px-4 py-1.5 text-primary-yellow text-sm font-bold uppercase tracking-wider rounded-full mb-3">
-                    OUR COVERAGE
-                </span>
-                <h2 class="text-4xl sm:text-5xl font-bold text-dark tracking-tight">
-                    Across USA, Malaysia & India <br> Other Global Ops
-                </h2>
-                <p class="text-granite-gray text-[16px] mt-2 font-medium">
-                    A strong network of engineers & vendors in every major city.
-                </p>
+                <!-- Top Header -->
+                <div class="text-center mb-10">
+                    <span
+                        class="inline-block px-4 py-1.5 text-primary-yellow text-sm font-bold uppercase tracking-wider rounded-full mb-3">
+                        OUR COVERAGE
+                    </span>
+                    <h2 class="text-4xl sm:text-5xl font-bold text-dark tracking-tight">
+                        Across USA, Malaysia & India <br> Other Global Ops
+                    </h2>
+                    <p class="text-granite-gray text-[16px] mt-2 font-medium">
+                        A strong network of engineers & vendors in every major city.
+                    </p>
 
-            </div>
+                </div>
 
-            <!-- Main Content Area (Stats + Map Grid) -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                <!-- Main Content Area (Stats + Map Grid) -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
-                <!-- Left Side Stats Cards (Stretched height to fill entire vertical space) -->
-                <div class="lg:col-span-3 flex flex-col gap-4 h-full">
+                    <!-- Left Side Stats Cards (Stretched height to fill entire vertical space) -->
+                    <div class="lg:col-span-3 flex flex-col gap-4 h-full">
 
-                    <!-- Stat Card 1 -->
-                    <div
-                        class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
+                        <!-- Stat Card 1 -->
                         <div
-                            class="w-12 h-12 rounded-xl bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
-                            <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                             </svg> -->
-                            <span class="material-symbols-outlined">
-                                group
-                            </span>
+                                <span class="material-symbols-outlined">
+                                    group
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="stat-number text-xl font-extrabold  leading-tight" data-target="15000"
+                                    data-suffix="+">0</h3>
+                                <p class="text-xs text-granite-gray font-medium mt-0.5">Certified Engineers</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="stat-number text-xl font-extrabold  leading-tight" data-target="15000"
-                                data-suffix="+">0</h3>
-                            <p class="text-xs text-granite-gray font-medium mt-0.5">Certified Engineers</p>
-                        </div>
-                    </div>
 
-                    <!-- Stat Card 2 -->
-                    <div
-                        class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
+                        <!-- Stat Card 2 -->
                         <div
-                            class="w-12 h-12 rounded-xl bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
-                            <span class="material-symbols-outlined">
-                                verified_user
-                            </span>
-                        </div>
-                        <div>
-                            <h3 class="stat-number text-xl font-extrabold text-gray-900 leading-tight" data-target="350"
-                                data-suffix="+">0</h3>
-                            <p class="text-xs text-granite-gray font-medium mt-0.5">Certified Vendors</p>
-                        </div>
-                    </div>
-
-                    <!-- Stat Card 3 -->
-                    <div
-                        class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
-                        <div
-                            class="w-12 h-12 rounded-xl bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
-                            <span class="material-symbols-outlined">
-                                door_front
-                            </span>
-                        </div>
-                        <div>
-                            <!-- <h3 class="text-xl font-extrabold text-gray-900 leading-tight">120+</h3> -->
-                            <h3 class="stat-number text-xl font-extrabold text-gray-900 leading-tight" data-target="120"
-                                data-suffix="+">0</h3>
-                            <p class="text-xs text-granite-gray font-medium mt-0.5">Cities Covered</p>
-                        </div>
-                    </div>
-
-                    <!-- Stat Card 4 -->
-                    <div
-                        class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
-                        <div
-                            class="w-12 h-12 rounded-xl bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
-                            <span class="material-symbols-outlined">
-                                language
-                            </span>
-                        </div>
-                        <div>
-                            <!-- <h3 class="text-xl font-extrabold text-gray-900 leading-tight">24/7</h3> -->
-                            <h3 class="stat-number text-xl font-extrabold text-gray-900 leading-tight" data-target="24"
-                                data-suffix="/7">0</h3>
-                            <p class="text-xs text-granite-gray font-medium mt-0.5">Global Operations Center</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Right Side Map Box -->
-                <div
-                    class="lg:col-span-9 bg-white p-4 rounded-3xl border border-gray-100 shadow-sm relative flex flex-col justify-between overflow-hidden min-h-[420px]">
-
-                    <!-- Top Pill Switcher -->
-                    <div
-                        class="bg-white rounded-2xl p-1.5 border border-gray-100 shadow-sm grid grid-cols-3 gap-2 max-w-xl mx-auto w-full z-10">
-                        <button data-country="usa"
-                            class="country-btn py-2.5 px-4 rounded-xl text-xs font-bold bg-[#FBBF24] text-white shadow-sm transition-all duration-200">
-                            United States
-                        </button>
-                        <!-- Remove the "hover:bg-gray-50" from these two buttons -->
-                        <button data-country="india"
-                            class="country-btn py-2.5 px-4 rounded-xl text-xs font-bold text-gray-700 transition-all duration-200">
-                            India
-                        </button>
-                        <button data-country="malaysia"
-                            class="country-btn py-2.5 px-4 rounded-xl text-xs font-bold text-gray-700 transition-all duration-200">
-                            Malaysia
-                        </button>
-                    </div>
-                    <!-- Leaflet Container / SVG World Map Placeholder -->
-                    <div id="coverageMap"
-                        class="w-full h-full min-h-[350px] rounded-2xl flex items-center justify-center relative my-2">
-                        <div class="absolute inset-0 flex items-center justify-center opacity-80">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
-                                alt="World Map"
-                                class="w-full h-full object-contain filter grayscale contrast-50 opacity-30" />
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Bottom Location Info Cards (Yellow Styled Tops) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8 w-full">
-
-                <!-- Card 1: United States -->
-                <div
-                    class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-3">
+                            class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
                             <div
-                                class="w-8 h-8 rounded-full bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
+                                class="w-12 h-12 rounded-xl bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
+                                <span class="material-symbols-outlined">
+                                    verified_user
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="stat-number text-xl font-extrabold text-gray-900 leading-tight"
+                                    data-target="350" data-suffix="+">0</h3>
+                                <p class="text-xs text-granite-gray font-medium mt-0.5">Certified Vendors</p>
+                            </div>
+                        </div>
+
+                        <!-- Stat Card 3 -->
+                        <div
+                            class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
+                                <span class="material-symbols-outlined">
+                                    door_front
+                                </span>
+                            </div>
+                            <div>
+                                <!-- <h3 class="text-xl font-extrabold text-gray-900 leading-tight">120+</h3> -->
+                                <h3 class="stat-number text-xl font-extrabold text-gray-900 leading-tight"
+                                    data-target="120" data-suffix="+">0</h3>
+                                <p class="text-xs text-granite-gray font-medium mt-0.5">Cities Covered</p>
+                            </div>
+                        </div>
+
+                        <!-- Stat Card 4 -->
+                        <div
+                            class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
                                 <span class="material-symbols-outlined">
                                     language
                                 </span>
                             </div>
-                            <h4 class="font-extrabold text-gray-900 text-base">United States</h4>
+                            <div>
+                                <!-- <h3 class="text-xl font-extrabold text-gray-900 leading-tight">24/7</h3> -->
+                                <h3 class="stat-number text-xl font-extrabold text-gray-900 leading-tight"
+                                    data-target="24" data-suffix="/7">0</h3>
+                                <p class="text-xs text-granite-gray font-medium mt-0.5">Global Operations Center</p>
+                            </div>
                         </div>
 
-                        <p class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
-                            <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-granite-gray shrink-0 mt-0.5"
+                    </div>
+
+                    <!-- Right Side Map Box -->
+                    <div
+                        class="lg:col-span-9 bg-white p-4 rounded-3xl border border-gray-100 shadow-sm relative flex flex-col justify-between overflow-hidden min-h-[420px]">
+
+                        <!-- Top Pill Switcher -->
+                        <div
+                            class="bg-white rounded-2xl p-1.5 border border-gray-100 shadow-sm grid grid-cols-3 gap-2 max-w-xl mx-auto w-full z-10">
+                            <button data-country="usa"
+                                class="country-btn py-2.5 px-4 rounded-xl text-xs font-bold bg-[#FBBF24] text-white shadow-sm transition-all duration-200">
+                                United States
+                            </button>
+                            <!-- Remove the "hover:bg-gray-50" from these two buttons -->
+                            <button data-country="india"
+                                class="country-btn py-2.5 px-4 rounded-xl text-xs font-bold text-gray-700 transition-all duration-200">
+                                India
+                            </button>
+                            <button data-country="malaysia"
+                                class="country-btn py-2.5 px-4 rounded-xl text-xs font-bold text-gray-700 transition-all duration-200">
+                                Malaysia
+                            </button>
+                        </div>
+                        <!-- Leaflet Container / SVG World Map Placeholder -->
+                        <div id="coverageMap"
+                            class="w-full h-full min-h-[350px] rounded-2xl flex items-center justify-center relative my-2">
+                            <div class="absolute inset-0 flex items-center justify-center opacity-80">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+                                    alt="World Map"
+                                    class="w-full h-full object-contain filter grayscale contrast-50 opacity-30" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Bottom Location Info Cards (Yellow Styled Tops) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8 w-full">
+
+                    <!-- Card 1: United States -->
+                    <div
+                        class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
+                                    <span class="material-symbols-outlined">
+                                        language
+                                    </span>
+                                </div>
+                                <h4 class="font-extrabold text-gray-900 text-base">United States</h4>
+                            </div>
+
+                            <p class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-granite-gray shrink-0 mt-0.5"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg> -->
-                            <span class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
-                                location_on
-                            </span>
-                            <span>218-10, Hillside Ave, Queens Village, New York, USA, 11427.</span>
-                        </p>
-                    </div>
-
-                    <div>
-                        <div
-                            class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined">
-                                    call
+                                <span class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
+                                    location_on
                                 </span>
-                                <span>+91 8305544478</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined">
-                                    mail
-                                </span>
-                                <a href="mailto:adityathakur1704@gmail.com"
-                                    class="hover:text-gray-800">adityathakur1704@gmail.com</a>
-                            </div>
+                                <span>218-10, Hillside Ave, Queens Village, New York, USA, 11427.</span>
+                            </p>
                         </div>
 
-                        <button
-                            class="w-full py-2 px-3 border border-[#FBBF24] rounded-xl text-xs font-bold text-[#D97706] hover:bg-[#FEF9E7] transition-all text-center">
-                            View on Map
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Card 2: Malaysia -->
-                <div
-                    class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-3">
+                        <div>
                             <div
-                                class="w-8 h-8 rounded-full bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
-                                <span class="material-symbols-outlined">
-                                    language
-                                </span>
+                                class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined">
+                                        call
+                                    </span>
+                                    <span>+91 8305544478</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined">
+                                        mail
+                                    </span>
+                                    <a href="mailto:adityathakur1704@gmail.com"
+                                        class="hover:text-gray-800">adityathakur1704@gmail.com</a>
+                                </div>
                             </div>
-                            <h4 class="font-extrabold text-gray-900 text-base">Malaysia</h4>
-                        </div>
 
-                        <p class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
-                            <span class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
-                                location_on
-                            </span>
-                            <span>12-2, The Strand, Jalan PJU 5/20b, Kota Damansara, 47810 Petaling Jaya, Selangor,
-                                Malaysia.</span>
-                        </p>
+                            <button
+                                class="w-full py-2 px-3 border border-[#FBBF24] rounded-xl text-xs font-bold text-[#D97706] hover:bg-[#FEF9E7] transition-all text-center">
+                                View on Map
+                            </button>
+                        </div>
                     </div>
 
-                    <div>
-                        <div
-                            class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined">
-                                    call
-                                </span>
-                                <span>+91 8305544478</span>
+                    <!-- Card 2: Malaysia -->
+                    <div
+                        class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
+                                    <span class="material-symbols-outlined">
+                                        language
+                                    </span>
+                                </div>
+                                <h4 class="font-extrabold text-gray-900 text-base">Malaysia</h4>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined">
-                                    mail
+
+                            <p class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
+                                <span class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
+                                    location_on
                                 </span>
-                                <a href="mailto:adityathakur1704@gmail.com"
-                                    class="hover:text-gray-800">adityathakur1704@gmail.com</a>
-                            </div>
+                                <span>12-2, The Strand, Jalan PJU 5/20b, Kota Damansara, 47810 Petaling Jaya, Selangor,
+                                    Malaysia.</span>
+                            </p>
                         </div>
 
-                        <button
-                            class="w-full py-2 px-3 border border-[#FBBF24] rounded-xl text-xs font-bold text-[#D97706] hover:bg-[#FEF9E7] transition-all text-center">
-                            View on Map
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Card 3: India -->
-                <div
-                    class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-3">
+                        <div>
                             <div
-                                class="w-8 h-8 rounded-full bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
-                                <span class="material-symbols-outlined">
-                                    language
-                                </span>
+                                class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined">
+                                        call
+                                    </span>
+                                    <span>+91 8305544478</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined">
+                                        mail
+                                    </span>
+                                    <a href="mailto:adityathakur1704@gmail.com"
+                                        class="hover:text-gray-800">adityathakur1704@gmail.com</a>
+                                </div>
                             </div>
-                            <h4 class="font-extrabold text-gray-900 text-base">India</h4>
-                        </div>
 
-                        <p class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
-                            <span class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
-                                location_on
-                            </span>
-                            <span>3102, 1st Floor, Rustomjee Eaze Zone, Sundar Nagar, Malad West - Mumbai 400064, MH -
-                                IN.</span>
-                        </p>
+                            <button
+                                class="w-full py-2 px-3 border border-[#FBBF24] rounded-xl text-xs font-bold text-[#D97706] hover:bg-[#FEF9E7] transition-all text-center">
+                                View on Map
+                            </button>
+                        </div>
                     </div>
 
-                    <div>
-                        <div
-                            class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined">
-                                    call
-                                </span>
-                                <span>+91 8305544478</span>
+                    <!-- Card 3: India -->
+                    <div
+                        class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
+                                    <span class="material-symbols-outlined">
+                                        language
+                                    </span>
+                                </div>
+                                <h4 class="font-extrabold text-gray-900 text-base">India</h4>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined">
-                                    mail
+
+                            <p class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
+                                <span class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
+                                    location_on
                                 </span>
-                                <a href="mailto:adityathakur1704@gmail.com"
-                                    class="hover:text-gray-800">adityathakur1704@gmail.com</a>
-                            </div>
+                                <span>3102, 1st Floor, Rustomjee Eaze Zone, Sundar Nagar, Malad West - Mumbai 400064, MH
+                                    -
+                                    IN.</span>
+                            </p>
                         </div>
 
-                        <button
-                            class="w-full py-2 px-3 border border-[#FBBF24] rounded-xl text-xs font-bold text-[#D97706] hover:bg-[#FEF9E7] transition-all text-center">
-                            View on Map
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Card 4: Global Ops Center (Yellow Highlighted Button) -->
-                <div
-                    class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
-                    <div>
-                        <div class="flex items-center gap-2.5 mb-3">
+                        <div>
                             <div
-                                class="w-8 h-8 rounded-full bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                                </svg>
+                                class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined">
+                                        call
+                                    </span>
+                                    <span>+91 8305544478</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined">
+                                        mail
+                                    </span>
+                                    <a href="mailto:adityathakur1704@gmail.com"
+                                        class="hover:text-gray-800">adityathakur1704@gmail.com</a>
+                                </div>
                             </div>
-                            <h4 class="font-extrabold text-gray-900 text-base">Global Ops Center</h4>
-                        </div>
 
-                        <p class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
-                            <span class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
-                                location_on
-                            </span>
-                            <span>Round-the-clock coordination hub dispatching and tracking engineers across every
-                                region we cover.</span>
-                        </p>
+                            <button
+                                class="w-full py-2 px-3 border border-[#FBBF24] rounded-xl text-xs font-bold text-[#D97706] hover:bg-[#FEF9E7] transition-all text-center">
+                                View on Map
+                            </button>
+                        </div>
                     </div>
 
-                    <div>
-                        <div
-                            class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined">
-                                    call
-                                </span>
-                                <span>+91 8305544478</span>
+                    <!-- Card 4: Global Ops Center (Yellow Highlighted Button) -->
+                    <div
+                        class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                    </svg>
+                                </div>
+                                <h4 class="font-extrabold text-gray-900 text-base">Global Ops Center</h4>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <span class="material-symbols-outlined">
-                                    mail
+
+                            <p class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
+                                <span class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
+                                    location_on
                                 </span>
-                                <a href="mailto:adityathakur1704@gmail.com"
-                                    class="hover:text-gray-800">adityathakur1704@gmail.com</a>
-                            </div>
+                                <span>Round-the-clock coordination hub dispatching and tracking engineers across every
+                                    region we cover.</span>
+                            </p>
                         </div>
 
-                        <button
-                            class="w-full py-2 px-3 bg-[#FEF3C7] rounded-xl text-xs font-bold text-[#D97706] text-center">
-                            24/7 Live
-                        </button>
+                        <div>
+                            <div
+                                class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined">
+                                        call
+                                    </span>
+                                    <span>+91 8305544478</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined">
+                                        mail
+                                    </span>
+                                    <a href="mailto:adityathakur1704@gmail.com"
+                                        class="hover:text-gray-800">adityathakur1704@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <button
+                                class="w-full py-2 px-3 bg-[#FEF3C7] rounded-xl text-xs font-bold text-[#D97706] text-center">
+                                24/7 Live
+                            </button>
+                        </div>
                     </div>
+
                 </div>
 
             </div>
-
-        </div>
-    </section>
+        </section>
 
         <section class="bg-white font-sans antialiased text-slate-800 pt-8 pb-8 sm:pt-10 sm:pb-10">
             <div class="max-w-[1500px] mx-auto px-6 sm:px-8 md:px-10 lg:px-14 xl:px-16 space-y-4">
@@ -921,100 +914,100 @@
         <!--DOWNLOAD THE FE APP-->
 
         <section class=" bg-[#FFFDF8] w-full">
-        <!-- Full-width gradient background container -->
-        <div
-            class="w-full bg-gradient-to-r bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
+            <!-- Full-width gradient background container -->
+            <div
+                class="w-full bg-gradient-to-r bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
 
-            <!-- Centered content container with max-width and extra padding -->
-            <div class="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+                <!-- Centered content container with max-width and extra padding -->
+                <div class="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
 
-                <!-- Changed from grid to flex-row to keep items on same line -->
-                <div class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
+                    <!-- Changed from grid to flex-row to keep items on same line -->
+                    <div class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
 
-                    <!-- ================= Left ================= -->
-                    <div class="flex-1 min-w-[280px]">
+                        <!-- ================= Left ================= -->
+                        <div class="flex-1 min-w-[280px]">
 
-                        <!-- Badge -->
-                        <div
-                            class="inline-flex items-center gap-2 rounded-full border border-[#22C55E] bg-white px-4 py-1.5">
-                            <span class="material-symbols-outlined text-[15px] text-[#22C55E]">
-                                download
-                            </span>
-                            <span class="text-[12px] font-semibold text-[#22C55E]">
-                                Get the FE App
-                            </span>
-                        </div>
+                            <!-- Badge -->
+                            <div
+                                class="inline-flex items-center gap-2 rounded-full border border-[#22C55E] bg-white px-4 py-1.5">
+                                <span class="material-symbols-outlined text-[15px] text-[#22C55E]">
+                                    download
+                                </span>
+                                <span class="text-[12px] font-semibold text-[#22C55E]">
+                                    Get the FE App
+                                </span>
+                            </div>
 
-                        <!-- Heading -->
-                        <h2
-                            class="mt-5 text-[32px] sm:text-[36px] lg:text-[40px] font-bold leading-tight text-[#1E293B]">
-                            Download the
-                            <span class="text-[#22C55E]">
-                                FE App
-                            </span>
-                        </h2>
+                            <!-- Heading -->
+                            <h2
+                                class="mt-5 text-[32px] sm:text-[36px] lg:text-[40px] font-bold leading-tight text-[#1E293B]">
+                                Download the
+                                <span class="text-[#22C55E]">
+                                    FE App
+                                </span>
+                            </h2>
 
-                        <!-- Description -->
-                        <p class="mt-3 max-w-[500px] text-[14px] leading-6 text-slate-600">
-                            Manage field service jobs anytime, anywhere.
-                            Book engineers, track service requests and stay
-                            connected with real-time updates.
-                        </p>
-
-                        <!-- Store Buttons -->
-                        <div class="flex items-center gap-4 mt-6 flex-wrap">
-                            <a href="#"
-                                class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
-                                <svg class="w-6 h-6 shrink-0" viewBox="0 0 512 512">
-                                    <path fill="#00f076"
-                                        d="M12 28.1C10.2 30.2 9 33.6 9 38v436c0 4.4 1.2 7.8 3 9.9l2.2 2.1L266 234.3v-4.6L14.2 26z" />
-                                    <path fill="#00d7ff"
-                                        d="M346.7 315l-80.7-80.7v-4.6l80.7-80.7 2.3 1.3 95.6 54.3c27.3 15.5 27.3 40.9 0 56.4l-95.6 54-2.3 0z" />
-                                    <path fill="#ff1744"
-                                        d="M349 315l-83-83L12 483.9c8.8 9.3 23.3 10.4 39.8 1.1L349 315z" />
-                                    <path fill="#ffbe00"
-                                        d="M349 197L51.8 28c-16.5-9.3-31-8.2-39.8 1.1L266 214l83-17z" />
-                                </svg>
-                                <div class="text-left leading-none">
-                                    <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">GET IT
-                                        ON</p>
-                                    <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
-                                        Google Play</p>
-                                </div>
-                            </a>
-                            <a href="#"
-                                class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
-                                <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.97.04-2.14.65-2.83 1.46-.62.72-1.16 1.88-1.01 3 .01 0 .04.01.07.01 1.08 0 2.19-.55 2.78-1.37z" />
-                                </svg>
-                                <div class="text-left leading-none">
-                                    <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
-                                        Download on</p>
-                                    <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">App
-                                        Store</p>
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <!-- ================= Right ================= -->
-                    <div class="flex-shrink-0 flex justify-center lg:justify-end">
-                        <div class="text-center">
-                            <p class="mb-4 text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
-                                Scan to Download
+                            <!-- Description -->
+                            <p class="mt-3 max-w-[500px] text-[14px] leading-6 text-slate-600">
+                                Manage field service jobs anytime, anywhere.
+                                Book engineers, track service requests and stay
+                                connected with real-time updates.
                             </p>
-                            <img src="{% static 'img/about-qr.png' %}" alt="Download FE App"
-                                class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
+
+                            <!-- Store Buttons -->
+                            <div class="flex items-center gap-4 mt-6 flex-wrap">
+                                <a href="#"
+                                    class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
+                                    <svg class="w-6 h-6 shrink-0" viewBox="0 0 512 512">
+                                        <path fill="#00f076"
+                                            d="M12 28.1C10.2 30.2 9 33.6 9 38v436c0 4.4 1.2 7.8 3 9.9l2.2 2.1L266 234.3v-4.6L14.2 26z" />
+                                        <path fill="#00d7ff"
+                                            d="M346.7 315l-80.7-80.7v-4.6l80.7-80.7 2.3 1.3 95.6 54.3c27.3 15.5 27.3 40.9 0 56.4l-95.6 54-2.3 0z" />
+                                        <path fill="#ff1744"
+                                            d="M349 315l-83-83L12 483.9c8.8 9.3 23.3 10.4 39.8 1.1L349 315z" />
+                                        <path fill="#ffbe00"
+                                            d="M349 197L51.8 28c-16.5-9.3-31-8.2-39.8 1.1L266 214l83-17z" />
+                                    </svg>
+                                    <div class="text-left leading-none">
+                                        <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">GET IT
+                                            ON</p>
+                                        <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
+                                            Google Play</p>
+                                    </div>
+                                </a>
+                                <a href="#"
+                                    class="w-45 h-12 bg-black text-white hover:bg-gray-800 transition-colors px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
+                                    <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.97.04-2.14.65-2.83 1.46-.62.72-1.16 1.88-1.01 3 .01 0 .04.01.07.01 1.08 0 2.19-.55 2.78-1.37z" />
+                                    </svg>
+                                    <div class="text-left leading-none">
+                                        <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
+                                            Download on</p>
+                                        <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">App
+                                            Store</p>
+                                    </div>
+                                </a>
+                            </div>
+
                         </div>
+
+                        <!-- ================= Right ================= -->
+                        <div class="flex-shrink-0 flex justify-center lg:justify-end">
+                            <div class="text-center">
+                                <p class="mb-4 text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
+                                    Scan to Download
+                                </p>
+                                <img src="{% static 'img/about-qr.png' %}" alt="Download FE App"
+                                    class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
     </div>
 
 </main>

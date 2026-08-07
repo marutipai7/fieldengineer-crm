@@ -129,7 +129,7 @@ const ARTICLES = [
         icon: "schedule", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Track Your Service Request in Real Time",
         category: "For Customers",
-        heroImage: "img/articles/track-service-request.jpg",
+        heroImage: "/static/img/articles/track-service-request.webp",
         shortDescription:
             "Learn how to check your job status, track your engineer's location, and stay updated on the progress of your service request.",
         readingTime: "3 min read",
@@ -182,7 +182,7 @@ const ARTICLES = [
         icon: "receipt_long", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Understanding Invoices & Payments",
         category: "Billing & Payments",
-        heroImage: "img/articles/understanding-invoices-payments.jpg",
+        heroImage: "/static/img/articles/invoice-payments.webp",
         shortDescription:
             "Learn how invoices are created, when payments are made, and how tax is applied to your FieldEngineer jobs.",
         readingTime: "4 min read",
@@ -238,7 +238,7 @@ const ARTICLES = [
         icon: "store", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Vendor Registration Process",
         category: "For Vendors",
-        heroImage: "img/articles/vendor-registration-process.jpg",
+        heroImage: "/static/img/articles/vendor-registration-process.webp",
         shortDescription:
             "Learn how to register, get verified, and start offering your services on the platform.",
         readingTime: "5 min read",
@@ -286,7 +286,7 @@ const ARTICLES = [
         icon: "smartphone", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "How Work Updates & Reports Are Created",
         category: "For Engineers",
-        heroImage: "img/articles/work-updates-reports.jpg",
+        heroImage: "/static/img/articles/updates-reports.webp",
         shortDescription: "Learn how work updates are recorded and service reports are prepared.",
         readingTime: "6 min read",
         lastUpdated: "May 5, 2025",
@@ -336,7 +336,7 @@ const ARTICLES = [
         icon: "person_add", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Engineer App: Complete Guide",
         category: "For Engineers",
-        heroImage: "img/articles/engineer-app-guide.jpg",
+        heroImage: "/static/img/articles/engineer-app.webp",
         shortDescription: "Everything you need to know about using the Field Engineer app.",
         readingTime: "4 min read",
         lastUpdated: "May 2, 2025",
@@ -382,7 +382,7 @@ const ARTICLES = [
         icon: "shield", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Account Security",
         category: "Account & Security",
-        heroImage: "img/articles/account-security.jpg",
+        heroImage: "/static/img/articles/account-security.webp",
         shortDescription: "Learn how to protect your account and keep it secure.",
         readingTime: "3 min read",
         lastUpdated: "Apr 30, 2025",
@@ -437,7 +437,7 @@ const ARTICLES = [
         icon: "add_task", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "How to Post Your First Job on FE",
         category: "Getting Started",
-        heroImage: "img/articles/post-first-job.jpg",
+        heroImage: "",
         shortDescription:
             "Posting your first job on FE – FieldEngineer is simple and takes less than 5 minutes. Once your request is live, verified field engineers in your area will review the details and submit their applications.",
         readingTime: "5 min read",
@@ -493,7 +493,7 @@ const ARTICLES = [
         icon: "engineering", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "How the Engineer Selection Process Works",
         category: "Getting Started",
-        heroImage: "img/articles/engineer-selection-process.jpg",
+        heroImage: "",
         shortDescription:
             "Understand how verified engineers apply for your job, how to review profiles, and how to award the job.",
         readingTime: "4 min read",
@@ -545,7 +545,7 @@ const ARTICLES = [
         icon: "payments", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Understanding Budget Range & Bidding",
         category: "Booking a Job",
-        heroImage: "img/articles/budget-range-bidding.jpg",
+        heroImage: "",
         shortDescription:
             "Learn how to set competitive budgets, how engineers submit bids, and how to compare offers effectively.",
         readingTime: "4 min read",
@@ -597,7 +597,7 @@ const ARTICLES = [
         icon: "upload_file", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "How to Upload Site Documents & Floor Plans",
         category: "Booking a Job",
-        heroImage: "img/articles/upload-site-documents.jpg",
+        heroImage: "",
         shortDescription:
             "Attach relevant documents, floor plans, and photos to help engineers understand your site layout and instructions.",
         readingTime: "4 min read",
@@ -649,7 +649,7 @@ const ARTICLES = [
         icon: "person", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Setting Up Your FE Account",
         category: "Getting Started",
-        heroImage: "img/articles/setting-up-account.jpg",
+        heroImage: "",
         shortDescription:
             "A complete walkthrough of creating and configuring your FieldEngineer account for the first time.",
         readingTime: "3 min read",
@@ -693,7 +693,7 @@ const ARTICLES = [
         icon: "dashboard", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Understanding Your Customer Dashboard",
         category: "Getting Started",
-        heroImage: "img/articles/customer-dashboard.jpg",
+        heroImage: "",
         shortDescription: "A tour of the customer dashboard and where to find jobs, invoices, and account settings.",
         readingTime: "3 min read",
         lastUpdated: "Jul 3, 2026",
@@ -729,7 +729,7 @@ const ARTICLES = [
         icon: "location_on", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "How to Track Your Engineer Live",
         category: "For Customers",
-        heroImage: "img/articles/track-engineer-live.jpg",
+        heroImage: "",
         shortDescription: "A closer look at live location tracking during an active job visit.",
         readingTime: "3 min read",
         lastUpdated: "Jun 28, 2026",
@@ -765,7 +765,7 @@ const ARTICLES = [
         icon: "task_alt", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "What Happens After Job Completion?",
         category: "Getting Started",
-        heroImage: "img/articles/job-completion.jpg",
+        heroImage: "",
         shortDescription: "Understand the steps that follow once your engineer marks a job as complete.",
         readingTime: "3 min read",
         lastUpdated: "Jun 20, 2026",
@@ -795,7 +795,7 @@ const ARTICLES = [
         icon: "report_problem", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "How to Raise a Support Ticket",
         category: "Technical Support",
-        heroImage: "img/articles/raise-an-issue.jpg",
+        heroImage: "/static/img/articles/browse-category-technical-support.webp",
         shortDescription:
             "Step-by-step guide to reporting an issue or getting help from the FieldEngineer support team.",
         readingTime: "3 min read",
@@ -869,8 +869,23 @@ const buildArticleUrl = (id) => {
  * "/static/" if that script tag is missing, so nothing breaks silently.
  */
 const resolveStaticUrl = (relativePath) => {
-    const base = window.STATIC_URL || "/static/";
-    return `${base.endsWith("/") ? base : base + "/"}${relativePath}`;
+    // If the path already starts with /static/, return as is
+    if (relativePath.startsWith('/static/')) {
+        return relativePath;
+    }
+
+    // Get the base static URL
+    let base = window.STATIC_URL || "/static/";
+
+    // Ensure base ends with /
+    if (!base.endsWith("/")) {
+        base = base + "/";
+    }
+
+    // Remove leading slash from relativePath if it has one
+    const path = relativePath.startsWith("/") ? relativePath.substring(1) : relativePath;
+
+    return `${base}${path}`;
 };
 
 const escapeHtml = (str = "") =>
@@ -988,6 +1003,7 @@ const renderBreadcrumb = (article) => {
 };
 
 /** Fills in the shared hero banner's overlay text + the per-article hero image. */
+/** Fills in the shared hero banner's overlay text + the per-article hero image. */
 const renderHero = (article) => {
     document.title = `${article.title} | FE Help Center`;
 
@@ -1009,14 +1025,54 @@ const renderHero = (article) => {
 
     const heroImage = document.getElementById("article-hero-image");
     if (heroImage) {
-        heroImage.src = resolveStaticUrl(article.heroImage);
+        const imgPath = resolveStaticUrl(article.heroImage);
+        console.log("Loading image from:", imgPath);
+
+        // Clear any previous fallback content
+        const parent = heroImage.closest('div');
+        if (parent) {
+            // Remove any existing fallback icon
+            const existingFallback = parent.querySelector('.hero-fallback-icon');
+            if (existingFallback) {
+                existingFallback.remove();
+            }
+            // Remove fallback classes
+            parent.classList.remove('bg-article-light-green', 'flex', 'items-center', 'justify-center');
+        }
+
+        // Reset image display
+        heroImage.style.display = 'block';
+        heroImage.src = imgPath;
         heroImage.alt = article.title;
+
+        // Store the article icon for fallback use
+        heroImage.dataset.fallbackIcon = article.icon || 'description';
+
+        // Remove old onerror handler and set a new one
+        heroImage.onerror = function () {
+            console.error("Failed to load image:", this.src);
+            this.style.display = 'none';
+
+            const parentEl = this.closest('div');
+            if (parentEl && !parentEl.querySelector('.hero-fallback-icon')) {
+                parentEl.classList.add('bg-article-light-green', 'flex', 'items-center', 'justify-center');
+                const fallback = document.createElement('span');
+                fallback.className = 'material-symbols-outlined text-primary-green text-[48px] hero-fallback-icon';
+                fallback.textContent = this.dataset.fallbackIcon || 'description';
+                parentEl.appendChild(fallback);
+            }
+        };
+
+        // Force a reload if the image is already cached but failed
+        // This handles the case where the image was cached as broken
+        if (heroImage.complete && heroImage.naturalHeight === 0) {
+            heroImage.onerror.call(heroImage);
+        }
     }
 
     const intro = document.getElementById("article-intro");
     if (intro) intro.textContent = article.shortDescription;
 };
-
 const renderContent = (article) => {
     const container = document.getElementById("article-content");
     if (!container) return;
@@ -1492,6 +1548,13 @@ const setupHelpCenterSearch = () => {
 const renderArticlePage = () => {
     const id = getArticleIdFromUrl();
     const article = id ? getArticleById(id) : undefined;
+
+    console.log("Article ID:", id);
+    console.log("Article found:", article);
+    if (article) {
+        console.log("Hero image path:", article.heroImage);
+        console.log("Resolved URL:", resolveStaticUrl(article.heroImage));
+    }
 
     setupArticlePreviewModal();
 

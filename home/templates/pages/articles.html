@@ -22,7 +22,7 @@
     {% endcomment %}
     <section class="relative">
         <div class="relative h-[260px] md:h-[320px] w-full overflow-hidden">
-            <img src="{% static 'img/help-center/article-hero-banner.jpg' %}" alt="" aria-hidden="true"
+            <img src="{% static 'img/articles/article-bg.webp' %}" alt="" aria-hidden="true"
                 class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-[#0B2A1E]/90 via-[#0B2A1E]/60 to-[#0B2A1E]/20"></div>
 
@@ -306,6 +306,10 @@ openArticlePreview() in articles.js.
     </div>
 </div>
 
-
+<script>
+    window.STATIC_URL = "{% get_static_prefix %}";
+    // or
+    window.STATIC_URL = "{% static '' %}";
+</script>
 <script src="{% static 'script/pages/articles.js' %}"></script>
 {% endblock %}
