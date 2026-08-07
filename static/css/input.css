@@ -1163,6 +1163,9 @@ input[type="number"]::-webkit-inner-spin-button {
 
   color: #F5B530;
 }
+.feature-content{
+    flex: 1;
+}
 
 /* ==========================================
    FEATURE TEXT
@@ -1197,28 +1200,20 @@ input[type="number"]::-webkit-inner-spin-button {
 ========================================== */
 
 .mission-image {
-  display: flex;
-  justify-content: flex-end;
-  transform: translateX(30px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .mission-image img {
-
-  width: 520px;
-
-  max-width: 100%;
-
-  display: block;
-
-  border-radius: 20px;
-
-  background: #fff;
-
-  padding: 8px;
-
-  border: 1px solid #ECECEC;
-
-  box-shadow: 0 18px 45px rgba(15, 23, 42, .08);
+    width: 520px;
+    max-width: 100%;
+    display: block;
+    border-radius: 20px;
+    background: #fff;
+    padding: 8px;
+    border: 1px solid #ECECEC;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, .08);
 }
 
 /* ==========================================
@@ -2176,129 +2171,174 @@ height:400px;
 
 }
 /*==================================================
-FE REGION CARDS
+  FE REGION CARDS
 ==================================================*/
 
-.fe-region-card{
+.fe-region-card {
+    position: relative;
+    background: #fff;
+    border-radius: 24px;
+    padding: 32px;
+    min-height: 330px;
 
-    background:#fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    border:1px solid rgba(245,181,48,.18);
+    overflow: hidden;
+    box-sizing: border-box;
 
-    border-radius:24px;
-
-    overflow:hidden;
-
-    transition:.35s;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.06);
-
+    transition: all .35s ease;
 }
 
-.fe-region-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 25px 55px rgba(245,181,48,.15);
-
+.fe-region-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 55px rgba(245,181,48,.15);
 }
 
-.fe-region-main{
-
-    border:2px solid #F5B530;
-
+.fe-region-card.expanded {
+    min-height: 330px;
 }
 
-.fe-region-header{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    background:#F5B530;
-
-    color:#fff;
-
-    padding:18px 22px;
-
-    font-size:18px;
-
-    font-weight:700;
-
+.fe-region-card.no-button {
+    justify-content: flex-start;
 }
 
-.fe-region-header span{
-
-    font-size:24px;
-
+.fe-region-card.no-button .country-list {
+    margin-top: 18px;
 }
 
-.fe-region-card ul{
-
-    padding:20px;
-
+.fe-region-main {
+    border: 2px solid #F5B530;
 }
 
-.fe-region-card li{
+/*==================================================
+  HEADER
+==================================================*/
 
-    padding:10px 0;
+.fe-region-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-    border-bottom:1px dashed #e5e7eb;
+    background: #F5B530;
+    color: #fff;
 
-    color:#475569;
+    padding: 18px 22px;
 
-    font-size:15px;
+    font-size: 18px;
+    font-weight: 700;
 
+    border-radius: 16px;
 }
 
-.fe-region-card li:last-child{
-
-    border-bottom:none;
-
-}
-.fe-region-card li{
-
-    position:relative;
-
-    padding:12px 0 12px 22px;
-
-    border-bottom:1px dashed #E5E7EB;
-
-    transition:.3s;
-
+.fe-region-header span {
+    font-size: 24px;
 }
 
-.fe-region-card li::before{
+/*==================================================
+  COUNTRY LIST
+==================================================*/
 
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    top:50%;
-
-    width:8px;
-
-    height:8px;
-
-    border-radius:50%;
-
-    background:#F5B530;
-
-    transform:translateY(-50%);
-
+.country-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+    flex: 1;
 }
 
-.fe-region-card li:hover{
+.country-list li {
+    position: relative;
 
-    color:#B7791F;
+    padding: 14px 0 14px 22px;
 
-    padding-left:30px;
+    border-bottom: 1px dashed #E5E7EB;
 
+    color: #475569;
+
+    font-size: 15px;
+
+    transition: .3s;
 }
+
+.country-list li:last-child {
+    border-bottom: none;
+}
+
+.country-list li::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #F5B530;
+}
+
+/*==================================================
+  HIDDEN COUNTRIES
+==================================================*/
+
+.more-country {
+    display: list-item;
+}
+
+.more-country.hidden {
+    display: none !important;
+}
+
+/*==================================================
+  READ MORE BUTTON
+==================================================*/
+
+.read-more-btn {
+    width: 100%;
+
+    margin-top: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding-top: 16px;
+
+    border: none;
+    border-top: 1px solid #E5E7EB;
+
+    background: transparent;
+
+    color: #15803D;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.read-more-btn:hover {
+    color: #F5B530;
+}
+
+.read-more-btn .material-symbols-outlined {
+    font-size: 20px;
+    transition: transform .3s ease;
+}
+
+.read-more-btn.active .material-symbols-outlined {
+    transform: rotate(180deg);
+}
+
 /*==================================================
 PART 6 : MAP BACKGROUND EFFECTS
 ==================================================*/
@@ -5784,6 +5824,34 @@ transform:translateY(-12px);
   .job-opening span {
     @apply text-[#18B37B];
   }
+  .hero-save-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 22px;
+    border-radius:12px;
+    border:1px solid #CBD5E1;
+    background:#fff;
+    color:#475569;
+    font-weight:600;
+    transition:.3s;
+}
+
+.hero-save-btn:hover{
+    background:#F8FAFC;
+}
+
+.hero-save-btn.saved{
+    background:#DCFCE7;
+    border-color:#16A34A;
+    color:#15803D;
+}
+
+.hero-save-btn.saved .material-symbols-outlined{
+    color:#15803D;
+}
+
 
   /* =====================================================
                 NEWSROOM / GRIDLOVE NEWS TEMPLATE STYLES

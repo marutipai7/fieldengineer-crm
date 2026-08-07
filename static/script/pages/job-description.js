@@ -102,3 +102,85 @@ document.addEventListener("click", function (e) {
     }
 
 });
+// ================= Save Job =================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const saveBtn = document.getElementById("saveJobBtn");
+
+    if (!saveBtn) return;
+
+    const icon = document.getElementById("saveJobIcon");
+    const text = document.getElementById("saveJobText");
+
+    // Unique job ID
+    const jobId = "software-engineer";
+
+    // Check saved state
+    let isSaved = localStorage.getItem("savedJob_" + jobId) === "true";
+
+    updateButton();
+
+    saveBtn.addEventListener("click", function () {
+
+        isSaved = !isSaved;
+
+        localStorage.setItem("savedJob_" + jobId, isSaved);
+
+        updateButton();
+
+    });
+
+    function updateButton() {
+
+        if (isSaved) {
+
+            text.textContent = "Saved";
+
+            icon.textContent = "bookmark";
+
+            saveBtn.classList.add("saved");
+
+        } else {
+
+            text.textContent = "Save Job";
+
+            icon.textContent = "bookmark_add";
+
+            saveBtn.classList.remove("saved");
+
+        }
+
+    }
+
+});
+// Resume Validation
+const resumeInput = document.getElementById("resume");
+
+if (resumeInput) {
+    resumeInput.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (!file) return;
+
+        const allowedTypes = [
+            "application/pdf",
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        ];
+
+        if (!allowedTypes.includes(file.type)) {
+            alert("Only PDF, DOC and DOCX files are allowed.");
+            this.value = "";
+            return;
+        }
+
+        if (file.size > 500 * 1024) {
+            alert("Resume size must not exceed 500 KB.");
+            this.value = "";
+            return;
+        }
+
+    });
+}

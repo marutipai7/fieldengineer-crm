@@ -11,7 +11,7 @@
 
     <!-- Background Image -->
     <img
-        src="{% static 'img/engineer-hero.jpg' %}"
+        src="{% static 'img/engineer-hero.webp' %}"
         alt="IT Engineers"
         width="1920"
         height="800"
@@ -88,13 +88,12 @@
 
 <main class="bg-greenish-white">
 <!--REQUIREMENTS TO JOIN-->
-<section class="pt-0 pb-14 bg-white">
+<section class="bg-stone-50 py-8 lg:py-12">
 
-    <div class="max-w-[1400px] mx-auto">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
-        <div class="bg-stone-50 rounded-[30px] p-6 sm:p-8 lg:p-14">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
                 <!-- ================= LEFT ================= -->
 
@@ -210,14 +209,14 @@
                 <div class="relative">
 
                     <img
-                        src="{% static 'img/engineer-sec2.jpg' %}"
+                        src="{% static 'img/cyber-security-cloud.webp' %}"
                         alt="Field Engineer"
                         class="w-full h-[320px] sm:h-[420px] lg:h-[520px] rounded-[28px] object-cover shadow-xl">
 
                 </div>
 
 
-            </div>
+            
 
         </div>
 
@@ -229,8 +228,8 @@
 <!-- FE GLOBAL COVERAGE SECTION -->
 <!-- ========================================================= -->
 
-<section class="relative bg-stone-100 py-20 overflow-hidden">
-
+<section class="relative bg-stone-100 pt-0 pb-20 overflow-hidden">    
+    
     <!-- Background Pattern -->
 
     <div class="absolute inset-0 pointer-events-none">
@@ -243,7 +242,7 @@
 
 </div>
 
-    <div class="relative max-w-[1450px] mx-auto px-6 lg:px-10">
+    <div class="relative max-w-[1450px] mx-auto px-8 md:px-10 lg:px-14 xl:px-16">
 
 
 
@@ -459,136 +458,230 @@
 <!-- PART 3 : GLOBAL REGION CARDS -->
 <!-- ========================================================= -->
 
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-7 mt-16">
-
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mt-8">
     <!-- North America -->
-    <div class="fe-region-card">
-        <div class="fe-region-header">
-            <span class="material-symbols-outlined">travel_explore</span>
-            North America
-        </div>
+<div class="fe-region-card no-button">
 
-        <ul>
-            <li>🇺🇸 United States</li>
-            <li>🇨🇦 Canada</li>
-        </ul>
+    <div class="fe-region-header">
+        <span class="material-symbols-outlined">travel_explore</span>
+        North America
     </div>
+
+    <ul class="country-list">
+        <li>United States</li>
+        <li>Canada</li>
+    </ul>
+
+</div>
 
     <!-- Europe -->
-    <div class="fe-region-card">
-        <div class="fe-region-header">
-            <span class="material-symbols-outlined">public</span>
-            Europe
-        </div>
+    <div class="fe-region-card active-card">
 
-        <ul>
-            <li>🇬🇧 United Kingdom</li>
-            <li>🇩🇪 Germany</li>
-            <li>🇫🇷 France</li>
-            <li>🇪🇸 Spain</li>
-            <li>🇮🇹 Italy</li>
-            <li>🇳🇱 Netherlands</li>
-        </ul>
+    <div class="fe-region-header">
+        <span class="material-symbols-outlined">public</span>
+        Europe
     </div>
+
+    <ul class="country-list">
+
+        <li>United Kingdom</li>
+        <li>Germany</li>
+
+        <li class="more-country hidden">France</li>
+        <li class="more-country hidden">Spain</li>
+        <li class="more-country hidden">Italy</li>
+        <li class="more-country hidden">Netherlands</li>
+
+    </ul>
+
+    <button class="read-more-btn">
+        Read More
+        <span class="material-symbols-outlined text-[18px]">
+            expand_more
+        </span>
+    </button>
+
+</div>
 
     <!-- Asia -->
-    <div class="fe-region-card active-card">
-        <div class="fe-region-header">
-            <span class="material-symbols-outlined">location_on</span>
-            Asia
-        </div>
+<div class="fe-region-card active-card">
 
-        <ul>
-            <li>🇮🇳 India</li>
-            <li>🇯🇵 Japan</li>
-            <li>🇸🇬 Singapore</li>
-            <li>🇲🇾 Malaysia</li>
-            <li>🇹🇭 Thailand</li>
-            <li>🇨🇳 China</li>
-            <li>🇰🇷 South Korea</li>
-            <li>🇦🇪 UAE</li>
-            <li>🇶🇦 Qatar</li>
-            <li>🇸🇦 Saudi Arabia</li>
-        </ul>
+    <div class="fe-region-header">
+        <span class="material-symbols-outlined">location_on</span>
+        Asia
     </div>
+
+    <ul class="country-list">
+
+        <!-- Always Visible -->
+        <li>India</li>
+        <li>Japan</li>
+
+        <!-- Hidden Initially -->
+        <li class="more-country hidden">Singapore</li>
+        <li class="more-country hidden">Malaysia</li>
+        <li class="more-country hidden">Thailand</li>
+        <li class="more-country hidden">China</li>
+        <li class="more-country hidden">South Korea</li>
+        <li class="more-country hidden">UAE</li>
+        <li class="more-country hidden">Qatar</li>
+        <li class="more-country hidden">Saudi Arabia</li>
+
+    </ul>
+
+    <button class="read-more-btn">
+        Read More
+        <span class="material-symbols-outlined text-[18px]">
+            expand_more
+        </span>
+    </button>
+
+</div>
 
     <!-- Africa -->
-    <div class="fe-region-card">
-        <div class="fe-region-header">
-            <span class="material-symbols-outlined">globe_asia</span>
-            Africa
-        </div>
+<div class="fe-region-card">
 
-        <ul>
-            <li>🇿🇦 South Africa</li>
-            <li>🇰🇪 Kenya</li>
-            <li>🇳🇬 Nigeria</li>
-            <li>🇪🇬 Egypt</li>
-            <li>🇲🇦 Morocco</li>
-        </ul>
+    <div class="fe-region-header">
+        <span class="material-symbols-outlined">globe_asia</span>
+        Africa
     </div>
+
+    <ul class="country-list">
+
+        <!-- Always Visible -->
+        <li>South Africa</li>
+        <li>Kenya</li>
+
+        <!-- Hidden Initially -->
+        <li class="more-country hidden">Nigeria</li>
+        <li class="more-country hidden">Egypt</li>
+        <li class="more-country hidden">Morocco</li>
+
+    </ul>
+
+    <button class="read-more-btn">
+        Read More
+        <span class="material-symbols-outlined text-[18px]">
+            expand_more
+        </span>
+    </button>
+
+</div>
 
     <!-- South America -->
-    <div class="fe-region-card">
-        <div class="fe-region-header">
-            <span class="material-symbols-outlined">south_america</span>
-            South America
-        </div>
+<div class="fe-region-card">
 
-        <ul>
-            <li>🇧🇷 Brazil</li>
-            <li>🇦🇷 Argentina</li>
-            <li>🇨🇱 Chile</li>
-            <li>🇨🇴 Colombia</li>
-            <li>🇵🇪 Peru</li>
-        </ul>
+    <div class="fe-region-header">
+        <span class="material-symbols-outlined">south_america</span>
+        South America
     </div>
+
+    <ul class="country-list">
+
+        <!-- Always Visible -->
+        <li>Brazil</li>
+        <li>Argentina</li>
+
+        <!-- Hidden Initially -->
+        <li class="more-country hidden">Chile</li>
+        <li class="more-country hidden">Colombia</li>
+        <li class="more-country hidden">Peru</li>
+
+    </ul>
+
+    <button class="read-more-btn">
+        Read More
+        <span class="material-symbols-outlined text-[18px]">
+            expand_more
+        </span>
+    </button>
+
+</div>
 
     <!-- Central America -->
-    <div class="fe-region-card">
-        <div class="fe-region-header">
-            <span class="material-symbols-outlined">language</span>
-            Central America
-        </div>
+<div class="fe-region-card">
 
-        <ul>
-            <li>🇲🇽 Mexico</li>
-            <li>🇨🇷 Costa Rica</li>
-            <li>🇵🇦 Panama</li>
-            <li>🇵🇷 Puerto Rico</li>
-        </ul>
+    <div class="fe-region-header">
+        <span class="material-symbols-outlined">language</span>
+        Central America
     </div>
+
+    <ul class="country-list">
+
+        <!-- Always Visible -->
+        <li>Mexico</li>
+        <li>Costa Rica</li>
+
+        <!-- Hidden Initially -->
+        <li class="more-country hidden">Panama</li>
+        <li class="more-country hidden">Puerto Rico</li>
+
+    </ul>
+
+    <button class="read-more-btn">
+        Read More
+        <span class="material-symbols-outlined text-[18px]">
+            expand_more
+        </span>
+    </button>
+
+</div>
 
     <!-- Oceania -->
-    <div class="fe-region-card">
-        <div class="fe-region-header">
-            <span class="material-symbols-outlined">landscape</span>
-            Oceania
-        </div>
+<div class="fe-region-card">
 
-        <ul>
-            <li>🇦🇺 Australia</li>
-            <li>🇳🇿 New Zealand</li>
-            <li>🇬🇺 Guam</li>
-        </ul>
+    <div class="fe-region-header">
+        <span class="material-symbols-outlined">landscape</span>
+        Oceania
     </div>
 
+    <ul class="country-list">
+
+        <!-- Always Visible -->
+        <li>Australia</li>
+        <li>New Zealand</li>
+
+        <!-- Hidden Initially -->
+        <li class="more-country hidden">Guam</li>
+
+    </ul>
+
+    <button class="read-more-btn">
+        Read More
+        <span class="material-symbols-outlined text-[18px]">
+            expand_more
+        </span>
+    </button>
+
+</div>
     <!-- Middle East -->
-    <div class="fe-region-card">
-        <div class="fe-region-header">
-            <span class="material-symbols-outlined">pin_drop</span>
-            Middle East
-        </div>
+<div class="fe-region-card">
 
-        <ul>
-            <li>🇦🇪 UAE</li>
-            <li>🇸🇦 Saudi Arabia</li>
-            <li>🇶🇦 Qatar</li>
-            <li>🇧🇭 Bahrain</li>
-            <li>🇰🇼 Kuwait</li>
-            <li>🇴🇲 Oman</li>
-        </ul>
+    <div class="fe-region-header">
+        <span class="material-symbols-outlined">pin_drop</span>
+        Middle East
     </div>
+
+    <ul class="country-list">
+
+        <!-- Always Visible -->
+        <li>UAE</li>
+        <li>Saudi Arabia</li>
+
+        <!-- Hidden Initially -->
+        <li class="more-country hidden">Qatar</li>
+        <li class="more-country hidden">Bahrain</li>
+        <li class="more-country hidden">Kuwait</li>
+        <li class="more-country hidden">Oman</li>
+
+    </ul>
+
+    <button class="read-more-btn">
+        Read More
+        <span class="material-symbols-outlined text-[18px]">
+            expand_more
+        </span>
+    </button>
 
 </div>
 
@@ -596,8 +689,8 @@
 </section>
 
 <!--WHY ENGINEERS CHOOSE OUR PLATFORM-->
-<section class="bg-[#F7FCF8] py-12 md:py-16 lg:py-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+<section class="bg-[#F7FCF8] pt-6 pb-12 md:pt-8 md:pb-16 lg:pt-10 lg:pb-20">    
+    <div class="max-w-[1450px] mx-auto px-8 md:px-10 lg:px-14 xl:px-16">
 
         <!-- Heading -->
         <div class="text-center max-w-4xl mx-auto mb-14">
@@ -640,8 +733,8 @@
                 </h3>
 
                 <p class="mt-4 text-[14px] leading-6 text-slate-500">
-                    LAN/WAN setup, Wi-Fi deployment, network troubleshooting and
-                    performance optimization.
+                    LAN/WAN setup, Wi-Fi deployment, network troubleshooting 
+                 .
                 </p>
 
                 <button
@@ -737,7 +830,7 @@
 
                 <p class="mt-4 text-[14px] leading-6 text-slate-500">
                     Preventive maintenance and break-fix support to minimize downtime
-                    and ensure business continuity.
+                    .
                 </p>
 
                 <button
@@ -761,10 +854,9 @@
 </section>
 
 <!--POWERFUL TOOLS TO MANAGE-->
-<section class="bg-stone-50 py-12 md:py-16 lg:py-20">
+<section class="bg-stone-50 pt-6 pb-12 md:pt-8 md:pb-16 lg:pt-10 lg:pb-20">
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
         <!-- Heading -->
 
@@ -789,7 +881,7 @@
 
         <!-- Cards -->
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
 
 
@@ -798,18 +890,16 @@
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 group">
 
 
-                <div class="h-[230px] overflow-hidden rounded-t-[20px]">
+                <div class="h-[190px] overflow-hidden rounded-t-2xl">
 
-                    <img
-                        src="{% static 'img/recentjob-1.png' %}"
-                        alt="Network Installation"
-                        class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105">
+    <img
+        src="{% static 'img/recentjob-1.webp' %}"
+        class="w-full h-full object-cover rounded-t-2xl scale-[1.02] transition-all duration-500 group-hover:scale-105">
 
-                </div>
-
+</div>
 
 
-                <div class="p-6">
+<div class="p-5">
 
 
                     <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
@@ -867,18 +957,17 @@
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 group">
 
 
-                <div class="h-[230px] overflow-hidden rounded-t-[20px]">
+                <div class="h-[190px] overflow-hidden rounded-t-2xl">
 
-                    <img
-                        src="{% static 'img/recentjob-2.png' %}"
-                        alt="Server Installation"
-                        class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105">
+    <img
+        src="{% static 'img/recentjob-2.webp' %}"
+        alt="Server Installation"
+        class="w-full h-full object-cover rounded-t-2xl scale-[1.02] transition-all duration-500 group-hover:scale-105">
 
-                </div>
+</div>
 
 
-
-                <div class="p-6">
+<div class="p-5">
 
 
                     <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
@@ -937,18 +1026,17 @@
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 group">
 
 
-                <div class="h-[230px] overflow-hidden rounded-t-[20px]">
+                <div class="h-[190px] overflow-hidden rounded-t-2xl">
 
-                    <img
-                        src="{% static 'img/recentjob-3.png' %}"
-                        alt="Desktop Support"
-                        class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105">
+    <img
+        src="{% static 'img/recentjob-3.webp' %}"
+        alt="Desktop Support"
+        class="w-full h-full object-cover rounded-t-2xl scale-[1.02] transition-all duration-500 group-hover:scale-105">
 
-                </div>
+</div>
 
 
-
-                <div class="p-6">
+<div class="p-5">
 
 
                     <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
@@ -1008,18 +1096,17 @@
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 group">
 
 
-                <div class="h-[230px] overflow-hidden rounded-t-[20px]">
+                <div class="h-[190px] overflow-hidden rounded-t-2xl">
 
-                    <img
-                        src="{% static 'img/recentjob-4.png' %}"
-                        alt="CCTV Installation"
-                        class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105">
+    <img
+        src="{% static 'img/recentjob-4.webp' %}"
+        alt="CCTV Installation"
+        class="w-full h-full object-cover rounded-t-2xl scale-[1.02] transition-all duration-500 group-hover:scale-105">
 
-                </div>
+</div>
 
 
-
-                <div class="p-6">
+<div class="p-5">
 
 
                     <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
@@ -1077,18 +1164,17 @@
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 group">
 
 
-                <div class="h-[230px] overflow-hidden rounded-t-[20px]">
+                <div class="h-[190px] overflow-hidden rounded-t-2xl">
 
-                    <img
-                        src="{% static 'img/recentjob-5.png' %}"
-                        alt="Maintenance & Repair"
-                        class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105">
+    <img
+        src="{% static 'img/recentjob-5.webp' %}"
+        alt="Maintenance & Repair"
+        class="w-full h-full object-cover rounded-t-2xl scale-[1.02] transition-all duration-500 group-hover:scale-105">
 
-                </div>
+</div>
 
 
-
-                <div class="p-6">
+<div class="p-5">
 
 
                     <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
@@ -1146,18 +1232,17 @@
             <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 group">
 
 
-                <div class="h-[230px] overflow-hidden rounded-t-[20px]">
+                <div class="h-[190px] overflow-hidden rounded-t-2xl">
 
-                    <img
-                        src="{% static 'img/recentjob-6.png' %}"
-                        alt="IT Support"
-                        class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105">
+    <img
+        src="{% static 'img/recentjob-6.webp' %}"
+        alt="IT Support"
+        class="w-full h-full object-cover rounded-t-2xl scale-[1.02] transition-all duration-500 group-hover:scale-105">
 
-                </div>
+</div>
 
 
-
-                <div class="p-6">
+<div class="p-5">
 
 
                     <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
@@ -1216,12 +1301,13 @@
 
 </section>
 
-<!--TRUSTED BY LEADING BUSINESS-->
-<!--TESTIMONIAL-->
-    <section class=" py-8 lg:py-10 bg-warm-off-white overflow-hidden">
-        <div class="max-w-[1550px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
 
-            <div class="grid lg:grid-cols-[1.3fr_0.7fr] items-start gap-2">
+<!--TESTIMONIAL-->
+   <section class=" py-8 lg:py-10 bg-warm-off-white overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+    <div class="grid lg:grid-cols-[1.3fr_0.7fr] items-start gap-2">
+
 
                 <!-- ================= LEFT ================= -->
                 <div>
@@ -1252,13 +1338,11 @@
                         class="mt-5 w-full max-w-[760px] rounded-[24px] bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] px-6 sm:px-7 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
 
                         <!-- Stars -->
-                        <div class="flex gap-1">
-                            <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
-                            <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
-                            <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
-                            <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
-                            <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
-                        </div>
+                        <div id="testimonialStars" class="flex gap-1">
+    <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">
+        star
+    </span>
+</div>
 
                         <!-- Quote -->
                         <span class="material-symbols-outlined text-warm-golden-orange text-[24px] mt-2 block">
@@ -1278,44 +1362,88 @@
                         <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
 
                             <!-- Customer -->
-                            <div class="flex items-center gap-3">
-                                <div
-                                    class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-md flex-shrink-0">
-                                    <img id="customerImage" src="{% static 'img/fe-wocs.jpg' %}" alt="Customer"
-                                        class="w-full h-full object-cover">
-                                </div>
+                            <!-- Customer -->
+<div class="flex items-center gap-3">
 
-                                <div>
-                                    <h4 id="customerName"
-                                        class="font-semibold text-[16px] sm:text-[17px] text-light-blackk">
-                                        Priya Sharma
-                                    </h4>
-                                    <div class="flex items-center gap-1">
-                                        <span id="customerRole" class="text-[12px] sm:text-[13px] text-light-blackk">
-                                            Verified Customer
-                                        </span>
-                                        <span class="material-symbols-outlined text-green-500 text-[15px]">
-                                            verified
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+    <!-- Image -->
+    <div
+        class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md flex-shrink-0 bg-white flex items-center justify-center">
 
-                            <!-- Navigation -->
+        <img 
+            id="customerImage"
+            src="{% static 'img/fe-wocs1.webp' %}"
+            alt="Customer"
+            class="w-full h-full object-contain p-1 transition duration-300">
+
+    </div>
+
+
+    <!-- Details -->
+    <div>
+
+        <h4 id="customerName"
+            class="font-semibold text-[16px] sm:text-[17px] text-light-blackk">
+            TechNova Solutions
+        </h4>
+
+
+        <div class="flex items-center gap-1">
+
+            <span id="customerRole"
+                class="text-[12px] sm:text-[13px] text-light-blackk">
+                Verified Company
+            </span>
+
+
+            <span class="material-symbols-outlined text-green-500 text-[15px]">
+                verified
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
                             <div class="flex gap-2 ml-auto sm:ml-0">
-                                <button id="testimonialPrev"
-                                    class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:bg-[#F5B530] hover:text-white transition">
-                                    <span class="material-symbols-outlined">
-                                        chevron_left
-                                    </span>
-                                </button>
-                                <button id="testimonialNext"
-                                    class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:bg-[#F5B530] hover:text-white transition">
-                                    <span class="material-symbols-outlined">
-                                        chevron_right
-                                    </span>
-                                </button>
-                            </div>
+
+    <!-- Previous -->
+    <button id="testimonialPrev"
+        type="button"
+        class="w-10 h-10 rounded-full
+               border border-slate-200
+               bg-white
+               text-[#F5B530]
+               flex items-center justify-center
+               transition-all duration-300
+               hover:bg-[#F5B530]
+               hover:text-white">
+
+        <span class="material-symbols-outlined text-[20px]">
+            chevron_left
+        </span>
+
+    </button>
+
+    <!-- Next -->
+    <button id="testimonialNext"
+        type="button"
+        class="w-10 h-10 rounded-full
+               border border-[#F5B530]
+               bg-[#F5B530]
+               text-white
+               flex items-center justify-center
+               transition-all duration-300
+               hover:bg-[#E2A220]
+               hover:border-[#E2A220]">
+
+        <span class="material-symbols-outlined text-[20px]">
+            chevron_right
+        </span>
+
+    </button>
+
+</div>
                         </div>
 
                         <!-- Dots -->
@@ -1332,25 +1460,40 @@
 
                 <!-- ================= RIGHT ================= -->
                 <div class="hidden lg:flex justify-end items-start overflow-hidden">
-                    <div
-                        class="relative w-[450px] h-[450px] rounded-full overflow-hidden border-[4px] border-[#F5B530] shadow-[0_12px_30px_rgba(0,0,0,0.08)] translate-x-16 translate-y-12">
-                        <img id="engineerImage" src="{% static 'img/fe-wocs2.jpg' %}" alt="Engineer"
-                            class="w-full h-full object-cover object-center scale-[1.15] translate-y-8">
-                    </div>
-                </div>
+    <div class="relative translate-x-16 translate-y-12">
 
+        <!-- Circle -->
+        <div class="relative w-[450px] h-[450px] rounded-full overflow-hidden border-[4px] border-[#F5B530] shadow-[0_12px_30px_rgba(0,0,0,0.08)]">
+
+    <img
+        id="engineerImage"
+        src="{% static 'img/fe-wocs-bg.webp' %}"
+        alt="Engineer"
+        class="absolute inset-0 w-full h-[108%] object-cover object-center -mb-6">
+
+</div>
+
+        <!-- Hide bottom border -->
+        <div
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[220px] h-8 bg-[#FCFAF5] rounded-full z-20">
+        </div>
+
+    </div>
+</div>
             </div>
         </div>
     </section>
 
+
 <!-- READY TO START WORKING -->
 <section class=" bg-[#FFFDF8] w-full">
+    
         <!-- Full-width gradient background container -->
         <div
             class="w-full bg-gradient-to-r bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
 
             <!-- Centered content container with max-width and extra padding -->
-            <div class="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
                 <!-- Changed from grid to flex-row to keep items on same line -->
                 <div class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
@@ -1441,6 +1584,13 @@
     </section>
 
 </main>
+<script>
+const testimonialImages = [
+    "{% static 'img/fe-wocs1.webp' %}",
+    "{% static 'img/fe-wocs2.webp' %}",
+    "{% static 'img/fe-wocs3.webp' %}"
+];
+</script>
 
 <script src="{% static 'script/pages/engineer.js' %}"></script>
 <!-- ========================================= -->

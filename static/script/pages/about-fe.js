@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (count > target) count = target;
 
                 if (target === 10) {
-                    counter.innerText = Math.floor(count) + "M+";
+                    counter.innerText = Math.floor(count) + "M";
                 } else {
-                    counter.innerText = Math.floor(count).toLocaleString() + "+";
+                    counter.innerText = Math.floor(count).toLocaleString();
                 }
 
                 requestAnimationFrame(updateCount);

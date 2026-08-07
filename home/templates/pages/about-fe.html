@@ -13,7 +13,7 @@
  <section class="about-hero-section">
 
     <!-- Same container as Field Engineer section -->
-    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
         <div class="about-hero-grid">
 
@@ -73,7 +73,7 @@
             <div class="about-map-area">
 
                 <img
-                    src="{% static 'img/world-map.png' %}"
+                    src="{% static 'img/about-hero.webp' %}"
                     alt="World Map"
                     class="about-world-map">
 
@@ -153,7 +153,7 @@
 
 </section>
 
-<section class="mission-section pt-4 pb-10 px-4 lg:px-6">
+<section class="mission-section pt-4 pb-10 pl-4 pr-4 lg:pl-8 lg:pr-8">
 
     <div class="mission-container">
 
@@ -209,25 +209,25 @@
 
                         <div>
                             <h4>Efficiency</h4>
-                            <p>Faster response & better outcomes</p>
+                            <p>Faster response </p>
                         </div>
 
                     </div>
 
-                    <div class="mission-feature-box">
+                   <div class="mission-feature-box">
 
-                        <div class="feature-icon">
-                            <span class="material-symbols-outlined">
-                                person
-                            </span>
-                        </div>
+    <div class="feature-icon">
+        <span class="material-symbols-outlined">
+            person
+        </span>
+    </div>
 
-                        <div>
-                            <h4>Accountability</h4>
-                            <p>Faster response & better outcomes</p>
-                        </div>
+    <div class="feature-content">
+        <h4>Accountability</h4>
+        <p>Faster response &amp; better outcomes</p>
+    </div>
 
-                    </div>
+</div>
 
                 </div>
 
@@ -235,13 +235,11 @@
 
             <!-- RIGHT -->
 
-            <div class="mission-image flex justify-center items-center">
-
+            <div class="mission-image flex justify-center items-center w-full">
                 <img
-                    src="{% static 'img/about-hero.png' %}"
-                    alt="Field Engineer Mission"
-                    class="w-full h-auto object-contain max-w-[560px] lg:max-w-[560px] md:max-w-[450px] sm:max-w-[360px] max-w-[280px] mx-auto">
-
+    src="{% static 'img/about-sec2.webp' %}"
+    alt="Field Engineer Mission"
+    class="block w-full max-w-[280px] sm:max-w-[360px] md:max-w-[450px] lg:max-w-[560px] h-auto object-contain mx-auto">
             </div>
 
         </div>
@@ -250,8 +248,7 @@
 
 </section>
 
-<section
-    class="relative min-h-[620px] lg:min-h-[680px] py-8 px-4 sm:px-6 lg:px-10 font-sans overflow-hidden bg-slate-900 flex flex-col justify-between">
+<section class="relative min-h-[620px] lg:min-h-[680px] py-8 pl-2 pr-2 sm:pl-4 sm:pr-4 lg:pl-6 lg:pr-6 font-sans overflow-hidden bg-slate-900 flex flex-col justify-between">
 
 
     <!-- Dark Background Image -->
@@ -554,113 +551,135 @@
      FIELD ENGINEER SECTION
 ========================================= -->
 
-<section id="counterSection" class="pt-0 pb-6 bg-[#FCFAF5]">
+<section class="bg-stone-50 py-8 lg:py-12">
 
-    <div class="max-w-[1500px] mx-auto px-8 sm:px-10 lg:px-16 xl:px-20">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
-        <div class="grid lg:grid-cols-2 items-center gap-16 pt-14 pb-6">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-            <!-- LEFT CONTENT -->
-            <div>
 
-                <!-- Logo -->
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-bold">
-                        FE
+                <!-- ================= LEFT ================= -->
+
+                <div>
+
+                    <!-- Logo -->
+
+                    <div class="flex items-center gap-3 mb-6">
+
+                        <img
+                            src="{% static 'img/fepage-logo.svg' %}"
+                            alt="FE"
+                            class="w-10 h-10 rounded-lg">
+
+                        <span class="font-semibold text-slate-700">
+                            Field Engineer
+                        </span>
+
                     </div>
 
-                    <span class="text-lg font-semibold text-slate-800">
-                        Field Engineer
-                    </span>
+
+                    <!-- Heading -->
+
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-slate-900">
+
+                        Trusted
+
+                        <span class="text-amber-500">
+                            Field Engineers
+                        </span>
+
+                        Delivering On-Site Technology
+                        Solutions Across the Globe.
+
+                    </h2>
+
+
+                    <!-- Description -->
+
+                    <p class="mt-6 max-w-xl text-base lg:text-lg leading-7 lg:leading-8 text-slate-600">
+
+                        Our certified Field IT Engineers provide rapid onsite
+                        support, hardware deployment, network installation,
+                        maintenance and IT infrastructure services for
+                        businesses of every size.
+
+                    </p>
+
+
+                    <!-- ================= STATS ================= -->
+
+                    <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4">
+
+
+                        <!-- Countries -->
+
+                        <div class="bg-white border border-slate-200 rounded-2xl shadow-md p-5 text-center">
+
+                            <h3
+                                class="counter text-2xl sm:text-3xl font-bold text-amber-500"
+                                data-target="7">
+                                0
+                            </h3>
+
+                            <p class="mt-2 text-sm font-medium text-slate-500">
+                                Countries
+                            </p>
+
+                        </div>
+
+
+                        <!-- Cities -->
+
+                        <div class="bg-white border border-slate-200 rounded-2xl shadow-md p-5 text-center">
+
+                            <h3
+                                class="counter text-2xl sm:text-3xl font-bold text-sky-500"
+                                data-target="113">
+                                0
+                            </h3>
+
+                            <p class="mt-2 text-sm font-medium text-slate-500">
+                                Cities
+                            </p>
+
+                        </div>
+
+
+                        <!-- Locations -->
+
+                        <div class="col-span-2 sm:col-span-1 bg-white border border-slate-200 rounded-2xl shadow-md p-5 text-center">
+
+                            <h3
+                                class="counter text-2xl sm:text-3xl font-bold text-sky-500"
+                                data-target="4905">
+                                0
+                            </h3>
+
+                            <p class="mt-2 text-sm font-medium text-slate-500">
+                                Locations
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
                 </div>
 
-                <!-- Heading -->
-                <h2 class="text-4xl sm:text-5xl lg:text-[52px] font-bold leading-[1.12] text-slate-900">
 
-                    Trusted
-                    <span class="text-amber-400">Field Engineers</span>
+                <!-- ================= RIGHT ================= -->
 
-                    <br>
+                <div class="relative">
 
-                    Delivering On-Site
-
-                    <br>
-
-                    Technology Solutions
-
-                    <br>
-
-                    Across the Globe.
-
-                </h2>
-
-                <!-- Description -->
-                <p class="mt-7 max-w-[520px] text-[17px] leading-8 text-slate-600">
-
-                    Our certified Field IT Engineers provide rapid on-site support,
-                    hardware deployment, network installation, maintenance, and IT
-                    infrastructure services for businesses of every size. We ensure
-                    reliable technology operations wherever your business needs us.
-
-                </p>
-
-                <!-- Stats -->
-                <div class="flex flex-wrap gap-5 mt-10">
-
-                    <!-- Countries -->
-                    <div class="w-[135px] h-[95px] bg-white rounded-2xl border border-emerald-100 shadow-sm flex flex-col items-center justify-center">
-
-                        <span id="countriesCount"
-                            class="text-3xl font-bold text-amber-400">
-                            0
-                        </span>
-
-                        <span class="mt-1 text-sm text-slate-500">
-                            Countries
-                        </span>
-
-                    </div>
-
-                    <!-- Cities -->
-                    <div class="w-[135px] h-[95px] bg-white rounded-2xl border border-emerald-100 shadow-sm flex flex-col items-center justify-center">
-
-                        <span id="citiesCount"
-                            class="text-3xl font-bold text-blue-600">
-                            0
-                        </span>
-
-                        <span class="mt-1 text-sm text-slate-500">
-                            Cities
-                        </span>
-
-                    </div>
-
-                    <!-- Locations -->
-                    <div class="w-[135px] h-[95px] bg-white rounded-2xl border border-emerald-100 shadow-sm flex flex-col items-center justify-center">
-
-                        <span id="locationsCount"
-                            class="text-3xl font-bold text-blue-600">
-                            0
-                        </span>
-
-                        <span class="mt-1 text-sm text-slate-500">
-                            Locations
-                        </span>
-
-                    </div>
+                    <img
+                        src="{% static 'img/cyber-security-cloud.webp' %}"
+                        alt="Field Engineer"
+                        class="w-full h-[320px] sm:h-[420px] lg:h-[520px] rounded-[28px] object-cover shadow-xl">
 
                 </div>
 
-            </div>
 
-            <!-- RIGHT IMAGE -->
-            <div class="flex justify-center lg:justify-end">
-
-                <img src="{% static 'img/about-sectionfe.png' %}"
-                    alt="Field Engineer"
-                    class="w-full max-w-[620px] h-[460px] object-cover rounded-[28px] shadow-xl">
-
-            </div>
+            
 
         </div>
 
@@ -673,7 +692,7 @@
 
   <section class="bg-white font-sans antialiased text-slate-800 pt-5 pb-8 sm:pt-6 sm:pb-10 lg:pt-8 lg:pb-12">
 
-    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
         <div class="space-y-8 pt-1 sm:pt-2 lg:pt-3">
             <!-- Heading -->
@@ -904,7 +923,7 @@
 
 <section class="bg-white pt-4 pb-8 sm:pt-5 sm:pb-10 lg:pt-6 lg:pb-12">
 
-    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
         <div class="space-y-6 pt-4 sm:pt-5 lg:pt-6">
 
@@ -1119,82 +1138,75 @@
 <section class="bg-slate-50 py-8 sm:py-10 lg:py-12">
 
     <!-- Same container as Field Engineer section -->
-    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Heading -->
-        <div class="text-center mb-8">
+    <!-- ================= Trusted by Enterprises ================= -->
+<div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
-            <span class="text-xs font-bold tracking-wider uppercase text-yellow-500">
-                Trusted by Enterprises
-            </span>
+    <!-- Heading -->
+    <div class="text-center mb-8">
 
-            <h2 class="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
-                Trusted by Leading Enterprises
-            </h2>
+        <span class="text-xs font-bold tracking-wider uppercase text-yellow-500">
+            Trusted by Enterprises
+        </span>
 
+        <h2 class="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+            Trusted by Leading Enterprises
+        </h2>
+
+    </div>
+
+    <!-- Logo Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+
+        <!-- AT&T -->
+        <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+            <img
+                src="{% static 'img/at&t.webp' %}"
+                alt="AT&T"
+                class="w-full h-full object-cover">
         </div>
 
-        <!-- Logo Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
+        <!-- China Telecom -->
+        <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+            <img
+                src="{% static 'img/china.webp' %}"
+                alt="China Telecom"
+                class="w-[80%] h-[80%] object-contain">
+        </div>
 
-            <!-- AT&T -->
-            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-                <img
-                    src="{% static 'img/at&t.jpg' %}"
-                    alt="AT&T"
-                    class="w-full h-full object-cover">
-            </div>
+        <!-- Airtel -->
+        <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+            <img
+                src="{% static 'img/airtel.webp' %}"
+                alt="Airtel"
+                class="w-[80%] h-[80%] object-contain">
+        </div>
 
-            <!-- China Telecom -->
-            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-                <img
-                    src="{% static 'img/china.jpg' %}"
-                    alt="China Telecom"
-                    class="w-[80%] h-[80%] object-contain">
-            </div>
+        <!-- TCS -->
+        <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+            <img
+                src="{% static 'img/tata.webp' %}"
+                alt="TCS"
+                class="w-full h-full object-cover">
+        </div>
 
-            <!-- Airtel -->
-            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-                <img
-                    src="{% static 'img/airtel.jpg' %}"
-                    alt="Airtel"
-                    class="w-[80%] h-[80%] object-contain">
-            </div>
-
-            <!-- TCS -->
-            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-                <img
-                    src="{% static 'img/tata.png' %}"
-                    alt="TCS"
-                    class="w-full h-full object-cover">
-            </div>
-
-            <!-- NTT -->
-            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-                <img
-                    src="{% static 'img/ntt.jpg' %}"
-                    alt="NTT"
-                    class="w-full h-full object-cover">
-            </div>
-
-            <!-- Verizon -->
-            <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-                <img
-                    src="{% static 'img/verizon.jpg' %}"
-                    alt="Verizon"
-                    class="w-full h-full object-cover">
-            </div>
-
+        <!-- Verizon -->
+        <div class="bg-white border border-slate-200 rounded-2xl h-24 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+            <img
+                src="{% static 'img/verizon.webp' %}"
+                alt="Verizon"
+                class="w-full h-full object-cover">
         </div>
 
     </div>
+
+</div>
 
 </section>
 
 <section class="pt-16 pb-12 bg-white" aria-labelledby="faq-heading">
 
-    <div class="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-10 xl:px-14">
-
+    <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         <!-- Heading -->
         <h2 id="faq-heading"
             class="text-center text-4xl md:text-5xl font-bold text-slate-800 mb-14">
@@ -1390,7 +1402,7 @@
             class="w-full bg-gradient-to-r bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
 
             <!-- Centered content container with max-width and extra padding -->
-            <div class="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+            <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
                 <!-- Changed from grid to flex-row to keep items on same line -->
                 <div class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
