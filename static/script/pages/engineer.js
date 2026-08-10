@@ -1088,3 +1088,76 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 });
+/* ==========================================================
+   FE GLOBAL REGION CARDS - READ MORE / SHOW LESS
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const readMoreButtons = document.querySelectorAll(".read-more-btn");
+
+    if (!readMoreButtons.length) return;
+
+
+    readMoreButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            // Get the card that contains the clicked button
+            const card = button.closest(".fe-region-card");
+
+            if (!card) return;
+
+
+            // Get only the hidden countries inside this card
+            const moreCountries = card.querySelectorAll(".more-country");
+
+            if (!moreCountries.length) return;
+
+
+            // Check current state
+            const isExpanded = card.classList.contains("expanded");
+
+
+            // Show / hide countries
+            moreCountries.forEach(function (country) {
+
+                country.classList.toggle("hidden");
+
+            });
+
+
+            // Toggle expanded state
+            card.classList.toggle("expanded");
+
+
+            // Change button text
+            const textNode = Array.from(button.childNodes).find(
+                node => node.nodeType === Node.TEXT_NODE
+            );
+
+            if (textNode) {
+
+                textNode.textContent = isExpanded
+                    ? " Read More "
+                    : " Show Less ";
+
+            }
+
+
+            // Change arrow icon
+            const arrow = button.querySelector(".material-symbols-outlined");
+
+            if (arrow) {
+
+                arrow.textContent = isExpanded
+                    ? "expand_more"
+                    : "expand_less";
+
+            }
+
+        });
+
+    });
+
+});
