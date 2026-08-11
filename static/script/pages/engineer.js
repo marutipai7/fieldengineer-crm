@@ -8,29 +8,32 @@ FE TESTIMONIAL SLIDER
 
 const testimonials = [
 
-{
-    company:"TechNova Solutions",
-    role:"Verified Company",
-    rating:3,
-    image:testimonialImages[0],
-    text:"FE provided quick and reliable engineers for our infrastructure setup. The service was smooth and professional."
-},
+    {
+        name: "Priya Sharma",
+        company: "TechNova Solutions",
+        role: "Verified Company",
+        rating: 3,
+        image: testimonialImages[0],
+        text: "FE provided quick and reliable engineers for our infrastructure setup. The service was smooth and professional."
+    },
 
-{
-    company:"Global IT Systems",
-    role:"Verified Company",
-    rating:4,
-    image:testimonialImages[1],
-    text:"The engineer arrived on time and completed our installation work efficiently. Great experience with FE."
-},
+    {
+        name: "Anjali Arora",
+        company: "Global IT Systems",
+        role: "Verified Company",
+        rating: 4,
+        image: testimonialImages[1],
+        text: "The engineer arrived on time and completed our installation work efficiently. Great experience with FE."
+    },
 
-{
-    company:"CloudEdge Technologies",
-    role:"Verified Company",
-    rating:5,
-    image:testimonialImages[2],
-    text:"Excellent support team and skilled engineers. FE helped us complete our project without delays."
-}
+    {
+        name: "Amit Shah",
+        company: "CloudEdge Technologies",
+        role: "Verified Company",
+        rating: 5,
+        image: testimonialImages[2],
+        text: "Excellent support team and skilled engineers. FE helped us complete our project without delays."
+    }
 
 ];
 
@@ -39,12 +42,14 @@ let currentTestimonial = 0;
 
 
 
-function loadTestimonial(){
+function loadTestimonial() {
 
     let data = testimonials[currentTestimonial];
 
 
-    document.querySelector("#customerName").innerHTML = data.company;
+    document.querySelector("#customerName").innerHTML = data.name;
+
+    document.querySelector("#customerCompany").innerHTML = data.company;
 
     document.querySelector("#customerRole").innerHTML = data.role;
 
@@ -60,7 +65,7 @@ function loadTestimonial(){
     starsBox.innerHTML = "";
 
 
-    for(let i=0;i<data.rating;i++){
+    for (let i = 0; i < data.rating; i++) {
 
         starsBox.innerHTML += `
         <span class="material-symbols-outlined"
@@ -78,7 +83,7 @@ function loadTestimonial(){
 
 
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
 
     console.log("TESTIMONIAL JS LOADED");
 
@@ -94,17 +99,17 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-    function updateDots(index){
+    function updateDots(index) {
 
-        testimonialDots.forEach((dot,i)=>{
+        testimonialDots.forEach((dot, i) => {
 
-            if(i === index){
+            if (i === index) {
 
                 dot.classList.remove("bg-slate-300");
                 dot.classList.add("bg-[#F5B530]");
 
             }
-            else{
+            else {
 
                 dot.classList.remove("bg-[#F5B530]");
                 dot.classList.add("bg-slate-300");
@@ -117,13 +122,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-    nextBtn.onclick=function(){
+    nextBtn.onclick = function () {
 
 
         currentTestimonial++;
 
 
-        if(currentTestimonial >= testimonials.length){
+        if (currentTestimonial >= testimonials.length) {
 
             currentTestimonial = 0;
 
@@ -140,13 +145,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-    prevBtn.onclick=function(){
+    prevBtn.onclick = function () {
 
 
         currentTestimonial--;
 
 
-        if(currentTestimonial < 0){
+        if (currentTestimonial < 0) {
 
             currentTestimonial = testimonials.length - 1;
 
@@ -163,10 +168,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-    testimonialDots.forEach((dot)=>{
+    testimonialDots.forEach((dot) => {
 
 
-        dot.onclick=function(){
+        dot.onclick = function () {
 
 
             currentTestimonial = Number(this.dataset.index);
@@ -202,13 +207,13 @@ document.addEventListener("DOMContentLoaded", function(){
 ========================================================== */
 
 
-function animateCounters(){
+function animateCounters() {
 
 
     const counters = document.querySelectorAll(".counter");
 
 
-    counters.forEach(counter=>{
+    counters.forEach(counter => {
 
 
         const target = Number(counter.dataset.target);
@@ -222,14 +227,14 @@ function animateCounters(){
 
 
 
-        function update(){
+        function update() {
 
 
             current += increment;
 
 
 
-            if(current < target){
+            if (current < target) {
 
 
                 counter.textContent = Math.floor(current);
@@ -240,7 +245,7 @@ function animateCounters(){
 
             }
 
-            else{
+            else {
 
 
                 counter.textContent = target;
@@ -264,23 +269,23 @@ function animateCounters(){
 
 
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
 
     const section = document.querySelector(".counter")?.closest("section");
 
 
-    if(!section) return;
+    if (!section) return;
 
 
 
-    const observer = new IntersectionObserver((entries)=>{
+    const observer = new IntersectionObserver((entries) => {
 
 
-        entries.forEach(entry=>{
+        entries.forEach(entry => {
 
 
-            if(entry.isIntersecting){
+            if (entry.isIntersecting) {
 
 
                 animateCounters();
@@ -296,9 +301,9 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
-    },{
+    }, {
 
-        threshold:0.4
+        threshold: 0.4
 
     });
 
@@ -321,24 +326,24 @@ document.addEventListener("DOMContentLoaded",()=>{
 ========================================================== */
 
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
 
     const revealItems = document.querySelectorAll(".fe-reveal");
 
 
 
-    if(!revealItems.length) return;
+    if (!revealItems.length) return;
 
 
 
-    const revealObserver = new IntersectionObserver((entries)=>{
+    const revealObserver = new IntersectionObserver((entries) => {
 
 
-        entries.forEach(entry=>{
+        entries.forEach(entry => {
 
 
-            if(entry.isIntersecting){
+            if (entry.isIntersecting) {
 
 
                 entry.target.classList.add("active");
@@ -351,17 +356,17 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
-    },{
+    }, {
 
 
-        threshold:0.2
+        threshold: 0.2
 
 
     });
 
 
 
-    revealItems.forEach(item=>{
+    revealItems.forEach(item => {
 
 
         revealObserver.observe(item);
@@ -372,22 +377,22 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 });
- /* ==========================================================
-    FIELD ENGINEER GLOBAL MAP
- ========================================================== */
+/* ==========================================================
+   FIELD ENGINEER GLOBAL MAP
+========================================================== */
 
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
 
 
     const mapContainer = document.getElementById("chartdiv");
 
 
-    if(!mapContainer) return;
+    if (!mapContainer) return;
 
 
 
-    if(typeof am5 === "undefined"){
+    if (typeof am5 === "undefined") {
 
         console.error("amCharts is not loaded");
 
@@ -397,7 +402,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-    am5.ready(function(){
+    am5.ready(function () {
 
 
 
@@ -417,21 +422,21 @@ document.addEventListener("DOMContentLoaded", function(){
         const chart = root.container.children.push(
 
 
-            am5map.MapChart.new(root,{
+            am5map.MapChart.new(root, {
 
 
-                panX:"rotateX",
+                panX: "rotateX",
 
-                panY:"translateY",
+                panY: "translateY",
 
-                wheelY:"zoom",
+                wheelY: "zoom",
 
-                wheelX:"none",
+                wheelX: "none",
 
-                pinchZoom:true,
+                pinchZoom: true,
 
 
-                projection:am5map.geoMercator()
+                projection: am5map.geoMercator()
 
 
             })
@@ -449,15 +454,15 @@ document.addEventListener("DOMContentLoaded", function(){
             background:
 
 
-            am5.Rectangle.new(root,{
+                am5.Rectangle.new(root, {
 
 
-                fill:am5.color(0xFCFAF5),
+                    fill: am5.color(0xFCFAF5),
 
-                fillOpacity:1
+                    fillOpacity: 1
 
 
-            })
+                })
 
 
         });
@@ -476,12 +481,12 @@ document.addEventListener("DOMContentLoaded", function(){
         const polygonSeries = chart.series.push(
 
 
-            am5map.MapPolygonSeries.new(root,{
+            am5map.MapPolygonSeries.new(root, {
 
 
-                geoJSON:am5geodata_worldLow,
+                geoJSON: am5geodata_worldLow,
 
-                exclude:["AQ"]
+                exclude: ["AQ"]
 
 
             })
@@ -495,25 +500,25 @@ document.addEventListener("DOMContentLoaded", function(){
         polygonSeries.mapPolygons.template.setAll({
 
 
-            tooltipText:"{name}",
+            tooltipText: "{name}",
 
 
-            fill:am5.color(0xEDF1F5),
+            fill: am5.color(0xEDF1F5),
 
 
-            fillOpacity:1,
+            fillOpacity: 1,
 
 
-            stroke:am5.color(0xffffff),
+            stroke: am5.color(0xffffff),
 
 
-            strokeWidth:1,
+            strokeWidth: 1,
 
 
-            interactive:true,
+            interactive: true,
 
 
-            cursorOverStyle:"pointer"
+            cursorOverStyle: "pointer"
 
 
         });
@@ -527,13 +532,13 @@ document.addEventListener("DOMContentLoaded", function(){
             {
 
 
-                fill:am5.color(0xF5B530),
+                fill: am5.color(0xF5B530),
 
 
-                stroke:am5.color(0xE2A220),
+                stroke: am5.color(0xE2A220),
 
 
-                strokeWidth:1.5
+                strokeWidth: 1.5
 
 
             }
@@ -560,82 +565,82 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
             {
-                title:"India",
-                city:"Mumbai",
-                latitude:19.0760,
-                longitude:72.8777
+                title: "India",
+                city: "Mumbai",
+                latitude: 19.0760,
+                longitude: 72.8777
             },
 
 
             {
-                title:"United States",
-                city:"New York",
-                latitude:40.7128,
-                longitude:-74.0060
+                title: "United States",
+                city: "New York",
+                latitude: 40.7128,
+                longitude: -74.0060
             },
 
 
             {
-                title:"United Kingdom",
-                city:"London",
-                latitude:51.5074,
-                longitude:-0.1278
+                title: "United Kingdom",
+                city: "London",
+                latitude: 51.5074,
+                longitude: -0.1278
             },
 
 
             {
-                title:"Germany",
-                city:"Frankfurt",
-                latitude:50.1109,
-                longitude:8.6821
+                title: "Germany",
+                city: "Frankfurt",
+                latitude: 50.1109,
+                longitude: 8.6821
             },
 
 
             {
-                title:"Singapore",
-                city:"Singapore",
-                latitude:1.3521,
-                longitude:103.8198
+                title: "Singapore",
+                city: "Singapore",
+                latitude: 1.3521,
+                longitude: 103.8198
             },
 
 
             {
-                title:"UAE",
-                city:"Dubai",
-                latitude:25.2048,
-                longitude:55.2708
+                title: "UAE",
+                city: "Dubai",
+                latitude: 25.2048,
+                longitude: 55.2708
             },
 
 
             {
-                title:"Australia",
-                city:"Sydney",
-                latitude:-33.8688,
-                longitude:151.2093
+                title: "Australia",
+                city: "Sydney",
+                latitude: -33.8688,
+                longitude: 151.2093
             },
 
 
             {
-                title:"Japan",
-                city:"Tokyo",
-                latitude:35.6762,
-                longitude:139.6503
+                title: "Japan",
+                city: "Tokyo",
+                latitude: 35.6762,
+                longitude: 139.6503
             },
 
 
             {
-                title:"South Africa",
-                city:"Johannesburg",
-                latitude:-26.2041,
-                longitude:28.0473
+                title: "South Africa",
+                city: "Johannesburg",
+                latitude: -26.2041,
+                longitude: 28.0473
             },
 
 
             {
-                title:"Brazil",
-                city:"São Paulo",
-                latitude:-23.5505,
-                longitude:-46.6333
+                title: "Brazil",
+                city: "São Paulo",
+                latitude: -23.5505,
+                longitude: -46.6333
             }
 
 
@@ -656,7 +661,7 @@ document.addEventListener("DOMContentLoaded", function(){
         const pointSeries = chart.series.push(
 
 
-            am5map.MapPointSeries.new(root,{})
+            am5map.MapPointSeries.new(root, {})
 
 
         );
@@ -664,22 +669,22 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-        locations.forEach(location=>{
+        locations.forEach(location => {
 
 
             pointSeries.pushDataItem({
 
 
-                latitude:location.latitude,
+                latitude: location.latitude,
 
 
-                longitude:location.longitude,
+                longitude: location.longitude,
 
 
-                title:location.title,
+                title: location.title,
 
 
-                city:location.city
+                city: location.city
 
 
             });
@@ -695,11 +700,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-        pointSeries.bullets.push(function(root){
+        pointSeries.bullets.push(function (root) {
 
 
 
-            const container = am5.Container.new(root,{});
+            const container = am5.Container.new(root, {});
 
 
 
@@ -708,55 +713,25 @@ document.addEventListener("DOMContentLoaded", function(){
             const pulse = container.children.push(
 
 
-                am5.Circle.new(root,{
+                am5.Circle.new(root, {
 
 
-                    radius:18,
+                    radius: 18,
 
 
-                    fill:am5.color(0xF5B530),
+                    fill: am5.color(0xF5B530),
 
 
-                    fillOpacity:0.18,
+                    fillOpacity: 0.18,
 
 
-                    stroke:am5.color(0xF5B530),
+                    stroke: am5.color(0xF5B530),
 
 
-                    strokeOpacity:0.4,
+                    strokeOpacity: 0.4,
 
 
-                    strokeWidth:2
-
-
-                })
-
-
-            );
-
-
-
-
-
-            container.children.push(
-
-
-                am5.Circle.new(root,{
-
-
-                    radius:10,
-
-
-                    fill:am5.color(0xF5B530),
-
-
-                    fillOpacity:0.25,
-
-
-                    stroke:am5.color(0xF5B530),
-
-
-                    strokeWidth:2
+                    strokeWidth: 2
 
 
                 })
@@ -771,22 +746,52 @@ document.addEventListener("DOMContentLoaded", function(){
             container.children.push(
 
 
-                am5.Circle.new(root,{
+                am5.Circle.new(root, {
 
 
-                    radius:5,
+                    radius: 10,
 
 
-                    fill:am5.color(0xF5B530),
+                    fill: am5.color(0xF5B530),
 
 
-                    stroke:am5.color(0xffffff),
+                    fillOpacity: 0.25,
 
 
-                    strokeWidth:2,
+                    stroke: am5.color(0xF5B530),
 
 
-                    tooltipText:"[bold]{title}[/]\n{city}"
+                    strokeWidth: 2
+
+
+                })
+
+
+            );
+
+
+
+
+
+            container.children.push(
+
+
+                am5.Circle.new(root, {
+
+
+                    radius: 5,
+
+
+                    fill: am5.color(0xF5B530),
+
+
+                    stroke: am5.color(0xffffff),
+
+
+                    strokeWidth: 2,
+
+
+                    tooltipText: "[bold]{title}[/]\n{city}"
 
 
                 })
@@ -801,19 +806,19 @@ document.addEventListener("DOMContentLoaded", function(){
             pulse.animate({
 
 
-                key:"scale",
+                key: "scale",
 
 
-                from:0.5,
+                from: 0.5,
 
 
-                to:2.5,
+                to: 2.5,
 
 
-                duration:1800,
+                duration: 1800,
 
 
-                loops:Infinity
+                loops: Infinity
 
 
             });
@@ -824,19 +829,19 @@ document.addEventListener("DOMContentLoaded", function(){
             pulse.animate({
 
 
-                key:"opacity",
+                key: "opacity",
 
 
-                from:0.8,
+                from: 0.8,
 
 
-                to:0,
+                to: 0,
 
 
-                duration:1800,
+                duration: 1800,
 
 
-                loops:Infinity
+                loops: Infinity
 
 
             });
@@ -845,10 +850,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-            return am5.Bullet.new(root,{
+            return am5.Bullet.new(root, {
 
 
-                sprite:container
+                sprite: container
 
 
             });
@@ -872,50 +877,50 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
             [
-                [19.0760,72.8777],
-                [25.2048,55.2708]
+                [19.0760, 72.8777],
+                [25.2048, 55.2708]
             ],
 
 
             [
-                [25.2048,55.2708],
-                [50.1109,8.6821]
+                [25.2048, 55.2708],
+                [50.1109, 8.6821]
             ],
 
 
             [
-                [50.1109,8.6821],
-                [51.5074,-0.1278]
+                [50.1109, 8.6821],
+                [51.5074, -0.1278]
             ],
 
 
             [
-                [51.5074,-0.1278],
-                [40.7128,-74.0060]
+                [51.5074, -0.1278],
+                [40.7128, -74.0060]
             ],
 
 
             [
-                [19.0760,72.8777],
-                [1.3521,103.8198]
+                [19.0760, 72.8777],
+                [1.3521, 103.8198]
             ],
 
 
             [
-                [1.3521,103.8198],
-                [-33.8688,151.2093]
+                [1.3521, 103.8198],
+                [-33.8688, 151.2093]
             ],
 
 
             [
-                [19.0760,72.8777],
-                [35.6762,139.6503]
+                [19.0760, 72.8777],
+                [35.6762, 139.6503]
             ],
 
 
             [
-                [19.0760,72.8777],
-                [-26.2041,28.0473]
+                [19.0760, 72.8777],
+                [-26.2041, 28.0473]
             ]
 
 
@@ -928,7 +933,7 @@ document.addEventListener("DOMContentLoaded", function(){
         const lineSeries = chart.series.push(
 
 
-            am5map.MapLineSeries.new(root,{})
+            am5map.MapLineSeries.new(root, {})
 
 
         );
@@ -936,24 +941,24 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-        connections.forEach(route=>{
+        connections.forEach(route => {
 
 
             lineSeries.pushDataItem({
 
 
-                points:[
+                points: [
 
 
                     {
-                        latitude:route[0][0],
-                        longitude:route[0][1]
+                        latitude: route[0][0],
+                        longitude: route[0][1]
                     },
 
 
                     {
-                        latitude:route[1][0],
-                        longitude:route[1][1]
+                        latitude: route[1][0],
+                        longitude: route[1][1]
                     }
 
 
@@ -972,16 +977,16 @@ document.addEventListener("DOMContentLoaded", function(){
         lineSeries.mapLines.template.setAll({
 
 
-            stroke:am5.color(0xF5B530),
+            stroke: am5.color(0xF5B530),
 
 
-            strokeWidth:2,
+            strokeWidth: 2,
 
 
-            strokeOpacity:0.45,
+            strokeOpacity: 0.45,
 
 
-            strokeDasharray:[8,6]
+            strokeDasharray: [8, 6]
 
 
         });
@@ -993,19 +998,19 @@ document.addEventListener("DOMContentLoaded", function(){
         lineSeries.mapLines.template.animate({
 
 
-            key:"strokeDashoffset",
+            key: "strokeDashoffset",
 
 
-            from:16,
+            from: 16,
 
 
-            to:0,
+            to: 0,
 
 
-            duration:900,
+            duration: 900,
 
 
-            loops:Infinity
+            loops: Infinity
 
 
         });
@@ -1024,19 +1029,19 @@ document.addEventListener("DOMContentLoaded", function(){
         chart.setAll({
 
 
-            homeGeoPoint:{
+            homeGeoPoint: {
 
 
-                latitude:20,
+                latitude: 20,
 
 
-                longitude:10
+                longitude: 10
 
 
             },
 
 
-            homeZoomLevel:1.05
+            homeZoomLevel: 1.05
 
 
         });
@@ -1054,14 +1059,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
         lineSeries.appear(1400);
 
-        chart.appear(1500,100);
+        chart.appear(1500, 100);
 
 
 
 
 
 
-        window.addEventListener("resize",()=>{
+        window.addEventListener("resize", () => {
 
 
             root.resize();
@@ -1073,7 +1078,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-        window.addEventListener("beforeunload",()=>{
+        window.addEventListener("beforeunload", () => {
 
 
             root.dispose();

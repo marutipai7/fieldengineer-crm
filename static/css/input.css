@@ -7325,3 +7325,77 @@ body {
         font-size: 12px;
     }
 }
+
+/* ==========================================================================
+   Testimonial Section — Image styling fixes
+   Fixes: cropped/half-visible images, non-responsive feature image,
+   distortion on desktop/tablet/mobile.
+   ========================================================================== */
+
+/* --- Customer avatar / company logo (small circle) --- */
+.testimonial-avatar-wrap {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* fills the circle edge-to-edge, no gaps */
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+/* --- Featured engineer image (large right-side circle) --- */
+.testimonial-feature-circle {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    border-radius: 9999px;
+    overflow: hidden;
+    border: 4px solid #F5B530;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-feature-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* fills the circle without stretching */
+    object-position: center 15%;  /* keeps the head/face in frame */
+    display: block;
+}
+
+/* --- Tablet (small) --- */
+@media (min-width: 640px) {
+    .testimonial-feature-circle {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* --- Tablet (large) --- */
+@media (min-width: 768px) {
+    .testimonial-feature-circle {
+        width: 360px;
+        height: 360px;
+    }
+}
+
+/* --- Desktop --- */
+@media (min-width: 1024px) {
+    .testimonial-feature-circle {
+        width: 450px;
+        height: 450px;
+        margin: 0;
+    }
+}
