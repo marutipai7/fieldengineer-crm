@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="{% block meta_description %}Field Engineer is the leading workspace platform connecting telecom and IT professionals with on-site field service jobs, network deployments, and smart hands opportunities across the US.{% endblock %}">
     <title>{% block title %}FieldEngineer{% endblock %}</title>
     {% load static %}
     <!-- Fonts -->
@@ -106,7 +107,12 @@
             <!-- Right CTAs -->
             <div class="nav-actions">
                 <button type="button" class="nav-track-btn">
-                    <img src="{% static 'img/profile.svg' %}" alt="Profile" aria-hidden="true"> Profile
+                   <img src="{% static 'img/profile.svg' %}" 
+     alt="User profile icon"
+     width="24"
+     height="24"
+     loading="lazy"
+     decoding="async"> Profile
                 </button>
                 <a href="#" class="nav-cta-btn">
                     Login <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
