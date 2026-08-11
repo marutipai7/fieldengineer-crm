@@ -54,9 +54,9 @@
 
                         Get Started
 
-                        <span class="material-symbols-outlined text-white">
-                            arrow_forward
-                        </span>
+                        <span class="material-symbols-outlined text-black">
+    arrow_forward
+</span>
 
                     </a>
 
@@ -248,304 +248,192 @@
 
 </section>
 
-<section class="relative min-h-[620px] lg:min-h-[680px] py-8 pl-2 pr-2 sm:pl-4 sm:pr-4 lg:pl-6 lg:pr-6 font-sans overflow-hidden bg-slate-900 flex flex-col justify-between">
+ <section
+        class="relative min-h-screen py-16 px-6 sm:px-10 lg:px-16 font-sans overflow-hidden bg-slate-950 flex flex-col justify-between">
 
+        <!-- Background Image Container -->
+        <div class="absolute inset-0 z-0">
+             <img src="/static/img/male-electrician.webp" 
+     alt="Field Engineer electrician servicing electrical equipment at industrial site"
+     class="w-full h-full object-cover object-top filter brightness-75" />
+            <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-[1px]"></div>
+        </div>
 
-    <!-- Dark Background Image -->
-    <div class="absolute inset-0 z-0">
-
-        <img 
-            src="/static/img/male-electrician.jpg" 
-            alt="Field Services Background"
-            class="w-full h-full object-cover object-top sm:object-center" />
-
-        <div class="absolute inset-0 bg-slate-950/75"></div>
-
-    </div>
-
-
-
-    <!-- Header Section -->
-    <div class="relative z-10 max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-10 pt-2">
-
-
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-
-
-            <div>
-
-                <p class="text-xs font-bold text-[#F3BA3F] uppercase tracking-widest mb-2">
-                    OUR SERVICES
-                </p>
-
-
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-                    Field Services We Cover
-                </h2>
+        <!-- Container Header Section -->
+        <div class="relative z-10 max-w-7xl mx-auto w-full pt-4">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div>
+                    <p class="text-xs font-bold text-[#F3BA3F] uppercase tracking-widest mb-2">
+                        OUR SERVICES
+                    </p>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+                        Field Services We Cover
+                    </h2>
+                </div>
 
             </div>
+        </div>
 
+        <!-- Cards Row -->
+<div class="relative z-10 max-w-7xl mx-auto w-full pb-4 pt-12">
+    <div id="serviceCardsContainer"
+        class="field-services-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 lg:gap-5">
 
+        <!-- Card 1: Network Cabling -->
+        <div data-id="service-1"
+            class="service-card relative group rounded-2xl cursor-pointer active:cursor-grabbing overflow-hidden border border-white/20 bg-slate-900 shadow-2xl aspect-[4/3] sm:aspect-[4/3] lg:aspect-auto lg:h-[280px] xl:h-[300px]">
 
-            <!-- View All Button -->
-            <div>
+            <!-- Card 1: Network Cabling -->
+<img
+    src="/static/img/our-service-f.webp"
+    alt="Field Engineer technician installing network cabling in data center"
+    class="absolute inset-0 z-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"/>
 
-                <a href="#all-services"
-                    class="inline-flex items-center gap-2 px-6 py-2.5 bg-[#F3BA3F] hover:bg-[#e0a832] text-slate-900 font-bold text-sm rounded-xl shadow-md transition-all duration-200">
+            <div
+                class="absolute inset-0 z-[1] bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none">
+            </div>
 
+            <div
+                class="absolute bottom-0 left-0 right-0 z-10 p-3 sm:p-4 flex items-end justify-between">
+                <h3
+                    class="!text-white font-extrabold text-xs sm:text-sm md:text-base lg:text-base leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] pr-2">
+                    Network<br />Cabling
+                </h3>
 
-                    <span>
-                        View All
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 rounded-full bg-white flex items-center justify-center shrink-0 group-hover:bg-[#F3BA3F] transition-all duration-300 shadow-xl">
+                    <span
+                        class="material-symbols-outlined text-[16px] sm:text-[18px] lg:text-[20px] text-[#F3BA3F] group-hover:text-slate-900 transition-colors duration-300">
+                        arrow_forward
                     </span>
-
-
-                    <svg class="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        stroke-width="2.5">
-
-                        <path stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3">
-                        </path>
-
-                    </svg>
-
-
-                </a>
-
+                </div>
             </div>
-
-
         </div>
 
 
-    </div>
+        <!-- Card 2: Server Install -->
+        <div data-id="service-2"
+            class="service-card relative group rounded-2xl cursor-pointer active:cursor-grabbing overflow-hidden border border-white/20 bg-slate-900 shadow-2xl aspect-[4/3] sm:aspect-[4/3] lg:aspect-auto lg:h-[280px] xl:h-[300px]">
 
-
-
-
-
-    <!-- Cards Section -->
-    <div class="relative z-10 max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-10 pb-2 pt-10">
-
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
-
-
-
-            <!-- Card 1 -->
+            <!-- Card 2: Server Install -->
+<img
+    src="/static/img/our-service-s.webp"
+    alt="Field Engineer expert installing and configuring servers in data center"
+    class="absolute inset-0 z-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"/>
             <div
-                class="relative group rounded-2xl overflow-hidden border border-white/20 bg-slate-800 shadow-2xl h-[260px]">
-
-
-                <img 
-                    src="/static/img/male-electrician.jpg"
-                    alt="Network Cabling"
-                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-
-
-                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-
-
-                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-
-
-                    <h3 class="text-base font-bold text-white drop-shadow-md">
-                        Network Cabling
-                    </h3>
-
-
-                    <div
-                        class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-primary-yellow shrink-0 group-hover:bg-[#F3BA3F] transition-colors duration-200">
-
-                        <svg class="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            stroke-width="2.5">
-
-                            <path stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3">
-                            </path>
-
-                        </svg>
-
-                    </div>
-
-
-                </div>
-
-
+                class="absolute inset-0 z-[1] bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none">
             </div>
 
-
-
-
-
-            <!-- Card 2 -->
             <div
-                class="relative group rounded-2xl overflow-hidden border border-white/20 bg-slate-800 shadow-2xl h-[260px]">
+                class="absolute bottom-0 left-0 right-0 z-10 p-3 sm:p-4 flex items-end justify-between">
+                <h3
+                    class="!text-white font-extrabold text-xs sm:text-sm md:text-base lg:text-base leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] pr-2">
+                    Server<br />Install
+                </h3>
 
-
-                <img 
-                    src="/static/img/customer-admin-monitoring.jpg"
-                    alt="Server Install"
-                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-
-
-                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-
-
-                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-
-
-                    <h3 class="text-base font-bold text-white drop-shadow-md">
-                        Server Install
-                    </h3>
-
-
-                    <div
-                        class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-primary-yellow shrink-0 group-hover:bg-[#F3BA3F] transition-colors duration-200">
-
-
-                        <svg class="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            stroke-width="2.5">
-
-                            <path stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3">
-                            </path>
-
-                        </svg>
-
-
-                    </div>
-
-
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 rounded-full bg-white flex items-center justify-center shrink-0 group-hover:bg-[#F3BA3F] transition-all duration-300 shadow-xl">
+                    <span
+                        class="material-symbols-outlined text-[16px] sm:text-[18px] lg:text-[20px] text-[#F3BA3F] group-hover:text-slate-900 transition-colors duration-300">
+                        arrow_forward
+                    </span>
                 </div>
-
-
             </div>
-
-
-
-
-
-            <!-- Card 3 -->
-            <div
-                class="relative group rounded-2xl overflow-hidden border border-white/20 bg-slate-800 shadow-2xl h-[260px]">
-
-
-                <img 
-                    src="/static/img/cyber-security-cloud.jpg"
-                    alt="IT Support"
-                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-
-
-                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-
-
-                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-
-
-                    <h3 class="text-base font-bold text-white drop-shadow-md">
-                        IT Support
-                    </h3>
-
-
-                    <div
-                        class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-primary-yellow shrink-0 group-hover:bg-[#F3BA3F] transition-colors duration-200">
-
-
-                        <svg class="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            stroke-width="2.5">
-
-                            <path stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3">
-                            </path>
-
-                        </svg>
-
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-            <!-- Card 4 -->
-            <div
-                class="relative group rounded-2xl overflow-hidden border border-white/20 bg-slate-800 shadow-2xl h-[260px]">
-
-
-                <img 
-                    src="/static/img/engineers-review.jpg"
-                    alt="Smart Wiring"
-                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-
-
-                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-
-
-                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-
-
-                    <h3 class="text-base font-bold text-white drop-shadow-md">
-                        Smart Wiring
-                    </h3>
-
-
-                    <div
-                        class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-primary-yellow shrink-0 group-hover:bg-[#F3BA3F] transition-colors duration-200">
-
-
-                        <svg class="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            stroke-width="2.5">
-
-                            <path stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3">
-                            </path>
-
-                        </svg>
-
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
         </div>
 
 
+        <!-- Card 3: IT Support -->
+        <div data-id="service-3"
+            class="service-card relative group rounded-2xl cursor-pointer active:cursor-grabbing overflow-hidden border border-white/20 bg-slate-900 shadow-2xl aspect-[4/3] sm:aspect-[4/3] lg:aspect-auto lg:h-[280px] xl:h-[300px]">
+
+            <img src="/static/img/our-service-t.webp"
+                alt="Field Engineer professional providing on-site IT support and hardware repair"
+                class="absolute inset-0 z-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+
+            <div
+                class="absolute inset-0 z-[1] bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none">
+            </div>
+
+            <div
+                class="absolute bottom-0 left-0 right-0 z-10 p-3 sm:p-4 flex items-end justify-between">
+                <h3
+                    class="!text-white font-extrabold text-xs sm:text-sm md:text-base lg:text-base leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] pr-2">
+                    IT<br />Support
+                </h3>
+
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 rounded-full bg-white flex items-center justify-center shrink-0 group-hover:bg-[#F3BA3F] transition-all duration-300 shadow-xl">
+                    <span
+                        class="material-symbols-outlined text-[16px] sm:text-[18px] lg:text-[20px] text-[#F3BA3F] group-hover:text-slate-900 transition-colors duration-300">
+                        arrow_forward
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Card 4: Smart Wiring -->
+        <div data-id="service-4"
+            class="service-card relative group rounded-2xl cursor-pointer active:cursor-grabbing overflow-hidden border border-white/20 bg-slate-900 shadow-2xl aspect-[4/3] sm:aspect-[4/3] lg:aspect-auto lg:h-[280px] xl:h-[300px]">
+
+            <img src="/static/img/our-service-fo.webp"
+                alt="Field Engineer technician installing smart wiring and structured cabling system"
+                class="absolute inset-0 z-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+
+            <div
+                class="absolute inset-0 z-[1] bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none">
+            </div>
+
+            <div
+                class="absolute bottom-0 left-0 right-0 z-10 p-3 sm:p-4 flex items-end justify-between">
+                <h3
+                    class="!text-white font-extrabold text-xs sm:text-sm md:text-base lg:text-base leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] pr-2">
+                    Smart<br />Wiring
+                </h3>
+
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 rounded-full bg-white flex items-center justify-center shrink-0 group-hover:bg-[#F3BA3F] transition-all duration-300 shadow-xl">
+                    <span
+                        class="material-symbols-outlined text-[16px] sm:text-[18px] lg:text-[20px] text-[#F3BA3F] group-hover:text-slate-900 transition-colors duration-300">
+                        arrow_forward
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Card 5: Fiber Splicing -->
+        <div data-id="service-5"
+            class="service-card relative group rounded-2xl cursor-pointer active:cursor-grabbing overflow-hidden border border-white/20 bg-slate-900 shadow-2xl aspect-[4/3] sm:aspect-[4/3] lg:aspect-auto lg:h-[280px] xl:h-[300px]">
+
+            <img src="/static/img/our-service-fi.webp"
+                alt="Field Engineer specialist performing fiber optic cable splicing"
+                class="absolute inset-0 z-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+
+            <div
+                class="absolute inset-0 z-[1] bg-gradient-to-t from-black via-black/70 to-transparent pointer-events-none">
+            </div>
+
+            <div
+                class="absolute bottom-0 left-0 right-0 z-10 p-3 sm:p-4 flex items-end justify-between">
+                <h3
+                    class="!text-white font-extrabold text-xs sm:text-sm md:text-base lg:text-base leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] pr-2">
+                    Fiber<br />Splicing
+                </h3>
+
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 rounded-full bg-white flex items-center justify-center shrink-0 group-hover:bg-[#F3BA3F] transition-all duration-300 shadow-xl">
+                    <span
+                        class="material-symbols-outlined text-[16px] sm:text-[18px] lg:text-[20px] text-[#F3BA3F] group-hover:text-slate-900 transition-colors duration-300">
+                        arrow_forward
+                    </span>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-
-</section>
+</div>
+    </section>
 
 <!-- =========================================
      FIELD ENGINEER SECTION
@@ -1236,188 +1124,275 @@
 
 </section>
 
-<section class="pt-16 pb-12 bg-white" aria-labelledby="faq-heading">
+<section
+    class="pt-16 pb-10 bg-white"
+    aria-labelledby="faq-heading">
 
+    <!-- Same responsive container / left-right padding -->
     <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
-        <!-- Heading -->
-        <h2 id="faq-heading"
-            class="text-center text-4xl md:text-5xl font-bold text-slate-800 mb-14">
-            Frequently Asked Questions
-        </h2>
+
+        <div class="bg-white">
+
+            <!-- ================= FAQ HEADING ================= -->
+            <h2
+                id="faq-heading"
+                class="contact-faq-title text-center text-4xl md:text-5xl font-bold text-slate-800 mb-14">
+
+                Frequently Asked Questions
+
+            </h2>
 
 
-        <!-- FAQ Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-7 gap-y-7">
+            <!-- ================= FAQ GRID ================= -->
+            <div
+                class="contact-faq-grid grid grid-cols-1 lg:grid-cols-2 gap-x-7 gap-y-7">
 
-            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
-                 data-faq-item>
 
-                <button type="button"
-                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
-                    data-faq-trigger
-                    aria-expanded="false">
+                <!-- ================= FAQ 1 ================= -->
+                <div
+                    class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                    data-faq-item>
 
-                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
-                        How quickly can FE deploy engineers?
-                    </span>
+                    <button
+                        type="button"
+                        class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left bg-white"
+                        data-faq-trigger
+                        aria-expanded="false">
 
-                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
-                          aria-hidden="true">
-                        add
-                    </span>
+                        <span
+                            class="contact-faq-text text-lg text-slate-800 font-medium">
 
-                </button>
+                            How quickly can FE deploy engineers?
 
-                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
-                     data-faq-panel
-                     hidden>
-                    FE can deploy certified engineers within 4–24 hours depending on location, skill requirements, and project scale.
+                        </span>
+
+                        <span
+                            class="material-symbols-outlined contact-faq-icon text-slate-400 text-3xl shrink-0"
+                            aria-hidden="true">
+
+                            add
+
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed bg-white"
+                        data-faq-panel
+                        hidden>
+
+                        FE can deploy certified engineers within 4–24 hours depending on location, skill
+                        requirements, and project scale.
+
+                    </div>
+
                 </div>
 
-            </div>
 
+                <!-- ================= FAQ 2 ================= -->
+                <div
+                    class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                    data-faq-item>
 
+                    <button
+                        type="button"
+                        class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left bg-white"
+                        data-faq-trigger
+                        aria-expanded="false">
 
-            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
-                 data-faq-item>
+                        <span
+                            class="contact-faq-text text-lg text-slate-800 font-medium">
 
-                <button type="button"
-                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
-                    data-faq-trigger
-                    aria-expanded="false">
+                            What industries does FE support?
 
-                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
-                        What industries does FE support?
-                    </span>
+                        </span>
 
-                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
-                          aria-hidden="true">
-                        add
-                    </span>
+                        <span
+                            class="material-symbols-outlined contact-faq-icon text-slate-400 text-3xl shrink-0"
+                            aria-hidden="true">
 
-                </button>
+                            add
 
-                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
-                     data-faq-panel
-                     hidden>
-                    We support IT infrastructure, telecom, data centers, retail, banking, healthcare, and enterprise facility management.
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed bg-white"
+                        data-faq-panel
+                        hidden>
+
+                        We support IT infrastructure, telecom, data centers, retail, banking, healthcare, and
+                        enterprise facility management.
+
+                    </div>
+
                 </div>
 
-            </div>
 
+                <!-- ================= FAQ 3 ================= -->
+                <div
+                    class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                    data-faq-item>
 
+                    <button
+                        type="button"
+                        class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left bg-white"
+                        data-faq-trigger
+                        aria-expanded="false">
 
-            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
-                 data-faq-item>
+                        <span
+                            class="contact-faq-text text-lg text-slate-800 font-medium">
 
-                <button type="button"
-                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
-                    data-faq-trigger
-                    aria-expanded="false">
+                            How do I become a vendor partner?
 
-                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
-                        How do I become a vendor partner?
-                    </span>
+                        </span>
 
-                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
-                          aria-hidden="true">
-                        add
-                    </span>
+                        <span
+                            class="material-symbols-outlined contact-faq-icon text-slate-400 text-3xl shrink-0"
+                            aria-hidden="true">
 
-                </button>
+                            add
 
-                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
-                     data-faq-panel
-                     hidden>
-                    Submit a vendor partnership inquiry through this page or email partners@fieldengineer.com. Our team will review your profile within one business day.
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed bg-white"
+                        data-faq-panel
+                        hidden>
+
+                        Submit a vendor partnership inquiry through this page or email
+                        partners@fieldengineer.com. Our team will review your profile within one business day.
+
+                    </div>
+
                 </div>
 
-            </div>
 
+                <!-- ================= FAQ 4 ================= -->
+                <div
+                    class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                    data-faq-item>
 
+                    <button
+                        type="button"
+                        class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left bg-white"
+                        data-faq-trigger
+                        aria-expanded="false">
 
-            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
-                 data-faq-item>
+                        <span
+                            class="contact-faq-text text-lg text-slate-800 font-medium">
 
-                <button type="button"
-                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
-                    data-faq-trigger
-                    aria-expanded="false">
+                            Is support available after project completion?
 
-                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
-                        Is support available after project completion?
-                    </span>
+                        </span>
 
-                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
-                          aria-hidden="true">
-                        add
-                    </span>
+                        <span
+                            class="material-symbols-outlined contact-faq-icon text-slate-400 text-3xl shrink-0"
+                            aria-hidden="true">
 
-                </button>
+                            add
 
-                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
-                     data-faq-panel
-                     hidden>
-                    Yes. FE provides post-deployment support, warranty assistance, and ongoing maintenance contracts through our 24/7 support team.
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed bg-white"
+                        data-faq-panel
+                        hidden>
+
+                        Yes. FE provides post-deployment support, warranty assistance, and ongoing maintenance
+                        contracts through our 24/7 support team.
+
+                    </div>
+
                 </div>
 
-            </div>
 
+                <!-- ================= FAQ 5 ================= -->
+                <div
+                    class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                    data-faq-item>
 
+                    <button
+                        type="button"
+                        class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left bg-white"
+                        data-faq-trigger
+                        aria-expanded="false">
 
-            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
-                 data-faq-item>
+                        <span
+                            class="contact-faq-text text-lg text-slate-800 font-medium">
 
-                <button type="button"
-                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
-                    data-faq-trigger
-                    aria-expanded="false">
+                            Can I track engineers in real time?
 
-                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
-                        Can I track engineers in real time?
-                    </span>
+                        </span>
 
-                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
-                          aria-hidden="true">
-                        add
-                    </span>
+                        <span
+                            class="material-symbols-outlined contact-faq-icon text-slate-400 text-3xl shrink-0"
+                            aria-hidden="true">
 
-                </button>
+                            add
 
-                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
-                     data-faq-panel
-                     hidden>
-                    Yes. The FE platform offers live GPS tracking, job status updates, and digital work logs accessible from your dashboard.
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed bg-white"
+                        data-faq-panel
+                        hidden>
+
+                        Yes. The FE platform offers live GPS tracking, job status updates, and digital work logs
+                        accessible from your dashboard.
+
+                    </div>
+
                 </div>
 
-            </div>
 
+                <!-- ================= FAQ 6 ================= -->
+                <div
+                    class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
+                    data-faq-item>
 
+                    <button
+                        type="button"
+                        class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left bg-white"
+                        data-faq-trigger
+                        aria-expanded="false">
 
-            <div class="contact-faq-item border border-slate-200 rounded-xl overflow-hidden bg-white"
-                 data-faq-item>
+                        <span
+                            class="contact-faq-text text-lg text-slate-800 font-medium">
 
-                <button type="button"
-                    class="contact-faq-trigger w-full flex items-center justify-between px-7 py-6 text-left"
-                    data-faq-trigger
-                    aria-expanded="false">
+                            What payment options are available?
 
-                    <span class="contact-faq-text text-lg text-slate-800 font-medium">
-                        What payment options are available?
-                    </span>
+                        </span>
 
-                    <span class="material-symbols-outlined contact-faq-icon text-slate-500 text-3xl"
-                          aria-hidden="true">
-                        add
-                    </span>
+                        <span
+                            class="material-symbols-outlined contact-faq-icon text-slate-400 text-3xl shrink-0"
+                            aria-hidden="true">
 
-                </button>
+                            add
 
-                <div class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed"
-                     data-faq-panel
-                     hidden>
-                    We accept bank transfers, corporate POs, and online payments. Enterprise clients can set up monthly billing with custom SLAs.
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel px-7 pb-6 text-slate-600 leading-relaxed bg-white"
+                        data-faq-panel
+                        hidden>
+
+                        We accept bank transfers, corporate POs, and online payments. Enterprise clients can set
+                        up monthly billing with custom SLAs.
+
+                    </div>
+
                 </div>
+
 
             </div>
 
@@ -1426,7 +1401,6 @@
     </div>
 
 </section>
-
 
 <section class=" bg-[#FFFDF8] w-full">
         <!-- Full-width gradient background container -->
@@ -1511,7 +1485,7 @@
                     <div class="flex-shrink-0 flex justify-center lg:justify-end">
                         <div class="text-center">
                             <p class="mb-4 text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
-                                Scan to Download
+                                
                             </p>
                            <img src="{% static 'img/about-qr.png' %}" 
      alt="QR code to download Field Engineer mobile app from Google Play and App Store"
