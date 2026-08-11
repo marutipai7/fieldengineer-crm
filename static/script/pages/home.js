@@ -227,141 +227,263 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ============================================================
-//MAP SETUP 
+// OUR COVERAGE - LEAFLET MAP
 // ============================================================
-const countryData = {
-    usa: {
-        center: [38.8951, -77.0364],
-        zoom: 4,
-        marker: [40.7282, -73.7371],
-        title: "USA Office",
-        cardTitle: "United States"
-    },
-    india: {
-        center: [20.5937, 78.9629],
-        zoom: 5,
-        marker: [19.1860, 72.8485],
-        title: "India Office",
-        cardTitle: "India"
-    },
-    malaysia: {
-        center: [4.2105, 101.9758],
-        zoom: 6,
-        marker: [3.1516, 101.5938],
-        title: "Malaysia Office",
-        cardTitle: "Malaysia"
-    }
-};
 
-// Initialize map
-const map = L.map('coverageMap', {
-    zoomControl: true,
-    scrollWheelZoom: false
-}).setView(countryData.usa.center, countryData.usa.zoom);
+document.addEventListener("DOMContentLoaded", function () {
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap &copy; CARTO',
-    subdomains: 'abcd',
-    maxZoom: 19
-}).addTo(map);
+    const mapElement = document.getElementById("coverageMap");
 
-// Custom marker icon
-const customIcon = L.divIcon({
-    className: 'custom-map-pin',
-    html: `
-        <div style="background-color: #F59E0B; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); position: relative;">
-            <span style="position: absolute; width: 100%; height: 100%; background-color: #F59E0B; border-radius: 50%; animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite; opacity: 0.75;"></span>
-        </div>
-    `,
-    iconSize: [24, 24],
-    iconAnchor: [12, 12]
-});
-
-// Add markers
-const markers = {};
-Object.keys(countryData).forEach(key => {
-    const item = countryData[key];
-    markers[key] = L.marker(item.marker, { icon: customIcon })
-        .addTo(map)
-        .bindPopup(`<b>${item.title}</b>`);
-});
-
-// ============================================================
-// 3. SWITCH COUNTRY FUNCTION - YEH BHI HATANA HAI
-// ============================================================
-function switchCountry(countryKey) {
-    const selected = countryData[countryKey];
-    if (!selected) return;
-
-    // Fly to country
-    map.flyTo(selected.center, selected.zoom, {
-        duration: 1.5
-    });
-
-    // Open popup
-    setTimeout(() => {
-        markers[countryKey].openPopup();
-    }, 500);
-
-    // Update pill buttons
-    document.querySelectorAll('.country-btn').forEach(btn => {
-        btn.classList.remove('bg-[#FBBF24]', 'text-white', 'shadow-sm');
-        btn.classList.add('text-gray-700');
-        
-        if (btn.getAttribute('data-country') === countryKey) {
-            btn.classList.add('bg-[#FBBF24]', 'text-white', 'shadow-sm');
-            btn.classList.remove('text-gray-700');
-        }
-    });
-
-   
-   document.querySelectorAll('.bottom-card').forEach(card => {
-    card.style.border = 'none';
-    card.style.boxShadow = 'none';
-});
-}
-
-
-
-// our service section
- document.addEventListener('DOMContentLoaded', function() {
-        const container = document.getElementById('serviceCardsContainer');
-        
-        if (container) {
-            new Sortable(container, {
-                animation: 350,
-                easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                ghostClass: 'sortable-ghost',
-                dragClass: 'sortable-chosen',
-                onStart: function(evt) {
-                    evt.item.style.transform = 'scale(1.05)';
-                    evt.item.style.boxShadow = '0 30px 60px rgba(0,0,0,0.9)';
-                    evt.item.style.zIndex = '999';
-                    evt.item.style.border = '3px solid #F3BA3F';
-                    evt.item.style.borderRadius = '16px';
-                },
-                onEnd: function(evt) {
-                    evt.item.style.transform = '';
-                    evt.item.style.boxShadow = '';
-                    evt.item.style.zIndex = '';
-                    evt.item.style.border = '';
-                    evt.item.style.borderRadius = '';
-                },
-                touchStartThreshold: 5,
-                delay: 150,
-                delayOnTouchOnly: true
-            });
-        }
-    });
-
-    function switchToLogin() {
-        console.log('Switch to login');
+    if (!mapElement) {
+        console.error("coverageMap element not found.");
+        return;
     }
 
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-            if (!this.classList.contains('dragging')) {
-                switchToLogin();
+    // ------------------------------------------------------------
+    // Country data
+    // ------------------------------------------------------------
+
+    const countryData = {
+
+        usa: {
+            center: [38.8951, -77.0364],
+            zoom: 4,
+            marker: [40.7282, -73.7371],
+            title: "USA Office"
+        },
+
+        india: {
+            center: [20.5937, 78.9629],
+            zoom: 5,
+            marker: [19.1860, 72.8485],
+            title: "India Office"
+        },
+
+        malaysia: {
+            center: [4.2105, 101.9758],
+            zoom: 6,
+            marker: [3.1516, 101.5938],
+            title: "Malaysia Office"
+        }
+
+    };
+
+
+    // ------------------------------------------------------------
+    // Create Leaflet map
+    // ------------------------------------------------------------
+
+    const map = L.map("coverageMap", {
+        zoomControl: true,
+        scrollWheelZoom: false
+    }).setView(
+        countryData.usa.center,
+        countryData.usa.zoom
+    );
+
+
+    // ------------------------------------------------------------
+    // Map tiles
+    // ------------------------------------------------------------
+
+    L.tileLayer(
+        "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+        {
+            attribution: "&copy; OpenStreetMap &copy; CARTO",
+            subdomains: "abcd",
+            maxZoom: 19
+        }
+    ).addTo(map);
+
+
+    // ------------------------------------------------------------
+    // Custom marker
+    // ------------------------------------------------------------
+
+    const customIcon = L.divIcon({
+
+        className: "custom-map-pin",
+
+        html: `
+            <div style="
+                background-color:#F59E0B;
+                width:24px;
+                height:24px;
+                border-radius:50%;
+                border:3px solid white;
+                box-shadow:0 4px 6px -1px rgba(0,0,0,0.2);
+                position:relative;
+            ">
+                <span style="
+                    position:absolute;
+                    width:100%;
+                    height:100%;
+                    background-color:#F59E0B;
+                    border-radius:50%;
+                    animation:ping 1.5s cubic-bezier(0,0,0.2,1) infinite;
+                    opacity:0.75;
+                "></span>
+            </div>
+        `,
+
+        iconSize: [24, 24],
+        iconAnchor: [12, 12]
+
+    });
+
+
+    // ------------------------------------------------------------
+    // Create markers
+    // ------------------------------------------------------------
+
+    const markers = {};
+
+    Object.keys(countryData).forEach(function (countryKey) {
+
+        const country = countryData[countryKey];
+
+        markers[countryKey] = L.marker(
+            country.marker,
+            {
+                icon: customIcon
             }
-        });
+        )
+        .addTo(map)
+        .bindPopup(`<b>${country.title}</b>`);
+
     });
+
+
+    // ------------------------------------------------------------
+    // Switch country
+    // ------------------------------------------------------------
+
+    function switchCountry(countryKey) {
+
+        const country = countryData[countryKey];
+
+        if (!country) {
+            console.error("Country not found:", countryKey);
+            return;
+        }
+
+        // Change map position
+        map.flyTo(
+            country.center,
+            country.zoom,
+            {
+                duration: 1.5
+            }
+        );
+
+
+        // Open selected country's marker
+        setTimeout(function () {
+
+            if (markers[countryKey]) {
+                markers[countryKey].openPopup();
+            }
+
+        }, 1200);
+
+
+        // Update top country buttons
+        document.querySelectorAll(".country-btn").forEach(function (button) {
+
+            button.classList.remove(
+                "bg-[#FBBF24]",
+                "text-white",
+                "shadow-sm"
+            );
+
+            button.classList.add("text-gray-700");
+
+
+            if (button.dataset.country === countryKey) {
+
+                button.classList.add(
+                    "bg-[#FBBF24]",
+                    "text-white",
+                    "shadow-sm"
+                );
+
+                button.classList.remove("text-gray-700");
+
+            }
+
+        });
+
+    }
+
+
+    // ------------------------------------------------------------
+    // TOP COUNTRY BUTTONS
+    // ------------------------------------------------------------
+
+    document.querySelectorAll(".country-btn").forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const country = this.dataset.country;
+
+            switchCountry(country);
+
+        });
+
+    });
+
+
+    // ------------------------------------------------------------
+    // VIEW ON MAP BUTTONS
+    // ------------------------------------------------------------
+
+    const viewMapButtons = document.querySelectorAll("[data-view-map]");
+
+    viewMapButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const country = this.dataset.viewMap;
+
+            switchCountry(country);
+
+            // Scroll to map
+            mapElement.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        });
+
+    });
+
+
+    // ------------------------------------------------------------
+    // Fix Leaflet map size after page rendering
+    // ------------------------------------------------------------
+
+    setTimeout(function () {
+        map.invalidateSize();
+    }, 300);
+
+
+    // Make function available globally if needed elsewhere
+    window.switchCountry = switchCountry;
+
+});
+document.querySelectorAll("[data-view-map]").forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const country = this.dataset.viewMap;
+
+        switchCountry(country);
+
+        document.getElementById("coverageMap").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    });
+
+});
