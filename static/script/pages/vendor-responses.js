@@ -12,7 +12,7 @@
       '<span class="vr-engineer-marker__pulse"></span>' +
       '<span class="vr-engineer-marker__pulse"></span>' +
       '<span class="vr-engineer-marker__pulse"></span>' +
-      '<img class="vr-engineer-marker__avatar" src="' + imgSrc + '" alt="" width="44" height="44" loading="lazy">' +
+      '<img class="vr-engineer-marker__avatar" src="' + imgSrc + '" alt="engineering marker" width="44" height="44" loading="lazy">' +
       "</div>"
     );
   }

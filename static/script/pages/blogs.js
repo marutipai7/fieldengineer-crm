@@ -326,7 +326,7 @@ function renderFeatured(container, post, staticBase) {
   container.innerHTML = `
     <a href="#" class="blog-featured-card" aria-label="${escapeHtml(post.title)}">
       <div class="blog-featured-media">
-        <img src="${imgSrc(staticBase, post.image)}" alt="" loading="lazy">
+        <img src="${imgSrc(staticBase, post.image)}" alt="blog featured" loading="lazy">
       </div>
       <div class="blog-featured-body">
         <span class="blog-badge blog-badge--featured">Featured</span>
@@ -363,7 +363,7 @@ function renderGrid(container, posts, staticBase) {
     <article class="blog-card">
       <a href="#" class="blog-card-link" aria-label="${escapeHtml(post.title)}">
         <div class="blog-card-media">
-          <img src="${imgSrc(staticBase, post.image)}" alt="" loading="lazy">
+          <img src="${imgSrc(staticBase, post.image)}" alt="blog card link image" loading="lazy">
         </div>
         <div class="blog-card-body">
           <p class="blog-card-category">${escapeHtml(post.categoryLabel)}</p>
@@ -469,7 +469,7 @@ function renderSidebarPopular(container, staticBase) {
             <a href="#" class="blog-popular-item">
               <span class="blog-popular-rank">${String(index + 1).padStart(2, '0')}</span>
               <span class="blog-popular-thumb">
-                <img src="${imgSrc(staticBase, post.image)}" alt="" loading="lazy">
+                <img src="${imgSrc(staticBase, post.image)}" alt="blog popular rank image" loading="lazy">
               </span>
               <span class="blog-popular-content">
                 <span class="blog-popular-title">${escapeHtml(post.title)}</span>

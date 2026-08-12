@@ -22,8 +22,12 @@
     {% endcomment %}
     <section class="relative">
         <div class="relative h-[260px] md:h-[320px] w-full overflow-hidden">
-            <img src="{% static 'img/articles/article-bg.webp' %}" alt="" aria-hidden="true"
-                class="absolute inset-0 w-full h-full object-cover">
+           <img src="{% static 'img/articles/article-bg.webp' %}" 
+     alt="article page background image" 
+     aria-hidden="true"
+     width="1920"
+     height="1080"
+     class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-[#0B2A1E]/90 via-[#0B2A1E]/60 to-[#0B2A1E]/20"></div>
 
             <div class="relative h-full max-w-7xl mx-auto px-5 md:px-8 flex flex-col justify-end pb-8">
@@ -255,8 +259,11 @@
                             <p class="mb-4 text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
                                 Scan to Download
                             </p>
-                            <img src="{% static 'img/about-qr.png' %}" alt="Download FE App"
-                                class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
+                          <img src="{% static 'img/about-qr.png' %}" 
+     alt="Download FE App"
+     width="190"
+     height="190"
+     class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
                         </div>
                     </div>
 
@@ -286,7 +293,7 @@ openArticlePreview() in articles.js.
         <div
             class="relative w-14 h-14 rounded-full overflow-hidden bg-article-light-green flex items-center justify-center mb-4">
             <span id="article-preview-icon" class="material-symbols-outlined text-primary-green text-[26px]"></span>
-            <img id="article-preview-image" src="" alt="" class="absolute inset-0 w-full h-full object-cover"
+            <img id="article-preview-image" src="" alt="article preview image " class="absolute inset-0 w-full h-full object-cover"
                 onerror="this.remove();">
         </div>
 

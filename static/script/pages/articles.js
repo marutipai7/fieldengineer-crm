@@ -1161,7 +1161,7 @@ const relatedArticleCardHtml = (article) => `
       -->
       <div class="relative w-12 h-12 rounded-full overflow-hidden shrink-0 bg-article-light-green flex items-center justify-center">
         <span class="material-symbols-outlined text-primary-green">${escapeHtml(article.icon || "description")}</span>
-        <img src="${escapeHtml(resolveStaticUrl(article.heroImage))}" alt=""
+        <img src="${escapeHtml(resolveStaticUrl(article.heroImage))}" alt="hero section image"
              class="absolute inset-0 w-full h-full object-cover"
              onerror="this.remove();">
       </div>
