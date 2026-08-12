@@ -142,3 +142,27 @@ function initContactFaq() {
 document.addEventListener("DOMContentLoaded", function () {
     initContactFaq();
 });
+// ============================================================
+// PREVENT IMAGE DRAGGING
+// ============================================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll("img").forEach(function (img) {
+
+        // Prevent browser image dragging
+        img.setAttribute("draggable", "false");
+
+        // Prevent drag & drop
+        img.addEventListener("dragstart", function (event) {
+            event.preventDefault();
+        });
+
+        // Prevent image selection
+        img.style.userSelect = "none";
+        img.style.webkitUserSelect = "none";
+        img.style.webkitUserDrag = "none";
+
+    });
+
+});

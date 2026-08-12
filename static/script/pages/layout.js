@@ -821,28 +821,38 @@ function validateURL(input) {
         ====================================================== */
 
         function switchToLogin() {
-            // Close signup popup if open
-            const signupPopup = document.getElementById('signupPopup');
-            if (signupPopup) {
-                signupPopup.classList.add('opacity-0', 'pointer-events-none');
-                signupPopup.classList.remove('opacity-100', 'pointer-events-auto');
-            }
+    // Close signup popup if open
+    const signupPopup = document.getElementById('signupPopup');
 
-            // Close OTP popup if open
-            const otpPopup = document.getElementById('otpPopup');
-            if (otpPopup) {
-                otpPopup.classList.add('opacity-0', 'pointer-events-none');
-                otpPopup.classList.remove('opacity-100', 'pointer-events-auto');
-            }
+    if (signupPopup) {
+        signupPopup.classList.add(
+            'opacity-0',
+            'pointer-events-none'
+        );
 
-            // Open login popup
-            const loginPopup = document.getElementById('loginPopup');
-            if (loginPopup) {
-                loginPopup.classList.remove('opacity-0', 'pointer-events-none');
-                loginPopup.classList.add('opacity-100', 'pointer-events-auto');
-                document.body.classList.add('overflow-hidden');
-            }
-        }
+        signupPopup.classList.remove(
+            'opacity-100',
+            'pointer-events-auto'
+        );
+    }
+
+    // Open login popup
+    const loginPopup = document.getElementById('loginPopup');
+
+    if (loginPopup) {
+        loginPopup.classList.remove(
+            'opacity-0',
+            'pointer-events-none'
+        );
+
+        loginPopup.classList.add(
+            'opacity-100',
+            'pointer-events-auto'
+        );
+    }
+
+    // DON'T lock body scrolling here
+}
 
         /* =====================================================
            SWITCH TO SIGNUP
@@ -915,14 +925,21 @@ function validateURL(input) {
            CLOSE SIGNUP POPUP
         ====================================================== */
 
-        function closeSignupPopup() {
-            const signupPopup = document.getElementById('signupPopup');
-            if (signupPopup) {
-                signupPopup.classList.add('opacity-0', 'pointer-events-none');
-                signupPopup.classList.remove('opacity-100', 'pointer-events-auto');
-                document.body.classList.remove('overflow-hidden');
-            }
-        }
+        function closeLoginPopup() {
+    const loginPopup = document.getElementById('loginPopup');
+
+    if (loginPopup) {
+        loginPopup.classList.add(
+            'opacity-0',
+            'pointer-events-none'
+        );
+
+        loginPopup.classList.remove(
+            'opacity-100',
+            'pointer-events-auto'
+        );
+    }
+}
         /* =====================================================
            SALES ENQUIRY FORM SUBMIT (AJAX - No page reload)
         ====================================================== */
