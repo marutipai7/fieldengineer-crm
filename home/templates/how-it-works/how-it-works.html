@@ -26,7 +26,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
             </span>
             <h1
                 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
-                From posting a job to getting it done —
+                From posting a job to getting it done
                 here's <span class="text-rich-golden-yellow">how it works.</span>
             </h1>
             <p class="text-sm sm:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed">
@@ -288,7 +288,7 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                 <ul class="space-y-3 mt-2">
                     <li class="flex items-start gap-3">
                         <span class="text-warm-golden-orange text-base font-bold mt-0.5">✓</span>
-                        <span class="text-sm sm:text-base text-black-darkk font-medium"> View profiles, ratings, and
+                        <span class="text-sm sm:text-base text-black-darkk font-medium"> View profiles, ratings and
                             work history</span>
                     </li>
                     <li class="flex items-start gap-3">
@@ -510,12 +510,12 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
     <!--TESTIMONIAL-->
     <section class="py-8 lg:py-10 bg-warm-off-white overflow-hidden">
-        <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
-            <div class="grid lg:grid-cols-[1.3fr_0.7fr] items-start gap-8 lg:gap-12 xl:gap-16">
+            <div class="grid lg:grid-cols-[1.3fr_0.7fr] items-start gap-2">
 
                 <!-- ================= LEFT ================= -->
-                <div class="pr-0 lg:pr-8 xl:pr-12">
+                <div>
 
                     <!-- Label -->
                     <span class="text-[12px] font-bold tracking-[3px] uppercase text-primary-yellow">
@@ -540,15 +540,11 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                     <!-- Testimonial Card -->
                     <div
-                        class="mt-5 w-full max-w-[760px] rounded-[24px] bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] px-6 sm:px-8 md:px-10 py-6 sm:py-7 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+                        class="mt-5 w-full max-w-[760px] rounded-[24px] bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] px-6 sm:px-7 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
 
                         <!-- Stars -->
-                        <div class="flex gap-1">
-                            <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
-                            <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
-                            <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
-                            <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
-                            <span class="material-symbols-outlined text-warm-golden-orange text-[15px]">star</span>
+                        <div id="testimonialStars" class="flex gap-1">
+                            <!-- Stars will be rendered by JS -->
                         </div>
 
                         <!-- Quote -->
@@ -570,39 +566,52 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
                             <!-- Customer -->
                             <div class="flex items-center gap-3">
-                                <div
-                                    class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-md flex-shrink-0">
-                                 <img id="customerImage" src="{% static 'img/fe-wocs.jpg' %}" 
-     alt="Customer"
-     width="48"
-     height="48"
-     class="w-full h-full object-cover">
+
+                                <!-- Image (avatar / company logo) -->
+                                <div class="testimonial-avatar-wrap">
+                                    <img id="customerImage" src="{% static 'img/fe-wocs1.webp' %}"
+                                        alt="Priya Sharma, verified Field Engineer customer sharing her experience"
+                                        width="56" height="56" loading="lazy" class="testimonial-avatar">
                                 </div>
-                                <div>
+
+                                <!-- Details -->
+                                <div class="min-w-0 flex-1">
+
+                                    <!-- Customer name -->
                                     <h4 id="customerName"
-                                        class="font-semibold text-[16px] sm:text-[17px] text-light-blackk">
+                                        class="font-semibold text-[16px] sm:text-[17px] text-light-blackk leading-tight">
                                         Priya Sharma
                                     </h4>
-                                    <div class="flex items-center gap-1">
-                                        <span id="customerRole" class="text-[12px] sm:text-[13px] text-light-blackk">
-                                            Verified Customer
+
+                                    <!-- Company name + Verified badge -->
+                                    <div class="flex items-center gap-2 mt-0.5 flex-wrap">
+                                        <span id="customerCompany" class="text-[12px] sm:text-[13px] text-light-blackk">
+                                            TechNova Solutions
                                         </span>
-                                        <span class="material-symbols-outlined text-green-500 text-[15px]">
-                                            verified
+                                        <span class="flex items-center gap-1">
+                                            <span id="customerRole"
+                                                class="text-[12px] sm:text-[13px] text-light-blackk">
+                                                Verified Customer
+                                            </span>
+                                            <span class="material-symbols-outlined text-green-500 text-[15px]">
+                                                verified
+                                            </span>
                                         </span>
                                     </div>
+
                                 </div>
+
                             </div>
 
                             <!-- Navigation -->
                             <div class="flex gap-2 ml-auto sm:ml-0">
-                                <button id="testimonialPrev"
-                                    class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:bg-[#F5B530] hover:text-white transition">
-                                    <span class="material-symbols-outlined">chevron_left</span>
+                                <button id="testimonialPrev" type="button"
+                                    class="w-10 h-10 rounded-full border border-slate-200 bg-white text-[#F5B530] flex items-center justify-center transition-all duration-300 hover:bg-[#F5B530] hover:text-white">
+                                    <span class="material-symbols-outlined text-[20px]">chevron_left</span>
                                 </button>
-                                <button id="testimonialNext"
-                                    class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center hover:bg-[#F5B530] hover:text-white transition">
-                                    <span class="material-symbols-outlined">chevron_right</span>
+                                <button id="testimonialNext" type="button"
+                                    class="w-10 h-10 rounded-full border border-[#F5B530] bg-[#F5B530] text-white flex items-center justify-center transition-all duration-300 hover:bg-[#E2A220] hover:border-[#E2A220]">
+                                    <span class="material-symbols-outlined text-[20px]">chevron_right</span>
                                 </button>
                             </div>
                         </div>
@@ -620,17 +629,23 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                 </div>
 
                 <!-- ================= RIGHT ================= -->
-                <div class="hidden lg:flex justify-end items-start overflow-hidden pl-4 lg:pl-8 xl:pl-12">
-                    <div
-                        class="relative w-[450px] h-[450px] rounded-full overflow-hidden border-[4px] border-[#F5B530] shadow-[0_12px_30px_rgba(0,0,0,0.08)] translate-x-16 translate-y-12">
-                     <img id="engineerImage" src="{% static 'img/fe-wocs2.jpg' %}" 
-     alt="Engineer"
-     width="450"
-     height="450"
-     class="w-full h-full object-cover object-center scale-[1.15] translate-y-8">
+                <div class="hidden lg:flex justify-end items-start overflow-hidden">
+                    <div class="relative translate-x-16 translate-y-12">
+
+                        <!-- Circle -->
+                        <div class="testimonial-feature-circle">
+                            <img id="engineerImage" src="{% static 'img/fe-wocs-bg.webp' %}"
+                                alt="Field Engineer professional service provider in the field" width="450" height="450"
+                                loading="lazy" class="testimonial-feature-img">
+                        </div>
+
+                        <!-- Hide bottom border -->
+                        <div
+                            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[220px] h-8 bg-[#FCFAF5] rounded-full z-20 hidden lg:block">
+                        </div>
+
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -802,13 +817,10 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
                     <div class="flex-shrink-0 flex justify-center lg:justify-end">
                         <div class="text-center">
                             <p class="mb-4 text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
-                                Scan to Download
+
                             </p>
-                        <img src="{% static 'img/about-qr.png' %}" 
-     alt="Download FE App"
-     width="190"
-     height="190"
-     class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
+                            <img src="{% static 'img/about-qr.webp' %}" alt="Download FE App" width="190" height="190"
+                                class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
                         </div>
                     </div>
 
@@ -823,6 +835,13 @@ Vendor Management Platform | Grow Your Field Service Business | Field Engage
 
 
 </main>
+<script>
+    const testimonialImages = [
+        "{% static 'img/fe-wocs1.webp' %}",
+        "{% static 'img/fe-wocs2.webp' %}",
+        "{% static 'img/fe-wocs3.webp' %}"
+    ];
+</script>
 
 <script src="{% static 'script/pages/how-it-works.js' %}"></script>
 <script src="{% static 'script/pages/engineer.js' %}"></script>

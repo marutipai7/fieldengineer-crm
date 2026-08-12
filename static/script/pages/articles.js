@@ -861,7 +861,7 @@ const buildArticleUrl = (id) => {
 
 /**
  * Resolves an article's `heroImage` (a path relative to STATIC_URL, e.g.
- * "img/articles/track-service-request.jpg") into a real, loadable URL.
+ * 
  * Uses window.STATIC_URL, which articles.html sets from Django's
  * {% get_static_prefix %} — the only reliable way for a plain static JS
  * file to know the real static prefix (handles CDNs, hashed filenames,

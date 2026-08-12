@@ -750,7 +750,7 @@ function validateStep4() {
     mapEl.style.borderRadius = "0.5rem";
 
     map = L.map("map", { zoomControl: true }).setView([lat, lng], 13);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.webp", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 19,
