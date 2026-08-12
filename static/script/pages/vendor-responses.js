@@ -58,10 +58,13 @@
       attributionControl: false,
     });
 
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.webp", {
-      subdomains: "abcd",
-      maxZoom: 19,
-    }).addTo(map);
+   map = L.map("map", { zoomControl: true }).setView([lat, lng], 13);
+L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.webp", {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: "abcd",
+  maxZoom: 19,
+}).addTo(map);
 
     map.setView(GURUGRAM_CENTER, DEFAULT_ZOOM);
     addEngineerMarkers();

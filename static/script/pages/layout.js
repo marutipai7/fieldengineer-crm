@@ -150,88 +150,125 @@
         // ============================================================
         // 5. CUSTOM COUNTRY CODE DROPDOWN (FIXED - No API Call)
         // ============================================================
-        const dropdownBtn = document.getElementById('countryDropdownBtn');
-        const dropdownList = document.getElementById('countryDropdownList');
-        const selectedFlagImg = document.getElementById('selectedFlagImg');
-        const selectedCodeText = document.getElementById('selectedCodeText');
-        const countryCodeInput = document.getElementById('countryCodeInput');
+     const dropdownBtn = document.getElementById('countryDropdownBtn');
+const dropdownList = document.getElementById('countryDropdownList');
+const selectedFlagImg = document.getElementById('selectedFlagImg');
+const selectedCodeText = document.getElementById('selectedCodeText');
+const countryCodeInput = document.getElementById('countryCodeInput');
 
-        // Use fallback countries directly (no API call to avoid CORS errors)
-        const fallbackCountries = [
-            { code: '+91', flag: 'https://flagcdn.com/w20/in.webp', name: 'India' },
-            { code: '+1', flag: 'https://flagcdn.com/w20/us.webp', name: 'United States' },
-            { code: '+44', flag: 'https://flagcdn.com/w20/gb.webp', name: 'United Kingdom' },
-            { code: '+61', flag: 'https://flagcdn.com/w20/au.webp', name: 'Australia' },
-            { code: '+81', flag: 'https://flagcdn.com/w20/jp.webp', name: 'Japan' },
-            { code: '+86', flag: 'https://flagcdn.com/w20/cn.webp', name: 'China' },
-            { code: '+49', flag: 'https://flagcdn.com/w20/de.webp', name: 'Germany' },
-            { code: '+33', flag: 'https://flagcdn.com/w20/fr.webp', name: 'France' },
-            { code: '+39', flag: 'https://flagcdn.com/w20/it.webp', name: 'Italy' },
-            { code: '+55', flag: 'https://flagcdn.com/w20/br.webp', name: 'Brazil' },
-            { code: '+7', flag: 'https://flagcdn.com/w20/ru.webp', name: 'Russia' },
-            { code: '+82', flag: 'https://flagcdn.com/w20/kr.webp', name: 'South Korea' },
-            { code: '+31', flag: 'https://flagcdn.com/w20/nl.webp', name: 'Netherlands' },
-            { code: '+46', flag: 'https://flagcdn.com/w20/se.webp', name: 'Sweden' },
-            { code: '+41', flag: 'https://flagcdn.com/w20/ch.webp', name: 'Switzerland' },
-            { code: '+60', flag: 'https://flagcdn.com/w20/my.webp', name: 'Malaysia' },
-            { code: '+65', flag: 'https://flagcdn.com/w20/sg.webp', name: 'Singapore' },
-            { code: '+971', flag: 'https://flagcdn.com/w20/ae.webp', name: 'UAE' },
-            { code: '+966', flag: 'https://flagcdn.com/w20/sa.webp', name: 'Saudi Arabia' },
-        ];
+// Primary API using CDN (bypass CORS & AdBlockers)
+const PRIMARY_API = 'https://cdn.jsdelivr.net/gh/mledoze/countries@master/dist/countries.json';
+const BACKUP_API = 'https://restcountries.com/v3.1/all?fields=name,cca2,idd';
 
-        // Populate dropdown list
-        function populateDropdown() {
-            if (!dropdownList) return;
-            
-            dropdownList.innerHTML = '';
-            const fragment = document.createDocumentFragment();
+async function fetchAllCountries() {
+    let data = null;
 
-            fallbackCountries.forEach(({ flag, code, name }) => {
-                const item = document.createElement('div');
-                item.className = 'country-item';
-                item.innerHTML = `
-                    <img src="${flag}" alt="${name}">
-                    <span>${code}</span>
-                `;
+    try {
+        const res = await fetch(PRIMARY_API);
+        if (res.ok) {
+            data = await res.json();
+        } else {
+            throw new Error('Primary API unreachable');
+        }
+    } catch (e) {
+        try {
+            const backupRes = await fetch(BACKUP_API);
+            data = await backupRes.json();
+        } catch (backupError) {
+            console.error('All APIs failed:', backupError);
+            return [];
+        }
+    }
 
-                item.addEventListener('click', () => {
-                    selectedFlagImg.src = flag;
-                    selectedCodeText.textContent = code;
-                    countryCodeInput.value = code;
-                    dropdownList.classList.add('hidden');
-                });
+    const countries = [];
 
-                fragment.appendChild(item);
-            });
+    data.forEach(country => {
+        const name = country.name?.common || country.name;
+        const isoCode = country.cca2?.toLowerCase();
+        const root = country.idd?.root;
+        const suffixes = country.idd?.suffixes || [];
 
-            dropdownList.appendChild(fragment);
+        if (!name || !isoCode || !root) return;
 
-            // Set default to India (+91)
-            const india = fallbackCountries.find(c => c.code === '+91');
-            if (india) {
-                selectedFlagImg.src = india.flag;
-                selectedCodeText.textContent = india.code;
-                countryCodeInput.value = india.code;
-            }
+        // Dialing code logic
+        let phoneCode = root;
+        if (suffixes.length === 1) {
+            phoneCode = `${root}${suffixes[0]}`;
         }
 
-        // Populate immediately
-        populateDropdown();
+        countries.push({
+            name: name,
+            code: phoneCode,
+            flag: `https://flagcdn.com/w20/${isoCode}.webp`
+        });
+    });
 
-        // Dropdown toggle
-        if (dropdownBtn && dropdownList) {
-            dropdownBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                dropdownList.classList.toggle('hidden');
-            });
+    // Remove duplicates & sort alphabetically
+    return countries
+        .filter((c, index, self) => index === self.findIndex(t => t.name === c.name && t.code === c.code))
+        .sort((a, b) => a.name.localeCompare(b.name));
+}
 
-            document.addEventListener('click', (e) => {
-                const container = document.getElementById('countryDropdownContainer');
-                if (container && !container.contains(e.target)) {
-                    dropdownList.classList.add('hidden');
-                }
-            });
+async function populateDropdown() {
+    if (!dropdownList) return;
+
+    dropdownList.innerHTML = '<div style="padding: 10px; text-align: center; color: #888;">Loading countries...</div>';
+
+    const countries = await fetchAllCountries();
+
+    if (!countries || countries.length === 0) {
+        dropdownList.innerHTML = '<div style="padding: 10px; text-align: center; color: red;">Failed to load countries</div>';
+        return;
+    }
+
+    dropdownList.innerHTML = '';
+    const fragment = document.createDocumentFragment();
+
+    countries.forEach(({ flag, code, name }) => {
+        const item = document.createElement('div');
+        item.className = 'country-item';
+        item.innerHTML = `
+            <img src="${flag}" alt="${name}" width="20" height="15" loading="lazy">
+            <span>${name} (${code})</span>
+        `;
+
+        item.addEventListener('click', () => {
+            selectedFlagImg.src = flag;
+            selectedCodeText.textContent = code;
+            countryCodeInput.value = code;
+            dropdownList.classList.add('hidden');
+        });
+
+        fragment.appendChild(item);
+    });
+
+    dropdownList.appendChild(fragment);
+
+    // Default Selection: India (+91)
+    const defaultCountry = countries.find(c => c.code === '+91' && c.name.toLowerCase() === 'india') || countries[0];
+    if (defaultCountry) {
+        selectedFlagImg.src = defaultCountry.flag;
+        selectedCodeText.textContent = defaultCountry.code;
+        countryCodeInput.value = defaultCountry.code;
+    }
+}
+
+populateDropdown();
+
+// Dropdown event listeners
+if (dropdownBtn && dropdownList) {
+    dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownList.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+        const container = document.getElementById('countryDropdownContainer');
+        if (container && !container.contains(e.target)) {
+            dropdownList.classList.add('hidden');
         }
+    });
+}
 
         // ============================================================
         // 6. CLOSE MODAL
