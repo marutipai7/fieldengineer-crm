@@ -4,1082 +4,270 @@
 {% block title %} Job Description | FieldEngineer{% endblock %}
 
 {% block content %}
-    <main class="bg-[#F8FAF5]/40 min-h-screen">
+<main class="bg-[#F8FAF5]/40 min-h-screen">
 
-        <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-       <!-- ========================= -->
-<!-- Breadcrumb -->
-<!-- ========================= -->
-<section class="bg-white border-b border-gray-100">
-    <div class="max-w-[1500px] mx-auto px-6 lg:px-10 py-4">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- ========================= -->
+    <!-- Breadcrumb -->
+    <!-- ========================= -->
+    <section class="bg-white border-b border-gray-100">
+        <div class="max-w-[1500px] mx-auto px-6 lg:px-10 py-4">
 
-        <nav class="flex items-center gap-3 text-[14px]">
+            <nav class="flex items-center gap-3 text-[14px]">
 
-            <a href="#" class="text-[#18B37B] font-medium hover:text-[#129765]">
-                Careers
-            </a>
+                <a href="#" class="text-[#18B37B] font-medium hover:text-[#129765]">
+                    Careers
+                </a>
 
-            <span class="material-symbols-outlined text-[16px] text-gray-400">
-                chevron_right
-            </span>
+                <span class="material-symbols-outlined text-[16px] text-gray-400">
+                    chevron_right
+                </span>
 
-            <a href="#" class="text-[#18B37B] font-medium hover:text-[#129765]">
-                Engineering
-            </a>
-
-            <span class="material-symbols-outlined text-[16px] text-gray-400">
-                chevron_right
-            </span>
-
-            <span class="text-gray-500">
-                Senior Software Engineer
-            </span>
-
-        </nav>
-
-    </div>
-</section>
-<section class="relative overflow-hidden">
-
-    <!-- Background -->
-    <div
-        class="absolute inset-0 bg-gradient-to-r from-[#FFF6C8] via-[#EAF7C8] to-[#CBEFB7]">
-    </div>
-
-    <div class="relative max-w-[1500px] mx-auto px-6 lg:px-10 py-14">
-
-        <div class="grid lg:grid-cols-[1fr_360px] gap-10 items-start">
-
-            <!-- LEFT -->
-            <div>
-
-                <!-- Category -->
-
-                <span
-                    class="inline-flex bg-[#23C483] text-white text-xs font-semibold px-4 py-2 rounded-full">
+                <a href="#" class="text-[#18B37B] font-medium hover:text-[#129765]">
                     Engineering
+                </a>
+
+                <span class="material-symbols-outlined text-[16px] text-gray-400">
+                    chevron_right
                 </span>
 
-                <!-- Title -->
-
-                <h1
-                    class="mt-7 text-[58px] leading-[1.05] font-bold text-[#1C2B1C]">
-
+                <span class="text-gray-500">
                     Senior Software Engineer
-
-                </h1>
-
-                <!-- Job Details -->
-
-                <div
-                    class="flex flex-wrap gap-x-7 gap-y-4 mt-8 text-[#5B6B65]">
-
-                    <div class="flex items-center gap-2">
-
-                        <span
-                            class="material-symbols-outlined text-[#20C07A]">
-                            location_on
-                        </span>
-
-                        Mumbai, Maharashtra
-
-                    </div>
-
-                    <div class="flex items-center gap-2">
-
-                        <span
-                            class="material-symbols-outlined text-[#20C07A]">
-                            work
-                        </span>
-
-                        Full-Time
-
-                    </div>
-
-                    <div class="flex items-center gap-2">
-
-                        <span
-                            class="material-symbols-outlined text-[#20C07A]">
-                            home_work
-                        </span>
-
-                        Hybrid
-
-                    </div>
-
-                    <div class="flex items-center gap-2">
-
-                        <span
-                            class="material-symbols-outlined text-[#20C07A]">
-                            payments
-                        </span>
-
-                        ₹18L – ₹28L per annum
-
-                    </div>
-
-                </div>
-
-                <!-- Posted -->
-
-                <p class="mt-4 text-[#7A8A82]">
-
-                    Posted 3 days ago • 12 applicants
-
-                </p>
-
-                <!-- Buttons -->
-
-                <div class="flex flex-wrap gap-4 mt-10">
-
-    <button
-    type="button"
-    class="hero-apply-btn openJobApplyModal">
-
-    Apply Now
-
-    <span class="material-symbols-outlined text-[18px]">
-        arrow_forward
-    </span>
-
-</button>
-
-    <button
-    type="button"
-    id="saveJobBtn"
-    class="hero-save-btn">
-
-    <span id="saveJobIcon" class="material-symbols-outlined text-[20px]">
-        bookmark_add
-    </span>
-
-    <span id="saveJobText">
-        Save Job
-    </span>
-
-</button>
-</div>
-            </div>
-
-            <!-- RIGHT CARD -->
-
-            <div>
-
-                <div class="bg-white rounded-[28px] p-6 shadow-[0_15px_50px_rgba(0,0,0,0.08)]">
-                    <h3 class="text-[28px] font-bold text-[#1C2B1C] mb-5">
-                        About this role
-
-                    </h3>
-
-                    <div class="space-y-3">
-
-                        <div
-                           class="flex justify-between items-center border-b border-gray-100 pb-3">
-
-                            <div class="flex items-center gap-3">
-
-                                <span
-                                    class="material-symbols-outlined text-[#20C07A]">
-
-                                    schedule
-
-                                </span>
-
-                                Experience
-
-                            </div>
-
-                            <strong>3–5 years</strong>
-
-                        </div>
-
-                        <div
-                            class="flex justify-between items-center border-b border-gray-100 pb-4">
-
-                            <div class="flex items-center gap-3">
-
-                                <span
-                                    class="material-symbols-outlined text-[#20C07A]">
-
-                                    groups
-
-                                </span>
-
-                                Team Size
-
-                            </div>
-
-                            <strong>12 Engineers</strong>
-
-                        </div>
-
-                        <div
-                            class="flex justify-between items-center border-b border-gray-100 pb-4">
-
-                            <div class="flex items-center gap-3">
-
-                                <span
-                                    class="material-symbols-outlined text-[#20C07A]">
-
-                                    account_tree
-
-                                </span>
-
-                                Reports To
-
-                            </div>
-
-                            <strong>VP Engineering</strong>
-
-                        </div>
-
-                        <div
-                            class="flex justify-between items-center">
-
-                            <div class="flex items-center gap-3">
-
-                                <span
-                                    class="material-symbols-outlined text-[#20C07A]">
-
-                                    calendar_month
-
-                                </span>
-
-                                Start Date
-
-                            </div>
-
-                            <strong>Immediate</strong>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Share -->
-
-                    <div class="mt-6">
-
-                        <p class="text-gray-500 mb-3">
-
-                            Share this Job
-
-                        </p>
-
-                        <div class="flex gap-3">
-
-                            <button
-                                class="w-11 h-11 rounded-full border hover:bg-gray-50 flex items-center justify-center">
-
-                                <i class="fab fa-linkedin-in"></i>
-
-                            </button>
-
-                            <button
-                                class="w-11 h-11 rounded-full border hover:bg-gray-50 flex items-center justify-center">
-
-                                <i class="fa-brands fa-x-twitter"></i>
-
-                            </button>
-
-                            <button
-                                class="w-11 h-11 rounded-full border hover:bg-gray-50 flex items-center justify-center">
-
-                                <span class="material-symbols-outlined">
-                                    link
-                                </span>
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-<section class="bg-[#FCFAF5] py-12 lg:py-16">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <!-- ================= LEFT CONTENT ================= -->
-            <div class="lg:col-span-8">
-
-                <h2 class="text-2xl font-bold text-slate-800">
-                    About the Role
-                </h2>
-
-                <div class="mt-6 space-y-5 text-[15px] leading-8 text-slate-600">
-
-                    <p>
-                        At FE – FieldEngineer, we're building India's most trusted B2B
-                        field service marketplace, connecting thousands of businesses
-                        with verified, skilled engineers across the country.
-                    </p>
-
-                    <p>
-                        As a Senior Software Engineer, you will be at the heart of this
-                        mission—designing and building the systems that power job
-                        matching, real-time tracking, secure payments, and mobile
-                        experiences for both customers and engineers.
-                    </p>
-
-                    <p>
-                        You'll work in a fast-paced, collaborative environment alongside
-                        talented engineers, product managers, and designers.
-                    </p>
-
-                    <p>
-                        This is a high-impact role where your code directly shapes how
-                        businesses find reliable engineers and how engineers grow their
-                        careers on our platform.
-                    </p>
-
-                </div>
-                <div class="mt-14 max-w-4xl">
-
-            <!-- Heading -->
-            <h2 class="text-2xl font-bold text-slate-800">
-                What You'll Do
-            </h2>
-
-            <!-- Divider -->
-            <div class="mt-5 h-px bg-slate-200"></div>
-
-            <!-- Checklist -->
-            <div class="mt-8 space-y-5">
-
-                <!-- Item -->
-                <div class="flex items-start gap-4">
-
-                    <div class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
-
-                        <span class="material-symbols-outlined text-[16px] text-green-600">
-                            check
-                        </span>
-
-                    </div>
-
-                    <p class="text-[15px] leading-7 text-slate-600">
-                        Design, build and maintain scalable REST APIs and
-                        microservices powering the FE marketplace platform.
-                    </p>
-
-                </div>
-
-                <!-- Item -->
-                <div class="flex items-start gap-4">
-
-                    <div class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
-
-                        <span class="material-symbols-outlined text-[16px] text-green-600">
-                            check
-                        </span>
-
-                    </div>
-
-                    <p class="text-[15px] leading-7 text-slate-600">
-                        Develop and optimize secure backend services connected
-                        with PostgreSQL and Redis.
-                    </p>
-
-                </div>
-
-                <!-- Item -->
-                <div class="flex items-start gap-4">
-
-                    <div class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
-
-                        <span class="material-symbols-outlined text-[16px] text-green-600">
-                            check
-                        </span>
-
-                    </div>
-
-                    <p class="text-[15px] leading-7 text-slate-600">
-                        Build authentication, authorization and payment
-                        integrations using modern backend technologies.
-                    </p>
-
-                </div>
-
-                <!-- Item -->
-                <div class="flex items-start gap-4">
-
-                    <div class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
-
-                        <span class="material-symbols-outlined text-[16px] text-green-600">
-                            check
-                        </span>
-
-                    </div>
-
-                    <p class="text-[15px] leading-7 text-slate-600">
-                        Improve platform performance through caching,
-                        optimization and scalable architecture.
-                    </p>
-
-                </div>
-
-                <!-- Item -->
-                <div class="flex items-start gap-4">
-
-                    <div class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
-
-                        <span class="material-symbols-outlined text-[16px] text-green-600">
-                            check
-                        </span>
-
-                    </div>
-
-                    <p class="text-[15px] leading-7 text-slate-600">
-                        Collaborate closely with Product, Design and QA teams
-                        to deliver high-quality features on schedule.
-                    </p>
-
-                </div>
-
-                <!-- Item -->
-                <div class="flex items-start gap-4">
-
-                    <div class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
-
-                        <span class="material-symbols-outlined text-[16px] text-green-600">
-                            check
-                        </span>
-
-                    </div>
-
-                    <p class="text-[15px] leading-7 text-slate-600">
-                        Participate in code reviews, mentor junior developers
-                        and contribute to engineering best practices.
-                    </p>
-
-                </div>
-
-            </div>
-
-        
-
-    </div>
-    <!-- ================= WHAT WE'RE LOOKING FOR ================= -->
-
-<div class="mt-16">
-
-    <h2 class="text-2xl font-bold text-slate-800">
-        What We're Looking For
-    </h2>
-
-    <div class="mt-5 h-px bg-slate-200"></div>
-
-    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        <!-- Must Have -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-
-            <h3 class="text-lg font-semibold text-slate-800">
-                Must Have
-            </h3>
-
-            <div class="mt-6 space-y-4">
-
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-green-600 text-[18px]">
-                        check_circle
-                    </span>
-                    <p class="text-[14px] text-slate-600">
-                        3+ years of professional experience in Full-Stack development.
-                    </p>
-                </div>
-
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-green-600 text-[18px]">
-                        check_circle
-                    </span>
-                    <p class="text-[14px] text-slate-600">
-                        Strong proficiency in React.js and Node.js / Express.
-                    </p>
-                </div>
-
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-green-600 text-[18px]">
-                        check_circle
-                    </span>
-                    <p class="text-[14px] text-slate-600">
-                        Solid understanding of REST APIs and HTTP fundamentals.
-                    </p>
-                </div>
-
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-green-600 text-[18px]">
-                        check_circle
-                    </span>
-                    <p class="text-[14px] text-slate-600">
-                        Experience with PostgreSQL or MySQL.
-                    </p>
-                </div>
-
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-green-600 text-[18px]">
-                        check_circle
-                    </span>
-                    <p class="text-[14px] text-slate-600">
-                        Excellent communication and teamwork skills.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Good to Have -->
-        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-
-            <h3 class="text-lg font-semibold text-slate-800">
-                Good to Have
-            </h3>
-
-            <div class="mt-6 space-y-4">
-
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-slate-400 text-[18px]">
-                        radio_button_unchecked
-                    </span>
-                    <p class="text-[14px] text-slate-600">
-                        Experience with GraphQL APIs and Apollo.
-                    </p>
-                </div>
-
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-slate-400 text-[18px]">
-                        radio_button_unchecked
-                    </span>
-                    <p class="text-[14px] text-slate-600">
-                        AWS services (EC2, S3, Lambda).
-                    </p>
-                </div>
-
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-slate-400 text-[18px]">
-                        radio_button_unchecked
-                    </span>
-                    <p class="text-[14px] text-slate-600">
-                        Familiarity with Redis caching.
-                    </p>
-                </div>
-
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-slate-400 text-[18px]">
-                        radio_button_unchecked
-                    </span>
-                    <p class="text-[14px] text-slate-600">
-                        Experience in FinTech or Marketplace products.
-                    </p>
-                </div>
-
-                <div class="flex gap-3">
-                    <span class="material-symbols-outlined text-slate-400 text-[18px]">
-                        radio_button_unchecked
-                    </span>
-                    <p class="text-[14px] text-slate-600">
-                        Open-source contributions or GitHub portfolio.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-<!-- ================= TECH STACK ================= -->
-
-<div class="mt-16">
-
-    <!-- Heading -->
-    <h2 class="text-2xl font-bold text-slate-800">
-        Tech Stack
-    </h2>
-
-    <!-- Divider -->
-    <div class="mt-5 h-px bg-slate-200"></div>
-
-    <!-- Technology Pills -->
-    <div class="mt-8 flex flex-wrap gap-3">
-
-        <span class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-            React
-        </span>
-
-        <span class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-            Node.js
-        </span>
-
-        <span class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-            Express.js
-        </span>
-
-        <span class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-            TypeScript
-        </span>
-
-        <span class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-            PostgreSQL
-        </span>
-
-        <span class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-            Redis
-        </span>
-
-        <span class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-            AWS
-        </span>
-
-        <span class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-            Docker
-        </span>
-
-        <span class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-            GitHub Actions
-        </span>
-
-        <span class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-            GraphQL
-        </span>
-
-        <span class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
-            Figma
-        </span>
-
-    </div>
-
-</div>
-<!-- ==========================================
-     BENEFITS & PERKS
-========================================== -->
-
-<div class="mt-16">
-
-    <!-- Heading -->
-    <h2 class="text-2xl font-bold text-slate-800">
-        Benefits & Perks
-    </h2>
-
-    <!-- Divider -->
-    <div class="mt-5 h-px bg-slate-200"></div>
-
-    <!-- Cards -->
-    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-
-        <!-- Card -->
-        <div class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
-
-            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
-                <span class="material-symbols-outlined text-green-600">
-                    medical_services
                 </span>
-            </div>
 
-            <div>
-                <h3 class="font-semibold text-slate-800">
-                    Health Insurance
-                </h3>
-
-                <p class="mt-1 text-sm leading-6 text-slate-500">
-                    Comprehensive medical, dental and vision coverage for you and your family.
-                </p>
-            </div>
+            </nav>
 
         </div>
+    </section>
+    <section class="relative overflow-hidden">
 
-        <!-- Card -->
-        <div class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
-
-            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
-                <span class="material-symbols-outlined text-green-600">
-                    beach_access
-                </span>
-            </div>
-
-            <div>
-                <h3 class="font-semibold text-slate-800">
-                    Flexible PTO
-                </h3>
-
-                <p class="mt-1 text-sm leading-6 text-slate-500">
-                    25 paid vacation days every year plus all public holidays.
-                </p>
-            </div>
-
+        <!-- Background -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#FFF6C8] via-[#EAF7C8] to-[#CBEFB7]">
         </div>
 
-        <!-- Card -->
-        <div class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+        <div class="relative max-w-[1500px] mx-auto px-6 lg:px-10 py-14">
 
-            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
-                <span class="material-symbols-outlined text-green-600">
-                    trending_up
-                </span>
-            </div>
+            <div class="grid lg:grid-cols-[1fr_360px] gap-10 items-start">
 
-            <div>
-                <h3 class="font-semibold text-slate-800">
-                    ESOPs
-                </h3>
+                <!-- LEFT -->
+                <div>
 
-                <p class="mt-1 text-sm leading-6 text-slate-500">
-                    Equity participation in a fast-growing technology company.
-                </p>
-            </div>
+                    <!-- Category -->
 
-        </div>
+                    <span class="inline-flex bg-[#23C483] text-white text-xs font-semibold px-4 py-2 rounded-full">
+                        Engineering
+                    </span>
 
-        <!-- Card -->
-        <div class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+                    <!-- Title -->
 
-            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
-                <span class="material-symbols-outlined text-green-600">
-                    home_work
-                </span>
-            </div>
+                    <h1 class="mt-7 text-[58px] leading-[1.05] font-bold text-[#1C2B1C]">
 
-            <div>
-                <h3 class="font-semibold text-slate-800">
-                    Remote Friendly
-                </h3>
+                        Senior Software Engineer
 
-                <p class="mt-1 text-sm leading-6 text-slate-500">
-                    Hybrid work model with work-from-home equipment provided.
-                </p>
-            </div>
+                    </h1>
 
-        </div>
+                    <!-- Job Details -->
 
-        <!-- Card -->
-        <div class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+                    <div class="flex flex-wrap gap-x-7 gap-y-4 mt-8 text-[#5B6B65]">
 
-            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
-                <span class="material-symbols-outlined text-green-600">
-                    school
-                </span>
-            </div>
+                        <div class="flex items-center gap-2">
 
-            <div>
-                <h3 class="font-semibold text-slate-800">
-                    Learning Budget
-                </h3>
+                            <span class="material-symbols-outlined text-[#20C07A]">
+                                location_on
+                            </span>
 
-                <p class="mt-1 text-sm leading-6 text-slate-500">
-                    ₹50,000 annually for courses, certifications and conferences.
-                </p>
-            </div>
-
-        </div>
-
-        <!-- Card -->
-        <div class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
-
-            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
-                <span class="material-symbols-outlined text-green-600">
-                    groups
-                </span>
-            </div>
-
-            <div>
-                <h3 class="font-semibold text-slate-800">
-                    Team Offsites
-                </h3>
-
-                <p class="mt-1 text-sm leading-6 text-slate-500">
-                    Quarterly meetups, team retreats and exciting company events.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-<!-- ================= Hiring Process ================= -->
-<div class="mt-14">
-
-    <h2 class="text-2xl font-bold text-slate-800">
-        Hiring Process
-    </h2>
-
-    <div class="mt-6 border-t border-slate-200 pt-8">
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-
-            <!-- Step 1 -->
-            <div class="flex flex-col items-center">
-
-                <div
-                    class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-lg font-bold shadow-md">
-                    1
-                </div>
-
-                <h4 class="mt-5 text-[17px] font-semibold text-slate-800">
-                    Application Review
-                </h4>
-
-                <p class="mt-2 text-sm text-slate-500">
-                    2–3 business days
-                </p>
-
-            </div>
-
-            <!-- Step 2 -->
-            <div class="flex flex-col items-center">
-
-                <div
-                    class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-lg font-bold shadow-md">
-                    2
-                </div>
-
-                <h4 class="mt-5 text-[17px] font-semibold text-slate-800">
-                    Technical Screen
-                </h4>
-
-                <p class="mt-2 text-sm text-slate-500">
-                    45-minute video call
-                </p>
-
-            </div>
-
-            <!-- Step 3 -->
-            <div class="flex flex-col items-center">
-
-                <div
-                    class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-lg font-bold shadow-md">
-                    3
-                </div>
-
-                <h4 class="mt-5 text-[17px] font-semibold text-slate-800">
-                    System Design Round
-                </h4>
-
-                <p class="mt-2 text-sm text-slate-500">
-                    90-minute deep dive
-                </p>
-
-            </div>
-
-            <!-- Step 4 -->
-            <div class="flex flex-col items-center">
-
-                <div
-                    class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-lg font-bold shadow-md">
-                    4
-                </div>
-
-                <h4 class="mt-5 text-[17px] font-semibold text-slate-800">
-                    Offer & Onboarding
-                </h4>
-
-                <p class="mt-2 text-sm text-slate-500">
-                    Move fast, join faster
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-            </div>
-
-            <!-- ================= RIGHT SIDEBAR ================= -->
-            <aside class="lg:col-span-4">
-
-                <div class="sticky top-28 space-y-6">
-
-                    <!-- Apply Card -->
-                    <div class="rounded-2xl bg-gradient-to-br from-[#DFF5C7] to-[#C8E8A5] p-5 shadow-sm">
-
-    <h3 class="text-lg font-bold text-slate-800">
-        Ready to Join FE?
-    </h3>
-
-    <p class="mt-2 text-sm leading-6 text-slate-600">
-        Applications close in 15 days.
-    </p>
-
-    <button
-    type="button"
-    onclick="openApplyModal('Software Engineer')"
-    class="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#F5B530] px-5 py-2.5 text-[15px] font-semibold text-slate-900 transition-all duration-300 hover:bg-[#E5A620] hover:shadow-lg">
-
-    <span>Apply Now</span>
-
-    <span class="material-symbols-outlined text-[18px]">
-        arrow_forward
-    </span>
-
-</button>
-
-</div>
-                    <!-- Company Card -->
-                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
-
-                        <div class="flex items-center gap-3">
-
-                            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center font-bold text-green-700">
-                                FE
-                            </div>
-
-                            <div>
-
-                                <h4 class="font-semibold text-slate-800">
-                                    FieldEngineer
-                                </h4>
-
-                                <p class="text-sm text-slate-500">
-                                    IT Services Marketplace
-                                </p>
-
-                            </div>
+                            Mumbai, Maharashtra
 
                         </div>
 
-                        <div class="grid grid-cols-2 gap-4 mt-6 text-center">
+                        <div class="flex items-center gap-2">
 
-                            <div>
+                            <span class="material-symbols-outlined text-[#20C07A]">
+                                work
+                            </span>
 
-                                <p class="text-xl font-bold text-slate-800">
-                                    2021
-                                </p>
-
-                                <p class="text-xs text-slate-500">
-                                    Founded
-                                </p>
-
-                            </div>
-
-                            <div>
-
-                                <p class="text-xl font-bold text-slate-800">
-                                    120+
-                                </p>
-
-                                <p class="text-xs text-slate-500">
-                                    Team
-                                </p>
-
-                            </div>
-
-                            <div>
-
-                                <p class="text-xl font-bold text-slate-800">
-                                    Pune
-                                </p>
-
-                                <p class="text-xs text-slate-500">
-                                    HQ
-                                </p>
-
-                            </div>
-
-                            <div>
-
-                                <p class="text-xl font-bold text-slate-800">
-                                    Series A
-                                </p>
-
-                                <p class="text-xs text-slate-500">
-                                    Funding
-                                </p>
-
-                            </div>
+                            Full-Time
 
                         </div>
 
-                        <a href="#"
-                            class="mt-6 inline-flex items-center text-green-700 font-semibold hover:underline">
+                        <div class="flex items-center gap-2">
 
-                            View Company Profile →
+                            <span class="material-symbols-outlined text-[#20C07A]">
+                                home_work
+                            </span>
 
-                        </a>
+                            Hybrid
+
+                        </div>
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="material-symbols-outlined text-[#20C07A]">
+                                payments
+                            </span>
+
+                            ₹18L – ₹28L per annum
+
+                        </div>
 
                     </div>
 
-                    <!-- Similar Jobs -->
-                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+                    <!-- Posted -->
 
-                        <h3 class="font-semibold text-slate-800 mb-5">
+                    <p class="mt-4 text-[#7A8A82]">
 
-                            Similar Openings
+                        Posted 3 days ago • 12 applicants
+
+                    </p>
+
+                    <!-- Buttons -->
+
+                    <div class="flex flex-wrap gap-4 mt-10">
+
+                        <button type="button" class="hero-apply-btn openJobApplyModal">
+
+                            Apply Now
+
+                            <span class="material-symbols-outlined text-[18px]">
+                                arrow_forward
+                            </span>
+
+                        </button>
+
+                        <button type="button" id="saveJobBtn" class="hero-save-btn">
+
+                            <span id="saveJobIcon" class="material-symbols-outlined text-[20px]">
+                                bookmark_add
+                            </span>
+
+                            <span id="saveJobText">
+                                Save Job
+                            </span>
+
+                        </button>
+                    </div>
+                </div>
+
+                <!-- RIGHT CARD -->
+
+                <div>
+
+                    <div class="bg-white rounded-[28px] p-6 shadow-[0_15px_50px_rgba(0,0,0,0.08)]">
+                        <h3 class="text-[28px] font-bold text-[#1C2B1C] mb-5">
+                            About this role
 
                         </h3>
 
-                        <div class="space-y-5">
+                        <div class="space-y-3">
 
-                            <div class="flex justify-between items-center">
+                            <div class="flex justify-between items-center border-b border-gray-100 pb-3">
 
-                                <div>
+                                <div class="flex items-center gap-3">
 
-                                    <h4 class="font-medium text-slate-700">
-                                        Product Manager
-                                    </h4>
+                                    <span class="material-symbols-outlined text-[#20C07A]">
 
-                                    <p class="text-sm text-slate-500">
-                                        Mumbai
-                                    </p>
+                                        schedule
+
+                                    </span>
+
+                                    Experience
 
                                 </div>
 
-                                <a href="#" class="text-green-700 text-sm font-semibold">
-                                    View →
-                                </a>
+                                <strong>3–5 years</strong>
+
+                            </div>
+
+                            <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+
+                                <div class="flex items-center gap-3">
+
+                                    <span class="material-symbols-outlined text-[#20C07A]">
+
+                                        groups
+
+                                    </span>
+
+                                    Team Size
+
+                                </div>
+
+                                <strong>12 Engineers</strong>
+
+                            </div>
+
+                            <div class="flex justify-between items-center border-b border-gray-100 pb-4">
+
+                                <div class="flex items-center gap-3">
+
+                                    <span class="material-symbols-outlined text-[#20C07A]">
+
+                                        account_tree
+
+                                    </span>
+
+                                    Reports To
+
+                                </div>
+
+                                <strong>VP Engineering</strong>
 
                             </div>
 
                             <div class="flex justify-between items-center">
 
-                                <div>
+                                <div class="flex items-center gap-3">
 
-                                    <h4 class="font-medium text-slate-700">
-                                        DevOps Engineer
-                                    </h4>
+                                    <span class="material-symbols-outlined text-[#20C07A]">
 
-                                    <p class="text-sm text-slate-500">
-                                        Bangalore
-                                    </p>
+                                        calendar_month
+
+                                    </span>
+
+                                    Start Date
 
                                 </div>
 
-                                <a href="#" class="text-green-700 text-sm font-semibold">
-                                    View →
-                                </a>
+                                <strong>Immediate</strong>
 
                             </div>
 
-                            <div class="flex justify-between items-center">
+                        </div>
 
-                                <div>
+                        <!-- Share -->
 
-                                    <h4 class="font-medium text-slate-700">
-                                        UX Designer
-                                    </h4>
+                        <div class="mt-6">
 
-                                    <p class="text-sm text-slate-500">
-                                        Hyderabad
-                                    </p>
+                            <p class="text-gray-500 mb-3">
 
-                                </div>
+                                Share this Job
 
-                                <a href="#" class="text-green-700 text-sm font-semibold">
-                                    View →
-                                </a>
+                            </p>
+
+                            <div class="flex gap-3">
+
+                                <button
+                                    class="w-11 h-11 rounded-full border hover:bg-gray-50 flex items-center justify-center">
+
+                                    <i class="fab fa-linkedin-in"></i>
+
+                                </button>
+
+                                <button
+                                    class="w-11 h-11 rounded-full border hover:bg-gray-50 flex items-center justify-center">
+
+                                    <i class="fa-brands fa-x-twitter"></i>
+
+                                </button>
+
+                                <button
+                                    class="w-11 h-11 rounded-full border hover:bg-gray-50 flex items-center justify-center">
+
+                                    <span class="material-symbols-outlined">
+                                        link
+                                    </span>
+
+                                </button>
 
                             </div>
 
@@ -1089,14 +277,826 @@
 
                 </div>
 
-            </aside>
+            </div>
 
         </div>
 
-    </div>
-</section>
+    </section>
+    <section class="bg-[#FCFAF5] py-12 lg:py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-<section class=" bg-[#FFFDF8] w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- ================= LEFT CONTENT ================= -->
+                <div class="lg:col-span-8">
+
+                    <h2 class="text-2xl font-bold text-slate-800">
+                        About the Role
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-[15px] leading-8 text-slate-600">
+
+                        <p>
+                            At FE – FieldEngineer, we're building India's most trusted B2B
+                            field service marketplace, connecting thousands of businesses
+                            with verified, skilled engineers across the country.
+                        </p>
+
+                        <p>
+                            As a Senior Software Engineer, you will be at the heart of this
+                            mission—designing and building the systems that power job
+                            matching, real-time tracking, secure payments, and mobile
+                            experiences for both customers and engineers.
+                        </p>
+
+                        <p>
+                            You'll work in a fast-paced, collaborative environment alongside
+                            talented engineers, product managers, and designers.
+                        </p>
+
+                        <p>
+                            This is a high-impact role where your code directly shapes how
+                            businesses find reliable engineers and how engineers grow their
+                            careers on our platform.
+                        </p>
+
+                    </div>
+                    <div class="mt-14 max-w-4xl">
+
+                        <!-- Heading -->
+                        <h2 class="text-2xl font-bold text-slate-800">
+                            What You'll Do
+                        </h2>
+
+                        <!-- Divider -->
+                        <div class="mt-5 h-px bg-slate-200"></div>
+
+                        <!-- Checklist -->
+                        <div class="mt-8 space-y-5">
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-4">
+
+                                <div
+                                    class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
+
+                                    <span class="material-symbols-outlined text-[16px] text-green-600">
+                                        check
+                                    </span>
+
+                                </div>
+
+                                <p class="text-[15px] leading-7 text-slate-600">
+                                    Design, build and maintain scalable REST APIs and
+                                    microservices powering the FE marketplace platform.
+                                </p>
+
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-4">
+
+                                <div
+                                    class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
+
+                                    <span class="material-symbols-outlined text-[16px] text-green-600">
+                                        check
+                                    </span>
+
+                                </div>
+
+                                <p class="text-[15px] leading-7 text-slate-600">
+                                    Develop and optimize secure backend services connected
+                                    with PostgreSQL and Redis.
+                                </p>
+
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-4">
+
+                                <div
+                                    class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
+
+                                    <span class="material-symbols-outlined text-[16px] text-green-600">
+                                        check
+                                    </span>
+
+                                </div>
+
+                                <p class="text-[15px] leading-7 text-slate-600">
+                                    Build authentication, authorization and payment
+                                    integrations using modern backend technologies.
+                                </p>
+
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-4">
+
+                                <div
+                                    class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
+
+                                    <span class="material-symbols-outlined text-[16px] text-green-600">
+                                        check
+                                    </span>
+
+                                </div>
+
+                                <p class="text-[15px] leading-7 text-slate-600">
+                                    Improve platform performance through caching,
+                                    optimization and scalable architecture.
+                                </p>
+
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-4">
+
+                                <div
+                                    class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
+
+                                    <span class="material-symbols-outlined text-[16px] text-green-600">
+                                        check
+                                    </span>
+
+                                </div>
+
+                                <p class="text-[15px] leading-7 text-slate-600">
+                                    Collaborate closely with Product, Design and QA teams
+                                    to deliver high-quality features on schedule.
+                                </p>
+
+                            </div>
+
+                            <!-- Item -->
+                            <div class="flex items-start gap-4">
+
+                                <div
+                                    class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-100">
+
+                                    <span class="material-symbols-outlined text-[16px] text-green-600">
+                                        check
+                                    </span>
+
+                                </div>
+
+                                <p class="text-[15px] leading-7 text-slate-600">
+                                    Participate in code reviews, mentor junior developers
+                                    and contribute to engineering best practices.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                    <!-- ================= WHAT WE'RE LOOKING FOR ================= -->
+
+                    <div class="mt-16">
+
+                        <h2 class="text-2xl font-bold text-slate-800">
+                            What We're Looking For
+                        </h2>
+
+                        <div class="mt-5 h-px bg-slate-200"></div>
+
+                        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                            <!-- Must Have -->
+                            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+
+                                <h3 class="text-lg font-semibold text-slate-800">
+                                    Must Have
+                                </h3>
+
+                                <div class="mt-6 space-y-4">
+
+                                    <div class="flex gap-3">
+                                        <span class="material-symbols-outlined text-green-600 text-[18px]">
+                                            check_circle
+                                        </span>
+                                        <p class="text-[14px] text-slate-600">
+                                            3+ years of professional experience in Full-Stack development.
+                                        </p>
+                                    </div>
+
+                                    <div class="flex gap-3">
+                                        <span class="material-symbols-outlined text-green-600 text-[18px]">
+                                            check_circle
+                                        </span>
+                                        <p class="text-[14px] text-slate-600">
+                                            Strong proficiency in React.js and Node.js / Express.
+                                        </p>
+                                    </div>
+
+                                    <div class="flex gap-3">
+                                        <span class="material-symbols-outlined text-green-600 text-[18px]">
+                                            check_circle
+                                        </span>
+                                        <p class="text-[14px] text-slate-600">
+                                            Solid understanding of REST APIs and HTTP fundamentals.
+                                        </p>
+                                    </div>
+
+                                    <div class="flex gap-3">
+                                        <span class="material-symbols-outlined text-green-600 text-[18px]">
+                                            check_circle
+                                        </span>
+                                        <p class="text-[14px] text-slate-600">
+                                            Experience with PostgreSQL or MySQL.
+                                        </p>
+                                    </div>
+
+                                    <div class="flex gap-3">
+                                        <span class="material-symbols-outlined text-green-600 text-[18px]">
+                                            check_circle
+                                        </span>
+                                        <p class="text-[14px] text-slate-600">
+                                            Excellent communication and teamwork skills.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Good to Have -->
+                            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+
+                                <h3 class="text-lg font-semibold text-slate-800">
+                                    Good to Have
+                                </h3>
+
+                                <div class="mt-6 space-y-4">
+
+                                    <div class="flex gap-3">
+                                        <span class="material-symbols-outlined text-slate-400 text-[18px]">
+                                            radio_button_unchecked
+                                        </span>
+                                        <p class="text-[14px] text-slate-600">
+                                            Experience with GraphQL APIs and Apollo.
+                                        </p>
+                                    </div>
+
+                                    <div class="flex gap-3">
+                                        <span class="material-symbols-outlined text-slate-400 text-[18px]">
+                                            radio_button_unchecked
+                                        </span>
+                                        <p class="text-[14px] text-slate-600">
+                                            AWS services (EC2, S3, Lambda).
+                                        </p>
+                                    </div>
+
+                                    <div class="flex gap-3">
+                                        <span class="material-symbols-outlined text-slate-400 text-[18px]">
+                                            radio_button_unchecked
+                                        </span>
+                                        <p class="text-[14px] text-slate-600">
+                                            Familiarity with Redis caching.
+                                        </p>
+                                    </div>
+
+                                    <div class="flex gap-3">
+                                        <span class="material-symbols-outlined text-slate-400 text-[18px]">
+                                            radio_button_unchecked
+                                        </span>
+                                        <p class="text-[14px] text-slate-600">
+                                            Experience in FinTech or Marketplace products.
+                                        </p>
+                                    </div>
+
+                                    <div class="flex gap-3">
+                                        <span class="material-symbols-outlined text-slate-400 text-[18px]">
+                                            radio_button_unchecked
+                                        </span>
+                                        <p class="text-[14px] text-slate-600">
+                                            Open-source contributions or GitHub portfolio.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- ================= TECH STACK ================= -->
+
+                    <div class="mt-16">
+
+                        <!-- Heading -->
+                        <h2 class="text-2xl font-bold text-slate-800">
+                            Tech Stack
+                        </h2>
+
+                        <!-- Divider -->
+                        <div class="mt-5 h-px bg-slate-200"></div>
+
+                        <!-- Technology Pills -->
+                        <div class="mt-8 flex flex-wrap gap-3">
+
+                            <span
+                                class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                                React
+                            </span>
+
+                            <span
+                                class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                                Node.js
+                            </span>
+
+                            <span
+                                class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                                Express.js
+                            </span>
+
+                            <span
+                                class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                                TypeScript
+                            </span>
+
+                            <span
+                                class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                                PostgreSQL
+                            </span>
+
+                            <span
+                                class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                                Redis
+                            </span>
+
+                            <span
+                                class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                                AWS
+                            </span>
+
+                            <span
+                                class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                                Docker
+                            </span>
+
+                            <span
+                                class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                                GitHub Actions
+                            </span>
+
+                            <span
+                                class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                                GraphQL
+                            </span>
+
+                            <span
+                                class="rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                                Figma
+                            </span>
+
+                        </div>
+
+                    </div>
+                    <!-- ==========================================
+     BENEFITS & PERKS
+========================================== -->
+
+                    <div class="mt-16">
+
+                        <!-- Heading -->
+                        <h2 class="text-2xl font-bold text-slate-800">
+                            Benefits & Perks
+                        </h2>
+
+                        <!-- Divider -->
+                        <div class="mt-5 h-px bg-slate-200"></div>
+
+                        <!-- Cards -->
+                        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                            <!-- Card -->
+                            <div
+                                class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+
+                                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
+                                    <span class="material-symbols-outlined text-green-600">
+                                        medical_services
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-semibold text-slate-800">
+                                        Health Insurance
+                                    </h3>
+
+                                    <p class="mt-1 text-sm leading-6 text-slate-500">
+                                        Comprehensive medical, dental and vision coverage for you and your family.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <!-- Card -->
+                            <div
+                                class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+
+                                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
+                                    <span class="material-symbols-outlined text-green-600">
+                                        beach_access
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-semibold text-slate-800">
+                                        Flexible PTO
+                                    </h3>
+
+                                    <p class="mt-1 text-sm leading-6 text-slate-500">
+                                        25 paid vacation days every year plus all public holidays.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <!-- Card -->
+                            <div
+                                class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+
+                                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
+                                    <span class="material-symbols-outlined text-green-600">
+                                        trending_up
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-semibold text-slate-800">
+                                        ESOPs
+                                    </h3>
+
+                                    <p class="mt-1 text-sm leading-6 text-slate-500">
+                                        Equity participation in a fast-growing technology company.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <!-- Card -->
+                            <div
+                                class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+
+                                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
+                                    <span class="material-symbols-outlined text-green-600">
+                                        home_work
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-semibold text-slate-800">
+                                        Remote Friendly
+                                    </h3>
+
+                                    <p class="mt-1 text-sm leading-6 text-slate-500">
+                                        Hybrid work model with work-from-home equipment provided.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <!-- Card -->
+                            <div
+                                class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+
+                                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
+                                    <span class="material-symbols-outlined text-green-600">
+                                        school
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-semibold text-slate-800">
+                                        Learning Budget
+                                    </h3>
+
+                                    <p class="mt-1 text-sm leading-6 text-slate-500">
+                                        ₹50,000 annually for courses, certifications and conferences.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <!-- Card -->
+                            <div
+                                class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+
+                                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-green-50">
+                                    <span class="material-symbols-outlined text-green-600">
+                                        groups
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-semibold text-slate-800">
+                                        Team Offsites
+                                    </h3>
+
+                                    <p class="mt-1 text-sm leading-6 text-slate-500">
+                                        Quarterly meetups, team retreats and exciting company events.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- ================= Hiring Process ================= -->
+                    <div class="mt-14">
+
+                        <h2 class="text-2xl font-bold text-slate-800">
+                            Hiring Process
+                        </h2>
+
+                        <div class="mt-6 border-t border-slate-200 pt-8">
+
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+                                <!-- Step 1 -->
+                                <div class="flex flex-col items-center">
+
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-lg font-bold shadow-md">
+                                        1
+                                    </div>
+
+                                    <h4 class="mt-5 text-[17px] font-semibold text-slate-800">
+                                        Application Review
+                                    </h4>
+
+                                    <p class="mt-2 text-sm text-slate-500">
+                                        2–3 business days
+                                    </p>
+
+                                </div>
+
+                                <!-- Step 2 -->
+                                <div class="flex flex-col items-center">
+
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-lg font-bold shadow-md">
+                                        2
+                                    </div>
+
+                                    <h4 class="mt-5 text-[17px] font-semibold text-slate-800">
+                                        Technical Screen
+                                    </h4>
+
+                                    <p class="mt-2 text-sm text-slate-500">
+                                        45-minute video call
+                                    </p>
+
+                                </div>
+
+                                <!-- Step 3 -->
+                                <div class="flex flex-col items-center">
+
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-lg font-bold shadow-md">
+                                        3
+                                    </div>
+
+                                    <h4 class="mt-5 text-[17px] font-semibold text-slate-800">
+                                        System Design Round
+                                    </h4>
+
+                                    <p class="mt-2 text-sm text-slate-500">
+                                        90-minute deep dive
+                                    </p>
+
+                                </div>
+
+                                <!-- Step 4 -->
+                                <div class="flex flex-col items-center">
+
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-lg font-bold shadow-md">
+                                        4
+                                    </div>
+
+                                    <h4 class="mt-5 text-[17px] font-semibold text-slate-800">
+                                        Offer & Onboarding
+                                    </h4>
+
+                                    <p class="mt-2 text-sm text-slate-500">
+                                        Move fast, join faster
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ================= RIGHT SIDEBAR ================= -->
+                <aside class="lg:col-span-4">
+
+                    <div class="sticky top-28 space-y-6">
+
+                        <!-- Apply Card -->
+                        <div class="rounded-2xl bg-gradient-to-br from-[#DFF5C7] to-[#C8E8A5] p-5 shadow-sm">
+
+                            <h3 class="text-lg font-bold text-slate-800">
+                                Ready to Join FE?
+                            </h3>
+
+                            <p class="mt-2 text-sm leading-6 text-slate-600">
+                                Applications close in 15 days.
+                            </p>
+
+                            <button type="button" onclick="openApplyModal('Software Engineer')"
+                                class="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#F5B530] px-5 py-2.5 text-[15px] font-semibold text-slate-900 transition-all duration-300 hover:bg-[#E5A620] hover:shadow-lg">
+
+                                <span>Apply Now</span>
+
+                                <span class="material-symbols-outlined text-[18px]">
+                                    arrow_forward
+                                </span>
+
+                            </button>
+
+                        </div>
+                        <!-- Company Card -->
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+
+                            <div class="flex items-center gap-3">
+
+                                <div
+                                    class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center font-bold text-green-700">
+                                    FE
+                                </div>
+
+                                <div>
+
+                                    <h4 class="font-semibold text-slate-800">
+                                        FieldEngineer
+                                    </h4>
+
+                                    <p class="text-sm text-slate-500">
+                                        IT Services Marketplace
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 mt-6 text-center">
+
+                                <div>
+
+                                    <p class="text-xl font-bold text-slate-800">
+                                        2021
+                                    </p>
+
+                                    <p class="text-xs text-slate-500">
+                                        Founded
+                                    </p>
+
+                                </div>
+
+                                <div>
+
+                                    <p class="text-xl font-bold text-slate-800">
+                                        120+
+                                    </p>
+
+                                    <p class="text-xs text-slate-500">
+                                        Team
+                                    </p>
+
+                                </div>
+
+                                <div>
+
+                                    <p class="text-xl font-bold text-slate-800">
+                                        Pune
+                                    </p>
+
+                                    <p class="text-xs text-slate-500">
+                                        HQ
+                                    </p>
+
+                                </div>
+
+                                <div>
+
+                                    <p class="text-xl font-bold text-slate-800">
+                                        Series A
+                                    </p>
+
+                                    <p class="text-xs text-slate-500">
+                                        Funding
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <a href="#"
+                                class="mt-6 inline-flex items-center text-green-700 font-semibold hover:underline">
+
+                                View Company Profile →
+
+                            </a>
+
+                        </div>
+
+                        <!-- Similar Jobs -->
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+
+                            <h3 class="font-semibold text-slate-800 mb-5">
+
+                                Similar Openings
+
+                            </h3>
+
+                            <div class="space-y-5">
+
+                                <div class="flex justify-between items-center">
+
+                                    <div>
+
+                                        <h4 class="font-medium text-slate-700">
+                                            Product Manager
+                                        </h4>
+
+                                        <p class="text-sm text-slate-500">
+                                            Mumbai
+                                        </p>
+
+                                    </div>
+
+                                    <a href="#" class="text-green-700 text-sm font-semibold">
+                                        View →
+                                    </a>
+
+                                </div>
+
+                                <div class="flex justify-between items-center">
+
+                                    <div>
+
+                                        <h4 class="font-medium text-slate-700">
+                                            DevOps Engineer
+                                        </h4>
+
+                                        <p class="text-sm text-slate-500">
+                                            Bangalore
+                                        </p>
+
+                                    </div>
+
+                                    <a href="#" class="text-green-700 text-sm font-semibold">
+                                        View →
+                                    </a>
+
+                                </div>
+
+                                <div class="flex justify-between items-center">
+
+                                    <div>
+
+                                        <h4 class="font-medium text-slate-700">
+                                            UX Designer
+                                        </h4>
+
+                                        <p class="text-sm text-slate-500">
+                                            Hyderabad
+                                        </p>
+
+                                    </div>
+
+                                    <a href="#" class="text-green-700 text-sm font-semibold">
+                                        View →
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class=" bg-[#FFFDF8] w-full">
         <!-- Full-width gradient background container -->
         <div
             class="w-full bg-gradient-to-r bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
@@ -1181,11 +1181,8 @@
                             <p class="mb-4 text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
                                 Scan to Download
                             </p>
-                          <img src="{% static 'img/about-qr.webp' %}" 
-     alt="Download FE App"
-     width="190"
-     height="190"
-     class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
+                            <img src="{% static 'img/about-qr.webp' %}" alt="Download FE App" width="190" height="190"
+                                class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
                         </div>
                     </div>
 
@@ -1195,416 +1192,327 @@
         </div>
     </section>
 
-<!-- ========================================= -->
-<!-- APPLY JOB MODAL -->
-<!-- ========================================= -->
+    <!-- ========================================= -->
+    <!-- APPLY JOB MODAL -->
+    <!-- ========================================= -->
 
-<div id="applyModal"
-    class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+    <div id="applyModal"
+        class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/60 backdrop-blur-sm px-4">
 
-    <!-- Modal Box -->
-    <div class="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl bg-white shadow-2xl">
+        <!-- Modal Box -->
+        <div class="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl bg-white shadow-2xl">
 
-        <!-- Close Button -->
-        <button
-            type="button"
-            onclick="closeApplyModal()"
-            class="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 transition">
+            <!-- Close Button -->
+            <button type="button" onclick="closeApplyModal()"
+                class="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 transition">
 
-            <span class="material-symbols-outlined">
-                close
-            </span>
+                <span class="material-symbols-outlined">
+                    close
+                </span>
 
-        </button>
+            </button>
 
-        <!-- Header -->
-        <div class="border-b border-slate-200 px-8 py-8">
+            <!-- Header -->
+            <div class="border-b border-slate-200 px-8 py-8">
 
-            <span class="inline-flex items-center rounded-full bg-green-100 px-4 py-1 text-sm font-medium text-green-700">
-                Careers
-            </span>
+                <span
+                    class="inline-flex items-center rounded-full bg-green-100 px-4 py-1 text-sm font-medium text-green-700">
+                    Careers
+                </span>
 
-            <h2 class="mt-4 text-3xl font-bold text-slate-800">
-                Apply for this Position
-            </h2>
+                <h2 class="mt-4 text-3xl font-bold text-slate-800">
+                    Apply for this Position
+                </h2>
 
-            <p class="mt-2 text-slate-500">
-                Complete the form below and our hiring team will contact you shortly.
-            </p>
+                <p class="mt-2 text-slate-500">
+                    Complete the form below and our hiring team will contact you shortly.
+                </p>
 
-        </div>
+            </div>
 
-        <!-- Form -->
-        <div class="p-8">
+            <!-- Form -->
+            <div class="p-8">
 
-            <form
-                id="jobApplicationForm"
-                method="POST"
-                enctype="multipart/form-data"
-                class="space-y-6"
-                novalidate>
+                <form id="jobApplicationForm" method="POST" enctype="multipart/form-data" class="space-y-6" novalidate>
 
-                {% csrf_token %}
+                    {% csrf_token %}
 
-                <input
-                    type="hidden"
-                    id="jobTitleInput"
-                    name="job_title">
+                    <input type="hidden" id="jobTitleInput" name="job_title">
 
-                <!-- ================= Row 1 ================= -->
+                    <!-- ================= Row 1 ================= -->
 
-                <div class="grid md:grid-cols-2 gap-5">
+                    <div class="grid md:grid-cols-2 gap-5">
 
-                    <!-- First Name -->
-                    <div>
+                        <!-- First Name -->
+                        <div>
 
-                        <label class="block text-sm font-semibold mb-2">
-                            First Name *
-                        </label>
+                            <label class="block text-sm font-semibold mb-2">
+                                First Name *
+                            </label>
 
-                        <input
-                            type="text"
-                            id="first_name"
-                            name="first_name"
-                            required
-                            minlength="2"
-                            maxlength="30"
-                            pattern="[A-Za-z ]+"
-                            onkeypress="return onlyLetters(event)"
-                            autocomplete="off"
-                            placeholder="John"
-                            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none">
+                            <input type="text" id="first_name" name="first_name" required minlength="2" maxlength="30"
+                                pattern="[A-Za-z ]+" onkeypress="return onlyLetters(event)" autocomplete="off"
+                                placeholder="John"
+                                class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none">
 
-                    </div>
+                        </div>
 
-                    <!-- Last Name -->
-                    <div>
+                        <!-- Last Name -->
+                        <div>
 
-                        <label class="block text-sm font-semibold mb-2">
-                            Last Name *
-                        </label>
+                            <label class="block text-sm font-semibold mb-2">
+                                Last Name *
+                            </label>
 
-                        <input
-                            type="text"
-                            id="last_name"
-                            name="last_name"
-                            required
-                            minlength="2"
-                            maxlength="30"
-                            pattern="[A-Za-z ]+"
-                            onkeypress="return onlyLetters(event)"
-                            autocomplete="off"
-                            placeholder="Doe"
-                            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none">
+                            <input type="text" id="last_name" name="last_name" required minlength="2" maxlength="30"
+                                pattern="[A-Za-z ]+" onkeypress="return onlyLetters(event)" autocomplete="off"
+                                placeholder="Doe"
+                                class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none">
+
+                        </div>
 
                     </div>
 
-                </div>
-
-                <!-- ================= Row 2 ================= -->
-<div class="grid md:grid-cols-2 gap-5">
-
-    <!-- Email -->
-    <div>
-        <label class="block text-sm font-semibold mb-2">
-            Email Address *
-        </label>
-
-        <input
-            type="email"
-            name="email"
-            required
-            maxlength="100"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            title="Enter a valid email address"
-            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
-    </div>
-
-    <!-- Mobile -->
-    <div>
-        <label class="block text-sm font-semibold mb-2">
-            Mobile Number *
-        </label>
-
-        <input
-            type="tel"
-            name="phone"
-            required
-            maxlength="10"
-            minlength="10"
-            inputmode="numeric"
-            pattern="[6-9]{1}[0-9]{9}"
-            title="Enter a valid 10-digit mobile number"
-            oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10)"
-            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
-    </div>
-
-</div>
-
-
-<!-- ================= Row 3 ================= -->
-<div class="grid md:grid-cols-2 gap-5">
-
-    <!-- Location -->
-    <div>
-
-        <label class="block text-sm font-semibold mb-2">
-            Current Location *
-        </label>
-
-        <input
-            type="text"
-            name="location"
-            required
-            maxlength="50"
-            pattern="[A-Za-z ]{2,50}"
-            title="Only letters and spaces allowed"
-            oninput="this.value=this.value.replace(/[^A-Za-z ]/g,'')"
-            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
-
-    </div>
-
-    <!-- Experience -->
-    <div>
-
-        <label class="block text-sm font-semibold mb-2">
-            Total Experience *
-        </label>
-
-        <input
-            type="number"
-            name="experience"
-            required
-            min="0"
-            max="40"
-            step="0.1"
-            placeholder="e.g. 3"
-            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
-
-    </div>
-
-</div>
-
-
-<!-- ================= Row 4 ================= -->
-<div class="grid md:grid-cols-2 gap-5">
-
-    <!-- Company -->
-    <div>
-
-        <label class="block text-sm font-semibold mb-2">
-            Current Company *
-        </label>
-
-        <input
-            type="text"
-            name="company"
-            required
-            maxlength="80"
-            pattern="[A-Za-z0-9&.,() -]{2,80}"
-            title="Enter a valid company name"
-            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
+                    <!-- ================= Row 2 ================= -->
+                    <div class="grid md:grid-cols-2 gap-5">
 
-    </div>
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">
+                                Email Address *
+                            </label>
 
-    <!-- Current CTC -->
-    <div>
+                            <input type="email" name="email" required maxlength="100"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email address"
+                                class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
+                        </div>
 
-        <label class="block text-sm font-semibold mb-2">
-            Current CTC *
-        </label>
+                        <!-- Mobile -->
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">
+                                Mobile Number *
+                            </label>
 
-        <input
-            type="number"
-            name="ctc"
-            required
-            min="0"
-            step="0.01"
-            placeholder="e.g. 6.5"
-            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
+                            <input type="tel" name="phone" required maxlength="10" minlength="10" inputmode="numeric"
+                                pattern="[6-9]{1}[0-9]{9}" title="Enter a valid 10-digit mobile number"
+                                oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10)"
+                                class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
+                        </div>
 
-    </div>
+                    </div>
 
-</div>
 
+                    <!-- ================= Row 3 ================= -->
+                    <div class="grid md:grid-cols-2 gap-5">
 
-<!-- ================= Row 5 ================= -->
-<div class="grid md:grid-cols-2 gap-5">
+                        <!-- Location -->
+                        <div>
 
-    <!-- Expected CTC -->
-    <div>
+                            <label class="block text-sm font-semibold mb-2">
+                                Current Location *
+                            </label>
 
-        <label class="block text-sm font-semibold mb-2">
-            Expected CTC *
-        </label>
+                            <input type="text" name="location" required maxlength="50" pattern="[A-Za-z ]{2,50}"
+                                title="Only letters and spaces allowed"
+                                oninput="this.value=this.value.replace(/[^A-Za-z ]/g,'')"
+                                class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
 
-        <input
-            type="number"
-            name="expected_ctc"
-            required
-            min="0"
-            step="0.01"
-            placeholder="e.g. 8"
-            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
+                        </div>
 
-    </div>
+                        <!-- Experience -->
+                        <div>
 
-    <!-- Notice Period -->
-    <div>
+                            <label class="block text-sm font-semibold mb-2">
+                                Total Experience *
+                            </label>
 
-        <label class="block text-sm font-semibold mb-2">
-            Notice Period *
-        </label>
+                            <input type="number" name="experience" required min="0" max="40" step="0.1"
+                                placeholder="e.g. 3"
+                                class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
 
-        <select
-            name="notice_period"
-            required
-            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
+                        </div>
 
-            <option value="">Select Notice Period</option>
-            <option>Immediate</option>
-            <option>15 Days</option>
-            <option>30 Days</option>
-            <option>45 Days</option>
-            <option>60 Days</option>
-            <option>90 Days</option>
+                    </div>
 
-        </select>
 
-    </div>
+                    <!-- ================= Row 4 ================= -->
+                    <div class="grid md:grid-cols-2 gap-5">
 
-</div>
-                <!-- ================= Applying For ================= -->
-<div>
+                        <!-- Company -->
+                        <div>
 
-    <label class="block text-sm font-semibold mb-2">
-        Applying For
-    </label>
+                            <label class="block text-sm font-semibold mb-2">
+                                Current Company *
+                            </label>
 
-    <input
-        id="jobTitle"
-        readonly
-        class="w-full rounded-xl bg-slate-100 border border-slate-300 px-4 py-3 cursor-not-allowed">
+                            <input type="text" name="company" required maxlength="80" pattern="[A-Za-z0-9&.,() -]{2,80}"
+                                title="Enter a valid company name"
+                                class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
 
-</div>
+                        </div>
 
+                        <!-- Current CTC -->
+                        <div>
 
-<input
-    type="hidden"
-    id="jobTitleInput"
-    name="job_title">
+                            <label class="block text-sm font-semibold mb-2">
+                                Current CTC *
+                            </label>
 
+                            <input type="number" name="ctc" required min="0" step="0.01" placeholder="e.g. 6.5"
+                                class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
 
-<!-- ================= LinkedIn ================= -->
-<div>
+                        </div>
 
-    <label class="block text-sm font-semibold mb-2">
-        LinkedIn Profile
-    </label>
+                    </div>
 
-    <input
-        type="url"
-        name="linkedin"
-        placeholder="https://linkedin.com/in/yourprofile"
-        pattern="https://.*"
-        title="Please enter a valid LinkedIn URL starting with https://"
-        class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
 
-</div>
+                    <!-- ================= Row 5 ================= -->
+                    <div class="grid md:grid-cols-2 gap-5">
 
+                        <!-- Expected CTC -->
+                        <div>
 
-<!-- ================= Resume Upload ================= -->
-<div>
+                            <label class="block text-sm font-semibold mb-2">
+                                Expected CTC *
+                            </label>
 
-    <label class="block text-sm font-semibold mb-2">
-        Upload Resume *
-    </label>
+                            <input type="number" name="expected_ctc" required min="0" step="0.01" placeholder="e.g. 8"
+                                class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
 
-    <input
-        type="file"
-        id="resume"
-        name="resume"
-        required
-        accept=".pdf,.doc,.docx"
-        class="w-full rounded-xl border border-slate-300 p-3">
+                        </div>
 
-    <p class="mt-2 text-xs text-slate-500">
-        Accepted formats:
-        <strong>PDF, DOC, DOCX</strong>
-        (Maximum file size: <strong>500 KB</strong>)
-    </p>
+                        <!-- Notice Period -->
+                        <div>
 
-</div>
+                            <label class="block text-sm font-semibold mb-2">
+                                Notice Period *
+                            </label>
 
+                            <select name="notice_period" required
+                                class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
 
-<!-- ================= Cover Letter ================= -->
-<div>
+                                <option value="">Select Notice Period</option>
+                                <option>Immediate</option>
+                                <option>15 Days</option>
+                                <option>30 Days</option>
+                                <option>45 Days</option>
+                                <option>60 Days</option>
+                                <option>90 Days</option>
 
-    <label class="block text-sm font-semibold mb-2">
-        Cover Letter
-    </label>
+                            </select>
 
-    <textarea
-        rows="5"
-        name="cover_letter"
-        maxlength="1000"
-        placeholder="Tell us why you're a good fit for this role..."
-        class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none"></textarea>
+                        </div>
 
-</div>
+                    </div>
+                    <!-- ================= Applying For ================= -->
+                    <div>
 
+                        <label class="block text-sm font-semibold mb-2">
+                            Applying For
+                        </label>
 
-<!-- ================= Privacy Policy ================= -->
-<label class="flex items-start gap-3">
+                        <input id="jobTitle" readonly
+                            class="w-full rounded-xl bg-slate-100 border border-slate-300 px-4 py-3 cursor-not-allowed">
 
-    <input
-        type="checkbox"
-        required
-        class="mt-1 h-4 w-4 accent-green-600">
+                    </div>
 
-    <span class="text-sm text-slate-600 leading-6">
-        I agree to the
-        <a href="#" class="text-green-700 font-medium hover:underline">
-            Privacy Policy
-        </a>
-        and
-        <a href="#" class="text-green-700 font-medium hover:underline">
-            Terms & Conditions
-        </a>.
-    </span>
 
-</label>
+                    <input type="hidden" id="jobTitleInput" name="job_title">
 
 
-<!-- ================= Buttons ================= -->
-<div class="flex justify-end gap-4 pt-4">
+                    <!-- ================= LinkedIn ================= -->
+                    <div>
 
-    <button
-        type="button"
-        onclick="closeApplyModal()"
-        class="rounded-xl border border-slate-300 px-6 py-3 font-medium hover:bg-slate-100 transition">
+                        <label class="block text-sm font-semibold mb-2">
+                            LinkedIn Profile
+                        </label>
 
-        Cancel
+                        <input type="url" name="linkedin" placeholder="https://linkedin.com/in/yourprofile"
+                            pattern="https://.*" title="Please enter a valid LinkedIn URL starting with https://"
+                            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none">
 
-    </button>
+                    </div>
 
-    <button
-        type="submit"
-        class="rounded-xl bg-[#F5B530] px-8 py-3 font-semibold text-slate-900 hover:bg-[#E5A620] transition">
 
-        Submit Application
+                    <!-- ================= Resume Upload ================= -->
+                    <div>
 
-    </button>
+                        <label class="block text-sm font-semibold mb-2">
+                            Upload Resume *
+                        </label>
 
-</div>
-            </form>
+                        <input type="file" id="resume" name="resume" required accept=".pdf,.doc,.docx"
+                            class="w-full rounded-xl border border-slate-300 p-3">
+
+                        <p class="mt-2 text-xs text-slate-500">
+                            Accepted formats:
+                            <strong>PDF, DOC, DOCX</strong>
+                            (Maximum file size: <strong>500 KB</strong>)
+                        </p>
+
+                    </div>
+
+
+                    <!-- ================= Cover Letter ================= -->
+                    <div>
+
+                        <label class="block text-sm font-semibold mb-2">
+                            Cover Letter
+                        </label>
+
+                        <textarea rows="5" name="cover_letter" maxlength="1000"
+                            placeholder="Tell us why you're a good fit for this role..."
+                            class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-green-500 focus:ring-2 focus:ring-green-500 outline-none"></textarea>
+
+                    </div>
+
+
+                    <!-- ================= Privacy Policy ================= -->
+                    <label class="flex items-start gap-3">
+
+                        <input type="checkbox" required class="mt-1 h-4 w-4 accent-green-600">
+
+                        <span class="text-sm text-slate-600 leading-6">
+                            I agree to the
+                            <a href="#" class="text-green-700 font-medium hover:underline">
+                                Privacy Policy
+                            </a>
+                            and
+                            <a href="#" class="text-green-700 font-medium hover:underline">
+                                Terms & Conditions
+                            </a>.
+                        </span>
+
+                    </label>
+
+
+                    <!-- ================= Buttons ================= -->
+                    <div class="flex justify-end gap-4 pt-4">
+
+                        <button type="button" onclick="closeApplyModal()"
+                            class="rounded-xl border border-slate-300 px-6 py-3 font-medium hover:bg-slate-100 transition">
+
+                            Cancel
+
+                        </button>
+
+                        <button type="submit"
+                            class="rounded-xl bg-[#F5B530] px-8 py-3 font-semibold text-slate-900 hover:bg-[#E5A620] transition">
+
+                            Submit Application
+
+                        </button>
+
+                    </div>
+                </form>
+
+            </div>
 
         </div>
 
     </div>
+</main>
 
-</div>
-    </main>
-
-    <script src="/static/script/pages/job-description.js"></script>
+<script src="/static/script/pages/job-description.js"></script>
+<script src="{% static 'script/pages/careers.js' %}"></script>
 {% endblock %}
