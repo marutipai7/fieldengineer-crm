@@ -2,43 +2,94 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="{% block meta_description %}FieldEngineer is India's leading field service management platform. Connect with verified engineers for network cabling, server installation, IT support, and on-site technology solutions across 120+ cities. Book trusted professionals instantly.{% endblock %}">
+
+    <meta name="description"
+        content="{% block meta_description %}FieldEngineer is India's leading field service management platform. Connect with verified engineers for network cabling, server installation, IT support, and on-site technology solutions across 120+ cities. Book trusted professionals instantly.{% endblock %}">
+
     <title>{% block title %}FieldEngineer{% endblock %}</title>
+
     {% load static %}
 
+
+    <!-- ===================================================== -->
     <!-- CANONICAL URL -->
+    <!-- ===================================================== -->
+
     <link rel="canonical" href="https://fieldengineer.com{{ request.path }}">
 
+
+    <!-- ===================================================== -->
     <!-- OPEN GRAPH -->
+    <!-- ===================================================== -->
+
     <meta property="og:title"
         content="{% block og_title %}FieldEngineer - Field Service Management Platform{% endblock %}">
+
     <meta property="og:description"
         content="{% block og_description %}FieldEngineer connects businesses with skilled field engineers for network cabling, server installation, and IT infrastructure services.{% endblock %}">
-    <meta property="og:image" content="{% block og_image %}{% static 'img/og-image.webp' %}{% endblock %}">
-    <meta property="og:url" content="https://fieldengineer.com{{ request.path }}">
-    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
-    <meta property="og:site_name" content="FieldEngineer">
 
+    <meta property="og:image"
+        content="{% block og_image %}{% static 'img/og-image.webp' %}{% endblock %}">
+
+    <meta property="og:url"
+        content="https://fieldengineer.com{{ request.path }}">
+
+    <meta property="og:type"
+        content="{% block og_type %}website{% endblock %}">
+
+    <meta property="og:site_name"
+        content="FieldEngineer">
+
+
+    <!-- ===================================================== -->
     <!-- TWITTER CARD -->
-    <meta name="twitter:card" content="{% block twitter_card %}summary_large_image{% endblock %}">
+    <!-- ===================================================== -->
+
+    <meta name="twitter:card"
+        content="{% block twitter_card %}summary_large_image{% endblock %}">
+
     <meta name="twitter:title"
         content="{% block twitter_title %}FieldEngineer - Field Service Management Platform{% endblock %}">
+
     <meta name="twitter:description"
         content="{% block twitter_description %}FieldEngineer connects businesses with skilled field engineers for network cabling, server installation, and IT infrastructure services.{% endblock %}">
-    <meta name="twitter:image" content="{% block twitter_image %}{% static 'img/og-image.webp' %}{% endblock %}">
-    <meta name="twitter:site" content="@FieldEngineer">
 
+    <meta name="twitter:image"
+        content="{% block twitter_image %}{% static 'img/og-image.webp' %}{% endblock %}">
+
+    <meta name="twitter:site"
+        content="@FieldEngineer">
+
+
+    <!-- ===================================================== -->
     <!-- FAVICON -->
-    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" sizes="any">
-    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <!-- ===================================================== -->
 
-    <!-- ════════════════════════════════════════════ -->
-    <!-- CRITICAL CSS - Inline above-the-fold styles -->
-    <!-- ════════════════════════════════════════════ -->
+    <link rel="icon"
+        href="{% static 'img/favicon.ico' %}"
+        type="image/x-icon"
+        sizes="any">
+
+    <link rel="shortcut icon"
+        href="{% static 'img/favicon.ico' %}"
+        type="image/x-icon">
+
+
+    <!-- ===================================================== -->
+    <!-- BASIC CRITICAL CSS -->
+    <!-- ===================================================== -->
+
     <style>
-        /* Critical styles - only for what's visible */
+
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
@@ -46,50 +97,55 @@
             background: #ffffff;
         }
 
-        /* Add only what's needed for first viewport */
     </style>
 
-    <!-- ════════════════════════════════════════════ -->
-    <!-- NON-BLOCKING RESOURCES (preload + onload) -->
-    <!-- ════════════════════════════════════════════ -->
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
-    </noscript>
+    <!-- ===================================================== -->
+    <!-- GOOGLE FONTS -->
+    <!-- ===================================================== -->
 
-    <!-- Material Symbols -->
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    </noscript>
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-    <!-- Tailwind CSS -->
-    <link rel="preload" href="{% static 'css/output.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="{% static 'css/output.css' %}">
-    </noscript>
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-    <!-- intl-tel-input -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css">
-    </noscript>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
 
 
+    <!-- ===================================================== -->
+    <!-- MATERIAL SYMBOLS -->
+    <!-- ===================================================== -->
 
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+
+    <!-- ===================================================== -->
+    <!-- TAILWIND CSS -->
+    <!-- IMPORTANT: NORMAL STYLESHEET -->
+    <!-- ===================================================== -->
+
+    <link rel="stylesheet"
+        href="{% static 'css/output.css' %}">
+
+
+    <!-- ===================================================== -->
+    <!-- INTL TEL INPUT -->
+    <!-- ===================================================== -->
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css">
+
+
+    <!-- ===================================================== -->
+    <!-- PAGE-SPECIFIC CSS -->
+    <!-- ===================================================== -->
 
     {% block extra_css %}{% endblock %}
+
 </head>
 
 <body>
@@ -139,66 +195,120 @@
 
                     <!-- DESKTOP MENU -->
                     <ul class="hidden xl:flex items-center gap-10 text-[15px] font-medium text-slate-700">
-                        <li>
-                            <a href="{% url 'how_it_works' %}" class="hover:text-warm-golden-orange  transition">How it
-                                Works</a>
-                        </li>
-                        <li>
 
-                            <a href="{% url 'customer' %}" class="hover:text-warm-golden-orange transition">For
-                                Customer</a>
-                        </li>
+                        <!-- How It Works -->
                         <li>
-                            <a href="{% url 'engineer' %}" class="hover:text-warm-golden-orange transition">For
-                                Engineers</a>
+                            <a href="{% url 'how_it_works' %}"
+                                class="transition {% if request.resolver_match.url_name == 'how_it_works' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                How it Works
+                            </a>
                         </li>
+
+                        <!-- For Customer -->
                         <li>
-                            <a href="{% url 'vendor' %}" class="hover:text-warm-golden-orange transition">For
-                                Vendors</a>
+                            <a href="{% url 'customer' %}"
+                                class="transition {% if request.resolver_match.url_name == 'customer' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Customer
+                            </a>
                         </li>
+
+                        <!-- For Engineers -->
+                        <li>
+                            <a href="{% url 'engineer' %}"
+                                class="transition {% if request.resolver_match.url_name == 'engineer' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Engineers
+                            </a>
+                        </li>
+
+                        <!-- For Vendors -->
+                        <li>
+                            <a href="{% url 'vendor' %}"
+                                class="transition {% if request.resolver_match.url_name == 'vendor' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Vendors
+                            </a>
+                        </li>
+
                         <!-- COMPANY DROPDOWN -->
                         <li class="relative group">
-                            <button class="flex items-center gap-1 hover:text-warm-golden-orange transition">
+
+                            <button type="button"
+                                class="flex items-center gap-1 transition {% if request.resolver_match.url_name == 'about_fe' or request.resolver_match.url_name == 'careers' or request.resolver_match.url_name == 'blogs' or request.resolver_match.url_name == 'news' or request.resolver_match.url_name == 'contact' or request.resolver_match.url_name == 'help_center' or request.resolver_match.url_name == 'disclaimer' or request.resolver_match.url_name == 'privacy-policy' or request.resolver_match.url_name == 'term_condition' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
                                 Company
-                                <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+                                <span class="material-symbols-outlined text-[18px]">
+                                    keyboard_arrow_down
+                                </span>
                             </button>
+
                             <div
                                 class="absolute left-0 top-full mt-4 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 w-64 rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden">
-                                <a href="{% url 'about_fe' %}" class="block px-5 py-3 hover:bg-light-warm-beige">About
-                                    Us</a>
-                                <a href="{% url 'careers' %}"
-                                    class="block px-5 py-3 hover:bg-light-warm-beige">Careers</a>
-                                <a href="{% url 'blogs' %}" class="block px-5 py-3 hover:bg-light-warm-beige">Blogs</a>
 
-                                <a href="{% url 'news' %}" class="block px-5 py-3 hover:bg-light-warm-beige">News</a>
-                                <a href="{% url 'contact' %}" class="block px-5 py-3 hover:bg-light-warm-beige">Contact
-                                    Us</a>
-                                <a href="{% url 'help_center' %}" class="block px-5 py-3 hover:bg-light-warm-beige">Help
-                                    Center </a>
+                                <a href="{% url 'about_fe' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'about_fe' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    About Us
+                                </a>
+
+                                <a href="{% url 'careers' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'careers' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Careers
+                                </a>
+
+                                <a href="{% url 'blogs' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'blogs' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Blogs
+                                </a>
+
+                                <a href="{% url 'news' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'news' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    News
+                                </a>
+
+                                <a href="{% url 'contact' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'contact' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Contact Us
+                                </a>
+
+                                <a href="{% url 'help_center' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'help_center' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Help Center
+                                </a>
 
                                 <a href="{% url 'disclaimer' %}"
-                                    class="block px-5 py-3 hover:bg-light-warm-beige">Disclaimer</a>
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'disclaimer' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Disclaimer
+                                </a>
 
                                 <a href="{% url 'privacy-policy' %}"
-                                    class="block px-5 py-3 hover:bg-light-warm-beige">Privacy Policy</a>
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'privacy-policy' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Privacy Policy
+                                </a>
+
                                 <a href="{% url 'term_condition' %}"
-                                    class="block px-5 py-3 hover:bg-light-warm-beige">Terms & Conditions</a>
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'term_condition' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Terms & Conditions
+                                </a>
+
                             </div>
                         </li>
+
                     </ul>
 
                     <!-- RIGHT SIDE - LOGIN & SIGNUP -->
-                    <div class="hidden lg:flex items-center gap-4 flex-shrink-0">
-                        <a onclick="switchToLogin()"
-                            class="rounded-xl border border-primary-yellow px-4 py-2 text-sm font-medium text-primary-yellow transition cursor-pointer">
-                            Customer Login
-                        </a>
-                        <a onclick="openSignupPopup()"
-                            class="rounded-xl bg-amber-orange1 px-4 py-2 text-sm font-medium text-slate-700 transition shadow cursor-pointer hover:bg-amber-400">
-                            Sign Up Free
-                        </a>
-                    </div>
+<!-- RIGHT SIDE - LOGIN & SIGNUP -->
+<div class="hidden lg:flex items-center gap-4 flex-shrink-0">
 
+    <!-- Customer Login -->
+    <a onclick="switchToLogin()"
+        class="inline-flex items-center justify-center rounded-xl border border-primary-yellow px-4 py-2 text-sm font-medium text-primary-yellow transition cursor-pointer">
+        Customer Login
+    </a>
+
+    <!-- Sign Up Free -->
+    <a onclick="openSignupPopup()"
+        class="inline-flex items-center justify-center rounded-xl bg-primary-yellow px-4 py-2 text-sm font-medium text-slate-700 transition shadow cursor-pointer hover:bg-amber-400">
+        Sign Up Free
+    </a>
+
+</div>
                     <!-- MOBILE HAMBURGER -->
                     <!-- <button id="hamburger-btn" class="xl:hidden rounded-lg p-2 hover:bg-slate-100">
                     <span class="material-symbols-outlined">menu</span>
@@ -256,56 +366,169 @@
 
                         <!-- Mobile Navigation Links -->
                         <ul class="flex flex-col gap-1">
-                            <li><a href="{% url 'how_it_works' %}"
-                                    class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-warm-golden-orange hover:bg-green-50 rounded-xl transition-all duration-200">How
-                                    it Works</a></li>
-                            <li><a href="{% url 'customer' %}"
-                                    class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-warm-golden-orange hover:bg-green-50 rounded-xl transition-all duration-200">For
-                                    Customer</a></li>
-                            <li><a href="{% url 'engineer' %}"
-                                    class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-warm-golden-orange hover:bg-green-50 rounded-xl transition-all duration-200">For
-                                    Engineers</a></li>
-                            <li><a href="{% url 'vendor' %}"
-                                    class="block py-3 px-3 text-base font-medium text-slate-700 hover:text-warm-golden-orange hover:bg-green-50 rounded-xl transition-all duration-200">For
-                                    Vendors</a></li>
+
+                            <!-- How It Works -->
+                            <li>
+                                <a href="{% url 'how_it_works' %}" class="block py-3 px-3 text-base font-medium rounded-xl transition-all duration-200
+            {% if request.resolver_match.url_name == 'how_it_works' %}
+                text-primary-yellow
+            {% else %}
+                text-slate-700 hover:text-primary-yellow hover:bg-green-50
+            {% endif %}">
+                                    How it Works
+                                </a>
+                            </li>
+
+                            <!-- For Customer -->
+                            <li>
+                                <a href="{% url 'customer' %}" class="block py-3 px-3 text-base font-medium rounded-xl transition-all duration-200
+            {% if request.resolver_match.url_name == 'customer' %}
+                text-primary-yellow
+            {% else %}
+                text-slate-700 hover:text-primary-yellow hover:bg-green-50
+            {% endif %}">
+                                    For Customer
+                                </a>
+                            </li>
+
+                            <!-- For Engineers -->
+                            <li>
+                                <a href="{% url 'engineer' %}" class="block py-3 px-3 text-base font-medium rounded-xl transition-all duration-200
+            {% if request.resolver_match.url_name == 'engineer' %}
+                text-primary-yellow
+            {% else %}
+                text-slate-700 hover:text-primary-yellow hover:bg-green-50
+            {% endif %}">
+                                    For Engineers
+                                </a>
+                            </li>
+
+                            <!-- For Vendors -->
+                            <li>
+                                <a href="{% url 'vendor' %}" class="block py-3 px-3 text-base font-medium rounded-xl transition-all duration-200
+            {% if request.resolver_match.url_name == 'vendor' %}
+                text-primary-yellow
+            {% else %}
+                text-slate-700 hover:text-primary-yellow hover:bg-green-50
+            {% endif %}">
+                                    For Vendors
+                                </a>
+                            </li>
 
                             <!-- Company Dropdown -->
                             <li>
-                                <button id="mobile-company-btn"
-                                    class="flex items-center justify-between w-full py-3 px-3 text-base font-medium text-slate-700 hover:text-warm-golden-orange hover:bg-green-50 rounded-xl transition-all duration-200">
-                                    Company
-                                    <span id="mobile-company-arrow"
-                                        class="material-symbols-outlined transition-transform duration-300">keyboard_arrow_down</span>
-                                </button>
-                                <div id="mobile-company-menu" class="hidden pl-4 space-y-1 mt-1">
-                                    <a href="{% url 'about_fe' %}"
-                                        class="block py-2.5 px-4 text-sm text-slate-600 hover:text-warm-golden-orange hover:bg-green-50 rounded-lg transition-all duration-200">About
-                                        Us</a>
-                                    <a href="{% url 'careers' %}"
-                                        class="block py-2.5 px-4 text-sm text-slate-600 hover:text-warm-golden-orange hover:bg-green-50 rounded-lg transition-all duration-200">Careers</a>
-                                    <a href="{% url 'blogs' %}"
-                                        class="block py-2.5 px-4 text-sm text-slate-600 hover:text-warm-golden-orange hover:bg-green-50 rounded-lg transition-all duration-200">Blogs</a>
 
-                                    <a href="#"
-                                        class="block py-2.5 px-4 text-sm text-slate-600 hover:text-warm-golden-orange hover:bg-green-50 rounded-lg transition-all duration-200">News
+                                <button id="mobile-company-btn" type="button" class="flex items-center justify-between w-full py-3 px-3 text-base font-medium rounded-xl transition-all duration-200
+            {% if request.resolver_match.url_name == 'about_fe' or request.resolver_match.url_name == 'careers' or request.resolver_match.url_name == 'blogs' or request.resolver_match.url_name == 'news' or request.resolver_match.url_name == 'contact' or request.resolver_match.url_name == 'help_center' or request.resolver_match.url_name == 'disclaimer' or request.resolver_match.url_name == 'privacy-policy' or request.resolver_match.url_name == 'term_condition' %}
+                text-primary-yellow
+            {% else %}
+                text-slate-700 hover:text-primary-yellow hover:bg-green-50
+            {% endif %}">
+
+                                    Company
+
+                                    <span id="mobile-company-arrow"
+                                        class="material-symbols-outlined transition-transform duration-300">
+                                        keyboard_arrow_down
+                                    </span>
+
+                                </button>
+
+                                <div id="mobile-company-menu" class="hidden pl-4 space-y-1 mt-1">
+
+                                    <!-- About Us -->
+                                    <a href="{% url 'about_fe' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'about_fe' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        About Us
                                     </a>
-                                    <a href="{% url 'contact' %}"
-                                        class="block py-2.5 px-4 text-sm text-slate-600 hover:text-warm-golden-orange hover:bg-green-50 rounded-lg transition-all duration-200">Contact
-                                        Us</a>
-                                    <a href="{% url 'help_center' %}"
-                                        class="block py-2.5 px-4 text-sm text-slate-600 hover:text-warm-golden-orange hover:bg-green-50 rounded-lg transition-all duration-200">Help
-                                        Center</a>
-                                    <a href="{% url 'disclaimer' %}"
-                                        class="block py-2.5 px-4 text-sm text-slate-600 hover:text-warm-golden-orange hover:bg-green-50 rounded-lg transition-all duration-200">Disclaimer
+
+                                    <!-- Careers -->
+                                    <a href="{% url 'careers' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'careers' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Careers
                                     </a>
-                                    <a href="{% url 'privacy-policy' %}"
-                                        class="block py-2.5 px-4 text-sm text-slate-600 hover:text-warm-golden-orange hover:bg-green-50 rounded-lg transition-all duration-200">Privacy
-                                        Policy</a>
-                                    <a href="{% url 'term_condition' %}"
-                                        class="block py-2.5 px-4 text-sm text-slate-600 hover:text-warm-golden-orange hover:bg-green-50 rounded-lg transition-all duration-200">Term
-                                        & Condition</a>
+
+                                    <!-- Blogs -->
+                                    <a href="{% url 'blogs' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'blogs' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Blogs
+                                    </a>
+
+                                    <!-- News -->
+                                    <a href="{% url 'news' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'news' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        News
+                                    </a>
+
+                                    <!-- Contact Us -->
+                                    <a href="{% url 'contact' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'contact' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Contact Us
+                                    </a>
+
+                                    <!-- Help Center -->
+                                    <a href="{% url 'help_center' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'help_center' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Help Center
+                                    </a>
+
+                                    <!-- Disclaimer -->
+                                    <a href="{% url 'disclaimer' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'disclaimer' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Disclaimer
+                                    </a>
+
+                                    <!-- Privacy Policy -->
+                                    <a href="{% url 'privacy-policy' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'privacy-policy' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Privacy Policy
+                                    </a>
+
+                                    <!-- Terms & Conditions -->
+                                    <a href="{% url 'term_condition' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'term_condition' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Terms & Conditions
+                                    </a>
+
                                 </div>
                             </li>
+
                         </ul>
 
                         <!-- Divider -->
@@ -314,10 +537,10 @@
                         <!-- Mobile Action Buttons -->
                         <div class="flex flex-col gap-3">
                             <a onclick="switchToLogin()"
-                                class="block text-center rounded-xl border border-slate-200 px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200 cursor-pointer">Customer
+                                class="block text-center rounded-xl border primary-yellow px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200 cursor-pointer">Customer
                                 Login</a>
                             <a onclick="openSignupPopup()"
-                                class="block text-center rounded-xl bg-amber-400 px-4 py-3.5 text-sm font-medium text-slate-900 font-semibold shadow hover:bg-amber-500 transition-all duration-200 cursor-pointer">Sign
+                                class="block text-center rounded-xl bg-primary-yellow px-4 py-3.5 text-sm font-medium text-slate-900 font-semibold shadow transition-all duration-200 cursor-pointer">Sign
                                 Up Free</a>
                             <a href="javascript:void(0)" id="mobileSalesEnquiryBtn"
                                 class="block text-center rounded-xl border border-gray-200 px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200">Sales
