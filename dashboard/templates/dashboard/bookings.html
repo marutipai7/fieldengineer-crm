@@ -4,8 +4,17 @@
 
 {% block content %}
 
-<p>
-    Bookings Page
-</p>
+<div class="flex flex-col items-center justify-center min-h-[50vh]">
+    <div class="text-center">
+        <span class="material-symbols-outlined text-6xl text-gray-300 mb-4">
+            calendar_today
+        </span>
+        <h4 class="text-xl font-medium text-gray-700 mb-2">No upcoming bookings</h4>
+        <p class="text-gray-400">Your bookings will appear here once you make a reservation.</p>
+       <a href="/dashboard/"> <button class="mt-4 text-blue-600 hover:text-blue-700 font-medium">
+            + Book a Service
+        </button> </a>
+    </div>
+</div>
 
 {% endblock %}

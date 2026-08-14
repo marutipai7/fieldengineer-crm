@@ -54,18 +54,15 @@
                 <!-- Center: nav (desktop only) -->
                 <nav class="flex items-center justify-start lg:justify-center gap-5 sm:gap-7 text-[12.8px] text-granite-gray font-normal
                 overflow-x-auto whitespace-nowrap flex-1 min-w-0 [&::-webkit-scrollbar]:hidden">
-                    <a href="#" class="flex items-center gap-1 shrink-0">Customers
-                        <span
-                            class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
-                    </a>
-                    <a href="#" class="flex items-center gap-1 shrink-0">Engineers
-                        <span
-                            class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
-                    </a>
-                    <a href="#" class="flex items-center gap-1 shrink-0">Vendors
-                        <span
-                            class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
-                    </a>
+                  <a href="{% url 'customer' %}" class="flex items-center gap-1 shrink-0">Customers
+    <span class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
+</a>
+                  <a href="{% url 'engineer' %}" class="flex items-center gap-1 shrink-0">Engineers
+    <span class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
+</a>
+                  <a href="{% url 'vendor' %}" class="flex items-center gap-1 shrink-0">Vendors
+    <span class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
+</a>
                     <a href="#" class="flex items-center gap-1 shrink-0">Industries
                         <span
                             class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
@@ -158,13 +155,22 @@
                         Settings
                     </a>
                 </nav>
-                <div class=" border-t border-pale-blue-gray px-4 py-3">
-                    <a href="#"
-                        class="flex items-center gap-3 px-4 py-3 rounded-lg font-medium  hover:bg-red-50 text-sm">
-                        <span class="material-symbols-outlined text-red">logout</span>
-                        <span class="text-red">Logout</span>
-                    </a>
-                </div>
+              <div class="border-t border-pale-blue-gray px-4 py-3">
+    <button onclick="confirmLogout()" 
+        class="flex items-center gap-3 px-4 py-3 rounded-lg font-medium hover:bg-red-50 text-sm w-full transition">
+        <span class="material-symbols-outlined text-red">logout</span>
+        <span class="text-red">Logout</span>
+    </button>
+</div>
+
+<script>
+    function confirmLogout() {
+        if (confirm('Are you sure you want to logout?')) {
+            // Redirect to home page
+            window.location.href = '/';
+        }
+    }
+</script>
             </div>
 
             <!-- Logout pinned bottom -->

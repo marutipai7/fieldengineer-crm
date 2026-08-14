@@ -24,34 +24,43 @@
                 <div class="bg-[#22C55E] h-full w-[25%]"></div>
             </div>
             
-            <div class="relative z-10 flex items-start justify-between w-full">
-                <div class="flex flex-col items-center w-[10%]">
-                    <div class="w-7 h-7 rounded-full bg-[#22C55E] text-white flex items-center justify-center shadow-sm">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-                    </div>
-                    <span class="text-[13px] font-semibold text-slate-700 mt-2.5 text-center whitespace-nowrap">Profile Details</span>
-                </div>
+          <div class="relative flex items-start justify-between w-full max-w-full overflow-hidden">
+    <!-- Step 1: Profile Details (completed) -->
+    <div class="relative flex flex-col items-center min-w-0 flex-1 px-0.5">
+        <div class="relative z-10 w-7 h-7 rounded-full bg-[#22C55E] text-white flex items-center justify-center shadow-sm shrink-0">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+        </div>
+        <span class="text-[10px] sm:text-[13px] font-semibold text-slate-700 mt-2.5 text-center leading-tight break-words">Profile Details</span>
+    </div>
 
-                <div class="flex flex-col items-center w-[10%]">
-                    <div class="w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300"></div>
-                    <span class="text-[13px] font-medium text-slate-400 mt-2.5 text-center whitespace-nowrap">Identity Verification</span>
-                </div>
+    <!-- Step 2: Identity Verification -->
+    <div class="relative flex flex-col items-center min-w-0 flex-1 px-0.5">
+        <div class="absolute top-3.5 right-1/2 w-full h-0.5 bg-[#22C55E] z-0"></div>
+        <div class="relative z-10 w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300 shrink-0"></div>
+        <span class="text-[10px] sm:text-[13px] font-medium text-slate-400 mt-2.5 text-center leading-tight break-words">Identity Verification</span>
+    </div>
 
-                <div class="flex flex-col items-center w-[10%]">
-                    <div class="w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300"></div>
-                    <span class="text-[13px] font-medium text-slate-400 mt-2.5 text-center whitespace-nowrap">Business Information</span>
-                </div>
+    <!-- Step 3: Business Information -->
+    <div class="relative flex flex-col items-center min-w-0 flex-1 px-0.5">
+        <div class="absolute top-3.5 right-1/2 w-full h-0.5 bg-slate-300 z-0"></div>
+        <div class="relative z-10 w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300 shrink-0"></div>
+        <span class="text-[10px] sm:text-[13px] font-medium text-slate-400 mt-2.5 text-center leading-tight break-words">Business Information</span>
+    </div>
 
-                <div class="flex flex-col items-center w-[10%]">
-                    <div class="w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300"></div>
-                    <span class="text-[13px] font-medium text-slate-400 mt-2.5 text-center whitespace-nowrap">Payment Method</span>
-                </div>
+    <!-- Step 4: Payment Method -->
+    <div class="relative flex flex-col items-center min-w-0 flex-1 px-0.5">
+        <div class="absolute top-3.5 right-1/2 w-full h-0.5 bg-slate-300 z-0"></div>
+        <div class="relative z-10 w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300 shrink-0"></div>
+        <span class="text-[10px] sm:text-[13px] font-medium text-slate-400 mt-2.5 text-center leading-tight break-words">Payment Method</span>
+    </div>
 
-                <div class="flex flex-col items-center w-[10%]">
-                    <div class="w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300"></div>
-                    <span class="text-[13px] font-medium text-slate-400 mt-2.5 text-center whitespace-nowrap">Documents</span>
-                </div>
-            </div>
+    <!-- Step 5: Documents -->
+    <div class="relative flex flex-col items-center min-w-0 flex-1 px-0.5">
+        <div class="absolute top-3.5 right-1/2 w-full h-0.5 bg-slate-300 z-0"></div>
+        <div class="relative z-10 w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300 shrink-0"></div>
+        <span class="text-[10px] sm:text-[13px] font-medium text-slate-400 mt-2.5 text-center leading-tight break-words">Documents</span>
+    </div>
+</div>
         </div>
 
         <button class="w-full lg:w-auto bg-[#FBBF24] hover:bg-[#F59E0B] text-white font-bold text-xs px-6 py-3 rounded-xl transition duration-150 whitespace-nowrap shadow-sm flex items-center justify-center gap-2 self-center">
@@ -65,25 +74,63 @@
     <!-- Box 1: Profile -->
     <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-2">
-            <div class="relative w-16 h-16 flex-shrink-0">
-    <!-- Profile Image Container -->
-    <div id="profileImageContainer" class="relative w-16 h-16">
-        <img id="profileImage" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120" alt="Avatar" class="w-full h-full rounded-full object-cover p-1 ring-2 ring-primary-yellow">
-        
-        <!-- Hidden file input -->
-        <input type="file" id="profileImageInput" accept="image/*" class="hidden" onchange="changeProfileImage(event)">
-        
-        <!-- Hover overlay - hidden by default -->
-        <div id="profileOverlay" class="absolute inset-0 rounded-full bg-black/40 opacity-0 transition-opacity flex items-center justify-center pointer-events-none">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-        </div>
+        <div class="relative w-16 h-16 flex-shrink-0 group cursor-pointer" id="profilePhotoWrapper">
+    
+    <!-- 1. The Circular Ring with cut-out -->
+    <div class="absolute inset-0 rounded-full border-[3px] border-primary-yellow z-10 pointer-events-none" 
+         style="border-right-color: transparent; transform: rotate(-45deg);"></div>
+    
+    <!-- 2. Profile Image Container (Added overflow-hidden so no image bleeds out) -->
+    <div class="w-full h-full rounded-full overflow-hidden">
+        <img id="profileImage" 
+             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120" 
+             alt="Avatar" 
+             class="w-full h-full object-cover">
     </div>
     
-    <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary-yellow border border-primary-yellow text-white font-semibold text-[10px] px-1.5 py-0.5 rounded-full shadow-sm">80%</span>
+    <!-- 3. Hidden file input for uploading -->
+    <input type="file" id="profileImageInput" accept="image/*" class="hidden">
+    
+    <!-- 4. Hover Overlay (Camera Icon) -->
+    <div class="absolute inset-0 rounded-full bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+    </div>
+
+    <!-- 5. 80% Badge (Overlapping the bottom edge INSIDE the circle) -->
+    <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-white border-2 border-primary-yellow rounded-full px-2 py-0.5 shadow-sm z-30 whitespace-nowrap">
+        <span class="text-[10px] font-bold text-slate-800">80%</span>
+    </div>
 </div>
+<script>
+    // Profile Photo Upload functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const wrapper = document.getElementById('profilePhotoWrapper');
+    const profileImage = document.getElementById('profileImage');
+    const fileInput = document.getElementById('profileImageInput');
+
+    if (wrapper && profileImage && fileInput) {
+        // Clicking the image triggers the file input
+        wrapper.addEventListener('click', function() {
+            fileInput.click();
+        });
+
+        // When a file is selected, update the image
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileImage.src = e.target.result; // Instantly updates the photo
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+});
+</script>
             <!-- <button id="editProfileBtn" class="bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto" onclick="toggleEditMode()">
                 Edit Profile
             </button> -->
@@ -435,119 +482,103 @@
                     <th class="p-3 px-4 text-center">Action</th>
                 </tr>
             </thead>
-            <tbody class="text-sm font-medium text-slate-600 divide-y divide-slate-100">
+           <tbody class="text-sm font-medium text-slate-600 divide-y divide-slate-100">
                 
-                <tr class="hover:bg-slate-50/70 transition">
-                    <td class="p-3 px-4 font-semibold text-dark-gray">GST Certificate.pdf</td>
-                    <td class="p-3 px-4 text-center text-dark-gray">GST Certificate</td>
-                    <td class="p-3 px-4 text-center">
-                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span>
-                    </td>
-                    <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
-                    <td class="p-3 px-4 text-center">
-                        <div class="flex items-center justify-center gap-3 text-slate-500">
-                            <button class="hover:text-blue-600 transition">
-                               <span class="material-symbols-outlined">
-visibility
-</span>
-                            </button>
-                            <button class="hover:text-blue-600 transition">
-                                <span class="material-symbols-outlined">
-download
-</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+    <tr class="hover:bg-slate-50/70 transition">
+        <td class="p-3 px-4 font-semibold text-dark-gray">GST Certificate.pdf</td>
+        <td class="p-3 px-4 text-center text-dark-gray">GST Certificate</td>
+        <td class="p-3 px-4 text-center">
+            <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span>
+        </td>
+        <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
+        <td class="p-3 px-4 text-center">
+            <div class="flex items-center justify-center gap-3 text-slate-500">
+                <button class="hover:text-blue-600 transition view-btn" data-doc="GST Certificate" data-file="GST Certificate.pdf">
+                   <span class="material-symbols-outlined">visibility</span>
+                </button>
+                <button class="hover:text-blue-600 transition download-btn" data-file="GST Certificate.pdf">
+                    <span class="material-symbols-outlined">download</span>
+                </button>
+            </div>
+        </td>
+    </tr>
 
-                <tr class="hover:bg-slate-50/70 transition">
-                    <td class="p-3 px-4 font-semibold text-dark-gray">PAN Card.pdf</td>
-                    <td class="p-3 px-4 text-center text-dark-gray">PAN Documents</td>
-                    <td class="p-3 px-4 text-center">
-                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span>
-                    </td>
-                    <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
-                    <td class="p-3 px-4 text-center">
-                        <div class="flex items-center justify-center gap-3 text-slate-500">
-                            <button class="hover:text-blue-600 transition">
-                               <span class="material-symbols-outlined">
-visibility
-</span>
-                            </button>
-                            <button class="hover:text-blue-600 transition">
-                                <span class="material-symbols-outlined">
-download
-</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+    <tr class="hover:bg-slate-50/70 transition">
+        <td class="p-3 px-4 font-semibold text-dark-gray">PAN Card.pdf</td>
+        <td class="p-3 px-4 text-center text-dark-gray">PAN Documents</td>
+        <td class="p-3 px-4 text-center">
+            <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span>
+        </td>
+        <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
+        <td class="p-3 px-4 text-center">
+            <div class="flex items-center justify-center gap-3 text-slate-500">
+                <button class="hover:text-blue-600 transition view-btn" data-doc="PAN Card" data-file="PAN Card.pdf">
+                   <span class="material-symbols-outlined">visibility</span>
+                </button>
+                <button class="hover:text-blue-600 transition download-btn" data-file="PAN Card.pdf">
+                    <span class="material-symbols-outlined">download</span>
+                </button>
+            </div>
+        </td>
+    </tr>
 
-                <tr class="hover:bg-slate-50/70 transition">
-                    <td class="p-3 px-4 font-semibold text-dark-gray">Incorporation.pdf</td>
-                    <td class="p-3 px-4 text-center text-dark-gray">Company Registration</td>
-                    <td class="p-3 px-4 text-center">
-                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span>
-                    </td>
-                    <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
-                    <td class="p-3 px-4 text-center">
-                        <div class="flex items-center justify-center gap-3 text-slate-500">
-                            <button class="hover:text-blue-600 transition">
-                               <span class="material-symbols-outlined">
-visibility
-</span>
-                            </button>
-                            <button class="hover:text-blue-600 transition">
-                                <span class="material-symbols-outlined">
-download
-</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+    <tr class="hover:bg-slate-50/70 transition">
+        <td class="p-3 px-4 font-semibold text-dark-gray">Incorporation.pdf</td>
+        <td class="p-3 px-4 text-center text-dark-gray">Company Registration</td>
+        <td class="p-3 px-4 text-center">
+            <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span>
+        </td>
+        <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
+        <td class="p-3 px-4 text-center">
+            <div class="flex items-center justify-center gap-3 text-slate-500">
+                <button class="hover:text-blue-600 transition view-btn" data-doc="Incorporation" data-file="Incorporation.pdf">
+                   <span class="material-symbols-outlined">visibility</span>
+                </button>
+                <button class="hover:text-blue-600 transition download-btn" data-file="Incorporation.pdf">
+                    <span class="material-symbols-outlined">download</span>
+                </button>
+            </div>
+        </td>
+    </tr>
 
-                <tr class="hover:bg-slate-50/70 transition">
-                    <td class="p-3 px-4 font-semibold text-dark-gray">Address Proof.pdf</td>
-                    <td class="p-3 px-4 text-center text-dark-gray">Address Proof</td>
-                    <td class="p-3 px-4 text-center">
-                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-red-50 text-red rounded-md border border-red-100">Pending</span>
-                    </td>
-                    <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
-                    <td class="p-3 px-4 text-center">
-                        <div class="flex items-center justify-center gap-3 text-slate-500">
-                            <button class="hover:text-blue-600 transition">
-                               <span class="material-symbols-outlined">
-visibility
-</span>
-                            </button>
-                            <button class="hover:text-blue-600 transition">
-                                <span class="material-symbols-outlined">
-download
-</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+    <tr class="hover:bg-slate-50/70 transition">
+        <td class="p-3 px-4 font-semibold text-dark-gray">Address Proof.pdf</td>
+        <td class="p-3 px-4 text-center text-dark-gray">Address Proof</td>
+        <td class="p-3 px-4 text-center">
+            <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-red-50 text-red rounded-md border border-red-100">Pending</span>
+        </td>
+        <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
+        <td class="p-3 px-4 text-center">
+            <div class="flex items-center justify-center gap-3 text-slate-500">
+                <button class="hover:text-blue-600 transition view-btn" data-doc="Address Proof" data-file="Address Proof.pdf">
+                   <span class="material-symbols-outlined">visibility</span>
+                </button>
+                <button class="hover:text-blue-600 transition download-btn" data-file="Address Proof.pdf">
+                    <span class="material-symbols-outlined">download</span>
+                </button>
+            </div>
+        </td>
+    </tr>
 
-                <tr class="hover:bg-slate-50/70 transition">
-                    <td class="p-3 px-4 font-semibold text-dark-gray">Other Documents.pdf</td>
-                    <td class="p-3 px-4 text-center text-dark-gray">Supporting Documents</td>
-                    <td class="p-3 px-4 text-center">
-                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-slate-100 text-slate-600 rounded-md">Upload</span>
-                    </td>
-                    <td class="p-3 px-4 text-center text-dark-gray">-</td>
-                    <td class="p-3 px-4 text-center">
-                        <div class="flex items-center justify-center text-slate-500">
-                            <button class="hover:text-blue-600 transition p-1">
-                               <span class="material-symbols-outlined">
-upload
-</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+    <tr class="hover:bg-slate-50/70 transition">
+        <td class="p-3 px-4 font-semibold text-dark-gray">Other Documents.pdf</td>
+        <td class="p-3 px-4 text-center text-dark-gray">Supporting Documents</td>
+        <td class="p-3 px-4 text-center">
+            <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-slate-100 text-slate-600 rounded-md">Upload</span>
+        </td>
+        <td class="p-3 px-4 text-center text-dark-gray">-</td>
+        <td class="p-3 px-4 text-center">
+            <div class="flex items-center justify-center text-slate-500">
+                <button class="hover:text-blue-600 transition p-1 upload-btn">
+                   <span class="material-symbols-outlined">upload</span>
+                </button>
+            </div>
+        </td>
+    </tr>
 
-            </tbody>
+</tbody>
+
+
         </table>
     </div>
 </div>
@@ -622,4 +653,126 @@ upload
     }
 </style>
 
+
+<script>
+    // View/Preview functionality - opens a popup with document details
+document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const docName = this.dataset.doc;
+        const fileName = this.dataset.file;
+        
+        // Create popup
+        const popup = document.createElement('div');
+        popup.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50';
+        popup.innerHTML = `
+            <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900">Document Preview</h3>
+                    <button class="text-gray-400 hover:text-gray-600 close-popup">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <p><strong>Document:</strong> ${docName}</p>
+                    <p><strong>File:</strong> ${fileName}</p>
+                    <p><strong>Status:</strong> ${this.closest('tr').querySelector('span').textContent.trim()}</p>
+                    <p><strong>Date:</strong> ${this.closest('tr').querySelectorAll('td')[3].textContent.trim()}</p>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center text-gray-400">
+                        <span class="material-symbols-outlined text-4xl">description</span>
+                        <p class="mt-2">Preview not available</p>
+                        <p class="text-xs">Click download to view the file</p>
+                    </div>
+                </div>
+                <div class="mt-4 flex gap-2">
+                    <button class="flex-1 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition download-from-popup">
+                        Download File
+                    </button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(popup);
+        
+        // Close popup
+        popup.querySelector('.close-popup').addEventListener('click', () => popup.remove());
+        popup.addEventListener('click', (e) => { if(e.target === popup) popup.remove(); });
+        
+        // Download from popup
+        popup.querySelector('.download-from-popup').addEventListener('click', () => {
+            downloadFile(fileName);
+            popup.remove();
+        });
+    });
+});
+
+// Download functionality
+document.querySelectorAll('.download-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const fileName = this.dataset.file;
+        downloadFile(fileName);
+    });
+});
+
+function downloadFile(fileName) {
+    // Simulate file download
+    const link = document.createElement('a');
+    link.href = '#';
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Show notification
+    showNotification(`Downloading ${fileName}...`);
+}
+
+// Upload functionality - opens file manager
+document.querySelectorAll('.upload-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = '.pdf,.doc,.docx,.jpg,.png';
+        fileInput.multiple = true;
+        
+        fileInput.addEventListener('change', function() {
+            if(this.files.length > 0) {
+                const fileName = this.files[0].name;
+                const row = this.closest('tr');
+                const statusCell = row.querySelectorAll('td')[2];
+                const dateCell = row.querySelectorAll('td')[3];
+                
+                // Update status
+                statusCell.innerHTML = `
+                    <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-yellow-50 text-yellow-600 rounded-md border border-yellow-200">Uploading...</span>
+                `;
+                
+                // Simulate upload
+                setTimeout(() => {
+                    statusCell.innerHTML = `
+                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span>
+                    `;
+                    dateCell.textContent = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+                    showNotification(`File "${fileName}" uploaded successfully!`);
+                }, 1500);
+            }
+        });
+        
+        fileInput.click();
+    });
+});
+
+// Notification helper
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'fixed bottom-4 right-4 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+</script>
 {% endblock %}

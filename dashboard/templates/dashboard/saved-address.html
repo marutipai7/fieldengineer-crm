@@ -20,23 +20,18 @@
                 Saved Address
             </h1>
 
-            <p class="mt-2 text-sm  font-normal text-granite-gray">
+            <p class="mt-2 text-sm font-normal text-granite-gray">
                 Manage all your saved addresses for faster booking and
                 service requests.
             </p>
         </div>
-
-
 
     </div>
 
     <!-- =======================================================
         Search & Filter
     ======================================================== -->
-    <!-- Search + Sort + Add Address -->
-    <!-- Search -->
-
-    <div class="flex items-center gap-3 flex-wrap">
+    <div class="flex items-center gap-3 flex-wrap mb-6">
 
         <!-- Search -->
         <div class="relative w-[320px] shrink-0">
@@ -46,21 +41,21 @@
                 </span>
             </div>
 
-            <input type="text" placeholder="Search addresses"
+            <input type="text" id="searchInput" placeholder="Search addresses..."
                 class="w-full h-12 border border-slate-200 rounded-xl pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
 
         <!-- Filter -->
         <div class="relative shrink-0">
 
-            <button
-                class="filter-btn h-12 px-5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-center gap-2">
+            <button id="filterBtn"
+                class="h-12 px-5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-center gap-2">
 
                 <span class="material-symbols-outlined text-[18px]">
                     tune
                 </span>
 
-                <span class="filter-text">
+                <span id="filterText">
                     Filter
                 </span>
 
@@ -70,41 +65,63 @@
 
             </button>
 
-            <div
-                class="filter-dropdown hidden absolute top-full left-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-lg z-50 overflow-hidden">
+            <div id="filterDropdown"
+                class="hidden absolute top-full left-0 mt-2 w-56 bg-white border border-slate-200 rounded-xl shadow-lg z-50 overflow-hidden">
 
-                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50">Default Address</button>
-                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50">Office</button>
-                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50">Branch Office</button>
-                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50">Warehouse</button>
-                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50">Other</button>
+                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50" data-filter="all">
+                    All Addresses
+                </button>
+                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50" data-filter="default">
+                    ⭐ Default Address
+                </button>
+                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50" data-filter="office">
+                    🏢 Office
+                </button>
+                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50" data-filter="branch">
+                    🏬 Branch Office
+                </button>
+                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50" data-filter="warehouse">
+                    🏭 Warehouse
+                </button>
+                <button class="filter-option w-full px-4 py-3 text-left hover:bg-slate-50" data-filter="other">
+                    📌 Other
+                </button>
 
             </div>
 
         </div>
 
         <!-- Sort -->
-        <button
+        <button id="sortBtn"
             class="h-12 px-5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 flex items-center gap-2 shrink-0">
 
             <span class="material-symbols-outlined text-[18px]">
                 swap_vert
             </span>
 
-            Sort By
+            <span id="sortText">Sort By</span>
 
         </button>
 
+        <!-- Add Address Button -->
+        <button class="h-12 px-5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2 ml-auto">
+            <span class="material-symbols-outlined text-[18px]">
+                add
+            </span>
+            Add Address
+        </button>
+
     </div>
+
     <!-- =======================================================
-        Saved Address Cards
+        Address Cards Container
     ======================================================== -->
-    <div class="space-y-6">
+    <div id="addressContainer" class="space-y-6">
 
         <!-- ==============================================
             Card 1 (Default)
         =============================================== -->
-        <div class="relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-lg transition">
+        <div class="address-card relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-lg transition" data-type="default" data-name="Head Office">
 
             <div class="flex flex-col md:flex-row">
 
@@ -188,14 +205,13 @@
         </div>
 
         <!-- ==============================================
-            Card 2
+            Card 2 (Branch Office)
         =============================================== -->
-        <div class="relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-lg transition">
+        <div class="address-card relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-lg transition" data-type="branch" data-name="Branch Office Indore">
 
             <div class="flex flex-col md:flex-row">
 
-                <div
-                    class="w-full md:w-32 bg-green-50 border-l-4 border-green-500 flex items-center justify-center py-8">
+                <div class="w-full md:w-32 bg-green-50 border-l-4 border-green-500 flex items-center justify-center py-8">
 
                     <span class="material-symbols-outlined text-green-600 text-5xl">
                         apartment
@@ -218,8 +234,8 @@
                             </p>
 
                             <p class="text-slate-500 mt-2">
-                                123, Bandra-Kurla Complex BKC,
-                                Mumbai, Maharashtra 400051
+                                45, Vijay Nagar,
+                                Indore, Madhya Pradesh 452001
                             </p>
 
                             <div class="flex items-center gap-2 mt-3 text-slate-500">
@@ -228,7 +244,7 @@
                                     call
                                 </span>
 
-                                +91 81022 62067
+                                +91 731 256 7890
 
                             </div>
 
@@ -263,17 +279,16 @@
         </div>
 
         <!-- ==============================================
-            Card 3
+            Card 3 (Warehouse)
         =============================================== -->
-        <div class="relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-lg transition">
+        <div class="address-card relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-lg transition" data-type="warehouse" data-name="Warehouse Mumbai">
 
             <div class="flex flex-col md:flex-row">
 
-                <div
-                    class="w-full md:w-32 bg-orange-50 border-l-4 border-orange-500 flex items-center justify-center py-8">
+                <div class="w-full md:w-32 bg-orange-50 border-l-4 border-orange-500 flex items-center justify-center py-8">
 
                     <span class="material-symbols-outlined text-orange-500 text-5xl">
-                        apartment
+                        warehouse
                     </span>
 
                 </div>
@@ -285,7 +300,7 @@
                         <div>
 
                             <h3 class="text-xl font-semibold text-slate-800 mb-3">
-                                Branch Office Pune
+                                Warehouse Mumbai
                             </h3>
 
                             <p class="text-slate-700 font-medium">
@@ -293,8 +308,8 @@
                             </p>
 
                             <p class="text-slate-500 mt-2">
-                                123, Bandra-Kurla Complex BKC,
-                                Mumbai, Maharashtra 400051
+                                78, MIDC Area, Andheri East,
+                                Mumbai, Maharashtra 400093
                             </p>
 
                             <div class="flex items-center gap-2 mt-3 text-slate-500">
@@ -303,7 +318,7 @@
                                     call
                                 </span>
 
-                                +91 81022 62067
+                                +91 22 2845 6789
 
                             </div>
 
@@ -338,17 +353,16 @@
         </div>
 
         <!-- ==============================================
-            Card 4
+            Card 4 (Other)
         =============================================== -->
-        <div class="relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-lg transition">
+        <div class="address-card relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-lg transition" data-type="other" data-name="Branch Office Delhi">
 
             <div class="flex flex-col md:flex-row">
 
-                <div
-                    class="w-full md:w-32 bg-purple-50 border-l-4 border-purple-500 flex items-center justify-center py-8">
+                <div class="w-full md:w-32 bg-purple-50 border-l-4 border-purple-500 flex items-center justify-center py-8">
 
                     <span class="material-symbols-outlined text-purple-500 text-5xl">
-                        apartment
+                        location_on
                     </span>
 
                 </div>
@@ -368,8 +382,8 @@
                             </p>
 
                             <p class="text-slate-500 mt-2">
-                                123, Bandra-Kurla Complex BKC,
-                                Mumbai, Maharashtra 400051
+                                12, Connaught Place,
+                                New Delhi, Delhi 110001
                             </p>
 
                             <div class="flex items-center gap-2 mt-3 text-slate-500">
@@ -378,7 +392,81 @@
                                     call
                                 </span>
 
-                                +91 81022 62067
+                                +91 11 2345 6789
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex md:flex-col gap-3">
+
+                            <button class="h-11 w-11 rounded-xl border border-slate-200 hover:bg-slate-100">
+
+                                <span class="material-symbols-outlined">
+                                    edit
+                                </span>
+
+                            </button>
+
+                            <button class="h-11 w-11 rounded-xl border border-slate-200 hover:bg-red-50 text-red-500">
+
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ==============================================
+            Card 5 (Office)
+        =============================================== -->
+        <div class="address-card relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-lg transition" data-type="office" data-name="Office Bangalore">
+
+            <div class="flex flex-col md:flex-row">
+
+                <div class="w-full md:w-32 bg-teal-50 border-l-4 border-teal-500 flex items-center justify-center py-8">
+
+                    <span class="material-symbols-outlined text-teal-500 text-5xl">
+                        business_center
+                    </span>
+
+                </div>
+
+                <div class="flex-1 p-6">
+
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+
+                        <div>
+
+                            <h3 class="text-xl font-semibold text-slate-800 mb-3">
+                                Office Bangalore
+                            </h3>
+
+                            <p class="text-slate-700 font-medium">
+                                ACME Pvt. Ltd.
+                            </p>
+
+                            <p class="text-slate-500 mt-2">
+                                56, Electronic City Phase 1,
+                                Bangalore, Karnataka 560100
+                            </p>
+
+                            <div class="flex items-center gap-2 mt-3 text-slate-500">
+
+                                <span class="material-symbols-outlined text-[18px]">
+                                    call
+                                </span>
+
+                                +91 80 2856 7890
 
                             </div>
 
@@ -417,8 +505,7 @@
     <!-- =======================================================
         Quick Tip
     ======================================================== -->
-    <div
-        class="mt-8 bg-blue-50 border border-blue-100 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-5">
+    <div class="mt-8 bg-blue-50 border border-blue-100 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-5">
 
         <div class="flex items-start gap-4">
 
@@ -455,6 +542,162 @@
 
 {% endblock %}
 
-{% load static %}
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all elements
+        const searchInput = document.getElementById('searchInput');
+        const filterBtn = document.getElementById('filterBtn');
+        const filterDropdown = document.getElementById('filterDropdown');
+        const filterOptions = document.querySelectorAll('.filter-option');
+        const filterText = document.getElementById('filterText');
+        const sortBtn = document.getElementById('sortBtn');
+        const sortText = document.getElementById('sortText');
+        const addressCards = document.querySelectorAll('.address-card');
+        const addressContainer = document.getElementById('addressContainer');
 
-<script src="{% static 'script/profile/saved-address.js' %}"></script>
+        let currentFilter = 'all';
+        let currentSort = 0; // 0: default, 1: name-asc, 2: name-desc, 3: type
+        const sortOptions = ['Sort By', 'Name A-Z', 'Name Z-A', 'Type'];
+
+        // =============================================
+        // SEARCH FUNCTIONALITY
+        // =============================================
+        searchInput.addEventListener('input', function() {
+            filterAndSortAddresses();
+        });
+
+        // =============================================
+        // FILTER FUNCTIONALITY
+        // =============================================
+        // Toggle dropdown
+        filterBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            filterDropdown.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            filterDropdown.classList.add('hidden');
+        });
+
+        // Filter options click
+        filterOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                currentFilter = this.dataset.filter;
+                filterText.textContent = this.textContent.trim();
+                filterDropdown.classList.add('hidden');
+                filterAndSortAddresses();
+            });
+        });
+
+        // =============================================
+        // SORT FUNCTIONALITY
+        // =============================================
+        sortBtn.addEventListener('click', function() {
+            currentSort = (currentSort + 1) % sortOptions.length;
+            sortText.textContent = sortOptions[currentSort];
+            filterAndSortAddresses();
+        });
+
+        // =============================================
+        // MAIN FILTER & SORT FUNCTION
+        // =============================================
+        function filterAndSortAddresses() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            let visibleCards = [];
+
+            // First, filter all cards
+            addressCards.forEach(card => {
+                const cardType = card.dataset.type;
+                const cardText = card.textContent.toLowerCase();
+                let shouldShow = true;
+
+                // Apply filter
+                if (currentFilter !== 'all' && cardType !== currentFilter) {
+                    shouldShow = false;
+                }
+
+                // Apply search
+                if (searchTerm && !cardText.includes(searchTerm)) {
+                    shouldShow = false;
+                }
+
+                if (shouldShow) {
+                    card.style.display = '';
+                    visibleCards.push(card);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Then, sort the visible cards
+            if (currentSort > 0 && visibleCards.length > 1) {
+                visibleCards.sort((a, b) => {
+                    const nameA = a.dataset.name.toLowerCase();
+                    const nameB = b.dataset.name.toLowerCase();
+                    const typeA = a.dataset.type;
+                    const typeB = b.dataset.type;
+
+                    switch(currentSort) {
+                        case 1: // Name A-Z
+                            return nameA.localeCompare(nameB);
+                        case 2: // Name Z-A
+                            return nameB.localeCompare(nameA);
+                        case 3: // Type
+                            return typeA.localeCompare(typeB);
+                        default:
+                            return 0;
+                    }
+                });
+
+                // Reorder DOM elements
+                visibleCards.forEach(card => {
+                    addressContainer.appendChild(card);
+                });
+            }
+
+            // Show/hide empty state
+            const existingEmpty = document.querySelector('.empty-state-message');
+            if (visibleCards.length === 0) {
+                if (!existingEmpty) {
+                    const emptyDiv = document.createElement('div');
+                    emptyDiv.className = 'empty-state-message text-center py-12';
+                    emptyDiv.innerHTML = `
+                        <div class="flex flex-col items-center justify-center">
+                            <span class="material-symbols-outlined text-6xl text-gray-300 mb-4">
+                                location_off
+                            </span>
+                            <h3 class="text-xl font-semibold text-gray-600 mb-2">No addresses found</h3>
+                            <p class="text-gray-400">Try adjusting your search or filter criteria</p>
+                            <button onclick="resetAllFilters()" class="mt-4 text-blue-600 hover:text-blue-700 font-medium">
+                                Clear all filters
+                            </button>
+                        </div>
+                    `;
+                    addressContainer.appendChild(emptyDiv);
+                }
+            } else {
+                if (existingEmpty) {
+                    existingEmpty.remove();
+                }
+            }
+        }
+
+        // =============================================
+        // RESET FUNCTION
+        // =============================================
+        window.resetAllFilters = function() {
+            currentFilter = 'all';
+            currentSort = 0;
+            filterText.textContent = 'Filter';
+            sortText.textContent = 'Sort By';
+            searchInput.value = '';
+            filterAndSortAddresses();
+        };
+
+        // Initial load
+        filterAndSortAddresses();
+    });
+</script>
+{% endblock %}
