@@ -21,79 +21,166 @@
     </section>
 
     {# ========== HERO SECTION ========== #}
-    <section class="relative overflow-hidden w-full min-h-[400px] sm:min-h-[420px] lg:min-h-[440px] flex items-center"
-        aria-labelledby="help-hero-title">
+    <section
+    class="relative overflow-hidden w-full min-h-[400px] sm:min-h-[420px] lg:min-h-[440px] flex items-center"
+    aria-labelledby="help-hero-title">
 
-        <!-- Hero Background Image -->
-        <img src="{% static 'img/help-center-hero.webp' %}"
-            alt="Field Engineer Help Center - Support and guidance for platform users"
-            title="Field Engineer - Help Center" width="1920" height="1080" loading="lazy" decoding="async"
-            class="help-center-hero z-0">
+    <!-- ================= HERO BACKGROUND ================= -->
+    <img
+        src="{% static 'img/help-center-hero.webp' %}"
+        alt="Field Engineer Help Center - Support and guidance for platform users"
+        title="Field Engineer - Help Center"
+        width="1920"
+        height="1080"
+        loading="lazy"
+        decoding="async"
+        class="help-center-hero absolute inset-0 w-full h-full object-cover z-0">
 
-        <!-- Dark Overlay with gradient -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/40"></div>
+    <!-- ================= DARK OVERLAY ================= -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/40 z-[1]"></div>
 
-        <!-- Container with navbar-like padding -->
-        <div class="w-full max-w-[1400px] mx-auto px-6 sm:px-6 lg:px-6 xl:px-6 relative z-10">
-            <div class="py-8 sm:py-10 lg:py-12 max-w-2xl">
 
-                <p class="text-label font-bold uppercase tracking-wide text-light-green mb-4">HELP CENTER</p>
-                <h1 id="help-hero-title"
-                    class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
-                    How can we help you?
-                </h1>
-                <p class="text-sm sm:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed max-w-lg">
-                    Find answers, guides and support for all things related to Field Engineer platform.
-                </p>
+    <!-- ================= SAME HEADER ALIGNMENT ================= -->
+    <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6">
 
-                <!-- Search -->
-                <div class="mt-8 flex max-w-2xl" role="search">
-                    <div class="relative flex-1">
-                        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-dusty-gray"
-                            aria-hidden="true">search</span>
-                        <input type="text" id="help-search-input" placeholder="Search for articles, guides and more..."
-                            class="w-full h-14 rounded-l-xl bg-white pl-12 pr-4 text-b1 outline-none"
-                            aria-label="Search for articles, guides and more">
-                    </div>
-                    <button type="button" id="help-search-button"
-                        class="bg-emerald-teal px-8 rounded-r-xl text-white font-semibold">
-                        Search
-                    </button>
+        <div class="py-8 sm:py-10 lg:py-12 max-w-2xl">
+
+            <!-- Label -->
+            <p class="text-label font-bold uppercase tracking-wide text-light-green mb-4">
+                HELP CENTER
+            </p>
+
+
+            <!-- Heading -->
+            <h1
+                id="help-hero-title"
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
+
+                How can we help you?
+
+            </h1>
+
+
+            <!-- Description -->
+            <p
+                class="text-sm sm:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed max-w-lg">
+
+                Find answers, guides and support for all things related to Field Engineer platform.
+
+            </p>
+
+
+            <!-- ================= SEARCH ================= -->
+            <div
+                class="mt-8 flex max-w-2xl"
+                role="search">
+
+                <!-- Search Input -->
+                <div class="relative flex-1">
+
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-dusty-gray"
+                        aria-hidden="true">
+                        search
+                    </span>
+
+                    <input
+                        type="text"
+                        id="help-search-input"
+                        placeholder="Search for articles, guides and more..."
+                        class="w-full h-14 rounded-l-xl bg-white pl-12 pr-4 text-b1 outline-none"
+                        aria-label="Search for articles, guides and more">
+
                 </div>
 
-                <p id="help-search-status" class="mt-3 text-b3 text-article-medium-gray hidden" role="status"
-                    aria-live="polite"></p>
 
-                <!-- Popular Searches -->
-                <div class="mt-6 flex flex-wrap items-center gap-3">
-                    <span class="text-sm text-white/80">Popular Searches:</span>
+                <!-- Search Button -->
+                <button
+                    type="button"
+                    id="help-search-button"
+                    class="bg-emerald-teal px-8 rounded-r-xl text-white font-semibold">
 
-                    <button type="button" data-search-term="Track Booking"
-                        class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
-                        Track Booking
-                    </button>
-                    <button type="button" data-search-term="Engineer App"
-                        class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
-                        Engineer App
-                    </button>
-                    <button type="button" data-search-term="Invoices"
-                        class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
-                        Invoices
-                    </button>
-                    <button type="button" data-search-term="Work Reports"
-                        class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
-                        Work Reports
-                    </button>
-                    <button type="button" data-search-term="Vendor Registration"
-                        class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
-                        Vendor Registration
-                    </button>
-                </div>
+                    Search
+
+                </button>
 
             </div>
+
+
+            <!-- Search Status -->
+            <p
+                id="help-search-status"
+                class="mt-3 text-b3 text-article-medium-gray hidden"
+                role="status"
+                aria-live="polite">
+            </p>
+
+
+            <!-- ================= POPULAR SEARCHES ================= -->
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+
+                <span class="text-sm text-white/80">
+                    Popular Searches:
+                </span>
+
+
+                <button
+                    type="button"
+                    data-search-term="Track Booking"
+                    class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+
+                    Track Booking
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-search-term="Engineer App"
+                    class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+
+                    Engineer App
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-search-term="Invoices"
+                    class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+
+                    Invoices
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-search-term="Work Reports"
+                    class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+
+                    Work Reports
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-search-term="Vendor Registration"
+                    class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+
+                    Vendor Registration
+
+                </button>
+
+            </div>
+
         </div>
 
-    </section>
+    </div>
+
+</section>
+
 
     {# ========== BROWSE BY CATEGORY ========== #}
 

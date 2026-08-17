@@ -87,9 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================================
     // 4. ADD BOTTOM-CARD CLASS TO CARDS ✅ RAKHNA HAI
     // ============================================================
-    document.querySelectorAll('.grid.grid-cols-1.sm\\:grid-cols-2.lg\\:grid-cols-4 > div').forEach(card => {
+    /*document.querySelectorAll('.grid.grid-cols-1.sm\\:grid-cols-2.lg\\:grid-cols-4 > div').forEach(card => {
         card.classList.add('bottom-card');
-    });
+    });*/
 
     // ============================================================
     // 5. RESET HIGHLIGHTS WHEN CLICKING OUTSIDE ✅ RAKHNA HAI
