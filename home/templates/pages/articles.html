@@ -8,7 +8,7 @@
 
     {# ========== BREADCRUMB (dynamic — filled in by articles.js) ========== #}
     <section class="bg-white py-2" aria-label="Breadcrumb">
-        <div class="max-w-7xl mx-auto px-5 md:px-8 py-3 overflow-x-auto whitespace-nowrap">
+        <div class="max-w-[1400px] mx-auto px-6 py-3 overflow-x-auto whitespace-nowrap">
             <nav id="breadcrumb" class="flex items-center gap-2 text-b3 text-slate-gray" aria-label="Breadcrumb">
                 <!-- Populated dynamically by articles.js -->
             </nav>
@@ -26,7 +26,7 @@
                 aria-hidden="true" width="1920" height="1080" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-[#0B2A1E]/90 via-[#0B2A1E]/60 to-[#0B2A1E]/20"></div>
 
-            <div class="relative h-full max-w-7xl mx-auto px-5 md:px-8 flex flex-col justify-end pb-8">
+            <div class="relative h-full max-w-[1400px] mx-auto px-6 flex flex-col justify-end pb-8">
                 <span id="article-hero-category"
                     class="w-fit bg-white/90 border border-article-medium-green text-primary-green font-semibold text-label px-3 py-1 rounded-full tracking-wider mb-3">
                     <!-- Category -->
@@ -42,7 +42,7 @@
     </section>
 
     {# ========== MAIN CONTENT GRID ========== #}
-    <div class="max-w-7xl mx-auto px-5 md:px-8 py-8">
+    <div class="max-w-[1400px] mx-auto px-6 py-8">
         <div id="article-main" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
             {# ========== LEFT COLUMN: ARTICLE CONTENT (dynamic) ========== #}
@@ -51,8 +51,7 @@
                 {# ---- Per-article hero image, sits right below the shared banner ---- #}
                 <div class="rounded-2xl overflow-hidden border border-slate-mist shadow-article mb-8 bg-white">
                     <img id="article-hero-image" src="" alt="hero image"
-                        class="w-full h-[220px] md:h-[320px] object-cover"
-                        onerror="this.closest('div').classList.add('article-hero-image-fallback'); this.remove();">
+                        class="w-full h-[220px] md:h-[320px] object-cover">
                 </div>
 
                 {# ---- Intro (short description) + author widget ---- #}
@@ -141,11 +140,11 @@
                     </div>
                     <div class="w-full flex flex-col gap-2">
                         <a href="https://helpdesk.field-ai.aibuzz.net/submit-ticket"
-                            class="w-full py-3.5 bg-primary-green hover:bg-primary-hover text-white text-center font-bold text-b3 rounded-full shadow-sm hover:shadow transition-all">
+                            class="w-full py-3.5 bg-primary-yellow text-charcoal-black  text-center font-bold text-b3 rounded-full shadow-sm hover:shadow transition-all">
                             Submit a Ticket &rarr;
                         </a>
                         <a href="{% url 'contact' %}"
-                            class="w-full py-3.5 border border-primary-green hover:bg-slate-50 text-primary-green text-center font-bold text-b3 rounded-full transition-all">
+                            class="w-full py-3.5 border border-primary-yellow  text-primary-yellow text-center font-bold text-b3 rounded-full transition-all">
                             Talk to Expert
                         </a>
                     </div>
@@ -176,8 +175,8 @@
         <div
             class="w-full bg-gradient-to-r bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
 
-            <!-- Centered content container with max-width and extra padding -->
-            <div class="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+            <!-- Centered content container - matches Help Center page and navbar width -->
+            <div class="max-w-[1400px] mx-auto px-6">
 
                 <!-- Changed from grid to flex-row to keep items on same line -->
                 <div class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
@@ -279,12 +278,12 @@ openArticlePreview() in articles.js.
             <span class="material-symbols-outlined">close</span>
         </button>
 
-        <!-- Icon + image badge, same fallback pattern as the Related Articles cards -->
+        <!-- Icon badge only (kept consistent with the Help Center cards and the
+             Related Articles / Popular sidebar cards, which show an icon only,
+             no image). -->
         <div
             class="relative w-14 h-14 rounded-full overflow-hidden bg-article-light-green flex items-center justify-center mb-4">
             <span id="article-preview-icon" class="material-symbols-outlined text-primary-green text-[26px]"></span>
-            <img id="article-preview-image" src="" alt="article preview image "
-                class="absolute inset-0 w-full h-full object-cover" onerror="this.remove();">
         </div>
 
         <span id="article-preview-category"

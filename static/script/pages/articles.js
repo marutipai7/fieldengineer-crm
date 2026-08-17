@@ -129,7 +129,7 @@ const ARTICLES = [
         icon: "schedule", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Track Your Service Request in Real Time",
         category: "For Customers",
-        heroImage: "/static/img/articles/track-service-request.webp",
+        heroImage: "img/articles/track-service-request.webp",
         shortDescription:
             "Learn how to check your job status, track your engineer's location, and stay updated on the progress of your service request.",
         readingTime: "3 min read",
@@ -182,7 +182,7 @@ const ARTICLES = [
         icon: "receipt_long", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Understanding Invoices & Payments",
         category: "Billing & Payments",
-        heroImage: "/static/img/articles/invoice-payments.webp",
+        heroImage: "img/articles/invoice-payments.webp",
         shortDescription:
             "Learn how invoices are created, when payments are made, and how tax is applied to your FieldEngineer jobs.",
         readingTime: "4 min read",
@@ -238,7 +238,7 @@ const ARTICLES = [
         icon: "store", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Vendor Registration Process",
         category: "For Vendors",
-        heroImage: "/static/img/articles/vendor-registration-process.webp",
+        heroImage: "img/articles/vendor-registration-process.webp",
         shortDescription:
             "Learn how to register, get verified, and start offering your services on the platform.",
         readingTime: "5 min read",
@@ -286,7 +286,7 @@ const ARTICLES = [
         icon: "smartphone", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "How Work Updates & Reports Are Created",
         category: "For Engineers",
-        heroImage: "/static/img/articles/updates-reports.webp",
+        heroImage: "img/articles/updates-reports.webp",
         shortDescription: "Learn how work updates are recorded and service reports are prepared.",
         readingTime: "6 min read",
         lastUpdated: "May 5, 2025",
@@ -336,7 +336,7 @@ const ARTICLES = [
         icon: "person_add", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Engineer App: Complete Guide",
         category: "For Engineers",
-        heroImage: "/static/img/articles/engineer-app.webp",
+        heroImage: "img/articles/engineer-app.webp",
         shortDescription: "Everything you need to know about using the Field Engineer app.",
         readingTime: "4 min read",
         lastUpdated: "May 2, 2025",
@@ -382,7 +382,7 @@ const ARTICLES = [
         icon: "shield", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "Account Security",
         category: "Account & Security",
-        heroImage: "/static/img/articles/account-security.webp",
+        heroImage: "img/articles/account-security.webp",
         shortDescription: "Learn how to protect your account and keep it secure.",
         readingTime: "3 min read",
         lastUpdated: "Apr 30, 2025",
@@ -795,7 +795,7 @@ const ARTICLES = [
         icon: "report_problem", // Material Symbols icon — shown behind heroImage as a fallback badge
         title: "How to Raise a Support Ticket",
         category: "Technical Support",
-        heroImage: "/static/img/articles/browse-category-technical-support.webp",
+        heroImage: "img/articles/browse-category-technical-support.webp",
         shortDescription:
             "Step-by-step guide to reporting an issue or getting help from the FieldEngineer support team.",
         readingTime: "3 min read",
@@ -860,30 +860,36 @@ const buildArticleUrl = (id) => {
 };
 
 /**
- * Resolves an article's `heroImage` (a path relative to STATIC_URL, e.g.
- * 
- * Uses window.STATIC_URL, which articles.html sets from Django's
- * {% get_static_prefix %} — the only reliable way for a plain static JS
- * file to know the real static prefix (handles CDNs, hashed filenames,
- * anything other than the plain "/static/" default). Falls back to
- * "/static/" if that script tag is missing, so nothing breaks silently.
+ * Resolves an article's `heroImage` (a path relative to the site's static
+ * root, e.g. "img/articles/foo.webp") into a real, loadable URL.
+ *
+ * IMPORTANT: this always builds the URL from window.STATIC_URL rather than
+ * trusting a hardcoded "/static/" prefix on the article data. Previously,
+ * any heroImage value that already started with "/static/" was returned
+ * as-is, which only happened to work locally where Django's static prefix
+ * really is "/static/". On the live site (CDN-backed static files, a
+ * versioned/hashed static prefix, etc.) that hardcoded prefix can be wrong,
+ * which is why hero images would sometimes fail to load in production even
+ * though they loaded fine locally. Routing every path through the real
+ * window.STATIC_URL (set from Django's {% static %} in articles.html)
+ * fixes that mismatch in both environments.
  */
 const resolveStaticUrl = (relativePath) => {
-    // If the path already starts with /static/, return as is
-    if (relativePath.startsWith('/static/')) {
-        return relativePath;
-    }
+    if (!relativePath) return "";
 
-    // Get the base static URL
+    // Get the real static base URL as reported by Django for this environment.
     let base = window.STATIC_URL || "/static/";
-
-    // Ensure base ends with /
     if (!base.endsWith("/")) {
         base = base + "/";
     }
 
-    // Remove leading slash from relativePath if it has one
-    const path = relativePath.startsWith("/") ? relativePath.substring(1) : relativePath;
+    // Normalize the incoming path: strip any leading slash, and strip a
+    // redundant leading "static/" segment so we never end up with
+    // "/static/static/..." regardless of how the path was authored.
+    let path = relativePath.startsWith("/") ? relativePath.substring(1) : relativePath;
+    if (path.startsWith("static/")) {
+        path = path.substring("static/".length);
+    }
 
     return `${base}${path}`;
 };
@@ -1002,8 +1008,16 @@ const renderBreadcrumb = (article) => {
   `;
 };
 
-/** Fills in the shared hero banner's overlay text + the per-article hero image. */
-/** Fills in the shared hero banner's overlay text + the per-article hero image. */
+/**
+ * Fills in the shared hero banner's overlay text + the per-article hero
+ * image.
+ *
+ * The hero image element always starts empty (no src) in articles.html, so
+ * there's no stale/cached "complete" state to worry about — we simply set
+ * up the fallback handler, then assign the resolved src. If that URL 404s
+ * or otherwise fails to load, onerror swaps in the article's Material
+ * Symbols icon instead of leaving a broken image.
+ */
 const renderHero = (article) => {
     document.title = `${article.title} | FE Help Center`;
 
@@ -1025,48 +1039,37 @@ const renderHero = (article) => {
 
     const heroImage = document.getElementById("article-hero-image");
     if (heroImage) {
-        const imgPath = resolveStaticUrl(article.heroImage);
-        console.log("Loading image from:", imgPath);
+        const parent = heroImage.closest("div");
 
-        // Clear any previous fallback content
-        const parent = heroImage.closest('div');
-        if (parent) {
-            // Remove any existing fallback icon
-            const existingFallback = parent.querySelector('.hero-fallback-icon');
-            if (existingFallback) {
-                existingFallback.remove();
-            }
-            // Remove fallback classes
-            parent.classList.remove('bg-article-light-green', 'flex', 'items-center', 'justify-center');
-        }
-
-        // Reset image display
-        heroImage.style.display = 'block';
-        heroImage.src = imgPath;
-        heroImage.alt = article.title;
-
-        // Store the article icon for fallback use
-        heroImage.dataset.fallbackIcon = article.icon || 'description';
-
-        // Remove old onerror handler and set a new one
-        heroImage.onerror = function () {
-            console.error("Failed to load image:", this.src);
-            this.style.display = 'none';
-
-            const parentEl = this.closest('div');
-            if (parentEl && !parentEl.querySelector('.hero-fallback-icon')) {
-                parentEl.classList.add('bg-article-light-green', 'flex', 'items-center', 'justify-center');
-                const fallback = document.createElement('span');
-                fallback.className = 'material-symbols-outlined text-primary-green text-[48px] hero-fallback-icon';
-                fallback.textContent = this.dataset.fallbackIcon || 'description';
-                parentEl.appendChild(fallback);
+        const showFallbackIcon = () => {
+            if (parent && !parent.querySelector(".hero-fallback-icon")) {
+                parent.classList.add("bg-article-light-green", "flex", "items-center", "justify-center");
+                const fallback = document.createElement("span");
+                fallback.className = "material-symbols-outlined text-primary-green text-[48px] hero-fallback-icon";
+                fallback.textContent = article.icon || "description";
+                parent.appendChild(fallback);
             }
         };
 
-        // Force a reload if the image is already cached but failed
-        // This handles the case where the image was cached as broken
-        if (heroImage.complete && heroImage.naturalHeight === 0) {
-            heroImage.onerror.call(heroImage);
+        // Reset any state left over from a previously rendered article
+        // (relevant if this page is ever re-rendered without a full
+        // reload) before attempting the new image.
+        parent?.classList.remove("bg-article-light-green", "flex", "items-center", "justify-center");
+        parent?.querySelector(".hero-fallback-icon")?.remove();
+        heroImage.style.display = "block";
+        heroImage.alt = article.title;
+
+        if (!article.heroImage) {
+            // No hero image configured for this article — go straight to
+            // the icon fallback rather than requesting an empty/invalid URL.
+            heroImage.style.display = "none";
+            showFallbackIcon();
+        } else {
+            heroImage.onerror = () => {
+                heroImage.style.display = "none";
+                showFallbackIcon();
+            };
+            heroImage.src = resolveStaticUrl(article.heroImage);
         }
     }
 
@@ -1149,21 +1152,19 @@ const renderTags = (article) => {
         .join("");
 };
 
+/**
+ * Related-article card markup. Deliberately renders the Material Symbols
+ * icon ONLY — no thumbnail image. This matches the Help Center's category
+ * cards (which are icon-only) and avoids the broken/mismatched image
+ * previously shown here when an article's heroImage path didn't resolve
+ * correctly in this context. Titles, links, and click behavior are
+ * unchanged.
+ */
 const relatedArticleCardHtml = (article) => `
   <article class="article-card bg-white border border-slate-mist rounded-2xl p-5 md:p-6 shadow-article hover:shadow-md transition-all duration-200 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
     <div class="flex items-start md:items-start gap-4">
-      <!--
-        Icon + image badge: the material icon renders first and always
-        stays in the DOM. The image sits on top of it via absolute
-        positioning. If the image loads, it visually covers the icon.
-        If it 404s, its onerror handler removes just the <img>, and the
-        icon underneath is revealed automatically — no blank circle.
-      -->
       <div class="relative w-12 h-12 rounded-full overflow-hidden shrink-0 bg-article-light-green flex items-center justify-center">
         <span class="material-symbols-outlined text-primary-green">${escapeHtml(article.icon || "description")}</span>
-        <img src="${escapeHtml(resolveStaticUrl(article.heroImage))}" alt="hero section image"
-             class="absolute inset-0 w-full h-full object-cover"
-             onerror="this.remove();">
       </div>
       <div>
         <h3 class="font-bold text-article-black text-s2 mb-1 hover:text-emerald-teal transition-colors">
@@ -1274,7 +1275,7 @@ const renderNotFound = () => {
    (one per id in relatedArticleIds) with a "Read Article" link.
    Rather than navigating away immediately, clicking that link (or
    a "Popular in [category]" sidebar link) opens a quick preview
-   popup first — image, category, title, description, reading time
+   popup first — icon, category, title, description, reading time
    — with a button to continue to the full article.
 
    Requires the modal markup block with id="article-preview-modal"
@@ -1317,7 +1318,6 @@ const getPreviewModalEls = () => ({
     backdrop: document.getElementById("article-preview-backdrop"),
     closeBtn: document.getElementById("article-preview-close"),
     icon: document.getElementById("article-preview-icon"),
-    image: document.getElementById("article-preview-image"),
     category: document.getElementById("article-preview-category"),
     title: document.getElementById("article-preview-title"),
     description: document.getElementById("article-preview-description"),
@@ -1329,15 +1329,9 @@ const openArticlePreview = (article) => {
     const els = getPreviewModalEls();
     if (!els.modal) return;
 
-    // Icon renders first (always present); the image, if it loads, sits
-    // on top of it via absolute positioning (see the CSS on the modal
-    // markup in articles.html). If the image 404s, its onerror handler
-    // removes just the <img>, leaving the icon visible underneath.
+    // Icon-only badge, consistent with the Related Articles / Popular
+    // sidebar cards and the Help Center cards.
     if (els.icon) els.icon.textContent = article.icon || "description";
-    if (els.image) {
-        els.image.src = resolveStaticUrl(article.heroImage);
-        els.image.alt = article.title;
-    }
     if (els.category) els.category.textContent = article.category;
     if (els.title) els.title.textContent = article.title;
     if (els.description) els.description.textContent = article.shortDescription;
@@ -1548,13 +1542,6 @@ const setupHelpCenterSearch = () => {
 const renderArticlePage = () => {
     const id = getArticleIdFromUrl();
     const article = id ? getArticleById(id) : undefined;
-
-    console.log("Article ID:", id);
-    console.log("Article found:", article);
-    if (article) {
-        console.log("Hero image path:", article.heroImage);
-        console.log("Resolved URL:", resolveStaticUrl(article.heroImage));
-    }
 
     setupArticlePreviewModal();
 

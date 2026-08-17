@@ -9,7 +9,7 @@
 
     {# ========== BREADCRUMB ========== #}
     <section class="bg-white py-2" aria-label="Breadcrumb">
-        <div class="max-w-7xl mx-auto px-5 md:px-8 py-3">
+        <div class="max-w-[1400px] mx-auto px-6 py-3">
             <nav class="flex items-center gap-2 text-b3 text-slate-gray" aria-label="Breadcrumb">
                 <a href="{% url 'home' %}" class="hover:text-bright-blue transition-colors">Home</a>
                 <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
@@ -30,9 +30,11 @@
             title="Field Engineer - Help Center" width="1920" height="1080" loading="lazy" decoding="async"
             class="help-center-hero z-0">
 
-        <!-- Dark Overlay with gradient (same as how-it-works) -->
+        <!-- Dark Overlay with gradient -->
         <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/40"></div>
-        <div class="max-w-[1500px] mx-auto px-12 sm:px-16 lg:px-20 xl:px-24 relative z-10 w-full">
+
+        <!-- Container with navbar-like padding -->
+        <div class="w-full max-w-[1400px] mx-auto px-6 sm:px-6 lg:px-6 xl:px-6 relative z-10">
             <div class="py-8 sm:py-10 lg:py-12 max-w-2xl">
 
                 <p class="text-label font-bold uppercase tracking-wide text-light-green mb-4">HELP CENTER</p>
@@ -102,7 +104,7 @@
         {# ========== POPULAR ARTICLES ========== #}
 
         <section class="py-6 bg-white mt-6" aria-labelledby="popular-heading">
-            <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div class="w-full max-w-[1400px] mx-auto px-6">
                 <div class="grid lg:grid-cols-[2fr_0.9fr] gap-3">
 
                     {# LEFT SIDE #}
@@ -225,7 +227,7 @@
 
                         </div>
 
-                        {# Bottom Banner — unchanged #}
+                        {# Bottom Banner #}
                         <div
                             class="mt-5 bg-greenish-white border border-sage-green1 rounded-2xl p-5 flex flex-col md:flex-row items-center justify-between gap-4">
                             <div class="flex items-center gap-4">
@@ -243,7 +245,7 @@
                             </div>
                             <a href="https://helpdesk.field-ai.aibuzz.net/submit-ticket">
                                 <button
-                                    class="inline-flex items-center gap-2 bg-amber-orange1 text-white font-semibold px-6 py-3 rounded-xl shadow-sm hover:opacity-90 transition-all duration-300 cursor-pointer">
+                                    class="inline-flex items-center gap-2 bg-primary-yellow text-charcoal-black font-semibold px-6 py-3 rounded-xl shadow-sm  cursor-pointer">
                                     Contact Support
                                     <span class="material-symbols-outlined text-[20px]"
                                         aria-hidden="true">arrow_forward</span>
@@ -252,12 +254,8 @@
                         </div>
                     </div>
 
-                    {# RIGHT SIDE — Top Quick Actions & Still Need Help remain unchanged #}
-                    {# ... keep existing markup from your current template here ... #}
-
                     {# RIGHT SIDE #}
                     <div class="space-y-5">
-
 
                         {# Still Need Help #}
                         <div class="bg-help-center-text rounded-2xl border border-cool-gray-blue p-6">
@@ -301,92 +299,13 @@
                                 </div>
                             </div>
                             <a href="https://helpdesk.field-ai.aibuzz.net/submit-ticket"
-                                class="mt-6 w-full inline-flex items-center justify-center border border-green-light text-green-light py-3 rounded-xl font-semibold hover:bg-amber-orange1 hover:text-white transition-all duration-300">
+                                class="mt-6 w-full inline-flex items-center justify-center  py-3 rounded-xl font-semibold bg-primary-yellow  text-charcoal-black">
                                 Open a Ticket
                                 <span class="material-symbols-outlined ml-1 text-[18px]" aria-hidden="true">
                                     arrow_forward
                                 </span>
                             </a>
                         </div>
-
-                        {# Top Quick Actions #}
-                        <!-- <div class="bg-help-center-text rounded-2xl border border-cool-gray-blue p-6">
-                            <h3 class="text-s2 font-semibold  mb-5">Top Question</h3>
-                            <div class="space-y-5">
-                                <a href="#" class="flex items-center justify-between group">
-                                    <div class="flex items-start gap-3">
-                                        <span
-                                            class="material-symbols-outlined text-green-light rounded-md p-2 bg-green-100"
-                                            aria-hidden="true">schedule</span>
-                                        <div>
-                                            <p class="text-b3 font-bold text-light-black">Track Your Booking</p>
-                                            <p class="text-c1 text-dusty-gray">Get real-time status of your job</p>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="material-symbols-outlined text-green-light group-hover:translate-x-1 transition"
-                                        aria-hidden="true">chevron_right</span>
-                                </a>
-                                <a href="#" class="flex items-center justify-between group">
-                                    <div class="flex items-start gap-3">
-                                        <span
-                                            class="material-symbols-outlined text-green-light rounded-md p-2 bg-green-100"
-                                            aria-hidden="true">report_problem</span>
-                                        <div>
-                                            <p class="text-b3 font-bold text-light-black">Raise an Issue</p>
-                                            <p class="text-c1 text-dusty-gray">Report any issue or support request</p>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="material-symbols-outlined text-green-light group-hover:translate-x-1 transition"
-                                        aria-hidden="true">chevron_right</span>
-                                </a>
-                                <a href="#" class="flex items-center justify-between group">
-                                    <div class="flex items-start gap-3">
-                                        <span
-                                            class="material-symbols-outlined text-green-light rounded-md p-2 bg-green-100"
-                                            aria-hidden="true">download</span>
-                                        <div>
-                                            <p class="text-b3 font-bold text-light-black">Download Reports</p>
-                                            <p class="text-c1 text-dusty-gray">Access your job reports and invoices</p>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="material-symbols-outlined text-green-light group-hover:translate-x-1 transition"
-                                        aria-hidden="true">chevron_right</span>
-                                </a>
-                                <a href="#" class="flex items-center justify-between group">
-                                    <div class="flex items-start gap-3">
-                                        <span
-                                            class="material-symbols-outlined text-green-light rounded-md p-2 bg-green-100"
-                                            aria-hidden="true">receipt_long</span>
-                                        <div>
-                                            <p class="text-b3 font-bold text-light-black">View Invoices</p>
-                                            <p class="text-c1 text-dusty-gray">Download and manage invoices</p>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="material-symbols-outlined text-green-light group-hover:translate-x-1 transition"
-                                        aria-hidden="true">chevron_right</span>
-                                </a>
-                                <a href="#" class="flex items-center justify-between group">
-                                    <div class="flex items-start gap-3">
-                                        <span
-                                            class="material-symbols-outlined text-green-light rounded-md p-2 bg-green-100"
-                                            aria-hidden="true">phone_android</span>
-                                        <div>
-                                            <p class="text-b3 font-bold text-light-black">Engineer App Guide</p>
-                                            <p class="text-c1 text-dusty-gray">Learn how to use the app</p>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="material-symbols-outlined text-green-light group-hover:translate-x-1 transition"
-                                        aria-hidden="true">chevron_right</span>
-                                </a>
-                            </div>
-                        </div> -->
-
-
 
                     </div>
 
@@ -397,7 +316,7 @@
 
         {# ========== BROWSE BY CATEGORY ========== #}
         <section class="py-12" aria-labelledby="categories-heading">
-            <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div class="w-full max-w-[1400px] mx-auto px-6">
 
                 <div class="text-center mb-10">
                     <h2 id="categories-heading" class="text-h3 font-semibold text-black">Browse by Category</h2>
@@ -529,7 +448,7 @@
 
         {# ========== WHY CUSTOMERS LOVE OUR SUPPORT ========== #}
         <section class="py-5" aria-labelledby="love-heading">
-            <div class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div class="max-w-[1400px] mx-auto px-6">
                 <div class="bg-help-center-text border border-cool-gray-blue rounded-3xl p-6">
                     <h2 id="love-heading" class="text-center text-s1 font-bold text-black mb-6">Why Customers Love Our
                         Support</h2>
@@ -595,7 +514,7 @@
                 class="w-full bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
 
                 <!-- Centered content container matching step sections -->
-                <div class="container mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
+                <div class="max-w-[1400px] mx-auto px-6">
 
                     <!-- Flex row with items on same line -->
                     <div class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
