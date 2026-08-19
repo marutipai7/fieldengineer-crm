@@ -39,40 +39,118 @@
                         <span class="material-symbols-outlined">menu</span>
                     </button>
 
-                    <div class="flex items-center gap-2.5 min-w-0">
+                    <a href="{% url 'home' %}" class="flex items-center gap-3 flex-shrink-0">
                         <div
-                            class="w-9 h-9 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-sm shrink-0">
-                            FE</div>
-                        <div class="hidden sm:block leading-tight min-w-0">
-                            <p class="font-bold text-lg text-ink truncate">Field Engineer</p>
-                            
+                            class="flex h-12 w-12 items-center justify-center rounded-xl logo-gradient border border-emerald-teal">
+                            <span class="text-lg font-extrabold text-emerald-teal">FE</span>
                         </div>
-                    </div>
+                        <div class="leading-tight">
+                            <p class="text-xl font-bold text-slate-900">
+                                Field
+                                <span class="text-emerald-teal">Engineer</span>
+                            </p>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Center: nav (desktop only) -->
-                <nav class="flex items-center justify-start lg:justify-center gap-10 sm:gap-14 text-sm text-ink font-semibold
-                overflow-x-auto whitespace-nowrap flex-1 min-w-0 [&::-webkit-scrollbar]:hidden">
-                  <a href="{% url 'how_it_works' %}" class="flex items-center gap-1 shrink-0">How it Works
-  
-</a>
+                 <ul class="hidden xl:flex items-center gap-10 text-[15px] font-medium text-slate-700">
 
-  <a href="{% url 'customer' %}" class="flex items-center gap-1 shrink-0"> For Customers
-    
-</a>
-                  <a href="{% url 'engineer' %}" class="flex items-center gap-1 shrink-0"> For Engineers
-    
-</a>
-                  <a href="{% url 'vendor' %}" class="flex items-center gap-1 shrink-0"> For Vendors
-    
-</a>
-                   
-                    <a href="#" class="flex items-center gap-1 shrink-0">Company
-                        <span
-                            class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
-                    </a>
-                </nav>
+                        <!-- How It Works -->
+                        <li>
+                            <a href="{% url 'how_it_works' %}"
+                                class="transition {% if request.resolver_match.url_name == 'how_it_works' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                How it Works
+                            </a>
+                        </li>
 
+                        <!-- For Customer -->
+                        <li>
+                            <a href="{% url 'customer' %}"
+                                class="transition {% if request.resolver_match.url_name == 'customer' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Customer
+                            </a>
+                        </li>
+
+                        <!-- For Engineers -->
+                        <li>
+                            <a href="{% url 'engineer' %}"
+                                class="transition {% if request.resolver_match.url_name == 'engineer' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Engineers
+                            </a>
+                        </li>
+
+                        <!-- For Vendors -->
+                        <li>
+                            <a href="{% url 'vendor' %}"
+                                class="transition {% if request.resolver_match.url_name == 'vendor' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Vendors
+                            </a>
+                        </li>
+
+                        <!-- COMPANY DROPDOWN -->
+                        <li class="relative group">
+
+                            <button type="button"
+                                class="flex items-center gap-1 transition {% if request.resolver_match.url_name == 'about_fe' or request.resolver_match.url_name == 'careers' or request.resolver_match.url_name == 'blogs' or request.resolver_match.url_name == 'news' or request.resolver_match.url_name == 'contact' or request.resolver_match.url_name == 'help_center' or request.resolver_match.url_name == 'disclaimer' or request.resolver_match.url_name == 'privacy-policy' or request.resolver_match.url_name == 'term_condition' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                Company
+                                <span class="material-symbols-outlined text-[18px]">
+                                    keyboard_arrow_down
+                                </span>
+                            </button>
+
+                            <div
+                                class="absolute left-0 top-full mt-4 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 w-64 rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+
+                                <a href="{% url 'about_fe' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'about_fe' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    About Us
+                                </a>
+
+                                <a href="{% url 'careers' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'careers' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Careers
+                                </a>
+
+                                <a href="{% url 'blogs' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'blogs' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Blogs
+                                </a>
+
+                                <a href="{% url 'news' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'news' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    News
+                                </a>
+
+                                <a href="{% url 'contact' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'contact' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Contact Us
+                                </a>
+
+                                <a href="{% url 'help_center' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'help_center' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Help Center
+                                </a>
+
+                                <a href="{% url 'disclaimer' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'disclaimer' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Disclaimer
+                                </a>
+
+                                <a href="{% url 'privacy-policy' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'privacy-policy' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Privacy Policy
+                                </a>
+
+                                <a href="{% url 'term_condition' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'term_condition' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Terms & Conditions
+                                </a>
+
+                            </div>
+                        </li>
+
+                    </ul>
 
                 <!-- Right: notification + profile -->
                 <div class="flex items-center gap-3 sm:gap-4 shrink-0">
@@ -292,8 +370,7 @@
 
                     <!-- ⬇ avatar photo instead of initials -->
                     <div class="w-9 h-9 rounded-full overflow-hidden shrink-0 ring-1 ring-slate-200">
-                        <img src="{{ user.profile_photo_url|default:'https://i.pravatar.cc/80' }}"
-                             alt="Rishi Acharya" class="w-full h-full object-cover">
+                          <img src="{{ user.profile_photo_url|default:'https://i.pravatar.cc/80?img=12' }}" alt="Rishi Acharya" class="w-full h-full object-cover">
                     </div>
 
                     <!-- ⬇ name in accent color + Online status w/ green dot, company name removed -->
@@ -344,44 +421,48 @@
                 <!-- Nav -->
              <nav class="space-y-1 text-[13px] font-normal text-granite-gray py-4 px-3">
 
-    <a href="{% url 'dashboard' %}"
-        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0! hover:font-semibold hover:bg-cloud-blue">
+    <!-- <a href="{% url 'dashboard' %}"
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0! hover:font-semibold hover:bg-primary-yellow">
         <span class="material-symbols-outlined text-medium">dashboard</span>
         Dashboard
-    </a>
+    </a> -->
+    <a href="{% url 'dashboard' %}" class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
+    <span class="material-symbols-outlined text-medium">dashboard</span>
+    Dashboard
+</a>
 
     <a href="{% url 'profile' %}"
-        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0! hover:font-semibold hover:bg-cloud-blue">
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
         <span class="material-symbols-outlined text-medium">group</span>
         Profile
     </a>
 
     <a href="{% url 'bookings' %}"
-        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0! hover:font-semibold hover:bg-cloud-blue">
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
         <span class="material-symbols-outlined text-medium">calendar_today</span>
         Bookings
     </a>
 
     <a href="{% url 'saved_address' %}"
-        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0! hover:font-semibold hover:bg-cloud-blue">
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
         <span class="material-symbols-outlined text-medium">location_on</span>
         Saved Address
     </a>
 
     <a href="{% url 'payment_methods' %}"
-        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0! hover:font-semibold hover:bg-cloud-blue">
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
         <span class="material-symbols-outlined text-medium">credit_card</span>
         Payment Methods
     </a>
 
     <a href="{% url 'support_center' %}"
-        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0! hover:font-semibold hover:bg-cloud-blue">
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
         <span class="material-symbols-outlined text-medium">headphones</span>
         Support Center
     </a>
 
     <a href="{% url 'settings' %}"
-        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0! hover:font-semibold hover:bg-cloud-blue">
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
         <span class="material-symbols-outlined text-medium">settings</span>
         Settings
     </a>

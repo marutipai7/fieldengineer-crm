@@ -198,9 +198,9 @@
 
         <div id="addressContainer" class="space-y-6"></div>
 
-        <div class="mt-8 bg-slate-mist border border-blue-100 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-5">
+       <div class="mt-8 bg-yellow-50 border border-baby-blue rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-5">
             <div class="flex items-start gap-4">
-                <div class="h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                <div class="h-12 w-12 rounded-xl bg-dark-yellow flex items-center justify-center">
                     <span class="material-symbols-outlined text-primary-yellow">lightbulb</span>
                 </div>
                 <div>
@@ -253,7 +253,7 @@
     </button>
 </div>
 
-        <form id="addressForm" class="bg-light-medium border border-slate-200 rounded-3xl p-6">
+        <form id="addressForm" class="border border-baby-blue rounded-3xl p-6">
 
             <input type="hidden" id="addressId">
             <input type="hidden" id="addressLat">
@@ -354,9 +354,9 @@
 
         </form>
 
-        <div class="mt-8 bg-slate-mist border border-blue-100 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div class="mt-8 bg-primary-grayy border border-baby-blue rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-5">
             <div class="flex items-start gap-4">
-                <div class="h-12 w-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                <div class="h-12 w-12 rounded-xl bg-dark-yellow flex items-center justify-center">
                     <span class="material-symbols-outlined text-primary-yellow">lightbulb</span>
                 </div>
                 <div>
@@ -416,29 +416,31 @@ document.addEventListener('DOMContentLoaded', function () {
     // =============================================
     // DATA STORE
     // =============================================
-    let addresses = [
-        { id: 1, type: 'default', typeLabel: 'Head Office', isDefault: true,
-          addressLine1: '123, Bandra-Kurla Complex BKC', addressLine2: '', area: 'BKC',
-          city: 'Mumbai', state: 'Maharashtra', pincode: '400051', country: 'India' },
-        { id: 2, type: 'branch', typeLabel: 'Branch Office', isDefault: false,
-          addressLine1: '45, Vijay Nagar', addressLine2: '', area: 'Vijay Nagar',
-          city: 'Indore', state: 'Madhya Pradesh', pincode: '452001', country: 'India' },
-        { id: 3, type: 'warehouse', typeLabel: 'Warehouse', isDefault: false,
-          addressLine1: '78, MIDC Area, Andheri East', addressLine2: '', area: 'Andheri East',
-          city: 'Mumbai', state: 'Maharashtra', pincode: '400093', country: 'India' },
-        { id: 4, type: 'other', typeLabel: 'Branch Office Delhi', isDefault: false,
-          addressLine1: '12, Connaught Place', addressLine2: '', area: 'Connaught Place',
-          city: 'New Delhi', state: 'Delhi', pincode: '110001', country: 'India' },
-        { id: 5, type: 'office', typeLabel: 'Office Bangalore', isDefault: false,
-          addressLine1: '56, Electronic City Phase 1', addressLine2: '', area: 'Electronic City',
-          city: 'Bangalore', state: 'Karnataka', pincode: '560100', country: 'India' }
-    ];
+   let addresses = [
+    { id: 1, type: 'default', typeLabel: 'Head Office', isDefault: true, companyName: 'ACME Pvt. Ltd.',
+      phone: '+91 81022 62067',
+      addressLine1: '123, Bandra-Kurla Complex BKC', addressLine2: '', area: 'BKC',
+      city: 'Mumbai', state: 'Maharashtra', pincode: '400051', country: 'India' },
+    { id: 2, type: 'branch', typeLabel: 'Branch Office Indore', isDefault: false, companyName: 'ACME Pvt. Ltd.',
+      phone: '+91 81022 62067',
+      addressLine1: '123, Bandra-Kurla Complex BKC', addressLine2: '', area: 'BKC',
+      city: 'Mumbai', state: 'Maharashtra', pincode: '400051', country: 'India' },
+    { id: 3, type: 'warehouse', typeLabel: 'Branch Office Indore', isDefault: false, companyName: 'ACME Pvt. Ltd.',
+      phone: '+91 81022 62067',
+      addressLine1: '123, Bandra-Kurla Complex BKC', addressLine2: '', area: 'BKC',
+      city: 'Mumbai', state: 'Maharashtra', pincode: '400051', country: 'India' },
+    { id: 4, type: 'other', typeLabel: 'Branch Office Indore', isDefault: false, companyName: 'ACME Pvt. Ltd.',
+      phone: '+91 81022 62067',
+      addressLine1: '123, Bandra-Kurla Complex BKC', addressLine2: '', area: 'BKC',
+      city: 'Mumbai', state: 'Maharashtra', pincode: '400051', country: 'India' }
+];
+
     let nextId = 6;
     let editingId = null;
     let deletingId = null;
 
     const typeStyles = {
-        default:   { icon: 'apartment',       bg: 'bg-lighttt-medium',   border: 'border-primary-yellow', iconColor: 'text-primary-yellow' },
+        default:   { icon: 'apartment',       bg: 'bg-orange-50',   border: 'border-primary-yellow', iconColor: 'text-primary-yellow' },
         branch:    { icon: 'apartment',       bg: 'bg-green-50',  border: 'border-green-500',      iconColor: 'text-green-600' },
         warehouse: { icon: 'warehouse',       bg: 'bg-orange-50', border: 'border-orange-500',     iconColor: 'text-orange-500' },
         office:    { icon: 'business_center', bg: 'bg-teal-50',   border: 'border-teal-500',       iconColor: 'text-teal-500' },
@@ -707,7 +709,7 @@ const sortLabels = { default: 'Default First', recent: 'Recently Added', oldest:
     function cardHTML(addr) {
         const style = typeStyles[addr.type] || typeStyles.other;
         return `
-        <div class="address-card relative bg-${addr.isDefault ? 'slate-mist' : 'white'} rounded-3xl border border-slate-200 overflow-hidden hover:shadow-lg transition">
+        <div class="address-card relative bg-${addr.isDefault ? 'Ceramic' : 'white'} rounded-3xl border border-slate-200 overflow-hidden hover:shadow-lg transition">
             <div class="flex flex-col md:flex-row">
                 <div class="w-full md:w-32 ${style.bg} border-l-4 ${style.border} flex items-center justify-center py-8">
                     <span class="material-symbols-outlined ${style.iconColor} text-5xl">${style.icon}</span>
@@ -715,17 +717,19 @@ const sortLabels = { default: 'Default First', recent: 'Recently Added', oldest:
                 <div class="flex-1 p-6">
                     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
                         <div>
-                            <div class="flex items-center gap-3 mb-3">
-                                <h3 class="text-xl font-semibold text-slate-800">${addr.typeLabel}</h3>
-                                ${addr.isDefault ? '<span class="bg-green-100 text-green-700 text-xs font-medium px-3 py-1 rounded-full">Default</span>' : ''}
-                            </div>
-                            <p class="text-slate-500">${addr.addressLine1}${addr.addressLine2 ? ', ' + addr.addressLine2 : ''}${addr.area ? ', ' + addr.area : ''},<br>${addr.city}, ${addr.state} ${addr.pincode}</p>
-                        </div>
+                           <div class="flex items-center gap-3 mb-3">
+    <h3 class="text-xl font-semibold text-slate-800">${addr.typeLabel}</h3>
+    ${addr.isDefault ? '<span class="bg-green text-white text-xs font-medium px-3 py-1 rounded-full flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">task_alt</span>Default</span>' : ''}
+</div>
+<p class="text-slate-700 font-medium mb-1">${addr.companyName || ''}</p>
+<p class="text-slate-500">${addr.addressLine1}${addr.addressLine2 ? ', ' + addr.addressLine2 : ''}${addr.area ? ', ' + addr.area : ''}, ${addr.city} ${addr.state} ${addr.pincode}</p>
+${addr.phone ? `<p class="text-slate-500 flex items-center gap-1 mt-1"><span class="material-symbols-outlined text-[16px]">call</span>${addr.phone}</p>` : ''}
+</div>
                         <div class="flex md:flex-col gap-3">
                             <button data-action="edit" data-id="${addr.id}" class="h-11 w-11 rounded-xl border border-slate-200 hover:bg-slate-100">
                                 <span class="material-symbols-outlined">edit</span>
                             </button>
-                            <button data-action="delete" data-id="${addr.id}" class="h-11 w-11 rounded-xl border border-slate-200 hover:bg-red-50 text-red-500">
+                            <button data-action="delete" data-id="${addr.id}" class="h-11 w-11 rounded-xl border border-slate-200 hover:bg-red-50 text-ink">
                                 <span class="material-symbols-outlined">delete</span>
                             </button>
                         </div>

@@ -85,6 +85,12 @@
   --color-chinese-silver: #CBCBCB;
   --color-cosmic-orange: #FFF8E6;
   --color-cosmic-latte: #FEF9E7;
+  --color-dark-orange:#EA7C1E;
+  --color-spring-green:#E2F2E7;
+  --color-pastel-champagne:#FAF1DC;
+  --color-halo-pink:#FFF0F2;
+   --color-primary-grayy:#FFC9490D;
+  --color-dark-yellow:#FFC94933;
 
   /* Neutrals */
 
@@ -8150,3 +8156,169 @@ textarea:focus {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
+
+/* booking page */
+/* =========================================
+       SUMMARY CARDS
+    ========================================= */
+    .metric-card {
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        cursor: pointer;
+    }
+    .metric-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+.tabs-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    color: #646464;
+    white-space: nowrap;
+    border: 1px solid #E4E9F0;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+/* Count number style (Default) */
+.tab-btn .count {
+    font-size: 12px;
+    color: #969696;
+    font-weight: 700;
+    background: transparent;
+    padding: 0;
+    transition: color 0.15s ease;
+}
+
+/* =========================================
+   HOVER STATE — Text & Count turn White
+========================================= */
+.tab-btn:hover {
+    background: #FFC949;      
+    border-color: #FFC949;
+    color: #FFFFFF !important; 
+}
+
+.tab-btn:hover .count {
+    color: #FFFFFF !important; 
+}
+
+/* =========================================
+   ACTIVE STATE — Text & Count turn White
+========================================= */
+.tab-btn.active {
+    background: #FFC949;
+    border-color: #FFC949;
+    color: #FFFFFF !important; /* Force text to white when active */
+}
+
+.tab-btn.active .count {
+    color: #FFFFFF !important; /* Force count badge to white when active */
+}
+    /* =========================================
+       STATUS BADGES & PILLS
+    ========================================= */
+    .status-pill {
+        background-color: #DCFCE7;
+        color: #16A34A;
+        font-size: 11px;
+        font-weight: 500;
+        padding: 2px 8px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        white-space: nowrap;
+    }
+
+    .badge-booking-id {
+        background-color: #F1F5F9;
+        color: #64748B;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 6px;
+    }
+
+    .badge-offers {
+        background-color: #EEF4FF;
+        color: #FFC949;
+    }
+
+    .badge-confirmed {
+        background-color: #FEF3C7;
+        color: #D97706;
+    }
+
+    .badge-inprogress {
+        background-color: #FEF3C7;
+        color: #D97706;
+    }
+
+    .badge-completed {
+        background-color: #DCFCE7;
+        color: #16A34A;
+    }
+
+    .badge-cancelled {
+        background-color: #FEE2E2;
+        color: #EF4444;
+    }
+
+    .badge-onsite {
+        background-color: #DCFCE7;
+        color: #16A34A;
+    }
+
+    .badge-team-leader {
+        background-color: #EEF4FF;
+        color: #FFC949;
+    }
+
+    .badge-best-match {
+        background-color: #DCFCE7;
+        color: #16A34A;
+    }
+
+    /* =========================================
+       BUTTONS
+    ========================================= */
+    .btn-outline-yellow {
+        border: 1.5px solid #FFC949;
+        color:#FFC949;
+        background: #ffffff;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        white-space: nowrap;
+        transition: background 0.15s ease;
+    }
+    .btn-outline-yellow:hover { background: #FFC949; }
+
+    .btn-fill-yellow {
+        border: none;
+        background: #FFC949;
+        color: white;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        white-space: nowrap;
+        transition: background 0.15s ease;
+    }
+    .btn-fill-yellow:hover { background: #f5b936; }
+
+    .booking-row { transition: box-shadow 0.15s ease; }
+    .booking-row:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.04); }

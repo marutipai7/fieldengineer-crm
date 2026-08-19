@@ -4,17 +4,154 @@
 
 {% block content %}
 
-<div class="flex flex-col items-center justify-center min-h-[50vh]">
-    <div class="text-center">
-        <span class="material-symbols-outlined text-6xl text-gray-300 mb-4">
-            calendar_today
-        </span>
-        <h4 class="text-xl font-medium text-gray-700 mb-2">No upcoming bookings</h4>
-        <p class="text-gray-400">Your bookings will appear here once you make a reservation.</p>
-       <a href="/dashboard/"> <button class="mt-4 text-blue-600 hover:text-blue-700 font-medium">
-            + Book a Service
-        </button> </a>
+<section>
+    <!-- =======================================================
+         HEADER
+    ======================================================== -->
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 mb-6">
+        <div>
+            <h1 class="text-3xl font-bold text-ink">Bookings</h1>
+            <p class="mt-1 text-sm font-regular text-granite-gray">
+                Manage all your service bookings and track progress in real-time.
+            </p>
+        </div>
+       
+<button class="h-11 px-6 rounded-xl bg-primary-yellow font-semibold text-white shrink-0">
+    <span class="material-symbols-outlined">
+add
+</span>
+            New Booking
+        </button>
+        
+    </div>
+
+    <!-- =======================================================
+         TABS ROW
+    ======================================================== -->
+   <div class="mb-6">
+    <div class="tabs-wrapper" id="tabsWrapper">
+        <button class="tab-btn active" data-tab="all" data-label="All Received">All <span class="count">24</span></button>
+        <button class="tab-btn" data-tab="offer" data-label="Offers Received">Offers <span class="count">6</span></button>
+        <button class="tab-btn" data-tab="confirmed" data-label="Confirmed Bookings">Confirmed <span class="count">5</span></button>
+        <button class="tab-btn" data-tab="inprogress" data-label="In Progress Bookings">In progress <span class="count">7</span></button>
+        <button class="tab-btn" data-tab="completed" data-label="Completed Bookings">Completed <span class="count">4</span></button>
+        <button class="tab-btn" data-tab="cancelled" data-label="Cancelled Bookings">Cancelled <span class="count">2</span></button>
     </div>
 </div>
+
+    
+    <!-- =======================================================
+         SUMMARY METRIC CARDS
+    ======================================================== -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
+        <!-- Card 1: Total Booking -->
+        <div data-card-tab="all" class="metric-card bg-cloud-blue p-3.5 rounded-2xl flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-primary-yellow bg-white">
+date_range
+</span>
+            </div>
+            <div>
+                <p class="text-base font-bold text-dark leading-tight">24</p>
+                <p class="text-xs text-granite-gray font-regular">Total Booking</p>
+            </div>
+        </div>
+
+        <!-- Card 2: Offers Received -->
+        <div data-card-tab="offer" class="metric-card bg-spring-green p-3.5 rounded-2xl flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-light-green text-xl">sell</span>
+            </div>
+            <div>
+                <p class="text-base font-bold text-dark leading-tight">6</p>
+                <p class="text-xs text-granite-gray font-regular">Offers Received</p>
+            </div>
+        </div>
+
+        <!-- Card 3: Confirmed -->
+        <div data-card-tab="confirmed" class="metric-card bg-lavender-mist p-3.5 rounded-2xl flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-electric-violet text-xl">fact_check</span>
+            </div>
+            <div>
+                <p class="text-base font-bold text-dark leading-tight">5</p>
+                <p class="text-xs text-granite-gray font-regular">Confirmed</p>
+            </div>
+        </div>
+
+        <!-- Card 4: In Progress -->
+        <div data-card-tab="inprogress" class="metric-card bg-pastel-champagne p-3.5 rounded-2xl flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-amber-500 text-xl">schedule</span>
+            </div>
+            <div>
+                <p class="text-base font-bold text-dark leading-tight">7</p>
+                <p class="text-xs text-granite-gray font-regular">In Progress</p>
+            </div>
+        </div>
+
+        <!-- Card 5: Completed -->
+        <div data-card-tab="completed" class="metric-card bg-spring-green p-3.5 rounded-2xl flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-emerald-500 text-xl">check_circle</span>
+            </div>
+            <div>
+                <p class="text-base font-bold text-dark leading-tight">4</p>
+                <p class="text-xs text-slate-500 font-medium">Completed</p>
+            </div>
+        </div>
+
+        <!-- Card 6: Cancelled -->
+        <div data-card-tab="cancelled" class="metric-card bg-halo-pink p-3.5 rounded-2xl flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-red-500 text-xl">cancel</span>
+            </div>
+            <div>
+                <p class="text-base font-bold text-dark leading-tight">2</p>
+                <p class="text-xs text-slate-500 font-medium">Cancelled</p>
+            </div>
+        </div>
+    </div>
+    <!-- =======================================================
+         SECTION BAR BEFORE CARDS LIST (TITLE + SORT)
+    ======================================================== -->
+    <div class="flex items-center justify-between mb-4 px-1">
+        <div class="flex items-center gap-2">
+            <h2 id="activeTabTitle" class="text-base font-semibold text-ink">All Received</h2>
+            <span id="activeTabCount" class="text-xs font-bold text-primary-yellow px-2 py-0.5 rounded-full">24</span>
+        </div>
+
+        <div class="relative shrink-0" id="sortWrapper">
+            <button id="sortBtn" class="h-9 px-3 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 flex items-center font-regular gap-2 text-sm text-granite-gray">
+                Sort by
+                <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+            </button>
+            <div id="sortDropdown" class="hidden absolute right-0 top-11 w-48 bg-white rounded-xl border border-slate-200 p-2 z-50 shadow-[0_10px_35px_rgba(0,0,0,0.12)]">
+                <button type="button" data-sort="recent" class="sort-option w-full text-left px-3 py-2 rounded-lg text-sm text-ink hover:bg-slate-50">Most Recent</button>
+                <button type="button" data-sort="oldest" class="sort-option w-full text-left px-3 py-2 rounded-lg text-sm text-ink hover:bg-slate-50">Oldest First</button>
+                <button type="button" data-sort="price" class="sort-option w-full text-left px-3 py-2 rounded-lg text-sm text-ink hover:bg-slate-50">Price: High to Low</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =======================================================
+         BOOKING LIST
+    ======================================================== -->
+    <div id="bookingContainer" class="space-y-3"></div>
+
+    <!-- =======================================================
+         BOTTOM SUMMARY & VIEW ALL OFFERS FOOTER
+    ======================================================== -->
+    <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-sm text-slate-500">
+        <p id="showingCountText">Showing 24 of 24 bookings</p>
+        <button id="viewAllOffersBtn" class="flex items-center gap-1 font-semibold text-amber-500 hover:text-amber-600 transition-colors">
+            View All Offers
+            <span class="material-symbols-outlined text-[18px]">expand_more</span>
+        </button>
+    </div>
+
+</section>
+
+<script src="/static/script/pages/booking.js"></script>
 
 {% endblock %}
