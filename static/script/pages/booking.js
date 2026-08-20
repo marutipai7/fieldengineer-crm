@@ -534,4 +534,114 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     render();
+
+
+
+       // =============================================
+    // VIEW DETAILS (same-page toggle)
+    // =============================================
+    const listView = document.getElementById('listView');
+    const detailsView = document.getElementById('detailsView');
+    const backBtn = document.getElementById('backToBookingBtn');
+
+    function fillText(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+    }
+
+    function showDetails(b) {
+        const isOffer = b.status === 'offer';
+
+        fillText('dTitle', b.title);
+        fillText('dBookingId', b.bookingId || 'BK-56874');
+        fillText('dLocation', b.location);
+        fillText('dLocation2', b.location);
+        fillText('dDate', b.date);
+        fillText('dDate2', b.date);
+        fillText('dDuration', b.time);
+        fillText('dDuration2', b.time);
+        fillText('dServiceType', b.title);
+        fillText('dDescription', `End to end ${b.title.toLowerCase()} for office setup including setup, testing and handover.`);
+        fillText('dCreatedOn', b.date + ', 10:30 AM');
+        fillText('dPosted', b.date + ', 09:00 AM');
+        fillText('dExpires', b.date + ', 12:00 PM');
+        fillText('dPrice', b.price || b.estPrice || b.paidAmount || '7,434');
+        fillText('dBottomPrice', b.price || b.estPrice || b.paidAmount || '7,434');
+        fillText('dEngAssigned', isOffer ? '1' : (b.engineersCount || 1));
+
+        const eng = b.engineer || { name: 'Rahul Sharma', rating: '4.8', reviews: 24, initials: 'RS' };
+        fillText('dEngName', eng.name);
+        fillText('dEngRating', eng.rating);
+        fillText('dEngReviews', eng.reviews);
+        fillText('dEngAvatar', eng.initials);
+        fillText('dTrackEngineers', b.engineersCount || 10);
+        fillText('dTrackRating', eng.rating);
+
+        // status pill
+        const pill = document.getElementById('dStatusPill');
+        pill.textContent = b.status.charAt(0).toUpperCase() + b.status.slice(1);
+        pill.className = 'status-pill badge-' + (b.status === 'inprogress' ? 'inprogress' : b.status === 'offer' ? 'offers' : b.status);
+
+        // icon
+        const iconWrap = document.getElementById('dTitleIconWrap');
+        const icon = document.getElementById('dTitleIcon');
+        iconWrap.className = 'w-12 h-12 rounded-xl ' + (b.bg || 'bg-cloud-blue') + ' flex items-center justify-center shrink-0';
+        icon.className = 'material-symbols-outlined ' + (b.color || 'text-primary-yellow') + ' text-[22px]';
+        icon.textContent = b.icon || 'device_hub';
+
+        // scope of work (generic list since mock data has none)
+        const scope = [
+            'Rack setup and arrangement', 'Cable laying (Cat6)',
+            'Termination and labeling', 'Network testing and validation',
+            'Complete documentation and handover', 'Post-installation support'
+        ];
+        document.getElementById('dScopeGrid').innerHTML = scope.map(s =>
+            `<div class="scope-item"><span class="material-symbols-outlined text-primary-yellow text-[16px]">circle</span>${s}</div>`
+        ).join('');
+
+        // what's included
+        const included = ['10 Verified Engineers', 'All tools and equipment', 'Testing and quality check', 'Work report and documentation', 'Post work support'];
+        document.getElementById('dIncludedRow').innerHTML = included.map(i =>
+            `<span class="included-pill"><span class="material-symbols-outlined text-[14px] text-emerald-500">check_circle</span>${i}</span>`
+        ).join('');
+
+        fillText('dBottomEngText', (isOffer ? '1' : (b.engineersCount || 1)) + ' Verified Engineer' + ((b.engineersCount || 1) != 1 ? 's' : '') + ' Ready for Assignment');
+
+        listView.classList.add('hidden');
+        detailsView.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    bookingContainer.addEventListener('click', function (e) {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+        if (btn.textContent.trim() !== 'View Details') return;
+        const row = btn.closest('.booking-row');
+        const idx = [...bookingContainer.children].indexOf(row);
+        const clicked = getVisible()[idx];
+        showDetails(clicked);
+    });
+
+    backBtn.addEventListener('click', function () {
+        detailsView.classList.add('hidden');
+        listView.classList.remove('hidden');
+    });
+
+    // Detail Tabs
+document.querySelectorAll('.detail-tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.detail-tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        document.getElementById('overviewContent').classList.add('hidden');
+        document.getElementById('teamContent').classList.add('hidden');
+        
+        if (this.dataset.tab === 'overview') {
+            document.getElementById('overviewContent').classList.remove('hidden');
+        } else if (this.dataset.tab === 'team') {
+            document.getElementById('teamContent').classList.remove('hidden');
+        }
+    });
 });
+});
+
