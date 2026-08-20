@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
 
     // =============================================
@@ -12,42 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
    function makeOffer(i) {
     const offerConfigs = [
-        { 
-            title: 'Network Cabling', 
-            icon: 'device_hub', 
-            bg: 'bg-cloud-blue', 
-            color: 'text-primary-yellow' 
-        },
-        { 
-            title: 'CCTV Installation', 
-            icon: 'photo_camera', 
-            bg: 'bg-lavender-mist', 
-            color: 'text-purple-500' 
-        },
-        { 
-            title: 'Fiber Optic Setup', 
-            icon: 'device_hub', 
-            bg: 'bg-amber-50', 
-            color: 'text-amber-500' 
-        },
-        { 
-            title: 'Server Room Setup', 
-            icon: 'dns', 
-            bg: 'bg-emerald-50', 
-            color: 'text-emerald-500' 
-        },
-        { 
-            title: 'Network Cabling', 
-            icon: 'device_hub', 
-            bg: 'bg-cloud-blue', 
-            color: 'text-primary-yellow' 
-        },
-        { 
-            title: 'Network Cabling', 
-            icon: 'device_hub', 
-            bg: 'bg-cloud-blue', 
-            color: 'text-primary-yellow' 
-        }
+        { title: 'Network Cabling', icon: 'device_hub', bg: 'bg-cloud-blue', color: 'text-primary-yellow' },
+        { title: 'CCTV Installation', icon: 'photo_camera', bg: 'bg-lavender-mist', color: 'text-purple-500' },
+        { title: 'Fiber Optic Setup', icon: 'device_hub', bg: 'bg-amber-50', color: 'text-amber-500' },
+        { title: 'Server Room Setup', icon: 'dns', bg: 'bg-emerald-50', color: 'text-emerald-500' },
+        { title: 'Network Cabling', icon: 'device_hub', bg: 'bg-cloud-blue', color: 'text-primary-yellow' },
+        { title: 'Network Cabling', icon: 'device_hub', bg: 'bg-cloud-blue', color: 'text-primary-yellow' }
     ];
 
     const cfg = offerConfigs[i % offerConfigs.length];
@@ -56,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
     return {
         status: 'offer',
         title: cfg.title,
-        icon: cfg.icon, 
-        bg: cfg.bg, 
+        icon: cfg.icon,
+        bg: cfg.bg,
         color: cfg.color,
         location: 'DLF Cyber City, Gurgaon',
         date: '29 May 2026',
@@ -106,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function makeCompleted(i) {
-        
         return {
             status: 'completed',
             title: 'Network Cabling',
@@ -166,12 +134,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // =============================================
     // CARD RENDERERS
+    // Each button gets a class prefixed by its section:
+    //   offer-...-btn      -> Offers cards
+    //   confirmed-...-btn  -> Confirmed cards
+    //   progress-...-btn   -> In Progress cards
+    //   completed-...-btn  -> Completed cards
+    //   cancelled-...-btn  -> Cancelled cards
     // =============================================
 
     // 1. OFFER ROW
-    function offerRow(b) {
+    function offerRow(b, index) {
         return `
-        <div class="booking-row bg-white border border-slate-200 rounded-xl p-4">
+        <div class="booking-row bg-white border border-slate-200 rounded-xl p-4" data-index="${index}" data-status="offer">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div class="flex items-center gap-3 min-w-[240px]">
                     <div class="w-10 h-10 rounded-xl ${b.bg} flex items-center justify-center shrink-0">
@@ -230,19 +204,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
 
                 <div class="flex items-center gap-2 shrink-0">
-                    <button class="btn-outline-yellow">View Details</button>
-                    <button class="btn-fill-yellow">Accept Offer</button>
+                    <button class="btn-outline-yellow offer-view-btn">View Details</button>
+                    <button class="btn-fill-yellow offer-accept-btn">Accept Offer</button>
                 </div>
             </div>
         </div>`;
     }
 
     // 2. CONFIRMED ROW
-    function confirmedRow(b) {
+    function confirmedRow(b, index) {
         return `
-        <div class="booking-row bg-white border border-slate-200 rounded-xl p-4">
+        <div class="booking-row bg-white border border-slate-200 rounded-xl p-4" data-index="${index}" data-status="confirmed">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                
+
                 <div class="flex items-center gap-3 min-w-[260px]">
                     <div class="w-10 h-10 rounded-xl ${b.bg} flex items-center justify-center shrink-0">
                         <span class="material-symbols-outlined ${b.color} text-[20px]">${b.icon}</span>
@@ -283,19 +257,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
 
                 <div class="flex items-center gap-2 shrink-0">
-                    <button class="btn-outline-yellow">View Details</button>
-                    <button class="btn-fill-yellow">Track Live</button>
+                    <button class="btn-outline-yellow confirmed-view-btn">View Details</button>
+                    <button class="btn-fill-yellow confirmed-track-btn">Track Live</button>
                 </div>
             </div>
         </div>`;
     }
 
     // 3. IN PROGRESS ROW
-    function inProgressRow(b) {
+    function inProgressRow(b, index) {
         return `
-        <div class="booking-row bg-white border border-slate-200 rounded-xl p-4">
+        <div class="booking-row bg-white border border-slate-200 rounded-xl p-4" data-index="${index}" data-status="inprogress">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                
+
                 <div class="flex items-center gap-3 min-w-[260px]">
                     <div class="w-10 h-10 rounded-xl ${b.bg} flex items-center justify-center shrink-0">
                         <span class="material-symbols-outlined ${b.color} text-[20px]">${b.icon}</span>
@@ -336,19 +310,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
 
                 <div class="flex items-center gap-2 shrink-0">
-                    <button class="btn-outline-yellow">View Report</button>
-                    <button class="btn-fill-yellow">Track Live</button>
+                    <button class="btn-outline-yellow progress-report-btn">View Report</button>
+                    <button class="btn-fill-yellow progress-track-btn">Track Live</button>
                 </div>
             </div>
         </div>`;
     }
 
-    // 4. COMPLETED ROW (Paid amount placed below engineers count)
-    function completedRow(b) {
+    // 4. COMPLETED ROW
+    function completedRow(b, index) {
         return `
-        <div class="booking-row bg-white border border-slate-200 rounded-xl p-4">
+        <div class="booking-row bg-white border border-slate-200 rounded-xl p-4" data-index="${index}" data-status="completed">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                
+
                 <div class="flex items-center gap-3 min-w-[260px]">
                     <div class="w-10 h-10 rounded-xl ${b.bg} flex items-center justify-center shrink-0">
                         <span class="material-symbols-outlined ${b.color} text-[20px]">${b.icon}</span>
@@ -373,7 +347,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 </div>
 
-                <!-- Engineers & Paid Info Stacked Center Column -->
                 <div class="flex flex-col items-center justify-center">
                     <div class="flex items-center gap-1.5 mb-1">
                         <span class="status-pill badge-onsite">On Site</span>
@@ -395,19 +368,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
 
                 <div class="flex items-center gap-2 shrink-0">
-                    <button class="btn-outline-yellow">View Details</button>
-                    <button class="btn-fill-yellow">Book Again</button>
+                    <button class="btn-outline-yellow completed-view-btn">View Details</button>
+                    <button class="btn-fill-yellow completed-bookagain-btn">Book Again</button>
                 </div>
             </div>
         </div>`;
     }
 
     // 5. CANCELLED ROW
-    function cancelledRow(b) {
+    function cancelledRow(b, index) {
         return `
-        <div class="booking-row bg-white border border-slate-200 rounded-xl p-4">
+        <div class="booking-row bg-white border border-slate-200 rounded-xl p-4" data-index="${index}" data-status="cancelled">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                
+
                 <div class="flex items-center gap-3 min-w-[260px]">
                     <div class="w-10 h-10 rounded-xl ${b.bg} flex items-center justify-center shrink-0">
                         <span class="material-symbols-outlined ${b.color} text-[20px]">${b.icon}</span>
@@ -441,20 +414,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
 
                 <div class="flex items-center gap-2 shrink-0">
-                    <button class="btn-fill-yellow">Book Again</button>
+                    <button class="btn-fill-yellow cancelled-bookagain-btn">Book Again</button>
                 </div>
             </div>
         </div>`;
     }
 
-    function rowHTML(b) {
+    function rowHTML(b, index) {
         switch (b.status) {
-            case 'offer': return offerRow(b);
-            case 'confirmed': return confirmedRow(b);
-            case 'inprogress': return inProgressRow(b);
-            case 'completed': return completedRow(b);
-            case 'cancelled': return cancelledRow(b);
-            default: return offerRow(b);
+            case 'offer': return offerRow(b, index);
+            case 'confirmed': return confirmedRow(b, index);
+            case 'inprogress': return inProgressRow(b, index);
+            case 'completed': return completedRow(b, index);
+            case 'cancelled': return cancelledRow(b, index);
+            default: return offerRow(b, index);
         }
     }
 
@@ -472,15 +445,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function render() {
         const visible = getVisible();
-        
-        // Update Section Header Title and Badge Count
+
         const activeBtn = document.querySelector(`.tab-btn[data-tab="${currentTab}"]`);
         if (activeBtn) {
             activeTabTitle.textContent = activeBtn.dataset.label || activeBtn.innerText.split('\n')[0].trim();
             activeTabCount.textContent = visible.length;
         }
 
-        // Update Bottom Footer Count
         showingCountText.textContent = `Showing ${visible.length} of ${bookings.length} bookings`;
 
         if (visible.length === 0) {
@@ -492,7 +463,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>`;
             return;
         }
-        bookingContainer.innerHTML = visible.map(rowHTML).join('');
+        bookingContainer.innerHTML = visible.map((b, i) => rowHTML(b, i)).join('');
     }
 
     // =============================================
@@ -535,113 +506,432 @@ document.addEventListener('DOMContentLoaded', function () {
 
     render();
 
-
-
-       // =============================================
+    // =============================================
     // VIEW DETAILS (same-page toggle)
     // =============================================
     const listView = document.getElementById('listView');
     const detailsView = document.getElementById('detailsView');
-    const backBtn = document.getElementById('backToBookingBtn');
-
-    function fillText(id, value) {
-        const el = document.getElementById(id);
-        if (el) el.textContent = value;
-    }
 
     function showDetails(b) {
-        const isOffer = b.status === 'offer';
-
-        fillText('dTitle', b.title);
-        fillText('dBookingId', b.bookingId || 'BK-56874');
-        fillText('dLocation', b.location);
-        fillText('dLocation2', b.location);
-        fillText('dDate', b.date);
-        fillText('dDate2', b.date);
-        fillText('dDuration', b.time);
-        fillText('dDuration2', b.time);
-        fillText('dServiceType', b.title);
-        fillText('dDescription', `End to end ${b.title.toLowerCase()} for office setup including setup, testing and handover.`);
-        fillText('dCreatedOn', b.date + ', 10:30 AM');
-        fillText('dPosted', b.date + ', 09:00 AM');
-        fillText('dExpires', b.date + ', 12:00 PM');
-        fillText('dPrice', b.price || b.estPrice || b.paidAmount || '7,434');
-        fillText('dBottomPrice', b.price || b.estPrice || b.paidAmount || '7,434');
-        fillText('dEngAssigned', isOffer ? '1' : (b.engineersCount || 1));
-
-        const eng = b.engineer || { name: 'Rahul Sharma', rating: '4.8', reviews: 24, initials: 'RS' };
-        fillText('dEngName', eng.name);
-        fillText('dEngRating', eng.rating);
-        fillText('dEngReviews', eng.reviews);
-        fillText('dEngAvatar', eng.initials);
-        fillText('dTrackEngineers', b.engineersCount || 10);
-        fillText('dTrackRating', eng.rating);
-
-        // status pill
-        const pill = document.getElementById('dStatusPill');
-        pill.textContent = b.status.charAt(0).toUpperCase() + b.status.slice(1);
-        pill.className = 'status-pill badge-' + (b.status === 'inprogress' ? 'inprogress' : b.status === 'offer' ? 'offers' : b.status);
-
-        // icon
-        const iconWrap = document.getElementById('dTitleIconWrap');
-        const icon = document.getElementById('dTitleIcon');
-        iconWrap.className = 'w-12 h-12 rounded-xl ' + (b.bg || 'bg-cloud-blue') + ' flex items-center justify-center shrink-0';
-        icon.className = 'material-symbols-outlined ' + (b.color || 'text-primary-yellow') + ' text-[22px]';
-        icon.textContent = b.icon || 'device_hub';
-
-        // scope of work (generic list since mock data has none)
-        const scope = [
-            'Rack setup and arrangement', 'Cable laying (Cat6)',
-            'Termination and labeling', 'Network testing and validation',
-            'Complete documentation and handover', 'Post-installation support'
-        ];
-        document.getElementById('dScopeGrid').innerHTML = scope.map(s =>
-            `<div class="scope-item"><span class="material-symbols-outlined text-primary-yellow text-[16px]">circle</span>${s}</div>`
-        ).join('');
-
-        // what's included
-        const included = ['10 Verified Engineers', 'All tools and equipment', 'Testing and quality check', 'Work report and documentation', 'Post work support'];
-        document.getElementById('dIncludedRow').innerHTML = included.map(i =>
-            `<span class="included-pill"><span class="material-symbols-outlined text-[14px] text-emerald-500">check_circle</span>${i}</span>`
-        ).join('');
-
-        fillText('dBottomEngText', (isOffer ? '1' : (b.engineersCount || 1)) + ' Verified Engineer' + ((b.engineersCount || 1) != 1 ? 's' : '') + ' Ready for Assignment');
-
+        let html = '';
+        switch (b.status) {
+            case 'offer':      html = offerDetailHTML(b);     break;
+            case 'confirmed':  html = confirmedDetailHTML(b); break;
+            case 'inprogress': html = progressDetailHTML(b);  break;
+            case 'completed':  html = completeDetailHTML(b);  break;
+            case 'cancelled':  html = cancelDetailHTML(b);    break;
+            default:            html = offerDetailHTML(b);
+        }
+        detailsView.innerHTML = html;
         listView.classList.add('hidden');
         detailsView.classList.remove('hidden');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        bindDetailTabHandlers();
     }
 
+    function bindDetailTabHandlers() {
+        document.getElementById('backToBookingBtn')?.addEventListener('click', () => {
+            detailsView.classList.add('hidden');
+            listView.classList.remove('hidden');
+        });
+    }
+
+    // -------- shared partials --------
+    function jobDetailsCardHTML(b) {
+        return `
+        <div class="detail-card mb-4">
+            <h3 class="detail-card-title"><span class="material-symbols-outlined text-[18px] align-middle mr-1">description</span>Job Details</h3>
+            <div class="job-detail-row"><span class="job-detail-label">Service Type</span><span class="job-detail-value">${b.title}</span></div>
+            <div class="job-detail-row"><span class="job-detail-label">Location</span><span class="job-detail-value">${b.location}</span></div>
+            <div class="job-detail-row"><span class="job-detail-label">Date</span><span class="job-detail-value">${b.date}</span></div>
+            <div class="job-detail-row job-detail-row-last"><span class="job-detail-label">Duration</span><span class="job-detail-value">${b.time}</span></div>
+        </div>`;
+    }
+
+    function scopeOfWorkCardHTML() {
+        const scope = ['Rack setup and arrangement', 'Cable laying (Cat6)', 'Termination and labeling', 'Network testing and validation', 'Complete documentation and handover', 'Post-installation support'];
+        return `
+        <div class="detail-card mb-4">
+            <h3 class="detail-card-title">Scope of Work</h3>
+            <div class="scope-grid">
+                ${scope.map(s => `<div class="scope-item"><span class="material-symbols-outlined text-primary-yellow text-[16px]">circle</span>${s}</div>`).join('')}
+            </div>
+        </div>`;
+    }
+
+    function whatsIncludedCardHTML() {
+        const included = ['10 Verified Engineers', 'All tools and equipment', 'Testing and quality check', 'Work report and documentation', 'Post work support'];
+        return `
+        <div class="detail-card mb-4">
+            <h3 class="detail-card-title">What's Included</h3>
+            <div class="included-row">
+                ${included.map(i => `<span class="included-pill"><span class="material-symbols-outlined text-[14px] text-emerald-500">check_circle</span>${i}</span>`).join('')}
+            </div>
+        </div>`;
+    }
+
+    function sidebarHTML(b) {
+        const eng = b.engineer || { name: 'Rahul Sharma', rating: '4.8', reviews: 24, initials: 'RS', color: 'bg-dark-orange text-white' };
+        return `
+        <div class="lg:sticky lg:top-4">
+            <div class="detail-card mb-4">
+                <h3 class="detail-card-title">Team Leader</h3>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full ${eng.color} flex items-center justify-center font-bold shrink-0">${eng.initials}</div>
+                    <div>
+                        <p class="font-bold text-ink text-sm">${eng.name}</p>
+                        <p class="text-xs mt-0.5 flex items-center gap-2">
+                            <span class="flex items-center gap-0.5 font-bold text-ink"><span class="material-symbols-outlined text-[14px] text-amber-400">star</span>${eng.rating}<span class="text-slate-400 font-normal">(${eng.reviews})</span></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 mt-3">
+                    <button class="btn-outline-yellow flex-1">Call</button>
+                    <button class="btn-fill-yellow flex-1">Message</button>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    function backButtonHTML() {
+        return `
+        <button id="backToBookingBtn" class="inline-flex items-center gap-1 text-sm font-semibold text-granite-gray hover:text-ink mb-4">
+            <span class="material-symbols-outlined text-[18px]">arrow_back</span> Back to Booking
+        </button>`;
+    }
+
+    // =============================================
+    // 1. OFFER — id="offerViewDetail"
+    // =============================================
+    function offerDetailHTML(b) {
+        return `
+        <div id="offerViewDetail" class="detail-view">
+            ${backButtonHTML()}
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-5 items-start">
+                <div>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-4 mb-4">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl ${b.bg} flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined ${b.color} text-[22px]">${b.icon}</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <h1 class="text-lg font-bold text-ink">${b.title}</h1>
+                                        <span class="status-pill badge-offers">Offer</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">location_on</span>${b.location}</span>
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">calendar_today</span>${b.date}</span>
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">schedule</span>${b.time}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text-right shrink-0">
+                                <p class="text-[11px] font-semibold text-[#969696]">Estimated Price</p>
+                                <p class="font-bold text-ink text-xl">Rs.${b.price}</p>
+                                <span class="status-pill badge-best-match mt-1">Best Match</span>
+                                <button class="btn-fill-yellow offer-detail-accept-btn block mt-2 w-full">Accept Offer</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-card mb-4">
+                        <h3 class="detail-card-title">Offers Timeline</h3>
+                        <div class="timeline-row">
+                            <div class="timeline-step">
+                                <div class="timeline-icon timeline-icon-posted"><span class="material-symbols-outlined text-[16px]">event_available</span></div>
+                                <div>
+                                    <p class="text-sm font-semibold text-ink">Offer Posted</p>
+                                    <p class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">${b.date}, 09:00 AM</p>
+                                </div>
+                            </div>
+                            <div class="timeline-line"></div>
+                            <div class="timeline-step">
+                                <div class="timeline-icon timeline-icon-expires"><span class="material-symbols-outlined text-[16px]">check</span></div>
+                                <div>
+                                    <p class="text-sm font-semibold text-ink">Offer Expires In</p>
+                                    <p class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">${b.date}, 12:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    ${jobDetailsCardHTML(b)}
+                    ${scopeOfWorkCardHTML()}
+                    ${whatsIncludedCardHTML()}
+                </div>
+                ${sidebarHTML(b)}
+            </div>
+
+            <div class="sticky-action-bar">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-emerald-500 text-[20px]">verified</span>
+                    <span class="text-sm font-semibold text-ink">1 Verified Engineer Ready for Assignment</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="text-right"><p class="text-[11px] text-slate-400">Estimated Cost</p><p class="font-bold text-ink text-base">₹${b.price}</p></div>
+                    <div class="flex items-center gap-2">
+                        <button class="btn-outline-yellow offer-detail-cancel-btn">Cancel</button>
+                        <button class="btn-fill-yellow offer-detail-accept-bottom-btn">Accept Offer</button>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    // =============================================
+    // 2. CONFIRMED — id="confirmedViewDetail"
+    // =============================================
+    function confirmedDetailHTML(b) {
+        return `
+        <div id="confirmedViewDetail" class="detail-view">
+            ${backButtonHTML()}
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-5 items-start">
+                <div>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-4 mb-4">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl ${b.bg} flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined ${b.color} text-[22px]">${b.icon}</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <h1 class="text-lg font-bold text-ink">${b.title}</h1>
+                                        <span class="badge-booking-id">${b.bookingId}</span>
+                                        <span class="status-pill badge-confirmed">Confirmed</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">location_on</span>${b.location}</span>
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">calendar_today</span>${b.date}</span>
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">schedule</span>${b.time}</span>
+                                    </p>
+                                    <p class="text-xs text-slate-500 mt-1">Vendor: <span class="font-bold text-ink">${b.vendor}</span></p>
+                                </div>
+                            </div>
+                            <div class="text-right shrink-0">
+                                <button class="btn-fill-yellow confirmed-detail-track-btn block mt-2 w-full">Track Live</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    ${jobDetailsCardHTML(b)}
+                    ${scopeOfWorkCardHTML()}
+                    ${whatsIncludedCardHTML()}
+                </div>
+                ${sidebarHTML(b)}
+            </div>
+
+            <div class="sticky-action-bar">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-emerald-500 text-[20px]">verified</span>
+                    <span class="text-sm font-semibold text-ink">Booking confirmed with ${b.vendor}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="btn-outline-yellow confirmed-detail-cancel-btn">Cancel</button>
+                    <button class="btn-fill-yellow confirmed-detail-track-bottom-btn">Track Live</button>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    // =============================================
+    // 3. IN PROGRESS — id="progressViewDetail"
+    // =============================================
+    function progressDetailHTML(b) {
+        return `
+        <div id="progressViewDetail" class="detail-view">
+            ${backButtonHTML()}
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-5 items-start">
+                <div>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-4 mb-4">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl ${b.bg} flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined ${b.color} text-[22px]">${b.icon}</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <h1 class="text-lg font-bold text-ink">${b.title}</h1>
+                                        <span class="badge-booking-id">${b.bookingId}</span>
+                                        <span class="status-pill badge-inprogress">In Progress</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">location_on</span>${b.location}</span>
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">calendar_today</span>${b.date}</span>
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">schedule</span>${b.time}</span>
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">engineering</span>${b.engineersCount} engineers on site</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text-right shrink-0">
+                                <button class="btn-fill-yellow progress-detail-track-btn block mt-2 w-full">Track Live</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    ${jobDetailsCardHTML(b)}
+                    ${scopeOfWorkCardHTML()}
+                    ${whatsIncludedCardHTML()}
+                </div>
+                ${sidebarHTML(b)}
+            </div>
+
+            <div class="sticky-action-bar">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-amber-500 text-[20px]">schedule</span>
+                    <span class="text-sm font-semibold text-ink">Work in progress — ${b.engineersCount} engineers on site</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="btn-outline-yellow progress-detail-report-btn">View Report</button>
+                    <button class="btn-fill-yellow progress-detail-track-bottom-btn">Track Live</button>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    // =============================================
+    // 4. COMPLETED — id="completeViewDetail"
+    // =============================================
+    function completeDetailHTML(b) {
+        return `
+        <div id="completeViewDetail" class="detail-view">
+            ${backButtonHTML()}
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-5 items-start">
+                <div>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-4 mb-4">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl ${b.bg} flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined ${b.color} text-[22px]">${b.icon}</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <h1 class="text-lg font-bold text-ink">${b.title}</h1>
+                                        <span class="badge-booking-id">${b.bookingId}</span>
+                                        <span class="status-pill badge-completed">Completed</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">location_on</span>${b.location}</span>
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">calendar_today</span>${b.date}</span>
+                                    </p>
+                                    <p class="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[14px]">check_circle</span>Job completed on ${b.completedDate}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text-right shrink-0">
+                                <p class="text-[11px] font-semibold text-[#969696]">Amount Paid</p>
+                                <p class="font-bold text-ink text-xl">Rs.${b.paidAmount}</p>
+                                <button class="btn-fill-yellow completed-detail-bookagain-btn block mt-2 w-full">Book Again</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    ${jobDetailsCardHTML(b)}
+                    ${scopeOfWorkCardHTML()}
+                    ${whatsIncludedCardHTML()}
+                </div>
+                ${sidebarHTML(b)}
+            </div>
+
+            <div class="sticky-action-bar">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-emerald-500 text-[20px]">check_circle</span>
+                    <span class="text-sm font-semibold text-ink">Job completed — Rs.${b.paidAmount} paid</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="btn-outline-yellow completed-detail-invoice-btn">View Invoice</button>
+                    <button class="btn-fill-yellow completed-detail-bookagain-bottom-btn">Book Again</button>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    // =============================================
+    // 5. CANCELLED — id="cancelViewDetail"
+    // =============================================
+    function cancelDetailHTML(b) {
+        return `
+        <div id="cancelViewDetail" class="detail-view">
+            ${backButtonHTML()}
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-5 items-start">
+                <div>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-4 mb-4">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl ${b.bg} flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined ${b.color} text-[22px]">${b.icon}</span>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <h1 class="text-lg font-bold text-ink">${b.title}</h1>
+                                        <span class="badge-booking-id">${b.bookingId}</span>
+                                        <span class="status-pill badge-cancelled">Cancelled</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">location_on</span>${b.location}</span>
+                                        <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">calendar_today</span>${b.date}</span>
+                                    </p>
+                                    <p class="text-xs text-red-500 font-semibold mt-1 flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[14px]">info</span>Cancelled on ${b.cancelledDate}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text-right shrink-0">
+                                <p class="text-[11px] font-semibold text-[#969696]">Estimated Price</p>
+                                <p class="font-bold text-ink text-xl">Rs.${b.estPrice}</p>
+                                <button class="btn-fill-yellow cancelled-detail-bookagain-btn block mt-2 w-full">Book Again</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    ${jobDetailsCardHTML(b)}
+                </div>
+                ${sidebarHTML(b)}
+            </div>
+
+            <div class="sticky-action-bar">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-red-500 text-[20px]">cancel</span>
+                    <span class="text-sm font-semibold text-ink">This booking was cancelled</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="btn-fill-yellow cancelled-detail-bookagain-bottom-btn">Book Again</button>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    // =============================================
+    // ROW BUTTON CLICK HANDLER (uses classList, not text)
+    // =============================================
     bookingContainer.addEventListener('click', function (e) {
         const btn = e.target.closest('button');
         if (!btn) return;
-        if (btn.textContent.trim() !== 'View Details') return;
+
         const row = btn.closest('.booking-row');
-        const idx = [...bookingContainer.children].indexOf(row);
+        if (!row) return;
+        const idx = Number(row.dataset.index);
         const clicked = getVisible()[idx];
-        showDetails(clicked);
-    });
+        if (!clicked) return;
 
-    backBtn.addEventListener('click', function () {
-        detailsView.classList.add('hidden');
-        listView.classList.remove('hidden');
-    });
-
-    // Detail Tabs
-document.querySelectorAll('.detail-tab-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        document.querySelectorAll('.detail-tab-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        
-        document.getElementById('overviewContent').classList.add('hidden');
-        document.getElementById('teamContent').classList.add('hidden');
-        
-        if (this.dataset.tab === 'overview') {
-            document.getElementById('overviewContent').classList.remove('hidden');
-        } else if (this.dataset.tab === 'team') {
-            document.getElementById('teamContent').classList.remove('hidden');
+        // "View Details" style buttons -> open details page
+        if (
+            btn.classList.contains('offer-view-btn') ||
+            btn.classList.contains('confirmed-view-btn') ||
+            btn.classList.contains('completed-view-btn')
+        ) {
+            showDetails(clicked);
+            return;
         }
-    });
-});
-});
 
+        // Other row-level actions can be handled here by class name, e.g.:
+        // if (btn.classList.contains('offer-accept-btn')) { ... }
+        // if (btn.classList.contains('progress-report-btn')) { showDetails(clicked); }
+        // if (btn.classList.contains('progress-track-btn')) { ... }
+        // if (btn.classList.contains('completed-bookagain-btn')) { ... }
+        // if (btn.classList.contains('cancelled-bookagain-btn')) { ... }
+    });
+
+});
