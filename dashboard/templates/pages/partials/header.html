@@ -1,0 +1,24 @@
+{% load static %}
+<!-- Shared header for For Vendors footer pages (not home layout) -->
+<header class="site-page-header">
+    <div class="site-page-header-inner">
+        <a href="{% url 'home' %}" class="site-page-logo">
+            <span class="site-page-logo-text">Field Engineer</span>
+            <span class="site-page-logo-sub">Field Engineer Workspace Platform</span>
+        </a>
+
+        <nav class="site-page-nav" aria-label="Company pages">
+            <a href="{% url 'about_fe' %}"{% if request.resolver_match.url_name == 'about_fe' %} class="is-active"{% endif %}>About FE</a>
+            <a href="{% url 'careers' %}"{% if request.resolver_match.url_name == 'careers' %} class="is-active"{% endif %}>Careers</a>
+            <a href="{% url 'blogs' %}"{% if request.resolver_match.url_name == 'blogs' %} class="is-active"{% endif %}>Blogs</a>
+            <a href="{% url 'contact' %}"{% if request.resolver_match.url_name == 'contact' %} class="is-active"{% endif %}>Contact</a>
+            <a href="{% url 'help_center' %}"{% if request.resolver_match.url_name == 'help_center' %} class="is-active"{% endif %}>Help Center</a>
+            <a href="{% url 'vendor_responses' %}"{% if request.resolver_match.url_name == 'vendor_responses' %} class="is-active"{% endif %}>Vendor Responses</a>
+        </nav>
+
+        <a href="{% url 'home' %}" class="site-page-back-link">
+            Back to Home
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+    </div>
+</header>

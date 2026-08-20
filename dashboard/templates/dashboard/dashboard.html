@@ -1,0 +1,886 @@
+{% extends "dashboard/layout.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-profile-page  w-full px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+  <!-- ============ TOP: GREETING + AVAILABILITY ============ -->
+  <div class="dashboard-header-grid grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-4">
+    <div class="dashboard-greeting-card bg-lightest-warm-golden-orange rounded-2xl px-6 py-6 flex items-center">
+      <div>
+        <h1 class="text-3xl font-bold text-dark-navy flex items-center gap-2">
+          Hello Harsh <span class="inline-block">👋</span>
+        </h1>
+        <p class="text-bluish-gray mt-1 text-lg font-normal">You're all set for a productive day.</p>
+      </div>
+    </div>
+
+    <div
+      class="dashboard-availability-card bg-transparent-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm">
+      <div class="flex items-center justify-between">
+        <span class="text-base font-bold text-ink">Availability</span>
+        <button type="button" id="dashboard-toggle-availability" data-on="true"
+          onclick="dashboardToggleAvailability(this)"
+          class="dashboard-toggle-track relative inline-flex items-center w-11 h-6 rounded-full bg-primary-yellow transition-colors duration-200">
+          <span
+            class="dashboard-toggle-dot absolute top-1 left-6 w-4 h-4 bg-white rounded-full shadow transition-all duration-200"></span>
+        </button>
+      </div>
+      <div class="flex items-start gap-2 mt-3">
+        <span id="dashboard-availability-dot" class="w-2 h-2 mt-1.5 rounded-full bg-bright-green shrink-0"></span>
+        <p class="text-sm  font-normal text-granite-gray leading-relaxed">
+          <span id="dashboard-availability-status" class="font-bold text-bright-green">Online</span><br>
+          You are visible for new leads and incoming job requests.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ STAT CARDS ============ -->
+  <div class="dashboard-stats-grid grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div
+      class="dashboard-stat-card bg-neutral-gray1 border border-light-medium rounded-2xl px-5 py-5 shadow-sm flex items-start gap-3">
+      <div class="dashboard-stat-icon w-10 h-10 rounded-xl bg-primary-yellow flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-white text-[20px]">work</span>
+      </div>
+      <div>
+        <p class="text-base font-bold text-ink">2 (Active Jobs)</p>
+        <p class="text-xs font-normal text-ink mt-0.5">Currently in progress</p>
+      </div>
+    </div>
+
+    <div
+      class="dashboard-stat-card bg-neutral-gray1 border border-light-medium rounded-2xl px-5 py-5 shadow-sm flex items-start gap-3">
+      <div
+        class="dashboard-stat-icon w-10 h-10 rounded-xl bg-bright-sky-blue flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-white text-[20px]">check_circle</span>
+      </div>
+      <div>
+        <p class="text-base font-bold text-ink">14 (Completed)</p>
+        <p class="text-xs font-normal text-ink mt-0.5">Jobs Completed</p>
+      </div>
+    </div>
+
+    <div
+      class="dashboard-stat-card bg-neutral-gray1 border border-light-medium rounded-2xl px-5 py-5 shadow-sm flex items-start gap-3">
+      <div
+        class="dashboard-stat-icon w-10 h-10 rounded-xl bg-bright-light-purple flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-white text-[20px]">schedule</span>
+      </div>
+      <div>
+        <p class="text-base font-bold text-ink">2 (Pending Review)</p>
+        <p class="text-xs font-normal text-ink mt-0.5">Awaiting your review</p>
+      </div>
+    </div>
+
+    <div
+      class="dashboard-stat-card bg-neutral-gray1 border border-light-medium rounded-2xl px-5 py-5 shadow-sm flex items-start gap-3">
+      <div
+        class="dashboard-stat-icon w-10 h-10 rounded-xl bg-soft-coral-pink flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-white text-[20px]">paid</span>
+      </div>
+      <div>
+        <p class="text-base font-bold text-ink">₹8400 (Total Spent)</p>
+        <p class="text-xs font-normal text-ink mt-0.5">All time spending</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PROMO BANNER ============ -->
+  <div class="dashboard-promo-banner relative overflow-hidden rounded-2xl border border-neutral-gray1 px-6 py-6">
+
+    <div class="relative flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div class="max-w-sm">
+        <h2 class=" text-2xl font-bold leading-snug">Ready to Deploy Certified Engineers at Your Site?</h2>
+        <p class="text-ink text-base font-normal mt-2">Book now and get the best offers from verified vendors</p>
+        <div class="flex items-center gap-3 mt-4">
+          <button
+            class="dashboard-btn-ghost flex items-center gap-1.5 text-base font-normal  text-primary-yellow border border-primary-yellow px-4 py-2 rounded-lg">
+            <span class="material-symbols-outlined text-[16px] text-primary-yellow">headset_mic</span> Talk to Expert
+          </button>
+          <button
+            class="dashboard-btn-primary bg-primary-yellow text-white text-base font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5">
+            Request Service <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dashboard-promo-stats flex items-center gap-6 lg:gap-10">
+        <div class="text-center">
+          <div class="dashboard-glass-circle w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-2">
+            <span class="material-symbols-outlined text-primary-yellow text-[20px]">verified</span>
+          </div>
+          <p class="text-ink font-bold text-base">99.2%</p>
+          <p class="text-ink text-sm font-normal">SLA Success</p>
+        </div>
+
+        <div class="text-center">
+          <div class="dashboard-glass-circle w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-2">
+            <span class="material-symbols-outlined text-primary-yellow text-[20px]">assignment_turned_in</span>
+          </div>
+          <p class="text-ink font-bold text-base">10M+</p>
+          <p class="text-ink text-sm font-normal">Jobs Completed</p>
+        </div>
+
+        <div class="text-center">
+          <div class="dashboard-glass-circle w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-2">
+            <span class="material-symbols-outlined text-primary-yellow text-[20px]">star</span>
+          </div>
+          <p class="text-ink font-bold text-base">4.8/5</p>
+          <p class="text-ink text-sm font-normal">Customer Rating</p>
+        </div>
+
+        <div class="text-center">
+          <div class="dashboard-glass-circle w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-2">
+            <span class="material-symbols-outlined text-primary-yellow text-[20px]">support_agent</span>
+          </div>
+          <p class="text-ink font-bold text-base">24/7</p>
+          <p class="text-ink text-sm font-normal">Support Available</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ACTIVE BOOKINGS ============ -->
+  <div class="dashboard-bookings-section">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-xl font-bold text-ink">Active Bookings</h3>
+      <a href="#" class="text-sm font-semibold text-primary-yellow flex items-center gap-1">
+        View all Bookings <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+      </a>
+    </div>
+
+    <div class="dashboard-bookings-card bg-white  overflow-hidden">
+      <div
+        class="dashboard-bookings-toolbar flex items-center justify-between px-5 py-3 border-b border-pale-blue-gray bg-arctic-white ">
+        <div class="flex items-center gap-2">
+          <button
+            class="dashboard-tab-btn dashboard-tab-btn-active text-xs font-semibold text-ink inline-flex items-center gap-2">
+            All Received
+            <span
+              class="inline-flex items-center justify-center min-w-6 h-6 px-2 rounded-full bg-cloud-blue text-primary-yellow text-[11px] font-semibold">
+              24
+            </span>
+          </button>
+        </div>
+        <button class="text-xs font-normal text-granite-gray flex items-center gap-1">
+          Sort by <span class="material-symbols-outlined text-[16px]">expand_more</span>
+        </button>
+      </div>
+
+      <div class="dashboard-booking-list w-full overflow-x-auto" id="dashboard-bookings-list">
+        <div class="min-w-[1180px] divide-y divide-pale-blue-gray">
+
+          <!-- 1. Network Cabling -->
+          <div class="dashboard-booking-row flex items-center gap-4 px-7 py-3 min-w-[1180px]">
+
+            <!-- Service Icon -->
+            <div
+              class="dashboard-booking-icon w-11 h-11 rounded-xl bg-cloud-blue flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-primary-yellow text-[20px]">device_hub</span>
+            </div>
+
+            <!-- Booking Info -->
+            <div class="dashboard-booking-info min-w-[265px]">
+              <p class="text-base font-semibold text-ink flex items-center gap-2">
+                Network Cabling
+                <span class="text-[10px] font-semibold text-primary-yellow bg-cloud-blue px-2 py-1 rounded-full">
+                  Offers
+                </span>
+              </p>
+
+              <p class="text-xs font-normal text-granite-gray mt-1 flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px] text-medium">location_on</span>
+                DLF Cyber City, Gurgaon
+              </p>
+
+              <p class="text-xs font-normal text-granite-gray mt-1 flex items-center gap-3">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-medium">event</span>
+                  29 May 2026
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-medium">schedule</span>
+                  15 Hours
+                </span>
+              </p>
+            </div>
+
+            <!-- Vendor -->
+            <div class="dashboard-booking-vendor flex items-center gap-3 min-w-[195px]">
+              <div class="w-10 h-10 rounded-full bg-primary-yellow flex items-center justify-center shrink-0">
+                <span class="text-white text-xs font-semibold">RS</span>
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-ink">Rahul Sharma</p>
+                <p class="text-xs font-semibold text-ink flex items-center gap-1 mt-1">
+                  <span class="text-golden-orange text-[16px]">★</span>
+                  4.8
+                  <span class="text-medium text-[10px]">(248)</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Status -->
+            <div class="dashboard-booking-status min-w-[265px]">
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-medium text-spend-green bg-mint-frost px-2.5 py-1 rounded-full">
+                  On Site
+                </span>
+
+                <span class="text-[11px] font-medium text-primary-yellow bg-cloud-blue px-2.5 py-1 rounded-full">
+                  Team Leader
+                </span>
+              </div>
+
+              <div class="flex items-center gap-1 mt-1.5">
+                <div class="flex -space-x-2">
+                  <span class="w-5 h-5 rounded-full bg-soft-blue-gray border-2 border-white"></span>
+                  <span class="w-5 h-5 rounded-full bg-medium-cool-gray border-2 border-white"></span>
+                  <span class="w-5 h-5 rounded-full bg-article-light-gray border-2 border-white"></span>
+                </div>
+                <span class="text-xs font-medium text-granite-gray ml-1">10 engineers</span>
+              </div>
+            </div>
+
+            <!-- Price -->
+            <div class="dashboard-booking-price min-w-[135px]">
+              <p class="text-[11px] font-semibold text-medium">Estimated Price</p>
+              <p class="text-base font-bold text-ink mt-1">Rs.7,434</p>
+              <span
+                class="inline-flex mt-1 text-[11px] font-medium text-spend-green bg-mint-frost px-2.5 py-1 rounded-full">
+                Best Match
+              </span>
+            </div>
+
+            <!-- Actions -->
+            <div class="dashboard-booking-actions flex items-center gap-3 ml-auto">
+              <button
+                class="dashboard-btn-outline text-xs font-medium border border-primary-yellow text-primary-yellow px-5 py-2.5 rounded-full hover:bg-amber-50 transition whitespace-nowrap">
+                View Details
+              </button>
+
+              <button
+                class="dashboard-btn-primary text-xs font-semibold bg-primary-yellow text-white px-5 py-2.5 rounded-full transition whitespace-nowrap">
+                Accept Offer
+              </button>
+            </div>
+
+          </div>
+
+
+          <!-- 2. CCTV Installation -->
+          <div class="dashboard-booking-row flex items-center gap-4 px-7 py-3 min-w-[1180px]">
+
+            <div
+              class="dashboard-booking-icon w-11 h-11 rounded-xl bg-lavender-mist flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-electric-violet text-[20px]">videocam</span>
+            </div>
+
+            <div class="dashboard-booking-info min-w-[265px]">
+              <p class="text-base font-semibold text-ink flex items-center gap-2">
+                CCTV Installation
+                <span class="text-[10px] font-normal text-granite-gray bg-soft-slate px-2 py-1 rounded">
+                  FE-58474
+                </span>
+              </p>
+
+              <p class="text-xs font-normal text-granite-gray mt-1 flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px] text-medium">location_on</span>
+                DLF Cyber City, Gurgaon
+              </p>
+
+              <p class="text-xs font-normal text-granite-gray mt-1 flex items-center gap-3">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-medium">event</span>
+                  29 May 2026
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-medium">schedule</span>
+                  15 Hours
+                </span>
+              </p>
+            </div>
+
+            <div class="dashboard-booking-vendor flex items-center gap-3 min-w-[195px]">
+              <div class="w-10 h-10 rounded-full bg-electric-violet flex items-center justify-center shrink-0">
+                <span class="text-white text-xs font-semibold">RS</span>
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-ink">Rahul Sharma</p>
+                <p class="text-xs font-semibold text-ink flex items-center gap-1 mt-1">
+                  <span class="text-golden-orange text-[16px]">★</span>
+                  4.8
+                  <span class="text-medium text-[10px]">(248)</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="dashboard-booking-status min-w-[265px]">
+              <span class="inline-flex text-[11px] font-medium text-spend-green bg-mint-frost px-2.5 py-1 rounded-full">
+                Available
+              </span>
+
+              <p class="text-xs font-semibold text-ink mt-2">
+                <span class="font-semibold">30–45 mins</span>
+                <span class="text-granite-gray ml-1">Response Time</span>
+              </p>
+            </div>
+
+            <div class="dashboard-booking-price min-w-[135px]">
+              <p class="text-[11px] font-semibold text-medium">Estimated Price</p>
+              <p class="text-base font-bold text-ink mt-1">Rs.7,434</p>
+              <span
+                class="inline-flex mt-1 text-[11px] font-medium text-spend-green bg-mint-frost px-2.5 py-1 rounded-full">
+                Best Match
+              </span>
+            </div>
+
+            <div class="dashboard-booking-actions flex items-center gap-3 ml-auto">
+              <button
+                class="dashboard-btn-outline text-xs font-medium border border-primary-yellow text-primary-yellow px-5 py-2.5 rounded-full hover:bg-amber-50 transition whitespace-nowrap">
+                View Details
+              </button>
+
+              <button
+                class="dashboard-btn-primary text-xs font-semibold bg-primary-yellow text-white px-5 py-2.5 rounded-full transition whitespace-nowrap">
+                Accept Offer
+              </button>
+            </div>
+
+          </div>
+
+
+          <!-- 3. Filter Optic Setup -->
+          <div class="dashboard-booking-row flex items-center gap-4 px-7 py-3 min-w-[1180px]">
+
+            <div
+              class="dashboard-booking-icon w-11 h-11 rounded-xl bg-light-ochre-yellow flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-vibrant-orange text-[20px]">device_hub</span>
+            </div>
+
+            <div class="dashboard-booking-info min-w-[265px]">
+              <p class="text-base font-semibold text-ink flex items-center gap-2">
+                Filter Optic Setup
+                <span class="text-[10px] font-normal text-granite-gray bg-soft-slate px-2 py-1 rounded">
+                  FE-58474
+                </span>
+              </p>
+
+              <p class="text-xs font-normal text-granite-gray mt-1 flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px] text-medium">location_on</span>
+                DLF Cyber City, Gurgaon
+              </p>
+
+              <p class="text-xs font-normal text-granite-gray mt-1 flex items-center gap-3">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-medium">event</span>
+                  29 May 2026
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-medium">schedule</span>
+                  15 Hours
+                </span>
+              </p>
+            </div>
+
+            <div class="dashboard-booking-vendor flex items-center gap-3 min-w-[195px]">
+              <div class="w-10 h-10 rounded-full bg-vibrant-orange flex items-center justify-center shrink-0">
+                <span class="text-white text-xs font-semibold">RS</span>
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-ink">Rahul Sharma</p>
+                <p class="text-xs font-semibold text-ink flex items-center gap-1 mt-1">
+                  <span class="text-golden-orange text-[16px]">★</span>
+                  4.8
+                  <span class="text-medium text-[10px]">(248)</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="dashboard-booking-status min-w-[265px]">
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-medium text-spend-green bg-mint-frost px-2.5 py-1 rounded-full">
+                  On Site
+                </span>
+
+                <span class="text-[11px] font-medium text-primary-yellow bg-cloud-blue px-2.5 py-1 rounded-full">
+                  Team Leader
+                </span>
+              </div>
+
+              <div class="flex items-center gap-1 mt-1.5">
+                <div class="flex -space-x-2">
+                  <span class="w-5 h-5 rounded-full bg-soft-blue-gray border-2 border-white"></span>
+                  <span class="w-5 h-5 rounded-full bg-medium-cool-gray border-2 border-white"></span>
+                  <span class="w-5 h-5 rounded-full bg-article-light-gray border-2 border-white"></span>
+                </div>
+                <span class="text-xs font-medium text-granite-gray ml-1">10 engineers</span>
+              </div>
+
+              <p class="text-xs text-granite-gray mt-1">2 Slots Available</p>
+            </div>
+
+            <div class="dashboard-booking-price min-w-[135px]">
+              <p class="text-[11px] font-semibold text-medium">Estimated Price</p>
+              <p class="text-base font-bold text-ink mt-1">Rs.7,434</p>
+              <span
+                class="inline-flex mt-1 text-[11px] font-medium text-spend-green bg-mint-frost px-2.5 py-1 rounded-full">
+                Best Match
+              </span>
+            </div>
+
+            <div class="dashboard-booking-actions flex items-center gap-3 ml-auto">
+              <button
+                class="dashboard-btn-outline text-xs font-medium border border-primary-yellow text-primary-yellow px-5 py-2.5 rounded-full hover:bg-amber-50 transition whitespace-nowrap">
+                View Details
+              </button>
+
+              <button
+                class="dashboard-btn-primary text-xs font-semibold bg-primary-yellow text-white px-5 py-2.5 rounded-full transition whitespace-nowrap">
+                Accept Offer
+              </button>
+            </div>
+
+          </div>
+
+
+          <!-- 4. Server Room Setup -->
+          <div class="dashboard-booking-row flex items-center gap-4 px-7 py-3 min-w-[1180px]">
+
+            <div
+              class="dashboard-booking-icon w-11 h-11 rounded-xl bg-mint-mist flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-spend-green text-[20px]">dns</span>
+            </div>
+
+            <div class="dashboard-booking-info min-w-[265px]">
+              <p class="text-base font-semibold text-ink flex items-center gap-2">
+                Server Room Setup
+                <span class="text-[10px] font-semibold text-primary-yellow bg-cloud-blue px-2 py-1 rounded-full">
+                  Offers
+                </span>
+              </p>
+
+              <p class="text-xs font-normal text-granite-gray mt-1 flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px] text-medium">location_on</span>
+                DLF Cyber City, Gurgaon
+              </p>
+
+              <p class="text-xs font-normal text-granite-gray mt-1 flex items-center gap-3">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-medium">event</span>
+                  29 May 2026
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-medium">schedule</span>
+                  15 Hours
+                </span>
+              </p>
+            </div>
+
+            <div class="dashboard-booking-vendor flex items-center gap-3 min-w-[195px]">
+              <div class="w-10 h-10 rounded-full bg-spend-green flex items-center justify-center shrink-0">
+                <span class="text-white text-xs font-semibold">RS</span>
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-ink">Rahul Sharma</p>
+                <p class="text-xs font-semibold text-ink flex items-center gap-1 mt-1">
+                  <span class="text-golden-orange text-[16px]">★</span>
+                  4.8
+                  <span class="text-medium text-[10px]">(248)</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="dashboard-booking-status min-w-[265px]">
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-medium text-spend-green bg-mint-frost px-2.5 py-1 rounded-full">
+                  On Site
+                </span>
+
+                <span class="text-[11px] font-medium text-primary-yellow bg-cloud-blue px-2.5 py-1 rounded-full">
+                  Team Leader
+                </span>
+              </div>
+
+              <div class="flex items-center gap-1 mt-1.5">
+                <div class="flex -space-x-2">
+                  <span class="w-5 h-5 rounded-full bg-soft-blue-gray border-2 border-white"></span>
+                  <span class="w-5 h-5 rounded-full bg-medium-cool-gray border-2 border-white"></span>
+                  <span class="w-5 h-5 rounded-full bg-article-light-gray border-2 border-white"></span>
+                </div>
+                <span class="text-xs font-medium text-granite-gray ml-1">10 engineers</span>
+              </div>
+            </div>
+
+            <div class="dashboard-booking-price min-w-[135px]">
+              <p class="text-[11px] font-semibold text-medium">Estimated Price</p>
+              <p class="text-base font-bold text-ink mt-1">Rs.7,434</p>
+              <span
+                class="inline-flex mt-1 text-[11px] font-medium text-spend-green bg-mint-frost px-2.5 py-1 rounded-full">
+                Best Match
+              </span>
+            </div>
+
+            <div class="dashboard-booking-actions flex items-center gap-3 ml-auto">
+              <button
+                class="dashboard-btn-outline text-xs font-medium border border-primary-yellow text-primary-yellow px-5 py-2.5 rounded-full hover:bg-amber-50 transition whitespace-nowrap">
+                View Details
+              </button>
+
+              <button
+                class="dashboard-btn-primary text-xs font-semibold bg-primary-yellow text-white px-5 py-2.5 rounded-full transition whitespace-nowrap">
+                Accept Offer
+              </button>
+            </div>
+
+          </div>
+
+
+          <!-- 5. Network Cabling -->
+          <div class="dashboard-booking-row flex items-center gap-4 px-7 py-3 min-w-[1180px]">
+            <div
+              class="dashboard-booking-icon w-11 h-11 rounded-xl bg-cloud-blue flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-primary-yellow text-[20px]">device_hub</span>
+            </div>
+
+            <div class="dashboard-booking-info min-w-[265px]">
+              <p class="text-base font-semibold text-ink flex items-center gap-2">
+                Network Cabling
+                <span class="text-[10px] font-semibold text-primary-yellow bg-cloud-blue px-2 py-1 rounded-full">
+                  Offers
+                </span>
+              </p>
+
+              <p class="text-xs font-normal text-granite-gray mt-1 flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px] text-medium">location_on</span>
+                DLF Cyber City, Gurgaon
+              </p>
+
+              <p class="text-xs font-normal text-granite-gray mt-1 flex items-center gap-3">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-medium">event</span>
+                  29 May 2026
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-medium">schedule</span>
+                  15 Hours
+                </span>
+              </p>
+            </div>
+
+            <div class="dashboard-booking-vendor flex items-center gap-3 min-w-[195px]">
+              <div class="w-10 h-10 rounded-full bg-primary-yellow flex items-center justify-center shrink-0">
+                <span class="text-white text-xs font-semibold">RS</span>
+              </div>
+
+              <div>
+                <p class="text-sm font-semibold text-ink">Rahul Sharma</p>
+                <p class="text-xs font-semibold text-ink flex items-center gap-1 mt-1">
+                  <span class="text-golden-orange text-[16px]">★</span>
+                  4.8
+                  <span class="text-medium text-[10px]">(248)</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="dashboard-booking-status min-w-[265px]">
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-medium text-spend-green bg-mint-frost px-2.5 py-1 rounded-full">
+                  On Site
+                </span>
+
+                <span class="text-[11px] font-medium text-primary-yellow bg-cloud-blue px-2.5 py-1 rounded-full">
+                  Team Leader
+                </span>
+              </div>
+
+              <div class="flex items-center gap-1 mt-1.5">
+                <div class="flex -space-x-2">
+                  <span class="w-5 h-5 rounded-full bg-soft-blue-gray border-2 border-white"></span>
+                  <span class="w-5 h-5 rounded-full bg-medium-cool-gray border-2 border-white"></span>
+                  <span class="w-5 h-5 rounded-full bg-article-light-gray border-2 border-white"></span>
+                </div>
+                <span class="text-xs font-medium text-granite-gray ml-1">10 engineers</span>
+              </div>
+            </div>
+
+            <div class="dashboard-booking-price min-w-[135px]">
+              <p class="text-[11px] font-semibold text-medium">Estimated Price</p>
+              <p class="text-base font-bold text-ink mt-1">Rs.7,434</p>
+              <span
+                class="inline-flex mt-1 text-[11px] font-medium text-spend-green bg-mint-frost px-2.5 py-1 rounded-full">
+                Best Match
+              </span>
+            </div>
+
+            <div class="dashboard-booking-actions flex items-center gap-3 ml-auto">
+              <button
+                class="dashboard-btn-outline text-xs font-medium border border-primary-yellow text-primary-yellow px-5 py-2.5 rounded-full hover:bg-amber-50 transition whitespace-nowrap">
+                View Details
+              </button>
+
+              <button
+                class="dashboard-btn-primary text-xs font-semibold bg-primary-yellow text-white px-5 py-2.5 rounded-full transition whitespace-nowrap">
+                Accept Offer
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="px-5 py-3 text-xs text-granite-gray border-t border-pale-blue-gray">Showing 5 of 24 bookings</div>
+    </div>
+  </div>
+
+  <!-- ============ DISCOVER + MONEY TRAIL ============ -->
+  <div class="dashboard-panels-grid grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+    <div class="dashboard-services-card bg-white border border-light-blue-gray rounded-2xl shadow-sm p-5">
+      <p class="text-xs font-bold text-soft-muted-blue-gray tracking-wide uppercase mb-1">Discover</p>
+      <h3 class="text-base font-bold text-dark-charcoal-blue mb-4">Available Services</h3>
+
+      <div class="dashboard-service-list space-y-3">
+
+        <div class="dashboard-service-row flex items-center gap-3">
+          <div
+            class="dashboard-service-icon w-10 h-10 rounded-xl bg-light-warm-creme flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-golden-orange text-[20px]">bolt</span>
+          </div>
+
+          <div class="flex-1">
+            <p class="text-base font-bold text-dark-slate-gray">Server Room Setup</p>
+            <p class="text-sm font-normal text-light-blue-gray1">Verified experts</p>
+            <p class="text-sm text-primary-yellow">★ 4.9</p>
+          </div>
+
+          <div class="flex flex-col items-end gap-1 shrink-0">
+            <span class="text-sm font-bold text-dark-muted-blue-gray">from ₹499</span>
+            <button
+              class="dashboard-btn-primary text-xs font-semibold bg-primary-yellow  text-white px-3 py-1.5 rounded-lg whitespace-nowrap">
+              Book Now
+            </button>
+          </div>
+        </div>
+
+
+        <div class="dashboard-service-row flex items-center gap-3">
+          <div
+            class="dashboard-service-icon w-10 h-10 rounded-xl bg-light-warm-creme flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-golden-orange text-[20px]">earthquake</span>
+          </div>
+
+          <div class="flex-1">
+            <p class="text-base font-bold text-dark-slate-gray">CCTV Installation</p>
+            <p class="text-sm font-normal text-light-blue-gray1">Same-day service</p>
+            <p class="text-sm text-primary-yellow">★ 4.8</p>
+          </div>
+
+          <div class="flex flex-col items-end gap-1 shrink-0">
+            <span class="text-sm font-bold text-dark-muted-blue-gray">from ₹699</span>
+            <button
+              class="dashboard-btn-primary text-xs font-semibold bg-primary-yellow  text-white px-3 py-1.5 rounded-lg whitespace-nowrap">
+              Book Now
+            </button>
+          </div>
+        </div>
+
+
+        <div class="dashboard-service-row flex items-center gap-3">
+          <div
+            class="dashboard-service-icon w-10 h-10 rounded-xl bg-light-warm-creme flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-golden-orange text-[20px]">sell</span>
+          </div>
+
+          <div class="flex-1">
+            <p class="text-base font-bold text-dark-slate-gray">Network Cabling</p>
+            <p class="text-sm font-normal text-light-blue-gray1">Top-rated teams</p>
+            <p class="text-sm text-primary-yellow">★ 4.7</p>
+          </div>
+
+          <div class="flex flex-col items-end gap-1 shrink-0">
+            <span class="text-sm font-bold text-dark-muted-blue-gray">from ₹1,299</span>
+            <button
+              class="dashboard-btn-primary text-xs font-semibold bg-primary-yellow  text-white px-3 py-1.5 rounded-lg whitespace-nowrap">
+              Book Now
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <button
+        class="dashboard-btn-block w-full mt-4 bg-primary-yellow  text-white text-sm font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5">
+        Browse all services <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+      </button>
+    </div>
+
+    <div class="dashboard-payments-card bg-white border border-gray-100 rounded-2xl shadow-sm p-5">
+      <p class="text-xs font-bold text-soft-muted-blue-gray tracking-wide uppercase mb-1">Money Trail</p>
+      <h3 class="text-base font-bold text-dark-charcoal-blue mb-4">Recent Payments</h3>
+
+      <div class="dashboard-payment-list space-y-3">
+        <div class="dashboard-payment-row flex items-center gap-3">
+          <div
+            class="dashboard-payment-icon w-10 h-10 rounded-xl bg-light-warm-creme flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-golden-orange text-[20px]">credit_card</span>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-normal text-light-blue-gray1">Electrical repair · Rohan Mehta</p>
+            <p class="text-xs text-gray-400">18 Jun 2024</p>
+          </div>
+          <div class="text-right">
+            <p class="text-sm font-bold text-dark-muted-blue-gray">₹1,200</p>
+            <p class="text-[11px] text-emerald-600 flex items-center justify-end gap-0.5"><span
+                class="material-symbols-outlined text-[12px]">check_circle</span> Paid</p>
+          </div>
+        </div>
+
+        <div class="dashboard-payment-row flex items-center gap-3">
+          <div
+            class="dashboard-payment-icon w-10 h-10 rounded-xl bg-light-warm-creme flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-golden-orange text-[20px]">credit_card</span>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-normal text-light-blue-gray1">AC installation · CoolCare Pro</p>
+            <p class="text-xs text-gray-400">11 Jun 2024</p>
+          </div>
+          <div class="text-right">
+            <p class="text-sm font-bold text-dark-muted-blue-gray">₹3,500</p>
+            <p class="text-[11px] text-emerald-600 flex items-center justify-end gap-0.5"><span
+                class="material-symbols-outlined text-[12px]">check_circle</span> Paid</p>
+          </div>
+        </div>
+
+        <div class="dashboard-payment-row flex items-center gap-3">
+          <div
+            class="dashboard-payment-icon w-10 h-10 rounded-xl bg-light-warm-creme flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-golden-orange text-[20px]">credit_card</span>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-normal text-light-blue-gray1">Plumbing service · Vikram Singh</p>
+            <p class="text-xs text-gray-400">03 Jun 2024</p>
+          </div>
+          <div class="text-right">
+            <p class="text-sm font-bold text-dark-muted-blue-gray">₹850</p>
+            <p class="text-[11px] text-emerald-600 flex items-center justify-end gap-0.5"><span
+                class="material-symbols-outlined text-[12px]">check_circle</span> Paid</p>
+          </div>
+        </div>
+
+        <div class="dashboard-payment-row flex items-center gap-3">
+          <div
+            class="dashboard-payment-icon w-10 h-10 rounded-xl bg-light-warm-creme flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-golden-orange text-[20px]">credit_card</span>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-normal text-light-blue-gray1">AC installation · CoolCare Pro</p>
+            <p class="text-xs text-gray-400">11 Jun 2024</p>
+          </div>
+          <div class="text-right">
+            <p class="text-sm font-bold text-dark-muted-blue-gray">₹3,500</p>
+            <p class="text-[11px] text-emerald-600 flex items-center justify-end gap-0.5"><span
+                class="material-symbols-outlined text-[12px]">check_circle</span> Paid</p>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="dashboard-btn-block w-full mt-4 bg-primary-yellow  text-white text-sm font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5">
+        Browse all services <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ CUSTOMER FEEDBACK ============ -->
+  <div class="dashboard-feedback-card bg-white border border-light-blue-gray rounded-2xl shadow-sm p-5">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-2xl font-semibold text-dark-blue-black">Customer Feedback</h3>
+      <div class="flex items-center gap-2">
+        <button
+          class="dashboard-btn-outline text-xs font-medium text-amber-500 border border-amber-400 px-3 py-1.5 rounded-lg flex items-center gap-1">
+          <span class="material-symbols-outlined text-[15px]">filter_list</span> Filter
+        </button>
+        <button
+          class="dashboard-btn-icon w-7 h-7 rounded-lg border border-gray-200 flex items-center justify-center text-gray-400 hover:bg-gray-50">
+          <span class="material-symbols-outlined text-[16px]">close</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="dashboard-feedback-list divide-y divide-gray-100" id="dashboard-feedback-list"></div>
+  </div>
+
+</div>
+
+<script>
+  // Availability toggle — flips button state + track color + status text
+  function dashboardToggleAvailability(btn) {
+    const isOn = btn.getAttribute('data-on') === 'true';
+    const nowOn = !isOn;
+    btn.setAttribute('data-on', nowOn);
+
+    const dot = btn.querySelector('.dashboard-toggle-dot');
+    const statusText = document.getElementById('dashboard-availability-status');
+    const statusDot = document.getElementById('dashboard-availability-dot');
+
+    if (nowOn) {
+      btn.classList.remove('bg-gray-300');
+      btn.classList.add('bg-amber-500');
+      dot.classList.remove('left-1');
+      dot.classList.add('left-6');
+      statusText.textContent = 'Online';
+      statusDot.classList.remove('bg-gray-300');
+      statusDot.classList.add('bg-emerald-500');
+    } else {
+      btn.classList.remove('bg-amber-500');
+      btn.classList.add('bg-gray-300');
+      dot.classList.remove('left-6');
+      dot.classList.add('left-1');
+      statusText.textContent = 'Offline';
+      statusDot.classList.remove('bg-emerald-500');
+      statusDot.classList.add('bg-gray-300');
+    }
+  }
+
+  // Customer feedback data — different ratings per customer
+  const dashboardFeedbacks = [
+    { name: "Maudie Reyes", date: "5 Sept 2025", rating: 5, text: "The engineer arrived on time and finished the network cabling job faster than expected. Really professional work from start to finish." },
+    { name: "Priya Nair", date: "2 Sept 2025", rating: 4, text: "CCTV installation went smoothly, though the technician was about 20 minutes late. Camera quality and setup were great overall." },
+    { name: "Arjun Mehta", date: "29 Aug 2025", rating: 5, text: "Booked a server room setup and the team was extremely knowledgeable. Clean cabling, proper labeling, and great documentation handed over." },
+    { name: "Sneha Kapoor", date: "21 Aug 2025", rating: 3, text: "Fiber optic setup worked fine but communication before the visit could have been better. Had to follow up twice to confirm the schedule." },
+  ];
+
+  const dashboardFeedbackList = document.getElementById('dashboard-feedback-list');
+  dashboardFeedbacks.forEach(f => {
+    const stars = Array.from({ length: 5 }, (_, i) =>
+      `<span class="material-symbols-outlined text-[15px] ${i < f.rating ? 'text-primary-yellow' : 'text-gray-200'}">star</span>`
+    ).join('');
+
+    const initials = f.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+
+    const row = document.createElement('div');
+    row.className = 'dashboard-feedback-row flex items-start gap-3 py-4';
+    row.innerHTML = `
+      <div class="w-9 h-9 rounded-full bg-light-warm-creme text-golden-orange  text-xs font-bold flex items-center justify-center shrink-0">${initials}</div>
+      <div class="flex-1">
+        <div class="flex items-center justify-between">
+          <p class="text-sm font-semibold text-gray-900">${f.name}</p>
+          <div class="flex items-center gap-1">${stars} <span class="text-xs text-gray-400 ml-1">${f.rating}/5</span></div>
+        </div>
+        <p class="text-xs text-gray-500 mt-1 leading-relaxed max-w-2xl">${f.text}</p>
+        <p class="text-[11px] text-gray-400 mt-1">${f.date}</p>
+      </div>
+    `;
+    dashboardFeedbackList.appendChild(row);
+  });
+</script>
+{% endblock %}

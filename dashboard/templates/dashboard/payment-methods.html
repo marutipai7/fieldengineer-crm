@@ -1,0 +1,1540 @@
+{% extends "dashboard/layout.html" %}
+{% block title %}Payment Methods{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+<main id="mainPaymentContent" class="flex flex-col gap-5">
+    <div class="flex flex-col gap-2.25">
+        <p class="font-bold text-xl lg:text-2xl">Payment Methods</p>
+        <p class="text-sm font-normal text-granite-gray">Manage payments, view invoices, and download billing
+            reports.
+        </p>
+    </div>
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="metrics-card">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-cloud-blue">
+                <span class="material-symbols-outlined text-[#FFC949]">currency_rupee</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="font-normal text-xs text-medium">Total Spend</p>
+                <p class="font-bold text-2xl text-ink">Rs.8,42,500</p>
+                <p class="font-normal text-xs text-medium">All Time</p>
+            </div>
+        </div>
+
+        <div class="metrics-card">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-[#F3E8FF]">
+                <span class="material-symbols-outlined text-[#8B5CF6]">description</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="font-normal text-xs text-medium">Total Invoices</p>
+                <p class="font-bold text-2xl text-ink">127</p>
+                <p class="font-normal text-xs text-medium">All Time</p>
+            </div>
+        </div>
+
+        <div class="metrics-card">
+            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-[#E8F8EE]">
+                <span class="material-symbols-outlined text-spend-green">trending_up</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="font-normal text-xs text-medium">This Month Spend</p>
+                <p class="font-bold text-2xl text-ink">Rs.64,800</p>
+                <p class="font-normal text-xs text-medium">June 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6.5">
+        <div class="bg-white border border-light-medium rounded-3xl p-6 flex flex-col gap-3">
+            <p class="font-semibold text-base text-ink">Payment Methods</p>
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-[#E5F7F1]">
+                        <span class="material-symbols-outlined text-primary-yellow text-lg!">account_balance</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">HDFC Bank</p>
+                        <p class="font-normal text-xs text-granite-gray">HDFC Savings A/C ...1254 IFSC HDFC0001234</p>
+                    </div>
+                </div>
+
+                <div class="w-15 h-5.5 flex items-center justify-center rounded-full bg-[#E5F7F1]">
+                    <p class="font-normal text-xs text-[#00B884]">Primary</p>
+                </div>
+
+                <div
+                    class="w-8 h-7 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-pale-blue-gray">
+                    <span class="material-symbols-outlined text-lg!">more_vert</span>
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-[#E0F2FE]">
+                        <span class="material-symbols-outlined text-[#0EA5E9] text-lg!">account_balance</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">SBI Bank</p>
+                        <p class="font-normal text-xs text-granite-gray">SBI Current A/C ...5678 IFSC SBIN0012345</p>
+                    </div>
+                </div>
+                <div
+                    class="w-8 h-7 rounded-lg flex items-center justify-center cursor-pointer bg-white border border-pale-blue-gray">
+                    <span class="material-symbols-outlined text-lg!">more_vert</span>
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-[#F3E8FF]">
+                        <span class="material-symbols-outlined text-[#8B5CF6] text-lg!">credit_card</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">Credit Card</p>
+                        <p class="font-normal text-xs text-granite-gray">Axis Corporate Visa ...9876</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button
+                        class="editExistingCardBtn text-[#FFC949] font-semibold text-sm hover:underline cursor-pointer">Edit</button>
+                </div>
+            </div>
+
+            <div class="payment-method">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-[#FFF5E5]">
+                        <span class="material-symbols-outlined text-[#FFB020] text-lg!">mobile_friendly</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-normal text-sm text-ink">UPI netbanking</p>
+                        <p class="font-normal text-xs text-granite-gray">UPI ID acme@paytm</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button
+                        class="editExistingUpiBtn text-[#FFC949] font-semibold text-sm hover:underline cursor-pointer">Edit</button>
+                </div>
+            </div>
+
+            <button
+                class="border border-[#FFC949]! bg-white rounded-xl flex items-center justify-center py-4 gap-2 cursor-pointer addPaymentBtn">
+                <span class="text-primary-yellow material-symbols-outlined">add</span>
+                <span class="text-[#FFC949] font-semibold text-lg">Add Payment Method</span>
+            </button>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-mist p-6 flex flex-col gap-1">
+            <p class="font-semibold text-base text-ink">Download Center</p>
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-cloud-blue">
+                        <span class="material-symbols-outlined text-[#FFC949] text-lg!">docs</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Download GST Report</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-mint-mist">
+                        <span class="material-symbols-outlined text-forest-green text-lg!">signal_cellular_alt</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Download Expense Report</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-lavender-mist">
+                        <span class="material-symbols-outlined text-electric-violet text-lg!">docs</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Download All Invoices</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+
+            <div class="flex items-center justify-between py-2 border-b border-soft-slate">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 flex items-center justify-center rounded-[10px] bg-peach-cream">
+                        <span class="material-symbols-outlined text-golden-orange text-lg!">database</span>
+                    </div>
+                    <p class="font-normal text-sm text-ink">Export as CSV</p>
+                </div>
+
+                <span class="material-symbols-outlined cursor-pointer">download</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="flex flex-col gap-4">
+        <p class="font-semibold text-base text-ink">Invoice History</p>
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center justify-between">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                <div
+                    class="border border-pale-blue-gray rounded-[10px] bg-arctic-white flex items-center gap-1.5 py-[7.5px] px-2.5 sm:w-65!">
+                    <span class="material-symbols-outlined text-lg! text-medium">search</span>
+                    <input type="text" id="invoiceSearchInput"
+                        class="focus:ring-0 focus:outline-none w-full placeholder:font-normal placeholder:text-sm placeholder:text-medium font-normal text-sm text-ink"
+                        placeholder="Search Invoice">
+                </div>
+
+                <button
+                    class="date-picker-btn bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">calendar_today</span>
+                    <p class="font-normal text-sm text-granite-gray">Date Range</p>
+                </button>
+
+                <button
+                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">tune</span>
+                    <p class="font-normal text-sm text-granite-gray">Filters</p>
+                </button>
+            </div>
+
+            <a href="/dashboard/invoice/"
+                class="font-semibold text-base text-dark cursor-pointer viewAllInvoices hover:underline">View All
+                Invoices</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <button data-status="all"
+                class="filter-tab border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary-yellow! active-tab">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">All</span>
+            </button>
+
+            <button data-status="paid"
+                class="filter-tab border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary-yellow!">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">Paid</span>
+            </button>
+
+            <button data-status="pending"
+                class="filter-tab border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary-yellow!">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">Pending</span>
+            </button>
+
+            <button data-status="refunded"
+                class="filter-tab border border-pale-blue-gray bg-white py-2.25! px-6! rounded-[20px] flex items-center justify-center group hover:bg-primary-yellow!">
+                <span class="font-normal text-xs text-granite-gray group-hover:text-white">Refunded</span>
+            </button>
+        </div>
+
+        <hr class="text-pale-blue-gray">
+
+        <div class="overflow-x-auto">
+            <table class="w-full whitespace-nowrap">
+                <thead class="bg-[#FFC949] text-white font-semibold text-lg">
+                    <th class="py-5 px-4 border-r border-white rounded-tl-2xl">
+                        Invoice ID
+                    </th>
+                    <th class="py-5 px-4 border-r border-white">
+                        Booking ID
+                    </th>
+                    <th class="py-5 px-4 border-r border-white">
+                        Service
+                    </th>
+                    <th class="py-5 px-4 border-r border-white">
+                        Amount
+                    </th>
+                    <th class="py-5 px-4 border-r border-white">
+                        Status
+                    </th>
+                    <th class="py-5 px-4 border-r border-white">
+                        Invoice Date
+                    </th>
+                    <th class="py-5 px-4 rounded-tr-2xl">
+                        Action
+                    </th>
+                </thead>
+
+                <tbody class="border border-light-medium rounded-br-2xl rounded-bl-2xl">
+                    <tr class="invoice-row" data-status="paid">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-001
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            Network Cabling
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#E5F7F1] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#00B884]">Paid</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="invoice-row" data-status="paid">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-002
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            rack Installation
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#E5F7F1] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#00B884]">Paid</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr class="invoice-row" data-status="pending">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-003
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            CCTV Installation
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#FFF5E5] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#FFB020]">Pending</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="invoice-row" data-status="pending">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-004
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            Fiber Optic
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#FFF5E5] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#FFB020]">Pending</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="invoice-row" data-status="pending">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-005
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5684
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            Fiber Optic
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 5,730
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#FFF5E5] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#FFB020]">Pending</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            15 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="invoice-row" data-status="refunded">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-006
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5685
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            Equipment Return
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 2,150
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#FEE2E2] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#EF4444]">Refunded</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            18 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="invoice-row" data-status="refunded">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-007
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5686
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            Service Cancellation
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 1,500
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#FEE2E2] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#EF4444]">Refunded</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            20 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="invoice-row" data-status="refunded">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-008
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5687
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            Site Survey
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 3,200
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#FEE2E2] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#EF4444]">Refunded</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            22 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="invoice-row" data-status="refunded">
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            INV-2026-009
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            BK-5688
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray">
+                            Equipment Maintenance
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            Rs. 1,800
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="bg-[#FEE2E2] rounded-[10px] flex items-center justify-center py-2.5 px-2">
+                                <span class="font-bold text-base text-[#EF4444]">Refunded</span>
+                            </div>
+                        </td>
+                        <td class="px-4 py-3 font-semibold text-base text-dark-gray text-center">
+                            25 May 2026
+                        </td>
+                        <td class="px-4 py-3">
+                            <div class="flex items-center justify-center gap-5">
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">visibility</span>
+                                <span class="material-symbols-outlined text-lg! cursor-pointer">download</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="bg-white border border-slate-mist rounded-2xl p-6 ">
+
+        <div class="flex flex-col gap-3.5 bg-white rounded-xl shadow-metric-card! p-6">
+            <div class="flex items-center gap-2 ">
+                <p class="font-semibold text-base text-ink">Monthly Spend Overview</p>
+
+                <button
+                    class="date-picker-btn bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">calendar_today</span>
+                    <p class="font-normal text-sm text-granite-gray">Date Range</p>
+                </button>
+
+                <button
+                    class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75! flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="material-symbols-outlined text-lg! text-granite-gray">tune</span>
+                    <p class="font-normal text-sm text-granite-gray">Filters</p>
+                </button>
+            </div>
+
+            <div class="chart-container h-150">
+                <canvas id="revenueChart"></canvas>
+                <div class="axis-label flex justify-center pt-5">Day/Month/ Year</div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="border border-slate-mist rounded-2xl p-6 bg-white flex flex-col gap-2">
+        <p class="font-semibold text-base text-ink">Payment Summary</p>
+        <div class="flex items-center justify-between py-2">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-[#00B884]"></div>
+                <p class="font-normal text-sm text-granite-gray">Paid</p>
+            </div>
+
+            <p class="font-semibold text-sm text-[#00B884]">Rs.7,68,700</p>
+        </div>
+
+        <div class="flex items-center justify-between py-2">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-[#FFB020]"></div>
+                <p class="font-normal text-sm text-granite-gray">Pending</p>
+            </div>
+
+            <p class="font-semibold text-sm text-[#FFB020]">Rs.57,600</p>
+        </div>
+
+        <div class="flex items-center justify-between py-2">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-[#8B5CF6]"></div>
+                <p class="font-normal text-sm text-granite-gray">Refunded</p>
+            </div>
+
+            <p class="font-semibold text-sm text-[#8B5CF6]">Rs.16,200</p>
+        </div>
+
+        <div class="flex items-center justify-between py-2">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-[#FFC949]"></div>
+                <p class="font-normal text-sm text-granite-gray">Total</p>
+            </div>
+
+            <p class="font-semibold text-sm text-[#FFC949]">Rs.8,42,500</p>
+        </div>
+    </section>
+
+    <section class="bg-cloud-blue border border-baby-blue rounded-xl flex items-center justify-between py-5 px-7.5">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 flex items-center justify-center bg-baby-blue rounded-xl">
+                <span class="material-symbols-outlined text-primary-yellow">help</span>
+            </div>
+            <div class="flex flex-col gap-2">
+                <p class="font-semibold text-base text-primary-yellow">Need help with invoices or payments?</p>
+                <p class="font-normal text-sm text-granite-gray">Our support team is here to help you with any
+                    billing-related queries.</p>
+            </div>
+        </div>
+
+        <a href="#" class="bg-primary-yellow rounded-xl flex items-center justify-center gap-2 py-2.5 px-5 ">
+            <span class="material-symbols-outlined text-white text-xl!">chat_bubble</span>
+            <p class="font-semibold text-sm text-white">Contact Support</p>
+        </a>
+    </section>
+</main>
+
+<main id="addCardMainContent" class="hidden flex flex-col gap-6">
+    <!-- Header -->
+    <div class="flex flex-col gap-2">
+        <p class="font-bold text-xl lg:text-2xl text-ink">Add Card Details</p>
+        <p class="text-sm font-normal text-granite-gray">Add your card details for quick and secure payments.</p>
+    </div>
+
+    <!-- Toggle Buttons -->
+    <div class="flex items-center gap-4">
+        <button class="bg-[#FFC949] text-white font-semibold text-sm py-2 px-4 rounded-full">
+            Credit Card
+        </button>
+        <button
+            class="bg-white border border-gray-300 text-gray-600 font-semibold text-sm py-2 px-4 rounded-full hover:bg-gray-50 transition-colors">
+            Debit Card
+        </button>
+    </div>
+
+    <!-- Card Details Form Container -->
+    <div class="bg-white border border-gray-200 rounded-2xl p-6">
+        <div class="flex justify-between items-center mb-6">
+            <p class="font-semibold text-lg text-ink">Card Details</p>
+            <button id="switchToEditCardBtn"
+                class="text-[#FFC949] font-semibold text-sm hover:underline cursor-pointer">Edit</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <!-- Name on Card -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Name on Card*</label>
+                <input type="text" placeholder="Enter name"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- Card Number -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Card Number*</label>
+                <input type="text" placeholder="Enter Card number"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- Expiration Date -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Expiration Date*</label>
+                <input type="text" placeholder="Enter Expiration Date"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- CVC Code -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">CVC Code*</label>
+                <input type="text" placeholder="Enter Code"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+        </div>
+
+        <!-- Secure Info Alert -->
+        <div class="bg-[#E5F7F1] border border-[#00B884]/20 rounded-xl p-4 flex items-center justify-center gap-2 mb-8">
+            <span class="material-symbols-outlined text-[#00B884] text-lg">shield</span>
+            <p class="text-sm text-[#00B884]">Your payment information is secure and encrypted.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-end items-center gap-4 border-t border-gray-100 pt-6">
+            <button id="cancelAddCardBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-[#FFC949] border-2 border-[#FFC949] hover:bg-[#FFC949] hover:text-white transition-colors">
+                Cancel
+            </button>
+            <button id="submitAddCardBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-white bg-[#FFC949] hover:bg-opacity-90 transition-colors shadow-sm">
+                Add Card
+            </button>
+        </div>
+    </div>
+</main>
+
+<main id="editCardMainContent" class="hidden flex flex-col gap-6">
+    <!-- Header -->
+    <div class="flex flex-col gap-2">
+        <p class="font-bold text-xl lg:text-2xl text-ink">Edit Card Details</p>
+        <p class="text-sm font-normal text-granite-gray">Update your card details for quick and secure payments.</p>
+    </div>
+
+    <!-- Toggle Buttons -->
+    <div class="flex items-center gap-4">
+        <button class="bg-[#FFC949] text-white font-semibold text-sm py-2 px-4 rounded-full">
+            Credit Card
+        </button>
+        <button
+            class="bg-white border border-gray-300 text-gray-600 font-semibold text-sm py-2 px-4 rounded-full hover:bg-gray-50 transition-colors">
+            Debit Card
+        </button>
+    </div>
+
+    <!-- Card Details Form Container -->
+    <div class="bg-white border border-gray-200 rounded-2xl p-6">
+        <div class="flex justify-between items-center mb-6">
+            <p class="font-semibold text-lg text-ink">Card Details</p>
+            <button class="text-[#FFC949] font-semibold text-sm hover:underline cursor-pointer">Edit</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <!-- Name on Card -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Name on Card*</label>
+                <input type="text" value="Rishi Acharya" placeholder="Enter name"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- Card Number -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Card Number*</label>
+                <input type="text" value="**** **** **** 9876" placeholder="Enter Card number"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- Expiration Date -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Expiration Date*</label>
+                <input type="text" value="12/28" placeholder="Enter Expiration Date"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- CVC Code -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">CVC Code*</label>
+                <input type="text" value="***" placeholder="Enter Code"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+        </div>
+
+        <!-- Secure Info Alert -->
+        <div class="bg-[#E5F7F1] border border-[#00B884]/20 rounded-xl p-4 flex items-center justify-center gap-2 mb-8">
+            <span class="material-symbols-outlined text-[#00B884] text-lg">shield</span>
+            <p class="text-sm text-[#00B884]">Your payment information is secure and encrypted.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-end items-center gap-4 border-t border-gray-100 pt-6">
+            <button id="cancelEditCardBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-[#FFC949] border-2 border-[#FFC949] hover:bg-[#FFC949] hover:text-white transition-colors">
+                Cancel
+            </button>
+            <button id="submitEditCardBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-white bg-[#FFC949] hover:bg-opacity-90 transition-colors shadow-sm">
+                Save Changes
+            </button>
+        </div>
+    </div>
+</main>
+
+<main id="addUpiMainContent" class="hidden flex flex-col gap-6">
+    <!-- Header -->
+    <div class="flex flex-col gap-2">
+        <p class="font-bold text-xl lg:text-2xl text-ink">Add UPI ID</p>
+        <p class="text-sm font-normal text-granite-gray">Link your UPI account for quick and secure payments.</p>
+    </div>
+
+    <!-- UPI Details Form Container -->
+    <div class="bg-white border border-gray-200 rounded-2xl p-6">
+        <div class="flex justify-between items-center mb-6">
+            <p class="font-semibold text-lg text-ink">UPI ID details</p>
+            <button id="switchToEditUpiBtn"
+                class="text-[#FFC949] font-semibold text-sm hover:underline cursor-pointer">Edit</button>
+        </div>
+
+        <div class="mb-6">
+            <!-- UPI ID -->
+            <div class="flex flex-col gap-2 relative">
+                <label class="text-sm font-medium text-slate-700">UPI ID</label>
+                <input type="text" placeholder="example@upi"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+                <span class="absolute right-4 top-[38px] text-sm font-bold text-[#0066FF]">UPI</span>
+            </div>
+        </div>
+
+        <!-- Secure Info Alert -->
+        <div class="bg-[#E5F7F1] border border-[#00B884]/20 rounded-xl p-4 flex items-center justify-center gap-2 mb-8">
+            <span class="material-symbols-outlined text-[#00B884] text-lg">shield</span>
+            <p class="text-sm text-[#00B884]">Your payment information is secure and encrypted.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-end items-center gap-4 border-t border-gray-100 pt-6">
+            <button id="cancelUpiBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-[#FFC949] border-2 border-[#FFC949] hover:bg-[#FFC949] hover:text-white transition-colors">
+                Cancel
+            </button>
+            <button id="submitUpiBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-white bg-[#FFC949] hover:bg-opacity-90 transition-colors shadow-sm">
+                Verify & Save
+            </button>
+        </div>
+    </div>
+</main>
+
+<main id="editUpiMainContent" class="hidden flex flex-col gap-6">
+    <!-- Header -->
+    <div class="flex flex-col gap-2">
+        <p class="font-bold text-xl lg:text-2xl text-ink">Edit UPI ID</p>
+        <p class="text-sm font-normal text-granite-gray">Link your UPI account for quick and secure payments.</p>
+    </div>
+
+    <!-- UPI Details Form Container -->
+    <div class="bg-white border border-gray-200 rounded-2xl p-6">
+        <div class="flex justify-between items-center mb-6">
+            <p class="font-semibold text-lg text-ink">UPI ID details</p>
+        </div>
+
+        <div class="mb-6">
+            <!-- UPI ID -->
+            <div class="flex flex-col gap-2 relative">
+                <label class="text-sm font-medium text-slate-700">UPI ID</label>
+                <input type="text" value="sushmitadas@sbi" placeholder="example@upi"
+                    class="w-full border border-[#FFC949] rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm text-gray-400 bg-white">
+                <span class="absolute right-4 top-[38px] text-sm font-bold text-[#0066FF]">UPI</span>
+            </div>
+        </div>
+
+        <!-- Secure Info Alert -->
+        <div class="bg-[#E5F7F1] border border-[#00B884]/20 rounded-xl p-4 flex items-center justify-center gap-2 mb-8">
+            <span class="material-symbols-outlined text-[#00B884] text-lg">verified_user</span>
+            <p class="text-sm text-[#00B884]">Your payment information is secure and encrypted.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-end items-center gap-4">
+            <button id="cancelEditUpiBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-[#FFC949] border-2 border-[#FFC949] hover:bg-[#FFC949] hover:text-white transition-colors">
+                Cancel
+            </button>
+            <button id="submitEditUpiBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-white bg-[#FFC949] hover:bg-opacity-90 transition-colors shadow-sm">
+                Verify & Save
+            </button>
+        </div>
+    </div>
+</main>
+
+<main id="addNetbankingMainContent" class="hidden flex flex-col gap-6">
+    <!-- Header -->
+    <div class="flex flex-col gap-2">
+        <p class="font-bold text-xl lg:text-2xl text-ink">Add Net Banking Details</p>
+        <p class="text-sm font-normal text-granite-gray">Link your netbanking account for quick and secure payments.</p>
+    </div>
+
+    <!-- Net Banking Details Form Container -->
+    <div class="bg-white border border-gray-200 rounded-2xl p-6">
+        <div class="flex justify-between items-center mb-6">
+            <p class="font-semibold text-lg text-ink">UPI ID details</p>
+            <button id="switchToEditNetbankingBtn"
+                class="text-[#FFC949] font-semibold text-sm hover:underline cursor-pointer">Edit</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <!-- Select Bank -->
+            <div class="flex flex-col gap-2 md:col-span-2">
+                <label class="text-sm font-medium text-slate-700">Select Bank</label>
+                <div class="relative">
+                    <select
+                        class="w-full appearance-none border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm text-slate-700 bg-gray-50/50 cursor-pointer">
+                        <option value="" disabled selected>Select</option>
+                        <option value="hdfc">HDFC Bank</option>
+                        <option value="sbi">State Bank of India</option>
+                        <option value="icici">ICICI Bank</option>
+                    </select>
+                    <span
+                        class="material-symbols-outlined absolute right-4 top-3 text-gray-500 pointer-events-none">expand_more</span>
+                </div>
+            </div>
+
+            <!-- Account Holder Name -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Account Holder Name*</label>
+                <input type="text" placeholder="Enter name"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- Account Number -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Account Number*</label>
+                <input type="text" placeholder="Enter Account number"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- Confirm Account Number -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Confirm Account Number*</label>
+                <input type="text" placeholder="Confirm account number"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- IFSC Code -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">IFSC Code*</label>
+                <input type="text" placeholder="Enter Code"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+        </div>
+
+        <!-- Secure Info Alert -->
+        <div class="bg-[#E5F7F1] border border-[#00B884]/20 rounded-xl p-4 flex items-center justify-center gap-2 mb-8">
+            <span class="material-symbols-outlined text-[#00B884] text-lg">shield</span>
+            <p class="text-sm text-[#00B884]">Your payment information is secure and encrypted.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-end items-center gap-4 border-t border-gray-100 pt-6">
+            <button id="cancelNetbankingBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-[#FFC949] border-2 border-[#FFC949] hover:bg-[#FFC949] hover:text-white transition-colors">
+                Cancel
+            </button>
+            <button id="submitNetbankingBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-white bg-[#FFC949] hover:bg-opacity-90 transition-colors shadow-sm">
+                Verify Bank
+            </button>
+        </div>
+    </div>
+</main>
+
+<main id="editNetbankingMainContent" class="hidden flex flex-col gap-6">
+    <!-- Header -->
+    <div class="flex flex-col gap-2">
+        <p class="font-bold text-xl lg:text-2xl text-ink">Edit Net Banking Details</p>
+        <p class="text-sm font-normal text-granite-gray">Link your netbanking account for quick and secure payments.</p>
+    </div>
+
+    <!-- Net Banking Details Form Container -->
+    <div class="bg-white border border-gray-200 rounded-2xl p-6">
+        <div class="flex justify-between items-center mb-6">
+            <p class="font-semibold text-lg text-ink">UPI ID details</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <!-- Select Bank -->
+            <div class="flex flex-col gap-2 md:col-span-2">
+                <label class="text-sm font-medium text-slate-700">Select Bank</label>
+                <div class="relative">
+                    <select
+                        class="w-full appearance-none border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm text-slate-700 bg-gray-50/50 cursor-pointer">
+                        <option value="" disabled>Select</option>
+                        <option value="hdfc" selected>HDFC Bank</option>
+                        <option value="sbi">State Bank of India</option>
+                        <option value="icici">ICICI Bank</option>
+                    </select>
+                    <span
+                        class="material-symbols-outlined absolute right-4 top-3 text-gray-500 pointer-events-none">expand_more</span>
+                </div>
+            </div>
+
+            <!-- Account Holder Name -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Account Holder Name*</label>
+                <input type="text" value="Rahul Sharma" placeholder="Enter name"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- Account Number -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Account Number*</label>
+                <input type="text" value="567890872776" placeholder="Enter Account number"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- Confirm Account Number -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">Confirm Account Number*</label>
+                <input type="text" value="567890872776" placeholder="Confirm account number"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+
+            <!-- IFSC Code -->
+            <div class="flex flex-col gap-2">
+                <label class="text-sm font-medium text-slate-700">IFSC Code*</label>
+                <input type="text" value="SBIN0000186" placeholder="Enter Code"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+            </div>
+        </div>
+
+        <!-- Secure Info Alert -->
+        <div class="bg-[#E5F7F1] border border-[#00B884]/20 rounded-xl p-4 flex items-center justify-center gap-2 mb-8">
+            <span class="material-symbols-outlined text-[#00B884] text-lg">shield</span>
+            <p class="text-sm text-[#00B884]">Your payment information is secure and encrypted.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-end items-center gap-4 border-t border-gray-100 pt-6">
+            <button id="cancelEditNetbankingBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-[#FFC949] border-2 border-[#FFC949] hover:bg-[#FFC949] hover:text-white transition-colors">
+                Cancel
+            </button>
+            <button id="submitEditNetbankingBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-white bg-[#FFC949] hover:bg-opacity-90 transition-colors shadow-sm">
+                Verify Bank
+            </button>
+        </div>
+    </div>
+</main>
+
+<main id="addWalletMainContent" class="hidden flex flex-col gap-6">
+    <!-- Header -->
+    <div class="flex justify-between items-start">
+        <div class="flex flex-col gap-2">
+            <p class="font-bold text-xl lg:text-2xl text-ink">Add Wallet</p>
+            <p class="text-sm font-normal text-granite-gray">Link your digital wallet for quick and secure payments for
+                all your service bookings.</p>
+        </div>
+        <button id="proceedToPayWalletBtn"
+            class="bg-[#FFC949] text-white px-6 py-2.5 rounded-xl font-semibold shadow-sm hover:bg-opacity-90 transition-colors shrink-0">
+            Proceed to pay
+        </button>
+    </div>
+
+    <!-- Wallet Details Form Container -->
+    <div class="bg-white border border-gray-200 rounded-2xl p-6">
+        <div class="flex justify-between items-center mb-6">
+            <p class="font-semibold text-lg text-ink">Wallet Details</p>
+        </div>
+
+        <!-- Search -->
+        <div class="relative w-full md:w-1/2 mb-6">
+            <span class="material-symbols-outlined absolute left-4 top-[10px] text-gray-400 text-lg">search</span>
+            <input type="text" placeholder="Search your preferred wallet"
+                class="w-full border border-gray-200 rounded-xl pl-11 pr-4 py-2.5 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow text-sm placeholder:text-gray-400 bg-gray-50/50">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8" id="walletOptionsContainer">
+            <!-- Paytm -->
+            <div class="wallet-option border border-[#FFC949] bg-[#FFFBF0] rounded-xl p-4 flex items-center justify-between cursor-pointer transition-colors"
+                data-wallet="paytm">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-[#F0F5FF] text-[#3B82F6] flex items-center justify-center font-bold text-sm">
+                        P</div>
+                    <div class="flex flex-col">
+                        <p class="font-semibold text-sm text-ink">Paytm</p>
+                        <p class="text-xs text-granite-gray">Link your Paytm Walle...</p>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-[#FFC949] text-xl">radio_button_checked</span>
+            </div>
+
+            <!-- PhonePe -->
+            <div class="wallet-option border border-gray-200 bg-white hover:bg-gray-50 rounded-xl p-4 flex items-center justify-between cursor-pointer transition-colors"
+                data-wallet="phonepe">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-[#F5F0FF] text-[#8B5CF6] flex items-center justify-center font-bold text-sm">
+                        P</div>
+                    <div class="flex flex-col">
+                        <p class="font-semibold text-sm text-ink">PhonePe</p>
+                        <p class="text-xs text-granite-gray">Link your PhonePe Wall...</p>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-gray-300 text-xl">radio_button_unchecked</span>
+            </div>
+
+            <!-- Amazon Pay -->
+            <div class="wallet-option border border-gray-200 bg-white hover:bg-gray-50 rounded-xl p-4 flex items-center justify-between cursor-pointer transition-colors"
+                data-wallet="amazon">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-[#FFF5EE] text-[#F97316] flex items-center justify-center font-bold text-sm">
+                        A</div>
+                    <div class="flex flex-col">
+                        <p class="font-semibold text-sm text-ink">Amazon Pay</p>
+                        <p class="text-xs text-granite-gray">Link your Amazon Pay</p>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-gray-300 text-xl">radio_button_unchecked</span>
+            </div>
+
+            <!-- MobiKwik -->
+            <div class="wallet-option border border-gray-200 bg-white hover:bg-gray-50 rounded-xl p-4 flex items-center justify-between cursor-pointer transition-colors"
+                data-wallet="mobikwik">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-[#F0FDF4] text-[#22C55E] flex items-center justify-center font-bold text-sm">
+                        M</div>
+                    <div class="flex flex-col">
+                        <p class="font-semibold text-sm text-ink">MobiKwik</p>
+                        <p class="text-xs text-granite-gray">Link your MobiKwik wallet</p>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-gray-300 text-xl">radio_button_unchecked</span>
+            </div>
+
+            <!-- Airtel Money -->
+            <div class="wallet-option border border-gray-200 bg-white hover:bg-gray-50 rounded-xl p-4 flex items-center justify-between cursor-pointer transition-colors"
+                data-wallet="airtel">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-[#FEF2F2] text-[#EF4444] flex items-center justify-center font-bold text-sm">
+                        A</div>
+                    <div class="flex flex-col">
+                        <p class="font-semibold text-sm text-ink">Airtel Money</p>
+                        <p class="text-xs text-granite-gray">Link your Airtel Money</p>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-gray-300 text-xl">radio_button_unchecked</span>
+            </div>
+        </div>
+
+        <!-- Secure Info Alert -->
+        <div
+            class="bg-[#E5F7F1] border border-[#00B884]/20 rounded-xl p-4 flex items-start sm:items-center justify-start gap-2 mb-8">
+            <span class="material-symbols-outlined text-[#00B884] text-lg mt-0.5 sm:mt-0">shield</span>
+            <p class="text-sm text-[#00B884]"><strong>Safe & Secure:</strong> Your payment information is encrypted and
+                never stored on our servers. We use bank-grade security protocols to protect your data.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-end items-center gap-4 border-t border-gray-100 pt-6">
+            <button id="cancelWalletBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-[#FFC949] border-2 border-[#FFC949] hover:bg-[#FFC949] hover:text-white transition-colors">
+                Cancel
+            </button>
+            <button id="submitWalletBtn"
+                class="px-8 py-2.5 rounded-xl font-semibold text-white bg-[#FFC949] hover:bg-opacity-90 transition-colors shadow-sm">
+                Link Digital Wallet
+            </button>
+        </div>
+    </div>
+</main>
+
+<!-- Invoice Modal -->
+<div id="invoiceModal" class="fixed inset-0 backdrop-blur-md bg-black/20 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative">
+        <div class="sticky top-0 bg-white z-10 border-b border-gray-200">
+            <div class="flex justify-between items-center p-4">
+                <div class="flex gap-2">
+                    <button class="bg-[#00B884] text-white rounded p-1 flex items-center justify-center w-8 h-8"><span
+                            class="material-symbols-outlined text-sm">share</span></button>
+                    <button class="bg-[#00B884] text-white rounded p-1 flex items-center justify-center w-8 h-8"><span
+                            class="material-symbols-outlined text-sm">download</span></button>
+                </div>
+                <h2 class="text-2xl font-semibold text-[#00B884]">Invoice</h2>
+                <button id="closeInvoiceModal"
+                    class="text-gray-500 hover:text-gray-700 w-8 h-8 flex items-center justify-center">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+        </div>
+        <div class="p-8 text-sm">
+            <!-- Header section of invoice -->
+            <div class="text-center mb-6">
+                <p class="font-bold">TAX INVOICE</p>
+                <p class="text-xs">(Under GST - Advertising Service: SAC 998361)</p>
+                <hr class="my-2 border-dashed border-gray-300">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                    <div class="flex"><span class="w-32 font-medium">Invoice No:</span><span>INV/AD/2025/0045</span>
+                    </div>
+                    <div class="flex"><span class="w-32 font-medium">Date:</span><span>17-May-2025</span></div>
+                </div>
+                <div></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                <div>
+                    <div class="flex"><span class="w-24 font-medium">Platform Name:</span><span>MediConnect Digital
+                            Services Pvt. Ltd.</span></div>
+                    <div class="flex mt-2"><span class="w-24 font-medium">GSTIN:</span><span>27PLATFORM7890123</span>
+                    </div>
+                    <div class="flex mt-1"><span class="w-24 font-medium">Address:</span><span>3rd Floor, Knowledge
+                            Tower, Bengaluru - 560034</span></div>
+                    <div class="flex mt-1"><span class="w-24 font-medium text-red-500">Contact:</span><span
+                            class="text-red-500">+91-9988776655 | billing@mediconnect.in</span></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                <div>
+                    <p class="font-medium">Billed To:</p>
+                    <div class="flex mt-1"><span class="w-24 font-medium">Advertiser Name:</span><span>WellnessFit
+                            Nutrition Pvt. Ltd.</span></div>
+                    <div class="flex mt-1"><span class="w-24 font-medium">GSTIN:</span><span>27WELLFIT12345129</span>
+                    </div>
+                    <div class="flex mt-1"><span class="w-24 font-medium">Address:</span><span>22, Link Road, Mumbai -
+                            400072</span></div>
+                    <div class="flex mt-1"><span class="w-24 font-medium text-red-500">Contact:</span><span
+                            class="text-red-500">info@wellnessfit.in</span></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                <div>
+                    <div class="flex"><span class="w-32 font-medium">Order
+                            Reference:</span><span>COUP-ORD-2025/223</span></div>
+                    <div class="flex mt-1"><span class="w-32 font-medium text-red-500">Campaign Duration:</span><span
+                            class="text-red-500">18-May-2025 to 25-May-2025</span></div>
+                </div>
+            </div>
+
+            <hr class="my-4 border-dashed border-red-300">
+
+            <table class="w-full text-xs text-red-500 mb-6">
+                <thead>
+                    <tr class="text-left">
+                        <th class="font-medium">Description</th>
+                        <th class="font-medium">SAC code</th>
+                        <th class="font-medium">Qty</th>
+                        <th class="font-medium">Rate</th>
+                        <th class="font-medium">GST %</th>
+                        <th class="font-medium text-right">Total (INR)</th>
+                    </tr>
+                </thead>
+                <tbody class="text-black">
+                    <tr class="mt-2">
+                        <td class="pt-2">Coupon Posting - 6 coupons x 10 views<br>(Digital display services)</td>
+                        <td class="pt-2">998361</td>
+                        <td class="pt-2">60</td>
+                        <td class="pt-2">₹100.00</td>
+                        <td class="pt-2">18%</td>
+                        <td class="pt-2 text-right">₹6,000.00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="flex justify-end text-xs mb-4">
+                <div class="w-64">
+                    <div class="flex justify-between"><span class="font-medium">Subtotal:</span><span>₹6,000.00</span>
+                    </div>
+                    <div class="flex justify-between text-red-500"><span class="font-medium">Add: GST
+                            @18%</span><span>₹1,080.00</span></div>
+                </div>
+            </div>
+
+            <hr class="my-2 border-dashed border-gray-300">
+
+            <div class="flex justify-end text-xs mb-4">
+                <div class="w-64">
+                    <div class="flex justify-between"><span class="font-medium">Gross Invoice
+                            Amount:</span><span>₹7,080.00</span></div>
+                    <div class="flex justify-between text-red-500"><span class="font-medium">Less: Advance Adjusted
+                            (Ref: ADV/2025/0007)</span><span>₹100.00</span></div>
+                </div>
+            </div>
+
+            <hr class="my-2 border-dashed border-red-400">
+
+            <div class="flex justify-end text-xs mb-6">
+                <div class="w-64">
+                    <div class="flex justify-between font-bold"><span>**Net Payable Now:**</span><span>₹6,980.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4 border-dashed border-gray-300">
+
+            <div class="text-xs mb-6">
+                <p class="mb-2">Amount in Words: INR Six Thousand Nine Hundred Eighty Only</p>
+                <p>Mode of Payment: UPI / Bank Transfer</p>
+            </div>
+
+            <div class="text-xs text-red-500 mb-8">
+                <p class="font-bold text-black mb-1">**Notes:**</p>
+                <p>- Services pertain to digital advertisement placements on MediConnect Platform.</p>
+                <p>- Advance of ₹100 received earlier has been adjusted.</p>
+                <p class="text-black">- Input Tax Credit (ITC) can be claimed on this invoice.</p>
+                <p>- NO TDS applicable under section 194C for online ad media (under ₹30,000 single contract).</p>
+            </div>
+
+            <div class="text-xs">
+                <p>Authorized Signatory,</p>
+                <p>[Signature]</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Payment Method Modal -->
+<div id="addPaymentModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-2xl shadow-xl w-full max-w-[550px] max-h-[90vh] flex flex-col">
+        <div class="flex justify-between items-center p-6 border-b border-gray-100 shrink-0">
+            <h2 class="text-lg font-bold text-slate-800">Choose Payment Method</h2>
+            <button id="closeAddPaymentModalBtn"
+                class="text-gray-400 hover:text-gray-600 transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-6">
+            <div class="flex flex-col gap-3 mb-6" id="paymentOptionsContainer">
+                <!-- Option 1 (Selected) -->
+                <label
+                    class="payment-option flex items-center gap-4 p-4 rounded-xl border border-[#E5F0FF] bg-[#F4F9FF] cursor-pointer transition-colors">
+                    <input type="radio" name="payment_method" value="card" class="hidden" checked>
+                    <div
+                        class="radio-custom w-5 h-5 rounded-full border-2 border-primary-yellow flex items-center justify-center">
+                        <div class="inner-dot w-2.5 h-2.5 rounded-full bg-primary-yellow"></div>
+                    </div>
+                    <span class="material-symbols-outlined text-primary-yellow">credit_card</span>
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-sm text-slate-800">Credit / Debit Card</span>
+                        <span class="text-[11px] text-gray-400">Visa, Mastercard</span>
+                    </div>
+                </label>
+
+                <!-- Option 2 -->
+                <label
+                    class="payment-option flex items-center gap-4 p-4 rounded-xl border border-transparent hover:bg-gray-50 cursor-pointer transition-colors">
+                    <input type="radio" name="payment_method" value="upi" class="hidden">
+                    <div
+                        class="radio-custom w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <div class="inner-dot w-2.5 h-2.5 rounded-full bg-primary-yellow hidden"></div>
+                    </div>
+                    <span class="material-symbols-outlined text-gray-500">smartphone</span>
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-sm text-slate-800">UPI</span>
+                        <span class="text-[11px] text-gray-400">Google Pay, PhonePe, BHIM</span>
+                    </div>
+                </label>
+
+                <!-- Option 3 -->
+                <label
+                    class="payment-option flex items-center gap-4 p-4 rounded-xl border border-transparent hover:bg-gray-50 cursor-pointer transition-colors">
+                    <input type="radio" name="payment_method" value="netbanking" class="hidden">
+                    <div
+                        class="radio-custom w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <div class="inner-dot w-2.5 h-2.5 rounded-full bg-primary-yellow hidden"></div>
+                    </div>
+                    <span class="material-symbols-outlined text-gray-500">account_balance</span>
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-sm text-slate-800">Net Banking</span>
+                        <span class="text-[11px] text-gray-400">All major banks</span>
+                    </div>
+                </label>
+
+                <!-- Option 4 -->
+                <label
+                    class="payment-option flex items-center gap-4 p-4 rounded-xl border border-transparent hover:bg-gray-50 cursor-pointer transition-colors">
+                    <input type="radio" name="payment_method" value="wallet" class="hidden">
+                    <div
+                        class="radio-custom w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <div class="inner-dot w-2.5 h-2.5 rounded-full bg-primary-yellow hidden"></div>
+                    </div>
+                    <span class="material-symbols-outlined text-gray-500">account_balance_wallet</span>
+                    <div class="flex flex-col">
+                        <span class="font-semibold text-sm text-slate-800">Wallet</span>
+                        <span class="text-[11px] text-gray-400">Dna Credits, MobiKwik</span>
+                    </div>
+                </label>
+            </div>
+
+            <!-- Info banner -->
+            <div class="bg-[#F8F9FA] rounded-lg p-3 flex items-center justify-center gap-2 mb-6">
+                <span class="material-symbols-outlined text-primary-yellow text-base">lock</span>
+                <span class="text-xs text-gray-500">Your payment information is secure and encrypted</span>
+            </div>
+
+            <!-- Feature cards -->
+            <div class="grid grid-cols-3 gap-4">
+                <div
+                    class="flex flex-col items-center justify-center text-center border border-gray-100 rounded-xl py-4 px-2">
+                    <span class="material-symbols-outlined text-primary-yellow mb-1">bolt</span>
+                    <span class="text-xs font-semibold text-slate-700">Instant Confirmation</span>
+                    <span class="text-[10px] text-gray-400 mt-1">Get confirmed immediately</span>
+                </div>
+                <div
+                    class="flex flex-col items-center justify-center text-center border border-gray-100 rounded-xl py-4 px-2">
+                    <span class="material-symbols-outlined text-gray-600 mb-1">shield</span>
+                    <span class="text-xs font-semibold text-slate-700">Secure & Private</span>
+                    <span class="text-[10px] text-gray-400 mt-1">Data protected always</span>
+                </div>
+                <div
+                    class="flex flex-col items-center justify-center text-center border border-gray-100 rounded-xl py-4 px-2">
+                    <span class="material-symbols-outlined text-primary-yellow mb-1">support_agent</span>
+                    <span class="text-xs font-semibold text-slate-700">24/7 Support</span>
+                    <span class="text-[10px] text-gray-400 mt-1">Always here to help</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center justify-end gap-4 p-6 border-t border-gray-100 shrink-0">
+            <button id="cancelPaymentBtn"
+                class="px-6 py-2.5 rounded-xl font-semibold text-slate-700 border border-gray-200 hover:bg-gray-50 transition-colors">
+                Cancel
+            </button>
+            <button id="savePaymentBtn"
+                class="px-6 py-2.5 rounded-xl font-semibold text-white bg-[#FFC949] hover:bg-opacity-90 transition-colors shadow-sm">
+                Save
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Verify OTP Modal -->
+<div id="verifyOtpModal" class="fixed inset-0 backdrop-blur-md bg-black/20 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-[24px] shadow-xl w-full max-w-md p-8 relative flex flex-col items-center">
+        <!-- Icon -->
+        <div class="relative mt-2">
+            <div class="w-[72px] h-[72px] rounded-full bg-[#F0F5FF] flex items-center justify-center">
+                <span class="material-symbols-outlined text-[#3B82F6] text-3xl">smartphone</span>
+            </div>
+            <div
+                class="absolute -bottom-1 -right-1 w-6 h-6 bg-[#22C55E] border-2 border-white rounded-full flex items-center justify-center">
+                <span class="material-symbols-outlined text-white text-[14px] font-bold">check</span>
+            </div>
+        </div>
+
+        <!-- Texts -->
+        <h2 class="text-[22px] font-semibold text-slate-800 mt-6">Verify Payment Method</h2>
+        <p class="text-[14px] text-gray-500 mt-2 text-center">Enter the 6-digit OTP sent to +91 81022 62067</p>
+
+        <!-- OTP Inputs -->
+        <div class="flex justify-center gap-3 mt-8 w-full">
+            <input type="text" maxlength="1"
+                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+            <input type="text" maxlength="1"
+                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+            <input type="text" maxlength="1"
+                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+            <input type="text" maxlength="1"
+                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+            <input type="text" maxlength="1"
+                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+            <input type="text" maxlength="1"
+                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+        </div>
+
+        <!-- Resend Link -->
+        <p class="text-[13px] text-gray-500 mt-6">Didn't receive OTP? <button
+                class="text-[#3B82F6] font-medium hover:underline focus:outline-none">Resend OTP</button></p>
+
+        <!-- Action Buttons -->
+        <div class="w-full mt-6 flex flex-col gap-3">
+            <button id="verifyOtpSubmitBtn"
+                class="w-full bg-[#1D4ED8] hover:bg-opacity-90 text-white py-3.5 rounded-xl font-medium text-[15px] flex items-center justify-center gap-2 transition-colors">
+                <span class="material-symbols-outlined text-[20px]">gpp_good</span>
+                Verify OTP
+            </button>
+            <button id="cancelVerifyOtpBtn"
+                class="w-full bg-white border border-gray-200 text-slate-700 py-3.5 rounded-xl font-medium text-[15px] hover:bg-gray-50 transition-colors">
+                Cancel
+            </button>
+        </div>
+
+        <!-- Secure Badge -->
+        <div
+            class="w-full bg-gray-50/50 rounded-xl py-3 flex items-center justify-center gap-2 mt-4 border border-gray-100">
+            <span class="material-symbols-outlined text-gray-400 text-[18px]">lock</span>
+            <span class="text-[13px] font-medium text-gray-500">Secure and Private</span>
+        </div>
+
+        <!-- Bottom Text -->
+        <p class="text-[12px] text-gray-400 mt-4 text-center">OTP valid for 10 minutes</p>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div id="successModal" class="fixed inset-0 backdrop-blur-md bg-black/20 hidden items-center justify-center z-50">
+    <div
+        class="bg-white rounded-[24px] shadow-xl w-full max-w-lg p-8 relative flex flex-col items-center overflow-hidden">
+
+        <!-- Decorative dots -->
+        <div class="absolute top-8 left-8 w-1.5 h-1.5 rounded-full bg-[#F59E0B]"></div>
+        <div class="absolute top-8 right-8 w-1.5 h-1.5 rounded-full bg-[#3B82F6]"></div>
+
+        <!-- Icon -->
+        <div class="relative mt-2 mb-6">
+            <div class="w-[84px] h-[84px] rounded-full bg-[#F0FDF4] flex items-center justify-center">
+                <span class="material-symbols-outlined text-[#22C55E] text-[40px]">check_circle</span>
+            </div>
+        </div>
+
+        <!-- Texts -->
+        <h2 class="text-[24px] font-semibold text-slate-800 text-center">Payment Method Added Successfully!</h2>
+        <p class="text-[14px] text-gray-500 mt-2 text-center max-w-sm">Your payment method has been securely linked and
+            is ready to use</p>
+
+        <!-- Details Box -->
+        <div class="w-full mt-8 border border-gray-200 rounded-2xl p-5 flex flex-col gap-4">
+            <div class="flex justify-between items-center">
+                <p class="text-[13px] text-gray-500">Payment Method</p>
+                <p class="text-[13px] font-medium text-slate-800">UPI ID</p>
+            </div>
+            <div class="flex justify-between items-center">
+                <p class="text-[13px] text-gray-500">UPI ID</p>
+                <p class="text-[13px] font-medium text-slate-800">rahul@upi</p>
+            </div>
+            <div class="flex justify-between items-center">
+                <p class="text-[13px] text-gray-500">Status</p>
+                <span class="px-2 py-0.5 bg-[#F0FDF4] text-[#22C55E] text-[11px] font-medium rounded">Active</span>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="w-full mt-6 flex flex-col gap-3 relative">
+            <!-- Decorative dots for button area -->
+            <div class="absolute top-3 left-4 w-1.5 h-1.5 rounded-full bg-[#8B5CF6] z-10 pointer-events-none"></div>
+            <div class="absolute bottom-3 right-4 w-1.5 h-1.5 rounded-full bg-[#F97316] z-10 pointer-events-none"></div>
+
+            <button id="successDoneBtn"
+                class="w-full bg-[#1D4ED8] hover:bg-opacity-90 text-white py-3.5 rounded-xl font-medium text-[15px] flex items-center justify-center gap-2 transition-colors relative overflow-hidden">
+                <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                Done
+            </button>
+            <button id="addAnotherPaymentBtn"
+                class="w-full bg-white border border-gray-200 text-slate-700 py-3.5 rounded-xl font-medium text-[15px] hover:bg-gray-50 transition-colors">
+                Add Another Payment Method
+            </button>
+        </div>
+
+        <!-- Footer Features -->
+        <div class="w-full grid grid-cols-3 gap-2 mt-8 border-t border-gray-100 pt-6">
+            <div class="flex flex-col items-center justify-center text-center">
+                <span class="material-symbols-outlined text-[#3B82F6] text-xl mb-1">schedule</span>
+                <span class="text-[11px] font-semibold text-slate-700">Instant Confirmation</span>
+                <span class="text-[10px] text-gray-400 mt-0.5">Get verified in seconds</span>
+            </div>
+            <div class="flex flex-col items-center justify-center text-center">
+                <span class="material-symbols-outlined text-[#3B82F6] text-xl mb-1">lock</span>
+                <span class="text-[11px] font-semibold text-slate-700">Secure & Private</span>
+                <span class="text-[10px] text-gray-400 mt-0.5">100% protected payments</span>
+            </div>
+            <div class="flex flex-col items-center justify-center text-center">
+                <span class="material-symbols-outlined text-[#3B82F6] text-xl mb-1">support_agent</span>
+                <span class="text-[11px] font-semibold text-slate-700">24/7 Support</span>
+                <span class="text-[10px] text-gray-400 mt-0.5">Always here to help</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="/static/script/profile/payment-methods.js"></script>
+
+{% endblock %}

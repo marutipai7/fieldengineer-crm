@@ -1,0 +1,622 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Field Engineer{% endblock %}</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+
+
+
+    {% block css %}{% endblock %}
+</head>
+
+
+<body>
+
+    <div class="min-h-screen flex flex-col">
+
+        <!-- ============ HEADER ============ -->
+        <header
+            class="fixed top-0 inset-x-0  bg-white border-b border-pale-blue-gray z-40 flex items-center px-4 sm:px-6 h-16">
+            <div class="flex items-center justify-between w-full gap-4">
+
+                <!-- Left: logo + mobile menu toggle -->
+                <div class="flex items-center gap-3 min-w-0 shrink-0">
+                    <button id="menuBtn" aria-label="Toggle sidebar"
+                        class="lg:hidden p-2 -ml-2 rounded-lg hover:bg-slate-100 text-slate-600">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+
+                    <a href="{% url 'home' %}" class="flex items-center gap-3 flex-shrink-0">
+                        <div
+                            class="flex h-12 w-12 items-center justify-center rounded-xl logo-gradient border border-emerald-teal">
+                            <span class="text-lg font-extrabold text-emerald-teal">FE</span>
+                        </div>
+                        <div class="leading-tight">
+                            <p class="text-xl font-bold text-slate-900">
+                                Field
+                                <span class="text-emerald-teal">Engineer</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Center: nav (desktop only) -->
+                 <ul class="hidden xl:flex items-center gap-10 text-[15px] font-medium text-slate-700">
+
+                        <!-- How It Works -->
+                        <li>
+                            <a href="{% url 'how_it_works' %}"
+                                class="transition {% if request.resolver_match.url_name == 'how_it_works' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                How it Works
+                            </a>
+                        </li>
+
+                        <!-- For Customer -->
+                        <li>
+                            <a href="{% url 'customer' %}"
+                                class="transition {% if request.resolver_match.url_name == 'customer' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Customer
+                            </a>
+                        </li>
+
+                        <!-- For Engineers -->
+                        <li>
+                            <a href="{% url 'engineer' %}"
+                                class="transition {% if request.resolver_match.url_name == 'engineer' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Engineers
+                            </a>
+                        </li>
+
+                        <!-- For Vendors -->
+                        <li>
+                            <a href="{% url 'vendor' %}"
+                                class="transition {% if request.resolver_match.url_name == 'vendor' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Vendors
+                            </a>
+                        </li>
+
+                        <!-- COMPANY DROPDOWN -->
+                        <li class="relative group">
+
+                            <button type="button"
+                                class="flex items-center gap-1 transition {% if request.resolver_match.url_name == 'about_fe' or request.resolver_match.url_name == 'careers' or request.resolver_match.url_name == 'blogs' or request.resolver_match.url_name == 'news' or request.resolver_match.url_name == 'contact' or request.resolver_match.url_name == 'help_center' or request.resolver_match.url_name == 'disclaimer' or request.resolver_match.url_name == 'privacy-policy' or request.resolver_match.url_name == 'term_condition' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                Company
+                                <span class="material-symbols-outlined text-[18px]">
+                                    keyboard_arrow_down
+                                </span>
+                            </button>
+
+                            <div
+                                class="absolute left-0 top-full mt-4 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 w-64 rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+
+                                <a href="{% url 'about_fe' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'about_fe' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    About Us
+                                </a>
+
+                                <a href="{% url 'careers' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'careers' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Careers
+                                </a>
+
+                                <a href="{% url 'blogs' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'blogs' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Blogs
+                                </a>
+
+                                <a href="{% url 'news' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'news' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    News
+                                </a>
+
+                                <a href="{% url 'contact' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'contact' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Contact Us
+                                </a>
+
+                                <a href="{% url 'help_center' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'help_center' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Help Center
+                                </a>
+
+                                <a href="{% url 'disclaimer' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'disclaimer' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Disclaimer
+                                </a>
+
+                                <a href="{% url 'privacy-policy' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'privacy-policy' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Privacy Policy
+                                </a>
+
+                                <a href="{% url 'term_condition' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'term_condition' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Terms & Conditions
+                                </a>
+
+                            </div>
+                        </li>
+
+                    </ul>
+
+                <!-- Right: notification + profile -->
+                <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+                   <!-- Notification Wrapper -->
+<div class="relative" id="notificationWrapper">
+
+    <!-- Notification Bell -->
+    <button
+        type="button"
+        id="notificationBell"
+        aria-label="Notifications"
+        aria-expanded="false"
+        class="relative p-2 rounded-lg hover:bg-slate-100 text-slate-500 transition-colors duration-200"
+    >
+        <span class="material-symbols-outlined">
+            notifications
+        </span>
+
+        <!-- Notification Badge -->
+        <span
+            id="notificationBadge"
+            class="absolute top-1 right-1.5 w-4 h-4 text-[10px] leading-4 text-center bg-primary text-white rounded-full"
+        >
+            3
+        </span>
+    </button>
+
+
+    <!-- Notification Panel -->
+    <div
+        id="notificationPanel"
+        class="hidden absolute right-0 top-12 w-[520px] max-w-[calc(100vw-32px)] bg-white rounded-2xl shadow-[0_10px_35px_rgba(0,0,0,0.12)] border border-slate-200 z-[9999] overflow-hidden"
+    >
+
+        <!-- Header -->
+        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100">
+
+            <div>
+                <h3 class="text-lg font-bold text-slate-800">
+                    Notifications
+                </h3>
+
+                <p
+                    id="notificationSubtitle"
+                    class="text-sm text-slate-500 mt-0.5"
+                >
+                    You have 3 unread notifications
+                </p>
+            </div>
+
+            <button
+                type="button"
+                id="markAllRead"
+                class="text-sm font-semibold text-primary hover:underline whitespace-nowrap"
+            >
+                Mark all read
+            </button>
+
+        </div>
+
+
+        <!-- Notification List -->
+        <div class="max-h-[320px] overflow-y-auto">
+
+
+            <!-- Notification 1 -->
+            <div
+                class="notification-item flex items-center gap-4 px-6 py-4 hover:bg-slate-50 border-b border-slate-100 cursor-pointer transition-colors"
+            >
+
+                <!-- Icon -->
+                <div
+                    class="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center"
+                >
+                    <span class="material-symbols-outlined text-blue-600 text-[24px]">
+                        event
+                    </span>
+                </div>
+
+
+                <!-- Content -->
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center justify-between gap-4">
+
+                        <p class="text-sm font-bold text-slate-800">
+                            New booking received
+                        </p>
+
+                        <span class="notification-dot flex-shrink-0 w-2.5 h-2.5 bg-blue-600 rounded-full">
+                        </span>
+
+                    </div>
+
+                    <p class="text-sm text-slate-500 mt-1">
+                        A new booking has been assigned to you.
+                    </p>
+
+                    <span class="text-xs text-slate-400 mt-1 block">
+                        10 minutes ago
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Notification 2 -->
+            <div
+                class="notification-item flex items-center gap-4 px-6 py-4 hover:bg-slate-50 border-b border-slate-100 cursor-pointer transition-colors"
+            >
+
+                <!-- Icon -->
+                <div
+                    class="flex-shrink-0 w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center"
+                >
+                    <span class="material-symbols-outlined text-green-600 text-[24px]">
+                        check_circle
+                    </span>
+                </div>
+
+
+                <!-- Content -->
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center justify-between gap-4">
+
+                        <p class="text-sm font-bold text-slate-800">
+                            Profile verified
+                        </p>
+
+                        <span class="notification-dot flex-shrink-0 w-2.5 h-2.5 bg-green-600 rounded-full">
+                        </span>
+
+                    </div>
+
+                    <p class="text-sm text-slate-500 mt-1">
+                        Your profile verification was completed.
+                    </p>
+
+                    <span class="text-xs text-slate-400 mt-1 block">
+                        1 hour ago
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Notification 3 -->
+            <div
+                class="notification-item flex items-center gap-4 px-6 py-4 hover:bg-slate-50 cursor-pointer transition-colors"
+            >
+
+                <!-- Icon -->
+                <div
+                    class="flex-shrink-0 w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center"
+                >
+                    <span class="material-symbols-outlined text-orange-600 text-[24px]">
+                        payments
+                    </span>
+                </div>
+
+
+                <!-- Content -->
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center justify-between gap-4">
+
+                        <p class="text-sm font-bold text-slate-800">
+                            Payment received
+                        </p>
+
+                        <span class="notification-dot flex-shrink-0 w-2.5 h-2.5 bg-orange-500 rounded-full">
+                        </span>
+
+                    </div>
+
+                    <p class="text-sm text-slate-500 mt-1">
+                        Your payment has been successfully processed.
+                    </p>
+
+                    <span class="text-xs text-slate-400 mt-1 block">
+                        Yesterday
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Footer -->
+        <div class="border-t border-slate-100 px-6 py-4 text-center">
+
+            <button
+                type="button"
+                class="text-sm font-semibold text-primary hover:underline"
+            >
+                View all notifications
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+                  <!-- Profile Dropdown Wrapper -->
+<div class="relative" id="profileDropdownWrapper">
+
+    <!-- Existing Profile Button -->
+   <button type="button" id="profileDropdownButton" aria-label="User Profile" aria-expanded="false"
+                    class="flex items-center gap-2 pl-2 sm:pl-3 sm:border-l border-pale-blue-gray">
+
+                    <!-- ⬇ avatar photo instead of initials -->
+                    <div class="w-9 h-9 rounded-full overflow-hidden shrink-0 ring-1 ring-slate-200">
+                          <img src="{{ 'https://i.pravatar.cc/80?img=12' }}" alt="Rishi Acharya" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- ⬇ name in accent color + Online status w/ green dot, company name removed -->
+                    <div class="hidden md:block text-left leading-tight">
+                        <p class="text-[13px] font-semibold text-primary-yellow">
+                            Rishi Acharya
+                        </p>
+                        <p class="text-[11px] font-normal text-granite-gray flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>
+                            Online
+                        </p>
+                    </div>
+                </button>
+
+
+    <!-- Profile Dropdown -->
+   
+
+</div>
+
+
+
+                </div>
+            </div>
+        </header>
+
+        <!-- Overlay for mobile sidebar -->
+        <div id="overlay" class="hidden fixed inset-0 bg-transparent-black z-30 lg:hidden"></div>
+
+        <!-- ============ SIDEBAR ============ -->
+        <aside id="sidebar" class="fixed top-16 left-0 bottom-0 w-64 bg-white border-r border-pale-blue-gray z-30 flex flex-col
+           -translate-x-full lg:translate-x-0">
+
+            <div class="flex-1 overflow-y-auto  py-5">
+
+                <!-- Profile block -->
+                <div class="flex flex-col gap-3 items-center text-center py-6  border-b border-pale-blue-gray">
+                    <div
+                        class="w-14 h-14 rounded-sm bg-primary-yellow text-white flex items-center justify-center font-bold text-lg mb-2">
+                        RA</div>
+                    <div class="flex flex-col gap-1">
+                        <p class="font-semibold text-ink text-sm">Rishi Acharya</p>
+                        <p class="text-xs font-normal text-granite-gray">rishi@acme.me</p>
+                        <p class="text-xs font-normal text-granite-gray">+91 81022 62067</p>
+                    </div>
+                </div>
+
+                <!-- Nav -->
+             <nav class="space-y-1 text-[13px] font-normal text-granite-gray py-4 px-3">
+
+    <!-- <a href="{% url 'dashboard' %}"
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0! hover:font-semibold hover:bg-primary-yellow">
+        <span class="material-symbols-outlined text-medium">dashboard</span>
+        Dashboard
+    </a> -->
+    <a href="{% url 'dashboard' %}" class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
+    <span class="material-symbols-outlined text-medium">dashboard</span>
+    Dashboard
+</a>
+
+    <a href="{% url 'profile' %}"
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
+        <span class="material-symbols-outlined text-medium">group</span>
+        Profile
+    </a>
+
+    <a href="{% url 'bookings' %}"
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
+        <span class="material-symbols-outlined text-medium">calendar_today</span>
+        Bookings
+    </a>
+
+    <a href="{% url 'saved_address' %}"
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
+        <span class="material-symbols-outlined text-medium">location_on</span>
+        Saved Address
+    </a>
+
+    <a href="{% url 'payment_methods' %}"
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
+        <span class="material-symbols-outlined text-medium">credit_card</span>
+        Payment Methods
+    </a>
+
+    <a href="{% url 'support_center' %}"
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
+        <span class="material-symbols-outlined text-medium">headphones</span>
+        Support Center
+    </a>
+
+    <a href="{% url 'settings' %}"
+        class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] border-l-0!">
+        <span class="material-symbols-outlined text-medium">settings</span>
+        Settings
+    </a>
+
+</nav>
+
+<style>
+    .nav-link.active {
+        background-color: #FFC94A; /* your bg-primary-yellow value */
+        color: #ffffff;
+        font-weight: 600;
+        border-left: 0 !important;
+    }
+    .nav-link.active .material-symbols-outlined {
+        color: #ffffff;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        navLinks.forEach(function (link) {
+            const linkPath = new URL(link.href).pathname;
+            if (linkPath === currentPath) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+              <div class="border-t border-pale-blue-gray px-4 py-3">
+    <button onclick="confirmLogout()" 
+        class="flex items-center gap-3 px-4 py-3 rounded-lg font-medium hover:bg-red-50 text-sm w-full transition">
+        <span class="material-symbols-outlined text-red">logout</span>
+        <span class="text-red">Logout</span>
+    </button>
+</div>
+
+<script>
+    function confirmLogout() {
+        if (confirm('Are you sure you want to logout?')) {
+            // Redirect to home page
+            window.location.href = '/';
+        }
+    }
+</script>
+            </div>
+
+            <!-- Logout pinned bottom -->
+
+        </aside>
+
+        <!-- ============ MAIN CONTENT ============ -->
+        <main class="flex-1  mt-16 lg:ml-64 p-6">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <script src="/static/script/profile/sidebar.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+    const notificationBell =
+        document.getElementById("notificationBell");
+
+    const notificationPanel =
+        document.getElementById("notificationPanel");
+
+    const notificationBadge =
+        document.getElementById("notificationBadge");
+
+    const notificationWrapper =
+        document.getElementById("notificationWrapper");
+
+    const markAllRead =
+        document.getElementById("markAllRead");
+
+    const notificationSubtitle =
+        document.getElementById("notificationSubtitle");
+
+
+    /* ----------------------------------
+       OPEN / CLOSE NOTIFICATION PANEL
+    ---------------------------------- */
+
+    notificationBell.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+        const isCurrentlyHidden =
+            notificationPanel.classList.contains("hidden");
+
+        notificationPanel.classList.toggle("hidden");
+
+        notificationBell.setAttribute(
+            "aria-expanded",
+            isCurrentlyHidden ? "true" : "false"
+        );
+
+    });
+
+
+    /* ----------------------------------
+       PREVENT PANEL FROM CLOSING
+    ---------------------------------- */
+
+    notificationPanel.addEventListener("click", function (event) {
+        event.stopPropagation();
+    });
+
+
+    /* ----------------------------------
+       CLOSE WHEN CLICKING OUTSIDE
+    ---------------------------------- */
+
+    document.addEventListener("click", function () {
+
+        notificationPanel.classList.add("hidden");
+
+        notificationBell.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    });
+
+
+    /* ----------------------------------
+       MARK ALL AS READ
+    ---------------------------------- */
+
+    markAllRead.addEventListener("click", function () {
+
+        notificationBadge.classList.add("hidden");
+
+        const dots =
+            notificationPanel.querySelectorAll(".notification-dot");
+
+        dots.forEach(function (dot) {
+            dot.classList.add("hidden");
+        });
+
+        notificationSubtitle.textContent =
+            "You're all caught up";
+
+    });
+
+});
+
+</script>
+
+</html>

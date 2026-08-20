@@ -1,0 +1,1797 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}
+How It Works  Platform | Grow Your Field Service Business | Field Engage
+{% endblock %}
+
+{% block content %}
+
+{# Hero Section #}
+<section
+    class="how-it-works-hero relative overflow-hidden w-full min-h-[400px] sm:min-h-[420px] lg:min-h-[440px] flex items-center">
+
+    <!-- ========================================================= -->
+    <!-- HERO BACKGROUND IMAGE -->
+    <!-- ========================================================= -->
+    <img
+        src="{% static 'img/how-it-works-hero.webp' %}"
+        alt="Field Engineer platform workflow connecting customers, vendors, and field engineers"
+        width="1920"
+        height="800"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="how-it-works-hero__bg absolute inset-0 w-full h-full object-cover object-center">
+
+
+    <!-- ========================================================= -->
+    <!-- DARK OVERLAY -->
+    <!-- ========================================================= -->
+    <div
+        class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/40">
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- HERO CONTENT -->
+    <!-- SAME CONTAINER / PADDING AS HEADER LOGO -->
+    <!-- ========================================================= -->
+    <div
+        class="relative z-10 mx-auto w-full max-w-[1400px] px-6">
+
+        <div class="max-w-2xl py-8 sm:py-10 lg:py-12">
+
+            <!-- Small Heading -->
+            <span
+                class="text-xs sm:text-xs font-extrabold uppercase tracking-widest text-light-green mb-3 block">
+                The FE Workflow
+            </span>
+
+
+            <!-- Main Heading -->
+            <h1
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
+
+                From posting a job to getting it done
+                here's
+                <span class="text-primary-yellow">
+                    how it works.
+                </span>
+
+            </h1>
+
+
+            <!-- Description -->
+            <p
+                class="text-sm sm:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed max-w-xl">
+
+                Field Engineer is a marketplace where you choose the right
+                service provider for your job.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{# Step 01 Section #}
+<main class="bg-light-warm-beige ">
+    <section class="w-full bg-light-warm-beige py-8 lg:py-10">
+
+    <!-- ========================================================= -->
+    <!-- SAME CONTAINER / PADDING AS HEADER LOGO -->
+    <!-- ========================================================= -->
+    <div
+        class="mx-auto w-full max-w-[1400px] px-6">
+
+        <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+            <!-- ================================================= -->
+            <!-- LEFT CONTENT -->
+            <!-- ================================================= -->
+            <div class="lg:col-span-7 flex flex-col justify-center">
+
+                <!-- Step -->
+                <span
+                    class="inline-flex items-center gap-1 text-[11px] sm:text-xs lg:text-base font-bold uppercase tracking-widest text-primary-yellow mb-2">
+
+                    Step 01
+
+                    <span class="material-symbols-outlined text-sm leading-none">
+                        arrow_forward_ios
+                    </span>
+
+                </span>
+
+
+                <!-- Heading -->
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight mt-3 sm:mt-4 lg:mt-5 mb-3">
+
+                    Post Your Job with All the Details
+
+                </h2>
+
+
+                <!-- Description -->
+                <p
+                    class="text-sm sm:text-base text-granite-gray font-normal leading-relaxed mb-6 max-w-2xl mt-2">
+
+                    Fill out a simple booking form with your job details, service
+                    type, location, preferred schedule, work requirements, and
+                    budget. You can also upload photos, documents, or
+                    instructions to help the engineer understand the job.
+
+                </p>
+
+
+                <!-- ================================================= -->
+                <!-- FEATURES -->
+                <!-- ================================================= -->
+                <ul class="space-y-3 mt-2">
+
+                    <!-- Feature 1 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-ink font-medium">
+                            Set your minimum and maximum budget
+                        </span>
+
+                    </li>
+
+
+                    <!-- Feature 2 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-ink font-medium">
+                            Share site access details and any special requirements
+                        </span>
+
+                    </li>
+
+
+                    <!-- Feature 3 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-ink font-medium">
+                            Upload photos, documents, or work instructions
+                        </span>
+
+                    </li>
+
+
+                    <!-- Feature 4 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-ink font-medium">
+                            Mention the number of engineers, devices, or work needed
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- RIGHT JOB CARD -->
+            <!-- ================================================= -->
+            <div
+                class="lg:col-span-5 flex justify-center lg:justify-end w-full">
+
+                <div
+                    class="w-full max-w-xl bg-white rounded-2xl p-6 sm:p-8 border border-[#E5E7EB]/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+
+                    <!-- Card Header -->
+                    <div class="flex items-center gap-2 mb-6">
+
+                        <span
+                            class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-light-cool-gray">
+
+                            <span
+                                class="material-symbols-outlined text-granite-gray text-xl">
+                                assignment
+                            </span>
+
+                        </span>
+
+                        <h3
+                            class="text-lg sm:text-base font-bold text-ink">
+                            New Job Posting
+                        </h3>
+
+                    </div>
+
+
+                    <!-- Job Title -->
+                    <div
+                        class="bg-soft-ivory rounded-xl p-4 mb-4 border border-light-bluish-grey">
+
+                        <label
+                            class="block text-base font-medium text-granite-gray tracking-wide mb-1">
+
+                            Job Title
+
+                        </label>
+
+                        <div
+                            class="text-base sm:text-sm font-bold text-ink">
+
+                            Network Cabling – 3 Floors, Andheri Office
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Budget -->
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+
+                        <!-- Min Budget -->
+                        <div
+                            class="bg-soft-ivory rounded-xl p-4 border border-light-bluish-grey">
+
+                            <label
+                                class="block text-sm font-medium text-granite-gray tracking-wide mb-1">
+
+                                Min Budget
+
+                            </label>
+
+                            <div
+                                class="text-sm sm:text-base font-bold text-primary-yellow">
+
+                                ₹5,000
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Max Budget -->
+                        <div
+                            class="bg-soft-ivory rounded-xl p-4 border border-light-bluish-grey">
+
+                            <label
+                                class="block text-sm font-medium text-granite-gray tracking-wide mb-1">
+
+                                Max Budget
+
+                            </label>
+
+                            <div
+                                class="text-sm sm:text-base font-bold text-primary-yellow">
+
+                                ₹14,000
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Documents -->
+                    <div
+                        class="bg-lightest-pastel-green border border-light-pastel-green text-light-green text-xs sm:text-sm font-semibold rounded-xl py-3 px-4 flex items-center gap-2">
+
+                        <span class="material-symbols-outlined">
+                            check_circle
+                        </span>
+
+                        <span>
+                            3 documents attached · Ready to post
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    {# Step 02 #}
+    <section
+    class="w-full bg-light-warm-beige mt-0.5 sm:mt-1 lg:mt-1 py-8 lg:py-10">
+
+    <!-- ========================================================= -->
+    <!-- SAME CONTAINER / PADDING AS HEADER -->
+    <!-- ========================================================= -->
+    <div
+        class="mx-auto w-full max-w-[1400px] px-6">
+
+        <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+            <!-- ================================================= -->
+            <!-- LEFT: ENGINEER VIEW CARD -->
+            <!-- ================================================= -->
+            <div
+                class="lg:col-span-5 order-2 lg:order-1 flex justify-center lg:justify-start w-full">
+
+                <div
+                    class="w-full max-w-xl bg-white rounded-2xl p-6 sm:p-8 border border-[#E5E7EB]/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+
+                    <!-- Card Header -->
+                    <div class="flex items-center gap-2 mb-4">
+
+                        <span
+                            class="material-symbols-outlined text-xl text-primary-yellow">
+                            assignment
+                        </span>
+
+                        <h3
+                            class="text-lg sm:text-base lg:text-base font-semibold text-ink">
+                            Lead (Engineer View)
+                        </h3>
+
+                    </div>
+
+
+                    <!-- Lead Details -->
+                    <div
+                        class="border border-light-medium rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+
+                        <!-- Job Information -->
+                        <div>
+
+                            <h4
+                                class="text-base sm:text-lg font-bold text-ink mb-1">
+                                Network Cabling – Andheri
+                            </h4>
+
+                            <div
+                                class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-granite-gray font-normal">
+
+                                <!-- Distance -->
+                                <span class="flex items-center gap-1">
+
+                                    <span
+                                        class="material-symbols-outlined text-base text-granite-gray">
+                                        location_on
+                                    </span>
+
+                                    2.4 km away
+
+                                </span>
+
+
+                                <!-- Service -->
+                                <span class="flex items-center gap-1">
+
+                                    <span
+                                        class="material-symbols-outlined text-base text-granite-gray">
+                                        grid_on
+                                    </span>
+
+                                    Cabling
+
+                                </span>
+
+
+                                <!-- Engineers -->
+                                <span class="flex items-center gap-1">
+
+                                    <span
+                                        class="material-symbols-outlined text-base text-granite-gray">
+                                        group
+                                    </span>
+
+                                    2 needed
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Budget -->
+                        <div
+                            class="text-right flex sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-4 sm:gap-1">
+
+                            <span
+                                class="text-sm sm:text-base font-bold text-primary-yellow whitespace-nowrap">
+                                ₹8K–₹14K
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Action Buttons -->
+                    <div class="flex w-full gap-3 mt-4">
+
+                        <button
+                            type="button"
+                            class="flex-1 px-4 py-2 text-sm sm:text-base font-semibold text-primary-yellow bg-white border border-primary-yellow rounded-lg">
+
+                            View Details
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="flex-1 px-5 py-2 text-sm sm:text-base font-semibold text-charcoal-black bg-primary-yellow rounded-lg">
+
+                            Apply Now
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- RIGHT: STEP 02 CONTENT -->
+            <!-- ================================================= -->
+            <div
+                class="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center">
+
+                <!-- Step Label -->
+                <span
+                    class="inline-flex items-center gap-1 text-[11px] sm:text-xs lg:text-base font-bold uppercase tracking-widest text-primary-yellow mb-2">
+
+                    Step 02
+
+                    <span
+                        class="material-symbols-outlined text-sm leading-none">
+                        arrow_forward_ios
+                    </span>
+
+                </span>
+
+
+                <!-- Heading -->
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight mb-3 mt-3 sm:mt-4 lg:mt-5">
+
+                    Nearby Engineers Get Your Job
+
+                </h2>
+
+
+                <!-- Description -->
+                <p
+                    class="text-base sm:text-base text-ink font-normal leading-relaxed mb-6 max-w-2xl mt-2">
+
+                    Once your job is posted, nearby engineers are notified.
+                    They review your job details, documents, and budget before
+                    deciding to apply. You always choose who to hire.
+
+                </p>
+
+
+                <!-- ================================================= -->
+                <!-- FEATURES -->
+                <!-- ================================================= -->
+                <ul class="space-y-3 mt-2">
+
+                    <!-- Feature 1 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-black-darkk font-medium">
+                            Only nearby engineers receive your job request
+                        </span>
+
+                    </li>
+
+
+                    <!-- Feature 2 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-black-darkk font-medium">
+                            Engineers review all job details before applying
+                        </span>
+
+                    </li>
+
+
+                    <!-- Feature 3 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-black-darkk font-medium">
+                            Receive applications from multiple engineers
+                        </span>
+
+                    </li>
+
+
+                    <!-- Feature 4 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-black-darkk font-medium">
+                            You choose the engineer who fits your needs best
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    {# Step 03 #}
+    <section class="w-full bg-light-warm-beige mt-0.5 sm:mt-1 lg:mt-1 py-8 lg:py-10">
+
+    <!-- SAME CONTAINER ALIGNMENT AS HEADER / LOGO -->
+    <div
+        class="mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-10 xl:px-12">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+            <!-- ================================================= -->
+            <!-- LEFT CONTENT -->
+            <!-- ================================================= -->
+            <div class="lg:col-span-6 flex flex-col justify-center h-full">
+
+                <!-- Step -->
+                <span
+                    class="inline-flex items-center gap-1 text-[11px] sm:text-xs lg:text-base font-bold uppercase tracking-widest text-primary-yellow mb-2">
+
+                    Step 03
+
+                    <span class="material-symbols-outlined text-sm leading-none">
+                        arrow_forward_ios
+                    </span>
+
+                </span>
+
+
+                <!-- Heading -->
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight mb-3 mt-3 sm:mt-4 lg:mt-5">
+
+                    Choose the Engineer You Trust
+
+                </h2>
+
+
+                <!-- Description -->
+                <p
+                    class="text-sm sm:text-base text-light-dark font-normal leading-relaxed mb-6 max-w-2xl mt-2">
+
+                    Review each engineer's profile, ratings, completed jobs,
+                    skills, and certifications. Choose the engineer (or
+                    engineers) you trust most. The job starts only after your
+                    approval.
+
+                </p>
+
+
+                <!-- Bullet Points -->
+                <ul class="space-y-3 mt-2">
+
+                    <li class="flex items-start gap-3">
+
+                        <span class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span class="text-sm sm:text-base text-black-darkk font-medium">
+                            View profiles, ratings and work history
+                        </span>
+
+                    </li>
+
+
+                    <li class="flex items-start gap-3">
+
+                        <span class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span class="text-sm sm:text-base text-black-darkk font-medium">
+                            Hire one or more engineers for the job
+                        </span>
+
+                    </li>
+
+
+                    <li class="flex items-start gap-3">
+
+                        <span class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span class="text-sm sm:text-base text-black-darkk font-medium">
+                            You decide who works on your project
+                        </span>
+
+                    </li>
+
+
+                    <li class="flex items-start gap-3">
+
+                        <span class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span class="text-sm sm:text-base text-black-darkk font-medium">
+                            Other applicants are informed automatically
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- RIGHT CONTENT — APPLICANTS CARD -->
+            <!-- ================================================= -->
+            <div
+                class="lg:col-span-6 flex justify-center lg:justify-end w-full">
+
+                <div
+                    class="w-full max-w-[550px] bg-white rounded-[30px] border border-[#E5E7EB]/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
+
+
+                    <!-- ================= HEADER ================= -->
+                    <div
+                        class="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-soft-slate">
+
+                        <h3 class="text-2xl font-semibold text-ink">
+                            Applicants
+                        </h3>
+
+                        <span
+                            class="px-4 py-1.5 rounded-full bg-fresh-mint-tone text-light-green text-sm font-semibold">
+
+                            Connected
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- APPLICANT 1 -->
+                    <!-- ================================================= -->
+                    <div
+                        class="flex flex-row items-center justify-between px-6 sm:px-8 py-5 border-b border-soft-slate gap-3 sm:gap-4 applicant-row">
+
+                        <!-- Applicant Details -->
+                        <div class="flex items-center gap-4 min-w-0 flex-1">
+
+                            <!-- Avatar -->
+                            <div
+                                class="w-14 h-14 rounded-full bg-primary-yellow text-white text-lg font-bold flex items-center justify-center shrink-0">
+
+                                AS
+
+                            </div>
+
+
+                            <!-- Details -->
+                            <div class="min-w-0 flex-1">
+
+                                <h4 class="text-sm font-semibold text-ink truncate">
+                                    Arjun Sharma
+                                </h4>
+
+
+                                <div
+                                    class="flex items-center gap-1.5 mt-1 text-xs font-medium text-granite-gray flex-wrap">
+
+                                    <span
+                                        class="material-symbols-outlined text-[16px] text-primary-yellow">
+                                        star
+                                    </span>
+
+                                    <span class="font-medium whitespace-nowrap">
+                                        4.9
+                                    </span>
+
+                                    <span class="text-[#D1D5DB]">
+                                        ·
+                                    </span>
+
+                                    <span class="whitespace-nowrap">
+                                        42 jobs
+                                    </span>
+
+                                </div>
+
+
+                                <span
+                                    class="inline-flex items-center mt-2 rounded-full bg-fresh-mint-tone px-3 py-1 text-xs font-semibold text-light-green whitespace-nowrap">
+
+                                    Available Now
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Price + Select -->
+                        <div
+                            class="flex items-center gap-3 sm:gap-4 flex-shrink-0 ml-auto applicant-right">
+
+                            <p
+                                class="text-sm font-bold text-primary-yellow whitespace-nowrap tracking-tight price-text">
+
+                                ₹1,500/day
+
+                            </p>
+
+                            <button
+                                type="button"
+                                class="h-10 sm:h-11 px-6 sm:px-8 rounded-xl bg-primary-yellow text-black font-medium hover:opacity-90 transition text-sm sm:text-base select-btn whitespace-nowrap">
+
+                                Select
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- APPLICANT 2 -->
+                    <!-- ================================================= -->
+                    <div
+                        class="flex flex-row items-center justify-between px-6 sm:px-8 py-5 border-b border-soft-slate gap-3 sm:gap-4 applicant-row">
+
+                        <!-- Applicant Details -->
+                        <div class="flex items-center gap-4 min-w-0 flex-1">
+
+                            <!-- Avatar -->
+                            <div
+                                class="w-14 h-14 rounded-full bg-primary-yellow text-white text-lg font-bold flex items-center justify-center shrink-0">
+
+                                RK
+
+                            </div>
+
+
+                            <!-- Details -->
+                            <div class="min-w-0 flex-1">
+
+                                <h4 class="text-sm font-semibold text-ink truncate">
+                                    Raj Kumar
+                                </h4>
+
+
+                                <div
+                                    class="flex items-center gap-1.5 mt-1 text-xs font-medium text-granite-gray flex-wrap">
+
+                                    <span
+                                        class="material-symbols-outlined text-[16px] text-primary-yellow">
+                                        star
+                                    </span>
+
+                                    <span class="font-medium whitespace-nowrap">
+                                        4.7
+                                    </span>
+
+                                    <span class="text-[#D1D5DB]">
+                                        ·
+                                    </span>
+
+                                    <span class="whitespace-nowrap">
+                                        28 jobs
+                                    </span>
+
+                                </div>
+
+
+                                <span
+                                    class="inline-flex items-center mt-2 rounded-full bg-fresh-mint-tone px-3 py-1 text-xs font-semibold text-light-green whitespace-nowrap">
+
+                                    Available Now
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Price + Select -->
+                        <div
+                            class="flex items-center gap-3 sm:gap-4 flex-shrink-0 ml-auto applicant-right">
+
+                            <p
+                                class="text-sm font-bold text-primary-yellow whitespace-nowrap tracking-tight price-text">
+
+                                ₹1,200/day
+
+                            </p>
+
+                            <button
+                                type="button"
+                                class="h-10 sm:h-11 px-6 sm:px-8 rounded-xl bg-primary-yellow text-black font-medium hover:opacity-90 transition text-sm sm:text-base select-btn whitespace-nowrap">
+
+                                Select
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- BOTTOM VERIFICATION BANNER -->
+                    <!-- ================================================= -->
+                    <div
+                        class="bg-fresh-mint-tone px-6 sm:px-8 py-4 flex items-center gap-3">
+
+                        <span
+                            class="material-symbols-outlined text-base text-light-green font-normal">
+
+                            shield
+
+                        </span>
+
+                        <p class="text-base font-medium text-light-green">
+
+                            All engineers are verified &amp; background checked
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    {# Step 04 #}
+    <section class="w-full bg-light-warm-beige mt-0.5 sm:mt-1 lg:mt-1 py-8 lg:py-10">
+
+    <!-- SAME ALIGNMENT AS HEADER / LOGO / OTHER SECTIONS -->
+    <div
+        class="mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-10 xl:px-12">
+
+        <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+
+            <!-- ================================================= -->
+            <!-- LEFT: JOB PROGRESS CARD -->
+            <!-- ================================================= -->
+            <div
+                class="lg:col-span-5 order-2 lg:order-1 flex justify-center lg:justify-start w-full">
+
+                <div
+                    class="w-full max-w-xl bg-white border border-[#E5E7EB]/60 rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+
+
+                    <!-- Card Header -->
+                    <div class="flex items-center gap-2 mb-4">
+
+                        <span class="text-base">
+                            🚀
+                        </span>
+
+                        <h3 class="text-sm sm:text-base font-bold text-black-dark">
+                            Job In Progress
+                        </h3>
+
+                    </div>
+
+
+                    <!-- Progress Box -->
+                    <div
+                        class="bg-light-off-white rounded-xl p-5 mb-4">
+
+                        <div
+                            class="text-xs sm:text-sm font-bold text-black-dark mb-3">
+
+                            Network Cabling – Andheri ·
+
+                            <span class="text-gray-500 font-medium">
+                                Arjun Sharma
+                            </span>
+
+                        </div>
+
+
+                        <!-- Progress Bar -->
+                        <div
+                            class="w-full bg-gray-200/70 h-2 rounded-full overflow-hidden mb-2">
+
+                            <div
+                                class="bg-[#10B981] h-full w-[65%] rounded-full">
+                            </div>
+
+                        </div>
+
+
+                        <!-- Progress Text -->
+                        <div
+                            class="text-[11px] sm:text-xs text-light-dark font-medium">
+
+                            65% complete · Est. 2 hrs remaining
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Escrow Banner -->
+                    <div
+                        class="bg-fresh-mint-tone border border-light-green text-deep-rich-green text-xs sm:text-sm font-semibold rounded-xl py-3 px-4 flex items-center gap-2">
+
+                        <span class="material-symbols-outlined text-[18px]">
+                            lock
+                        </span>
+
+                        <span>
+                            Secure ₹12,000 in escrow — released on your approval
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- RIGHT: STEP 04 CONTENT -->
+            <!-- ================================================= -->
+            <div
+                class="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center">
+
+
+                <!-- Step Label -->
+                <span
+                    class="inline-flex items-center gap-1 text-[11px] sm:text-xs lg:text-base font-bold uppercase tracking-widest text-primary-yellow mb-2">
+
+                    Step 04
+
+                    <span
+                        class="material-symbols-outlined text-sm leading-none">
+                        arrow_forward_ios
+                    </span>
+
+                </span>
+
+
+                <!-- Heading -->
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight mb-3 mt-3 sm:mt-4 lg:mt-5">
+
+                    Track Progress. Pay with Confidence.
+
+                </h2>
+
+
+                <!-- Description -->
+                <p
+                    class="text-sm sm:text-base text-light-dark font-normal leading-relaxed mb-6 max-w-2xl mt-2">
+
+                    Track your job in real time as the engineer completes the work.
+                    Review the completed work and release payment only after you're
+                    satisfied.
+
+                </p>
+
+
+                <!-- Bullet Points -->
+                <ul class="space-y-3 mt-2">
+
+                    <!-- Bullet 1 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-black-darkk font-medium">
+
+                            Get real-time updates from your engineer
+
+                        </span>
+
+                    </li>
+
+
+                    <!-- Bullet 2 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-black-darkk font-medium">
+
+                            View photos and documents as proof of work
+
+                        </span>
+
+                    </li>
+
+
+                    <!-- Bullet 3 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-black-darkk font-medium">
+
+                            Pay only after you approve the completed job
+
+                        </span>
+
+                    </li>
+
+
+                    <!-- Bullet 4 -->
+                    <li class="flex items-start gap-3">
+
+                        <span
+                            class="text-primary-yellow text-base font-bold mt-0.5">
+                            ✓
+                        </span>
+
+                        <span
+                            class="text-sm sm:text-base text-black-darkk font-medium">
+
+                            Rate your experience to help other customers
+
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    <!--TESTIMONIAL-->
+    <section class="py-8 lg:py-10 bg-warm-off-white overflow-hidden">
+
+    <!-- ========================================================= -->
+    <!-- SAME CONTAINER ALIGNMENT AS HEADER / LOGO / OTHER SECTIONS -->
+    <!-- ========================================================= -->
+    <div
+        class="mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-10 xl:px-12">
+
+        <div
+            class="grid lg:grid-cols-[1.3fr_0.7fr] items-start gap-2">
+
+
+            <!-- ================================================= -->
+            <!-- LEFT -->
+            <!-- ================================================= -->
+            <div>
+
+                <!-- Label -->
+                <span
+                    class="text-[12px] font-bold tracking-[3px] uppercase text-primary-yellow">
+
+                    Testimonials
+
+                </span>
+
+
+                <!-- Heading -->
+                <h2
+                    class="mt-2 text-[32px] sm:text-[38px] lg:text-[44px] leading-[1.05] font-bold text-dark">
+
+                    What Our
+                    <br>
+
+                    <span class="text-primary-yellow">
+                        Customers
+                    </span>
+
+                    Say
+
+                </h2>
+
+
+                <!-- Description -->
+                <p
+                    class="mt-3 max-w-[430px] text-[14px] sm:text-[15px] leading-6 sm:leading-7 text-granite-gray">
+
+                    Real experiences from customers who booked trusted
+                    Field Engineers through our platform.
+
+                </p>
+
+
+                <!-- ================================================= -->
+                <!-- TESTIMONIAL CARD -->
+                <!-- ================================================= -->
+                <div
+                    class="mt-5 w-full max-w-[760px] rounded-[24px] bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] px-6 sm:px-7 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+
+
+                    <!-- Stars -->
+                    <div
+                        id="testimonialStars"
+                        class="flex gap-1">
+
+                        <!-- Stars rendered by JS -->
+
+                    </div>
+
+
+                    <!-- Quote -->
+                    <span
+                        class="material-symbols-outlined text-warm-golden-orange text-[24px] mt-2 block">
+
+                        format_quote
+
+                    </span>
+
+
+                    <!-- Testimonial Text -->
+                    <p
+                        id="testimonialText"
+                        class="mt-3 text-[14px] sm:text-[15px] leading-6 sm:leading-7 text-light-blackk min-h-[70px]">
+
+                        Booking an engineer through FE took less than a minute.
+                        The professional arrived on time, completed the work
+                        efficiently and kept us informed throughout the visit.
+                        The entire experience was smooth and reliable.
+
+                    </p>
+
+
+                    <!-- ================================================= -->
+                    <!-- BOTTOM -->
+                    <!-- ================================================= -->
+                    <div
+                        class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+
+
+                        <!-- Customer -->
+                        <div
+                            class="flex items-center gap-3">
+
+
+                            <!-- Avatar -->
+                            <div class="testimonial-avatar-wrap">
+
+                                <img
+                                    id="customerImage"
+                                    src="{% static 'img/fe-wocs1.webp' %}"
+                                    alt="Priya Sharma, verified Field Engineer customer sharing her experience"
+                                    width="56"
+                                    height="56"
+                                    loading="lazy"
+                                    class="testimonial-avatar">
+
+                            </div>
+
+
+                            <!-- Customer Details -->
+                            <div class="min-w-0 flex-1">
+
+                                <!-- Customer Name -->
+                                <h4
+                                    id="customerName"
+                                    class="font-semibold text-[16px] sm:text-[17px] text-light-blackk leading-tight">
+
+                                    Priya Sharma
+
+                                </h4>
+
+
+                                <!-- Company + Verified -->
+                                <div
+                                    class="flex items-center gap-2 mt-0.5 flex-wrap">
+
+                                    <span
+                                        id="customerCompany"
+                                        class="text-[12px] sm:text-[13px] text-light-blackk">
+
+                                        TechNova Solutions
+
+                                    </span>
+
+
+                                    <span
+                                        class="flex items-center gap-1">
+
+                                        <span
+                                            id="customerRole"
+                                            class="text-[12px] sm:text-[13px] text-light-blackk">
+
+                                            Verified Customer
+
+                                        </span>
+
+
+                                        <span
+                                            class="material-symbols-outlined text-green-500 text-[15px]">
+
+                                            verified
+
+                                        </span>
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ================================================= -->
+                        <!-- NAVIGATION -->
+                        <!-- ================================================= -->
+                        <div
+                            class="flex gap-2 ml-auto sm:ml-0">
+
+                            <!-- Previous -->
+                            <button
+                                id="testimonialPrev"
+                                type="button"
+                                aria-label="Previous testimonial"
+                                class="w-10 h-10 rounded-full border border-slate-200 bg-white text-[#F5B530] flex items-center justify-center transition-all duration-300 hover:bg-[#F5B530] hover:text-white">
+
+                                <span
+                                    class="material-symbols-outlined text-[20px]">
+
+                                    chevron_left
+
+                                </span>
+
+                            </button>
+
+
+                            <!-- Next -->
+                            <button
+                                id="testimonialNext"
+                                type="button"
+                                aria-label="Next testimonial"
+                                class="w-10 h-10 rounded-full border border-[#F5B530] bg-[#F5B530] text-white flex items-center justify-center transition-all duration-300 hover:bg-[#E2A220] hover:border-[#E2A220]">
+
+                                <span
+                                    class="material-symbols-outlined text-[20px]">
+
+                                    chevron_right
+
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- DOTS -->
+                    <!-- ================================================= -->
+                    <div
+                        class="flex gap-2 mt-3">
+
+                        <button
+                            type="button"
+                            aria-label="Go to testimonial 1"
+                            class="testimonial-dot w-2.5 h-2.5 rounded-full bg-[#F5B530]"
+                            data-index="0">
+                        </button>
+
+
+                        <button
+                            type="button"
+                            aria-label="Go to testimonial 2"
+                            class="testimonial-dot w-2.5 h-2.5 rounded-full bg-slate-300"
+                            data-index="1">
+                        </button>
+
+
+                        <button
+                            type="button"
+                            aria-label="Go to testimonial 3"
+                            class="testimonial-dot w-2.5 h-2.5 rounded-full bg-slate-300"
+                            data-index="2">
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- RIGHT -->
+            <!-- ================================================= -->
+            <div
+                class="hidden lg:flex justify-end items-start overflow-hidden">
+
+                <div
+                    class="relative translate-x-16 translate-y-12">
+
+
+                    <!-- Circle -->
+                    <div class="testimonial-feature-circle">
+
+                        <img
+                            id="engineerImage"
+                            src="{% static 'img/fe-wocs-bg.webp' %}"
+                            alt="Field Engineer professional service provider in the field"
+                            width="450"
+                            height="450"
+                            loading="lazy"
+                            class="testimonial-feature-img">
+
+                    </div>
+
+
+                    <!-- Hide Bottom Border -->
+                    <div
+                        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[220px] h-8 bg-[#FCFAF5] rounded-full z-20 hidden lg:block">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    {# CTA Banner #}
+
+    <!-- Section 5: Ready to Deploy Certified Engineers -->
+    <!-- =========================================================
+     READY TO DEPLOY SECTION
+========================================================= -->
+
+<section
+    class="ready-deploy-section w-full bg-midnight-slate relative overflow-hidden flex flex-col"
+    aria-labelledby="deploy-engineers-title">
+
+    <!-- ================= BACKGROUND ================= -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+
+        <img
+            src="{% static 'img/ready-to-deploy.webp' %}"
+            alt="Construction site with engineers at night"
+            width="1920"
+            height="1080"
+            class="ready-deploy-section__bg w-full h-full object-cover"
+            loading="lazy"
+            decoding="async">
+
+        <!-- Dark gradient overlay -->
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-[#0F172A]/95 via-[#0F172A]/80 to-[#0F172A]/50">
+        </div>
+
+    </div>
+
+
+    <!-- ================= MAIN CONTAINER ================= -->
+    <!-- Same left/right alignment as header and other sections -->
+    <div
+        class="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-12 sm:py-16 md:py-20 lg:py-24">
+
+        <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
+
+
+            <!-- ================= LEFT CONTENT ================= -->
+            <div class="flex flex-col items-start max-w-xl">
+
+                <!-- Heading -->
+                <h2
+                    id="deploy-engineers-title"
+                    class="text-3xl sm:text-4xl md:text-[42px] lg:text-[46px] font-bold text-white leading-tight tracking-tight mb-4">
+
+                    Ready to Deploy Certified
+                    Engineers at Your Site?
+
+                </h2>
+
+
+                <!-- Description -->
+                <p
+                    class="text-sm sm:text-base text-white/90 font-normal leading-relaxed mb-7 sm:mb-8 max-w-md">
+
+                    Book now and get the best offers from verified engineers.
+
+                </p>
+
+
+                <!-- Request Service Button -->
+                <button
+                    type="button"
+                    onclick="openSignupPopup()"
+                    class="group h-11 sm:h-12 px-6 sm:px-8 rounded-xl bg-primary-yellow text-black font-bold text-sm sm:text-base inline-flex items-center gap-2 transition-all duration-200 hover:bg-[#E2A220] hover:-translate-y-0.5 shadow-lg shadow-[#F5C34C]/20 cursor-pointer"
+                    aria-label="Request engineer deployment services">
+
+                    <span>
+                        Request Service
+                    </span>
+
+                    <span
+                        class="material-symbols-outlined text-[19px] sm:text-[20px] font-normal transition-transform duration-200 group-hover:translate-x-1">
+
+                        arrow_forward
+
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= RIGHT STATS ================= -->
+            <div
+                class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-6 stat-grid"
+                aria-label="Key performance metrics">
+
+
+                <!-- ================= STAT 1 ================= -->
+                <article
+                    class="bg-white rounded-2xl p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center shadow-lg min-h-[120px] sm:min-h-[145px]">
+
+                    <p
+                        class="text-2xl sm:text-3xl md:text-4xl font-bold text-dark-slate1 mb-1 leading-none">
+
+                        99.2%
+
+                    </p>
+
+                    <p
+                        class="text-[11px] sm:text-[13px] text-medium-dark-cool-gray font-medium">
+
+                        SLA Success
+
+                    </p>
+
+                </article>
+
+
+                <!-- ================= STAT 2 ================= -->
+                <article
+                    class="bg-white rounded-2xl p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center shadow-lg min-h-[120px] sm:min-h-[145px]">
+
+                    <p
+                        class="text-2xl sm:text-3xl md:text-4xl font-bold text-dark-slate1 mb-1 leading-none">
+
+                        158K+
+
+                    </p>
+
+                    <p
+                        class="text-[11px] sm:text-[13px] text-medium-dark-cool-gray font-medium">
+
+                        Jobs Completed
+
+                    </p>
+
+                </article>
+
+
+                <!-- ================= STAT 3 ================= -->
+                <article
+                    class="bg-white rounded-2xl p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center shadow-lg min-h-[120px] sm:min-h-[145px]">
+
+                    <p
+                        class="text-2xl sm:text-3xl md:text-4xl font-bold text-dark-slate1 mb-1 leading-none">
+
+                        4.8/5
+
+                    </p>
+
+                    <p
+                        class="text-[11px] sm:text-[13px] text-medium-dark-cool-gray font-medium">
+
+                        Customer Rating
+
+                    </p>
+
+                </article>
+
+
+                <!-- ================= STAT 4 ================= -->
+                <article
+                    class="bg-white rounded-2xl p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center text-center shadow-lg min-h-[120px] sm:min-h-[145px]">
+
+                    <p
+                        class="text-2xl sm:text-3xl md:text-4xl font-bold text-dark-slate1 mb-1 leading-none">
+
+                        24/7
+
+                    </p>
+
+                    <p
+                        class="text-[11px] sm:text-[13px] text-medium-dark-cool-gray font-medium">
+
+                        Support Available
+
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+    <!-- Full-width gradient background container -->
+    <!-- =========================================================
+     FE APP DOWNLOAD SECTION
+========================================================= -->
+
+<section class="w-full bg-[#FFFDF8]">
+
+    <!-- ================= FULL-WIDTH BACKGROUND ================= -->
+    <div
+        class="w-full bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
+
+        <!-- ================= SAME PAGE ALIGNMENT ================= -->
+        <div
+            class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+            <!-- ================= MAIN CONTENT ================= -->
+            <div
+                class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+
+                <!-- ================= LEFT CONTENT ================= -->
+                <div class="w-full lg:flex-1 min-w-0">
+
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center gap-2 rounded-full border border-[#22C55E] bg-white px-4 py-1.5">
+
+                        <span
+                            class="material-symbols-outlined text-[15px] text-[#22C55E]">
+                            download
+                        </span>
+
+                        <span
+                            class="text-[12px] font-semibold text-[#22C55E]">
+                            Get the FE App
+                        </span>
+
+                    </div>
+
+
+                    <!-- Heading -->
+                    <h2
+                        class="mt-5 text-[32px] sm:text-[36px] lg:text-[40px] font-bold leading-tight text-[#1E293B]">
+
+                        Download the
+
+                        <span class="text-[#22C55E]">
+                            FE App
+                        </span>
+
+                    </h2>
+
+
+                    <!-- Description -->
+                    <p
+                        class="mt-3 max-w-[500px] text-[14px] leading-6 text-slate-600">
+
+                        Manage field service jobs anytime, anywhere.
+                        Book engineers, track service requests and stay
+                        connected with real-time updates.
+
+                    </p>
+
+
+                    <!-- ================= STORE BUTTONS ================= -->
+                    <div
+                        class="flex items-center gap-4 mt-6 flex-wrap">
+
+                        <!-- Google Play -->
+                        <a
+                            href="#"
+                            class="w-[180px] h-12 bg-black text-white px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0 transition-all duration-200 hover:bg-[#111] hover:-translate-y-0.5"
+                            aria-label="Download Field Engineer app from Google Play">
+
+                            <img
+                                src="{% static 'img/google-play-store-icon.webp' %}"
+                                alt="Google Play logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+                            <div class="text-left leading-none">
+
+                                <p
+                                    class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
+                                    GET IT ON
+                                </p>
+
+                                <p
+                                    class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
+                                    Google Play
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+                        <!-- App Store -->
+                        <a
+                            href="#"
+                            class="w-[180px] h-12 bg-black text-white px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0 transition-all duration-200 hover:bg-[#111] hover:-translate-y-0.5"
+                            aria-label="Download Field Engineer app from Apple App Store">
+
+                            <img
+                                src="{% static 'img/apple-logo.webp' %}"
+                                alt="App Store logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+                            <div class="text-left leading-none">
+
+                                <p
+                                    class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
+                                    Download on
+                                </p>
+
+                                <p
+                                    class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
+                                    App Store
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= RIGHT / QR ================= -->
+                <div
+                    class="w-full lg:w-auto flex-shrink-0 flex justify-center lg:justify-end">
+
+                    <div class="text-center">
+
+                        <img
+                            src="{% static 'img/about-qr.webp' %}"
+                            alt="Download FE App"
+                            width="190"
+                            height="190"
+                            loading="lazy"
+                            decoding="async"
+                            class="w-[150px] sm:w-[165px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+</main>
+<script>
+    const testimonialImages = [
+        "{% static 'img/fe-wocs1.webp' %}",
+        "{% static 'img/fe-wocs2.webp' %}",
+        "{% static 'img/fe-wocs3.webp' %}"
+    ];
+</script>
+
+<script src="{% static 'script/pages/how-it-works.js' %}"></script>
+<script src="{% static 'script/pages/engineer.js' %}"></script>
+
+
+
+{% endblock %}

@@ -1,0 +1,230 @@
+{% extends 'fieldengineer-crm/layout.html' %}
+{% load static %}
+
+{% block title %}FieldEngineer — Deploy Certified Engineers Anywhere in India{% endblock %}
+
+{% block content %}
+<section class="min-h-screen bg-[#f7faff] px-4 py-5 font-sans text-[#111b4f] sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-[1500px]">
+        <div class="mb-5 grid gap-4 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
+            <div>
+                <h1 class="text-[22px] font-extrabold leading-tight text-[#07134a]">Profile &amp; Verification Center</h1>
+                <p class="mt-1 text-[12px] font-semibold leading-[18px] text-[#51618f]">Complete your profile to unlock all features and book faster.</p>
+            </div>
+            <div class="flex items-center gap-5 lg:justify-end">
+                <div class="min-w-[210px] flex-1 lg:flex-none">
+                    <div class="mb-2 flex items-center justify-between text-[11px] font-bold text-[#637197]">
+                        <span>Profile Completion</span>
+                        <span class="text-[#10b65b]">80% Complete</span>
+                    </div>
+                    <div class="h-2.5 rounded-full bg-[#e5edf8]">
+                        <div class="h-2.5 w-4/5 rounded-full bg-[#13bf63]"></div>
+                    </div>
+                </div>
+                <div class="text-[13px] font-extrabold text-[#253160]">80%</div>
+            </div>
+        </div>
+
+        <div class="grid gap-5 xl:grid-cols-[minmax(0,1fr)_320px]">
+            <div class="min-w-0 space-y-4">
+                <div class="rounded-xl border border-[#dde6f3] bg-white p-4 shadow-[0_10px_30px_rgba(22,43,91,0.04)] sm:p-6">
+                    <div class="grid gap-5 lg:grid-cols-[130px_minmax(0,1fr)_140px]">
+                        <div class="flex justify-center lg:justify-start">
+                            <div class="relative h-[105px] w-[105px]">
+                            
+<img src="{% static 'img/vendor-responses/engineer-1.webp' %}" 
+     alt="Rishi Acharya" 
+     class="h-full w-full rounded-full object-cover">
+                                <button class="absolute bottom-0 right-0 flex h-9 w-9 items-center justify-center rounded-full border-4 border-white bg-[#f5f8ff] text-[#4665a8] shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="min-w-0">
+                            <div class="mb-5 flex flex-wrap items-center gap-3">
+                                <h2 class="text-[19px] font-extrabold leading-none text-[#111b4f]">ACME Pvt. Ltd.</h2>
+                                <span class="rounded-full bg-[#eaf2ff] px-3 py-1 text-[10px] font-extrabold text-[#096cff]">Customer</span>
+                            </div>
+                            <div class="grid gap-x-8 gap-y-6 sm:grid-cols-2 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_180px]">
+                                <div class="flex items-start gap-3 rounded-lg px-1 py-1.5">
+                                    <span class="material-symbols-outlined mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#eef5ff] text-[18px] text-[#253c84]">group</span>
+                                    <div class="min-w-0 pt-0.5">
+                                        <p class="text-[10px] font-bold text-[#6b789e]">Contact Person</p>
+                                        <p class="mt-2 text-[12px] whitespace-nowrap font-extrabold leading-[18px] text-[#18245c]">Rishi Acharya</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 rounded-lg bg-[#fbfdff] px-1 py-1.5">
+                                    <span class="material-symbols-outlined mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#eef5ff] text-[18px] text-[#253c84]">call</span>
+                                    <div class="min-w-0 pt-0.5">
+                                        <p class="text-[10px] font-bold text-[#6b789e]">Phone Number</p>
+                                        <p class="mt-1 whitespace-nowrap text-[12px] font-extrabold leading-[18px] text-[#18245c]">+91 81022 62067</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 rounded-lg border-[#dfe6f1] px-1 py-1.5 sm:row-span-2 xl:border-l xl:pl-8">
+                                    <span class="material-symbols-outlined mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#eef5ff] text-[18px] text-[#253c84]">calendar_month</span>
+                                    <div class="min-w-0 pt-0.5">
+                                        <p class="text-[10px] font-bold text-[#6b789e]">Member Since</p>
+                                        <p class="mt-1 text-[12px] font-extrabold leading-[18px] text-[#18245c]">May 2024</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 rounded-lg px-1 py-1.5">
+                                    <span class="material-symbols-outlined mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#eef5ff] text-[18px] text-[#253c84]">mail</span>
+                                    <div class="min-w-0 pt-0.5">
+                                        <p class="text-[10px] font-bold text-[#6b789e]">Email</p>
+                                        <p class="mt-2 break-all text-[12px]  whitespace-nowrap font-extrabold leading-[18px] text-[#18245c]">rishi@acme.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 rounded-lg px-1 py-1.5">
+                                    <span class="material-symbols-outlined mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#eef5ff] text-[18px] text-[#253c84]">business_center</span>
+                                    <div class="min-w-0 pt-0.5">
+                                        <p class="text-[10px] font-bold text-[#6b789e]">Business Type</p>
+                                        <p class="mt-1 text-[12px] font-extrabold leading-[18px] text-[#18245c]">Private Limited</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start justify-end">
+                            <button class="h-10 rounded-md border border-[#006eff] px-6 text-[12px] font-extrabold text-[#006eff]">Edit Profile</button>
+                        </div>
+                    </div>
+                    <div class="mt-7 grid gap-3 text-[10px] font-bold text-[#253160] md:grid-cols-3 lg:grid-cols-[1fr_1.25fr_1.35fr_1fr_1fr_150px] lg:items-center">
+                        <div class="flex items-center gap-2"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#13bf63] text-white"><span class="material-symbols-outlined text-[15px]">check</span></span>Profile Details</div>
+                        <div class="flex items-center gap-2"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#13bf63] text-white"><span class="material-symbols-outlined text-[15px]">check</span></span>Identity Verification</div>
+                        <div class="flex items-center gap-2"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#13bf63] text-white"><span class="material-symbols-outlined text-[15px]">check</span></span>Business Information</div>
+                        <div class="flex items-center gap-2"><span class="h-6 w-6 rounded-full border-2 border-[#f5b638] bg-white"></span>Payment Method</div>
+                        <div class="flex items-center gap-2"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#13bf63] text-white"><span class="material-symbols-outlined text-[15px]">check</span></span>Documents</div>
+                        <button class="hidden h-10 w-full items-center justify-center gap-2 rounded-md bg-[#096cff] px-3 text-[11px] font-extrabold text-white md:flex lg:text-[12px]">Continue Setup <span class="material-symbols-outlined shrink-0 text-[16px]">arrow_forward</span></button>
+                    </div>
+                </div>
+
+                <div class="grid gap-4 lg:grid-cols-3">
+                    <div class="rounded-xl border border-[#dde6f3] bg-white p-5">
+                        <div class="mb-5 flex items-center justify-between">
+                            <div class="flex items-center gap-3"><span class="flex h-9 w-9 items-center justify-center rounded-md bg-[#ecf4ff] text-[#096cff]"><span class="material-symbols-outlined text-[20px]">business</span></span><h3 class="text-[14px] font-extrabold">Business Information</h3></div>
+                            <button class="rounded-md border border-[#8dbbff] px-4 py-2 text-[10px] font-bold text-[#096cff]">Edit Information</button>
+                        </div>
+                        <div class="space-y-0 text-[11px]">
+                            <div class="flex justify-between border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">Company Name</span><strong>ACME Pvt. Ltd.</strong></div>
+                            <div class="flex justify-between border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">Business Type</span><strong>Private Limited</strong></div>
+                            <div class="flex justify-between border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">Industry Type</span><strong>Data Center Services</strong></div>
+                            <div class="flex justify-between border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">GSTIN</span><strong>27ABCDE1234F1Z5</strong></div>
+                            <div class="flex justify-between border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">PAN Number</span><strong>ABCDE1234F</strong></div>
+                            <div class="flex justify-between border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">Company Registration Number</span><strong>U74999MP2024PTC123456</strong></div>
+                            <div class="flex justify-between py-3"><span class="font-bold text-[#677599]">Website</span><strong>www.acme.com</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-xl border border-[#dde6f3] bg-white p-5">
+                        <div class="mb-5 flex items-center justify-between">
+                            <div class="flex items-center gap-3"><span class="flex h-9 w-9 items-center justify-center rounded-md bg-[#ecf4ff] text-[#096cff]"><span class="material-symbols-outlined text-[20px]">location_on</span></span><h3 class="text-[14px] font-extrabold">Office Address</h3></div>
+                            <button class="rounded-md border border-[#8dbbff] px-4 py-2 text-[10px] font-bold text-[#096cff]">Edit Address</button>
+                        </div>
+                        <div class="space-y-0 text-[11px]">
+                            <div class="flex justify-between border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">Address Type</span><strong>Head Office</strong></div>
+                            <div class="flex justify-between gap-6 border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">Address</span><strong class="max-w-[180px] text-right leading-[18px]">22 Industrial Area Phase 2, Bhopal, Madhya Pradesh</strong></div>
+                            <div class="flex justify-between border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">PIN Code</span><strong>462022</strong></div>
+                            <div class="flex justify-between py-3"><span class="font-bold text-[#677599]">Phone Number</span><strong>+91 91000 12345</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="rounded-xl border border-[#dde6f3] bg-white p-5">
+                        <div class="mb-5 flex items-center gap-3"><span class="flex h-9 w-9 items-center justify-center rounded-md bg-[#ecf4ff] text-[#096cff]"><span class="material-symbols-outlined text-[20px]">person</span></span><h3 class="text-[14px] font-extrabold">Authorized Contact</h3></div>
+                        <div class="space-y-0 text-[11px]">
+                            <div class="flex justify-between border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">Name</span><strong>Rishi Acharya</strong></div>
+                            <div class="flex justify-between border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">Designation</span><strong>Operations Manager</strong></div>
+                            <div class="flex justify-between border-b border-[#edf1f7] py-3"><span class="font-bold text-[#677599]">Phone Number</span><strong>+91 81022 62067</strong></div>
+                            <div class="flex justify-between py-3"><span class="font-bold text-[#677599]">Work Email</span><strong>rishi@acme.com</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(320px,1fr)]">
+                    <div class="rounded-xl border border-[#dde6f3] bg-white p-5">
+                        <div class="mb-4 flex flex-wrap items-start justify-between gap-3">
+                            <div><h3 class="text-[14px] font-extrabold">Documents &amp; KYC</h3><p class="text-[10px] font-semibold text-[#69779d]">Upload and manage your business documents</p></div>
+                            <button class="rounded-md border border-[#8dbbff] px-4 py-2 text-[10px] font-bold text-[#096cff]">Upload Document</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full min-w-[650px] text-left text-[10px]">
+                                <thead class="text-[#657398]"><tr class="border-b border-[#edf1f7]"><th class="py-3">Document Name</th><th>Type</th><th>Status</th><th>Uploaded On</th><th>Actions</th></tr></thead>
+                                <tbody class="font-bold text-[#263366]">
+                                    <tr class="border-b border-[#edf1f7]"><td class="py-3"><span class="mr-2 inline-flex h-5 w-5 items-center justify-center rounded bg-[#fa3e3e] text-white">Pdf</span>GST Certificate.pdf</td><td>GST Certificate</td><td class="text-[#13bf63]">Verified</td><td>15 May 2026, 11:20 AM</td><td><button class="mr-2 rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">View</button><button class="mr-2 rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">Download</button><button class="rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">Replace</button></td></tr>
+                                    <tr class="border-b border-[#edf1f7]"><td class="py-3"><span class="mr-2 inline-flex h-5 w-5 items-center justify-center rounded bg-[#35c779] text-white">Xls</span>PAN Card.pdf</td><td>PAN Document</td><td class="text-[#13bf63]">Verified</td><td>15 May 2026, 11:15 AM</td><td><button class="mr-2 rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">View</button><button class="mr-2 rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">Download</button><button class="rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">Replace</button></td></tr>
+                                    <tr class="border-b border-[#edf1f7]"><td class="py-3"><span class="mr-2 inline-flex h-5 w-5 items-center justify-center rounded bg-[#f5a623] text-white">Reg</span>Incorporation.pdf</td><td>Company Registration</td><td class="text-[#13bf63]">Verified</td><td>12 May 2026, 03:45 PM</td><td><button class="mr-2 rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">View</button><button class="mr-2 rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">Download</button><button class="rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">Replace</button></td></tr>
+                                    <tr class="border-b border-[#edf1f7]"><td class="py-3"><span class="mr-2 inline-flex h-5 w-5 items-center justify-center rounded bg-[#8b5cf6] text-white">Adr</span>Address Proof.pdf</td><td>Address Proof</td><td class="text-[#f59e0b]">Pending Review</td><td>10 May 2026, 10:15 AM</td><td><button class="mr-2 rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">View</button><button class="rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">Replace</button></td></tr>
+                                    <tr><td class="py-3"><span class="mr-2 inline-flex h-5 w-5 items-center justify-center rounded bg-[#94a3b8] text-white">Doc</span>Other Document.pdf</td><td>Supporting Document</td><td class="text-[#ef4444]">Pending Upload</td><td>--</td><td><button class="rounded border border-[#b8d4ff] px-2 py-1 text-[#096cff]">Upload</button></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button class="mx-auto mt-4 flex items-center gap-2 text-[11px] font-extrabold text-[#096cff]">View All Documents <span class="material-symbols-outlined text-[15px]">arrow_forward</span></button>
+                    </div>
+
+                    <div class="rounded-xl border border-[#dde6f3] bg-white p-5">
+                        <h3 class="text-[14px] font-extrabold">Payment Methods</h3>
+                        <p class="mb-4 text-[10px] font-semibold text-[#69779d]">Manage your payment methods</p>
+                        <div class="space-y-3">
+                            <div class="rounded-lg border border-[#b9ead1] bg-[#effbf5] p-4">
+                                <p class="mb-3 text-[9px] font-extrabold uppercase text-[#13a85a]">Primary Method</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3"><span class="material-symbols-outlined text-[#096cff]">account_balance_wallet</span><div class="text-[11px] font-bold"><p>UPI</p><p class="text-[#657398]">acme@paytm</p></div></div>
+                                    <span class="rounded bg-[#d7f7e5] px-3 py-1 text-[10px] font-extrabold text-[#0c9f50]">Verified</span>
+                                    <span class="material-symbols-outlined text-[18px]">more_vert</span>
+                                </div>
+                            </div>
+                            <div class="rounded-lg border border-[#b9ead1] bg-[#effbf5] p-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ef4444]">account_balance</span><div class="text-[11px] font-bold"><p>HDFC Bank</p><p class="text-[#657398]">A/C: XXXX1234<br>IFSC: HDFC0001234</p></div></div>
+                                    <span class="rounded bg-[#d7f7e5] px-3 py-1 text-[10px] font-extrabold text-[#0c9f50]">Verified</span>
+                                    <span class="material-symbols-outlined text-[18px]">more_vert</span>
+                                </div>
+                            </div>
+                            <button class="flex h-10 w-full items-center justify-center gap-2 rounded-md border border-[#096cff] text-[12px] font-extrabold text-[#096cff]"><span class="material-symbols-outlined text-[18px]">add</span>Add Payment Method</button>
+                            <button class="flex h-10 w-full items-center justify-center gap-2 rounded-md border border-[#b8d4ff] text-[12px] font-extrabold text-[#096cff]">Manage Methods <span class="material-symbols-outlined text-[16px]">arrow_forward</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="space-y-4">
+                <div class="rounded-xl border border-[#dde6f3] bg-white p-5">
+                    <h3 class="mb-4 text-[14px] font-extrabold">Verification Status</h3>
+                    <div class="space-y-4 text-[11px] font-bold text-[#253160]">
+                        <p class="flex items-center gap-3"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#13bf63] text-white"><span class="material-symbols-outlined text-[15px]">check</span></span>Email Verified</p>
+                        <p class="flex items-center gap-3"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#13bf63] text-white"><span class="material-symbols-outlined text-[15px]">check</span></span>Mobile Verified</p>
+                        <p class="flex items-center gap-3"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#13bf63] text-white"><span class="material-symbols-outlined text-[15px]">check</span></span>GST Verified</p>
+                        <p class="flex items-center gap-3"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#13bf63] text-white"><span class="material-symbols-outlined text-[15px]">check</span></span>Company Verified</p>
+                        <p class="flex items-center gap-3"><span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#13bf63] text-white"><span class="material-symbols-outlined text-[15px]">check</span></span>Identity Verified</p>
+                    </div>
+                    <div class="mt-6 rounded-lg bg-[#eafaf2] p-4">
+                        <div class="mb-3 flex justify-between text-[11px] font-extrabold"><span>Verification Score</span><span class="rounded-full bg-[#c8f5dc] px-2 py-0.5 text-[#0c9f50]">100%</span></div>
+                        <div class="h-2.5 rounded-full bg-[#d7f7e5]"><div class="h-2.5 w-full rounded-full bg-[#13bf63]"></div></div>
+                    </div>
+                </div>
+
+                <div class="rounded-xl border border-[#dde6f3] bg-white p-5">
+                    <h3 class="mb-4 text-[14px] font-extrabold">Account Summary</h3>
+                    <div class="space-y-4 text-[11px] font-bold text-[#617093]">
+                        <p class="flex items-center justify-between"><span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#096cff]">calendar_month</span>Total Bookings</span><strong class="text-[#111b4f]">16</strong></p>
+                        <p class="flex items-center justify-between"><span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#475569]">currency_rupee</span>Completed Jobs</span><strong class="text-[#111b4f]">14</strong></p>
+                        <p class="flex items-center justify-between"><span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#ff7043]">location_on</span>Saved Locations</span><strong class="text-[#111b4f]">8</strong></p>
+                        <p class="flex items-center justify-between"><span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#22c55e]">payments</span>Total Spend</span><strong class="text-[#111b4f]">₹84,250</strong></p>
+                        <p class="flex items-center justify-between"><span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#3b5bdb]">calendar_today</span>Member Since</span><strong class="text-[#111b4f]">May 2024</strong></p>
+                    </div>
+                </div>
+
+                <div class="rounded-xl border border-[#dde6f3] bg-white p-5">
+                    <h3 class="mb-4 text-[14px] font-extrabold">Quick Actions</h3>
+                    <div class="space-y-1 text-[11px] font-bold text-[#253160]">
+                        <a href="#" class="flex items-center justify-between rounded-md py-3 hover:bg-[#f6f9ff]"><span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#096cff]">edit</span>Edit Profile</span><span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+                        <a href="#" class="flex items-center justify-between rounded-md py-3 hover:bg-[#f6f9ff]"><span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#096cff]">upload_file</span>Upload Documents</span><span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+                        <a href="#" class="flex items-center justify-between rounded-md py-3 hover:bg-[#f6f9ff]"><span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#096cff]">account_balance_wallet</span>Add Payment Method</span><span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+                        <a href="#" class="flex items-center justify-between rounded-md py-3 hover:bg-[#f6f9ff]"><span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#096cff]">home_work</span>Manage Addresses</span><span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+                        <a href="#" class="flex items-center justify-between rounded-md py-3 hover:bg-[#f6f9ff]"><span class="flex items-center gap-3"><span class="material-symbols-outlined text-[#096cff]">support_agent</span>Contact Support</span><span class="material-symbols-outlined text-[16px]">chevron_right</span></a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

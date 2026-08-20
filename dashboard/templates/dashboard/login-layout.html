@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Field Engineer{% endblock %}</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+
+
+
+    {% block css %}{% endblock %}
+</head>
+
+
+<body>
+
+    <div class="min-h-screen flex flex-col">
+
+        <!-- ============ HEADER ============ -->
+        <header
+            class="fixed top-0 inset-x-0  bg-white border-b border-pale-blue-gray z-40 flex items-center px-4 sm:px-6 h-16">
+            <div class="flex items-center justify-between w-full gap-4">
+
+                <!-- Left: logo + mobile menu toggle -->
+                <div class="flex items-center gap-3 min-w-0 shrink-0">
+                    <button id="menuBtn" aria-label="Toggle sidebar"
+                        class="lg:hidden p-2 -ml-2 rounded-lg hover:bg-slate-100 text-slate-600">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <div
+                            class="w-9 h-9 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-sm shrink-0">
+                            FE</div>
+                        <div class="hidden sm:block leading-tight min-w-0">
+                            <p class="font-bold text-[15px] text-ink truncate">Field Engineer</p>
+                            <p class="text-xs text-granite-gray font-normal truncate">Enterprise Field Workforce
+                                Platform</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center: nav (desktop only) -->
+                <nav class="flex items-center justify-start lg:justify-center gap-5 sm:gap-7 text-[12.8px] text-granite-gray font-normal
+                overflow-x-auto whitespace-nowrap flex-1 min-w-0 [&::-webkit-scrollbar]:hidden">
+                    <a href="#" class="flex items-center gap-1 shrink-0">Customers
+                        <span
+                            class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-1 shrink-0">Engineers
+                        <span
+                            class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-1 shrink-0">Vendors
+                        <span
+                            class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-1 shrink-0">Industries
+                        <span
+                            class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
+                    </a>
+                    <a href="#" class="shrink-0">Pricing</a>
+                    <a href="#" class="flex items-center gap-1 shrink-0">Resources
+                        <span
+                            class="material-symbols-outlined text-xl! pt-1 text-granite-gray!">keyboard_arrow_down</span>
+                    </a>
+                </nav>
+
+
+                <!-- Right: notification + profile -->
+                <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+                    <button aria-label="Notifications"
+                        class="relative p-2 rounded-lg hover:bg-slate-100 text-slate-500">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span
+                            class="absolute top-1 right-1.5 w-4 h-4 text-[10px] leading-4 text-center bg-primary text-white rounded-full">3</span>
+                    </button>
+
+                    <button class="flex items-center gap-2 pl-2 sm:pl-3 sm:border-l border-pale-blue-gray">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-xs font-bold shrink-0">
+                            RA</div>
+                        <div class="hidden md:block text-left leading-tight">
+                            <p class="text-[13px] font-semibold text-ink">Rishi Acharya</p>
+                            <p class="text-[11px] font-normal text-granite-gray">ACME Pvt. Ltd.</p>
+                        </div>
+                        <svg class="hidden md:block w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Overlay for mobile sidebar -->
+        <div id="overlay" class="hidden fixed inset-0 bg-transparent-black z-30 lg:hidden"></div>
+
+
+
+        <!-- ============ MAIN CONTENT ============ -->
+        <main class="flex-1  mt-16 lg:ml- ">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,694 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}Help Center — Find Answers, Guides &amp; Support | FieldEngineer{% endblock %}
+
+{% block content %}
+
+<main>
+
+    {# ========== BREADCRUMB ========== #}
+    <section class="bg-white py-2" aria-label="Breadcrumb">
+        <div class="max-w-[1400px] mx-auto px-6 py-3">
+            <nav class="flex items-center gap-2 text-b3 text-slate-gray" aria-label="Breadcrumb">
+                <a href="{% url 'home' %}" class="hover:text-bright-blue transition-colors">Home</a>
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+                <a href="#" class="hover:text-bright-blue transition-colors">Company</a>
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+                <span class="font-semibold text-deep-indigo" aria-current="page">Help Center</span>
+            </nav>
+        </div>
+    </section>
+
+    {# ========== HERO SECTION ========== #}
+    <section
+    class="relative overflow-hidden w-full min-h-[400px] sm:min-h-[420px] lg:min-h-[440px] flex items-center"
+    aria-labelledby="help-hero-title">
+
+    <!-- ================= HERO BACKGROUND ================= -->
+    <img
+        src="{% static 'img/help-center-hero.webp' %}"
+        alt="Field Engineer Help Center - Support and guidance for platform users"
+        title="Field Engineer - Help Center"
+        width="1920"
+        height="1080"
+        loading="lazy"
+        decoding="async"
+        class="help-center-hero absolute inset-0 w-full h-full object-cover z-0">
+
+    <!-- ================= DARK OVERLAY ================= -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/40 z-[1]"></div>
+
+
+    <!-- ================= SAME HEADER ALIGNMENT ================= -->
+    <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6">
+
+        <div class="py-8 sm:py-10 lg:py-12 max-w-2xl">
+
+            <!-- Label -->
+            <p class="text-label font-bold uppercase tracking-wide text-light-green mb-4">
+                HELP CENTER
+            </p>
+
+
+            <!-- Heading -->
+            <h1
+                id="help-hero-title"
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
+
+                How can we help you?
+
+            </h1>
+
+
+            <!-- Description -->
+            <p
+                class="text-sm sm:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed max-w-lg">
+
+                Find answers, guides and support for all things related to Field Engineer platform.
+
+            </p>
+
+
+            <!-- ================= SEARCH ================= -->
+            <div
+                class="mt-8 flex max-w-2xl"
+                role="search">
+
+                <!-- Search Input -->
+                <div class="relative flex-1">
+
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-dusty-gray"
+                        aria-hidden="true">
+                        search
+                    </span>
+
+                    <input
+                        type="text"
+                        id="help-search-input"
+                        placeholder="Search for articles, guides and more..."
+                        class="w-full h-14 rounded-l-xl bg-white pl-12 pr-4 text-b1 outline-none"
+                        aria-label="Search for articles, guides and more">
+
+                </div>
+
+
+                <!-- Search Button -->
+                <button
+                    type="button"
+                    id="help-search-button"
+                    class="bg-emerald-teal px-8 rounded-r-xl text-white font-semibold">
+
+                    Search
+
+                </button>
+
+            </div>
+
+
+            <!-- Search Status -->
+            <p
+                id="help-search-status"
+                class="mt-3 text-b3 text-article-medium-gray hidden"
+                role="status"
+                aria-live="polite">
+            </p>
+
+
+            <!-- ================= POPULAR SEARCHES ================= -->
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+
+                <span class="text-sm text-white/80">
+                    Popular Searches:
+                </span>
+
+
+                <button
+                    type="button"
+                    data-search-term="Track Booking"
+                    class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+
+                    Track Booking
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-search-term="Engineer App"
+                    class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+
+                    Engineer App
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-search-term="Invoices"
+                    class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+
+                    Invoices
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-search-term="Work Reports"
+                    class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+
+                    Work Reports
+
+                </button>
+
+
+                <button
+                    type="button"
+                    data-search-term="Vendor Registration"
+                    class="help-search-tag px-4 py-2 rounded-full border border-white/30 text-white text-sm bg-white/10 hover:bg-white/20 transition">
+
+                    Vendor Registration
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    {# ========== BROWSE BY CATEGORY ========== #}
+
+    <div class="bg-[#F7FCF8] min-h-screen">
+
+
+
+        {# ========== POPULAR ARTICLES ========== #}
+
+        <section class="py-6 bg-white mt-6" aria-labelledby="popular-heading">
+            <div class="w-full max-w-[1400px] mx-auto px-6">
+                <div class="grid lg:grid-cols-[2fr_0.9fr] gap-3">
+
+                    {# LEFT SIDE #}
+                    <div>
+                        <div class="flex justify-between items-baseline mb-6">
+                            <h2 id="popular-heading" class="text-h3 font-semibold">Popular Articles</h2>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+
+                            {# Article 1 #}
+                            <a href="{% url 'articles' %}?id=track-service-request"
+                                data-article-id="track-service-request"
+                                class="article-card rounded-2xl border border-cool-gray-blue p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block">
+                                <div class="flex gap-4">
+                                    <div class="h-12 w-12 rounded-xl bg-green-100 flex items-center justify-center shrink-0"
+                                        aria-hidden="true">
+                                        <span class="material-symbols-outlined text-green-light">description</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-s2 font-bold text-black">Track Your Service Request in Real Time
+                                        </h3>
+                                        <p class="mt-2 text-b3 text-slate-gray">Learn how to check your job status,
+                                            track your engineer's location, and stay updated on the progress of your
+                                            service request.</p>
+                                        <p class="mt-3 text-c1 text-dusty-gray">May 10, 2025 &nbsp;•&nbsp; 3 min read
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            {# Article 2 #}
+                            <a href="{% url 'articles' %}?id=understanding-invoices-payments"
+                                data-article-id="understanding-invoices-payments"
+                                class="article-card rounded-2xl border border-cool-gray-blue p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block">
+                                <div class="flex gap-4">
+                                    <div class="h-12 w-12 rounded-xl bg-green-100 flex items-center justify-center shrink-0"
+                                        aria-hidden="true">
+                                        <span class="material-symbols-outlined text-green-light">assignment</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-s2 font-bold text-black">Understanding Invoices & Payments</h3>
+                                        <p class="mt-2 text-b3 text-slate-gray">Learn how invoices are created, when
+                                            payments are made, and how GST is applied.</p>
+                                        <p class="mt-3 text-c1 text-dusty-gray">May 8, 2025 • 4 min read</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            {# Article 3 #}
+                            <a href="{% url 'articles' %}?id=vendor-registration-process"
+                                data-article-id="vendor-registration-process"
+                                class="article-card rounded-2xl border border-cool-gray-blue p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block">
+                                <div class="flex gap-4">
+                                    <div class="h-12 w-12 rounded-xl bg-green-100 flex items-center justify-center shrink-0"
+                                        aria-hidden="true">
+                                        <span class="material-symbols-outlined text-green-light">receipt_long</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-s2 font-bold text-black">Vendor Registration Process</h3>
+                                        <p class="mt-2 text-b3 text-slate-gray">Learn how to register, get verified, and
+                                            start offering your services on the platform.</p>
+                                        <p class="mt-3 text-c1 text-dusty-gray">May 6, 2025 • 5 min read</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            {# Article 4 #}
+                            <a href="{% url 'articles' %}?id=work-updates-reports"
+                                data-article-id="work-updates-reports"
+                                class="article-card rounded-2xl border border-cool-gray-blue p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block">
+                                <div class="flex gap-4">
+                                    <div class="h-12 w-12 rounded-xl bg-green-100 flex items-center justify-center shrink-0"
+                                        aria-hidden="true">
+                                        <span class="material-symbols-outlined text-green-light">smartphone</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-s2 font-bold text-black">How Work Updates & Reports Are Created
+                                        </h3>
+                                        <p class="mt-2 text-b3 text-slate-gray">Learn how work updates are recorded and
+                                            service reports are prepared.</p>
+                                        <p class="mt-3 text-c1 text-dusty-gray">May 5, 2025 • 6 min read</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            {# Article 5 #}
+                            <a href="{% url 'articles' %}?id=engineer-app-guide" data-article-id="engineer-app-guide"
+                                class="article-card rounded-2xl border border-cool-gray-blue p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block">
+                                <div class="flex gap-4">
+                                    <div class="h-12 w-12 rounded-xl bg-green-100 flex items-center justify-center shrink-0"
+                                        aria-hidden="true">
+                                        <span class="material-symbols-outlined text-green-light">person_add</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-s2 font-bold text-black">Engineer App: Complete Guide</h3>
+                                        <p class="mt-2 text-b3 text-slate-gray">Everything you need to know about using
+                                            the Field Engineer app.</p>
+                                        <p class="mt-3 text-c1 text-dusty-gray">May 2, 2025 • 4 min read</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            {# Article 6 #}
+                            <a href="{% url 'articles' %}?id=account-security" data-article-id="account-security"
+                                class="article-card rounded-2xl border border-cool-gray-blue p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block">
+                                <div class="flex gap-4">
+                                    <div class="h-12 w-12 rounded-xl bg-green-100 flex items-center justify-center shrink-0"
+                                        aria-hidden="true">
+                                        <span class="material-symbols-outlined text-green-light">shield</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-s2 font-bold text-black">Account Security</h3>
+                                        <p class="mt-2 text-b3 text-slate-gray">Learn how to protect your account and
+                                            keep it secure.</p>
+                                        <p class="mt-3 text-c1 text-dusty-gray">Apr 30, 2025 • 3 min read</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+
+                        {# Bottom Banner #}
+                        <div
+                            class="mt-5 bg-greenish-white border border-sage-green1 rounded-2xl p-5 flex flex-col md:flex-row items-center justify-between gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="h-14 w-14 rounded-full bg-white shadow-sm flex items-center justify-center"
+                                    aria-hidden="true">
+                                    <span
+                                        class="material-symbols-outlined text-emerald-teal text-[32px]">lightbulb</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-s2 font-bold text-dark-black">Can't find what you're looking for?
+                                    </h3>
+                                    <p class="text-b3 text-light-black mt-1">Our support team is here to help you with
+                                        any questions or issues.</p>
+                                </div>
+                            </div>
+                            <a href="https://helpdesk.field-ai.aibuzz.net/submit-ticket">
+                                <button
+                                    class="inline-flex items-center gap-2 bg-primary-yellow text-charcoal-black font-semibold px-6 py-3 rounded-xl shadow-sm  cursor-pointer">
+                                    Contact Support
+                                    <span class="material-symbols-outlined text-[20px]"
+                                        aria-hidden="true">arrow_forward</span>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                    {# RIGHT SIDE #}
+                    <div class="space-y-5">
+
+                        {# Still Need Help #}
+                        <div class="bg-help-center-text rounded-2xl border border-cool-gray-blue p-6">
+                            <h3 class="text-s2 font-bold text-light-black">Still Need Help?</h3>
+                            <p class="mt-3 text-b3 text-slate-gray">Contact our support team for personalized
+                                assistance.
+                            </p>
+                            <div class="mt-6 space-y-5">
+                                <div class="flex items-start gap-3">
+                                    <div class="h-10 w-10 rounded-md p-2 bg-green-100 flex items-center justify-center shrink-0"
+                                        aria-hidden="true">
+                                        <span class="material-symbols-outlined text-green-light text-[20px]">call</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-b3 font-bold text-light-black">+91 99679 40928
+                                        </p>
+                                        <p class="text-c1 text-dusty-gray">24/7 Support</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="h-10 w-10 rounded-md p-2 bg-green-100 flex items-center justify-center shrink-0"
+                                        aria-hidden="true">
+                                        <span class="material-symbols-outlined text-green-light text-[20px]">mail</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-b3 font-bold text-light-black">
+                                            &#104;&#101;&#108;&#108;&#111;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;
+                                        </p>
+                                        <p class="text-c1 text-dusty-gray">We reply within 30 minutes</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="h-10 w-10 rounded-md p-2 bg-green-100 flex items-center justify-center shrink-0"
+                                        aria-hidden="true">
+                                        <span class="material-symbols-outlined text-green-light text-[20px]">chat</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-b3 font-bold text-light-black">Live Chat</p>
+                                        <p class="text-c1 text-dusty-gray">Available 24/7</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="https://helpdesk.field-ai.aibuzz.net/submit-ticket"
+                                class="mt-6 w-full inline-flex items-center justify-center  py-3 rounded-xl font-semibold bg-primary-yellow  text-charcoal-black">
+                                Open a Ticket
+                                <span class="material-symbols-outlined ml-1 text-[18px]" aria-hidden="true">
+                                    arrow_forward
+                                </span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        {# ========== BROWSE BY CATEGORY ========== #}
+        <section class="py-12" aria-labelledby="categories-heading">
+            <div class="w-full max-w-[1400px] mx-auto px-6">
+
+                <div class="text-center mb-10">
+                    <h2 id="categories-heading" class="text-h3 font-semibold text-black">Browse by Category</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                    {# Card 1 — For Customers -> track-service-request #}
+                    <article
+                        class="category-card bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                        data-category="For Customers" data-article-id="track-service-request">
+                        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
+                            aria-hidden="true">
+                            <span class="material-symbols-outlined text-white !text-[42px]"
+                                style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">groups</span>
+                        </div>
+                        <h3 class="mt-5 text-s2 font-bold text-deep-indigo">For Customers</h3>
+                        <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Manage service requests, track jobs, view
+                            reports, invoices, and more.</p>
+                        <a href="{% url 'articles' %}?id=track-service-request"
+                            class="mt-5 inline-flex items-center gap-1 text-green-light text-b3 font-semibold hover:gap-2 transition-all">
+                            Explore Articles
+                            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    {# Card 2 — For Engineers -> engineer-app-guide #}
+                    <article
+                        class="category-card bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                        data-category="For Engineers" data-article-id="engineer-app-guide">
+                        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
+                            aria-hidden="true">
+                            <span class="material-symbols-outlined text-white !text-[42px]"
+                                style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">engineering</span>
+                        </div>
+                        <h3 class="mt-5 text-s2 font-bold text-deep-indigo">For Engineers</h3>
+                        <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Find projects, manage your work, track
+                            earnings, and get app support.</p>
+                        <a href="{% url 'articles' %}?id=engineer-app-guide"
+                            class="mt-5 inline-flex items-center gap-1 text-green-light text-b3 font-semibold hover:gap-2 transition-all">
+                            Explore Articles
+                            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    {# Card 3 — For Vendors -> vendor-registration-process #}
+                    <article
+                        class="category-card bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                        data-category="For Vendors" data-article-id="vendor-registration-process">
+                        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
+                            aria-hidden="true">
+                            <span class="material-symbols-outlined text-white !text-[42px]"
+                                style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">store</span>
+                        </div>
+                        <h3 class="mt-5 text-s2 font-bold text-deep-indigo">For Vendors</h3>
+                        <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Learn about registration, service areas,
+                            payments, and your dashboard.</p>
+                        <a href="{% url 'articles' %}?id=vendor-registration-process"
+                            class="mt-5 inline-flex items-center gap-1 text-green-light text-b3 font-semibold hover:gap-2 transition-all">
+                            Explore Articles
+                            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    {# Card 4 — Billing & Payments -> understanding-invoices-payments #}
+                    <article
+                        class="category-card bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                        data-category="Billing & Payments" data-article-id="understanding-invoices-payments">
+                        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
+                            aria-hidden="true">
+                            <span class="material-symbols-outlined text-white !text-[42px]"
+                                style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">receipt_long</span>
+                        </div>
+                        <h3 class="mt-5 text-s2 font-bold text-deep-indigo">Billing &amp; Payments</h3>
+                        <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Get help with invoices, payments,
+                            refunds, and tax-related questions.</p>
+                        <a href="{% url 'articles' %}?id=understanding-invoices-payments"
+                            class="mt-5 inline-flex items-center gap-1 text-green-light text-b3 font-semibold hover:gap-2 transition-all">
+                            Explore Articles
+                            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    {# Card 5 — Account & Security -> account-security #}
+                    <article
+                        class="category-card bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                        data-category="Account & Security" data-article-id="account-security">
+                        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
+                            aria-hidden="true">
+                            <span class="material-symbols-outlined text-white !text-[42px]"
+                                style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">shield</span>
+                        </div>
+                        <h3 class="mt-5 text-s2 font-bold text-deep-indigo">Account &amp; Security</h3>
+                        <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Manage your account, passwords, login,
+                            and security settings.</p>
+                        <a href="{% url 'articles' %}?id=account-security"
+                            class="mt-5 inline-flex items-center gap-1 text-green-light text-b3 font-semibold hover:gap-2 transition-all">
+                            Explore Articles
+                            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    {# Card 6 — Technical Support -> raise-an-issue #}
+                    <article
+                        class="category-card bg-white rounded-3xl shadow-lg border border-cool-gray-blue p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                        data-category="Technical Support" data-article-id="raise-an-issue">
+                        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-light"
+                            aria-hidden="true">
+                            <span class="material-symbols-outlined text-white !text-[42px]"
+                                style="font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;">settings</span>
+                        </div>
+                        <h3 class="mt-5 text-s2 font-bold text-deep-indigo">Technical Support</h3>
+                        <p class="mt-3 text-b3 text-cool-gray-blue1 leading-6">Get help with platform issues, errors,
+                            and using platform features.</p>
+                        <a href="{% url 'articles' %}?id=raise-an-issue"
+                            class="mt-5 inline-flex items-center gap-1 text-green-light text-b3 font-semibold hover:gap-2 transition-all">
+                            Explore Articles
+                            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        {# ========== WHY CUSTOMERS LOVE OUR SUPPORT ========== #}
+        <section class="py-5" aria-labelledby="love-heading">
+            <div class="max-w-[1400px] mx-auto px-6">
+                <div class="bg-help-center-text border border-cool-gray-blue rounded-3xl p-6">
+                    <h2 id="love-heading" class="text-center text-s1 font-bold text-black mb-6">Why Customers Love Our
+                        Support</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+
+                        <div class="flex items-start gap-4 px-6 py-3 lg:border-r border-cool-gray-blue">
+                            <div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center shrink-0"
+                                aria-hidden="true">
+                                <span class="material-symbols-outlined text-green-light">support_agent</span>
+                            </div>
+                            <div>
+                                <h3 class="text-b2 font-bold text-light-black">24/7 Support</h3>
+                                <p class="mt-1 text-sm text-slate-gray leading-5">Get help anytime through your
+                                    preferred support channel.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 px-6 py-3 lg:border-r border-cool-gray-blue">
+                            <div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center shrink-0"
+                                aria-hidden="true">
+                                <span class="material-symbols-outlined text-green-light">bolt</span>
+                            </div>
+                            <div>
+                                <h3 class="text-b2 font-bold text-light-black">Quick Response</h3>
+                                <p class="mt-1 text-sm text-slate-gray leading-5">We usually respond within 30 minutes.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 px-6 py-3 lg:border-r border-cool-gray-blue">
+                            <div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center shrink-0"
+                                aria-hidden="true">
+                                <span class="material-symbols-outlined text-green-light">groups</span>
+                            </div>
+                            <div>
+                                <h3 class="text-b2 font-bold text-light-black">Expert Team</h3>
+                                <p class="mt-1 text-sm text-slate-gray leading-5">Our experienced team is ready to
+                                    assist you.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 px-6 py-3">
+                            <div class="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center shrink-0"
+                                aria-hidden="true">
+                                <span class="material-symbols-outlined text-green-light">star</span>
+                            </div>
+                            <div>
+                                <h3 class="text-b2 font-bold text-light-black">High Satisfaction</h3>
+                                <p class="mt-1 text-sm text-slate-gray leading-5">Rated 4.8/5 by our customers.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--DOWNLOAD THE FE APP-->
+
+        <section class="bg-[#FFFDF8] w-full">
+            <!-- Full-width gradient background container -->
+            <div
+                class="w-full bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
+
+                <!-- Centered content container matching step sections -->
+                <div class="max-w-[1400px] mx-auto px-6">
+
+                    <!-- Flex row with items on same line -->
+                    <div class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
+
+                        <!-- ================= Left ================= -->
+                        <div class="flex-1 min-w-[280px]">
+
+                            <!-- Badge -->
+                            <div
+                                class="inline-flex items-center gap-2 rounded-full border border-[#22C55E] bg-white px-4 py-1.5">
+                                <span class="material-symbols-outlined text-[15px] text-[#22C55E]">
+                                    download
+                                </span>
+                                <span class="text-[12px] font-semibold text-[#22C55E]">
+                                    Get the FE App
+                                </span>
+                            </div>
+
+                            <!-- Heading -->
+                            <h2
+                                class="mt-5 text-[32px] sm:text-[36px] lg:text-[40px] font-bold leading-tight text-[#1E293B]">
+                                Download the
+                                <span class="text-[#22C55E]">
+                                    FE App
+                                </span>
+                            </h2>
+
+                            <!-- Description -->
+                            <p class="mt-3 max-w-[500px] text-[14px] leading-6 text-slate-600">
+                                Manage field service jobs anytime, anywhere.
+                                Book engineers, track service requests and stay
+                                connected with real-time updates.
+                            </p>
+
+                            <!-- Store Buttons -->
+                            <div class="flex items-center gap-4 mt-6 flex-wrap">
+                                <a href="#"
+                                    class="w-45 h-12 bg-black text-white  px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0"
+                                    aria-label="Download Field Engineer app from Google Play">
+
+                                    <img src="{% static 'img/google-play-store-icon.webp' %}" alt="Google Play logo"
+                                        width="24" height="24" loading="lazy" decoding="async"
+                                        class="w-6 h-6 shrink-0 object-contain">
+
+                                    <div class="text-left leading-none">
+                                        <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
+                                            GET IT ON
+                                        </p>
+                                        <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
+                                            Google Play
+                                        </p>
+                                    </div>
+                                </a>
+                                <a href="#"
+                                    class="w-45 h-12 bg-black text-white  px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
+                                    <img src="{% static 'img/apple-logo.webp' %}" alt="App Store logo" width="24"
+                                        height="24" loading="lazy" decoding="async"
+                                        class="w-6 h-6 shrink-0 object-contain">
+                                    <div class="text-left leading-none">
+                                        <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
+                                            Download on</p>
+                                        <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">App
+                                            Store</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- ================= Right ================= -->
+                        <div class="flex-shrink-0 flex justify-center lg:justify-end">
+                            <div class="text-center">
+                                <p class="mb-4 text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
+
+                                </p>
+                                <img src="{% static 'img/about-qr.webp' %}" alt="Download FE App" width="190"
+                                    height="190" class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<script src="{% static 'script/pages/articles.js' %}"></script>
+
+{% endblock %}

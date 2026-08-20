@@ -1,0 +1,2012 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}Contact Us — FieldEngineer{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+
+<main>
+
+    {# ========== BREADCRUMB ========== #}
+    <!-- <section class="contact-breadcrumb-bar" aria-label="Breadcrumb">
+        <div class="contact-breadcrumb-bar-inner">
+            <nav class="contact-breadcrumb" aria-label="Breadcrumb">
+                <a href="{% url 'home' %}">Home</a>
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+                <span>Company</span>
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+                <span class="contact-breadcrumb-current" aria-current="page">Contact Us</span>
+            </nav>
+        </div>
+    </section> -->
+
+    {# ========== HERO ========== #}
+    <section class="relative overflow-hidden pt-6 md:pt-10 lg:pt-12 bg-[#EBEFCE]">
+
+    <!-- Background Image -->
+    <img src="{% static 'img/contact-us-hero.webp' %}"
+        alt="FE Team connecting with customers for field operations support"
+        title="Field Engineer - Contact Sales Team"
+        width="1920"
+        height="1080"
+        loading="lazy"
+        decoding="async"
+        class="contact-hero-updated-bg z-0">
+
+    <!-- Whitish Overlay -->
+    <div class="absolute inset-0"></div>
+
+
+    <!-- SAME ALIGNMENT AS HEADER -->
+    <div class="mx-auto max-w-[1400px] px-6 pb-8 md:pb-10 lg:pb-12 relative z-10">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+            <!-- ================= LEFT CONTENT ================= -->
+            <div class="lg:col-span-12">
+
+                <!-- Heading -->
+                <h1 id="contact-hero-title"
+                    class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-[#1A1A1A] mb-4">
+
+                    Let's Build Better Field Operations
+
+                    <br class="hidden lg:block">
+
+                    Together
+
+                </h1>
+
+
+                <!-- Description -->
+                <p class="text-base sm:text-lg text-[#4A4A4A] max-w-xl leading-relaxed mb-8">
+
+                    Connect with FE's enterprise team for workforce deployment,
+                    vendor partnerships, large-scale projects, and platform support.
+
+                </p>
+
+
+                <!-- ================= STATS ================= -->
+                <div
+                    class="contact-hero-stats grid grid-cols-2 sm:grid-cols-2 lg:flex lg:flex-wrap xl:flex-nowrap gap-x-8 gap-y-8 w-full max-w-[820px] mb-10">
+
+                    <!-- Engineers -->
+                    <div class="flex items-center gap-4">
+
+                        <div
+                            class="w-[52px] h-[52px] rounded-xl bg-white/70 backdrop-blur-sm shadow-sm flex items-center justify-center shrink-0">
+
+                            <span
+                                class="material-symbols-outlined text-[38px] text-emerald-teal leading-none">
+                                groups
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-[24px] font-bold leading-none text-[#1A1A1A]">
+                                15,000+
+                            </h3>
+
+                            <p class="text-[14px] text-[#4A4A4A] mt-1">
+                                Engineers
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Vendors -->
+                    <div class="flex items-center gap-4">
+
+                        <div
+                            class="w-[52px] h-[52px] rounded-xl bg-white/70 backdrop-blur-sm shadow-sm flex items-center justify-center shrink-0">
+
+                            <span
+                                class="material-symbols-outlined text-[38px] text-emerald-teal leading-none">
+                                verified_user
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-[24px] font-bold leading-none text-[#1A1A1A]">
+                                350+
+                            </h3>
+
+                            <p class="text-[14px] text-[#4A4A4A] mt-1">
+                                Vendors
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Cities -->
+                    <div class="flex items-center gap-4">
+
+                        <div
+                            class="w-[52px] h-[52px] rounded-xl bg-white/70 backdrop-blur-sm shadow-sm flex items-center justify-center shrink-0">
+
+                            <span
+                                class="material-symbols-outlined text-[38px] text-emerald-teal leading-none">
+                                location_city
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-[24px] font-bold leading-none text-[#1A1A1A]">
+                                120+
+                            </h3>
+
+                            <p class="text-[14px] text-[#4A4A4A] mt-1">
+                                Cities
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Work Hours -->
+                    <div class="flex items-center gap-4">
+
+                        <div
+                            class="w-[52px] h-[52px] rounded-xl bg-white/70 backdrop-blur-sm shadow-sm flex items-center justify-center shrink-0">
+
+                            <span
+                                class="material-symbols-outlined text-[38px] text-emerald-teal leading-none">
+                                schedule
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-[24px] font-bold leading-none text-[#1A1A1A]">
+                                10M+
+                            </h3>
+
+                            <p class="text-[14px] text-[#4A4A4A] mt-1">
+                                Work Hours
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= BUTTONS ================= -->
+                <div class="flex flex-col sm:flex-row gap-4">
+
+                    <!-- Contact Sales -->
+                    <a href="javascript:void(0);"
+                        id="contactSalesBtn"
+                        class="inline-flex items-center justify-center gap-2 bg-[#F5B530] hover:bg-[#dfa024] text-[#1A1A1A] font-semibold px-7 py-3 rounded-xl transition-all duration-300">
+
+                        Contact Sales
+
+                        <span class="material-symbols-outlined text-[20px]">
+                            arrow_forward
+                        </span>
+
+                    </a>
+
+
+                    <!-- Become Vendor -->
+                    <a href="{% url 'vendor' %}"
+                        class="inline-flex items-center justify-center gap-2 border-2 border-[#1A1A1A] text-[#1A1A1A] hover:bg-black/5 font-semibold px-7 py-3 rounded-xl transition-all duration-300">
+
+                        Become Vendor
+
+                        <span class="material-symbols-outlined text-[20px]">
+                            arrow_forward
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    {# ========== FORM + HELP + CALENDAR ========== #}
+    <div class="bg-[#F7FCF8]">
+        <section class="py-10" aria-labelledby="contact-form-title">
+
+    <!-- SAME ALIGNMENT AS HEADER -->
+    <div class="mx-auto max-w-[1400px] px-6">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+            <!-- ================= LEFT : CONTACT FORM ================= -->
+            <div class="lg:col-span-8 flex">
+
+                <div
+                    class="bg-white border border-gray-200 rounded-2xl shadow-sm px-6 pt-6 pb-8 w-full h-full flex flex-col">
+
+                    <h2 id="contact-form-title" class="contact-form-title">
+                        Send Us a Message
+                    </h2>
+
+                    <form class="mt-4"
+                        action="{% url 'contact_submit' %}"
+                        method="post"
+                        enctype="multipart/form-data"
+                        id="contact-form-id">
+
+                        {% csrf_token %}
+
+                        <div class="contact-form-grid">
+
+                            <!-- FIRST NAME -->
+                            <div class="contact-field">
+                                <label for="contact-first-name">First Name</label>
+
+                                <input type="text"
+                                    id="contact-first-name"
+                                    name="first_name"
+                                    placeholder="John"
+                                    maxlength="50"
+                                    autocomplete="given-name"
+                                    oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+                                    required>
+                            </div>
+
+                            <!-- LAST NAME -->
+                            <div class="contact-field">
+                                <label for="contact-last-name">Last Name</label>
+
+                                <input type="text"
+                                    id="contact-last-name"
+                                    name="last_name"
+                                    placeholder="Doe"
+                                    maxlength="50"
+                                    autocomplete="family-name"
+                                    oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')"
+                                    required>
+                            </div>
+
+                            <!-- EMAIL -->
+                            <div class="contact-field">
+                                <label for="contact-email">Business Email</label>
+
+                                <input type="email"
+                                    id="contact-email"
+                                    name="email"
+                                    placeholder="john@company.com"
+                                    required>
+                            </div>
+
+                            <!-- PHONE -->
+                            <div class="contact-field">
+                                <label for="contact-phone">Phone Number</label>
+
+                                <input type="tel"
+                                    id="contact-phone"
+                                    name="phone"
+                                    placeholder="+91 98765 43210"
+                                    maxlength="18"
+                                    inputmode="tel"
+                                    oninput="this.value = this.value.replace(/[^0-9+ ]/g, '').replace(/(?!^)\+/g, '');">
+                            </div>
+
+                            <!-- COMPANY -->
+                            <div class="contact-field contact-field--full">
+                                <label for="contact-company">Company Name</label>
+
+                                <input type="text"
+                                    id="contact-company"
+                                    name="company"
+                                    placeholder="Your company">
+                            </div>
+
+                            <!-- CITY -->
+                            <div class="contact-field">
+
+                                <label id="contact-city-label">
+                                    City
+                                </label>
+
+                                <div class="contact-dropdown"
+                                    data-contact-dropdown>
+
+                                    <button type="button"
+                                        class="contact-dropdown-trigger"
+                                        aria-labelledby="contact-city-label"
+                                        aria-expanded="false"
+                                        aria-haspopup="listbox">
+
+                                        <span class="contact-dropdown-value is-placeholder"
+                                            data-contact-dropdown-value
+                                            data-placeholder="Select city">
+                                            Select city
+                                        </span>
+
+                                        <span class="material-symbols-outlined contact-dropdown-chevron"
+                                            aria-hidden="true">
+                                            expand_more
+                                        </span>
+
+                                    </button>
+
+                                    <ul class="contact-dropdown-menu"
+                                        role="listbox"
+                                        aria-labelledby="contact-city-label"
+                                        hidden>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="delhi-ncr">
+                                                Delhi NCR
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="mumbai">
+                                                Mumbai
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="bengaluru">
+                                                Bengaluru
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="hyderabad">
+                                                Hyderabad
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="chennai">
+                                                Chennai
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="pune">
+                                                Pune
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="other">
+                                                Other
+                                            </button>
+                                        </li>
+
+                                    </ul>
+
+                                    <input type="hidden"
+                                        name="city"
+                                        value=""
+                                        data-contact-dropdown-input>
+
+                                </div>
+
+                            </div>
+
+                            <!-- INQUIRY TYPE -->
+                            <div class="contact-field">
+
+                                <label id="contact-inquiry-label">
+                                    Inquiry Type
+                                </label>
+
+                                <div class="contact-dropdown"
+                                    data-contact-dropdown>
+
+                                    <button type="button"
+                                        class="contact-dropdown-trigger"
+                                        aria-labelledby="contact-inquiry-label"
+                                        aria-expanded="false"
+                                        aria-haspopup="listbox">
+
+                                        <span class="contact-dropdown-value is-placeholder"
+                                            data-contact-dropdown-value
+                                            data-placeholder="Select inquiry type">
+                                            Select inquiry type
+                                        </span>
+
+                                        <span class="material-symbols-outlined contact-dropdown-chevron"
+                                            aria-hidden="true">
+                                            expand_more
+                                        </span>
+
+                                    </button>
+
+                                    <ul class="contact-dropdown-menu"
+                                        role="listbox"
+                                        aria-labelledby="contact-inquiry-label"
+                                        hidden>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="enterprise-sales">
+                                                Enterprise Sales
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="customer-support">
+                                                Customer Support
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="vendor-partnership">
+                                                Vendor Partnership
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="engineer-support">
+                                                Engineer Support
+                                            </button>
+                                        </li>
+
+                                        <li>
+                                            <button type="button"
+                                                class="contact-dropdown-option"
+                                                role="option"
+                                                data-value="general">
+                                                General Inquiry
+                                            </button>
+                                        </li>
+
+                                    </ul>
+
+                                    <input type="hidden"
+                                        name="inquiry_type"
+                                        value=""
+                                        data-contact-dropdown-input>
+
+                                </div>
+
+                            </div>
+
+                            <!-- MESSAGE -->
+                            <div class="contact-field contact-field--full">
+
+                                <label for="contact-message">
+                                    Message
+                                </label>
+
+                                <div class="contact-message-wrap">
+
+                                    <textarea id="contact-message"
+                                        name="message"
+                                        maxlength="1000"
+                                        placeholder="Tell us about your project or inquiry..."></textarea>
+
+                                    <span class="contact-message-count"
+                                        id="contact-message-count">
+                                        0/1000
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- ATTACHMENT -->
+                        <label
+                            class="flex flex-col items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 cursor-pointer transition-all duration-300 hover:border-[#1E9B6F] hover:bg-green-50/50 text-center"
+                            for="contact-attachment">
+
+                            <span class="material-symbols-outlined text-[32px] text-[#1E9B6F]"
+                                aria-hidden="true">
+                                upload_file
+                            </span>
+
+                            <span class="text-sm font-medium text-gray-700 mt-2">
+                                Click to upload or drag and drop
+                            </span>
+
+                            <span class="text-xs text-gray-500 mt-1">
+                                PDF, DOC, XLS, ZIP (Max. 10MB)
+                            </span>
+
+                            <span id="contact-file-name"
+                                class="hidden text-xs font-medium text-[#1E9B6F] mt-2 break-all">
+                            </span>
+
+                            <input type="file"
+                                id="contact-attachment"
+                                name="attachment"
+                                class="sr-only"
+                                accept=".pdf,.doc,.docx,.xls,.xlsx,.zip">
+
+                        </label>
+
+                        <!-- SUBMIT -->
+                        <button type="submit"
+                            class="btn btn-md rounded-md mt-6 w-full"
+                            style="display:inline-flex;
+                                   align-items:center;
+                                   justify-content:center;
+                                   gap:.5rem;
+                                   background:#F5B530;
+                                   color:rgb(56,49,49);
+                                   padding:.625rem 1.5rem;
+                                   font-weight:600;
+                                   border:none;
+                                   transition:all .3s ease;
+                                   cursor:pointer;"
+                            onmouseover="this.style.background='#dfa024'"
+                            onmouseout="this.style.background='#F5B530'"
+                            id="contact-submit-btn">
+
+                            Submit Inquiry
+
+                            <span class="material-symbols-outlined"
+                                aria-hidden="true"
+                                style="font-size:1.125rem;">
+                                arrow_forward
+                            </span>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RIGHT : CONTACT INFO ================= -->
+            <div class="lg:col-span-4 flex">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5 h-full w-full">
+
+                    <!-- ENTERPRISE SALES -->
+                    <article class="contact-info-card p-5 sm:p-6 h-full">
+
+                        <div class="flex items-center gap-4">
+
+                            <div class="contact-info-icon bg-lightest-green text-primary"
+                                aria-hidden="true">
+
+                                <span class="material-symbols-outlined text-green">
+                                    business_center
+                                </span>
+
+                            </div>
+
+                            <div>
+                                <h2 class="contact-info-title">
+                                    Enterprise Sales
+                                </h2>
+
+                                <p class="contact-info-desc">
+                                    For large projects and enterprise requirements.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <a href="tel:+911800123456"
+                            class="contact-info-link">
+
+                            <span class="material-symbols-outlined text-primary tiny-icon"
+                                aria-hidden="true">
+                                phone
+                            </span>
+
+                            +91 1800-123-456
+
+                        </a>
+
+                        <a href="mailto:&#112;&#97;&#114;&#116;&#110;&#101;&#114;&#115;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;"
+                            class="contact-info-link break-all">
+
+                            <span class="material-symbols-outlined text-primary tiny-icon"
+                                aria-hidden="true">
+                                mail
+                            </span>
+
+                            <span>
+                                &#112;&#97;&#114;&#116;&#110;&#101;&#114;&#115;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;
+                            </span>
+
+                        </a>
+
+                        <p class="contact-info-response">
+                            Response Time: Within 2 Hours
+                        </p>
+
+                    </article>
+
+
+                    <!-- CUSTOMER SUPPORT -->
+                    <article class="contact-info-card p-5 sm:p-6 h-full">
+
+                        <div class="flex items-center gap-4">
+
+                            <div class="contact-info-icon bg-lightest-green text-dark-green"
+                                aria-hidden="true">
+
+                                <span class="material-symbols-outlined text-green">
+                                    headset_mic
+                                </span>
+
+                            </div>
+
+                            <div>
+                                <h2 class="contact-info-title">
+                                    Customer Support
+                                </h2>
+
+                                <p class="contact-info-desc">
+                                    Existing booking support and general queries.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <a href="tel:+911800789012"
+                            class="contact-info-link">
+
+                            <span class="material-symbols-outlined text-primary tiny-icon"
+                                aria-hidden="true">
+                                phone
+                            </span>
+
+                            +91 1800-789-012
+
+                        </a>
+
+                        <a href="mailto:&#112;&#97;&#114;&#116;&#110;&#101;&#114;&#115;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;"
+                            class="contact-info-link break-all">
+
+                            <span class="material-symbols-outlined text-primary tiny-icon"
+                                aria-hidden="true">
+                                mail
+                            </span>
+
+                            <span>
+                                &#112;&#97;&#114;&#116;&#110;&#101;&#114;&#115;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;
+                            </span>
+
+                        </a>
+
+                        <p class="contact-info-response">
+                            Response Time: 24/7
+                        </p>
+
+                    </article>
+
+
+                    <!-- VENDOR PARTNERSHIP -->
+                    <article class="contact-info-card p-5 sm:p-6 h-full">
+
+                        <div class="flex items-center gap-4">
+
+                            <div class="contact-info-icon bg-lightest-green text-light-purple"
+                                aria-hidden="true">
+
+                                <span class="material-symbols-outlined text-green">
+                                    handshake
+                                </span>
+
+                            </div>
+
+                            <div>
+                                <h2 class="contact-info-title">
+                                    Vendor Partnership
+                                </h2>
+
+                                <p class="contact-info-desc">
+                                    For companies joining FE network.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <a href="tel:+911800345678"
+                            class="contact-info-link">
+
+                            <span class="material-symbols-outlined text-primary tiny-icon"
+                                aria-hidden="true">
+                                phone
+                            </span>
+
+                            +91 1800-345-678
+
+                        </a>
+
+                        <a href="mailto:&#112;&#97;&#114;&#116;&#110;&#101;&#114;&#115;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;"
+                            class="contact-info-link break-all">
+
+                            <span class="material-symbols-outlined text-primary tiny-icon"
+                                aria-hidden="true">
+                                mail
+                            </span>
+
+                            <span>
+                                &#112;&#97;&#114;&#116;&#110;&#101;&#114;&#115;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;
+                            </span>
+
+                        </a>
+
+                        <p class="contact-info-response">
+                            Response Time: 1 Business Day
+                        </p>
+
+                    </article>
+
+
+                    <!-- ENGINEER SUPPORT -->
+                    <article class="contact-info-card p-5 sm:p-6 h-full">
+
+                        <div class="flex items-center gap-4">
+
+                            <div class="contact-info-icon bg-lightest-green text-amber-orange"
+                                aria-hidden="true">
+
+                                <span class="material-symbols-outlined text-green">
+                                    engineering
+                                </span>
+
+                            </div>
+
+                            <div>
+                                <h2 class="contact-info-title">
+                                    Engineer Support
+                                </h2>
+
+                                <p class="contact-info-desc">
+                                    For registered engineers and app support.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <a href="tel:+911800901234"
+                            class="contact-info-link">
+
+                            <span class="material-symbols-outlined text-primary tiny-icon"
+                                aria-hidden="true">
+                                phone
+                            </span>
+
+                            +91 1800-901-234
+
+                        </a>
+
+                        <a href="mailto:&#112;&#97;&#114;&#116;&#110;&#101;&#114;&#115;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;"
+                            class="contact-info-link break-all">
+
+                            <span class="material-symbols-outlined text-primary tiny-icon"
+                                aria-hidden="true">
+                                mail
+                            </span>
+
+                            <span>
+                                &#112;&#97;&#114;&#116;&#110;&#101;&#114;&#115;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;
+                            </span>
+
+                        </a>
+
+                        <p class="contact-info-response">
+                            Response Time: 24/7
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+   <section
+    class="coverage-section py-8 sm:py-10 md:py-12 lg:py-14 font-sans bg-white relative overflow-hidden">
+
+    <!-- Decorative background circles -->
+
+    <!-- SAME ALIGNMENT AS HEADER / NAVBAR -->
+    <div class="mx-auto max-w-[1400px] px-6 relative z-10">
+
+        <!-- ================= TOP HEADER ================= -->
+        <div class="text-center mb-10">
+
+            <span
+                class="inline-block px-4 py-1.5 text-primary-yellow text-sm font-bold uppercase tracking-wider rounded-full mb-3">
+                OUR COVERAGE
+            </span>
+
+            <h3 class="text-4xl sm:text-5xl font-bold text-dark tracking-tight">
+                Across USA, Malaysia & India
+                <br>
+                Other Global Ops
+            </h3>
+
+            <p class="text-granite-gray text-[16px] mt-2 font-medium">
+                A strong network of engineers & vendors in every major city.
+            </p>
+
+        </div>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+
+
+            <!-- ================= LEFT : STATS ================= -->
+            <div class="lg:col-span-3 flex flex-col gap-4 h-full">
+
+
+                <!-- Stat Card 1 -->
+                <div
+                    class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
+
+                    <div
+                        class="w-12 h-12 rounded-xl bg-cosmic-latte flex items-center justify-center text-primary-yellow shrink-0">
+
+                        <span class="material-symbols-outlined">
+                            group
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <h3
+                            class="stat-number text-xl font-extrabold leading-tight"
+                            data-target="15000"
+                            data-suffix="+">
+                            0
+                        </h3>
+
+                        <p class="text-xs text-granite-gray font-medium mt-0.5">
+                            Certified Engineers
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Stat Card 2 -->
+                <div
+                    class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
+
+                    <div
+                        class="w-12 h-12 rounded-xl bg-cosmic-latte flex items-center justify-center text-primary-yellow shrink-0">
+
+                        <span class="material-symbols-outlined">
+                            verified_user
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <h3
+                            class="stat-number text-xl font-extrabold text-gray-900 leading-tight"
+                            data-target="350"
+                            data-suffix="+">
+                            0
+                        </h3>
+
+                        <p class="text-xs text-granite-gray font-medium mt-0.5">
+                            Certified Vendors
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Stat Card 3 -->
+                <div
+                    class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
+
+                    <div
+                        class="w-12 h-12 rounded-xl bg-cosmic-latte flex items-center justify-center text-primary-yellow shrink-0">
+
+                        <span class="material-symbols-outlined">
+                            door_front
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <h3
+                            class="stat-number text-xl font-extrabold text-gray-900 leading-tight"
+                            data-target="120"
+                            data-suffix="+">
+                            0
+                        </h3>
+
+                        <p class="text-xs text-granite-gray font-medium mt-0.5">
+                            Cities Covered
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Stat Card 4 -->
+                <div
+                    class="flex-1 bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md">
+
+                    <div
+                        class="w-12 h-12 rounded-xl bg-cosmic-latte flex items-center justify-center text-primary-yellow shrink-0">
+
+                        <span class="material-symbols-outlined">
+                            language
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <h3
+                            class="stat-number text-xl font-extrabold text-gray-900 leading-tight"
+                            data-target="24"
+                            data-suffix="/7">
+                            0
+                        </h3>
+
+                        <p class="text-xs text-granite-gray font-medium mt-0.5">
+                            Global Operations Center
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RIGHT : MAP ================= -->
+            <div
+                class="lg:col-span-9 bg-white p-4 rounded-3xl border border-gray-100 shadow-sm relative flex flex-col justify-between overflow-hidden min-h-[420px]">
+
+                <!-- Top Pill Switcher -->
+                <div
+                    class="bg-white rounded-2xl p-1.5 border border-gray-100 shadow-sm grid grid-cols-3 gap-2 max-w-xl mx-auto w-full z-10">
+
+                    <button
+                        data-country="usa"
+                        class="country-btn py-2.5 px-4 rounded-xl text-xs font-bold bg-[#FBBF24] text-white shadow-sm transition-all duration-200">
+                        United States
+                    </button>
+
+                    <button
+                        data-country="india"
+                        class="country-btn py-2.5 px-4 rounded-xl text-xs font-bold text-gray-700 transition-all duration-200">
+                        India
+                    </button>
+
+                    <button
+                        data-country="malaysia"
+                        class="country-btn py-2.5 px-4 rounded-xl text-xs font-bold text-gray-700 transition-all duration-200">
+                        Malaysia
+                    </button>
+
+                </div>
+
+
+                <!-- Map -->
+                <div
+                    id="coverageMap"
+                    class="w-full h-full min-h-[350px] rounded-2xl overflow-hidden relative my-2">
+
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+                        alt="Field Engineer global service coverage map showing operational regions"
+                        width="800"
+                        height="400"
+                        class="w-full h-full object-contain filter grayscale contrast-50 opacity-30">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= LOCATION CARDS ================= -->
+        <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8 w-full items-stretch">
+
+
+            <!-- ================= UNITED STATES ================= -->
+            <div
+                class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
+
+                <div>
+
+                    <div class="flex items-center gap-2.5 mb-3">
+
+                        <div
+                            class="w-8 h-8 rounded-full bg-cosmic-latte flex items-center justify-center text-primary-yellow shrink-0">
+
+                            <span class="material-symbols-outlined">
+                                language
+                            </span>
+
+                        </div>
+
+                        <h4 class="font-extrabold text-gray-900 text-base">
+                            United States
+                        </h4>
+
+                    </div>
+
+
+                    <p
+                        class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
+
+                        <span
+                            class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
+                            location_on
+                        </span>
+
+                        <span>
+                            218-10, Hillside Ave, Queens Village,
+                            New York, USA, 11427.
+                        </span>
+
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <div
+                        class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+                                call
+                            </span>
+
+                            <span>
+                                +60 146600012
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+                                mail
+                            </span>
+
+                            <a
+                                href="mailto:&#104;&#101;&#108;&#108;&#111;&#64;&#102;&#101;&#46;&#99;&#111;&#109;"
+                                class="hover:text-gray-800">
+
+                                &#104;&#101;&#108;&#108;&#111;&#64;&#102;&#101;&#46;&#99;&#111;&#109;
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        data-view-map="usa"
+                        class="w-full py-2 px-3 border border-primary-yellow rounded-xl text-xs font-bold text-black hover:bg-cosmic-latte transition-all text-center">
+
+                        View on Map
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MALAYSIA ================= -->
+            <div
+                class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
+
+                <div>
+
+                    <div class="flex items-center gap-2.5 mb-3">
+
+                        <div
+                            class="w-8 h-8 rounded-full bg-cosmic-latte flex items-center justify-center text-primary-yellow shrink-0">
+
+                            <span class="material-symbols-outlined">
+                                language
+                            </span>
+
+                        </div>
+
+                        <h4 class="font-extrabold text-gray-900 text-base">
+                            Malaysia
+                        </h4>
+
+                    </div>
+
+
+                    <p
+                        class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
+
+                        <span
+                            class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
+                            location_on
+                        </span>
+
+                        <span>
+                            M116, Jalan Mega Mendung, Off Jalan Klang Lama,
+                            58200, Kuala Lumpur, Malaysia.
+                        </span>
+
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <div
+                        class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+                                call
+                            </span>
+
+                            <span>
+                                +60 146600012
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+                                mail
+                            </span>
+
+                            <a
+                                href="mailto:&#104;&#101;&#108;&#108;&#111;&#64;&#102;&#101;&#46;&#99;&#111;&#109;"
+                                class="hover:text-gray-800">
+
+                                &#104;&#101;&#108;&#108;&#111;&#64;&#102;&#101;&#46;&#99;&#111;&#109;
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        data-view-map="malaysia"
+                        class="w-full py-2 px-3 border border-primary-yellow rounded-xl text-xs font-bold text-black hover:bg-cosmic-latte transition-all text-center">
+
+                        View on Map
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= INDIA ================= -->
+            <div
+                class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
+
+                <div>
+
+                    <div class="flex items-center gap-2.5 mb-3">
+
+                        <div
+                            class="w-8 h-8 rounded-full bg-cosmic-latte flex items-center justify-center text-primary-yellow shrink-0">
+
+                            <span class="material-symbols-outlined">
+                                language
+                            </span>
+
+                        </div>
+
+                        <h4 class="font-extrabold text-gray-900 text-base">
+                            India
+                        </h4>
+
+                    </div>
+
+
+                    <p
+                        class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
+
+                        <span
+                            class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
+                            location_on
+                        </span>
+
+                        <span>
+                            3102, 1st Floor, Rustomjee Eaze Zone,
+                            Sundar Nagar, Malad West - Mumbai 400064,
+                            MH - IN.
+                        </span>
+
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <div
+                        class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+                                call
+                            </span>
+
+                            <span>
+                                +91 9967940928
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+                                mail
+                            </span>
+
+                            <a
+                                href="mailto:&#104;&#101;&#108;&#108;&#111;&#64;&#102;&#101;&#46;&#99;&#111;&#109;"
+                                class="hover:text-gray-800">
+
+                                &#104;&#101;&#108;&#108;&#111;&#64;&#102;&#101;&#46;&#99;&#111;&#109;
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        data-view-map="india"
+                        class="w-full py-2 px-3 border border-primary-yellow rounded-xl text-xs font-bold text-black hover:bg-cosmic-latte transition-all text-center">
+
+                        View on Map
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= GLOBAL OPS CENTER ================= -->
+            <div
+                class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative transition-all duration-300 hover:shadow-md flex flex-col justify-between border-t-4 border-t-[#FBBF24]">
+
+                <div>
+
+                    <div class="flex items-center gap-2.5 mb-3">
+
+                        <div
+                            class="w-8 h-8 rounded-full bg-[#FEF9E7] flex items-center justify-center text-[#F59E0B] shrink-0">
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+
+                            </svg>
+
+                        </div>
+
+                        <h4 class="font-extrabold text-gray-900 text-base">
+                            Global Ops Center
+                        </h4>
+
+                    </div>
+
+
+                    <p
+                        class="text-xs text-gray-500 flex items-start gap-2 mb-4 leading-relaxed min-h-[40px]">
+
+                        <span
+                            class="material-symbols-outlined h-4 w-4 text-granite-gray shrink-0 mt-1">
+                            location_on
+                        </span>
+
+                        <span>
+                            Round-the-clock coordination hub dispatching
+                            and tracking engineers across every region
+                            we cover.
+                        </span>
+
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <div
+                        class="border-t border-gray-100 pt-3 space-y-1.5 text-[11px] text-gray-500 font-medium mb-4">
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+                                call
+                            </span>
+
+                            <span>
+                                +91 8305544478
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-center gap-2">
+
+                            <span class="material-symbols-outlined">
+                                mail
+                            </span>
+
+                            <a
+                                href="mailto:&#104;&#101;&#108;&#108;&#111;&#64;&#102;&#101;&#46;&#99;&#111;&#109;">
+
+                                &#104;&#101;&#108;&#108;&#111;&#64;&#102;&#101;&#46;&#99;&#111;&#109;
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="{% url 'contact' %}"
+                        class="w-full py-2 px-3 bg-primary-yellow rounded-xl text-xs font-bold text-black text-center block cursor-pointer hover:bg-primary-yellow transition-all">
+
+                        24/7 Live
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+    <section class="bg-white font-sans antialiased text-slate-800 pt-8 pb-8 sm:pt-10 sm:pb-10">
+
+    <!-- ================= SAME ALIGNMENT AS HEADER ================= -->
+    <div class="mx-auto max-w-[1400px] px-6">
+
+        <!-- ================= MISSION ================= -->
+        <div class="w-full">
+
+            <div
+                class="bg-gradient-to-r from-green-50 via-green-50/40 to-transparent border border-green-100 rounded-2xl py-5 px-6 sm:py-6 sm:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-10">
+
+                <!-- ================= LEFT ================= -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 w-full md:max-w-2xl">
+
+                    <!-- Icon -->
+                    <div
+                        class="p-4 bg-green-100 text-green-700 rounded-xl shadow-md border border-green-200 flex-shrink-0"
+                        aria-hidden="true">
+
+                        <span class="material-symbols-outlined">
+                            check_circle
+                        </span>
+
+                    </div>
+
+                    <!-- Content -->
+                    <div class="space-y-1 sm:space-y-2">
+
+                        <span class="text-xs font-bold tracking-wider text-green-700 uppercase">
+                            Our Mission
+                        </span>
+
+                        <h2
+                            id="mission-heading"
+                            class="text-xl sm:text-2xl font-bold text-black-one leading-snug">
+
+                            To make field service management simple, reliable, and efficient for every business.
+
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= RIGHT DESCRIPTION ================= -->
+                <div class="w-full md:max-w-md">
+
+                    <p class="text-sm text-black-two leading-relaxed">
+
+                        We aim to bring transparency, efficiency, and accountability to every field service
+                        project in India by connecting businesses with a trusted network of skilled
+                        professionals through technology.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    {# ========== FAQ ========== #}
+    <section class="pt-16 pb-10" aria-labelledby="faq-heading">
+
+    <!-- ================= SAME ALIGNMENT AS HEADER ================= -->
+    <div class="mx-auto max-w-[1400px] px-6">
+
+        <div class="bg-white">
+
+            <!-- ================= FAQ HEADING ================= -->
+            <h2 id="faq-heading" class="contact-faq-title">
+                Frequently Asked Questions
+            </h2>
+
+            <!-- ================= FAQ GRID ================= -->
+            <div class="contact-faq-grid">
+
+                <!-- FAQ 1 -->
+                <div class="contact-faq-item" data-faq-item>
+
+                    <button
+                        type="button"
+                        class="contact-faq-trigger"
+                        data-faq-trigger
+                        aria-expanded="false">
+
+                        <span class="contact-faq-text">
+                            How quickly can FE deploy engineers?
+                        </span>
+
+                        <span
+                            class="material-symbols-outlined contact-faq-icon"
+                            aria-hidden="true">
+                            add
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel"
+                        data-faq-panel
+                        hidden>
+
+                        FE can deploy certified engineers within 4–24 hours depending on
+                        location, skill requirements, and project scale.
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 2 -->
+                <div class="contact-faq-item" data-faq-item>
+
+                    <button
+                        type="button"
+                        class="contact-faq-trigger"
+                        data-faq-trigger
+                        aria-expanded="false">
+
+                        <span class="contact-faq-text">
+                            What industries does FE support?
+                        </span>
+
+                        <span
+                            class="material-symbols-outlined contact-faq-icon"
+                            aria-hidden="true">
+                            add
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel"
+                        data-faq-panel
+                        hidden>
+
+                        We support IT infrastructure, telecom, data centers, retail,
+                        banking, healthcare, and enterprise facility management.
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 3 -->
+                <div class="contact-faq-item" data-faq-item>
+
+                    <button
+                        type="button"
+                        class="contact-faq-trigger"
+                        data-faq-trigger
+                        aria-expanded="false">
+
+                        <span class="contact-faq-text">
+                            How do I become a vendor partner?
+                        </span>
+
+                        <span
+                            class="material-symbols-outlined contact-faq-icon"
+                            aria-hidden="true">
+                            add
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel"
+                        data-faq-panel
+                        hidden>
+
+                        Submit a vendor partnership inquiry through this page or email
+                        &#112;&#97;&#114;&#116;&#110;&#101;&#114;&#115;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;.
+                        Our team will review your profile within one business day.
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 4 -->
+                <div class="contact-faq-item" data-faq-item>
+
+                    <button
+                        type="button"
+                        class="contact-faq-trigger"
+                        data-faq-trigger
+                        aria-expanded="false">
+
+                        <span class="contact-faq-text">
+                            Is support available after project completion?
+                        </span>
+
+                        <span
+                            class="material-symbols-outlined contact-faq-icon"
+                            aria-hidden="true">
+                            add
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel"
+                        data-faq-panel
+                        hidden>
+
+                        Yes. FE provides post-deployment support, warranty assistance,
+                        and ongoing maintenance contracts through our 24/7 support team.
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 5 -->
+                <div class="contact-faq-item" data-faq-item>
+
+                    <button
+                        type="button"
+                        class="contact-faq-trigger"
+                        data-faq-trigger
+                        aria-expanded="false">
+
+                        <span class="contact-faq-text">
+                            Can I track engineers in real time?
+                        </span>
+
+                        <span
+                            class="material-symbols-outlined contact-faq-icon"
+                            aria-hidden="true">
+                            add
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel"
+                        data-faq-panel
+                        hidden>
+
+                        Yes. The FE platform offers live GPS tracking, job status updates,
+                        and digital work logs accessible from your dashboard.
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 6 -->
+                <div class="contact-faq-item" data-faq-item>
+
+                    <button
+                        type="button"
+                        class="contact-faq-trigger"
+                        data-faq-trigger
+                        aria-expanded="false">
+
+                        <span class="contact-faq-text">
+                            What payment options are available?
+                        </span>
+
+                        <span
+                            class="material-symbols-outlined contact-faq-icon"
+                            aria-hidden="true">
+                            add
+                        </span>
+
+                    </button>
+
+                    <div
+                        class="contact-faq-panel"
+                        data-faq-panel
+                        hidden>
+
+                        We accept bank transfers, corporate POs, and online payments.
+                        Enterprise clients can set up monthly billing with custom SLAs.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    {# ========== FOOTER CTA ========== #}
+    <section class="contact-cta bg-white pt-10 pb-12" aria-labelledby="cta-heading">
+
+    <!-- ================= SAME ALIGNMENT AS HEADER ================= -->
+    <div class="mx-auto max-w-[1400px] px-6">
+
+        <div
+            class="contact-cta-inner rounded-2xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 shadow-md"
+            style="background: linear-gradient(to right, #EBEFCE, #DCEBD2, #C9E5C5);">
+
+            <!-- ================= LEFT CONTENT ================= -->
+            <div
+                class="flex flex-col sm:flex-row items-center sm:items-start md:items-center gap-4 text-center sm:text-left w-full md:w-auto">
+
+                <!-- Icon -->
+                <div
+                    class="w-16 h-16 bg-black/10 rounded-full flex items-center justify-center text-black shrink-0 shadow-sm"
+                    aria-hidden="true">
+
+                    <span class="material-symbols-outlined text-black text-3xl">
+                        group
+                    </span>
+
+                </div>
+
+                <!-- Text -->
+                <div>
+
+                    <h2
+                        id="cta-heading"
+                        class="text-xl sm:text-2xl font-bold text-black tracking-wide">
+
+                        Ready to deploy engineers at your site?
+
+                    </h2>
+
+                    <p class="text-gray-700 text-sm md:text-base font-normal">
+
+                        Network Cabling, Server setup, CCTV, Smart hands,
+                        fibre deployment and enterprise field services.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RIGHT BUTTONS ================= -->
+            <div
+                class="shrink-0 w-full md:w-auto text-center flex flex-wrap gap-3 justify-center md:justify-end">
+
+                <!-- Request Service -->
+                <a
+                    href="javascript:void(0)"
+                    onclick="switchToLogin()"
+                    class="btn btn-md btn-modern deploy-cta-btn-service inline-flex items-center justify-center gap-2 bg-bright-yellow hover:bg-[#dfa024] text-[rgb(56,49,49)] font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 cursor-pointer">
+
+                    Request Service
+
+                    <span class="material-symbols-outlined text-[18px]">
+                        arrow_forward
+                    </span>
+
+                </a>
+
+
+                <!-- Talk To Sales -->
+                <a
+                    href="#"
+                    class="inline-flex items-center justify-center gap-2 font-bold text-sm px-6 py-3.5 rounded-xl shadow-sm transition-all duration-200 w-full md:w-auto"
+                    style="background: transparent; color: #1a1a1a; border: 2px solid #1a1a1a;">
+
+                    <span>
+                        Talk To Sales
+                    </span>
+
+                    <span class="material-symbols-outlined text-[20px] sm:text-[24px] md:text-[28px]">
+                        arrow_forward
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!--DOWNLOAD THE FE APP-->
+
+    <section class="bg-[#FFFDF8] w-full">
+
+    <!-- ================= FULL-WIDTH GRADIENT ================= -->
+    <div
+        class="w-full bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
+
+        <!-- ================= SAME ALIGNMENT AS HEADER ================= -->
+        <div class="mx-auto max-w-[1400px] px-6">
+
+            <div
+                class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
+
+                <!-- ================= LEFT ================= -->
+                <div class="flex-1 min-w-[280px]">
+
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center gap-2 rounded-full border border-[#22C55E] bg-white px-4 py-1.5">
+
+                        <span class="material-symbols-outlined text-[15px] text-[#22C55E]">
+                            download
+                        </span>
+
+                        <span class="text-[12px] font-semibold text-[#22C55E]">
+                            Get the FE App
+                        </span>
+
+                    </div>
+
+
+                    <!-- Heading -->
+                    <h2
+                        class="mt-5 text-[32px] sm:text-[36px] lg:text-[40px] font-bold leading-tight text-[#1E293B]">
+
+                        Download the
+
+                        <span class="text-[#22C55E]">
+                            FE App
+                        </span>
+
+                    </h2>
+
+
+                    <!-- Description -->
+                    <p class="mt-3 max-w-[500px] text-[14px] leading-6 text-slate-600">
+
+                        Manage field service jobs anytime, anywhere.
+                        Book engineers, track service requests and stay
+                        connected with real-time updates.
+
+                    </p>
+
+
+                    <!-- ================= STORE BUTTONS ================= -->
+                    <div class="flex items-center gap-4 mt-6 flex-wrap">
+
+                        <!-- Google Play -->
+                        <a
+                            href="#"
+                            class="w-45 h-12 bg-black text-white px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0"
+                            aria-label="Download Field Engineer app from Google Play">
+
+                            <img
+                                src="{% static 'img/google-play-store-icon.webp' %}"
+                                alt="Google Play logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+                            <div class="text-left leading-none">
+
+                                <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
+                                    GET IT ON
+                                </p>
+
+                                <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
+                                    Google Play
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+                        <!-- App Store -->
+                        <a
+                            href="#"
+                            class="w-45 h-12 bg-black text-white px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
+
+                            <img
+                                src="{% static 'img/apple-logo.webp' %}"
+                                alt="App Store logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+                            <div class="text-left leading-none">
+
+                                <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
+                                    Download on
+                                </p>
+
+                                <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
+                                    App Store
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= RIGHT ================= -->
+                <div class="flex-shrink-0 flex justify-center lg:justify-end">
+
+                    <div class="text-center">
+
+                        <img
+                            src="{% static 'img/about-qr.webp' %}"
+                            alt="Download FE App"
+                            width="190"
+                            height="190"
+                            loading="lazy"
+                            decoding="async"
+                            class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+    </div>
+
+</main>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'script/pages/contact.js' %}"></script>
+
+<!-- Leaflet JS Initialization -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="/static/script/pages/customer.js"></script>
+<script src="/static/script/pages/home.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+{% endblock %}

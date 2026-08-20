@@ -9,11 +9,16 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
-
+from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(os.path.join(BASE_DIR, '.env'), override=True)
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+ALLOWED_HOSTS = [h.strip() for h in os.getenv('ALLOWED_HOSTS', '').split(',') if h.strip()]
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,7 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home'
+    'home',
+    'settings',
+    'support',
+    'booking',
+    'dashboard',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +137,12 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'home.smtp_backend.UnverifiedSMTPBackend'
+EMAIL_HOST = os.getenv('SMTP_HOST')
+EMAIL_PORT = int(os.getenv('SMTP_PORT', '587'))
+EMAIL_HOST_USER = os.getenv('SMTP_USERNAME')
+EMAIL_HOST_PASSWORD = os.getenv('SMTP_PASSWORD')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'true').lower() == 'true'
+DEFAULT_FROM_EMAIL = os.getenv('SMTP_FROM')

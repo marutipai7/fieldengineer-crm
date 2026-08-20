@@ -1,0 +1,119 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".count-up");
+
+    counters.forEach(counter => {
+        const target = parseFloat(counter.dataset.target);
+        const duration = 2000;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const value = target * progress;
+
+            if (target === 4.6) {
+                counter.textContent = value.toFixed(1) + "/5";
+            } else if (counter.dataset.target === "85") {
+                counter.textContent = Math.floor(value) + "%";
+            } else {
+                counter.textContent = Math.floor(value) + "+";
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                if (target === 4.6) {
+                    counter.textContent = "4.6/5";
+                } else if (counter.dataset.target === "85") {
+                    counter.textContent = "85%";
+                } else {
+                    counter.textContent = target + "+";
+                }
+            }
+        }
+
+        requestAnimationFrame(update);
+    });
+});
+
+function openApplyModal(job) {
+    document.getElementById("applyModal").classList.remove("hidden");
+    document.getElementById("applyModal").classList.add("flex");
+
+    document.getElementById("jobTitle").value = job;
+    document.getElementById("jobTitleInput").value = job;
+
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+}
+
+function closeApplyModal() {
+    document.getElementById("applyModal").classList.remove("flex");
+    document.getElementById("applyModal").classList.add("hidden");
+
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+}
+document.addEventListener("DOMContentLoaded", () => {
+
+    const counters = document.querySelectorAll(".stat-number");
+
+    counters.forEach(counter => {
+
+        const target = parseFloat(counter.dataset.target);
+        const suffix = counter.dataset.suffix || "";
+
+        let current = 0;
+        const duration = 1800; // Animation time (ms)
+        const frameRate = 60;
+        const totalFrames = Math.round(duration / (1000 / frameRate));
+        const increment = target / totalFrames;
+
+        function updateCounter() {
+
+            current += increment;
+
+            if (current >= target) {
+                current = target;
+            }
+
+            if (Number.isInteger(target)) {
+                counter.textContent = Math.floor(current) + suffix;
+            } else {
+                counter.textContent = current.toFixed(1) + suffix;
+            }
+
+            if (current < target) {
+                requestAnimationFrame(updateCounter);
+            }
+
+        }
+
+        updateCounter();
+
+    });
+
+});
+// ============================================================
+// PREVENT IMAGE DRAGGING
+// ============================================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll("img").forEach(function (img) {
+
+        // Prevent browser image dragging
+        img.setAttribute("draggable", "false");
+
+        // Prevent drag & drop
+        img.addEventListener("dragstart", function (event) {
+            event.preventDefault();
+        });
+
+        // Prevent image selection
+        img.style.userSelect = "none";
+        img.style.webkitUserSelect = "none";
+        img.style.webkitUserDrag = "none";
+
+    });
+
+});

@@ -1,0 +1,923 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}
+Vendor Management Platform | Grow Your Field Service Business | Field Engage
+{% endblock %}
+
+{% block content %}
+
+{# Main content wrapper #}
+
+
+<!-- Head mein add karein -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<main>
+
+    <section 
+    class="how-it-works-hero relative overflow-hidden w-full min-h-[400px] sm:min-h-[420px] lg:min-h-[440px] flex items-center">
+
+    <!-- Hero Background Image -->
+    <img src="{% static 'img/vendor-hero.webp' %}" 
+        alt="Vendor using the Field Engineer platform to manage service requests, engineers, and customer jobs" 
+        width="1920" 
+        height="800" 
+        loading="eager" 
+        fetchpriority="high" 
+        decoding="async" 
+        class="how-it-works-hero__bg">
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#111827EB] via-[#111827A1] to-[#11182738]"></div>
+
+    <!-- HERO CONTENT -->
+    <!-- EXACT SAME CONTAINER AS HEADER -->
+    <div class="relative z-10 w-full">
+        <div class="mx-auto max-w-[1400px] px-6">
+
+            <div class="max-w-2xl py-8 sm:py-10 lg:py-12">
+
+                <span class="text-base sm:text-xs font-extrabold uppercase tracking-widest text-light-green mb-3 block">
+                    For Service Providers
+                </span>
+
+                <h1 
+                    class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4">
+                    Manage Your Team
+                    <span class="text-primary-yellow">Grow Your</span>
+                    Business
+                </h1>
+
+                <p class="text-sm sm:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed">
+                    Smart workforce management for trusted field engineers.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+    <section id="features"
+    class="py-10 sm:py-12 lg:py-14 bg-warm-off-white"
+    aria-labelledby="features-heading">
+
+    <!-- Same container as previous sections -->
+    <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-4xl mx-auto mb-8 sm:mb-10 lg:mb-12">
+
+            <span
+                class="inline-block uppercase tracking-[0.28em] text-primary-yellow text-xs lg:text-sm font-bold mb-3">
+                All-in-One-Platform
+            </span>
+
+            <h2 id="features-heading"
+                class="text-2xl sm:text-3xl lg:text-4xl font-bold text-ink leading-tight tracking-tight">
+                Everything You Need to Manage Your Field Operations
+            </h2>
+
+            <p class="text-base lg:text-lg text-granite-gray mt-4 max-w-3xl mx-auto">
+                Simple tools to help you manage your business and deliver better service
+            </p>
+
+        </div>
+
+
+        <!-- Feature Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+
+            <!-- Card 1 -->
+            <article
+                class="bg-muted-off-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+
+                <div class="p-2 pb-0">
+                    <img src="{% static 'img/service-requests.webp' %}"
+                        alt="Illustration of service request management dashboard for field service operations"
+                        width="400"
+                        height="320"
+                        loading="lazy"
+                        decoding="async"
+                        fetchpriority="low"
+                        class="w-full h-32 sm:h-36 lg:h-32 object-cover rounded-xl">
+                </div>
+
+                <div class="px-4 py-4 text-center flex-1 flex flex-col">
+                    <h3 class="text-lg font-bold text-ink mb-2">
+                        Service Requests
+                    </h3>
+
+                    <p class="text-base font-medium text-granite-gray leading-5">
+                        Receive and manage all customer service requests in one place.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- Card 2 -->
+            <article
+                class="bg-muted-off-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+
+                <div class="p-2 pb-0">
+                    <img src="{% static 'img/work-orders.webp' %}"
+                        alt="Illustration of work order management dashboard for field service operations"
+                        width="400"
+                        height="320"
+                        loading="lazy"
+                        decoding="async"
+                        fetchpriority="low"
+                        class="w-full h-32 sm:h-36 lg:h-32 object-cover rounded-xl">
+                </div>
+
+                <div class="px-4 py-4 text-center flex-1 flex flex-col">
+                    <h3 class="text-lg font-bold text-ink mb-2">
+                        Work Orders
+                    </h3>
+
+                    <p class="text-base font-medium text-granite-gray leading-5">
+                        Create, assign and manage work orders from start to finish.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- Card 3 -->
+            <article
+                class="bg-muted-off-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+
+                <div class="p-2 pb-0">
+                    <img src="{% static 'img/work-management.webp' %}"
+                        alt="Illustration of work management dashboard for field service operations"
+                        width="400"
+                        height="320"
+                        loading="lazy"
+                        decoding="async"
+                        fetchpriority="low"
+                        class="w-full h-32 sm:h-36 lg:h-32 object-cover rounded-xl">
+                </div>
+
+                <div class="px-4 py-4 text-center flex-1 flex flex-col">
+                    <h3 class="text-lg font-bold text-ink mb-2">
+                        Work Management
+                    </h3>
+
+                    <p class="text-base font-medium text-granite-gray leading-5">
+                        Create, assign, monitor and track work orders to keep every job on schedule.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- Card 4 -->
+            <article
+                class="bg-muted-off-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+
+                <div class="p-2 pb-0">
+                    <img src="{% static 'img/job-tracking.webp' %}"
+                        alt="Illustration of job tracking dashboard for field service operations"
+                        width="400"
+                        height="320"
+                        loading="lazy"
+                        decoding="async"
+                        fetchpriority="low"
+                        class="w-full h-32 sm:h-36 lg:h-32 object-cover rounded-xl">
+                </div>
+
+                <div class="px-4 py-4 text-center flex-1 flex flex-col">
+                    <h3 class="text-lg font-bold text-ink mb-2">
+                        Job Tracking
+                    </h3>
+
+                    <p class="text-base font-medium text-granite-gray leading-5">
+                        Track job progress, status, and field updates in real time.
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+    {# ========== DASHBOARD PREVIEW ========== #}
+    <section class="bg-mint-tint-white py-10 sm:py-12 lg:py-14"
+    aria-labelledby="dashboard-heading">
+
+    <!-- Same container as previous sections -->
+    <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+        <!-- Header Section -->
+        <div class="text-center mb-8 sm:mb-10 lg:mb-12">
+
+            <span
+                class="text-xs sm:text-sm font-bold tracking-wider uppercase text-primary-yellow">
+                Powerful intuitive complete
+            </span>
+
+            <h2 id="dashboard-heading"
+                class="mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold text-ink leading-tight tracking-tight">
+                Your Operations All in One Place
+            </h2>
+
+            <p class="mt-3 text-sm sm:text-base lg:text-lg font-medium text-granite-gray">
+                Get full visibility and Control across your business
+            </p>
+
+        </div>
+
+
+        <!-- Dashboard Image -->
+        <div class="w-full rounded-[24px] sm:rounded-[28px] lg:rounded-[32px] overflow-hidden">
+
+            <img src="/static/img/vendor-graph.svg"
+                alt="Vendor dashboard overview"
+                width="1200"
+                height="600"
+                class="w-full h-auto object-contain mx-auto"
+                loading="lazy"
+                decoding="async">
+
+        </div>
+
+    </div>
+</section>
+    {# ========== WHY VENDORS CHOOSE FE ========== #}
+   <section class="bg-light-warm-beige py-10 sm:py-12 lg:py-14"
+    aria-labelledby="why-heading">
+
+    <!-- Same container as previous sections -->
+    <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+        <!-- Header -->
+        <div class="text-center mb-8 sm:mb-10 lg:mb-12">
+
+            <span
+                class="inline-block text-xs sm:text-sm font-bold tracking-wider uppercase
+                       px-3 py-1.5 bg-butter-cream text-primary-yellow">
+                Why Vendors Choose FE
+            </span>
+
+            <h2 id="why-heading"
+                class="mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold
+                       text-dark-black tracking-tight leading-tight">
+                A Platform That Helps Your Business Grow
+            </h2>
+
+            <p class="text-sm sm:text-base font-medium text-granite-gray mt-3 sm:mt-4">
+                Everything you need to manage your field service business more efficiently.
+            </p>
+
+        </div>
+
+
+        <!-- Benefits Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 lg:gap-6">
+
+            <!-- Card 1 -->
+            <article
+                class="bg-soft-white1 p-5 rounded-2xl shadow-lg
+                       hover:shadow-xl transition-all duration-300
+                       hover:-translate-y-1 text-center
+                       flex flex-col items-center justify-center
+                       min-h-[170px] lg:min-h-[180px]">
+
+                <div
+                    class="w-12 h-12 sm:w-14 sm:h-14
+                           bg-soft-amber-yellow text-primary-yellow
+                           rounded-full flex items-center justify-center
+                           mb-3 sm:mb-4 shrink-0">
+
+                    <span class="material-symbols-outlined text-[28px] sm:text-[32px]">
+                        electric_bolt
+                    </span>
+
+                </div>
+
+                <h3 class="text-base sm:text-lg font-bold text-dark-black mb-2">
+                    Work Faster
+                </h3>
+
+                <p class="text-sm sm:text-base text-light-black leading-relaxed max-w-[220px] mx-auto">
+                    Automate everyday tasks and
+                    <span class="text-green-600 font-medium">reduce manual work.</span>
+                </p>
+
+            </article>
+
+
+            <!-- Card 2 -->
+            <article
+                class="bg-soft-white1 p-5 rounded-2xl shadow-lg
+                       hover:shadow-xl transition-all duration-300
+                       hover:-translate-y-1 text-center
+                       flex flex-col items-center justify-center
+                       min-h-[170px] lg:min-h-[180px]">
+
+                <div
+                    class="w-12 h-12 sm:w-14 sm:h-14
+                           bg-soft-amber-yellow text-primary-yellow
+                           rounded-full flex items-center justify-center
+                           mb-3 sm:mb-4 shrink-0">
+
+                    <span class="material-symbols-outlined text-[28px] sm:text-[32px]">
+                        visibility
+                    </span>
+
+                </div>
+
+                <h3 class="text-base sm:text-lg font-bold text-dark-black mb-2">
+                    Stay Updated
+                </h3>
+
+                <p class="text-sm sm:text-base text-light-black leading-relaxed max-w-[220px] mx-auto">
+                    Track every job and technician in real time.
+                </p>
+
+            </article>
+
+
+            <!-- Card 3 -->
+            <article
+                class="bg-soft-white1 p-5 rounded-2xl shadow-lg
+                       hover:shadow-xl transition-all duration-300
+                       hover:-translate-y-1 text-center
+                       flex flex-col items-center justify-center
+                       min-h-[170px] lg:min-h-[180px]">
+
+                <div
+                    class="w-12 h-12 sm:w-14 sm:h-14
+                           bg-soft-amber-yellow text-primary-yellow
+                           rounded-full flex items-center justify-center
+                           mb-3 sm:mb-4 shrink-0">
+
+                    <span class="material-symbols-outlined text-[28px] sm:text-[32px]">
+                        verified
+                    </span>
+
+                </div>
+
+                <h3 class="text-base sm:text-lg font-bold text-dark-black mb-2">
+                    Better Service
+                </h3>
+
+                <p class="text-sm sm:text-base text-light-black leading-relaxed max-w-[220px] mx-auto">
+                    Deliver quality work and
+                    <span class="font-medium">keep your customers satisfied.</span>
+                </p>
+
+            </article>
+
+
+            <!-- Card 4 -->
+            <article
+                class="bg-soft-white1 p-5 rounded-2xl shadow-lg
+                       hover:shadow-xl transition-all duration-300
+                       hover:-translate-y-1 text-center
+                       flex flex-col items-center justify-center
+                       min-h-[170px] lg:min-h-[180px]">
+
+                <div
+                    class="w-12 h-12 sm:w-14 sm:h-14
+                           bg-soft-amber-yellow text-primary-yellow
+                           rounded-full flex items-center justify-center
+                           mb-3 sm:mb-4 shrink-0">
+
+                    <span class="material-symbols-outlined text-[28px] sm:text-[32px]">
+                        domain
+                    </span>
+
+                </div>
+
+                <h3 class="text-base sm:text-lg font-bold text-dark-black mb-2">
+                    Grow Your Business
+                </h3>
+
+                <p class="text-sm sm:text-base text-light-black leading-relaxed max-w-[220px] mx-auto">
+                    Take on more projects and
+                    <span class="font-medium">expand to new locations.</span>
+                </p>
+
+            </article>
+
+
+            <!-- Card 5 -->
+            <article
+                class="bg-soft-white1 p-5 rounded-2xl shadow-lg
+                       hover:shadow-xl transition-all duration-300
+                       hover:-translate-y-1 text-center
+                       flex flex-col items-center justify-center
+                       min-h-[170px] lg:min-h-[180px]">
+
+                <div
+                    class="w-12 h-12 sm:w-14 sm:h-14
+                           bg-soft-amber-yellow text-primary-yellow
+                           rounded-full flex items-center justify-center
+                           mb-3 sm:mb-4 shrink-0">
+
+                    <span class="material-symbols-outlined text-[28px] sm:text-[32px]">
+                        payments
+                    </span>
+
+                </div>
+
+                <h3 class="text-base sm:text-lg font-bold text-dark-black mb-2">
+                    Get Paid Faster
+                </h3>
+
+                <p class="text-sm sm:text-base text-light-black leading-relaxed max-w-[220px] mx-auto">
+                    Manage invoices and
+                    <span class="text-green-600 font-medium">
+                        receive payments more quickly.
+                    </span>
+                </p>
+
+            </article>
+
+
+            <!-- Card 6 -->
+            <article
+                class="bg-soft-white1 p-5 rounded-2xl shadow-lg
+                       hover:shadow-xl transition-all duration-300
+                       hover:-translate-y-1 text-center
+                       flex flex-col items-center justify-center
+                       min-h-[170px] lg:min-h-[180px]">
+
+                <div
+                    class="w-12 h-12 sm:w-14 sm:h-14
+                           bg-soft-amber-yellow text-primary-yellow
+                           rounded-full flex items-center justify-center
+                           mb-3 sm:mb-4 shrink-0">
+
+                    <span class="material-symbols-outlined text-[28px] sm:text-[32px]">
+                        trending_up
+                    </span>
+
+                </div>
+
+                <h3 class="text-base sm:text-lg font-bold text-dark-black mb-2">
+                    Make Better Decisions
+                </h3>
+
+                <p class="text-sm sm:text-base text-light-black leading-relaxed max-w-[220px] mx-auto">
+                    Use business insights to improve performance and
+                    <span class="font-medium">grow with confidence.</span>
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+    <!--TESTIMONIAL-->
+    <section class="py-10 sm:py-12 lg:py-14 bg-warm-off-white overflow-hidden">
+
+    <!-- Same container as all previous sections -->
+    <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+        <div class="grid lg:grid-cols-[1.3fr_0.7fr] items-start gap-6 lg:gap-8">
+
+            <!-- ================= LEFT ================= -->
+            <div>
+
+                <!-- Label -->
+                <span class="text-[12px] sm:text-[13px] font-bold tracking-[3px] uppercase text-primary-yellow">
+                    Testimonials
+                </span>
+
+                <!-- Heading -->
+                <h2
+                    class="mt-2 text-[32px] sm:text-[38px] lg:text-[44px] leading-[1.05] font-bold text-dark">
+                    What Our
+                    <br>
+                    <span class="text-primary-yellow">
+                        Customers
+                    </span>
+                    Say
+                </h2>
+
+                <!-- Description -->
+                <p
+                    class="mt-3 max-w-[430px] text-[14px] sm:text-[15px] leading-6 sm:leading-7 text-granite-gray">
+                    Real experiences from customers who booked trusted
+                    Field Engineers through our platform.
+                </p>
+
+
+                <!-- Testimonial Card -->
+                <div
+                    class="mt-6 w-full max-w-[760px]
+                           rounded-[24px]
+                           bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0]
+                           px-5 sm:px-7
+                           py-5
+                           shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+
+                    <!-- Stars -->
+                    <div id="testimonialStars" class="flex gap-1">
+                        <!-- Stars will be rendered by JS -->
+                    </div>
+
+
+                    <!-- Quote -->
+                    <span
+                        class="material-symbols-outlined text-warm-golden-orange text-[24px] mt-2 block">
+                        format_quote
+                    </span>
+
+
+                    <!-- Testimonial Text -->
+                    <p
+                        id="testimonialText"
+                        class="mt-3 text-[14px] sm:text-[15px]
+                               leading-6 sm:leading-7
+                               text-light-blackk min-h-[70px]">
+                        Booking an engineer through FE took less than a minute.
+                        The professional arrived on time, completed the work
+                        efficiently and kept us informed throughout the visit.
+                        The entire experience was smooth and reliable.
+                    </p>
+
+
+                    <!-- Bottom -->
+                    <div
+                        class="mt-5 flex flex-col sm:flex-row
+                               sm:items-center justify-between
+                               gap-3">
+
+                        <!-- Customer -->
+                        <div class="flex items-center gap-3">
+
+                            <!-- Avatar -->
+                            <div class="testimonial-avatar-wrap shrink-0">
+                                <img
+                                    id="customerImage"
+                                    src="{% static 'img/fe-wocs1.webp' %}"
+                                    alt="Priya Sharma, verified Field Engineer customer sharing her experience"
+                                    width="56"
+                                    height="56"
+                                    loading="lazy"
+                                    class="testimonial-avatar">
+                            </div>
+
+
+                            <!-- Details -->
+                            <div class="min-w-0">
+
+                                <h4
+                                    id="customerName"
+                                    class="font-semibold text-[16px] sm:text-[17px]
+                                           text-light-blackk leading-tight">
+                                    Priya Sharma
+                                </h4>
+
+                                <div class="flex items-center gap-2 mt-0.5 flex-wrap">
+
+                                    <span
+                                        id="customerCompany"
+                                        class="text-[12px] sm:text-[13px] text-light-blackk">
+                                        TechNova Solutions
+                                    </span>
+
+                                    <span class="flex items-center gap-1">
+
+                                        <span
+                                            id="customerRole"
+                                            class="text-[12px] sm:text-[13px] text-light-blackk">
+                                            Verified Customer
+                                        </span>
+
+                                        <span
+                                            class="material-symbols-outlined text-green-500 text-[15px]">
+                                            verified
+                                        </span>
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Navigation -->
+                        <div class="flex gap-2 ml-auto sm:ml-0">
+
+                            <button
+                                id="testimonialPrev"
+                                type="button"
+                                class="w-10 h-10 rounded-full
+                                       border border-slate-200
+                                       bg-white text-[#F5B530]
+                                       flex items-center justify-center
+                                       transition-all duration-300
+                                       hover:bg-[#F5B530]
+                                       hover:text-white">
+
+                                <span class="material-symbols-outlined text-[20px]">
+                                    chevron_left
+                                </span>
+
+                            </button>
+
+
+                            <button
+                                id="testimonialNext"
+                                type="button"
+                                class="w-10 h-10 rounded-full
+                                       border border-[#F5B530]
+                                       bg-[#F5B530] text-white
+                                       flex items-center justify-center
+                                       transition-all duration-300
+                                       hover:bg-[#E2A220]
+                                       hover:border-[#E2A220]">
+
+                                <span class="material-symbols-outlined text-[20px]">
+                                    chevron_right
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Dots -->
+                    <div class="flex gap-2 mt-4">
+
+                        <button
+                            class="testimonial-dot w-2.5 h-2.5 rounded-full bg-[#F5B530]"
+                            data-index="0">
+                        </button>
+
+                        <button
+                            class="testimonial-dot w-2.5 h-2.5 rounded-full bg-slate-300"
+                            data-index="1">
+                        </button>
+
+                        <button
+                            class="testimonial-dot w-2.5 h-2.5 rounded-full bg-slate-300"
+                            data-index="2">
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RIGHT ================= -->
+            <div class="hidden lg:flex justify-end items-start overflow-hidden">
+
+                <div class="relative translate-x-16 translate-y-12">
+
+                    <!-- Circle -->
+                    <div class="testimonial-feature-circle">
+
+                        <img
+                            id="engineerImage"
+                            src="{% static 'img/fe-wocs-bg.webp' %}"
+                            alt="Field Engineer professional service provider in the field"
+                            width="450"
+                            height="450"
+                            loading="lazy"
+                            class="testimonial-feature-img">
+
+                    </div>
+
+
+                    <!-- Hide bottom border -->
+                    <div
+                        class="absolute bottom-0 left-1/2
+                               -translate-x-1/2
+                               w-[220px] h-8
+                               bg-[#FCFAF5]
+                               rounded-full z-20 hidden lg:block">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!--DOWNLOAD FE SECTION-->
+    <section class="bg-[#FFFDF8] w-full">
+
+    <!-- Full-width gradient background -->
+    <div
+        class="w-full bg-gradient-to-r
+               from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0]
+               py-10 sm:py-12 lg:py-14 xl:py-16">
+
+        <!-- Same container as all previous sections -->
+        <div
+            class="w-full max-w-[1400px] mx-auto
+                   px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+            <!-- Content -->
+            <div
+                class="flex flex-col lg:flex-row
+                       items-center justify-between
+                       gap-8 lg:gap-12">
+
+                <!-- ================= LEFT ================= -->
+                <div class="flex-1 w-full min-w-0">
+
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center gap-2
+                               rounded-full border border-[#22C55E]
+                               bg-white px-4 py-1.5">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-[15px] text-[#22C55E]">
+                            download
+                        </span>
+
+                        <span
+                            class="text-[12px] font-semibold text-[#22C55E]">
+                            Get the FE App
+                        </span>
+
+                    </div>
+
+
+                    <!-- Heading -->
+                    <h2
+                        class="mt-5
+                               text-[32px] sm:text-[36px] lg:text-[40px]
+                               font-bold leading-tight text-[#1E293B]">
+
+                        Download the
+                        <span class="text-[#22C55E]">
+                            FE App
+                        </span>
+
+                    </h2>
+
+
+                    <!-- Description -->
+                    <p
+                        class="mt-3 max-w-[500px]
+                               text-[14px] sm:text-[15px]
+                               leading-6 sm:leading-7
+                               text-slate-600">
+
+                        Manage field service jobs anytime, anywhere.
+                        Book engineers, track service requests and stay
+                        connected with real-time updates.
+
+                    </p>
+
+
+                    <!-- Store Buttons -->
+                    <div
+                        class="flex flex-wrap items-center
+                               gap-3 sm:gap-4 mt-6">
+
+                        <!-- Google Play -->
+                        <a
+                            href="#"
+                            class="w-[180px] sm:w-[190px] h-12
+                                   bg-black text-white
+                                   px-4 rounded-xl
+                                   flex items-center justify-center gap-3
+                                   shadow-sm shrink-0
+                                   transition-transform duration-200
+                                   hover:-translate-y-0.5"
+                            aria-label="Download Field Engineer app from Google Play">
+
+                            <img
+                                src="{% static 'img/google-play-store-icon.webp' %}"
+                                alt="Google Play logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+                            <div class="text-left leading-none">
+
+                                <p
+                                    class="text-[9px] uppercase
+                                           tracking-wider font-medium
+                                           text-gray-300">
+                                    GET IT ON
+                                </p>
+
+                                <p
+                                    class="text-xs font-bold font-sans
+                                           mt-0.5 whitespace-nowrap text-white">
+                                    Google Play
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+                        <!-- App Store -->
+                        <a
+                            href="#"
+                            class="w-[180px] sm:w-[190px] h-12
+                                   bg-black text-white
+                                   px-4 rounded-xl
+                                   flex items-center justify-center gap-3
+                                   shadow-sm shrink-0
+                                   transition-transform duration-200
+                                   hover:-translate-y-0.5">
+
+                            <img
+                                src="{% static 'img/apple-logo.webp' %}"
+                                alt="App Store logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+                            <div class="text-left leading-none">
+
+                                <p
+                                    class="text-[9px] uppercase
+                                           tracking-wider font-medium
+                                           text-gray-300">
+                                    Download on
+                                </p>
+
+                                <p
+                                    class="text-xs font-bold font-sans
+                                           mt-0.5 whitespace-nowrap text-white">
+                                    App Store
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= RIGHT ================= -->
+                <div
+                    class="w-full lg:w-auto flex-shrink-0
+                           flex justify-center lg:justify-end">
+
+                    <div class="text-center">
+
+                        <img
+                            src="{% static 'img/about-qr.webp' %}"
+                            alt="Download FE App"
+                            width="190"
+                            height="190"
+                            loading="lazy"
+                            decoding="async"
+                            class="w-[150px] sm:w-[170px] md:w-[180px] lg:w-[190px]
+                                   object-contain mx-auto">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+<script>
+    const testimonialImages = [
+        "{% static 'img/fe-wocs1.webp' %}",
+        "{% static 'img/fe-wocs2.webp' %}",
+        "{% static 'img/fe-wocs3.webp' %}"
+    ];
+</script>
+
+<script src="{% static 'script/pages/engineer.js' %}"></script>
+
+
+
+
+
+{% endblock %}

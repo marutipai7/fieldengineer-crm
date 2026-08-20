@@ -1,0 +1,2133 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}FieldEngineer — Deploy Certified Engineers Anywhere in India{% endblock %}
+
+
+{% block content %}
+
+<!-- ════════════ HERO ════════════ -->
+<section
+    class="engineer-hero relative overflow-hidden w-full
+           min-h-[400px] sm:min-h-[420px] lg:min-h-[440px]
+           flex items-center">
+
+    <!-- ================= BACKGROUND IMAGE ================= -->
+    <img
+        src="{% static 'img/engineer-hero.webp' %}"
+        alt="IT Engineers"
+        width="1920"
+        height="800"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="engineer-hero__bg">
+
+
+    <!-- ================= DARK OVERLAY ================= -->
+    <div class="absolute inset-0 bg-black/35 z-10"></div>
+
+
+    <!-- ================= GRADIENT OVERLAY ================= -->
+    <div
+        class="absolute inset-0 z-10
+               bg-gradient-to-r
+               from-[#172328]/95
+               via-[#172328]/70
+               to-transparent">
+    </div>
+
+
+    <!-- ================= CONTENT ================= -->
+    <!-- SAME ALIGNMENT AS HEADER / LOGO -->
+    <div
+        class="relative z-20 w-full
+               max-w-[1400px]
+               mx-auto
+               px-6">
+
+        <div
+            class="max-w-[600px]
+                   py-8 sm:py-10 lg:py-12">
+
+            <!-- ================= BADGE ================= -->
+            <span
+                class="inline-block
+                       uppercase
+                       tracking-[3px]
+                       text-[11px] sm:text-xs
+                       font-bold
+                       text-[#22C55E]
+                       mb-3">
+
+                THE FE ENGINEERS
+
+            </span>
+
+
+            <!-- ================= HEADING ================= -->
+            <h1
+                class="text-[40px]
+                       sm:text-[50px]
+                       md:text-[56px]
+                       lg:text-[60px]
+                       font-extrabold
+                       leading-[1.05]
+                       text-white">
+
+                The
+                <span class="text-primary-yellow">
+                    Experts
+                </span>
+
+                in IT
+
+                <br>
+
+                Services
+
+            </h1>
+
+
+            <!-- ================= DESCRIPTION ================= -->
+            <p
+                class="mt-6
+                       max-w-[470px]
+                       text-[16px]
+                       lg:text-[17px]
+                       leading-7
+                       lg:leading-8
+                       text-gray-200">
+
+                Delivering IT field services and engineering solutions for
+                efficient operations.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<main class="bg-greenish-white">
+    <!--REQUIREMENTS TO JOIN-->
+    <section class="bg-stone-50 py-8 lg:py-12">
+
+    <!-- SAME ALIGNMENT AS HEADER / LOGO -->
+    <div class="max-w-[1400px] mx-auto px-6">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+
+            <!-- ================= LEFT ================= -->
+
+            <div>
+
+                <!-- Logo -->
+                <div class="flex items-center gap-3 mb-6">
+
+                    <img
+                        src="{% static 'img/fepage-logo.svg' %}"
+                        alt="FE"
+                        class="w-10 h-10 rounded-lg">
+
+                    <span class="font-semibold text-slate-700">
+                        Field Engineer
+                    </span>
+
+                </div>
+
+
+                <!-- Heading -->
+                <h2
+                    class="text-3xl sm:text-4xl lg:text-5xl
+                           font-bold leading-tight
+                           text-slate-900">
+
+                    Trusted
+
+                    <span class="text-primary-yellow">
+                        Field Engineers
+                    </span>
+
+                    Delivering On-Site Technology
+                    Solutions Across the Globe.
+
+                </h2>
+
+
+                <!-- Description -->
+                <p
+                    class="mt-6 max-w-xl
+                           text-base lg:text-lg
+                           leading-7 lg:leading-8
+                           text-slate-600">
+
+                    Our certified Field IT Engineers provide rapid onsite
+                    support, hardware deployment, network installation,
+                    maintenance and IT infrastructure services for
+                    businesses of every size.
+
+                </p>
+
+
+                <!-- ================= STATS ================= -->
+
+                <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4">
+
+
+                    <!-- Countries -->
+                    <div
+                        class="bg-white border border-slate-200
+                               rounded-2xl shadow-md
+                               p-5 text-center">
+
+                        <h3
+                            class="counter text-2xl sm:text-3xl
+                                   font-bold text-primary-yellow"
+                            data-target="7">
+                            0
+                        </h3>
+
+                        <p
+                            class="mt-2 text-sm font-medium
+                                   text-slate-500">
+                            Countries
+                        </p>
+
+                    </div>
+
+
+                    <!-- Cities -->
+                    <div
+                        class="bg-white border border-slate-200
+                               rounded-2xl shadow-md
+                               p-5 text-center">
+
+                        <h3
+                            class="counter text-2xl sm:text-3xl
+                                   font-bold text-sky-500"
+                            data-target="113">
+                            0
+                        </h3>
+
+                        <p
+                            class="mt-2 text-sm font-medium
+                                   text-slate-500">
+                            Cities
+                        </p>
+
+                    </div>
+
+
+                    <!-- Locations -->
+                    <div
+                        class="col-span-2 sm:col-span-1
+                               bg-white border border-slate-200
+                               rounded-2xl shadow-md
+                               p-5 text-center">
+
+                        <h3
+                            class="counter text-2xl sm:text-3xl
+                                   font-bold text-sky-500"
+                            data-target="4905">
+                            0
+                        </h3>
+
+                        <p
+                            class="mt-2 text-sm font-medium
+                                   text-slate-500">
+                            Locations
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RIGHT ================= -->
+
+            <div class="relative">
+
+                <img
+                    src="{% static 'img/cyber-security-cloud.webp' %}"
+                    alt="Field Engineer"
+                    class="w-full h-[320px]
+                           sm:h-[420px]
+                           lg:h-[520px]
+                           rounded-[28px]
+                           object-cover
+                           shadow-xl">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- ========================================================= -->
+    <!-- FE GLOBAL COVERAGE SECTION -->
+    <!-- ========================================================= -->
+
+    <section class="relative bg-stone-100 py-12 lg:py-16 overflow-hidden">
+
+        <!-- Background Pattern -->
+
+        <div class="absolute inset-0 pointer-events-none">
+
+            <!-- Soft white glow -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2
+                w-[900px] h-[450px]
+                bg-white/80 blur-[120px] rounded-full">
+            </div>
+
+        </div>
+
+        <div class="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+
+
+            <!-- ========================= -->
+            <!-- FIGMA STYLE HEADING -->
+            <!-- ========================= -->
+
+            <div class="max-w-5xl mx-auto text-center mt-8">
+
+                <h2 class="flex justify-center items-center flex-wrap gap-[6px]">
+
+                    <span class="text-slate-800
+             text-[30px]
+             md:text-[38px]
+             lg:text-[46px]
+             font-[800]
+             tracking-[-1.5px]
+             leading-none">
+
+                        FIELD ENGINEER
+
+                    </span>
+
+                    <span class="text-primary-yellow
+             text-[30px]
+             md:text-[38px]
+             lg:text-[46px]
+             font-[800]
+             tracking-[-1.5px]
+             leading-none">
+
+                        SERVICE NETWORK
+
+                    </span>
+
+                </h2>
+
+                <p class="mt-4
+              flex
+              justify-center
+              items-center
+              gap-2
+              text-[#2F3743]
+              text-[15px]
+              md:text-[18px]
+              font-semibold">
+
+                    <span class="text-primary-yellow text-sm">▲</span>
+                    Delivering On-Site IT Infrastructure, Network, Hardware &
+                    Data Center Support Across India.
+
+                </p>
+
+                <p class="max-w-3xl
+          mx-auto
+          mt-2
+          text-gray-500
+          text-[13px]
+          md:text-[15px]
+          leading-6">
+
+                    Our certified field engineers provide installation, maintenance,
+                    break-fix, IMAC, smart hands, and network support services across
+                    major cities and local regions throughout India, ensuring rapid
+                    response and reliable IT operations.
+
+                </p>
+
+            </div>
+            <!-- ========================================================= -->
+            <!-- PART 2 : MAP CARD -->
+            <!-- ========================================================= -->
+
+            <div class="mt-10 lg:mt-12">
+
+                <div class="relative
+               bg-white
+               rounded-[30px]
+               border
+               border-gray-200
+               shadow-[0_20px_60px_rgba(0,0,0,.08)]
+               overflow-hidden">
+
+
+                    <!-- Header -->
+
+                    <div class="px-8 lg:px-10 pt-8">
+
+                        <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+
+
+                            <!-- Left -->
+
+                            <div>
+
+                                <h3 class="text-[30px]
+                               font-bold
+                               text-black">
+
+                                    Global Engineer Coverage
+
+                                </h3>
+
+
+                                <p class="mt-2
+                               text-slate-500
+                               leading-7">
+
+                                    Certified engineers available across India and worldwide for
+                                    Smart Hands, IMAC, Break-Fix, Network Deployment,
+                                    Data Center Support and Enterprise IT Services.
+
+                                </p>
+
+
+                            </div>
+
+
+
+                            <!-- Right Badge -->
+
+                            <div class="flex
+                           items-center
+                           gap-3
+                           
+                           border
+                           border-primary-yellow
+                           rounded-full
+                           px-5
+                           py-3">
+
+
+                                <span class="material-symbols-outlined text-amber-500">
+
+                                    public
+
+                                </span>
+
+
+                                <span class="font-semibold text-slate-800">
+
+                                    Interactive Coverage Map
+
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- ================= MAP AREA ================= -->
+
+
+                    <div class="relative px-8 lg:px-10 pt-8 pb-8 overflow-hidden">
+
+
+                        <!-- Soft Glow Background -->
+
+                        <div class="absolute
+                       inset-0
+                       flex
+                       items-center
+                       justify-center
+                       pointer-events-none
+                       z-0">
+
+
+                            <div class="w-[700px]
+                           h-[700px]
+                           rounded-full
+                           bg-[radial-gradient(circle,rgba(245,181,48,.12),transparent_70%)]">
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- Map -->
+
+                        <div id="chartdiv" class="relative
+                       z-10
+                       w-full
+                       h-[420px]
+                       md:h-[560px]
+                       xl:h-[650px]">
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <!-- ========================================================= -->
+            <!-- PART 3 : GLOBAL REGION CARDS -->
+            <!-- ========================================================= -->
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mt-6 lg:mt-8 items-start">
+                <!-- North America -->
+                <div class="fe-region-card no-button">
+
+                    <div class="fe-region-header">
+                        <span class="material-symbols-outlined">travel_explore</span>
+                        North America
+                    </div>
+
+                    <ul class="country-list">
+                        <li>United States</li>
+                        <li>Canada</li>
+                    </ul>
+
+                </div>
+
+                <!-- Europe -->
+                <div class="fe-region-card active-card">
+
+                    <div class="fe-region-header">
+                        <span class="material-symbols-outlined">public</span>
+                        Europe
+                    </div>
+
+                    <ul class="country-list">
+
+                        <li>United Kingdom</li>
+                        <li>Germany</li>
+
+                        <li class="more-country hidden">France</li>
+                        <li class="more-country hidden">Spain</li>
+                        <li class="more-country hidden">Italy</li>
+                        <li class="more-country hidden">Netherlands</li>
+
+                    </ul>
+
+                    <button class="read-more-btn">
+                        Read More
+                        <span class="material-symbols-outlined text-[18px]">
+                            expand_more
+                        </span>
+                    </button>
+
+                </div>
+
+                <!-- Asia -->
+                <div class="fe-region-card active-card">
+
+                    <div class="fe-region-header">
+                        <span class="material-symbols-outlined">location_on</span>
+                        Asia
+                    </div>
+
+                    <ul class="country-list">
+
+                        <!-- Always Visible -->
+                        <li>India</li>
+                        <li>Japan</li>
+
+                        <!-- Hidden Initially -->
+                        <li class="more-country hidden">Singapore</li>
+                        <li class="more-country hidden">Malaysia</li>
+                        <li class="more-country hidden">Thailand</li>
+                        <li class="more-country hidden">China</li>
+                        <li class="more-country hidden">South Korea</li>
+                        <li class="more-country hidden">UAE</li>
+                        <li class="more-country hidden">Qatar</li>
+                        <li class="more-country hidden">Saudi Arabia</li>
+
+                    </ul>
+
+                    <button class="read-more-btn">
+                        Read More
+                        <span class="material-symbols-outlined text-[18px]">
+                            expand_more
+                        </span>
+                    </button>
+
+                </div>
+
+                <!-- Africa -->
+                <div class="fe-region-card">
+
+                    <div class="fe-region-header">
+                        <span class="material-symbols-outlined">globe_asia</span>
+                        Africa
+                    </div>
+
+                    <ul class="country-list">
+
+                        <!-- Always Visible -->
+                        <li>South Africa</li>
+                        <li>Kenya</li>
+
+                        <!-- Hidden Initially -->
+                        <li class="more-country hidden">Nigeria</li>
+                        <li class="more-country hidden">Egypt</li>
+                        <li class="more-country hidden">Morocco</li>
+
+                    </ul>
+
+                    <button class="read-more-btn">
+                        Read More
+                        <span class="material-symbols-outlined text-[18px]">
+                            expand_more
+                        </span>
+                    </button>
+
+                </div>
+
+                <!-- South America -->
+                <div class="fe-region-card">
+
+                    <div class="fe-region-header">
+                        <span class="material-symbols-outlined">south_america</span>
+                        South America
+                    </div>
+
+                    <ul class="country-list">
+
+                        <!-- Always Visible -->
+                        <li>Brazil</li>
+                        <li>Argentina</li>
+
+                        <!-- Hidden Initially -->
+                        <li class="more-country hidden">Chile</li>
+                        <li class="more-country hidden">Colombia</li>
+                        <li class="more-country hidden">Peru</li>
+
+                    </ul>
+
+                    <button class="read-more-btn">
+                        Read More
+                        <span class="material-symbols-outlined text-[18px]">
+                            expand_more
+                        </span>
+                    </button>
+
+                </div>
+
+                <!-- Central America -->
+                <div class="fe-region-card">
+
+                    <div class="fe-region-header">
+                        <span class="material-symbols-outlined">language</span>
+                        Central America
+                    </div>
+
+                    <ul class="country-list">
+
+                        <!-- Always Visible -->
+                        <li>Mexico</li>
+                        <li>Costa Rica</li>
+
+                        <!-- Hidden Initially -->
+                        <li class="more-country hidden">Panama</li>
+                        <li class="more-country hidden">Puerto Rico</li>
+
+                    </ul>
+
+                    <button class="read-more-btn">
+                        Read More
+                        <span class="material-symbols-outlined text-[18px]">
+                            expand_more
+                        </span>
+                    </button>
+
+                </div>
+
+                <!-- Oceania -->
+                <div class="fe-region-card">
+
+                    <div class="fe-region-header">
+                        <span class="material-symbols-outlined">landscape</span>
+                        Oceania
+                    </div>
+
+                    <ul class="country-list">
+
+                        <!-- Always Visible -->
+                        <li>Australia</li>
+                        <li>New Zealand</li>
+
+                        <!-- Hidden Initially -->
+                        <li class="more-country hidden">Guam</li>
+
+                    </ul>
+
+                    <button class="read-more-btn">
+                        Read More
+                        <span class="material-symbols-outlined text-[18px]">
+                            expand_more
+                        </span>
+                    </button>
+
+                </div>
+                <!-- Middle East -->
+                <div class="fe-region-card">
+
+                    <div class="fe-region-header">
+                        <span class="material-symbols-outlined">pin_drop</span>
+                        Middle East
+                    </div>
+
+                    <ul class="country-list">
+
+                        <!-- Always Visible -->
+                        <li>UAE</li>
+                        <li>Saudi Arabia</li>
+
+                        <!-- Hidden Initially -->
+                        <li class="more-country hidden">Qatar</li>
+                        <li class="more-country hidden">Bahrain</li>
+                        <li class="more-country hidden">Kuwait</li>
+                        <li class="more-country hidden">Oman</li>
+
+                    </ul>
+
+                    <button class="read-more-btn">
+                        Read More
+                        <span class="material-symbols-outlined text-[18px]">
+                            expand_more
+                        </span>
+                    </button>
+
+                </div>
+
+            </div>
+    </section>
+
+    <!--WHY ENGINEERS CHOOSE OUR PLATFORM-->
+    <section class="bg-[#F7FCF8] py-12 lg:py-16">
+
+    <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+        <!-- ================= HEADING ================= -->
+        <div class="text-center max-w-4xl mx-auto mb-10 lg:mb-12">
+
+            <span class="inline-block text-[11px] font-bold tracking-[3px] uppercase text-primary-yellow">
+                SERVICES WE PROVIDE
+            </span>
+
+            <h2 class="mt-3 text-[34px] md:text-[42px] font-bold leading-tight text-slate-800">
+                WE PROVIDE
+                <span class="text-primary-yellow">
+                    EXPERT IT FIELD SERVICES
+                </span>
+            </h2>
+
+            <div class="w-24 h-[3px] bg-primary-yellow rounded-full mx-auto mt-4"></div>
+
+            <p class="mt-6 text-[16px] leading-7 text-slate-500">
+                Our certified field engineers deliver reliable on-site IT support and
+                infrastructure solutions to keep your business running smoothly and
+                securely.
+            </p>
+
+        </div>
+
+
+        <!-- ================= SERVICE CARDS ================= -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- ================= CARD 1 ================= -->
+            <article
+                class="group bg-white border border-slate-200 rounded-2xl p-7
+                       transition-all duration-300
+                       hover:-translate-y-2
+                       hover:border-primary-yellow
+                       hover:shadow-xl">
+
+                <!-- Icon -->
+                <div class="w-14 h-14 rounded-full bg-amber-50 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[30px] text-primary-yellow">
+                        hub
+                    </span>
+                </div>
+
+                <!-- Title -->
+                <h3 class="mt-6 text-[18px] font-bold text-slate-800 leading-snug">
+                    Network Installation & Support
+                </h3>
+
+                <!-- Description -->
+                <p class="mt-4 text-[14px] leading-6 text-slate-500">
+                    LAN/WAN setup, Wi-Fi deployment, network troubleshooting.
+                </p>
+
+                <!-- Read More -->
+                <button
+                    onclick="switchToLogin(); return false;"
+                    type="button"
+                    class="mt-6 inline-flex items-center gap-1
+                           text-[12px] font-semibold uppercase
+                           text-slate-800
+                           hover:text-primary-yellow
+                           transition-colors
+                           cursor-pointer">
+
+                    READ MORE
+
+                    <span class="material-symbols-outlined text-[16px]">
+                        arrow_forward
+                    </span>
+
+                </button>
+
+            </article>
+
+
+            <!-- ================= CARD 2 ================= -->
+            <article
+                class="group bg-white border border-slate-200 rounded-2xl p-7
+                       transition-all duration-300
+                       hover:-translate-y-2
+                       hover:border-primary-yellow
+                       hover:shadow-xl">
+
+                <!-- Icon -->
+                <div class="w-14 h-14 rounded-full bg-amber-50 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[30px] text-primary-yellow">
+                        dns
+                    </span>
+                </div>
+
+                <!-- Title -->
+                <h3 class="mt-6 text-[18px] font-bold text-slate-800 leading-snug">
+                    Server & Data Center Support
+                </h3>
+
+                <!-- Description -->
+                <p class="mt-4 text-[14px] leading-6 text-slate-500">
+                    Installation, configuration, maintenance and troubleshooting for
+                    servers and data centers.
+                </p>
+
+                <!-- Read More -->
+                <button
+                    onclick="switchToLogin(); return false;"
+                    type="button"
+                    class="mt-6 inline-flex items-center gap-1
+                           text-[12px] font-semibold uppercase
+                           text-slate-800
+                           hover:text-primary-yellow
+                           transition-colors
+                           cursor-pointer">
+
+                    READ MORE
+
+                    <span class="material-symbols-outlined text-[16px]">
+                        arrow_forward
+                    </span>
+
+                </button>
+
+            </article>
+
+
+            <!-- ================= CARD 3 ================= -->
+            <article
+                class="group bg-white border border-slate-200 rounded-2xl p-7
+                       transition-all duration-300
+                       hover:-translate-y-2
+                       hover:border-primary-yellow
+                       hover:shadow-xl">
+
+                <!-- Icon -->
+                <div class="w-14 h-14 rounded-full bg-amber-50 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[30px] text-primary-yellow">
+                        precision_manufacturing
+                    </span>
+                </div>
+
+                <!-- Title -->
+                <h3 class="mt-6 text-[18px] font-bold text-slate-800 leading-snug">
+                    Hardware Installation & IMAC
+                </h3>
+
+                <!-- Description -->
+                <p class="mt-4 text-[14px] leading-6 text-slate-500">
+                    End-to-end IMAC services including install, move, add, change and
+                    decommission.
+                </p>
+
+                <!-- Read More -->
+                <button
+                    onclick="switchToLogin(); return false;"
+                    type="button"
+                    class="mt-6 inline-flex items-center gap-1
+                           text-[12px] font-semibold uppercase
+                           text-slate-800
+                           hover:text-primary-yellow
+                           transition-colors
+                           cursor-pointer">
+
+                    READ MORE
+
+                    <span class="material-symbols-outlined text-[16px]">
+                        arrow_forward
+                    </span>
+
+                </button>
+
+            </article>
+
+
+            <!-- ================= CARD 4 ================= -->
+            <article
+                class="group bg-white border border-slate-200 rounded-2xl p-7
+                       transition-all duration-300
+                       hover:-translate-y-2
+                       hover:border-primary-yellow
+                       hover:shadow-xl">
+
+                <!-- Icon -->
+                <div class="w-14 h-14 rounded-full bg-amber-50 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[30px] text-primary-yellow">
+                        verified_user
+                    </span>
+                </div>
+
+                <!-- Title -->
+                <h3 class="mt-6 text-[18px] font-bold text-slate-800 leading-snug">
+                    IT Maintenance & Break-Fix
+                </h3>
+
+                <!-- Description -->
+                <p class="mt-4 text-[14px] leading-6 text-slate-500">
+                    Preventive maintenance and break-fix support to minimize downtime.
+                </p>
+
+                <!-- Read More -->
+                <button
+                    onclick="switchToLogin(); return false;"
+                    type="button"
+                    class="mt-6 inline-flex items-center gap-1
+                           text-[12px] font-semibold uppercase
+                           text-slate-800
+                           hover:text-primary-yellow
+                           transition-colors
+                           cursor-pointer">
+
+                    READ MORE
+
+                    <span class="material-symbols-outlined text-[16px]">
+                        arrow_forward
+                    </span>
+
+                </button>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!--POWERFUL TOOLS TO MANAGE-->
+    <section class="bg-stone-50 pt-6 pb-12 md:pt-8 md:pb-16 lg:pt-10 lg:pb-20">
+
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+        <!-- ================= HEADING ================= -->
+
+        <div class="text-center mb-14">
+
+            <span class="text-[11px] uppercase tracking-[3px] font-bold text-primary-yellow">
+                CHECK OUR WORK
+            </span>
+
+            <h2 class="mt-3 text-[34px] sm:text-[38px] md:text-[42px] font-bold text-slate-800 leading-tight">
+                RECENT JOB OPPORTUNITIES
+            </h2>
+
+            <div class="w-24 h-[3px] bg-primary-yellow rounded-full mx-auto mt-4"></div>
+
+        </div>
+
+
+        <!-- ================= CARDS ================= -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+            <!-- ================================================= -->
+            <!-- CARD 1 -->
+            <!-- ================================================= -->
+
+            <article
+                class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+                <!-- Image -->
+                <div class="h-[190px] overflow-hidden">
+
+                    <img
+                        src="{% static 'img/recentjob-1.webp' %}"
+                        alt="Recent field engineering job completed by Field Engineer professional"
+                        width="400"
+                        height="300"
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-cover scale-[1.02] group-hover:scale-105 transition-transform duration-500">
+
+                </div>
+
+
+                <!-- Content -->
+                <div class="p-5">
+
+                    <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
+                        NETWORKING
+                    </span>
+
+
+                    <div class="flex items-center justify-between gap-4 mt-2">
+
+                        <div class="flex items-start gap-3 min-w-0">
+
+                            <span class="material-symbols-outlined text-[26px] text-primary-yellow shrink-0">
+                                hub
+                            </span>
+
+                            <h3 class="text-[18px] font-bold text-slate-800 leading-6">
+                                NETWORK INSTALLATION
+                                <br>
+                                &amp; SUPPORT
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            onclick="switchToLogin(); return false;"
+                            aria-label="View Network Installation and Support"
+                            class="w-10 h-10 rounded-lg bg-primary-yellow flex items-center justify-center shrink-0 hover:scale-105 transition-transform duration-200 cursor-pointer">
+
+                            <span class="material-symbols-outlined text-white text-[20px]">
+                                arrow_forward
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================================================= -->
+            <!-- CARD 2 -->
+            <!-- ================================================= -->
+
+            <article
+                class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+                <!-- Image -->
+                <div class="h-[190px] overflow-hidden">
+
+                    <img
+                        src="{% static 'img/recentjob-2.webp' %}"
+                        alt="Field Engineer technician installing server rack in data center"
+                        width="400"
+                        height="300"
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-cover scale-[1.02] group-hover:scale-105 transition-transform duration-500">
+
+                </div>
+
+
+                <!-- Content -->
+                <div class="p-5">
+
+                    <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
+                        DATA CENTER
+                    </span>
+
+
+                    <div class="flex items-center justify-between gap-4 mt-2">
+
+                        <div class="flex items-start gap-3 min-w-0">
+
+                            <span class="material-symbols-outlined text-[26px] text-primary-yellow shrink-0">
+                                dns
+                            </span>
+
+                            <h3 class="text-[18px] font-bold text-slate-800 leading-6">
+                                SERVER INSTALLATION
+                                <br>
+                                &amp; MAINTENANCE
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            onclick="switchToLogin(); return false;"
+                            aria-label="View Server Installation and Maintenance"
+                            class="w-10 h-10 rounded-lg bg-primary-yellow flex items-center justify-center shrink-0 hover:scale-105 transition-transform duration-200 cursor-pointer">
+
+                            <span class="material-symbols-outlined text-white text-[20px]">
+                                arrow_forward
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================================================= -->
+            <!-- CARD 3 -->
+            <!-- ================================================= -->
+
+            <article
+                class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+                <!-- Image -->
+                <div class="h-[190px] overflow-hidden">
+
+                    <img
+                        src="{% static 'img/recentjob-3.webp' %}"
+                        alt="Field Engineer technician performing fiber optic cable splicing"
+                        width="400"
+                        height="300"
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-cover scale-[1.02] group-hover:scale-105 transition-transform duration-500">
+
+                </div>
+
+
+                <!-- Content -->
+                <div class="p-5">
+
+                    <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
+                        HARDWARE SERVICES
+                    </span>
+
+
+                    <div class="flex items-center justify-between gap-4 mt-2">
+
+                        <div class="flex items-start gap-3 min-w-0">
+
+                            <span class="material-symbols-outlined text-[26px] text-primary-yellow shrink-0">
+                                desktop_windows
+                            </span>
+
+                            <h3 class="text-[18px] font-bold text-slate-800 leading-6">
+                                DESKTOP, LAPTOP &amp;
+                                <br>
+                                PERIPHERAL SUPPORT
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            onclick="switchToLogin(); return false;"
+                            aria-label="View Desktop Laptop and Peripheral Support"
+                            class="w-10 h-10 rounded-lg bg-primary-yellow flex items-center justify-center shrink-0 hover:scale-105 transition-transform duration-200 cursor-pointer">
+
+                            <span class="material-symbols-outlined text-white text-[20px]">
+                                arrow_forward
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================================================= -->
+            <!-- CARD 4 -->
+            <!-- ================================================= -->
+
+            <article
+                class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+                <!-- Image -->
+                <div class="h-[190px] overflow-hidden">
+
+                    <img
+                        src="{% static 'img/recentjob-4.webp' %}"
+                        alt="Field Engineer installing network equipment in server rack"
+                        width="400"
+                        height="300"
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-cover scale-[1.02] group-hover:scale-105 transition-transform duration-500">
+
+                </div>
+
+
+                <!-- Content -->
+                <div class="p-5">
+
+                    <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
+                        SECURITY SOLUTIONS
+                    </span>
+
+
+                    <div class="flex items-center justify-between gap-4 mt-2">
+
+                        <div class="flex items-start gap-3 min-w-0">
+
+                            <span class="material-symbols-outlined text-[26px] text-primary-yellow shrink-0">
+                                shield
+                            </span>
+
+                            <h3 class="text-[18px] font-bold text-slate-800 leading-6">
+                                CCTV INSTALLATION &
+                                <br>
+                                SECURITY SYSTEMS
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            onclick="switchToLogin(); return false;"
+                            aria-label="View CCTV Installation and Security Systems"
+                            class="w-10 h-10 rounded-lg bg-primary-yellow flex items-center justify-center shrink-0 hover:scale-105 transition-transform duration-200 cursor-pointer">
+
+                            <span class="material-symbols-outlined text-white text-[20px]">
+                                arrow_forward
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================================================= -->
+            <!-- CARD 5 -->
+            <!-- ================================================= -->
+
+            <article
+                class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+                <!-- Image -->
+                <div class="h-[190px] overflow-hidden">
+
+                    <img
+                        src="{% static 'img/recentjob-5.webp' %}"
+                        alt="Field Engineer expert installing CCTV security camera"
+                        width="400"
+                        height="300"
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-cover scale-[1.02] group-hover:scale-105 transition-transform duration-500">
+
+                </div>
+
+
+                <!-- Content -->
+                <div class="p-5">
+
+                    <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
+                        MAINTENANCE &amp; SUPPORT
+                    </span>
+
+
+                    <div class="flex items-center justify-between gap-4 mt-2">
+
+                        <div class="flex items-start gap-3 min-w-0">
+
+                            <span class="material-symbols-outlined text-[26px] text-primary-yellow shrink-0">
+                                build
+                            </span>
+
+                            <h3 class="text-[18px] font-bold text-slate-800 leading-6">
+                                MAINTENANCE &
+                                <br>
+                                REPAIR
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            onclick="switchToLogin(); return false;"
+                            aria-label="View Maintenance and Repair"
+                            class="w-10 h-10 rounded-lg bg-primary-yellow flex items-center justify-center shrink-0 hover:scale-105 transition-transform duration-200 cursor-pointer">
+
+                            <span class="material-symbols-outlined text-white text-[20px]">
+                                arrow_forward
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================================================= -->
+            <!-- CARD 6 -->
+            <!-- ================================================= -->
+
+            <article
+                class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+
+                <!-- Image -->
+                <div class="h-[190px] overflow-hidden">
+
+                    <img
+                        src="{% static 'img/recentjob-6.webp' %}"
+                        alt="Field Engineer professional organizing structured cabling in data center"
+                        width="400"
+                        height="300"
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-cover scale-[1.02] group-hover:scale-105 transition-transform duration-500">
+
+                </div>
+
+
+                <!-- Content -->
+                <div class="p-5">
+
+                    <span class="text-[10px] uppercase tracking-[2px] font-semibold text-slate-400">
+                        ON-SITE SUPPORT
+                    </span>
+
+
+                    <div class="flex items-center justify-between gap-4 mt-2">
+
+                        <div class="flex items-start gap-3 min-w-0">
+
+                            <span class="material-symbols-outlined text-[26px] text-primary-yellow shrink-0">
+                                support_agent
+                            </span>
+
+                            <h3 class="text-[18px] font-bold text-slate-800 leading-6">
+                                IT SUPPORT &
+                                <br>
+                                SMART HANDS SERVICES
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            onclick="switchToLogin(); return false;"
+                            aria-label="View IT Support and Smart Hands Services"
+                            class="w-10 h-10 rounded-lg bg-primary-yellow flex items-center justify-center shrink-0 hover:scale-105 transition-transform duration-200 cursor-pointer">
+
+                            <span class="material-symbols-outlined text-white text-[20px]">
+                                arrow_forward
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!--TESTIMONIAL-->
+    <section class="py-8 lg:py-10 bg-warm-off-white overflow-hidden">
+
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+        <div class="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] items-start gap-8 lg:gap-2">
+
+
+            <!-- ===================================================== -->
+            <!-- LEFT COLUMN -->
+            <!-- ===================================================== -->
+
+            <div>
+
+                <!-- Label -->
+                <span class="text-[12px] font-bold tracking-[3px] uppercase text-primary-yellow">
+                    Testimonials
+                </span>
+
+
+                <!-- Heading -->
+                <h2
+                    class="mt-2 text-[32px] sm:text-[38px] lg:text-[44px] leading-[1.05] font-bold text-dark">
+
+                    What Our
+                    <br>
+
+                    <span class="text-primary-yellow">
+                        Customers
+                    </span>
+
+                    Say
+
+                </h2>
+
+
+                <!-- Description -->
+                <p
+                    class="mt-3 max-w-[430px] text-[14px] sm:text-[15px] leading-6 sm:leading-7 text-granite-gray">
+
+                    Real experiences from customers who booked trusted
+                    Field Engineers through our platform.
+
+                </p>
+
+
+                <!-- ================================================= -->
+                <!-- TESTIMONIAL CARD -->
+                <!-- ================================================= -->
+
+                <div
+                    class="mt-5 w-full max-w-[760px] rounded-[24px]
+                           bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0]
+                           px-5 sm:px-7 py-5
+                           shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+
+
+                    <!-- Stars -->
+                    <div
+                        id="testimonialStars"
+                        class="flex items-center gap-1 min-h-[20px]">
+
+                        <!-- Stars rendered by JavaScript -->
+
+                    </div>
+
+
+                    <!-- Quote -->
+                    <span
+                        class="material-symbols-outlined
+                               text-warm-golden-orange
+                               text-[24px]
+                               mt-2
+                               block">
+
+                        format_quote
+
+                    </span>
+
+
+                    <!-- Testimonial Text -->
+                    <p
+                        id="testimonialText"
+                        class="mt-2
+                               text-[14px]
+                               sm:text-[15px]
+                               leading-6
+                               sm:leading-7
+                               text-light-blackk
+                               min-h-[70px]">
+
+                        Booking an engineer through FE took less than a minute.
+                        The professional arrived on time, completed the work
+                        efficiently and kept us informed throughout the visit.
+                        The entire experience was smooth and reliable.
+
+                    </p>
+
+
+                    <!-- ================================================= -->
+                    <!-- CUSTOMER + NAVIGATION -->
+                    <!-- ================================================= -->
+
+                    <div
+                        class="mt-5 flex flex-col sm:flex-row
+                               sm:items-center
+                               justify-between
+                               gap-4">
+
+
+                        <!-- ================= CUSTOMER ================= -->
+
+                        <div class="flex items-center gap-3 min-w-0">
+
+                            <!-- Avatar -->
+                            <div class="testimonial-avatar-wrap shrink-0">
+
+                                <img
+                                    id="customerImage"
+                                    src="{% static 'img/fe-wocs1.webp' %}"
+                                    alt="Verified Field Engineer customer"
+                                    width="56"
+                                    height="56"
+                                    loading="lazy"
+                                    decoding="async"
+                                    class="testimonial-avatar">
+
+                            </div>
+
+
+                            <!-- Customer Details -->
+                            <div class="min-w-0">
+
+                                <!-- Customer Name -->
+                                <h4
+                                    id="customerName"
+                                    class="font-semibold
+                                           text-[16px]
+                                           sm:text-[17px]
+                                           text-light-blackk
+                                           leading-tight
+                                           truncate">
+
+                                    Priya Sharma
+
+                                </h4>
+
+
+                                <!-- Company + Verified -->
+                                <div
+                                    class="flex items-center gap-2
+                                           mt-1
+                                           flex-wrap">
+
+                                    <span
+                                        id="customerCompany"
+                                        class="text-[12px]
+                                               sm:text-[13px]
+                                               text-light-blackk">
+
+                                        TechNova Solutions
+
+                                    </span>
+
+
+                                    <span
+                                        class="flex items-center gap-1">
+
+                                        <span
+                                            id="customerRole"
+                                            class="text-[12px]
+                                                   sm:text-[13px]
+                                                   text-light-blackk">
+
+                                            Verified Customer
+
+                                        </span>
+
+
+                                        <span
+                                            class="material-symbols-outlined
+                                                   text-green-500
+                                                   text-[15px]">
+
+                                            verified
+
+                                        </span>
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ================= NAVIGATION ================= -->
+
+                        <div
+                            class="flex gap-2
+                                   ml-auto
+                                   sm:ml-0
+                                   shrink-0">
+
+                            <!-- Previous -->
+                            <button
+                                id="testimonialPrev"
+                                type="button"
+                                aria-label="Previous testimonial"
+                                class="w-10 h-10
+                                       rounded-full
+                                       border border-slate-200
+                                       bg-white
+                                       text-[#F5B530]
+                                       flex items-center justify-center
+                                       transition-all duration-300
+                                       hover:bg-[#F5B530]
+                                       hover:border-[#F5B530]
+                                       hover:text-white
+                                       active:scale-95">
+
+                                <span
+                                    class="material-symbols-outlined text-[20px]">
+
+                                    chevron_left
+
+                                </span>
+
+                            </button>
+
+
+                            <!-- Next -->
+                            <button
+                                id="testimonialNext"
+                                type="button"
+                                aria-label="Next testimonial"
+                                class="w-10 h-10
+                                       rounded-full
+                                       border border-[#F5B530]
+                                       bg-[#F5B530]
+                                       text-white
+                                       flex items-center justify-center
+                                       transition-all duration-300
+                                       hover:bg-[#E2A220]
+                                       hover:border-[#E2A220]
+                                       active:scale-95">
+
+                                <span
+                                    class="material-symbols-outlined text-[20px]">
+
+                                    chevron_right
+
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- DOTS -->
+                    <!-- ================================================= -->
+
+                    <div
+                        class="flex items-center gap-2 mt-4"
+                        role="tablist"
+                        aria-label="Testimonial navigation">
+
+                        <button
+                            type="button"
+                            class="testimonial-dot
+                                   w-2.5 h-2.5
+                                   rounded-full
+                                   bg-[#F5B530]
+                                   transition-all duration-300
+                                   hover:scale-125"
+                            data-index="0"
+                            aria-label="Show testimonial 1">
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="testimonial-dot
+                                   w-2.5 h-2.5
+                                   rounded-full
+                                   bg-slate-300
+                                   transition-all duration-300
+                                   hover:scale-125"
+                            data-index="1"
+                            aria-label="Show testimonial 2">
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="testimonial-dot
+                                   w-2.5 h-2.5
+                                   rounded-full
+                                   bg-slate-300
+                                   transition-all duration-300
+                                   hover:scale-125"
+                            data-index="2"
+                            aria-label="Show testimonial 3">
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ===================================================== -->
+            <!-- RIGHT COLUMN -->
+            <!-- ===================================================== -->
+
+            <div
+                class="hidden lg:flex
+                       justify-end
+                       items-start
+                       overflow-hidden">
+
+                <div
+                    class="relative
+                           translate-x-8
+                           xl:translate-x-16
+                           translate-y-8
+                           xl:translate-y-12">
+
+
+                    <!-- ================================================= -->
+                    <!-- ENGINEER CIRCLE -->
+                    <!-- ================================================= -->
+
+                    <div class="testimonial-feature-circle">
+
+                        <img
+                            id="engineerImage"
+                            src="{% static 'img/fe-wocs-bg.webp' %}"
+                            alt="Field Engineer professional service provider"
+                            width="450"
+                            height="450"
+                            loading="lazy"
+                            decoding="async"
+                            class="testimonial-feature-img">
+
+                    </div>
+
+
+                    <!-- ================================================= -->
+                    <!-- HIDE BOTTOM BORDER -->
+                    <!-- ================================================= -->
+
+                    <div
+                        class="absolute
+                               bottom-0
+                               left-1/2
+                               -translate-x-1/2
+                               w-[220px]
+                               h-8
+                               bg-[#FCFAF5]
+                               rounded-full
+                               z-20
+                               hidden lg:block">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- READY TO START WORKING -->
+    <section class="bg-[#FFFDF8] w-full">
+
+    <!-- ========================================================= -->
+    <!-- FULL-WIDTH GRADIENT BACKGROUND -->
+    <!-- ========================================================= -->
+
+    <div
+        class="w-full
+               bg-gradient-to-r
+               from-[#EDF7F1]
+               via-[#D6F3E4]
+               to-[#D0FFE0]
+               py-12
+               sm:py-14
+               lg:py-16
+               xl:py-20">
+
+
+        <!-- ========================================================= -->
+        <!-- MAIN CONTAINER -->
+        <!-- ========================================================= -->
+
+        <div
+            class="max-w-[1400px]
+                   mx-auto
+                   px-4
+                   sm:px-6
+                   md:px-8
+                   lg:px-10
+                   xl:px-12">
+
+
+            <!-- ========================================================= -->
+            <!-- CONTENT ROW -->
+            <!-- ========================================================= -->
+
+            <div
+                class="flex
+                       flex-col
+                       lg:flex-row
+                       items-center
+                       justify-between
+                       gap-10
+                       lg:gap-12">
+
+
+                <!-- ================================================= -->
+                <!-- LEFT CONTENT -->
+                <!-- ================================================= -->
+
+                <div
+                    class="flex-1
+                           min-w-0
+                           w-full
+                           lg:w-auto">
+
+
+                    <!-- ================= BADGE ================= -->
+
+                    <div
+                        class="inline-flex
+                               items-center
+                               gap-2
+                               rounded-full
+                               border
+                               border-[#22C55E]
+                               bg-white
+                               px-4
+                               py-1.5
+                               shadow-sm">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-[15px]
+                                   text-[#22C55E]">
+
+                            download
+
+                        </span>
+
+                        <span
+                            class="text-[12px]
+                                   font-semibold
+                                   text-[#22C55E]">
+
+                            Get the FE App
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- ================= HEADING ================= -->
+
+                    <h2
+                        class="mt-5
+                               text-[32px]
+                               sm:text-[36px]
+                               lg:text-[40px]
+                               xl:text-[44px]
+                               font-bold
+                               leading-tight
+                               text-[#1E293B]">
+
+                        Download the
+
+                        <span class="text-[#22C55E]">
+                            FE App
+                        </span>
+
+                    </h2>
+
+
+                    <!-- ================= DESCRIPTION ================= -->
+
+                    <p
+                        class="mt-3
+                               max-w-[500px]
+                               text-[14px]
+                               sm:text-[15px]
+                               leading-6
+                               text-slate-600">
+
+                        Manage field service jobs anytime, anywhere.
+                        Book engineers, track service requests and stay
+                        connected with real-time updates.
+
+                    </p>
+
+
+                    <!-- ================================================= -->
+                    <!-- STORE BUTTONS -->
+                    <!-- ================================================= -->
+
+                    <div
+                        class="flex
+                               flex-col
+                               sm:flex-row
+                               items-start
+                               sm:items-center
+                               gap-3
+                               sm:gap-4
+                               mt-6">
+
+
+                        <!-- ================= GOOGLE PLAY ================= -->
+
+                        <a
+                            href="#"
+                            aria-label="Download Field Engineer app from Google Play"
+                            class="w-[180px]
+                                   sm:w-[180px]
+                                   h-12
+                                   bg-black
+                                   text-white
+                                   px-4
+                                   rounded-xl
+                                   flex
+                                   items-center
+                                   justify-center
+                                   gap-3
+                                   shadow-sm
+                                   shrink-0
+                                   transition-all
+                                   duration-200
+                                   hover:scale-[1.02]
+                                   hover:shadow-md">
+
+
+                            <img
+                                src="{% static 'img/google-play-store-icon.webp' %}"
+                                alt="Google Play logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+
+                            <div
+                                class="text-left
+                                       leading-none">
+
+                                <p
+                                    class="text-[9px]
+                                           uppercase
+                                           tracking-wider
+                                           font-medium
+                                           text-gray-300">
+
+                                    GET IT ON
+
+                                </p>
+
+                                <p
+                                    class="text-xs
+                                           font-bold
+                                           font-sans
+                                           mt-0.5
+                                           whitespace-nowrap
+                                           text-white">
+
+                                    Google Play
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+                        <!-- ================= APP STORE ================= -->
+
+                        <a
+                            href="#"
+                            aria-label="Download Field Engineer app from Apple App Store"
+                            class="w-[180px]
+                                   sm:w-[180px]
+                                   h-12
+                                   bg-black
+                                   text-white
+                                   px-4
+                                   rounded-xl
+                                   flex
+                                   items-center
+                                   justify-center
+                                   gap-3
+                                   shadow-sm
+                                   shrink-0
+                                   transition-all
+                                   duration-200
+                                   hover:scale-[1.02]
+                                   hover:shadow-md">
+
+
+                            <img
+                                src="{% static 'img/apple-logo.webp' %}"
+                                alt="Apple App Store logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+
+                            <div
+                                class="text-left
+                                       leading-none">
+
+                                <p
+                                    class="text-[9px]
+                                           uppercase
+                                           tracking-wider
+                                           font-medium
+                                           text-gray-300">
+
+                                    Download on
+
+                                </p>
+
+                                <p
+                                    class="text-xs
+                                           font-bold
+                                           font-sans
+                                           mt-0.5
+                                           whitespace-nowrap
+                                           text-white">
+
+                                    App Store
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- RIGHT / QR CODE -->
+                <!-- ================================================= -->
+
+                <div
+                    class="flex-shrink-0
+                           w-full
+                           lg:w-auto
+                           flex
+                           justify-center
+                           lg:justify-end">
+
+
+                    <div
+                        class="text-center">
+                        
+
+
+                        <!-- QR Container -->
+                        <div>
+
+                            <img
+                                src="{% static 'img/about-qr.webp' %}"
+                                alt="QR code to download Field Engineer mobile app"
+                                width="190"
+                                height="190"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-[150px]
+                                       sm:w-[160px]
+                                       md:w-[180px]
+                                       lg:w-[190px]
+                                       h-auto
+                                       object-contain">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+<script>
+    const testimonialImages = [
+        "{% static 'img/fe-wocs1.webp' %}",
+        "{% static 'img/fe-wocs2.webp' %}",
+        "{% static 'img/fe-wocs3.webp' %}"
+    ];
+</script>
+
+<script src="{% static 'script/pages/engineer.js' %}"></script>
+<!-- ========================================= -->
+<!-- amCharts 5 -->
+<!-- ========================================= -->
+
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+
+<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+
+<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

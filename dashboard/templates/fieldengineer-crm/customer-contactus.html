@@ -1,0 +1,514 @@
+﻿{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}Contact Us - FieldEngineer{% endblock %}
+
+{% block content %}
+<!-- Breadcrumb (above hero) -->
+<section class="contact-breadcrumb-bar">
+    <div class="contact-breadcrumb-bar-inner">
+        <nav class="contact-breadcrumb" aria-label="Breadcrumb">
+            <a href="{% url 'home' %}">Home</a>
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+            <span>Company</span>
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+            <span class="contact-breadcrumb-current">Contact Us</span>
+        </nav>
+    </div>
+</section>
+
+<!-- Hero -->
+<section class="contact-hero">
+    <img src="{% static 'img/contact-hero.webp' %}" alt="contact us image contactus page" aria-hidden="true" class="contact-hero-bg">
+    <div class="contact-hero-overlay" aria-hidden="true"></div>
+
+    <div class="contact-hero-inner">
+        <div class="contact-hero-grid">
+            <div class="contact-hero-content">
+                <p class="contact-hero-watermark" aria-hidden="true">CONTACT FE</p>
+                <h1 class="contact-hero-title">Let's Build Better Field Operations Together</h1>
+                <p class="contact-hero-desc">
+                    Connect with FE's enterprise team for workforce deployment, vendor partnerships,
+                    large-scale projects, and platform support.
+                </p>
+
+                <div class="contact-hero-stats">
+                    <div class="contact-hero-stat">
+                        <div class="contact-hero-stat-icon">
+                            <span class="material-symbols-outlined">groups</span>
+                        </div>
+                        <div>
+                            <strong>15,000+</strong>
+                            <span>Engineers</span>
+                        </div>
+                    </div>
+                    <div class="contact-hero-stat">
+                        <div class="contact-hero-stat-icon">
+                            <span class="material-symbols-outlined">verified_user</span>
+                        </div>
+                        <div>
+                            <strong>350+</strong>
+                            <span>Vendors</span>
+                        </div>
+                    </div>
+                    <div class="contact-hero-stat">
+                        <div class="contact-hero-stat-icon">
+                            <span class="material-symbols-outlined">location_city</span>
+                        </div>
+                        <div>
+                            <strong>120+</strong>
+                            <span>Cities</span>
+                        </div>
+                    </div>
+                    <div class="contact-hero-stat">
+                        <div class="contact-hero-stat-icon">
+                            <span class="material-symbols-outlined">schedule</span>
+                        </div>
+                        <div>
+                            <strong>10M+</strong>
+                            <span>Work Hours</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-hero-actions">
+                    <a href="#contact-form" class="btn btn-primary px-8 rounded-md">
+                        Contact Sales
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <a href="{% url 'vendor' %}" class="btn btn-md px-8 rounded-md border border-white/80 bg-transparent text-white hover:bg-white/10">
+                        Become Vendor
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-hero-aside" aria-hidden="false">
+                <div class="contact-status-cards">
+                    <div class="contact-status-card">
+                        <div class="contact-status-card-icon">
+                            <span class="material-symbols-outlined">person_pin_circle</span>
+                        </div>
+                        <div class="contact-status-card-body">
+                            <p class="contact-status-card-label">Live Tracking</p>
+                            <p class="contact-status-card-value">2,450 Jobs</p>
+                        </div>
+                    </div>
+                    <div class="contact-status-card">
+                        <div class="contact-status-card-icon">
+                            <span class="material-symbols-outlined">person_heart</span>
+                        </div>
+                        <div class="contact-status-card-body">
+                            <p class="contact-status-card-label">Engineers Online</p>
+                            <p class="contact-status-card-value contact-status-card-value--live">
+                                <span class="contact-status-dot"></span> 2,350
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-status-card">
+                        <div class="contact-status-card-icon">
+                            <span class="material-symbols-outlined">check_circle</span>
+                        </div>
+                        <div class="contact-status-card-body">
+                            <p class="contact-status-card-label">Jobs Completed</p>
+                            <p class="contact-status-card-value">98.4%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Info Cards -->
+<section class="contact-info-grid" aria-label="Contact channels">
+    <article class="contact-info-card">
+        <div class="flex items-center gap-4">
+            <div class="contact-info-icon bg-powder-blue text-primary">
+                <span class="material-symbols-outlined">business_center</span>
+            </div>
+            <div>
+                <h2 class="contact-info-title">Enterprise Sales</h2>
+                <p class="contact-info-desc">For large projects and enterprise requirements.</p>
+            </div>
+        </div>
+        <a href="tel:+911800123456" class="contact-info-link">
+            <span class="material-symbols-outlined text-primary tiny-icon">phone</span>
+            +91 1800-123-456
+        </a>
+        <a href="mailto:sales@fieldengineer.com" class="contact-info-link">
+            <span class="material-symbols-outlined text-primary tiny-icon">mail</span>
+            <span>sales@fieldengineer.com</span>
+        </a>
+        <p class="contact-info-response">Response Time: Within 2 Hours</p>
+    </article>
+
+    <article class="contact-info-card">
+        <div class="flex items-center gap-4">
+            <div class="contact-info-icon bg-lightest-green text-dark-green">
+            <span class="material-symbols-outlined">headset_mic</span>
+            </div>
+            <div>
+                <h2 class="contact-info-title">Customer Support</h2>
+                <p class="contact-info-desc">Existing booking support and general queries.</p>
+            </div>
+        </div>
+        <a href="tel:+911800789012" class="contact-info-link">
+            <span class="material-symbols-outlined text-primary tiny-icon">phone</span>
+            +91 1800-789-012
+        </a>
+        <a href="mailto:support@fieldengineer.com" class="contact-info-link">
+            <span class="material-symbols-outlined text-primary tiny-icon">mail</span>
+            <span>support@fieldengineer.com</span>
+        </a>
+        <p class="contact-info-response">Response Time: 24/7</p>
+    </article>
+
+    <article class="contact-info-card">
+        <div class="flex items-center gap-4">
+            <div class="contact-info-icon bg-lavender-mist text-light-purple">
+                <span class="material-symbols-outlined">handshake</span>
+            </div>
+            <div>
+                <h2 class="contact-info-title">Vendor Partnership</h2>
+                <p class="contact-info-desc">For companies joining FE network.</p>
+            </div>
+        </div>
+        <a href="tel:+911800345678" class="contact-info-link">
+            <span class="material-symbols-outlined text-primary tiny-icon">phone</span>
+            +91 1800-345-678
+        </a>
+        <a href="mailto:partners@fieldengineer.com" class="contact-info-link">
+            <span class="material-symbols-outlined text-primary tiny-icon">mail</span>
+            <span>partners@fieldengineer.com</span>
+        </a>
+        <p class="contact-info-response">Response Time: 1 Business Day</p>
+    </article>
+
+    <article class="contact-info-card">
+        <div class="flex items-center gap-4">
+            <div class="contact-info-icon bg-light-ochre-yellow text-amber-orange">
+            <span class="material-symbols-outlined">engineering</span>
+            </div>
+            <div>
+                <h2 class="contact-info-title">Engineer Support</h2>
+                <p class="contact-info-desc">For registered engineers and app support.</p>
+            </div>
+        </div>
+        <a href="tel:+911800901234" class="contact-info-link">
+            <span class="material-symbols-outlined text-primary tiny-icon">phone</span>
+            +91 1800-901-234
+        </a>
+        <a href="mailto:engineers@fieldengineer.com" class="contact-info-link">
+            <span class="material-symbols-outlined text-primary tiny-icon">mail</span>
+            <span>engineers@fieldengineer.com</span>
+        </a>
+        <p class="contact-info-response">Response Time: 24/7</p>
+    </article>
+</section>
+
+<!-- Form + Help + Calendar -->
+<section class="contact-main-grid">
+  <!-- Contact Form -->
+  <div class="contact-form-card" id="contact-form">
+    <h2 class="contact-form-title">Send Us a Message</h2>
+    <form class="mt-5" action="#" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="contact-form-grid">
+        <div class="contact-field">
+          <label for="contact-first-name">First Name</label>
+          <input type="text" id="contact-first-name" name="first_name" placeholder="John" required>
+        </div>
+        <div class="contact-field">
+          <label for="contact-last-name">Last Name</label>
+          <input type="text" id="contact-last-name" name="last_name" placeholder="Doe" required>
+        </div>
+        <div class="contact-field">
+          <label for="contact-email">Business Email</label>
+          <input type="email" id="contact-email" name="email" placeholder="john@company.com" required>
+        </div>
+        <div class="contact-field">
+          <label for="contact-phone">Phone Number</label>
+          <input type="tel" id="contact-phone" name="phone" placeholder="+91 98765 43210">
+        </div>
+        <div class="contact-field contact-field--full">
+          <label for="contact-company">Company Name</label>
+          <input type="text" id="contact-company" name="company" placeholder="Your company">
+        </div>
+        <div class="contact-field">
+          <label id="contact-city-label">City</label>
+          <div class="contact-dropdown" data-contact-dropdown>
+            <button type="button" class="contact-dropdown-trigger" aria-labelledby="contact-city-label" aria-expanded="false" aria-haspopup="listbox">
+              <span class="contact-dropdown-value is-placeholder" data-contact-dropdown-value data-placeholder="Select city">Select city</span>
+              <span class="material-symbols-outlined contact-dropdown-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <ul class="contact-dropdown-menu" role="listbox" aria-labelledby="contact-city-label" hidden>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="delhi-ncr">Delhi NCR</button></li>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="mumbai">Mumbai</button></li>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="bengaluru">Bengaluru</button></li>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="hyderabad">Hyderabad</button></li>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="chennai">Chennai</button></li>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="pune">Pune</button></li>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="other">Other</button></li>
+            </ul>
+            <input type="hidden" name="city" value="" data-contact-dropdown-input>
+          </div>
+        </div>
+        <div class="contact-field">
+          <label id="contact-inquiry-label">Inquiry Type</label>
+          <div class="contact-dropdown" data-contact-dropdown>
+            <button type="button" class="contact-dropdown-trigger" aria-labelledby="contact-inquiry-label" aria-expanded="false" aria-haspopup="listbox">
+              <span class="contact-dropdown-value is-placeholder" data-contact-dropdown-value data-placeholder="Select inquiry type">Select inquiry type</span>
+              <span class="material-symbols-outlined contact-dropdown-chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <ul class="contact-dropdown-menu" role="listbox" aria-labelledby="contact-inquiry-label" hidden>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="enterprise-sales">Enterprise Sales</button></li>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="customer-support">Customer Support</button></li>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="vendor-partnership">Vendor Partnership</button></li>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="engineer-support">Engineer Support</button></li>
+              <li><button type="button" class="contact-dropdown-option" role="option" data-value="general">General Inquiry</button></li>
+            </ul>
+            <input type="hidden" name="inquiry_type" value="" data-contact-dropdown-input>
+          </div>
+        </div>
+        <div class="contact-field contact-field--full">
+          <label for="contact-message">Message</label>
+          <div class="contact-message-wrap">
+            <textarea id="contact-message" name="message" maxlength="1000" placeholder="Tell us about your project or inquiry..."></textarea>
+            <span class="contact-message-count" id="contact-message-count">0/1000</span>
+          </div>
+        </div>
+      </div>
+
+      <label class="contact-upload" for="contact-attachment">
+        <span class="material-symbols-outlined contact-upload-icon text-[32px]">upload_file</span>
+        <span class="contact-upload-text">Click to upload or drag and drop</span>
+        <span class="contact-upload-hint">PDF, DOC, XLS, ZIP (Max. 10MB)</span>
+        <input type="file" id="contact-attachment" name="attachment" class="sr-only" accept=".pdf,.doc,.docx,.xls,.xlsx,.zip">
+      </label>
+
+      <button type="submit" class="btn btn-primary btn-md rounded-md mt-5 w-full">
+        Submit Inquiry
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- Immediate Help -->
+  <aside class="contact-help-card">
+    <h2 class="contact-help-title">Need immediate help?</h2>
+    <p class="text-c3 font-medium text-medium">Choose an option below to get quick assistance</p>
+    <div class="contact-help-list">
+      <a href="#" class="contact-help-link">
+        <span class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">local_shipping</span>
+          <div>
+            <h3 class="text-b3 font-bold text-ink">Track your booking</h3>
+            <p class="text-c3 font-medium text-medium">Get real-time status of your job</p>
+          </div>
+        </span>
+        <span class="material-symbols-outlined text-medium">chevron_right</span>
+      </a>
+      <a href="#" class="contact-help-link">
+        <span class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">report_problem</span>
+          <div>
+            <h3 class="text-b3 font-bold text-ink">Raise an issue</h3>
+            <p class="text-c3 font-medium text-medium">Report an issue and get support</p>
+          </div>
+        </span>
+        <span class="material-symbols-outlined text-medium">chevron_right</span>
+      </a>
+      <a href="#" class="contact-help-link">
+        <span class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">support_agent</span>
+          <div>
+            <h3 class="text-b3 font-bold text-ink">Talk to support</h3>
+            <p class="text-c3 font-medium text-medium">Connect with our support team</p>
+          </div>
+        </span>
+        <span class="material-symbols-outlined text-medium">chevron_right</span>
+      </a>
+      <a href="#" class="contact-help-link">
+        <span class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">confirmation_number</span>
+          <div>
+            <h3 class="text-b3 font-bold text-ink">Open a ticket</h3>
+            <p class="text-c3 font-medium text-medium">Submit a ticket for faster resolution</p>
+          </div>
+        </span>
+        <span class="material-symbols-outlined text-medium">chevron_right</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Book a Meeting -->
+  <aside class="contact-meeting-card flex w-full flex-col lg:max-w-[380px] lg:justify-self-end">
+    <h2 class="contact-meeting-title">Book a Meeting</h2>
+    <p class="text-c3 font-medium text-medium">Schedule a call with our experts to discuss your requirements</p>
+    <div class="contact-field mt-4">
+      <label id="contact-meeting-type-label">Choose meeting type</label>
+      <div class="contact-dropdown" data-contact-dropdown>
+        <button type="button" class="contact-dropdown-trigger" aria-labelledby="contact-meeting-type-label" aria-expanded="false" aria-haspopup="listbox">
+          <span class="contact-dropdown-value is-placeholder" data-contact-dropdown-value data-placeholder="Select meeting type">Select meeting type</span>
+          <span class="material-symbols-outlined contact-dropdown-chevron" aria-hidden="true">expand_more</span>
+        </button>
+        <ul class="contact-dropdown-menu" role="listbox" aria-labelledby="contact-meeting-type-label" hidden>
+          <li><button type="button" class="contact-dropdown-option" role="option" data-value="sales">Sales Consultation</button></li>
+          <li><button type="button" class="contact-dropdown-option" role="option" data-value="vendor">Vendor Onboarding</button></li>
+          <li><button type="button" class="contact-dropdown-option" role="option" data-value="demo">Technical Demo</button></li>
+          <li><button type="button" class="contact-dropdown-option" role="option" data-value="support">Support Call</button></li>
+        </ul>
+        <input type="hidden" name="meeting_type" value="" data-contact-dropdown-input>
+      </div>
+    </div>
+
+    <div class="contact-calendar" id="contact-calendar">
+      <div class="contact-calendar-header">
+        <span class="contact-calendar-month" data-calendar-month></span>
+        <div class="contact-calendar-nav">
+          <button type="button" class="contact-calendar-nav-btn" data-calendar-prev aria-label="Previous month">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button type="button" class="contact-calendar-nav-btn" data-calendar-next aria-label="Next month">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+      <div class="contact-calendar-weekdays" aria-hidden="true">
+        <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+      </div>
+      <div class="contact-calendar-grid" data-calendar-grid role="grid" aria-label="Calendar dates"></div>
+    </div>
+
+    <button type="button" class="btn btn-primary btn-md mt-4 w-[100] self-center">
+      Schedule Meeting
+      <span class="material-symbols-outlined">arrow_forward</span>
+    </button>
+    <p class="text-c1 font-medium text-medium mt-4 text-center">Meeting led by FE experts</p>
+  </aside>
+</section>
+<!-- Offices & Coverage -->
+<section class="contact-offices">
+  <div class="contact-offices-inner">
+    <div class="contact-offices-content">
+      <h2 class="contact-offices-title">Our Offices &amp; Coverage</h2>
+      <p class="contact-offices-desc">
+        We are present across India to serve you better. Our teams are ready to support
+        your operations wherever you are.
+      </p>
+      <a href="#" class="contact-offices-btn btn btn-md mt-6 border border-primary bg-white text-primary hover:bg-blue-light">
+        View All Cities
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+    </div>
+
+    <div class="contact-offices-map-col" aria-hidden="true">
+      <img src="{% static 'img/indiamap.webp' %}" alt="India service coverage map" class="contact-offices-map-img">
+    </div>
+
+    <div class="contact-offices-cities">
+      <article class="contact-city-card">
+        <div class="contact-city-icon"><span class="material-symbols-outlined">apartment</span></div>
+        <div class="contact-city-info">
+          <h3 class="contact-city-name">Delhi NCR</h3>
+          <p class="contact-city-meta">Head Office</p>
+          <p class="contact-city-meta">Enterprise Operations</p>
+        </div>
+      </article>
+      <article class="contact-city-card">
+        <div class="contact-city-icon"><span class="material-symbols-outlined">location_city</span></div>
+        <div class="contact-city-info">
+          <h3 class="contact-city-name">Mumbai</h3>
+          <p class="contact-city-meta">West Region Operations</p>
+        </div>
+      </article>
+      <article class="contact-city-card">
+        <div class="contact-city-icon"><span class="material-symbols-outlined">person_pin_circle</span></div>
+        <div class="contact-city-info">
+          <h3 class="contact-city-name">Bengaluru</h3>
+          <p class="contact-city-meta">South Region Operations</p>
+        </div>
+      </article>
+      <article class="contact-city-card">
+        <div class="contact-city-icon"><span class="material-symbols-outlined">person_pin_circle</span></div>
+        <div class="contact-city-info">
+          <h3 class="contact-city-name">Hyderabad</h3>
+          <p class="contact-city-meta">Technology Center</p>
+        </div>
+      </article>
+      <article class="contact-city-card">
+        <div class="contact-city-icon"><span class="material-symbols-outlined">account_balance</span></div>
+        <div class="contact-city-info">
+          <h3 class="contact-city-name">Chennai</h3>
+          <p class="contact-city-meta">Field Operations Hub</p>
+        </div>
+      </article>
+      <article class="contact-city-card">
+        <div class="contact-city-icon"><span class="material-symbols-outlined">location_on</span></div>
+        <div class="contact-city-info">
+          <h3 class="contact-city-name contact-city-name--accent">120+ Cities</h3>
+          <p class="contact-city-meta">Nationwide Coverage</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Frequently Asked Questions -->
+<section class="contact-faq">
+  <div class="contact-faq-inner">
+    <h2 class="contact-faq-title">Frequently Asked Questions</h2>
+    <div class="contact-faq-grid">
+      <div class="contact-faq-item" data-faq-item>
+        <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">How quickly can FE deploy engineers?<span class="material-symbols-outlined contact-faq-icon">add</span></button>
+        <div class="contact-faq-panel" data-faq-panel hidden>FE can deploy certified engineers within 4-24 hours, depending on the location and project requirements.</div>
+      </div>
+      <div class="contact-faq-item" data-faq-item>
+        <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">Do you support enterprise SLAs?<span class="material-symbols-outlined contact-faq-icon">add</span></button>
+        <div class="contact-faq-panel" data-faq-panel hidden>Yes. We provide tailored enterprise SLAs with agreed response times, coverage, and reporting.</div>
+      </div>
+      <div class="contact-faq-item" data-faq-item>
+        <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">Can FE support nationwide rollouts?<span class="material-symbols-outlined contact-faq-icon">add</span></button>
+        <div class="contact-faq-panel" data-faq-panel hidden>Yes. Our nationwide engineer network supports coordinated multi-city and large-scale deployments.</div>
+      </div>
+      <div class="contact-faq-item" data-faq-item>
+        <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">What types of projects can FE handle?<span class="material-symbols-outlined contact-faq-icon">add</span></button>
+        <div class="contact-faq-panel" data-faq-panel hidden>We handle network, server, CCTV, smart hands, fibre deployment, and enterprise field-service projects.</div>
+      </div>
+      <div class="contact-faq-item" data-faq-item>
+        <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">How does vendor onboarding work?<span class="material-symbols-outlined contact-faq-icon">add</span></button>
+        <div class="contact-faq-panel" data-faq-panel hidden>Vendors submit their details, complete verification, and receive onboarding support from our partnership team.</div>
+      </div>
+      <div class="contact-faq-item" data-faq-item>
+        <button type="button" class="contact-faq-trigger" data-faq-trigger aria-expanded="false">How is work quality and compliance ensured?<span class="material-symbols-outlined contact-faq-icon">add</span></button>
+        <div class="contact-faq-panel" data-faq-panel hidden>We use verified engineers, digital work logs, quality checks, and project-specific compliance processes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Deployment CTA -->
+<section class="contact-cta">
+  <div class="contact-cta-inner">
+    <div class="flex items-center gap-4">
+      <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/80">
+        <span class="material-symbols-outlined large-icon text-white">group</span>
+      </div>
+      <div>
+        <h2 class="contact-cta-title">Ready to deploy engineers at your site?</h2>
+        <div class="contact-cta-services">Network cabling, server setup, CCTV, smart hands, fiber deployment and enterprise field services.</div>
+      </div>
+    </div>
+    <div class="contact-cta-actions">
+      <a href="{% url 'request_service' %}" class="btn btn-md rounded-lg bg-white text-primary hover:bg-blue-light">Request Service<span class="material-symbols-outlined">arrow_forward</span></a>
+      <a href="#contact-form" class="btn btn-md rounded-lg border border-white/80 bg-transparent text-white hover:bg-white/10">Talk To Sales<span class="material-symbols-outlined">arrow_forward</span></a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'script/pages/contact.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="{% block meta_description %}FieldEngineer is India's leading field service management platform. Connect with verified engineers for network cabling, server installation, IT support, and on-site technology solutions across 120+ cities.{% endblock %}">
+
+    <title>{% block title %}FieldEngineer - Field Service Management Platform{% endblock %}</title>
+
+    {% load static %}
+
+    <!-- CANONICAL -->
+    <link rel="canonical"
+        href="https://fieldengineer.com{{ request.path }}">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title"
+        content="{% block og_title %}FieldEngineer - Field Service Management Platform{% endblock %}">
+
+    <meta property="og:description"
+        content="{% block og_description %}FieldEngineer connects businesses with skilled field engineers for network cabling, server installation, and IT infrastructure services.{% endblock %}">
+
+    <meta property="og:image"
+        content="{% block og_image %}{% static 'img/og-image.webp' %}{% endblock %}">
+
+    <meta property="og:url"
+        content="https://fieldengineer.com{{ request.path }}">
+
+    <meta property="og:type"
+        content="{% block og_type %}website{% endblock %}">
+
+    <meta property="og:site_name"
+        content="FieldEngineer">
+
+    <!-- TWITTER / X -->
+    <meta name="twitter:card"
+        content="{% block twitter_card %}summary_large_image{% endblock %}">
+
+    <meta name="twitter:title"
+        content="{% block twitter_title %}FieldEngineer - Field Service Management Platform{% endblock %}">
+
+    <meta name="twitter:description"
+        content="{% block twitter_description %}FieldEngineer connects businesses with skilled field engineers for network cabling, server installation, and IT infrastructure services.{% endblock %}">
+
+    <meta name="twitter:image"
+        content="{% block twitter_image %}{% static 'img/og-image.webp' %}{% endblock %}">
+
+    <meta name="twitter:site"
+        content="@FieldEngineer">
+
+    <!-- ROBOTS -->
+    <meta name="robots"
+        content="{% block robots %}index, follow{% endblock %}">
+
+    <!-- FAVICON -->
+    <link rel="icon"
+        href="{% static 'img/favicon.ico' %}"
+        type="image/x-icon"
+        sizes="any">
+
+    <link rel="shortcut icon"
+        href="{% static 'img/favicon.ico' %}"
+        type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+
+    <!-- Material Symbols -->
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+    <!-- MAIN TAILWIND CSS -->
+    <link rel="stylesheet"
+        href="{% static 'css/output.css' %}">
+
+    <!-- intl-tel-input -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- ════════════ HEADER ════════════ -->
+    <header class="sticky top-0 lg:top-[-44px] z-50 w-full  shadow-sm">
+        <div class="hidden lg:block border-b border-slate-200 bg-matte-grey w-full">
+            <div class="mx-auto max-w-[1400px] px-6">
+                <div class="h-11 flex items-center justify-between">
+                    <div class="flex items-center gap-6 text-sm text-white">
+                        <a href="javascript:void(0)" id="salesEnquiryBtn" class="">
+                            Sales Enquiry
+                        </a>
+                        <span class="text-white">|</span>
+                        <a href="https://helpdesk.field-ai.aibuzz.net/submit-ticket" class="">
+                            Submit a Ticket
+                        </a>
+                    </div>
+                    <a href="https://helpdesk.field-ai.aibuzz.net/staff/login"
+                        class="inline-flex items-center rounded-lg text-primary-yellow px-5 py-2 text-base font-bold">
+                        Support Login
+                        <span class="material-symbols-outlined text-primary-yellow">
+                            arrow_forward
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= MAIN NAVBAR ================= -->
+        <nav class="bg-white border-b border-gray-100 w-full">
+            <div class="mx-auto max-w-[1400px] px-6">
+                <div class="flex h-20 items-center justify-between">
+                    <!-- LOGO -->
+                    <a href="{% url 'home' %}" class="flex items-center gap-3 flex-shrink-0">
+                        <div
+                            class="flex h-12 w-12 items-center justify-center rounded-xl logo-gradient border border-emerald-teal">
+                            <span class="text-lg font-extrabold text-emerald-teal">FE</span>
+                        </div>
+                        <div class="leading-tight">
+                            <p class="text-xl font-bold text-slate-900">
+                                Field
+                                <span class="text-emerald-teal">Engineer</span>
+                            </p>
+                        </div>
+                    </a>
+
+                    <!-- DESKTOP MENU -->
+                    <ul class="hidden xl:flex items-center gap-10 text-[15px] font-medium text-slate-700">
+
+                        <!-- How It Works -->
+                        <li>
+                            <a href="{% url 'how_it_works' %}"
+                                class="transition {% if request.resolver_match.url_name == 'how_it_works' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                How it Works
+                            </a>
+                        </li>
+
+                        <!-- For Customer -->
+                        <li>
+                            <a href="{% url 'customer' %}"
+                                class="transition {% if request.resolver_match.url_name == 'customer' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Customer
+                            </a>
+                        </li>
+
+                        <!-- For Engineers -->
+                        <li>
+                            <a href="{% url 'engineer' %}"
+                                class="transition {% if request.resolver_match.url_name == 'engineer' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Engineers
+                            </a>
+                        </li>
+
+                        <!-- For Vendors -->
+                        <li>
+                            <a href="{% url 'vendor' %}"
+                                class="transition {% if request.resolver_match.url_name == 'vendor' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                For Vendors
+                            </a>
+                        </li>
+
+                        <!-- COMPANY DROPDOWN -->
+                        <li class="relative group">
+
+                            <button type="button"
+                                class="flex items-center gap-1 transition {% if request.resolver_match.url_name == 'about_fe' or request.resolver_match.url_name == 'careers' or request.resolver_match.url_name == 'blogs' or request.resolver_match.url_name == 'news' or request.resolver_match.url_name == 'contact' or request.resolver_match.url_name == 'help_center' or request.resolver_match.url_name == 'disclaimer' or request.resolver_match.url_name == 'privacy-policy' or request.resolver_match.url_name == 'term_condition' %}text-primary-yellow{% else %}hover:text-primary-yellow{% endif %}">
+                                Company
+                                <span class="material-symbols-outlined text-[18px]">
+                                    keyboard_arrow_down
+                                </span>
+                            </button>
+
+                            <div
+                                class="absolute left-0 top-full mt-4 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 w-64 rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+
+                                <a href="{% url 'about_fe' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'about_fe' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    About Us
+                                </a>
+
+                                <a href="{% url 'careers' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'careers' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Careers
+                                </a>
+
+                                <a href="{% url 'blogs' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'blogs' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Blogs
+                                </a>
+
+                                <a href="{% url 'news' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'news' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    News
+                                </a>
+
+                                <a href="{% url 'contact' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'contact' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Contact Us
+                                </a>
+
+                                <a href="{% url 'help_center' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'help_center' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Help Center
+                                </a>
+
+                                <a href="{% url 'disclaimer' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'disclaimer' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Disclaimer
+                                </a>
+
+                                <a href="{% url 'privacy-policy' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'privacy-policy' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Privacy Policy
+                                </a>
+
+                                <a href="{% url 'term_condition' %}"
+                                    class="block px-5 py-3 transition {% if request.resolver_match.url_name == 'term_condition' %}bg-light-warm-beige text-primary-yellow{% else %}hover:bg-light-warm-beige{% endif %}">
+                                    Terms & Conditions
+                                </a>
+
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <!-- RIGHT SIDE - LOGIN & SIGNUP -->
+<!-- RIGHT SIDE - LOGIN & SIGNUP -->
+<div class="hidden lg:flex items-center gap-4 flex-shrink-0">
+
+    <!-- Customer Login -->
+    <a onclick="switchToLogin()"
+        class="inline-flex items-center justify-center rounded-xl border border-primary-yellow px-4 py-2 text-sm font-medium text-primary-yellow transition cursor-pointer">
+        Customer Login
+    </a>
+
+    <!-- Sign Up Free -->
+    <a onclick="openSignupPopup()"
+        class="inline-flex items-center justify-center rounded-xl bg-primary-yellow px-4 py-2 text-sm font-medium text-slate-700 transition shadow cursor-pointer hover:bg-amber-400">
+        Sign Up Free
+    </a>
+
+</div>
+                    <!-- MOBILE HAMBURGER -->
+                    <!-- <button id="hamburger-btn" class="xl:hidden rounded-lg p-2 hover:bg-slate-100">
+                    <span class="material-symbols-outlined">menu</span>
+                </button> -->
+                    <button id="hamburger-btn"
+                        class="xl:hidden relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-all duration-300">
+                        <span class="material-symbols-outlined text-3xl text-slate-700" id="hamburger-icon">menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================= MOBILE MENU ================= -->
+            <!-- <div id="mobile-menu" class="fixed left-0 right-0  top-[80px] z-[90] origin-top scale-y-0 opacity-0 pointer-events-none transition-all duration-300"> -->
+            <!-- <div id="mobile-menu" class="md:hidden fixed left-0 right-0 top-[80px] z-[90] origin-top scale-y-0 opacity-0 pointer-events-none transition-all duration-300"> -->
+
+            <!-- Is line ko update karein -->
+            <!-- Mobile Fullscreen Backdrop & Menu -->
+            <div id="mobile-menu"
+                class="xl:hidden fixed inset-0 z-[999] opacity-0 pointer-events-none transition-opacity duration-300 flex flex-col justify-start">
+
+                <!-- Dark Backdrop Overlay -->
+                <div id="mobile-overlay" class="absolute inset-0 bg-black/50 backdrop-sm"></div>
+
+                <!-- Mobile Menu Modal / Container -->
+                <div
+                    class="relative w-full max-w-lg mx-auto bg-very-light-gray shadow-2xl rounded-b-3xl overflow-hidden z-10 flex flex-col max-h-[90vh]">
+
+                    <!-- Mobile Header inside Sidebar View (Sticky) -->
+                    <div
+                        class="flex items-center justify-between px-6 py-4 border-b border-slate-300 bg-very-light-gray">
+                        <a href="{% url 'home' %}" class="flex items-center gap-3 flex-shrink-0">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-xl logo-gradient border border-emerald-teal">
+                                <span class="text-lg font-extrabold text-emerald-teal">FE</span>
+                            </div>
+
+                            <div class="leading-tight">
+                                <p class="text-xl font-bold text-slate-900">
+                                    Field
+                                    <span class="text-emerald-teal">Engineer</span>
+                                </p>
+                            </div>
+                        </a>
+
+
+
+                        <button id="close-mobile-menu"
+                            class="p-2 text-slate-500 hover:text-slate-900 rounded-full hover:bg-slate-100 transition">
+                            <span class="material-symbols-outlined text-2xl block">close</span>
+                        </button>
+                    </div>
+
+                    <!-- Scrollable Menu Content -->
+                    <div class="overflow-y-auto px-6 py-5 space-y-4">
+
+                        <!-- Mobile Navigation Links -->
+                        <ul class="flex flex-col gap-1">
+
+                            <!-- How It Works -->
+                            <li>
+                                <a href="{% url 'how_it_works' %}" class="block py-3 px-3 text-base font-medium rounded-xl transition-all duration-200
+            {% if request.resolver_match.url_name == 'how_it_works' %}
+                text-primary-yellow
+            {% else %}
+                text-slate-700 hover:text-primary-yellow hover:bg-green-50
+            {% endif %}">
+                                    How it Works
+                                </a>
+                            </li>
+
+                            <!-- For Customer -->
+                            <li>
+                                <a href="{% url 'customer' %}" class="block py-3 px-3 text-base font-medium rounded-xl transition-all duration-200
+            {% if request.resolver_match.url_name == 'customer' %}
+                text-primary-yellow
+            {% else %}
+                text-slate-700 hover:text-primary-yellow hover:bg-green-50
+            {% endif %}">
+                                    For Customer
+                                </a>
+                            </li>
+
+                            <!-- For Engineers -->
+                            <li>
+                                <a href="{% url 'engineer' %}" class="block py-3 px-3 text-base font-medium rounded-xl transition-all duration-200
+            {% if request.resolver_match.url_name == 'engineer' %}
+                text-primary-yellow
+            {% else %}
+                text-slate-700 hover:text-primary-yellow hover:bg-green-50
+            {% endif %}">
+                                    For Engineers
+                                </a>
+                            </li>
+
+                            <!-- For Vendors -->
+                            <li>
+                                <a href="{% url 'vendor' %}" class="block py-3 px-3 text-base font-medium rounded-xl transition-all duration-200
+            {% if request.resolver_match.url_name == 'vendor' %}
+                text-primary-yellow
+            {% else %}
+                text-slate-700 hover:text-primary-yellow hover:bg-green-50
+            {% endif %}">
+                                    For Vendors
+                                </a>
+                            </li>
+
+                            <!-- Company Dropdown -->
+                            <li>
+
+                                <button id="mobile-company-btn" type="button" class="flex items-center justify-between w-full py-3 px-3 text-base font-medium rounded-xl transition-all duration-200
+            {% if request.resolver_match.url_name == 'about_fe' or request.resolver_match.url_name == 'careers' or request.resolver_match.url_name == 'blogs' or request.resolver_match.url_name == 'news' or request.resolver_match.url_name == 'contact' or request.resolver_match.url_name == 'help_center' or request.resolver_match.url_name == 'disclaimer' or request.resolver_match.url_name == 'privacy-policy' or request.resolver_match.url_name == 'term_condition' %}
+                text-primary-yellow
+            {% else %}
+                text-slate-700 hover:text-primary-yellow hover:bg-green-50
+            {% endif %}">
+
+                                    Company
+
+                                    <span id="mobile-company-arrow"
+                                        class="material-symbols-outlined transition-transform duration-300">
+                                        keyboard_arrow_down
+                                    </span>
+
+                                </button>
+
+                                <div id="mobile-company-menu" class="hidden pl-4 space-y-1 mt-1">
+
+                                    <!-- About Us -->
+                                    <a href="{% url 'about_fe' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'about_fe' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        About Us
+                                    </a>
+
+                                    <!-- Careers -->
+                                    <a href="{% url 'careers' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'careers' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Careers
+                                    </a>
+
+                                    <!-- Blogs -->
+                                    <a href="{% url 'blogs' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'blogs' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Blogs
+                                    </a>
+
+                                    <!-- News -->
+                                    <a href="{% url 'news' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'news' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        News
+                                    </a>
+
+                                    <!-- Contact Us -->
+                                    <a href="{% url 'contact' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'contact' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Contact Us
+                                    </a>
+
+                                    <!-- Help Center -->
+                                    <a href="{% url 'help_center' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'help_center' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Help Center
+                                    </a>
+
+                                    <!-- Disclaimer -->
+                                    <a href="{% url 'disclaimer' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'disclaimer' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Disclaimer
+                                    </a>
+
+                                    <!-- Privacy Policy -->
+                                    <a href="{% url 'privacy-policy' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'privacy-policy' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Privacy Policy
+                                    </a>
+
+                                    <!-- Terms & Conditions -->
+                                    <a href="{% url 'term_condition' %}" class="block py-2.5 px-4 text-sm rounded-lg transition-all duration-200
+                {% if request.resolver_match.url_name == 'term_condition' %}
+                    text-primary-yellow
+                {% else %}
+                    text-slate-600 hover:text-primary-yellow hover:bg-green-50
+                {% endif %}">
+                                        Terms & Conditions
+                                    </a>
+
+                                </div>
+                            </li>
+
+                        </ul>
+
+                        <!-- Divider -->
+                        <div class="border-t border-slate-100 my-2"></div>
+
+                        <!-- Mobile Action Buttons -->
+                        <div class="flex flex-col gap-3">
+                            <a onclick="switchToLogin()"
+                                class="block text-center rounded-xl border primary-yellow px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200 cursor-pointer">Customer
+                                Login</a>
+                            <a onclick="openSignupPopup()"
+                                class="block text-center rounded-xl bg-primary-yellow px-4 py-3.5 text-sm font-medium text-slate-900 font-semibold shadow transition-all duration-200 cursor-pointer">Sign
+                                Up Free</a>
+                            <a href="javascript:void(0)" id="mobileSalesEnquiryBtn"
+                                class="block text-center rounded-xl border border-gray-200 px-4 py-3.5 text-sm font-medium text-slate-700 hover:bg-gray-50 transition-all duration-200">Sales
+                                Enquiry</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- END HEADER -->
+
+    <!-- ════════════ MAIN CONTENT ════════════ -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- ════════════ FOOTER ════════════ -->
+    <footer class="site-footer bg-very-light-gray border-gray-200 ">
+        <div class="mx-auto max-w-[1400px] px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-x-8 gap-y-6">
+                <div class="max-w-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div
+                            class="flex h-11 w-11 items-center justify-center rounded-xl logo-gradient border border-emerald-teal">
+                            <span class="text-lg font-extrabold text-emerald-teal">FE</span>
+                        </div>
+                        <div class="leading-tight">
+                            <div class="text-xl font-bold text-slate-900">
+                                Field
+                                <span class="text-emerald-teal">Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-sm leading-6 text-gray-500 mb-5 max-w-xs">
+                        India's leading marketplace for field <br>engineering services. Connecting <br>businesses with
+                        skilled engineers since <br> 2024.
+                    </p>
+                </div>
+
+                <!-- ================= Services ================= -->
+                <div>
+                    <h4 class="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-900">
+                        Services
+                    </h4>
+                    <ul class="space-y-2">
+
+                        <li><a href="{% url 'how_it_works' %}" class="footer-link text-sm text-gray-500">How it
+                                Works</a></li>
+                        <li><a href="{% url 'customer' %}" class="footer-link text-sm text-gray-500">For Customer</a>
+                        </li>
+                        <li><a href="{% url 'engineer' %}" class="footer-link text-sm text-gray-500">For
+                                Engineers</a></li>
+                        <li><a href="{% url 'vendor' %}" class="footer-link text-sm text-gray-500">For Vendors</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- ================= Services ================= -->
+                <div>
+                    <h4 class="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-900">
+                        Company
+                    </h4>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'about_fe' %}" class="footer-link text-sm text-gray-500">About Us</a></li>
+
+                        <li><a href="{% url 'blogs' %}" class="footer-link text-sm text-gray-500">Blogs</a></li>
+
+                        <li><a href="#" class="footer-link text-sm text-gray-500">News</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- ================= Resources ================= -->
+                <div>
+                    <h4 class="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-900">
+                        Contact Us
+                    </h4>
+                    <ul class="space-y-2">
+                        <li><a href="{% url 'careers' %}" class="footer-link text-sm text-gray-500">Careers</a></li>
+
+                        <li>
+                            <a href="{% url 'help_center' %}" class="footer-link text-sm text-gray-500">Help Center</a>
+                        </li>
+
+                        <li><a href="{% url 'contact' %}" class="footer-link text-sm text-gray-500">Contact Us</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- ================= Legal ================= -->
+                <div>
+                    <h4 class="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-900">
+                        Legal
+                    </h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="{% url 'disclaimer' %}" class="footer-link text-sm text-gray-500">Disclaimer
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'privacy-policy' %}" class="footer-link text-sm text-gray-500">Privacy
+                                Policy</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'term_condition' %}" class="footer-link text-sm text-gray-500">Terms &
+                                Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- ================= Footer Bottom ================= -->
+            <div class="mt-8 border-t border-gray-200 pt-5">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+                    <p class="text-sm text-gray-500">© 2024 FieldEngineer Technologies Pvt. Ltd. All rights reserved.
+                    </p>
+                    <p class="text-sm text-primary-green font-medium">Built in India 🇮🇳</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+
+    <!-- ===== SALES ENQUIRY POPUP ===== -->
+    <div id="salesModal" class="fixed inset-0 hidden items-center justify-center bg-black/60 z-[9999]">
+
+        <!-- Popup Container -->
+        <div
+            class="bg-white rounded-2xl w-[92%] max-w-2xl max-h-[90vh] overflow-hidden relative shadow-2xl flex flex-col">
+
+            <!-- Close Button - Sticky Header -->
+            <div
+                class="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-4 py-3 flex items-center justify-between flex-shrink-0">
+                <h3 class="text-lg font-bold text-gray-800">Tell us how we can help</h3>
+                <button id="closeSalesModal"
+                    class="text-gray-400 hover:text-gray-700 transition p-1 rounded hover:bg-gray-100">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-y-auto px-4 py-4 sm:px-5 sm:py-4" style="overflow-x: visible;">
+
+                <form id="salesEnquiryForm" class="mt-2 space-y-4 sm:space-y-5" method="POST"
+                    action="{% url 'sales_enquiry_submit' %}">
+                    {% csrf_token %}
+
+                    <!-- Row 1: Company Name -->
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Company Name <span
+                                class="text-red-500">*</span></label>
+                        <input type="text" name="company_name" id="companyNameInput" placeholder="Company Name" required
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <div class="error-message text-red-500 text-xs mt-1 hidden">Please enter a valid company name.
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Industry -->
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Industry <span
+                                class="text-red-500">*</span></label>
+                        <select name="industry" required
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <option value="">Select Industry</option>
+                            <option>IT</option>
+                            <option>Telecom</option>
+                            <option>Healthcare</option>
+                            <option>Manufacturing</option>
+                            <option>Education</option>
+                            <option>Retail</option>
+                            <option>Finance</option>
+                            <option>Construction</option>
+                            <option>Other</option>
+                        </select>
+                        <div class="error-message text-red-500 text-xs mt-1 hidden"></div>
+                    </div>
+
+                    <!-- Row 3: First Name + Last Name -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">First Name <span
+                                    class="text-red-500">*</span></label>
+                            <input type="text" name="first_name" placeholder="First Name" required
+                                class="name-input w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <div class="error-message text-red-500 text-xs mt-1 hidden">Please enter letters only.</div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Last Name <span
+                                    class="text-red-500">*</span></label>
+                            <input type="text" name="last_name" placeholder="Last Name" required
+                                class="name-input w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <div class="error-message text-red-500 text-xs mt-1 hidden">Please enter letters only.</div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Contact Number + Email -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Contact Number <span
+                                    class="text-red-500">*</span></label>
+                            <div class="flex gap-2 items-center">
+                                <!-- Country Code Dropdown -->
+                                <div class="relative" id="countryDropdownContainer"
+                                    style="width: 95px; flex-shrink: 0;">
+                                    <button type="button" id="countryDropdownBtn"
+                                        class="w-full border border-gray-300 rounded-lg flex items-center justify-between bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 hover:border-amber-400 transition"
+                                        style="height: 42px; padding: 0 8px 0 10px;">
+                                        <span class="flex items-center gap-1.5">
+                                            <img id="selectedFlagImg" src="https://flagcdn.com/w20/in.webp" width="20"
+                                                height="13" loading="lazy" decoding="async"
+                                                style="object-fit: cover; border-radius: 2px;" alt="India flag">
+                                            <span id="selectedCodeText"
+                                                style="font-size: 13px; font-weight: 500; color: #1f2937; white-space: nowrap;">+91</span>
+                                        </span>
+                                        <span style="font-size: 8px; color: #9ca3af; margin-left: 2px;">▼</span>
+                                    </button>
+                                    <input type="hidden" name="country_code" id="countryCodeInput" value="+91">
+                                    <div id="countryDropdownList"
+                                        class="hidden absolute left-0 top-full mt-1 max-h-52 overflow-y-auto bg-white border border-gray-200 rounded-lg shadow-xl z-[99999]"
+                                        style="width: 95px; min-width: 95px;">
+                                    </div>
+                                </div>
+                                <input type="tel" name="phone" id="phoneInput" placeholder="Phone Number" required
+                                    class="flex-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                    style="height: 42px; padding: 0 12px; font-size: 14px;">
+                            </div>
+                            <div class="error-message text-red-500 text-xs mt-1 hidden">Please enter numbers only.</div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Email <span
+                                    class="text-red-500">*</span></label>
+                            <input type="email" name="email" id="emailInput" placeholder="Email Address" required
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <div class="error-message text-red-500 text-xs mt-1 hidden">Please enter a valid email
+                                address.</div>
+                        </div>
+                    </div>
+
+                    <!-- Row 5: Website + Company Address -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Website <span
+                                    class="text-red-500">*</span></label>
+                            <input type="url" name="website" id="websiteInput" placeholder="https://example.com"
+                                required
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <div class="error-message text-red-500 text-xs mt-1 hidden">Please enter a valid web
+                                address.</div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Company Address <span
+                                    class="text-red-500">*</span></label>
+                            <input type="text" name="company_address" placeholder="Company Address" required
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <div class="error-message text-red-500 text-xs mt-1 hidden"></div>
+                        </div>
+                    </div>
+
+                    <!-- Row 6: Country + State + City -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4" style="overflow: visible !important;">
+                        <div style="position: relative; z-index: 10; overflow: visible !important;">
+                            <label class="block text-sm font-medium mb-1">Country <span
+                                    class="text-red-500">*</span></label>
+                            <select name="country" id="countrySelect" required
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="">Select Country</option>
+                            </select>
+                            <div class="error-message text-red-500 text-xs mt-1 hidden">Please select a country</div>
+                        </div>
+                        <div style="position: relative; z-index: 20; overflow: visible !important;">
+                            <label class="block text-sm font-medium mb-1">State <span
+                                    class="text-red-500">*</span></label>
+                            <select name="state" id="stateSelect" required
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="">Select State</option>
+                            </select>
+                            <div class="error-message text-red-500 text-xs mt-1 hidden">Please select a state</div>
+                        </div>
+                        <div style="position: relative; z-index: 5; overflow: visible !important;">
+                            <label class="block text-sm font-medium mb-1">City <span
+                                    class="text-red-500">*</span></label>
+                            <select name="city" id="citySelect" required
+                                class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="">Select City</option>
+                            </select>
+                            <div class="error-message text-red-500 text-xs mt-1 hidden">Please select a city</div>
+                        </div>
+                    </div>
+
+                    <!-- Row 7: Service Required -->
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Service Required <span
+                                class="text-red-500">*</span></label>
+                        <input type="text" name="service_required" placeholder="Service Required" required
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <div class="error-message text-red-500 text-xs mt-1 hidden"></div>
+                    </div>
+
+                    <!-- Row 8: Message -->
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Message <span
+                                class="text-red-500">*</span></label>
+                        <textarea name="message" rows="3" placeholder="Write your message..." required
+                            class="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"></textarea>
+                        <div class="error-message text-red-500 text-xs mt-1 hidden"></div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex justify-center mt-4 pb-1">
+                        <button type="submit"
+                            class="bg-amber-orange1 hover:bg-amber-400 text-slate-700 font-semibold px-8 py-2.5 rounded-lg transition duration-300 text-sm shadow-md hover:shadow-lg">
+                            Submit Enquiry
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    {# ====== STEP 1: SIGNUP POPUP ====== #}
+    <div id="signupPopup"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-sm transition-all duration-300 opacity-0 pointer-events-none">
+        <div
+            class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl relative transform transition-all duration-300 scale-95 max-h-[90vh] overflow-y-auto">
+
+            <!-- Close Button -->
+            <button onclick="closeSignupPopup()"
+                class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-2xl transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- FE Logo -->
+            <div class="flex items-center gap-2 mb-6">
+                <div class="bg-lime-200 text-emerald-800 font-bold px-2.5 py-1 rounded-xl text-sm tracking-wider">FE
+                </div>
+                <span class="font-bold text-xl text-black-dark">Field<span
+                        class="text-primary-green">Engineer</span></span>
+            </div>
+
+            <h3 class="text-3xl font-extrabold text-black-dark mb-1">Create your account</h3>
+            <p class="text-light-dark text-sm mb-6">Enter your mobile number to get started</p>
+
+            <form id="signupForm" onsubmit="return handleSignup(event)">
+
+
+                <label class="block text-sm font-semibold text-black-darkk mb-2">Mobile Number</label>
+                <div class="flex gap-3 mb-6">
+                    <div
+                        class="w-1/4 flex items-center bg-gray-50 border border-gray-200 rounded-xl px-3 focus-within:ring-2 focus-within:ring-emerald-500">
+                        <span class="text-xs text-black-darkk font-bold mr-1">IN</span>
+                        <input type="text" name="country_code" value="+91"
+                            class="w-full bg-transparent text-sm font-semibold text-slate-800 outline-none">
+                    </div>
+                    <div
+                        class="w-3/4 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-emerald-500">
+                        <input type="tel" id="mobileNumber" name="mobile_number" placeholder="98765 43210" required
+                            maxlength="10"
+                            class="w-full bg-transparent text-base font-medium text-slate-800 outline-none"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+                </div>
+                <p id="mobileError" class="text-red-500 text-xs hidden mb-2">Please enter a valid 10-digit mobile number
+                </p>
+
+                <label class="block text-sm font-semibold text-black-darkk mb-2">I am a</label>
+
+                <input type="hidden" name="role" id="selectedRole" value="customer">
+
+                <div class="grid grid-cols-3 gap-3 mb-8">
+                    <button type="button" onclick="selectRole('customer')" id="role-customer"
+                        class="role-btn flex flex-col items-center justify-center border-2 border-emerald-500 bg-emerald-50 text-black-darkk rounded-xl py-4 px-2 transition-all duration-200">
+                        <svg class="w-8 h-8 mb-2 text-indigo-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span class="text-xs font-semibold">Customer</span>
+                    </button>
+
+                    <button type="button" onclick="selectRole('engineer')" id="role-engineer"
+                        class="role-btn flex flex-col items-center justify-center border border-gray-200 bg-gray-50 text-black-darkk rounded-xl py-4 px-2 hover:border-gray-300 transition-all duration-200">
+                        <svg class="w-8 h-8 mb-2 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span class="text-xs font-semibold">Engineer</span>
+                    </button>
+
+                    <button type="button" onclick="selectRole('vendor')" id="role-vendor"
+                        class="role-btn flex flex-col items-center justify-center border border-gray-200 bg-gray-50 text-black-darkk rounded-xl py-4 px-2 hover:border-gray-300 transition-all duration-200">
+                        <svg class="w-8 h-8 mb-2 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                            </path>
+                        </svg>
+                        <span class="text-xs font-semibold">Vendor</span>
+                    </button>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-bright-yellow hover:bg-amber-500 text-black-darkk font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition duration-200 shadow-md">
+                    Send OTP
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </button>
+            </form>
+
+            <p class="text-center text-sm text-gray-500 mt-6">
+                Already have an account? <a href="#" onclick="switchToLogin()"
+                    class="text-primary-green font-semibold hover:underline">Log in</a>
+            </p>
+
+
+            <!-- <p class=" text-center text-sm font-medium text-gray-500">
+                Don't have an account? 
+              <a href="#" onclick="switchToSignup()" class="font-bold text-emerald-600 hover:underline ml-0.5">
+    Sign up free
+</a>
+            </p> -->
+
+        </div>
+    </div>
+
+
+    {# ====== LOGIN POPUP ====== #}
+    <div id="loginPopup"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 transition-all duration-300 opacity-0 pointer-events-none">
+        <div
+            class="relative w-full max-w-[450px] transform rounded-[32px] bg-white p-8 shadow-xl transition-all duration-300 scale-95">
+
+            <!-- Close Button -->
+            <button onclick="closeLoginPopup()"
+                class="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full bg-gray-50 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-700">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <!-- FE Logo -->
+            <div class="mb-7 flex items-center gap-2">
+                <div class="rounded-xl bg-[#dcfce7] px-2.5 py-1 text-xs font-bold tracking-wider text-emerald-800">
+                    FE
+                </div>
+                <span class="text-xl font-bold text-slate-900 tracking-tight">
+                    Field<span class="text-emerald-600">Engineer</span>
+                </span>
+            </div>
+
+            <h3 class="text-[32px] font-extrabold tracking-tight text-slate-900 leading-tight">
+                Welcome back
+            </h3>
+            <p class="mt-1.5 text-[15px] font-normal text-gray-500/90">
+                Enter your mobile number to continue
+            </p>
+
+            <form class="mt-8" id="loginForm" onsubmit="return handleLogin(event)">
+                <label class="block text-sm font-bold text-slate-800 tracking-wide">
+                    Mobile Number
+                </label>
+
+                <div class="mt-2.5 flex gap-3">
+                    <div
+                        class="flex items-center justify-center rounded-xl border border-emerald-100/80 bg-[#fbfdfa] px-4 py-3.5 font-bold text-slate-800 text-sm">
+                        IN +91
+                    </div>
+
+                    <div
+                        class="flex-1 rounded-xl border border-emerald-100/80 bg-[#fbfdfa] px-4 py-3.5 focus-within:border-emerald-500 focus-within:ring-1 focus-within:ring-emerald-500 transition-all">
+                        <input type="tel" id="loginMobile" placeholder="98765 43210" maxlength="10"
+                            class="w-full bg-transparent text-base font-semibold text-slate-700 placeholder-gray-400/80 outline-none tracking-wide"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+                    </div>
+                </div>
+
+                <button type="submit"
+                    class="mt-6 flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#f5b335] py-4 text-base font-bold text-slate-900 transition-colors hover:bg-[#e0a025] shadow-sm">
+                    Send OTP &rarr;
+                </button>
+            </form>
+
+            <div class="mt-6 text-center">
+                <p class="text-sm font-medium text-gray-500">
+                    Don't have an account?
+                    <a href="#" onclick="switchToSignup()" class="font-bold text-emerald-600 hover:underline ml-0.5">
+                        Sign up free
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    {# ====== STEP 2: OTP VERIFICATION POPUP ====== #}
+    <div id="otpPopup"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-sm transition-all duration-300 opacity-0 pointer-events-none">
+        <div
+            class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 shadow-2xl relative transform transition-all duration-300 scale-95">
+
+            <!-- Close Button -->
+            <button onclick="closeOtpPopup()"
+                class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-2xl transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- FE Logo -->
+            <div class="flex items-center gap-2 mb-6">
+                <div class="bg-lime-200 text-emerald-800 font-bold px-2.5 py-1 rounded-xl text-sm tracking-wider">FE
+                </div>
+                <span class="font-bold text-xl text-black-dark">Field<span
+                        class="text-primary-green">Engineer</span></span>
+            </div>
+
+            <h3 class="text-3xl font-extrabold text-black-dark mb-1">Enter OTP</h3>
+            <p class="text-light-dark text-sm mb-2">We sent a 6-digit code to <span id="otpMobileNumber"
+                    class="font-semibold text-light-dark">+91 98765 43210</span></p>
+
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 mb-6 flex items-start gap-2">
+                <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-sm text-light-dark">Use any 6 digits for this demo (e.g. 123456)</p>
+            </div>
+
+            <form id="otpForm" onsubmit="return handleOtp(event)">
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Enter OTP</label>
+                <div class="flex gap-3 mb-6">
+                    <div
+                        class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-emerald-500">
+                        <input type="text" id="otpInput" name="otp" placeholder="Enter 6-digit OTP" required
+                            maxlength="6"
+                            class="w-full bg-transparent text-base font-medium text-slate-800 outline-none text-center text-2xl tracking-widest"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-bright-yellow hover:bg-amber-500 text-black-dark font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition duration-200 shadow-md">
+                    Verify & Continue
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="flex items-center justify-between mt-4">
+                <button id="resendOtpBtn" onclick="resendOtp()"
+                    class="text-primary-green font-semibold hover:underline text-sm transition-colors">
+                    Resend OTP
+                </button>
+
+                <span id="resendTimerText" class="hidden items-center gap-1.5 text-sm text-gray-500 font-medium">
+                    <span class="material-symbols-outlined text-gray-400 text-[18px]" aria-hidden="true">
+                        access_time
+                    </span>
+                    Resend in <span id="resendSecondsLeft" class="font-bold text-slate-700">30</span>s
+                </span>
+
+                <button onclick="changeNumber()"
+                    class="text-primary-green hover:text-gray-700 text-sm flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Change number
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+{% block extra_js %}
+
+{% endblock %}
+
+<!-- DEFER JAVASCRIPT -->
+<!-- <link rel="stylesheet" href="{% static 'css/home.css' %}"> -->
+
+<!-- Leaflet CSS - LOADED ASYNC -->
+<link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</noscript>
+<script defer src="{% static 'script/pages/login.js' %}"></script>
+<script defer src="{% static 'script/pages/layout.js' %}"></script>
+
+<!-- ASYNC ANALYTICS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+</html>

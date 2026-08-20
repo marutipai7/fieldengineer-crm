@@ -1,0 +1,576 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}Newsroom — Latest Press Releases & Updates | FieldEngineer{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50/50 min-h-screen">
+
+    {# ========================= 1. NEWS FEED VIEW ========================= #}
+    <div id="news-feed-view">
+        {# ========== HERO SECTION (UNIFIED WITH BLOG PAGE STYLING) ========== #}
+        <section class="blog-hero py-6 sm:py-8 lg:py-10" aria-labelledby="news-hero-title">
+            <div class="blog-hero-inner container mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
+
+                <nav class="blog-breadcrumb mb-4" aria-label="Breadcrumb">
+                    <a href="{% url 'home' %}">Home</a>
+                    <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+                    <span class="blog-breadcrumb-current" aria-current="page">Newsroom</span>
+                </nav>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+
+                    <!-- Left Content Area -->
+                    <div class="blog-hero-content lg:col-span-7 flex flex-col justify-center">
+                        <p class="blog-hero-eyebrow inline-block w-fit">FE Newsroom</p>
+                        <h1 id="news-hero-title" class="blog-hero-title">Announcements. Press. Media.</h1>
+                        <p class="blog-hero-desc">
+                            Official press releases, product announcements, corporate updates and news from
+                            FieldEngineer.
+                        </p>
+
+                        <form class="blog-hero-search mt-4" onsubmit="event.preventDefault();" role="search"
+                            aria-label="Search news">
+                            <label class="sr-only" for="news-search-input">Search news</label>
+                            <input id="news-search" type="search" class="blog-hero-search-input"
+                                placeholder="Search news, press releases, updates..." oninput="handleSearch(this.value)"
+                                autocomplete="off">
+                            <button type="button" class="blog-hero-search-btn" onclick="triggerSearch()">Search</button>
+                        </form>
+                    </div>
+
+                    <!-- Right Image Area -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end items-center">
+                        <img src="{% static 'img/news.webp' %}" alt="FE Newsroom illustration" width="400" height="400"
+                            loading="lazy" decoding="async"
+                            class="w-full h-auto max-h-[180px] sm:max-h-[220px] lg:max-h-[400px] object-contain select-none pointer-events-none" />
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        {# ================== GRIDLOVE HERO COVER AREA ================== #}
+        <section class="w-full bg-[var(--color-term-sidebar-bg)] border-b border-emerald-100/50 py-10">
+            <div class="max-w-7xl mx-auto px-5 md:px-8">
+                <div class="mb-6 flex items-end justify-between">
+                    <div>
+                        <span class="text-emerald-700 font-extrabold tracking-wider text-xs uppercase">Spotlight</span>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-1">Featured Releases</h2>
+                    </div>
+                </div>
+
+                <!-- 3-Card Featured Grid (Gridlove Theme Style) -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 h-auto lg:h-[480px]">
+                    <!-- Large Primary Featured Post (2/3 width on large screens) -->
+                    <div class="lg:col-span-2 h-[320px] lg:h-full cursor-pointer" onclick="showArticleDetail(1)">
+                        <div class="gridlove-cover-item group">
+                            <img src="https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&w=800&q=80"
+                                alt="5G Deployment" width="800" height="600" class="gridlove-cover-img">
+                            <div class="gridlove-cover-content">
+                                <span
+                                    class="bg-emerald-600 text-white font-semibold text-[10px] tracking-wider uppercase px-2.5 py-1 rounded-full mb-3 inline-block">
+                                    Product Updates
+                                </span>
+                                <h3
+                                    class="text-xl md:text-3xl font-extrabold text-white leading-tight mb-2 group-hover:text-emerald-300 transition-colors">
+                                    FE Launches Enterprise AI Dispatching Engine for Global Service Orchestration
+                                </h3>
+                                <div
+                                    class="flex flex-wrap items-center gap-x-4 gap-y-1 text-slate-300 text-xs md:text-sm mt-3">
+                                    <span class="flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[16px]">person</span> By FE Product
+                                        Team
+                                    </span>
+                                    <span>&bull;</span>
+                                    <span class="flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[16px]">schedule</span> 4 min read
+                                    </span>
+                                    <span>&bull;</span>
+                                    <span>July 29, 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Two Stacked Featured Posts (1/3 width stacked vertically) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6 lg:h-full">
+                        <!-- Stacked Item 1 -->
+                        <div class="h-[220px] lg:h-[228px] cursor-pointer" onclick="showArticleDetail(2)">
+                            <div class="gridlove-cover-item group">
+                                <img src="https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&w=800&q=80"
+                                    alt="5G Deployment" class="gridlove-cover-img">
+                                <div class="gridlove-cover-content p-5">
+                                    <span
+                                        class="bg-indigo-600 text-white font-semibold text-[9px] tracking-wider uppercase px-2 py-0.5 rounded-full mb-2 inline-block">
+                                        Tech & Innovation
+                                    </span>
+                                    <h4
+                                        class="text-base md:text-lg font-bold text-white leading-snug group-hover:text-indigo-300 transition-colors line-clamp-2">
+                                        Why 5G Deployment Relies on Smart Dispatching of Telecom Field Services
+                                    </h4>
+                                    <div class="flex items-center gap-2 text-slate-300 text-xs mt-2">
+                                        <span>July 27, 2026</span>
+                                        <span>&bull;</span>
+                                        <span>5 min read</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stacked Item 2 -->
+                        <div class="h-[220px] lg:h-[228px] cursor-pointer" onclick="showArticleDetail(3)">
+                            <div class="gridlove-cover-item group">
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
+                                    alt="Fiber Provider Case Study" width="800" height="600" class="gridlove-cover-img">
+                                <div class="gridlove-cover-content p-5">
+                                    <span
+                                        class="bg-amber-600 text-white font-semibold text-[9px] tracking-wider uppercase px-2 py-0.5 rounded-full mb-2 inline-block">
+                                        Case Study
+                                    </span>
+                                    <h4
+                                        class="text-base md:text-lg font-bold text-white leading-snug group-hover:text-amber-300 transition-colors line-clamp-2">
+                                        Case Study: How a Leading Fiber Provider Scaled Across 15 States in 30 Days
+                                    </h4>
+                                    <div class="flex items-center gap-2 text-slate-300 text-xs mt-2">
+                                        <span>July 25, 2026</span>
+                                        <span>&bull;</span>
+                                        <span>6 min read</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {# ================== FILTER BAR & CONTROLS ================== #}
+        <section class="max-w-7xl mx-auto px-5 md:px-8 my-6">
+            <!-- flex flex-col on mobile, flex-row on desktop to avoid layout squeezing -->
+            <div
+                class="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <!-- Category Scroll Tabs (md:flex-1 allows dynamic scaling on desktop, no stretching on mobile flex-col) -->
+                <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 md:pb-0 min-w-0 md:flex-1 w-full"
+                    id="category-tabs-container">
+                    <button onclick="filterCategory('All', this)"
+                        class="category-tab px-4 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all whitespace-nowrap bg-[var(--color-primary)] text-white">
+                        All News
+                    </button>
+                    <button onclick="filterCategory('Product Updates', this)"
+                        class="category-tab px-4 py-2 rounded-xl text-xs md:text-sm font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all whitespace-nowrap">
+                        Product Updates
+                    </button>
+                    <button onclick="filterCategory('Tech & Innovation', this)"
+                        class="category-tab px-4 py-2 rounded-xl text-xs md:text-sm font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all whitespace-nowrap">
+                        Tech & Innovation
+                    </button>
+                    <button onclick="filterCategory('Case Study', this)"
+                        class="category-tab px-4 py-2 rounded-xl text-xs md:text-sm font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all whitespace-nowrap">
+                        Case Studies
+                    </button>
+                    <button onclick="filterCategory('Field Service Tips', this)"
+                        class="category-tab px-4 py-2 rounded-xl text-xs md:text-sm font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all whitespace-nowrap">
+                        Field Service Tips
+                    </button>
+                    <button onclick="filterCategory('Company News', this)"
+                        class="category-tab px-4 py-2 rounded-xl text-xs md:text-sm font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-all whitespace-nowrap">
+                        Company News
+                    </button>
+                </div>
+
+                <!-- Controls panel (Search statistics only) -->
+                <div
+                    class="flex items-center justify-between md:justify-end gap-4 shrink-0 w-full md:w-auto border-t border-slate-100 pt-3 md:border-0 md:pt-0">
+                    <div id="results-count" class="text-xs text-slate-400 font-semibold">Showing 8 articles</div>
+                </div>
+            </div>
+        </section>
+
+        {# ================== MAIN CONTENT COLUMNS ================== #}
+        <section class="max-w-7xl mx-auto px-5 md:px-8 pt-4 pb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                <!-- LEFT COLUMN: ARTICLES FEED (8/12 cols) -->
+                <div class="lg:col-span-8">
+                    <!-- Grid Feed Container -->
+                    <div id="articles-feed-container"
+                        class="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-300">
+                        <!-- Dynamic Articles Rendered by JS -->
+                    </div>
+
+                    <!-- Empty State (Hidden by default) -->
+                    <div id="feed-empty-state"
+                        class="hidden bg-white border border-slate-200 rounded-2xl p-12 text-center shadow-sm">
+                        <div
+                            class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400 mb-4">
+                            <span class="material-symbols-outlined text-4xl">search_off</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">No articles found</h3>
+                        <p class="text-slate-500 text-sm max-w-sm mx-auto">We couldn't find any news articles matching
+                            your search query or selected filters. Try broadening your keywords.</p>
+                        <button onclick="resetFilters()"
+                            class="mt-4 px-5 py-2 bg-emerald-600 text-white rounded-xl text-sm font-semibold hover:bg-emerald-700 transition-all">
+                            Reset Filters
+                        </button>
+                    </div>
+
+                    <!-- Load More Section -->
+                    <div id="load-more-section" class="mt-10 text-center">
+                        <button onclick="loadMoreArticles()" id="load-more-btn"
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-700 font-semibold text-sm rounded-xl shadow-sm hover:shadow-md hover:border-slate-300 transition-all cursor-pointer">
+                            <span>Load More Articles</span>
+                            <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                        </button>
+                        <!-- Spinner (Hidden) -->
+                        <div id="load-more-spinner" class="hidden justify-center items-center py-4">
+                            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-600"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: SIDEBAR (4/12 cols) -->
+                <aside class="blog-sidebar lg:col-span-4 lg:sticky lg:top-24">
+
+                    <!-- Widget: Newsroom Info -->
+                    <div class="blog-sidebar-block">
+                        <div class="flex flex-col gap-3">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-slate-100 text-teal-700 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[20px]">campaign</span>
+                            </div>
+                            <h4 class="blog-sidebar-title">FE Newsroom</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed mt-1">
+                                FieldEngineer is the premier platform connecting telecom operators, network providers,
+                                and enterprises with pre-vetted local field technicians worldwide. Contact our press
+                                team at <a
+                                    href="mailto:&#112;&#114;&#101;&#115;&#115;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;"
+                                    class="text-teal-600 font-semibold hover:underline">&#112;&#114;&#101;&#115;&#115;&#64;&#102;&#105;&#101;&#108;&#100;&#101;&#110;&#103;&#105;&#110;&#101;&#101;&#114;&#46;&#99;&#111;&#109;</a>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Widget: Trending Posts -->
+                    <div class="blog-sidebar-block">
+                        <h4 class="blog-sidebar-title mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[20px] text-teal-600">trending_up</span>
+                            <span>Trending Stories</span>
+                        </h4>
+                        <div class="blog-popular-list" id="trending-container">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Widget: Newsletter Sign-up -->
+                    <div class="blog-newsletter">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[20px]">mail</span>
+                            </div>
+                            <div>
+                                <h4 class="blog-newsletter-title">Stay in the Loop</h4>
+                                <p class="blog-newsletter-desc">
+                                    Get our monthly news digest covering industrial updates, IoT strategies, and field
+                                    dispatch operations.
+                                </p>
+                            </div>
+                            <form id="sidebar-subscribe-form" onsubmit="handleSubscribe(event)"
+                                class="blog-newsletter-form">
+                                <input type="email" required placeholder="Your email address"
+                                    class="blog-newsletter-input">
+                                <button type="submit" class="blog-newsletter-btn">
+                                    Subscribe
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+    </div>
+
+    {# ======================== 2. NEWS DETAIL VIEW ======================== #}
+    <div id="news-detail-view" class="hidden">
+        <!-- 1. Large Cover Banner -->
+        <div class="w-full aspect-[16/9] md:aspect-[21/9] max-h-[460px] relative overflow-hidden bg-slate-900">
+            <img id="detail-cover-img" src="" alt="Featured Image" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-slate-900/35"></div>
+        </div>
+
+        <!-- 2. Overlapping Content Container -->
+        <div class="max-w-7xl mx-auto px-5 md:px-8 -mt-20 md:-mt-32 pb-16 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                <!-- Left Sticky Social Sharing Column -->
+                <div class="hidden lg:flex lg:col-span-1 flex-col gap-3 sticky top-28 items-center pt-8">
+                    <!-- Facebook -->
+                    <a href="#"
+                        class="w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-blue-600 hover:text-white flex items-center justify-center transition-all shadow-sm"
+                        title="Share on Facebook">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M9 8H7v3h2v9h3v-9h3l.5-3H12V6c0-.9.2-1 1-1h2V2h-3C9.8 2 9 3.4 9 5.5V8z" />
+                        </svg>
+                    </a>
+                    <!-- Twitter -->
+                    <a href="#"
+                        class="w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-sky-500 hover:text-white flex items-center justify-center transition-all shadow-sm"
+                        title="Share on Twitter">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M24 4.6a10 10 0 01-2.9.8 5 5 0 002.2-2.8 10 10 0 01-3.2 1.2 5 5 0 00-8.6 4.6A14 14 0 011.7 3.1a5 5 0 001.5 6.7 5 5 0 01-2.3-.6v.1a5 5 0 004 4.9 5 5 0 01-2.2.1 5 5 0 004.7 3.5A10 10 0 010 19.5a14 14 0 007.6 2.2c9 0 14-7.5 14-14V7a10 10 0 002.4-2.4z" />
+                        </svg>
+                    </a>
+                    <!-- Pinterest -->
+                    <a href="#"
+                        class="w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-red-600 hover:text-white flex items-center justify-center transition-all shadow-sm"
+                        title="Pin this post">
+                        <svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0a12 12 0 00-4.3 23.2c-.1-.9-.2-2.4.1-3.4.2-.9 1.4-6.1 1.4-6.1s-.4-.7-.4-1.8c0-1.7 1-3 2.2-3 1 0 1.6.8 1.6 1.8 0 1.1-.7 2.7-1 4.2-.3 1.2.6 2.3 1.8 2.3 2.2 0 3.9-2.3 3.9-5.6 0-3-2.1-5-5.2-5-3.6 0-5.7 2.7-5.7 5.5 0 1.1.4 2.3.9 3a.4.4 0 01.1.3c0 .1-.1.5-.2.7a.3.3 0 01-.4.2c-1.1-.5-1.8-2.2-1.8-3.6 0-4 2.9-7.7 8.4-7.7 4.4 0 7.8 3.1 7.8 7.3 0 4.4-2.8 7.9-6.6 7.9-1.3 0-2.5-.7-2.9-1.5 0 0-.6 2.4-.8 3a10.8 10.8 0 01-1.3 2.8c1 .3 2.1.4 3.2.4a12 12 0 000-24z" />
+                        </svg>
+                    </a>
+                    <!-- Email -->
+                    <a href="#"
+                        class="w-10 h-10 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-700 hover:text-white flex items-center justify-center transition-all shadow-sm"
+                        title="Share via Email">
+                        <span class="material-symbols-outlined text-[20px]">mail</span>
+                    </a>
+                </div>
+
+                <!-- Main White Article Card -->
+                <div class="lg:col-span-7 bg-white border border-slate-200/80 rounded-2xl p-6 md:p-10 shadow-lg">
+                    <!-- Breadcrumbs -->
+                    <nav class="flex items-center gap-2 text-xs text-slate-400 font-semibold mb-6 flex-wrap"
+                        aria-label="Breadcrumb">
+                        <a href="{% url 'home' %}" class="hover:text-[var(--color-primary)] transition-colors">Home</a>
+                        <span
+                            class="material-symbols-outlined text-[12px] select-none text-slate-300">chevron_right</span>
+                        <a href="javascript:void(0)" onclick="showFeedView()"
+                            class="hover:text-[var(--color-primary)] transition-colors">Newsroom</a>
+                        <span
+                            class="material-symbols-outlined text-[12px] select-none text-slate-300">chevron_right</span>
+                        <span class="text-slate-500 font-medium truncate max-w-[200px]"
+                            id="detail-breadcrumb-title">Article Title</span>
+                    </nav>
+
+                    <!-- Category Pills -->
+                    <div id="detail-category-container" class="flex flex-wrap gap-2 mb-4">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Article Title -->
+                    <h2 id="detail-title" class="text-2xl md:text-3.5xl font-black text-slate-900 leading-tight mb-6">
+                        Article Title
+                    </h2>
+
+                    <!-- Meta details: Author, Date & Read time -->
+                    <div class="flex items-center gap-3 pb-6 border-b border-slate-100 mb-6">
+                        <div class="w-9 h-9 rounded-full overflow-hidden shrink-0 bg-slate-100">
+                            <img id="detail-author-avatar" src="" alt="Author avatar"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <span class="text-sm font-bold text-slate-800 block" id="detail-author-name">Lisa
+                                Scholfield</span>
+                            <div class="flex items-center gap-2 text-[11px] text-slate-400 font-semibold mt-0.5">
+                                <span id="detail-date">1 month ago</span>
+                                <span>&bull;</span>
+                                <span id="detail-read-time">2 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article HTML Body Content -->
+                    <div id="detail-body-content"
+                        class="prose prose-slate max-w-none text-slate-600 leading-relaxed text-sm md:text-base space-y-6">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Tags list -->
+                    <div class="flex flex-wrap gap-2 pt-8 border-t border-slate-100 mt-8" id="detail-tags-container">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Author Box -->
+                    <div
+                        class="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 mt-12 flex flex-col md:flex-row gap-5 items-start">
+                        <div class="w-14 h-14 rounded-full overflow-hidden shrink-0 bg-slate-200 shadow-inner">
+                            <img id="detail-author-bio-avatar" src="" alt="Author Avatar"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-extrabold text-slate-900 text-sm md:text-base" id="detail-author-bio-name">
+                                Lisa Scholfield</h4>
+                            <p class="text-slate-500 text-xs md:text-sm leading-relaxed mt-1"
+                                id="detail-author-bio-text">
+                                Objectively myocordinate top-line processes whereas next-generation human capital.
+                                Quickly customize collaborative niche markets through functionalized "outside the box"
+                                thinking.
+                            </p>
+                            <div class="flex items-center gap-3 mt-4">
+                                <button
+                                    class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] rounded-xl shadow-sm transition-all cursor-pointer">
+                                    View All Posts
+                                </button>
+                                <div class="flex gap-2">
+                                    <a href="#"
+                                        class="w-8 h-8 rounded-lg bg-white border border-slate-200 text-slate-500 hover:text-blue-600 flex items-center justify-center transition-all">
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M9 8H7v3h2v9h3v-9h3l.5-3H12V6c0-.9.2-1 1-1h2V2h-3C9.8 2 9 3.4 9 5.5V8z" />
+                                        </svg>
+                                    </a>
+                                    <a href="#"
+                                        class="w-8 h-8 rounded-lg bg-white border border-slate-200 text-slate-500 hover:text-sky-500 flex items-center justify-center transition-all">
+                                        <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M24 4.6a10 10 0 01-2.9.8 5 5 0 002.2-2.8 10 10 0 01-3.2 1.2 5 5 0 00-8.6 4.6A14 14 0 011.7 3.1a5 5 0 001.5 6.7 5 5 0 01-2.3-.6v.1a5 5 0 004 4.9 5 5 0 01-2.2.1 5 5 0 004.7 3.5A10 10 0 010 19.5a14 14 0 007.6 2.2c9 0 14-7.5 14-14V7a10 10 0 002.4-2.4z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post Navigation Links Footer -->
+                    <div
+                        class="flex justify-between items-center border-t border-slate-100 pt-6 mt-8 text-xs md:text-sm font-semibold">
+                        <a href="javascript:void(0)" id="detail-prev-link"
+                            class="text-slate-500 hover:text-[var(--color-primary)] flex items-center gap-1 transition-colors min-w-0 max-w-[45%]">
+                            <span class="material-symbols-outlined text-[16px] shrink-0">arrow_back</span>
+                            <span class="truncate" id="detail-prev-title">Previous Post</span>
+                        </a>
+                        <a href="javascript:void(0)" id="detail-next-link"
+                            class="text-slate-500 hover:text-[var(--color-primary)] flex items-center gap-1 transition-colors min-w-0 max-w-[45%] justify-end">
+                            <span class="truncate" id="detail-next-title">Next Post</span>
+                            <span class="material-symbols-outlined text-[16px] shrink-0">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <aside class="blog-sidebar lg:col-span-4">
+                    <!-- Widget: Topics -->
+                    <div class="blog-sidebar-block">
+                        <h4 class="blog-sidebar-title mb-4 pb-2 border-b border-slate-100">Topics</h4>
+                        <ul class="flex flex-col gap-2 text-sm" id="detail-topics-list">
+                            <!-- Renders by JS -->
+                        </ul>
+                    </div>
+
+                    <!-- Widget: Recent Posts -->
+                    <div class="blog-sidebar-block">
+                        <h4 class="blog-sidebar-title mb-4 pb-2 border-b border-slate-100">Recent Posts</h4>
+                        <div class="blog-popular-list" id="detail-recent-container">
+                            <!-- Renders by JS -->
+                        </div>
+                    </div>
+
+                </aside>
+
+            </div>
+        </div>
+    </div>
+
+    <!--DOWNLOAD THE FE APP-->
+
+    <section class=" bg-[#FFFDF8] w-full">
+        <!-- Full-width gradient background container -->
+        <div
+            class="w-full bg-gradient-to-r bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0] py-12 sm:py-14 lg:py-16 xl:py-20">
+
+            <!-- Centered content container with max-width and extra padding -->
+            <div class="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-20">
+
+                <!-- Changed from grid to flex-row to keep items on same line -->
+                <div class="flex flex-row items-center justify-between gap-8 lg:gap-12 flex-wrap lg:flex-nowrap">
+
+                    <!-- ================= Left ================= -->
+                    <div class="flex-1 min-w-[280px]">
+
+                        <!-- Badge -->
+                        <div
+                            class="inline-flex items-center gap-2 rounded-full border border-[#22C55E] bg-white px-4 py-1.5">
+                            <span class="material-symbols-outlined text-[15px] text-[#22C55E]">
+                                download
+                            </span>
+                            <span class="text-[12px] font-semibold text-[#22C55E]">
+                                Get the FE App
+                            </span>
+                        </div>
+
+                        <!-- Heading -->
+                        <h2
+                            class="mt-5 text-[32px] sm:text-[36px] lg:text-[40px] font-bold leading-tight text-[#1E293B]">
+                            Download the
+                            <span class="text-[#22C55E]">
+                                FE App
+                            </span>
+                        </h2>
+
+                        <!-- Description -->
+                        <p class="mt-3 max-w-[500px] text-[14px] leading-6 text-slate-600">
+                            Manage field service jobs anytime, anywhere.
+                            Book engineers, track service requests and stay
+                            connected with real-time updates.
+                        </p>
+
+                        <!-- Store Buttons -->
+                        <div class="flex items-center gap-4 mt-6 flex-wrap">
+                            <a href="#"
+                                class="w-45 h-12 bg-black text-white  px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0"
+                                aria-label="Download Field Engineer app from Google Play">
+
+                                <img src="{% static 'img/google-play-store-icon.webp' %}" alt="Google Play logo"
+                                    width="24" height="24" loading="lazy" decoding="async"
+                                    class="w-6 h-6 shrink-0 object-contain">
+
+                                <div class="text-left leading-none">
+                                    <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
+                                        GET IT ON
+                                    </p>
+                                    <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">
+                                        Google Play
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="#"
+                                class="w-45 h-12 bg-black text-white  px-4 rounded-xl flex items-center justify-center gap-3 shadow-sm shrink-0">
+                                <img src="{% static 'img/apple-logo.webp' %}" alt="App Store logo" width="24"
+                                    height="24" loading="lazy" decoding="async" class="w-6 h-6 shrink-0 object-contain">
+                                <div class="text-left leading-none">
+                                    <p class="text-[9px] uppercase tracking-wider font-medium text-gray-300">
+                                        Download on</p>
+                                    <p class="text-xs font-bold font-sans mt-0.5 whitespace-nowrap text-white">App
+                                        Store</p>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- ================= Right ================= -->
+                    <div class="flex-shrink-0 flex justify-center lg:justify-end">
+                        <div class="text-center">
+                            <p class="mb-4 text-[11px] font-semibold uppercase tracking-[2px] text-slate-500">
+
+                            </p>
+                            <img src="{% static 'img/about-qr.webp' %}" alt="Download FE App" width="190" height="190"
+                                class="w-[160px] md:w-[180px] lg:w-[190px] object-contain mx-auto">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'script/pages/news.js' %}"></script>
+{% endblock %}

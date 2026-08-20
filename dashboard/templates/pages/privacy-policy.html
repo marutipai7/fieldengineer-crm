@@ -1,0 +1,1177 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+{% block title %}Disclaimer FE — FieldEngineer{% endblock %}
+
+{% block content %}
+
+{# Hero Section #}
+<section class="w-full bg-[#FCFCF9] relative overflow-hidden py-6 lg:py-0">
+
+    <!-- =========================================================
+         SAME CONTAINER AS HEADER / LOGO
+    ========================================================== -->
+    <div
+        class="w-full max-w-[1400px] mx-auto
+               px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12
+               grid grid-cols-1 lg:grid-cols-12
+               items-center">
+
+        <!-- =====================================================
+             LEFT CONTENT
+        ====================================================== -->
+        <div
+            class="lg:col-span-7
+                   pr-0 lg:pr-8
+                   py-6 sm:py-8 lg:py-12
+                   flex flex-col justify-center">
+
+            <!-- ================= BREADCRUMB ================= -->
+            <div
+                class="text-sm text-black-one
+                       mb-4
+                       font-medium
+                       flex items-center gap-2 flex-wrap">
+
+                <span>Home</span>
+
+                <span class="text-gray-400">›</span>
+
+                <span>Company</span>
+
+                <span class="text-gray-400">›</span>
+
+                <span>About Us</span>
+
+                <span class="text-gray-400">›</span>
+
+                <span class="text-primary-yellow font-medium">
+                    Privacy Policy
+                </span>
+
+            </div>
+
+
+            <!-- ================= LEGAL BADGE ================= -->
+            <span
+                class="border border-primary-green
+                       text-primary-green
+                       font-semibold text-xs
+                       px-3.5 py-1
+                       rounded-full
+                       w-fit
+                       tracking-wider
+                       mb-3">
+
+                LEGAL
+
+            </span>
+
+
+            <!-- ================= HEADING ================= -->
+            <h1
+                class="text-3xl sm:text-4xl lg:text-5xl
+                       font-extrabold
+                       text-ink
+                       tracking-tight
+                       leading-tight">
+
+                Privacy Policy
+
+            </h1>
+
+
+            <!-- ================= DESCRIPTION ================= -->
+            <p
+                class="text-granite-gray
+                       text-xs sm:text-sm
+                       mt-3
+                       leading-relaxed
+                       max-w-lg">
+
+                We are transparent about how we collect, use, and protect
+                your information. Read our full policy below.
+
+            </p>
+
+
+            <!-- ================= LAST UPDATED ================= -->
+            <div
+                class="flex items-center gap-2
+                       text-mirage-black
+                       font-medium
+                       text-sm
+                       mt-4">
+
+                <span
+                    class="material-symbols-outlined text-lg">
+                    calendar_today
+                </span>
+
+                <span>
+                    Last Updated: May 15, 2025
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             RIGHT IMAGE
+        ====================================================== -->
+        <div
+            class="lg:col-span-5
+                   relative w-full
+                   lg:absolute lg:right-0
+                   lg:top-0 lg:bottom-0
+                   lg:w-[45vw]
+                   flex justify-end">
+
+            <div
+                class="relative w-full
+                       h-[280px] sm:h-[350px]
+                       lg:h-full
+                       rounded-l-full
+                       overflow-hidden
+                       border-l-4
+                       border-y-2
+                       border-[#F5A623]
+                       shadow-md">
+
+                <img
+                    src="/static/img/privacy-policy-hero.webp"
+                    alt="Privacy Policy Hero"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full
+                           object-cover
+                           object-center
+                           select-none">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<main class="bg-light-warm-beige mt-0">
+
+    <!-- =========================================================
+         DISCLAIMER CONTENT SECTION
+    ========================================================== -->
+
+    <div class="py-8 bg-greenish-white">
+
+        <!-- SAME CONTAINER AS HEADER / LOGO -->
+        <div class="w-full max-w-[1400px] mx-auto px-6">
+
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
+
+                <!-- =====================================================
+                     SIDEBAR
+                ====================================================== -->
+                <aside class="w-full lg:w-[280px] shrink-0 lg:sticky lg:top-6 space-y-6">
+
+                    <!-- ON THIS PAGE -->
+                    <div
+                        class="bg-gradient-to-r from-[#FFFBEB] via-[#E2F1DD] to-[#CCE7C6] rounded-xl border border-slate-100 shadow-sm p-2">
+
+                        <h3
+                            class="font-bold p-3 text-dark-knight text-sm tracking-wider mb-2 border-b border-slate-200/50">
+                            On This Page
+                        </h3>
+
+                        <nav class="space-y-1 text-[13px] font-medium">
+
+                            <!-- Active -->
+                            <a href="#intro"
+                                class="flex items-center px-4 py-2.5 bg-white text-primary-yellow border-l-4 border-primary-yellow rounded-r-md font-semibold shadow-sm transition-colors">
+                                Introduction
+                            </a>
+
+                            <a href="#general"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                General Information Disclaimer
+                            </a>
+
+                            <a href="#professional"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                Professional &amp; Service Disclaimer
+                            </a>
+
+                            <a href="#vendors"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                Third-Party Vendor &amp; Engineer
+                            </a>
+
+                            <a href="#external"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                External Links
+                            </a>
+
+                            <a href="#errors"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                Errors &amp; Omissions
+                            </a>
+
+                            <a href="#liability"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                Limitation of Liability
+                            </a>
+
+                            <a href="#indemnification"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                Indemnification
+                            </a>
+
+                            <a href="#retention"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                Data &amp; Record Retention
+                            </a>
+
+                            <a href="#international"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                International Use
+                            </a>
+
+                            <a href="#children"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                Children's Use
+                            </a>
+
+                            <a href="#changes"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                Changes to This Disclaimer
+                            </a>
+
+                            <a href="#contact"
+                                class="flex items-center px-4 py-2.5 text-fiord hover:text-primary-yellow hover:bg-white rounded-md border-l-4 border-transparent transition-colors">
+                                Contact Us
+                            </a>
+
+                        </nav>
+                    </div>
+
+
+                    <!-- =================================================
+                         CONTACT INFORMATION CARD
+                    ================================================== -->
+
+                    <div
+                        class="bg-gradient-to-br from-[#FFFDEB] via-[#E7F3E2] to-[#CBE7C5] rounded-2xl border border-slate-100/80 p-5 shadow-sm">
+
+                        <h3 class="font-bold text-slate-900 text-base">
+                            Contact Information
+                        </h3>
+
+                        <p class="text-[11px] text-slate-600 mb-3">
+                            Say something to start a live chat!
+                        </p>
+
+                        <div class="space-y-4 text-xs font-medium text-slate-700 mb-4">
+
+                            <!-- Phone -->
+                            <div class="flex items-center gap-1.5">
+
+                                <span class="material-symbols-outlined text-primary-yellow">
+                                    phone_in_talk
+                                </span>
+
+                                <a href="tel:+918305544478"
+                                    class="hover:text-slate-900 transition-colors">
+                                    +91 8305544478
+                                </a>
+
+                            </div>
+
+
+                            <!-- Email -->
+                            <div class="flex items-start gap-1.5">
+
+                                <span
+                                    class="material-symbols-outlined text-[#F5A623] shrink-0"
+                                    style="font-size: 1.1rem;">
+                                    mail
+                                </span>
+
+                                <a href="mailto:&#97;&#100;&#105;&#116;&#121;&#97;&#116;&#104;&#97;&#107;&#117;&#114;&#49;&#55;&#48;&#52;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
+                                    class="hover:text-slate-900 transition-colors break-all">
+
+                                    &#97;&#100;&#105;&#116;&#121;&#97;&#116;&#104;&#97;&#107;&#117;&#114;&#49;&#55;&#48;&#52;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;
+
+                                </a>
+
+                            </div>
+
+
+                            <!-- Location -->
+                            <div class="flex items-start gap-1.5">
+
+                                <span
+                                    class="material-symbols-outlined text-[#F5A623] shrink-0 mt-0.5"
+                                    style="font-size: 1.1rem;">
+                                    location_on
+                                </span>
+
+                                <span class="leading-tight">
+                                    3102, 1st Floor, Rustomjee Eaze Zone,
+                                    Sundar Nagar, Malad West -
+                                    Mumbai 400064, MH - IN.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SOCIAL ICONS -->
+                        <div class="flex items-center justify-center gap-3 pt-1">
+
+                            <!-- X -->
+                            <a href="#"
+                                class="w-7 h-7 rounded-full bg-[#FFF2D6] hover:bg-[#FFE6B8] flex items-center justify-center text-[#F5A623] transition-colors"
+                                aria-label="Twitter">
+
+                                <svg class="w-3.5 h-3.5 fill-current"
+                                    viewBox="0 0 24 24">
+
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26
+                                    8.502 11.24H16.17l-5.214-6.817L4.99
+                                    21.75H1.68l7.73-8.835L1.254
+                                    2.25H8.08l4.713 6.231zm-1.161
+                                    17.52h1.833L7.084 4.126H5.117z" />
+
+                                </svg>
+
+                            </a>
+
+
+                            <!-- Instagram -->
+                            <a href="#"
+                                class="w-7 h-7 rounded-full bg-[#FFF2D6] hover:bg-[#FFE6B8] flex items-center justify-center text-[#F5A623] transition-colors"
+                                aria-label="Instagram">
+
+                                <svg class="w-3.5 h-3.5 fill-current"
+                                    viewBox="0 0 24 24">
+
+                                    <path d="M12 2.163c3.204 0 3.584.012
+                                    4.85.07 3.252.148 4.771 1.691
+                                    4.919 4.919.058 1.265.069 1.645
+                                    .069 4.849 0 3.205-.012 3.584-.069
+                                    4.849-.149 3.225-1.664 4.771-4.919
+                                    4.919-1.266.058-1.644.07-4.85.07
+                                    -3.204 0-3.584-.012-4.849-.07
+                                    -3.26-.149-4.771-1.699-4.919-4.92
+                                    -.058-1.28-.07-1.644-.07-4.849
+                                    0-3.204.013-3.583.07-4.849
+                                    .149-3.227 1.664-4.771 4.919-4.919
+                                    1.266-.057 1.645-.069 4.849-.069z
+                                    m0-2.163c-3.259 0-3.667.014-4.947.072
+                                    -4.358.2-6.78 2.618-6.98 6.98
+                                    -.059 1.281-.073 1.689-.073 4.948
+                                    0 3.259.014 3.668.072 4.948
+                                    .2 4.358 2.618 6.78 6.98 6.98
+                                    1.281.058 1.689.072 4.948.072
+                                    3.259 0 3.668-.014 4.948-.072
+                                    4.354-.2 6.782-2.618 6.979-6.98
+                                    .059-1.28.073-1.689.073-4.948
+                                    0-3.259-.014-3.667-.072-4.947
+                                    -.196-4.354-2.617-6.78-6.979-6.98
+                                    -1.281-.059-1.69-.073-4.949-.073z" />
+
+                                </svg>
+
+                            </a>
+
+
+                            <!-- Discord -->
+                            <a href="#"
+                                class="w-7 h-7 rounded-full bg-[#FFF2D6] hover:bg-[#FFE6B8] flex items-center justify-center text-[#F5A623] transition-colors"
+                                aria-label="Discord">
+
+                                <svg class="w-3.5 h-3.5 fill-current"
+                                    viewBox="0 0 24 24">
+
+                                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515
+                                    .074.074 0 0 0-.079.037c-.21.375-.444.864-.608
+                                    1.25a18.27 18.27 0 0 0-5.487 0
+                                    12.64 12.64 0 0 0-.617-1.25.077.077
+                                    0 0 0-.079-.037A19.736 19.736 0 0 0
+                                    3.677 4.37a.07.07 0 0 0-.032.027
+                                    C.533 9.046-.32 13.58.099 18.057a.082.082
+                                    0 0 0 .031.057 19.9 19.9 0 0 0 5.993
+                                    3.03.078.078 0 0 0 .084-.028c.462-.63
+                                    .874-1.295 1.226-1.994.021-.041.001-.09
+                                    -.041-.106a13.107 13.107 0 0 1-1.872-.892
+                                    .077.077 0 0 1-.008-.128 10.2 10.2 0 0 0
+                                    .372-.292.074.074 0 0 1 .077-.01
+                                    c3.928 1.793 8.18 1.793 12.061 0
+                                    a.074.074 0 0 1 .078.01c.12.098.246.198
+                                    .373.292a.077.077 0 0 1-.006.127
+                                    12.299 12.299 0 0 1-1.873.892.077.077
+                                    0 0 0-.041.107c.36.698.772 1.362 1.225
+                                    1.993a.076.076 0 0 0 .084.028 19.839 19.839
+                                    0 0 0 6.002-3.03.077.077 0 0 0 .032-.054
+                                    c.5-5.177-.838-9.674-3.549-13.66a.061.061
+                                    0 0 0-.031-.028z" />
+
+                                </svg>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+
+                <!-- =====================================================
+                     MAIN CONTENT
+                ====================================================== -->
+
+                <div class="flex-1 min-w-0 space-y-6 text-sm leading-relaxed text-slate-600">
+
+                    <!-- 1. INTRODUCTION -->
+                    <section id="intro"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            1. Introduction
+                        </h3>
+
+                        <p class="text-fiord leading-loose">
+                            Field Engineer ("FE," "we," "us," or "our") operates
+                            the Field Engineer platform, including our website,
+                            mobile applications, and related services
+                            (collectively, the "Services"). This Disclaimer
+                            explains the limits on the information, professional
+                            services, and third-party content made available
+                            through the Services, and should be read alongside
+                            our Terms &amp; Conditions and Privacy Policy.
+                        </p>
+
+                    </section>
+
+
+                    <!-- 2. GENERAL INFORMATION -->
+                    <section id="general"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            2. General Information Disclaimer
+                        </h3>
+
+                        <p class="text-fiord leading-loose">
+                            Content on the Services — including guides, blog
+                            posts, pricing estimates, and job descriptions —
+                            is provided for general informational purposes only.
+                            It does not constitute professional, technical,
+                            legal, or financial advice, and should not be relied
+                            upon as such without independent verification.
+                        </p>
+
+                        <ul class="space-y-1.5 list-none pl-1 mt-2">
+
+                            <li class="flex items-start gap-2">
+
+                                <span
+                                    class="mt-[11px] shrink-0 w-1.5 h-1.5 rounded-full bg-primary-yellow">
+                                </span>
+
+                                <span class="text-fiord leading-loose">
+                                    We make no representations or warranties of
+                                    any kind about the completeness, accuracy,
+                                    reliability, or availability of any content
+                                    on the Services.
+                                </span>
+
+                            </li>
+
+                            <li class="flex items-start gap-2">
+
+                                <span
+                                    class="mt-[11px] shrink-0 w-1.5 h-1.5 rounded-full bg-primary-yellow">
+                                </span>
+
+                                <span class="text-fiord leading-loose">
+                                    Any reliance you place on such information
+                                    is strictly at your own risk.
+                                </span>
+
+                            </li>
+
+                        </ul>
+
+                    </section>
+
+
+                    <!-- 3. PROFESSIONAL SERVICE -->
+                    <section id="professional"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            3. Professional &amp; Service Disclaimer
+                        </h3>
+
+                        <p class="text-black-two leading-loose mb-1.5">
+                            Field Engineer is a marketplace that connects
+                            businesses with independent field engineers and
+                            vendors. We do not employ the engineers listed on
+                            the platform and do not directly perform the
+                            technical work booked through the Services.
+                        </p>
+
+                        <ul class="space-y-1.5 list-none pl-1">
+
+                            <li class="flex items-start gap-2">
+
+                                <span
+                                    class="mt-[11px] shrink-0 w-1.5 h-1.5 rounded-full bg-primary-yellow">
+                                </span>
+
+                                <span class="text-fiord leading-loose">
+                                    We do not guarantee the skill, qualifications,
+                                    conduct, or work quality of any engineer or
+                                    vendor.
+                                </span>
+
+                            </li>
+
+                            <li class="flex items-start gap-2">
+
+                                <span
+                                    class="mt-[11px] shrink-0 w-1.5 h-1.5 rounded-full bg-primary-yellow">
+                                </span>
+
+                                <span class="text-fiord leading-loose">
+                                    Any agreement for services is between the
+                                    customer and the engineer or vendor;
+                                    Field Engineer is not a party to that
+                                    agreement.
+                                </span>
+
+                            </li>
+
+                            <li class="flex items-start gap-2">
+
+                                <span
+                                    class="mt-[11px] shrink-0 w-1.5 h-1.5 rounded-full bg-primary-yellow">
+                                </span>
+
+                                <span class="text-fiord leading-loose">
+                                    You are responsible for evaluating the
+                                    suitability of any engineer or vendor before
+                                    engaging their services.
+                                </span>
+
+                            </li>
+
+                        </ul>
+
+                    </section>
+
+
+                    <!-- 4. THIRD PARTY VENDOR -->
+                    <section id="vendors"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            4. Third-Party Vendor &amp; Engineer Disclaimer
+                        </h3>
+
+                        <p class="text-fiord leading-loose">
+                            Profiles, certifications, ratings, and reviews
+                            displayed on the platform are self-reported or
+                            submitted by other users. While we may run basic
+                            verification checks, we do not independently audit
+                            every credential and cannot guarantee their accuracy.
+                        </p>
+
+                    </section>
+
+
+                    <!-- 5. EXTERNAL LINKS -->
+                    <section id="external"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            5. External Links Disclaimer
+                        </h3>
+
+                        <p class="text-fiord leading-loose">
+                            The Services may contain links to third-party
+                            websites or resources that are not owned or controlled
+                            by Field Engineer. We have no control over, and assume
+                            no responsibility for, the content, privacy practices,
+                            or accuracy of any third-party sites.
+                        </p>
+
+                    </section>
+
+
+                    <!-- 6. ERRORS -->
+                    <section id="errors"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            6. Errors &amp; Omissions
+                        </h3>
+
+                        <p class="text-fiord leading-loose">
+                            While we make reasonable efforts to keep information
+                            on the Services current, errors or omissions may
+                            occur. We reserve the right to correct any error,
+                            inaccuracy, or omission and to change or update
+                            information at any time without prior notice.
+                        </p>
+
+                    </section>
+
+
+                    <!-- 7. LIABILITY -->
+                    <section id="liability"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            7. Limitation of Liability
+                        </h3>
+
+                        <p class="text-fiord leading-loose">
+                            To the fullest extent permitted by law, Field
+                            Engineer shall not be liable for any direct, indirect,
+                            incidental, consequential, or special damages arising
+                            out of or in connection with your use of, or inability
+                            to use, the Services or any content, service, or
+                            engineer accessed through them.
+                        </p>
+
+                    </section>
+
+
+                    <!-- 8. INDEMNIFICATION -->
+                    <section id="indemnification"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            8. Indemnification
+                        </h3>
+
+                        <p class="text-fiord leading-loose">
+                            You agree to indemnify and hold Field Engineer
+                            harmless from any claims, losses, or damages arising
+                            from your use of the Services, your engagement with
+                            any engineer or vendor, or your violation of this
+                            Disclaimer.
+                        </p>
+
+                    </section>
+
+
+                    <!-- 9. DATA RETENTION -->
+                    <section id="retention"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            9. Data &amp; Record Retention
+                        </h3>
+
+                        <p class="text-fiord leading-loose">
+                            Where this Disclaimer references information we hold
+                            about bookings, disputes, or platform activity, we
+                            retain such records only for as long as necessary to
+                            resolve the matter, meet legal obligations, or as
+                            described in our Privacy Policy.
+                        </p>
+
+                    </section>
+
+
+                    <!-- 10. INTERNATIONAL -->
+                    <section id="international"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            10. International Use
+                        </h3>
+
+                        <p class="text-fiord leading-loose">
+                            The Services are accessible from multiple countries.
+                            We make no representation that content on the Services
+                            is appropriate or available for use in every location,
+                            and access from territories where such content is
+                            illegal is prohibited.
+                        </p>
+
+                    </section>
+
+
+                    <!-- 11. CHILDREN -->
+                    <section id="children"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            11. Children's Use of the Site
+                        </h3>
+
+                        <p class="text-fiord leading-loose">
+                            The Services are intended for business and
+                            professional use and are not directed at individuals
+                            under the age of 18. We do not knowingly allow minors
+                            to register as customers, vendors, or engineers on
+                            the platform.
+                        </p>
+
+                    </section>
+
+
+                    <!-- 12. CHANGES -->
+                    <section id="changes"
+                        class="scroll-mt-6 border-b border-chinese-silver pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-1.5">
+                            12. Changes to This Disclaimer
+                        </h3>
+
+                        <p class="text-fiord leading-loose">
+                            We may update this Disclaimer from time to time to
+                            reflect changes in our Services or legal requirements.
+                            The updated version will be posted on this page with
+                            a revised "Last Updated" date.
+                        </p>
+
+                    </section>
+
+
+                    <!-- 13. CONTACT -->
+                    <section id="contact"
+                        class="scroll-mt-6 pb-6">
+
+                        <h3 class="text-base font-bold text-black-dark mb-3">
+                            13. Contact Us
+                        </h3>
+
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-3 bg-gradient-to-r from-[#F7FAF2] via-[#E8F2E3] to-[#D5EAD2] rounded-2xl border border-slate-300 overflow-hidden text-xs">
+
+                            <!-- EMAIL -->
+                            <div
+                                class="p-6 flex flex-col items-start gap-1 md:border-r border-slate-300/60">
+
+                                <span
+                                    class="material-symbols-outlined text-granite-gray mb-2"
+                                    style="font-size:1.1rem;">
+                                    mail
+                                </span>
+
+                                <span class="text-granite-gray font-normal">
+                                    Email
+                                </span>
+
+                                <a href="mailto:privacy@fieldengineer.com"
+                                    class="font-bold text-slate-900 break-all">
+                                    privacy@fieldengineer.com
+                                </a>
+
+                            </div>
+
+
+                            <!-- ADDRESS -->
+                            <div
+                                class="p-6 flex flex-col items-start gap-1 md:border-r border-slate-300/60">
+
+                                <span
+                                    class="material-symbols-outlined text-granite-gray mb-2"
+                                    style="font-size:1.1rem;">
+                                    location_on
+                                </span>
+
+                                <span class="text-granite-gray font-normal">
+                                    Address
+                                </span>
+
+                                <span class="font-bold text-slate-900">
+                                    Bangalore, Karnataka, India
+                                </span>
+
+                            </div>
+
+
+                            <!-- DPO -->
+                            <div class="p-6 flex flex-col items-start gap-1">
+
+                                <span
+                                    class="material-symbols-outlined text-granite-gray mb-2"
+                                    style="font-size:1.1rem;">
+                                    verified_user
+                                </span>
+
+                                <span class="text-granite-gray font-normal">
+                                    DPO Contact
+                                </span>
+
+                                <a href="mailto:dpo@fieldengineer.com"
+                                    class="font-bold text-slate-900 break-all">
+                                    dpo@fieldengineer.com
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- LAST UPDATED -->
+                    <div class="text-sm text-black-one pt-4 border-t border-slate-300">
+                        Last Updated: May 15, 2025
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- =========================================================
+         TRUST BOX
+    ========================================================== -->
+
+    <div class="pt-2 pb-8 bg-greenish-white">
+
+        <!-- SAME CONTAINER AS HEADER / LOGO -->
+        <div class="w-full max-w-[1400px] mx-auto px-6">
+
+            <div
+                class="bg-gradient-to-r from-[#FFFBEB] via-[#E2F1DD] to-[#CCE7C6] rounded-xl border border-slate-100 shadow-sm">
+
+                <div class="px-6 py-5">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+                        <!-- TRUST 1 -->
+                        <div class="flex items-start gap-3">
+
+                            <div class="p-2 bg-varden text-emerald-950 rounded-lg shrink-0">
+
+                                <span
+                                    class="material-symbols-outlined text-primary-yellow"
+                                    style="font-size:1.25rem;">
+                                    verified_user
+                                </span>
+
+                            </div>
+
+                            <div>
+
+                                <h3 class="font-bold text-black-dark text-[16px]">
+                                    Trust &amp; Transparency
+                                </h3>
+
+                                <p class="text-[13px] text-light-dark mt-0.5 leading-relaxed">
+                                    We are committed to protecting
+                                    <br>
+                                    your personal information.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TRUST 2 -->
+                        <div class="flex items-start gap-3">
+
+                            <div class="p-2 bg-varden text-emerald-950 rounded-lg shrink-0">
+
+                                <span
+                                    class="material-symbols-outlined text-primary-yellow"
+                                    style="font-size:1.25rem;">
+                                    lock
+                                </span>
+
+                            </div>
+
+                            <div>
+
+                                <h3 class="font-bold text-black-dark text-[16px]">
+                                    Secure by Design
+                                </h3>
+
+                                <p class="text-[13px] text-light-dark mt-0.5 leading-relaxed">
+                                    Industry-standard security
+                                    <br>
+                                    measures for your data.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TRUST 3 -->
+                        <div class="flex items-start gap-3">
+
+                            <div class="p-2 bg-varden text-emerald-950 rounded-lg shrink-0">
+
+                                <span
+                                    class="material-symbols-outlined text-primary-yellow"
+                                    style="font-size:1.25rem;">
+                                    manage_accounts
+                                </span>
+
+                            </div>
+
+                            <div>
+
+                                <h3 class="font-bold text-black-dark text-[16px]">
+                                    Your Control
+                                </h3>
+
+                                <p class="text-[13px] text-light-dark mt-0.5 leading-relaxed">
+                                    You are in control of your
+                                    <br>
+                                    information and choices.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TRUST 4 -->
+                        <div class="flex items-start gap-3">
+
+                            <div class="p-2 bg-varden text-emerald-950 rounded-lg shrink-0">
+
+                                <span
+                                    class="material-symbols-outlined text-primary-yellow"
+                                    style="font-size:1.25rem;">
+                                    task_alt
+                                </span>
+
+                            </div>
+
+                            <div>
+
+                                <h3 class="font-bold text-black-dark text-[16px]">
+                                    Always Compliant
+                                </h3>
+
+                                <p class="text-[13px] text-light-dark mt-0.5 leading-relaxed">
+                                    We comply with applicable
+                                    <br>
+                                    laws and regulations.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+<section class="bg-[#FFFDF8] w-full">
+
+    <!-- Full-width gradient background -->
+    <div
+        class="w-full bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0]
+               py-12 sm:py-14 lg:py-16 xl:py-20">
+
+        <!-- SAME CONTAINER AS HEADER / LOGO / DISCLAIMER -->
+        <div
+            class="w-full max-w-[1400px] mx-auto
+                   px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+
+            <!-- Content -->
+            <div
+                class="flex flex-row items-center justify-between
+                       gap-8 lg:gap-12
+                       flex-wrap lg:flex-nowrap">
+
+                <!-- ================= LEFT ================= -->
+                <div class="flex-1 min-w-[280px]">
+
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center gap-2
+                               rounded-full border border-[#22C55E]
+                               bg-white px-4 py-1.5">
+
+                        <span
+                            class="material-symbols-outlined text-[15px] text-[#22C55E]">
+                            download
+                        </span>
+
+                        <span
+                            class="text-[12px] font-semibold text-[#22C55E]">
+                            Get the FE App
+                        </span>
+
+                    </div>
+
+
+                    <!-- Heading -->
+                    <h2
+                        class="mt-5 text-[32px] sm:text-[36px] lg:text-[40px]
+                               font-bold leading-tight text-[#1E293B]">
+
+                        Download the
+
+                        <span class="text-[#22C55E]">
+                            FE App
+                        </span>
+
+                    </h2>
+
+
+                    <!-- Description -->
+                    <p
+                        class="mt-3 max-w-[500px]
+                               text-[14px] leading-6 text-slate-600">
+
+                        Manage field service jobs anytime, anywhere.
+                        Book engineers, track service requests and stay
+                        connected with real-time updates.
+
+                    </p>
+
+
+                    <!-- Store Buttons -->
+                    <div
+                        class="flex items-center gap-4 mt-6 flex-wrap">
+
+                        <!-- Google Play -->
+                        <a
+                            href="#"
+                            class="w-45 h-12 bg-black text-white px-4
+                                   rounded-xl flex items-center justify-center
+                                   gap-3 shadow-sm shrink-0"
+                            aria-label="Download Field Engineer app from Google Play">
+
+                            <img
+                                src="{% static 'img/google-play-store-icon.webp' %}"
+                                alt="Google Play logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+                            <div class="text-left leading-none">
+
+                                <p
+                                    class="text-[9px] uppercase tracking-wider
+                                           font-medium text-gray-300">
+
+                                    GET IT ON
+
+                                </p>
+
+                                <p
+                                    class="text-xs font-bold font-sans
+                                           mt-0.5 whitespace-nowrap text-white">
+
+                                    Google Play
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+                        <!-- App Store -->
+                        <a
+                            href="#"
+                            class="w-45 h-12 bg-black text-white px-4
+                                   rounded-xl flex items-center justify-center
+                                   gap-3 shadow-sm shrink-0">
+
+                            <img
+                                src="{% static 'img/apple-logo.webp' %}"
+                                alt="App Store logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+                            <div class="text-left leading-none">
+
+                                <p
+                                    class="text-[9px] uppercase tracking-wider
+                                           font-medium text-gray-300">
+
+                                    Download on
+
+                                </p>
+
+                                <p
+                                    class="text-xs font-bold font-sans
+                                           mt-0.5 whitespace-nowrap text-white">
+
+                                    App Store
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= RIGHT ================= -->
+                <div
+                    class="flex-shrink-0 flex justify-center
+                           lg:justify-end">
+
+                    <div class="text-center">
+
+                        <p
+                            class="mb-4 text-[11px] font-semibold
+                                   uppercase tracking-[2px] text-slate-500">
+                        </p>
+
+                        <img
+                            src="{% static 'img/about-qr.webp' %}"
+                            alt="Download FE App"
+                            width="190"
+                            height="190"
+                            class="w-[160px] md:w-[180px] lg:w-[190px]
+                                   object-contain mx-auto">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+</main>
+
+{% endblock %}

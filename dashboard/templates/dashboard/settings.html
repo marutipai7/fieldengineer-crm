@@ -1,0 +1,295 @@
+{% extends "dashboard/layout.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+
+<div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-5">
+        <h1 class="text-2xl font-bold text-ink">Settings</h1>
+        <p class="text-sm text-granite-gray mt-1">Manage your notification preference and security settings</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex items-center gap-2 mb-5">
+        <button type="button" data-tab="notifications"
+            class="settings-tab-btn px-5 py-2 rounded-full text-sm font-regular transition-colors bg-primary-yellow text-white">
+            Notifications
+        </button>
+        <button type="button" data-tab="permission"
+            class="settings-tab-btn px-5 py-2 rounded-full text-sm font-regular transition-colors border border-slate-200 text-granite-gray">
+            Permission
+        </button>
+    </div>
+
+    <!-- ===================== NOTIFICATIONS TAB ===================== -->
+    <div id="tab-notifications" class="settings-tab-panel">
+
+        <div class="border border-slate-200 rounded-xl overflow-hidden">
+
+            <!-- Table Header -->
+            <div class="grid grid-cols-[1fr_100px_100px_100px] items-center px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-granite-gray">Notification Type</span>
+                <span class="text-xs font-regular text-granite-gray text-center">Email</span>
+                <span class="text-xs font-regular text-granite-gray text-center">SMS</span>
+                <span class="text-xs font-regular text-granite-gray text-center">Push</span>
+            </div>
+
+            <!-- Row: Booking Confirmed -->
+            <div class="grid grid-cols-[1fr_100px_100px_100px] items-center px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Booking Confirmed</span>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="booking_confirmed" data-field="email"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="booking_confirmed" data-field="sms"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="booking_confirmed" data-field="push"><span class="toggle-knob"></span></button></div>
+            </div>
+
+            <!-- Row: Engineer -->
+            <div class="grid grid-cols-[1fr_100px_100px_100px] items-center px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Engineer</span>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="engineer" data-field="email"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="engineer" data-field="sms"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="engineer" data-field="push"><span class="toggle-knob"></span></button></div>
+            </div>
+
+            <!-- Row: Job Status -->
+            <div class="grid grid-cols-[1fr_100px_100px_100px] items-center px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Job Status</span>
+                <div class="flex justify-center"><button type="button" class="toggle-switch" data-key="job_status" data-field="email"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch" data-key="job_status" data-field="sms"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="job_status" data-field="push"><span class="toggle-knob"></span></button></div>
+            </div>
+
+            <!-- Row: Payment -->
+            <div class="grid grid-cols-[1fr_100px_100px_100px] items-center px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Payment</span>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="payment" data-field="email"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="payment" data-field="sms"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch" data-key="payment" data-field="push"><span class="toggle-knob"></span></button></div>
+            </div>
+
+            <!-- Row: Feedback -->
+            <div class="grid grid-cols-[1fr_100px_100px_100px] items-center px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Feedback</span>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="feedback" data-field="email"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="feedback" data-field="sms"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="feedback" data-field="push"><span class="toggle-knob"></span></button></div>
+            </div>
+
+            <!-- Row: Offers -->
+            <div class="grid grid-cols-[1fr_100px_100px_100px] items-center px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Offers</span>
+                <div class="flex justify-center"><button type="button" class="toggle-switch" data-key="offers" data-field="email"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch" data-key="offers" data-field="sms"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch" data-key="offers" data-field="push"><span class="toggle-knob"></span></button></div>
+            </div>
+
+            <!-- Row: System -->
+            <div class="grid grid-cols-[1fr_100px_100px_100px] items-center px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">System</span>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="system" data-field="email"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="system" data-field="sms"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch on" data-key="system" data-field="push"><span class="toggle-knob"></span></button></div>
+            </div>
+
+            <!-- Row: Support -->
+            <div class="grid grid-cols-[1fr_100px_100px_100px] items-center px-5 py-4">
+                <span class="text-sm font-regular text-ink">Support</span>
+                <div class="flex justify-center"><button type="button" class="toggle-switch" data-key="support" data-field="email"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch" data-key="support" data-field="sms"><span class="toggle-knob"></span></button></div>
+                <div class="flex justify-center"><button type="button" class="toggle-switch" data-key="support" data-field="push"><span class="toggle-knob"></span></button></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===================== PERMISSION TAB ===================== -->
+    <div id="tab-permission" class="settings-tab-panel hidden">
+
+        <div class="border border-slate-200 rounded-xl overflow-hidden">
+
+            <!-- Table Header -->
+            <div class="px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-bold text--medium">Permission Type</span>
+            </div>
+
+            <!-- Row: Location -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Location</span>
+                <button type="button" class="toggle-switch" data-key="location" data-field="permission"><span class="toggle-knob"></span></button>
+            </div>
+
+            <!-- Row: Communication -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Communication</span>
+                <button type="button" class="toggle-switch" data-key="communication" data-field="permission"><span class="toggle-knob"></span></button>
+            </div>
+
+            <!-- Row: Notifications -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Notifications</span>
+                <button type="button" class="toggle-switch on" data-key="notifications" data-field="permission"><span class="toggle-knob"></span></button>
+            </div>
+
+            <!-- Row: Camera -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Camera</span>
+                <button type="button" class="toggle-switch" data-key="camera" data-field="permission"><span class="toggle-knob"></span></button>
+            </div>
+
+            <!-- Row: Media -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Media</span>
+                <button type="button" class="toggle-switch on" data-key="media" data-field="permission"><span class="toggle-knob"></span></button>
+            </div>
+
+            <!-- Row: Audio -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Audio</span>
+                <button type="button" class="toggle-switch" data-key="audio" data-field="permission"><span class="toggle-knob"></span></button>
+            </div>
+
+            <!-- Row: Payment -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Payment</span>
+                <button type="button" class="toggle-switch" data-key="payment" data-field="permission"><span class="toggle-knob"></span></button>
+            </div>
+
+            <!-- Row: Security -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Security</span>
+                <button type="button" class="toggle-switch" data-key="security" data-field="permission"><span class="toggle-knob"></span></button>
+            </div>
+
+            <!-- Row: Network -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+                <span class="text-sm font-regular text-ink">Network</span>
+                <button type="button" class="toggle-switch on" data-key="network" data-field="permission"><span class="toggle-knob"></span></button>
+            </div>
+
+            <!-- Row: Device -->
+            <div class="flex items-center justify-between px-5 py-4">
+                <span class="text-sm font-regular text-ink">Device</span>
+                <button type="button" class="toggle-switch" data-key="device" data-field="permission"><span class="toggle-knob"></span></button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Warning banner -->
+    <div class="flex items-start gap-2 bg-primary-yellow/10 border border-baby-blue text-[13px] rounded-lg px-4 py-3 mt-5">
+        <span class="material-symbols-outlined text-primary-yellow text-[18px] mt-0.5">info</span>
+        <span class="text-granite-gray font-regular">Changes to notification settings take effect immediately. Push notifications require browser permission.</span>
+    </div>
+
+    <!-- Footer actions -->
+    <div class="flex items-center justify-between mt-6">
+        <button type="button" id="cancelBtn"
+            class="px-5 py-2.5 rounded-lg border border-pale-blue-gray text-sm font-regular text-granite-gray hover:bg-slate-50 transition-colors">
+            Cancel
+        </button>
+
+        <div class="flex items-center gap-3">
+            <button type="button" id="resetDefaultBtn"
+                class="px-5 py-2.5 rounded-lg border border-pale-blue-gray text-sm font-regular text-granite-gray hover:bg-slate-50 transition-colors">
+                Reset to Default
+            </button>
+            <button type="button" id="savePreferencesBtn"
+                class="flex items-center gap-1.5 px-5 py-2.5 rounded-lg  bg-primary-yellow text-white text-sm font-semibold hover:opacity-90 transition-opacity">
+                <span class="material-symbols-outlined text-[18px]">check</span>
+                Save Preferences
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .toggle-switch {
+        position: relative;
+        width: 40px;
+        height: 22px;
+        border-radius: 999px;
+        background-color: #E2E5E9;
+        transition: background-color 0.2s ease;
+        flex-shrink: 0;
+    }
+    .toggle-switch.on {
+        background-color: #FFC94A;
+    }
+    .toggle-knob {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        transition: transform 0.2s ease;
+    }
+    .toggle-switch.on .toggle-knob {
+        transform: translateX(18px);
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const tabButtons = document.querySelectorAll('.settings-tab-btn');
+        const tabPanels = document.querySelectorAll('.settings-tab-panel');
+
+        tabButtons.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const target = btn.getAttribute('data-tab');
+
+                tabButtons.forEach(function (b) {
+                    b.classList.remove('bg-primary-yellow', 'text-white');
+                    b.classList.add('border', 'border-slate-200', 'text-granite-gray');
+                });
+                btn.classList.add('bg-primary-yellow', 'text-white');
+                btn.classList.remove('border', 'border-slate-200', 'text-granite-gray');
+
+                tabPanels.forEach(function (panel) {
+                    panel.classList.add('hidden');
+                });
+                document.getElementById('tab-' + target).classList.remove('hidden');
+            });
+        });
+
+        const toggles = document.querySelectorAll('.toggle-switch');
+        toggles.forEach(function (toggle) {
+            toggle.addEventListener('click', function () {
+                toggle.classList.toggle('on');
+            });
+        });
+
+        document.getElementById('resetDefaultBtn').addEventListener('click', function () {
+            if (confirm('Reset all preferences to default?')) {
+                location.reload();
+            }
+        });
+
+        document.getElementById('cancelBtn').addEventListener('click', function () {
+            window.history.back();
+        });
+
+        document.getElementById('savePreferencesBtn').addEventListener('click', function () {
+            const states = [];
+            toggles.forEach(function (t) {
+                states.push({
+                    key: t.dataset.key,
+                    field: t.dataset.field,
+                    enabled: t.classList.contains('on')
+                });
+            });
+            console.log('Preferences to save:', states);
+        });
+
+    });
+</script>
+
+{% endblock %}

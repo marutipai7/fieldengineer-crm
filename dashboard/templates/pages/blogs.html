@@ -1,0 +1,541 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}Blog — FieldEngineer{% endblock %}
+
+{% block content %}
+
+<main id="blog-page" data-static-base="{% static 'img/' %}">
+
+    <style>
+        .blog-hero-eyebrow {
+            display: inline-block;
+            width: fit-content;
+
+        }
+    </style>
+
+    {# ========== HERO ========== #}
+    <section class="blog-hero py-6 sm:py-8 lg:py-10" aria-labelledby="blog-hero-title">
+
+    <!-- Same alignment as header / logo -->
+    <div class="mx-auto max-w-[1400px] px-6">
+
+        <!-- Breadcrumb -->
+        <nav class="blog-breadcrumb mb-4" aria-label="Breadcrumb">
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <span class="material-symbols-outlined text-[16px]" aria-hidden="true">
+                chevron_right
+            </span>
+
+            <span class="blog-breadcrumb-current" aria-current="page">
+                Blog
+            </span>
+        </nav>
+
+
+        <!-- Main Hero -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+
+            <!-- ================= LEFT CONTENT ================= -->
+            <div class="blog-hero-content lg:col-span-7 flex flex-col justify-center">
+
+                <p class="blog-hero-eyebrow inline-block w-fit">
+                    FE Blog
+                </p>
+
+                <h1 id="blog-hero-title" class="blog-hero-title">
+                    Insights. Trends. Innovation.
+                </h1>
+
+                <p class="blog-hero-desc">
+                    Expert insights, industry trends and best practices in
+                    infrastructure and field operations.
+                </p>
+
+                <!-- Search -->
+                <form
+                    class="blog-hero-search mt-4"
+                    data-blog-search-form
+                    role="search"
+                    aria-label="Search articles">
+
+                    <label
+                        class="sr-only"
+                        for="blog-search-input">
+                        Search articles
+                    </label>
+
+                    <input
+                        id="blog-search-input"
+                        type="search"
+                        class="blog-hero-search-input"
+                        placeholder="Search articles, topics and more..."
+                        data-blog-search-input
+                        autocomplete="off">
+
+                    <button
+                        type="submit"
+                        class="blog-hero-search-btn">
+                        Search
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- ================= RIGHT IMAGE ================= -->
+            <div
+                class="lg:col-span-5 flex justify-center lg:justify-end items-center">
+
+                <img
+                    src="{% static 'img/news.webp' %}"
+                    alt="FE Team recreation"
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-auto max-h-[180px] sm:max-h-[220px] lg:max-h-[400px] object-contain select-none pointer-events-none">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    {# ========== MAIN CONTENT ========== #}
+    <section
+    class="blog-main"
+    data-blog-content
+    aria-labelledby="blog-main-heading">
+
+    <!-- Same alignment as Header / Logo / Blog Hero -->
+    <div class="mx-auto max-w-[1400px] px-6">
+
+        <h2 id="blog-main-heading" class="sr-only">
+            Blog articles and resources
+        </h2>
+
+        <div class="blog-layout">
+
+            <!-- ================= BLOG CONTENT ================= -->
+            <div class="blog-content-col">
+
+                <!-- Category Tabs -->
+                <nav
+                    class="blog-tabs"
+                    data-blog-tabs
+                    aria-label="Article categories">
+                </nav>
+
+
+                <!-- Featured Article -->
+                <div data-blog-featured></div>
+
+
+                <!-- Blog Articles -->
+                <div
+                    class="blog-grid"
+                    data-blog-grid
+                    role="list"
+                    aria-label="Blog article list">
+                </div>
+
+
+                <!-- Pagination -->
+                <nav
+                    class="blog-pagination"
+                    data-blog-pagination
+                    aria-label="Blog pagination">
+                </nav>
+
+            </div>
+
+
+            <!-- ================= SIDEBAR ================= -->
+            <aside
+                class="blog-sidebar"
+                aria-label="Blog sidebar">
+
+                <!-- Categories -->
+                <div
+                    data-blog-sidebar-categories
+                    aria-labelledby="categories-heading">
+
+                    <h3
+                        id="categories-heading"
+                        class="sr-only">
+                        Categories
+                    </h3>
+
+                </div>
+
+
+                <!-- Popular Posts -->
+                <div
+                    data-blog-sidebar-popular
+                    aria-labelledby="popular-heading">
+
+                    <h3
+                        id="popular-heading"
+                        class="sr-only">
+                        Popular posts
+                    </h3>
+
+                </div>
+
+
+                <!-- Newsletter -->
+                <div
+                    class="blog-newsletter"
+                    aria-labelledby="newsletter-heading">
+
+                    <h2
+                        id="newsletter-heading"
+                        class="blog-newsletter-title">
+                        Stay Updated
+                    </h2>
+
+                    <p class="blog-newsletter-desc">
+                        Subscribe to get the latest insights on field operations,
+                        technology trends, and industry best practices.
+                    </p>
+
+
+                    <form
+                        class="blog-newsletter-form"
+                        data-blog-newsletter-form
+                        novalidate
+                        aria-label="Newsletter subscription">
+
+                        <label
+                            class="sr-only"
+                            for="blog-newsletter-email">
+                            Email address
+                        </label>
+
+                        <input
+                            id="blog-newsletter-email"
+                            type="email"
+                            class="blog-newsletter-input"
+                            placeholder="Enter your email"
+                            required>
+
+
+                        <button
+                            type="submit"
+                            class="blog-newsletter-btn">
+                            Subscribe
+                        </button>
+
+
+                        <p class="blog-newsletter-note">
+                            By subscribing, you agree to receive updates
+                            from Field Engineer. Unsubscribe anytime.
+                        </p>
+
+
+                        <p
+                            class="blog-newsletter-success"
+                            role="status"
+                            aria-live="polite">
+                            Thanks for subscribing!
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</section>
+
+    {# ========== STATS BAR ========== #}
+    <section class="blog-stats-bar" aria-label="Platform statistics">
+
+    <!-- Same alignment as Header / Blog Hero / Blog Main -->
+    <div class="mx-auto max-w-[1400px] px-6">
+
+        <div class="blog-stats-bar-inner">
+
+            <!-- Stat 1 -->
+            <div class="blog-stat">
+
+                <div class="blog-stat-icon" aria-hidden="true">
+                    <span class="material-symbols-outlined">
+                        groups
+                    </span>
+                </div>
+
+                <div>
+                    <strong>15,000+</strong>
+                    <span>Certified Engineers</span>
+                </div>
+
+            </div>
+
+
+            <!-- Stat 2 -->
+            <div class="blog-stat">
+
+                <div class="blog-stat-icon" aria-hidden="true">
+                    <span class="material-symbols-outlined">
+                        verified_user
+                    </span>
+                </div>
+
+                <div>
+                    <strong>350+</strong>
+                    <span>Verified Vendors</span>
+                </div>
+
+            </div>
+
+
+            <!-- Stat 3 -->
+            <div class="blog-stat">
+
+                <div class="blog-stat-icon" aria-hidden="true">
+                    <span class="material-symbols-outlined">
+                        location_city
+                    </span>
+                </div>
+
+                <div>
+                    <strong>120+</strong>
+                    <span>Cities Covered</span>
+                </div>
+
+            </div>
+
+
+            <!-- Stat 4 -->
+            <div class="blog-stat">
+
+                <div class="blog-stat-icon" aria-hidden="true">
+                    <span class="material-symbols-outlined">
+                        schedule
+                    </span>
+                </div>
+
+                <div>
+                    <strong>10M+</strong>
+                    <span>Work Hours</span>
+                </div>
+
+            </div>
+
+
+            <!-- Stat 5 -->
+            <div class="blog-stat">
+
+                <div class="blog-stat-icon" aria-hidden="true">
+                    <span class="material-symbols-outlined">
+                        check_circle
+                    </span>
+                </div>
+
+                <div>
+                    <strong>99.2%</strong>
+                    <span>SLA Success</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!--DOWNLOAD THE FE APP-->
+
+    <section class="bg-[#FFFDF8] w-full">
+
+    <!-- Full-width gradient background -->
+    <div
+        class="w-full bg-gradient-to-r from-[#EDF7F1] via-[#D6F3E4] to-[#D0FFE0]
+               py-12 sm:py-14 lg:py-16 xl:py-20">
+
+        <!-- Same alignment as Header / Logo / Blog sections -->
+        <div class="mx-auto max-w-[1400px] px-6">
+
+            <!-- Content -->
+            <div
+                class="flex flex-row items-center justify-between
+                       gap-8 lg:gap-12
+                       flex-wrap lg:flex-nowrap">
+
+                <!-- ================= LEFT ================= -->
+                <div class="flex-1 min-w-[280px]">
+
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center gap-2
+                               rounded-full border border-[#22C55E]
+                               bg-white px-4 py-1.5">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-[15px] text-[#22C55E]">
+                            download
+                        </span>
+
+                        <span
+                            class="text-[12px] font-semibold
+                                   text-[#22C55E]">
+                            Get the FE App
+                        </span>
+
+                    </div>
+
+
+                    <!-- Heading -->
+                    <h2
+                        class="mt-5 text-[32px] sm:text-[36px] lg:text-[40px]
+                               font-bold leading-tight text-[#1E293B]">
+
+                        Download the
+
+                        <span class="text-[#22C55E]">
+                            FE App
+                        </span>
+
+                    </h2>
+
+
+                    <!-- Description -->
+                    <p
+                        class="mt-3 max-w-[500px]
+                               text-[14px] leading-6 text-slate-600">
+
+                        Manage field service jobs anytime, anywhere.
+                        Book engineers, track service requests and stay
+                        connected with real-time updates.
+
+                    </p>
+
+
+                    <!-- Store Buttons -->
+                    <div
+                        class="flex items-center gap-4 mt-6 flex-wrap">
+
+                        <!-- Google Play -->
+                        <a
+                            href="#"
+                            class="w-45 h-12 bg-black text-white px-4
+                                   rounded-xl flex items-center justify-center
+                                   gap-3 shadow-sm shrink-0"
+                            aria-label="Download Field Engineer app from Google Play">
+
+                            <img
+                                src="{% static 'img/google-play-store-icon.webp' %}"
+                                alt="Google Play logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+                            <div class="text-left leading-none">
+
+                                <p
+                                    class="text-[9px] uppercase tracking-wider
+                                           font-medium text-gray-300">
+                                    GET IT ON
+                                </p>
+
+                                <p
+                                    class="text-xs font-bold font-sans
+                                           mt-0.5 whitespace-nowrap text-white">
+                                    Google Play
+                                </p>
+
+                            </div>
+
+                        </a>
+
+
+                        <!-- App Store -->
+                        <a
+                            href="#"
+                            class="w-45 h-12 bg-black text-white px-4
+                                   rounded-xl flex items-center justify-center
+                                   gap-3 shadow-sm shrink-0">
+
+                            <img
+                                src="{% static 'img/apple-logo.webp' %}"
+                                alt="App Store logo"
+                                width="24"
+                                height="24"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-6 h-6 shrink-0 object-contain">
+
+                            <div class="text-left leading-none">
+
+                                <p
+                                    class="text-[9px] uppercase tracking-wider
+                                           font-medium text-gray-300">
+                                    Download on
+                                </p>
+
+                                <p
+                                    class="text-xs font-bold font-sans
+                                           mt-0.5 whitespace-nowrap text-white">
+                                    App Store
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= RIGHT ================= -->
+                <div
+                    class="flex-shrink-0 flex
+                           justify-center lg:justify-end">
+
+                    <div class="text-center">
+
+                        <img
+                            src="{% static 'img/about-qr.webp' %}"
+                            alt="Download FE App"
+                            width="190"
+                            height="190"
+                            class="w-[160px] md:w-[180px] lg:w-[190px]
+                                   object-contain mx-auto">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'script/pages/blogs.js' %}"></script>
+{% endblock %}
