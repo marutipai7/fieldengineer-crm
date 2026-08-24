@@ -169,7 +169,6 @@
         </div>
     </div>
 
-
     <div id="detailsView" class="hidden">
 
         <button id="backToBookingBtn"
@@ -870,10 +869,7 @@
 
     </div>
 
-
-    <!-- =======================================================
-         LIVE ENGINEER TRACKING VIEW
-    ======================================================== -->
+    <!-- Live Engineer -->
     <div id="trackingView" class="hidden">
 
         <button id="backToTeamViewBtn"
@@ -1085,6 +1081,7 @@
         </div>
     </div>
 
+    <!-- Confirm Booking Flow -->
     <div id="confirm-detail-view" class="hidden">
         <!-- Back Button -->
         <button id="backToBookingBtn3"
@@ -1778,6 +1775,475 @@
         </div>
     </div>
 
+    <!-- Cancelled Booking Flow -->
+    <div id="cancelled-detail-view" class="hidden">
+        <!-- Breadcrumbs -->
+        <div class="flex items-center gap-1.5 text-xs text-granite-gray mb-4">
+            <span class="hover:text-ink cursor-pointer go-back-bookings">Booking</span>
+            <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+            <span class="hover:text-ink cursor-pointer go-back-bookings">Canceled</span>
+            <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+            <span class="text-slate-400 font-medium">Booking Details</span>
+        </div>
+
+        <!-- Header Area -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+            <div>
+                <div class="flex items-center gap-2.5">
+                    <h1 class="text-2xl font-bold text-ink">Cancelled Booking Details</h1>
+                    <span class="bg-red-50 border border-red-100 text-red-600 text-xs px-2.5 py-0.5 rounded-full font-bold">Cancelled</span>
+                </div>
+                <p class="text-xs text-granite-gray font-normal mt-1.5">
+                    Booking ID: <span id="canBookingId" class="text-primary-yellow font-bold">BK-56874</span> &nbsp;&bull;&nbsp; Cancelled on <span id="canCancelledDate">29 May 2026, 11:00 AM</span>
+                </p>
+            </div>
+            <div class="flex items-center gap-2">
+                <button class="btn-fill-yellow py-2 px-4 rounded-[8px] text-xs font-semibold text-white flex items-center gap-1.5 cursor-pointer hover:bg-amber-500 transition">
+                    <span class="material-symbols-outlined text-[16px]">download</span>
+                    Download Summary
+                </button>
+                <button class="btn-outline-yellow py-2 px-4 rounded-[8px] text-xs font-semibold flex items-center gap-1.5 cursor-pointer hover:bg-slate-50 transition">
+                    <span class="material-symbols-outlined text-[16px]">replay</span>
+                    Book Again
+                </button>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex items-center gap-2 mb-5">
+            <button id="canTabBtnOverview" class="bg-[#FAB819] text-white text-xs font-semibold py-1.5 px-4 rounded-full cursor-pointer transition">Overview</button>
+            <button id="canTabBtnTeam" class="bg-white border border-slate-200 text-granite-gray text-xs font-semibold py-1.5 px-4 rounded-full hover:bg-slate-50 transition cursor-pointer">Team & Engineers</button>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-5 items-start">
+
+            <!-- LEFT COLUMN -->
+            <div>
+                <div id="canOverviewContent">
+                    <!-- Overview Summary Card -->
+                    <div class="overview-card border border-slate-200 rounded-2xl p-5 bg-white mb-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-100 pb-4 mb-4">
+                        <div class="flex items-center gap-4">
+                            <div id="canCtxIconWrap" class="w-14 h-14 rounded-xl bg-mid-yellow flex items-center justify-center shrink-0">
+                                <span id="canCtxIcon" class="material-symbols-outlined text-primary-yellow text-[28px]">device_hub</span>
+                            </div>
+                            <div>
+                                <h2 id="canCtxTitle" class="text-lg font-bold text-ink">Network Cabling</h2>
+                                <p id="canCtxSub" class="text-xs text-granite-gray mt-0.5">Rack Setup & Patch Panel</p>
+                                <p class="text-xs text-granite-gray mt-1">Booking ID: <span id="canCtxBookingId2" class="text-primary-yellow font-bold">BK-56874</span></p>
+                            </div>
+                        </div>
+                        <div class="sm:text-right flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2">
+                            <span class="bg-red-50 border border-red-100 text-red-600 text-xs px-2.5 py-0.5 rounded-full font-bold">Cancelled</span>
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-medium leading-none">Est. Amount</p>
+                                <p class="font-bold text-ink text-xl mt-1.5" id="canCtxEstAmount">$7,434</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 py-4 relative">
+                        <!-- Connecting Line 1 -->
+                        <div class="hidden sm:block absolute left-[15%] right-[50%] top-[30px] h-[3px] bg-green z-0"></div>
+                        <!-- Connecting Line 2 -->
+                        <div class="hidden sm:block absolute left-[50%] right-[15%] top-[30px] h-[3px] bg-red-500 z-0"></div>
+
+                        <!-- Step 1: Confirmed -->
+                        <div class="flex flex-col items-center text-center flex-1 relative z-10">
+                            <div class="w-8 h-8 rounded-full bg-green text-white flex items-center justify-center font-bold shadow-sm">
+                                <span class="material-symbols-outlined text-sm">check</span>
+                            </div>
+                            <p class="text-[14px] font-bold text-green mt-2">Confirmed</p>
+                            <p class="text-[12px] text-granite-gray mt-0.5 font-normal leading-tight" id="canConfirmTime">23 May 2026, 10:15 AM</p>
+                        </div>
+
+                        <!-- Step 2: Team Assigned -->
+                        <div class="flex flex-col items-center text-center flex-1 relative z-10">
+                            <div class="w-8 h-8 rounded-full bg-green text-white flex items-center justify-center font-bold shadow-sm">
+                                <span class="material-symbols-outlined text-sm">check</span>
+                            </div>
+                            <p class="text-[14px] font-bold text-green mt-2">Team Assigned</p>
+                            <p class="text-[12px] text-granite-gray mt-0.5 font-normal leading-tight" id="canTeamAssignTime">23 May 2026, 10:15 AM</p>
+                        </div>
+
+                        <!-- Step 3: Cancelled -->
+                        <div class="flex flex-col items-center text-center flex-1 relative z-10">
+                            <div class="w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center font-bold shadow-sm">
+                                <span class="material-symbols-outlined text-sm">close</span>
+                            </div>
+                            <p class="text-[14px] font-bold text-red-500 mt-2">Cancelled</p>
+                            <p class="text-[12px] text-granite-gray mt-0.5 font-normal leading-tight" id="canCancelTime">23 May 2026, 10:15 AM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Refund Details Card -->
+                <div class="overview-card border border-slate-200 rounded-2xl p-5 bg-white mb-4">
+                    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 items-center">
+                        <div>
+                            <p class="text-[#34C759] font-bold text-sm">Refund Amount</p>
+                            <p class="text-3xl font-extrabold text-ink mt-1.5" id="canRefundAmount">$4,666</p>
+                            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                                Full amount will be refunded to the original payment method.
+                            </p>
+                        </div>
+                        <div class="w-[1px] h-20 bg-slate-200 hidden md:block"></div>
+                        <div class="space-y-4 text-xs">
+                            <div class="flex justify-between items-center">
+                                <span class="text-granite-gray font-medium">Refund Status</span>
+                                <span class="bg-[#EFFFEF] border border-emerald-100 text-emerald-600 text-[10px] px-2.5 py-0.5 rounded-full font-bold">Refund Instated</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-granite-gray font-medium">Refund instated on</span>
+                                <span class="font-bold text-ink" id="canRefundDate">29 May 2026, 11:15 AM</span>
+                            </div>
+                            <div class="flex justify-between items-start gap-4">
+                                <span class="text-granite-gray font-medium shrink-0">Expected Refund Date</span>
+                                <div class="text-right">
+                                    <p class="font-bold text-ink" id="canExpectedRefundDate">30 May 2026</p>
+                                    <p class="text-[10px] text-slate-400 font-medium mt-0.5">(Within 3-5 business days)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div> <!-- End #canOverviewContent -->
+
+                <!-- Team & Engineers Tab Content -->
+                <div id="canTeamContent" class="hidden">
+                    <!-- Team Overview Card -->
+                    <div class="overview-card border border-slate-200 rounded-2xl p-5 bg-white mb-4">
+                        <h3 class="text-ink font-bold text-base mb-4">Team Overview</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-2">
+                            <div class="border border-slate-200 rounded-[10px] p-3.5 flex items-center gap-3 bg-white shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-mid-yellow flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-primary-yellow text-xl">group</span>
+                                </div>
+                                <div>
+                                    <p class="text-base font-bold text-dark leading-none">10</p>
+                                    <p class="text-[10px] text-granite-gray font-normal mt-1.5 leading-none">Total Engineers</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-[10px] p-3.5 flex items-center gap-3 bg-white shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-mid-yellow flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-primary-yellow text-xl">engineering</span>
+                                </div>
+                                <div>
+                                    <p class="text-base font-bold text-dark leading-none">3</p>
+                                    <p class="text-[10px] text-granite-gray font-normal mt-1.5 leading-none">Senior Engineers</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-[10px] p-3.5 flex items-center gap-3 bg-white shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-mid-yellow flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-primary-yellow text-xl">work</span>
+                                </div>
+                                <div>
+                                    <p class="text-base font-bold text-dark leading-none">5+ Years</p>
+                                    <p class="text-[10px] text-granite-gray font-normal mt-1.5 leading-none">Avg. Experience</p>
+                                </div>
+                            </div>
+                            <div class="border border-slate-200 rounded-[10px] p-3.5 flex items-center gap-3 bg-white shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-mid-yellow flex items-center justify-center shrink-0">
+                                    <span class="material-symbols-outlined text-primary-yellow text-xl">dashboard</span>
+                                </div>
+                                <div>
+                                    <p class="text-base font-bold text-dark leading-none">52+</p>
+                                    <p class="text-[10px] text-granite-gray font-normal mt-1.5 leading-none">Similar Projects</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Members Card -->
+                    <div class="overview-card border border-slate-200 rounded-2xl p-5 bg-white mb-4">
+                        <div class="flex items-center mb-4">
+                            <h3 class="text-base font-bold text-ink">Team Members</h3>
+                            <span class="bg-[#FEF9E7] text-[#FAB819] text-xs px-2 py-0.5 rounded-full font-bold ml-2">10</span>
+                        </div>
+
+                        <!-- Filters -->
+                        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                            <div class="relative min-w-[200px] flex-1 sm:flex-initial">
+                                <span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">search</span>
+                                <input type="text" placeholder="Search by name or role..." class="w-full pl-8 pr-3 py-1.5 border border-slate-200 rounded-[6px] text-xs focus:outline-none text-granite-gray">
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button class="px-3 py-1.5 border border-slate-200 rounded-[6px] text-xs text-granite-gray flex items-center gap-1 bg-white hover:bg-slate-50 cursor-pointer">
+                                    All Status <span class="material-symbols-outlined text-[16px]">expand_more</span>
+                                </button>
+                                <button class="px-3 py-1.5 border border-slate-200 rounded-[6px] text-xs text-granite-gray flex items-center gap-1.5 bg-white hover:bg-slate-50 cursor-pointer">
+                                    <span class="material-symbols-outlined text-[14px]">filter_list</span> Filter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Table -->
+                        <div class="border border-slate-200 rounded-[12px] overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm">
+                                    <thead class="bg-[#F0F0F0] text-ink font-semibold">
+                                        <tr>
+                                            <th class="text-left py-3 px-4 font-bold text-xs">Engineer</th>
+                                            <th class="text-left py-3 px-4 font-bold text-xs">Role</th>
+                                            <th class="text-left py-3 px-4 font-bold text-xs">Status</th>
+                                            <th class="text-left py-3 px-4 font-bold text-xs">Location</th>
+                                            <th class="text-right py-3 px-4 font-bold text-xs">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100">
+                                        <!-- Row 1 -->
+                                        <tr class="hover:bg-slate-50/60">
+                                            <td class="py-3 px-4">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">RS</div>
+                                                    <div>
+                                                        <div class="flex items-center gap-1.5">
+                                                            <p class="font-bold text-slate-800 text-xs">Rahul Sharma</p>
+                                                            <span class="bg-[#FFF9E6] text-[#FAB819] text-[9px] font-bold px-1.5 py-0.5 rounded">Lead</span>
+                                                        </div>
+                                                        <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1001</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-3 px-4 text-xs text-slate-700 font-medium">Lead Engineer</td>
+                                            <td class="py-3 px-4"><span class="bg-red-50 text-red-500 border border-red-100 text-[10px] font-bold px-2 py-0.5 rounded-full">Cancelled</span></td>
+                                            <td class="py-3 px-4 text-xs text-slate-500 font-medium">DLF Cyber City, Gurgaon</td>
+                                            <td class="py-3 px-4 text-right">
+                                                <button class="bg-[#FAB819] text-white hover:bg-amber-500 transition text-[10px] font-bold px-3 py-1.5 rounded-[6px] cursor-pointer">Add Comments</button>
+                                            </td>
+                                        </tr>
+                                        <!-- Row 2 -->
+                                        <tr class="hover:bg-slate-50/60">
+                                            <td class="py-3 px-4">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">VS</div>
+                                                    <div>
+                                                        <p class="font-bold text-slate-800 text-xs">Vikas Singh</p>
+                                                        <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1002</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-3 px-4 text-xs text-slate-700 font-medium">Senior Engineer</td>
+                                            <td class="py-3 px-4"><span class="bg-red-50 text-red-500 border border-red-100 text-[10px] font-bold px-2 py-0.5 rounded-full">Cancelled</span></td>
+                                            <td class="py-3 px-4 text-xs text-slate-500 font-medium">DLF Cyber City, Gurgaon</td>
+                                            <td class="py-3 px-4 text-right">
+                                                <button class="bg-[#FAB819] text-white hover:bg-amber-500 transition text-[10px] font-bold px-3 py-1.5 rounded-[6px] cursor-pointer">Add Comments</button>
+                                            </td>
+                                        </tr>
+                                        <!-- Row 3 -->
+                                        <tr class="hover:bg-slate-50/60">
+                                            <td class="py-3 px-4">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">AK</div>
+                                                    <div>
+                                                        <p class="font-bold text-slate-800 text-xs">Amit Kumar</p>
+                                                        <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1003</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-3 px-4 text-xs text-slate-700 font-medium">Senior Engineer</td>
+                                            <td class="py-3 px-4"><span class="bg-red-50 text-red-500 border border-red-100 text-[10px] font-bold px-2 py-0.5 rounded-full">Cancelled</span></td>
+                                            <td class="py-3 px-4 text-xs text-slate-500 font-medium">DLF Cyber City, Gurgaon</td>
+                                            <td class="py-3 px-4 text-right">
+                                                <button class="bg-[#FAB819] text-white hover:bg-amber-500 transition text-[10px] font-bold px-3 py-1.5 rounded-[6px] cursor-pointer">Add Comments</button>
+                                            </td>
+                                        </tr>
+                                        <!-- Row 4 -->
+                                        <tr class="hover:bg-slate-50/60">
+                                            <td class="py-3 px-4">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">PV</div>
+                                                    <div>
+                                                        <p class="font-bold text-slate-800 text-xs">Pawan Verma</p>
+                                                        <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1004</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-3 px-4 text-xs text-slate-700 font-medium">Technician</td>
+                                            <td class="py-3 px-4"><span class="bg-red-50 text-red-500 border border-red-100 text-[10px] font-bold px-2 py-0.5 rounded-full">Cancelled</span></td>
+                                            <td class="py-3 px-4 text-xs text-slate-500 font-medium">DLF Cyber City, Gurgaon</td>
+                                            <td class="py-3 px-4 text-right">
+                                                <button class="bg-[#FAB819] text-white hover:bg-amber-500 transition text-[10px] font-bold px-3 py-1.5 rounded-[6px] cursor-pointer">Add Comments</button>
+                                            </td>
+                                        </tr>
+                                        <!-- Row 5 -->
+                                        <tr class="hover:bg-slate-50/60">
+                                            <td class="py-3 px-4">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">NY</div>
+                                                    <div>
+                                                        <p class="font-bold text-slate-800 text-xs">Neeraj Yadav</p>
+                                                        <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1005</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-3 px-4 text-xs text-slate-700 font-medium">Technician</td>
+                                            <td class="py-3 px-4"><span class="bg-red-50 text-red-500 border border-red-100 text-[10px] font-bold px-2 py-0.5 rounded-full">Cancelled</span></td>
+                                            <td class="py-3 px-4 text-xs text-slate-500 font-medium">DLF Cyber City, Gurgaon</td>
+                                            <td class="py-3 px-4 text-right">
+                                                <button class="bg-[#FAB819] text-white hover:bg-amber-500 transition text-[10px] font-bold px-3 py-1.5 rounded-[6px] cursor-pointer">Add Comments</button>
+                                            </td>
+                                        </tr>
+                                        <!-- Row 6 -->
+                                        <tr class="hover:bg-slate-50/60">
+                                            <td class="py-3 px-4">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">SD</div>
+                                                    <div>
+                                                        <p class="font-bold text-slate-800 text-xs">Sanjay Dutt</p>
+                                                        <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1006</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="py-3 px-4 text-xs text-slate-700 font-medium">Helper</td>
+                                            <td class="py-3 px-4"><span class="bg-red-50 text-red-500 border border-red-100 text-[10px] font-bold px-2 py-0.5 rounded-full">Cancelled</span></td>
+                                            <td class="py-3 px-4 text-xs text-slate-500 font-medium">DLF Cyber City, Gurgaon</td>
+                                            <td class="py-3 px-4 text-right">
+                                                <button class="bg-[#FAB819] text-white hover:bg-amber-500 transition text-[10px] font-bold px-3 py-1.5 rounded-[6px] cursor-pointer">Add Comments</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End #canTeamContent -->
+
+                <!-- Re-book Banner Card -->
+                <div class="overview-card border border-slate-200 rounded-2xl p-5 bg-white flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+                    <div class="flex items-start gap-3">
+                        <div class="w-12 h-12 rounded-full bg-[#EEF4FB] flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-primary-blue text-[24px]">calendar_today</span>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-ink">Want to book this service Again</h3>
+                            <p class="text-xs text-granite-gray mt-0.5">
+                                You can quickly create new booking with the same or updated details.
+                            </p>
+                        </div>
+                    </div>
+                    <button class="btn-fill-yellow py-2.5 px-5 rounded-[8px] text-xs font-semibold text-white flex items-center gap-1.5 cursor-pointer shrink-0 hover:bg-amber-500 transition">
+                        <span class="material-symbols-outlined text-[16px]">book</span>
+                        Book Again
+                    </button>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Sidebar Summary & Help -->
+            <div>
+                <!-- Booking Summary Card -->
+                <div id="canSidebarSummary" class="overview-card border border-slate-200 rounded-2xl p-4 bg-white mb-4">
+                    <h3 class="text-ink font-semibold text-sm mb-4">Booking Summary</h3>
+                    
+                    <div class="space-y-3.5 text-xs">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 font-medium">Service Type</span>
+                            <span id="canSumServiceType" class="font-bold text-ink">Network Cabling</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 font-medium">Booking Date</span>
+                            <span id="canSumDate" class="font-bold text-ink">29 May 2026</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 font-medium">Preferred Time</span>
+                            <span id="canSumTime" class="font-bold text-ink">10:00 AM - 02:30 PM</span>
+                        </div>
+                        <div class="flex justify-between items-start gap-4">
+                            <span class="text-slate-500 font-medium shrink-0">Location</span>
+                            <span id="canSumLocation" class="font-bold text-ink text-right">DLF Cyber City, Gurugon, Haryana 122002</span>
+                        </div>
+                        <div class="flex justify-between items-center pt-3 border-t border-low-gray">
+                            <span class="text-slate-500 font-semibold">Total Amount</span>
+                            <span id="canSumAmount" class="font-extrabold text-ink text-sm">$6,878</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Details Card -->
+                <div id="canSidebarPayment" class="overview-card border border-slate-200 rounded-2xl p-4 bg-white mb-4 hidden">
+                    <h3 class="text-ink font-semibold text-sm mb-4">Payment Details</h3>
+                    <div class="space-y-3.5 text-xs">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 font-medium">Payment Method</span>
+                            <span class="font-bold text-ink">Online Payment</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 font-medium">Payment Gateway</span>
+                            <span class="font-bold text-ink">Razorpay</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 font-medium">Payment ID</span>
+                            <span class="font-bold text-ink">HFGI586868</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 font-medium">Transaction ID</span>
+                            <span class="font-bold text-ink">HFGI586868</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 font-medium">Payment Date</span>
+                            <span class="font-bold text-ink">29 May 2026</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 font-medium">Payment Status</span>
+                            <span class="bg-red-50 border border-red-100 text-red-500 text-[10px] font-bold px-2 py-0.5 rounded-full">Refund</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cancellation Charges Card -->
+                <div id="canSidebarCharges" class="overview-card border border-slate-200 rounded-2xl p-4 bg-white mb-4 hidden">
+                    <h3 class="text-ink font-semibold text-sm mb-4">Cancellation Charges</h3>
+                    <div class="space-y-3.5 text-xs">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 font-medium">Cancellation Policy</span>
+                            <span class="font-bold text-ink">Free Cancellation</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-500 font-medium">Cancelled Before</span>
+                            <span class="font-bold text-ink">29 May 2026, 10:00 AM</span>
+                        </div>
+                        <div class="flex justify-between items-center pt-3 border-t border-low-gray">
+                            <span class="text-slate-500 font-semibold">Cancellation Charges</span>
+                            <span class="font-extrabold text-ink text-sm">$0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No cancellation charges applied Banner -->
+                <div id="canSidebarNoChargesBanner" class="bg-[#EFFFEF] rounded-2xl p-4 flex items-start gap-3 border border-emerald-100 mb-4 hidden">
+                    <div class="w-6 h-6 rounded-full bg-[#34C759] text-white flex items-center justify-center shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-[16px] font-bold">check</span>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-emerald-800">No cancellation charges applied.</p>
+                        <p class="text-[10px] text-emerald-600 font-semibold mt-0.5">You cancelled before the scheduled start time.</p>
+                    </div>
+                </div>
+
+                <!-- Need help? Card -->
+                <div class="overview-card border border-slate-200 rounded-2xl p-4 bg-white">
+                    <h3 class="text-ink font-semibold text-sm mb-2">Need help?</h3>
+                    <p class="text-xs text-granite-gray font-normal leading-relaxed mb-4">
+                        Questions about your bookings, assigned engineers or project progress?
+                    </p>
+                    <div class="flex flex-col gap-2">
+                        <button id="canChatSupportBtn" class="btn-fill-yellow w-full text-xs py-2 flex items-center justify-center gap-1.5 font-semibold text-white rounded-[8px] cursor-pointer hover:bg-amber-500 transition">
+                            <span class="material-symbols-outlined text-[16px]">chat</span>
+                            Chat Support
+                        </button>
+                        <button class="w-full text-xs py-2 border border-slate-mist rounded-[8px] text-ink flex items-center justify-center gap-1.5 font-semibold hover:bg-slate-50 transition cursor-pointer">
+                            <span class="material-symbols-outlined text-[16px]">call</span>
+                            Call Support
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <!-- CHAT SUPPORT -->
     <div id="chatView" class="hidden">
         <!-- Back Button -->
@@ -1963,9 +2429,6 @@
 
         </div>
     </div>
-
-    
-
 </section>
 
 <script src="/static/script/pages/booking.js"></script>
