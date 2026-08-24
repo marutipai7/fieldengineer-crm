@@ -4,775 +4,1229 @@
 
 {% block content %}
 
-<!-- <div class="p-0 lg:p-0  min-h-screen text-slate-800"> -->
-    <div class="max-w-7xl mx-auto p- sm:p- space-y-  min-h-screen font-sans">
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-            <h1 class="text-xl font-bold text-ink">Profile & Verification Center</h1>
-            <p class="text-xs text-slate-400 mt-0.5">Complete your profile to unlock all feature and book faster.</p>
-        </div>
-        <button class="bg-primary-yellow hover:bg-[#F59E0B] text-white font-semibold text-sm px-4 py-2 rounded-xl transition duration-150 flex items-center gap-2 shadow-sm self-start sm:self-auto">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"/></svg>
-            Edit Profile
-        </button>
-    </div>
+<div class="max-w-7xl mx-auto p- sm:p- space-y- min-h-screen font-sans" id="profileVerificationApp"
+    data-user-id="{{ user.id|default:'guest' }}">
 
-    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
-        <div class="w-full lg:max-w-3xl relative px-4">
-            
-            <div class="absolute left-[calc(10%/2+8px)] right-[calc(10%/2+8px)] top-3.5 h-[2px] bg-slate-200 -z-0">
-                <div class="bg-[#22C55E] h-full w-[25%]"></div>
+    <!-- Toast Notification Container -->
+    <div id="pvToastContainer" class="fixed top-5 right-5 z-[9999] flex flex-col gap-2 items-end"></div>
+
+    <!-- ============================================================ -->
+    <!-- MAIN PROFILE DASHBOARD VIEW -->
+    <!-- ============================================================ -->
+    <div id="dashboardView">
+
+        <!-- Profile Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+                <h1 class="text-2xl font-bold text-ink">Profile & Verification Center</h1>
+                <p class="text-base font-normal text-granite-gray mt-2">Complete your profile to unlock all feature and book faster.</p>
             </div>
-            
-          <div class="relative flex items-start justify-between w-full max-w-full overflow-hidden">
-    <!-- Step 1: Profile Details (completed) -->
-    <div class="relative flex flex-col items-center min-w-0 flex-1 px-0.5">
-        <div class="relative z-10 w-7 h-7 rounded-full bg-[#22C55E] text-white flex items-center justify-center shadow-sm shrink-0">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-        </div>
-        <span class="text-[10px] sm:text-[13px] font-semibold text-slate-700 mt-2.5 text-center leading-tight break-words">Profile Details</span>
-    </div>
-
-    <!-- Step 2: Identity Verification -->
-    <div class="relative flex flex-col items-center min-w-0 flex-1 px-0.5">
-        <div class="absolute top-3.5 right-1/2 w-full h-0.5 bg-[#22C55E] z-0"></div>
-        <div class="relative z-10 w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300 shrink-0"></div>
-        <span class="text-[10px] sm:text-[13px] font-medium text-slate-400 mt-2.5 text-center leading-tight break-words">Identity Verification</span>
-    </div>
-
-    <!-- Step 3: Business Information -->
-    <div class="relative flex flex-col items-center min-w-0 flex-1 px-0.5">
-        <div class="absolute top-3.5 right-1/2 w-full h-0.5 bg-slate-300 z-0"></div>
-        <div class="relative z-10 w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300 shrink-0"></div>
-        <span class="text-[10px] sm:text-[13px] font-medium text-slate-400 mt-2.5 text-center leading-tight break-words">Business Information</span>
-    </div>
-
-    <!-- Step 4: Payment Method -->
-    <div class="relative flex flex-col items-center min-w-0 flex-1 px-0.5">
-        <div class="absolute top-3.5 right-1/2 w-full h-0.5 bg-slate-300 z-0"></div>
-        <div class="relative z-10 w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300 shrink-0"></div>
-        <span class="text-[10px] sm:text-[13px] font-medium text-slate-400 mt-2.5 text-center leading-tight break-words">Payment Method</span>
-    </div>
-
-    <!-- Step 5: Documents -->
-    <div class="relative flex flex-col items-center min-w-0 flex-1 px-0.5">
-        <div class="absolute top-3.5 right-1/2 w-full h-0.5 bg-slate-300 z-0"></div>
-        <div class="relative z-10 w-7 h-7 rounded-full bg-white text-slate-300 flex items-center justify-center border-2 border-slate-300 shrink-0"></div>
-        <span class="text-[10px] sm:text-[13px] font-medium text-slate-400 mt-2.5 text-center leading-tight break-words">Documents</span>
-    </div>
-</div>
-        </div>
-
-        <button class="w-full lg:w-auto bg-[#FBBF24] hover:bg-[#F59E0B] text-white font-bold text-xs px-6 py-3 rounded-xl transition duration-150 whitespace-nowrap shadow-sm flex items-center justify-center gap-2 self-center">
-            Continue Setup
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
-        </button>
-    </div>
-
-   <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        
-    <!-- Box 1: Profile -->
-    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-2">
-        <div class="relative w-16 h-16 flex-shrink-0 group cursor-pointer" id="profilePhotoWrapper">
-    
-    <!-- 1. The Circular Ring with cut-out -->
-    <div class="absolute inset-0 rounded-full border-[3px] border-primary-yellow z-10 pointer-events-none" 
-         style="border-right-color: transparent; transform: rotate(-45deg);"></div>
-    
-    <!-- 2. Profile Image Container (Added overflow-hidden so no image bleeds out) -->
-    <div class="w-full h-full rounded-full overflow-hidden">
-        <img id="profileImage" 
-             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120" 
-             alt="Avatar" 
-             class="w-full h-full object-cover">
-    </div>
-    
-    <!-- 3. Hidden file input for uploading -->
-    <input type="file" id="profileImageInput" accept="image/*" class="hidden">
-    
-    <!-- 4. Hover Overlay (Camera Icon) -->
-    <div class="absolute inset-0 rounded-full bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
-        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
-        </svg>
-    </div>
-
-    <!-- 5. 80% Badge (Overlapping the bottom edge INSIDE the circle) -->
-    <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-white border-2 border-primary-yellow rounded-full px-2 py-0.5 shadow-sm z-30 whitespace-nowrap">
-        <span class="text-[10px] font-bold text-slate-800">80%</span>
-    </div>
-</div>
-<script>
-    // Profile Photo Upload functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const wrapper = document.getElementById('profilePhotoWrapper');
-    const profileImage = document.getElementById('profileImage');
-    const fileInput = document.getElementById('profileImageInput');
-
-    if (wrapper && profileImage && fileInput) {
-        // Clicking the image triggers the file input
-        wrapper.addEventListener('click', function() {
-            fileInput.click();
-        });
-
-        // When a file is selected, update the image
-        fileInput.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    profileImage.src = e.target.result; // Instantly updates the photo
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    }
-});
-</script>
-            <!-- <button id="editProfileBtn" class="bg-primary-yellow hover:bg-yellow-400 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition duration-200 shadow-sm self-start sm:self-auto" onclick="toggleEditMode()">
+            <!-- Edit Profile Section -->
+            <button id="editProfileBtn"
+                class="bg-primary-yellow text-white font-semibold text-lg px-4 py-2 rounded-xl transition duration-150 flex items-center gap-2 shadow-sm self-start sm:self-auto hover:bg-[#F59E0B]">
+                <span class="material-symbols-outlined">edit</span>
                 Edit Profile
-            </button> -->
+            </button>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-0">
-            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
-                <div class="p-2.5 bg-blue-50 text-blue-600 rounded-xl">
-                   <img src="/static/img/profile.svg" alt="profile image of dashboard section">
-                </div>
-                <div class="leading-none flex-1">
-                    <p class="text-sm font-semibold text-primary-gray">Contact Person</p>
-                    <input id="contactPerson" type="text" value="Rishi Acharya" disabled
-                        class="text-xs text-dark font-medium w-full bg-transparent border-0 p-0 disabled:bg-transparent disabled:opacity-100 focus:ring-2 focus:ring-blue-500 focus:rounded px-1 profile-input">
+        <!-- Continue Setup Section -->
+        <div id="continueSetupBanner"
+            class="bg-neutral-white-gray border border-light-medium rounded-2xl p-6 shadow-[0_4px_16px_rgba(216,216,216,0.35)] flex flex-col lg:flex-row items-center justify-between gap-8 mt-4 mb-6">
+            <div class="w-full lg:max-w-3xl relative px-4">
+                <div id="dashStepper" class="relative flex items-start justify-between w-full max-w-full overflow-hidden">
+                    <!-- step nodes injected by JS -->
                 </div>
             </div>
 
-            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
-                <div class="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl">
-                    <img src="/static/img/Phone.svg" alt="responsive phone image ">
-                </div>
-                <div class="leading-none flex-1">
-                    <p class="text-sm font-semibold text-primary-gray">Phone Number</p>
-                    <input id="phoneNumber" type="text" value="+91 76543 65434" disabled
-                        class="text-xs text-dark font-medium w-full bg-transparent border-0 p-0 disabled:bg-transparent disabled:opacity-100 focus:ring-2 focus:ring-blue-500 focus:rounded px-1 profile-input">
-                </div>
-            </div>
-
-            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
-                <div class="p-2.5 bg-emerald-50 text-emerald-600 rounded-xl">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                </div>
-                <div class="leading-none flex-1">
-                    <p class="text-sm font-semibold text-primary-gray">Email</p>
-                    <input id="email" type="email" value="Alexa257@gmail.com" disabled
-                        class="text-xs text-dark font-medium w-full bg-transparent border-0 p-0 disabled:bg-transparent disabled:opacity-100 focus:ring-2 focus:ring-blue-500 focus:rounded px-1 profile-input">
-                </div>
-            </div>
-
-            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
-                <div class="p-2.5 bg-slate-100 text-slate-600 rounded-xl">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                </div>
-                <div class="leading-none flex-1">
-                    <p class="text-sm font-semibold text-primary-gray">Business Type</p>
-                    <input id="businessType" type="text" value="Private Limited" disabled
-                        class="text-xs text-dark font-medium w-full bg-transparent border-0 p-0 disabled:bg-transparent disabled:opacity-100 focus:ring-2 focus:ring-blue-500 focus:rounded px-1 profile-input">
-                </div>
-            </div>
-
-            <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition col-span-1 sm:col-span-2">
-                <div class="p-2.5 bg-orange-50 text-orange-600 rounded-xl">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                </div>
-                <div class="leading-none flex-1">
-                    <p class="text-sm font-semibold text-primary-gray">Member Since</p>
-                    <p class="text-xs text-dark font-medium -mt-0.5">25 May 2020</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Box 2: Account Summary -->
-   <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
-    <div class="mb-4">
-        <h2 class="text-lg font-bold text-ink">Account Summary</h2>
-        <p class="text-sm text-dark mt-0.5">All important events related to this booking.</p>
-    </div>
-
-    <div class="space-y-1.5">
-        <div class="flex items-center justify-between py-1.5">
-            <div class="flex items-center gap-3">
-                <div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                </div>
-                <span class="text-sm font-medium text-dark">Total Bookings</span>
-            </div>
-            <span class="text-base font-bold text-dark">16</span>
+            <button id="continueSetupBtn"
+                class="w-full lg:w-auto bg-[#FBBF24] hover:bg-[#F59E0B] text-white font-bold text-xs px-6 py-3 rounded-xl transition duration-150 whitespace-nowrap shadow-sm flex items-center justify-center gap-2 self-center">
+                Continue Setup
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
         </div>
 
-        <div class="flex items-center justify-between py-1.5">
-            <div class="flex items-center gap-3">
-                <div class="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
-                    <img src="/static/img/completed.webp" alt="dashboard template completed">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+            <!-- Contact Information -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-2">
+                    <div class="relative w-16 h-16 flex-shrink-0 group cursor-pointer" id="profilePhotoWrapper">
+                        <div class="absolute inset-0 rounded-full border-[3px] border-primary-yellow z-10 pointer-events-none"
+                            style="border-right-color: transparent; transform: rotate(-45deg);"></div>
+                        <div class="w-full h-full rounded-full overflow-hidden">
+                            <img id="profileImage"
+                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120"
+                                alt="Avatar" class="w-full h-full object-cover">
+                        </div>
+                        <input type="file" id="profileImageInput" accept="image/*" class="hidden">
+                        <div
+                            class="absolute inset-0 rounded-full bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+                            <span class="material-symbols-outlined text-xl text-white">photo_camera</span>
+                        </div>
+                        <div id="profileCompletionBadge"
+                            class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-white border-2 border-primary-yellow rounded-full px-2 py-0.5 shadow-sm z-30 whitespace-nowrap">
+                            <span class="text-[10px] font-bold text-slate-800"><span id="profileCompletionPct">100</span>%</span>
+                        </div>
+                    </div>
                 </div>
-                <span class="text-sm font-medium text-dark">Completed Jobs</span>
-            </div>
-            <span class="text-base font-bold text-dark">14</span>
-        </div>
 
-        <div class="flex items-center justify-between py-1.5">
-            <div class="flex items-center gap-3">
-                <div class="p-2 bg-orange-50 text-orange-600 rounded-lg">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-0">
+                    <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
+                        <div class="p-2.5 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">person</span>
+                        </div>
+                        <div class="leading-none flex-1">
+                            <p class="text-sm font-semibold text-primary-gray">Contact Person</p>
+                            <p id="viewContactPerson" class="text-xs text-dark font-medium mt-1">Rishi Acharya</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
+                        <div class="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">call</span>
+                        </div>
+                        <div class="leading-none flex-1">
+                            <p class="text-sm font-semibold text-primary-gray">Phone Number</p>
+                            <p id="viewPhoneNumber" class="text-xs text-dark font-medium mt-1">+91 76543 65434</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
+                        <div class="p-2.5 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">mail</span>
+                        </div>
+                        <div class="leading-none flex-1">
+                            <p class="text-sm font-semibold text-primary-gray">Email</p>
+                            <p id="viewEmail" class="text-xs text-dark font-medium mt-1">Alexa257@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition">
+                        <div class="p-2.5 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">business_center</span>
+                        </div>
+                        <div class="leading-none flex-1">
+                            <p class="text-sm font-semibold text-primary-gray">Business Type</p>
+                            <p id="viewBusinessType" class="text-xs text-dark font-medium mt-1">Private Limited</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3.5 p-3 rounded-xl hover:bg-slate-50 transition col-span-1 sm:col-span-2">
+                        <div class="p-2.5 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-xl">calendar_month</span>
+                        </div>
+                        <div class="leading-none flex-1">
+                            <p class="text-sm font-semibold text-primary-gray">Member Since</p>
+                            <p class="text-xs text-dark font-medium mt-0.5">25 May 2020</p>
+                        </div>
+                    </div>
                 </div>
-                <span class="text-sm font-medium text-dark">Saved Locations</span>
             </div>
-            <span class="text-base font-bold text-dark">8</span>
-        </div>
 
-        <div class="flex items-center justify-between py-1.5">
-            <div class="flex items-center gap-3">
-                <div class="p-2 bg-indigo-50 text-indigo-600 rounded-lg">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+            <!-- Account Summary -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                <div class="mb-4">
+                    <h2 class="text-lg font-bold text-ink">Account Summary</h2>
+                    <p class="text-sm text-dark mt-0.5">All important events related to this booking.</p>
                 </div>
-                <span class="text-sm font-medium text-dark">Total Spend</span>
-            </div>
-            <span class="text-base font-bold text-dark">₹84,250</span>
-        </div>
-
-        <div class="flex items-center justify-between py-1.5">
-            <div class="flex items-center gap-3">
-                <div class="p-2 bg-slate-100 text-slate-600 rounded-lg">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z"/></svg>
+                <div class="space-y-1.5">
+                    <div class="flex items-center justify-between py-1.5">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center">
+                                <span class="material-symbols-outlined text-base">calendar_month</span>
+                            </div>
+                            <span class="text-sm font-medium text-dark">Total Bookings</span>
+                        </div>
+                        <span class="text-base font-bold text-dark">16</span>
+                    </div>
+                    <div class="flex items-center justify-between py-1.5">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center">
+                                <span class="material-symbols-outlined text-base">task_alt</span>
+                            </div>
+                            <span class="text-sm font-medium text-dark">Completed Jobs</span>
+                        </div>
+                        <span class="text-base font-bold text-dark">14</span>
+                    </div>
+                    <div class="flex items-center justify-between py-1.5">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center">
+                                <span class="material-symbols-outlined text-base">location_on</span>
+                            </div>
+                            <span class="text-sm font-medium text-dark">Saved Locations</span>
+                        </div>
+                        <span class="text-base font-bold text-dark">8</span>
+                    </div>
+                    <div class="flex items-center justify-between py-1.5">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center">
+                                <span class="material-symbols-outlined text-base">payments</span>
+                            </div>
+                            <span class="text-sm font-medium text-dark">Total Spend</span>
+                        </div>
+                        <span class="text-base font-bold text-dark">₹84,250</span>
+                    </div>
+                    <div class="flex items-center justify-between py-1.5">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center">
+                                <span class="material-symbols-outlined text-base">event</span>
+                            </div>
+                            <span class="text-sm font-medium text-dark">Member Since</span>
+                        </div>
+                        <span class="text-base font-bold text-dark">May 2024</span>
+                    </div>
                 </div>
-                <span class="text-sm font-medium text-dark">Member Since</span>
             </div>
-            <span class="text-base font-bold text-dark">May 2024</span>
-        </div>
-    </div>
-</div>
 
-    <!-- Box 3: Payment Methods -->
-    <div class="bg-gray border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
-        <div class="mb-5">
-            <h2 class="text-lg font-bold text-ink">Payment Methods</h2>
+            <!-- Payment Methods -->
+            <div class="bg-gray border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                <div class="mb-5">
+                    <h2 class="text-lg font-bold text-ink">Payment Methods</h2>
+                </div>
+                <div id="paymentMethodsList" class="space-y-3.5 mb-6">
+                    <div class="flex items-center justify-between border border-slate-100 rounded-xl p-3 bg-white">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-center text-slate-400">
+                                <span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-ink">UPI: acme@paytm</p>
+                                <p class="text-[10px] text-medium mt-0.5">Linked on 10 May 2024</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 text-sm cursor-pointer">more_vert</span>
+                    </div>
+                    <div class="flex items-center justify-between border border-slate-100 rounded-xl p-3 bg-white">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-center text-slate-400">
+                                <span class="material-symbols-outlined text-sm">account_balance</span>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-ink">HDFC Bank A/C ...1254</p>
+                                <p class="text-[10px] text-medium mt-0.5">IFSC: HDFC0001234</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 text-sm cursor-pointer">more_vert</span>
+                    </div>
+                </div>
+                <button id="addPaymentMethodBtn"
+                    class="w-full border border-primary-yellow text-primary-yellow hover:bg-yellow-100 font-semibold text-sm py-3 rounded-xl transition duration-200 flex items-center justify-center gap-1.5">
+                    <span class="text-lg text-primary-yellow font-medium leading-none">+</span> Add Payment Method
+                </button>
+            </div>
+
+            <!-- Verification Information -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-5">
+                    <h2 class="text-lg font-bold text-ink">Verification Status</h2>
+                    <span id="verificationStatusLabel" class="text-xs font-bold text-emerald-600">100% Completed</span>
+                </div>
+
+                <div id="verificationChecklist" class="space-y-3.5 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
+                            <span class="material-symbols-outlined text-xs font-bold">check</span>
+                        </div>
+                        <span class="text-sm font-medium text-ink">Email Verified</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
+                            <span class="material-symbols-outlined text-xs font-bold">check</span>
+                        </div>
+                        <span class="text-sm font-medium text-ink">Mobile Verified</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
+                            <span class="material-symbols-outlined text-xs font-bold">check</span>
+                        </div>
+                        <span class="text-sm font-medium text-ink">GST Verified</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
+                            <span class="material-symbols-outlined text-xs font-bold">check</span>
+                        </div>
+                        <span class="text-sm font-medium text-ink">Company Verified</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
+                            <span class="material-symbols-outlined text-xs font-bold">check</span>
+                        </div>
+                        <span class="text-sm font-medium text-ink">Identity Verified</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between text-[11px] font-semibold text-ink mb-1.5">
+                        <span>Status</span>
+                        <span id="verificationStatusPct">100%</span>
+                    </div>
+                    <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                        <div id="verificationStatusBar" class="h-full bg-emerald-500 rounded-full transition-all duration-500"
+                            style="width:100%"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="space-y-3.5 mb-6">
-            <div class="flex items-center justify-between border border-slate-100 rounded-xl p-4 bg-white hover:border-slate-200 transition">
-                <div class="flex items-center gap-4.5">
-                    <div class="w-10 h-10 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-center text-slate-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+        <div class="mt-6 space-y-6">
+            <!-- Business Information -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                <h2 class="text-base font-bold text-slate-800 mb-5">Business Information</h2>
+                <div id="viewBusinessInfo" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4">
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Company Name</p>
+                        <p class="text-xs text-slate-400 mt-1">ACME Pvt Ltd.</p>
                     </div>
                     <div>
-                        <p class="text-sm font-bold text-ink">UPI: acme@paytm</p>
-                        <p class="text-xs text-medium mt-0.5">Linked on 10 May 2024</p>
-                    </div>
-                </div>
-                <button class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"/></svg>
-                </button>
-            </div>
-
-            <div class="flex items-center justify-between border border-slate-100 rounded-xl p-4 bg-white hover:border-slate-200 transition">
-                <div class="flex items-center gap-4.5">
-                    <div class="w-10 h-10 rounded-lg border border-slate-100 bg-slate-50 flex items-center justify-center text-slate-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        <p class="text-sm font-semibold text-slate-700">Business Type</p>
+                        <p class="text-xs text-slate-400 mt-1">Private Limited</p>
                     </div>
                     <div>
-                        <p class="text-sm font-bold text-ink">HDFC Bank A/C ...1254</p>
-                        <p class="text-xs text-medium mt-0.5">IFSC: HDFC0001234</p>
+                        <p class="text-sm font-semibold text-slate-700">Industry Type</p>
+                        <p class="text-xs text-slate-400 mt-1">Data center services</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">GST Number</p>
+                        <p class="text-xs text-slate-400 mt-1">1234567476554</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Pan Number</p>
+                        <p class="text-xs text-slate-400 mt-1">GXBPM1211E</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Company Registration Number</p>
+                        <p class="text-xs text-slate-400 mt-1">ASDFET3456234</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Website</p>
+                        <p class="text-xs text-slate-400 mt-1">www.acme.com</p>
                     </div>
                 </div>
-                <button class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"/></svg>
-                </button>
-            </div>
-        </div>
-
-        <button class="w-full border border-primary-yellow text-primary-yellow hover:bg-yellow-100 font-semibold text-sm py-3 rounded-xl transition duration-200 flex items-center justify-center gap-1.5">
-            <span class="text-lg text-primary-yellow font-medium leading-none">+</span> Add Payment Method
-        </button>
-    </div>
-
-    <!-- Box 4: Verification Status -->
-    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
-        <div class="flex items-center justify-between mb-5">
-            <h2 class="text-lg font-bold text-ink">Verification Status</h2>
-            <span class="text-xs font-bold text-green">100% Completed</span>
-        </div>
-
-        <div class="space-y-3.5 mb-6">
-            <div class="flex items-center gap-3">
-                <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                </div>
-                <span class="text-sm font-medium text-ink">Email Verified</span>
             </div>
 
-            <div class="flex items-center gap-3">
-                <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                </div>
-                <span class="text-sm font-medium text-ink">Mobile Verified</span>
-            </div>
-
-            <div class="flex items-center gap-3">
-                <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                </div>
-                <span class="text-sm font-medium text-ink">GST Verified</span>
-            </div>
-
-            <div class="flex items-center gap-3">
-                <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                </div>
-                <span class="text-sm font-medium text-ink">Company Verified</span>
-            </div>
-
-            <div class="flex items-center gap-3">
-                <div class="w-5 h-5 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                </div>
-                <span class="text-sm font-medium text-ink">Identity Verified</span>
-            </div>
-        </div>
-
-        <div>
-            <div class="flex items-center justify-between text-[11px] font-semibold text-ink mb-1.5">
-                <span>Status</span>
-                <span>100%</span>
-            </div>
-            <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
-                <div class="h-full bg-green rounded-full w-full"></div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-    <div class="mt-6 space-y-6">
-
-    <!-- SECTION 1: BUSINESS INFORMATION -->
-    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-        <h2 class="text-base font-bold text-slate-800 mb-5">Business Information</h2>
-        
-        <div id="businessInfo" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4">
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Company Name</p>
-                <p class="text-xs text-slate-400 mt-1">ACME Pvt Ltd.</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Business Type</p>
-                <p class="text-xs text-slate-400 mt-1">Private Limited</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Industry Type</p>
-                <p class="text-xs text-slate-400 mt-1">Data center services</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">GST Number</p>
-                <p class="text-xs text-slate-400 mt-1">1234567476554</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Pan Number</p>
-                <p class="text-xs text-slate-400 mt-1">GXBPM1211E</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Company Registration Number</p>
-                <p class="text-xs text-slate-400 mt-1">ASDFET3456234</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Website</p>
-                <p class="text-xs text-slate-400 mt-1">www.acme.com</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SECTION 2: OFFICE ADDRESS -->
-    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-        <h2 class="text-base font-bold text-slate-800 mb-5">Office Address</h2>
-        
-        <div id="officeAddress" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4">
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Address Type</p>
-                <p class="text-xs text-slate-400 mt-1">Head Office</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Pin code</p>
-                <p class="text-xs text-slate-400 mt-1">123 456</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Phone Number</p>
-                <p class="text-xs text-slate-400 mt-1">+91 87654 34567</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Land Mark</p>
-                <p class="text-xs text-slate-400 mt-1">Near tkam</p>
-            </div>
-
-            <div class="md:col-span-4">
-                <p class="text-sm font-semibold text-slate-700">Address</p>
-                <p class="text-xs text-slate-400 mt-1">Vadol Gaon, Waldhuni, Ambernath, Ulhasnagar, Maharashtra 421501</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SECTION 3: AUTHORIZED CONTACT -->
-    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-        <h2 class="text-base font-bold text-slate-800 mb-5">Authorized Contact</h2>
-        
-        <div id="authorizedContact" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4">
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Name</p>
-                <p class="text-xs text-slate-400 mt-1">Aniket Mahakal</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Designation</p>
-                <p class="text-xs text-slate-400 mt-1">Operation Manager</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Phone Number</p>
-                <p class="text-xs text-slate-400 mt-1">+91 87654 34567</p>
-            </div>
-
-            <div>
-                <p class="text-sm font-semibold text-slate-700">Work Email</p>
-                <p class="text-xs text-slate-400 mt-1">aniket@gmail.com</p>
-            </div>
-        </div>
-    </div>
-
-</div>
-<div class="mt-6 grid grid-cols-1 gap-6">
-
-  
-
-  <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-    <div class="flex items-center justify-between mb-1">
-        <h2 class="text-lg font-bold text-ink">Documents & KYC</h2>
-        <a href="#" class="text-sm font-bold text-ink hover:text-slate-900 flex items-center gap-1 transition">
-            View All Documents 
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-        </a>
-    </div>
-    <p class="text-xs text-medium mb-6">Upload and manage your business documents for compliance.</p>
-
-    <div class="overflow-x-auto rounded-xl border border-slate-100">
-        <table class="w-full text-left border-collapse min-w-[700px]">
-            <thead>
-                <tr class="bg-primary-yellow text-white text-sm font-medium">
-                    <th class="p-3 px-4 border-r border-white/20">Documents Name</th>
-                    <th class="p-3 px-4 text-center border-r border-white/20">Type</th>
-                    <th class="p-3 px-4 text-center border-r border-white/20">Status</th>
-                    <th class="p-3 px-4 text-center border-r border-white/20">Uploaded On</th>
-                    <th class="p-3 px-4 text-center">Action</th>
-                </tr>
-            </thead>
-           <tbody class="text-sm font-medium text-slate-600 divide-y divide-slate-100">
-                
-    <tr class="hover:bg-slate-50/70 transition">
-        <td class="p-3 px-4 font-semibold text-dark-gray">GST Certificate.pdf</td>
-        <td class="p-3 px-4 text-center text-dark-gray">GST Certificate</td>
-        <td class="p-3 px-4 text-center">
-            <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span>
-        </td>
-        <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
-        <td class="p-3 px-4 text-center">
-            <div class="flex items-center justify-center gap-3 text-slate-500">
-                <button class="hover:text-blue-600 transition view-btn" data-doc="GST Certificate" data-file="GST Certificate.pdf">
-                   <span class="material-symbols-outlined">visibility</span>
-                </button>
-                <button class="hover:text-blue-600 transition download-btn" data-file="GST Certificate.pdf">
-                    <span class="material-symbols-outlined">download</span>
-                </button>
-            </div>
-        </td>
-    </tr>
-
-    <tr class="hover:bg-slate-50/70 transition">
-        <td class="p-3 px-4 font-semibold text-dark-gray">PAN Card.pdf</td>
-        <td class="p-3 px-4 text-center text-dark-gray">PAN Documents</td>
-        <td class="p-3 px-4 text-center">
-            <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span>
-        </td>
-        <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
-        <td class="p-3 px-4 text-center">
-            <div class="flex items-center justify-center gap-3 text-slate-500">
-                <button class="hover:text-blue-600 transition view-btn" data-doc="PAN Card" data-file="PAN Card.pdf">
-                   <span class="material-symbols-outlined">visibility</span>
-                </button>
-                <button class="hover:text-blue-600 transition download-btn" data-file="PAN Card.pdf">
-                    <span class="material-symbols-outlined">download</span>
-                </button>
-            </div>
-        </td>
-    </tr>
-
-    <tr class="hover:bg-slate-50/70 transition">
-        <td class="p-3 px-4 font-semibold text-dark-gray">Incorporation.pdf</td>
-        <td class="p-3 px-4 text-center text-dark-gray">Company Registration</td>
-        <td class="p-3 px-4 text-center">
-            <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span>
-        </td>
-        <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
-        <td class="p-3 px-4 text-center">
-            <div class="flex items-center justify-center gap-3 text-slate-500">
-                <button class="hover:text-blue-600 transition view-btn" data-doc="Incorporation" data-file="Incorporation.pdf">
-                   <span class="material-symbols-outlined">visibility</span>
-                </button>
-                <button class="hover:text-blue-600 transition download-btn" data-file="Incorporation.pdf">
-                    <span class="material-symbols-outlined">download</span>
-                </button>
-            </div>
-        </td>
-    </tr>
-
-    <tr class="hover:bg-slate-50/70 transition">
-        <td class="p-3 px-4 font-semibold text-dark-gray">Address Proof.pdf</td>
-        <td class="p-3 px-4 text-center text-dark-gray">Address Proof</td>
-        <td class="p-3 px-4 text-center">
-            <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-red-50 text-red rounded-md border border-red-100">Pending</span>
-        </td>
-        <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
-        <td class="p-3 px-4 text-center">
-            <div class="flex items-center justify-center gap-3 text-slate-500">
-                <button class="hover:text-blue-600 transition view-btn" data-doc="Address Proof" data-file="Address Proof.pdf">
-                   <span class="material-symbols-outlined">visibility</span>
-                </button>
-                <button class="hover:text-blue-600 transition download-btn" data-file="Address Proof.pdf">
-                    <span class="material-symbols-outlined">download</span>
-                </button>
-            </div>
-        </td>
-    </tr>
-
-    <tr class="hover:bg-slate-50/70 transition">
-        <td class="p-3 px-4 font-semibold text-dark-gray">Other Documents.pdf</td>
-        <td class="p-3 px-4 text-center text-dark-gray">Supporting Documents</td>
-        <td class="p-3 px-4 text-center">
-            <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-slate-100 text-slate-600 rounded-md">Upload</span>
-        </td>
-        <td class="p-3 px-4 text-center text-dark-gray">-</td>
-        <td class="p-3 px-4 text-center">
-            <div class="flex items-center justify-center text-slate-500">
-                <button class="hover:text-blue-600 transition p-1 upload-btn">
-                   <span class="material-symbols-outlined">upload</span>
-                </button>
-            </div>
-        </td>
-    </tr>
-
-</tbody>
-
-
-        </table>
-    </div>
-</div>
-
-</div>
-</div>
-
-<style>
-    /* Profile inputs - no border by default */
-    .profile-input {
-        border: none !important;
-        background: transparent !important;
-        transition: all 0.3s ease;
-    }
-    
-    /* Profile inputs - border only in edit mode */
-    .profile-input:not(:disabled) {
-        border: 1px solid #e2e8f0 !important;
-        background: white !important;
-        border-radius: 4px !important;
-        padding: 4px 8px !important;
-    }
-    
-    .profile-input:not(:disabled):focus {
-        border-color: #1466DE !important;
-        box-shadow: 0 0 0 2px rgba(20, 102, 222, 0.2) !important;
-        outline: none !important;
-    }
-    
-    /* Profile image container */
-    #profileImageContainer {
-        transition: all 0.3s ease;
-        border-radius: 50%;
-    }
-    
-    #profileOverlay {
-        transition: opacity 0.3s ease;
-    }
-    
-    #profileImageContainer:hover #profileOverlay {
-        opacity: 1 !important;
-    }
-    
-    /* Other section inputs - always have border */
-    .edit-toggle-btn {
-        transition: all 0.3s ease;
-        min-width: 120px;
-    }
-    
-    /* Keep border same for other sections */
-    input:not(.profile-input) {
-        border: 1px solid #e2e8f0 !important;
-        transition: all 0.3s ease;
-    }
-    
-    input:not(.profile-input):not(:disabled) {
-        background-color: white !important;
-        border: 1px solid #e2e8f0 !important;
-    }
-    
-    input:not(.profile-input):not(:disabled):focus {
-        border-color: #1466DE !important;
-        box-shadow: 0 0 0 2px rgba(20, 102, 222, 0.2) !important;
-        outline: none !important;
-    }
-    
-    input:not(.profile-input):disabled {
-        background-color: #f8fafc !important;
-        border: 1px solid #e2e8f0 !important;
-        cursor: default;
-        opacity: 1 !important;
-    }
-</style>
-
-
-<script>
-    // View/Preview functionality - opens a popup with document details
-document.querySelectorAll('.view-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const docName = this.dataset.doc;
-        const fileName = this.dataset.file;
-        
-        // Create popup
-        const popup = document.createElement('div');
-        popup.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50';
-        popup.innerHTML = `
-            <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6">
-                <div class="flex justify-between items-start mb-4">
-                    <h3 class="text-lg font-semibold text-gray-900">Document Preview</h3>
-                    <button class="text-gray-400 hover:text-gray-600 close-popup">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </div>
-                <div class="space-y-3">
-                    <p><strong>Document:</strong> ${docName}</p>
-                    <p><strong>File:</strong> ${fileName}</p>
-                    <p><strong>Status:</strong> ${this.closest('tr').querySelector('span').textContent.trim()}</p>
-                    <p><strong>Date:</strong> ${this.closest('tr').querySelectorAll('td')[3].textContent.trim()}</p>
-                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center text-gray-400">
-                        <span class="material-symbols-outlined text-4xl">description</span>
-                        <p class="mt-2">Preview not available</p>
-                        <p class="text-xs">Click download to view the file</p>
+            <!-- Office Address -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                <h2 class="text-base font-bold text-slate-800 mb-5">Office Address</h2>
+                <div id="viewOfficeAddress" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4">
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Address Type</p>
+                        <p class="text-xs text-slate-400 mt-1">Head Office</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Pin code</p>
+                        <p class="text-xs text-slate-400 mt-1">123 456</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Phone Number</p>
+                        <p class="text-xs text-slate-400 mt-1">+91 87654 34567</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Land Mark</p>
+                        <p class="text-xs text-slate-400 mt-1">Near tkam</p>
+                    </div>
+                    <div class="md:col-span-4">
+                        <p class="text-sm font-semibold text-slate-700">Address</p>
+                        <p class="text-xs text-slate-400 mt-1">Vadol Gaon, Waldhuni, Ambernath, Ulhasnagar, Maharashtra 421501</p>
                     </div>
                 </div>
-                <div class="mt-4 flex gap-2">
-                    <button class="flex-1 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition download-from-popup">
-                        Download File
-                    </button>
+            </div>
+
+            <!-- Personal Information -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                <h2 class="text-base font-bold text-slate-800 mb-5">Authorized Contact</h2>
+                <div id="viewAuthorizedContact" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4">
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Name</p>
+                        <p class="text-xs text-slate-400 mt-1">Aniket Mahakal</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Designation</p>
+                        <p class="text-xs text-slate-400 mt-1">Operation Manager</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Phone Number</p>
+                        <p class="text-xs text-slate-400 mt-1">+91 87654 34567</p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-700">Work Email</p>
+                        <p class="text-xs text-slate-400 mt-1">aniket@gmail.com</p>
+                    </div>
                 </div>
             </div>
-        `;
-        document.body.appendChild(popup);
-        
-        // Close popup
-        popup.querySelector('.close-popup').addEventListener('click', () => popup.remove());
-        popup.addEventListener('click', (e) => { if(e.target === popup) popup.remove(); });
-        
-        // Download from popup
-        popup.querySelector('.download-from-popup').addEventListener('click', () => {
-            downloadFile(fileName);
-            popup.remove();
-        });
-    });
-});
+        </div>
 
-// Download functionality
-document.querySelectorAll('.download-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const fileName = this.dataset.file;
-        downloadFile(fileName);
-    });
-});
+        <!-- Document Information -->
+        <div class="mt-6 grid grid-cols-1 gap-6">
+            <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                <div class="flex items-center justify-between mb-1">
+                    <h2 class="text-lg font-bold text-ink">Documents & KYC</h2>
+                    <a href="#" class="text-sm font-bold text-ink hover:text-slate-900 flex items-center gap-1 transition">
+                        View All Documents
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <p class="text-xs text-medium mb-6">Upload and manage your business documents for compliance.</p>
 
-function downloadFile(fileName) {
-    // Simulate file download
-    const link = document.createElement('a');
-    link.href = '#';
-    link.download = fileName;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Show notification
-    showNotification(`Downloading ${fileName}...`);
-}
+                <div class="overflow-x-auto rounded-xl border border-slate-100">
+                    <table class="w-full text-left border-collapse min-w-[700px]">
+                        <thead>
+                            <tr class="bg-primary-yellow text-white text-sm font-medium">
+                                <th class="p-3 px-4 border-r border-white/20">Documents Name</th>
+                                <th class="p-3 px-4 text-center border-r border-white/20">Type</th>
+                                <th class="p-3 px-4 text-center border-r border-white/20">Status</th>
+                                <th class="p-3 px-4 text-center border-r border-white/20">Uploaded On</th>
+                                <th class="p-3 px-4 text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="documentsTableBody" class="text-sm font-medium text-slate-600 divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50/70 transition">
+                                <td class="p-3 px-4 font-semibold text-dark-gray">GST Certificate.pdf</td>
+                                <td class="p-3 px-4 text-center text-dark-gray">GST Certificate</td>
+                                <td class="p-3 px-4 text-center"><span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span></td>
+                                <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
+                                <td class="p-3 px-4 text-center text-slate-400">
+                                    <span class="material-symbols-outlined text-base cursor-pointer mr-1">visibility</span>
+                                    <span class="material-symbols-outlined text-base cursor-pointer">download</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/70 transition">
+                                <td class="p-3 px-4 font-semibold text-dark-gray">PAN Card.pfd</td>
+                                <td class="p-3 px-4 text-center text-dark-gray">PAN Documents</td>
+                                <td class="p-3 px-4 text-center"><span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span></td>
+                                <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
+                                <td class="p-3 px-4 text-center text-slate-400">
+                                    <span class="material-symbols-outlined text-base cursor-pointer mr-1">visibility</span>
+                                    <span class="material-symbols-outlined text-base cursor-pointer">download</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/70 transition">
+                                <td class="p-3 px-4 font-semibold text-dark-gray">Incorporation.pdf</td>
+                                <td class="p-3 px-4 text-center text-dark-gray">Company Registration</td>
+                                <td class="p-3 px-4 text-center"><span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span></td>
+                                <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
+                                <td class="p-3 px-4 text-center text-slate-400">
+                                    <span class="material-symbols-outlined text-base cursor-pointer mr-1">visibility</span>
+                                    <span class="material-symbols-outlined text-base cursor-pointer">download</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/70 transition">
+                                <td class="p-3 px-4 font-semibold text-dark-gray">Address Proof.pdf</td>
+                                <td class="p-3 px-4 text-center text-dark-gray">Address Proof</td>
+                                <td class="p-3 px-4 text-center"><span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-amber-50 text-amber-600 rounded-md border border-amber-200">Pending</span></td>
+                                <td class="p-3 px-4 text-center text-dark-gray">15 May 2026</td>
+                                <td class="p-3 px-4 text-center text-slate-400">
+                                    <span class="material-symbols-outlined text-base cursor-pointer mr-1">visibility</span>
+                                    <span class="material-symbols-outlined text-base cursor-pointer">download</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/70 transition">
+                                <td class="p-3 px-4 font-semibold text-dark-gray">Other Documents.pdf</td>
+                                <td class="p-3 px-4 text-center text-dark-gray">Supporting Documents</td>
+                                <td class="p-3 px-4 text-center"><span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-slate-100 text-slate-600 rounded-md">Upload</span></td>
+                                <td class="p-3 px-4 text-center text-dark-gray">-</td>
+                                <td class="p-3 px-4 text-center text-slate-400">
+                                    <span class="material-symbols-outlined text-base cursor-pointer">upload</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
-// Upload functionality - opens file manager
-document.querySelectorAll('.upload-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const fileInput = document.createElement('input');
-        fileInput.type = 'file';
-        fileInput.accept = '.pdf,.doc,.docx,.jpg,.png';
-        fileInput.multiple = true;
-        
-        fileInput.addEventListener('change', function() {
-            if(this.files.length > 0) {
-                const fileName = this.files[0].name;
-                const row = this.closest('tr');
-                const statusCell = row.querySelectorAll('td')[2];
-                const dateCell = row.querySelectorAll('td')[3];
-                
-                // Update status
-                statusCell.innerHTML = `
-                    <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-yellow-50 text-yellow-600 rounded-md border border-yellow-200">Uploading...</span>
-                `;
-                
-                // Simulate upload
-                setTimeout(() => {
-                    statusCell.innerHTML = `
-                        <span class="inline-flex items-center px-2.5 py-1 text-xs font-bold bg-pale-mint text-light-green rounded-md border border-emerald-100">Verified</span>
-                    `;
-                    dateCell.textContent = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
-                    showNotification(`File "${fileName}" uploaded successfully!`);
-                }, 1500);
-            }
-        });
-        
-        fileInput.click();
-    });
-});
+    <!-- Setup Wizard Section & Edit Profile View -->
+    <div id="wizardView" class="hidden">
 
-// Notification helper
-function showNotification(message) {
-    const notification = document.createElement('div');
-    notification.className = 'fixed bottom-4 right-4 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300';
-    notification.textContent = message;
-    document.body.appendChild(notification);
-    setTimeout(() => {
-        notification.style.opacity = '0';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
-</script>
+        <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+
+            <!-- SETUP MODE HEADER: TIMELINE STEPPER -->
+            <div id="setupStepperContainer">
+                <div class="flex items-center justify-between mb-1">
+                    <div>
+                        <h1 class="text-xl font-bold text-ink">Profile Completion Center</h1>
+                        <p class="text-sm text-granite-gray mt-1">Complete your account setup to unlock features.</p>
+                    </div>
+                    <div class="text-right min-w-[140px]">
+                        <div class="flex items-center justify-between text-[11px] font-bold text-slate-500 mb-1">
+                            <span>Status</span>
+                            <span id="wizardStatusPct" class="text-emerald-600 font-extrabold">20%</span>
+                        </div>
+                        <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                            <div id="wizardStatusBar" class="h-full bg-emerald-500 rounded-full transition-all duration-500" style="width: 20%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative px-2 mt-5 mb-8">
+                    <div id="wizardStepper" class="relative flex items-start justify-between w-full max-w-full overflow-hidden">
+                        <!-- step nodes injected by JS -->
+                    </div>
+                </div>
+
+                <p id="wizardStepCounter" class="text-xs font-semibold text-slate-400 mb-4">Step 1 of 5</p>
+            </div>
+
+            <!-- EDIT MODE HEADER: NORMAL HTML TABS -->
+            <div id="editTabsContainer" class="hidden mb-6">
+                <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-4">
+                    <div>
+                        <h1 class="text-xl font-bold text-ink">Edit Profile & Verification</h1>
+                        <p class="text-sm text-granite-gray mt-1">Update your profile details and documents.</p>
+                    </div>
+                    <button id="closeEditBtn" type="button" class="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-xl transition">
+                        <span class="material-symbols-outlined text-sm">arrow_back</span> Back to Profile
+                    </button>
+                </div>
+
+                <div class="border-b border-slate-200 overflow-x-auto">
+                    <nav class="flex space-x-6 min-w-max" id="editProfileTabsNav">
+                        <button type="button" data-tab="profileDetails" class="pv-edit-tab pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition">
+                            Profile Details
+                        </button>
+                        <button type="button" data-tab="identityVerification" class="pv-edit-tab pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition">
+                            Identity Verification
+                        </button>
+                        <button type="button" data-tab="businessInfo" class="pv-edit-tab pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition">
+                            Business Information
+                        </button>
+                        <button type="button" data-tab="paymentMethod" class="pv-edit-tab pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition">
+                            Payment Method
+                        </button>
+                        <button type="button" data-tab="documents" class="pv-edit-tab pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-700 transition">
+                            Documents
+                        </button>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Edit Tab: Profile Details -->
+            <form id="stepProfileDetails" class="pv-step space-y-8" data-step="profileDetails" novalidate>
+                <div>
+                    <h3 class="text-sm font-bold text-slate-800 mb-4">Business Information</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Company Name</label>
+                            <input type="text" name="companyName" data-required="true"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="ACME Pvt Ltd.">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Business Type</label>
+                            <input type="text" name="businessType" data-required="true"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="Private Limited">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Industry Type</label>
+                            <input type="text" name="industryType"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="Data center services">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">GST Number</label>
+                            <input type="text" name="gstNumber" data-required="true" maxlength="15"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="1234567476554" placeholder="22AAAAA0000A1Z5">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Pan Number</label>
+                            <input type="text" name="panNumber" maxlength="10"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="GXBPM1211E" placeholder="GXBPM1211E">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Company Registration Number</label>
+                            <input type="text" name="companyRegNumber" maxlength="21"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="ASDFET3456234" placeholder="ASDFET3456234">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="text-xs font-semibold text-slate-600">Website</label>
+                            <input type="text" name="website"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="www.acme.com" placeholder="www.acme.com">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-800 mb-4">Office Address</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Address Type</label>
+                            <select name="addressType" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2">
+                                <option selected>Head Office</option>
+                                <option>Branch Office</option>
+                                <option>Warehouse</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Pin code</label>
+                            <input type="text" name="pinCode" data-required="true" maxlength="6"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="123456" placeholder="123456">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Phone Number</label>
+                            <input type="text" name="officePhone" maxlength="10"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="8765434567" placeholder="8765434567">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Land Mark</label>
+                            <input type="text" name="landmark"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="Near tkam" placeholder="Near tkam">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="text-xs font-semibold text-slate-600">Address</label>
+                            <textarea name="address" data-required="true" rows="2"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2"
+                                placeholder="Vadol Gaon, Waldhuni, Ambernath, Ulhasnagar, Maharashtra 421501">Vadol Gaon, Waldhuni, Ambernath, Ulhasnagar, Maharashtra 421501</textarea>
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-800 mb-4">Authorized Contact</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Name</label>
+                            <input type="text" name="contactName" data-required="true"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="Aniket Mahakal" placeholder="Aniket Mahakal">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Designation</label>
+                            <input type="text" name="designation"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="Operation Manager" placeholder="Operation Manager">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Phone Number</label>
+                            <input type="text" name="contactPhone" data-required="true" maxlength="10"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="8765434567" placeholder="8765434567">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Work Email</label>
+                            <input type="email" name="workEmail" data-required="true"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="aniket@gmail.com" placeholder="aniket@gmail.com">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pv-step-actions pt-4">
+                    <button type="submit"
+                        class="w-full bg-[#FBBF24] hover:bg-[#F59E0B] text-white font-bold text-sm py-3.5 rounded-xl transition shadow-sm flex items-center justify-center gap-2">
+                        Verify & Continue
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Edit Tab: Identity Verification -->
+            <form id="stepIdentityVerification" class="pv-step hidden space-y-6" data-step="identityVerification" novalidate>
+                <div>
+                    <h3 class="text-sm font-bold text-slate-800">Identity Verification</h3>
+                    <p class="text-xs text-slate-400 mt-1">Verify your identity to build trust and enhance account security.</p>
+                </div>
+
+                <div>
+                    <p class="text-xs font-semibold text-slate-600 mb-3">Select Verification Type</p>
+                    <input type="hidden" name="verificationType" data-required="true" value="Aadhaar Card">
+                    <div id="idTypeOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button type="button" data-value="Aadhaar Card"
+                            class="pv-id-type-option relative text-left border-2 border-primary-yellow bg-yellow-50/40 rounded-xl p-4 flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary-yellow text-2xl flex-shrink-0 mt-0.5">badge</span>
+                            <div>
+                                <span class="absolute top-2 right-2 text-[9px] font-bold bg-primary-yellow text-white px-1.5 py-0.5 rounded">RECOMMENDED</span>
+                                <p class="text-sm font-bold text-slate-800">Aadhaar Card</p>
+                                <p class="text-xs text-slate-400 mt-1">Fastest and government-approved digital ID verification</p>
+                            </div>
+                        </button>
+                        <button type="button" data-value="PAN Card"
+                            class="pv-id-type-option relative text-left border-2 border-slate-200 rounded-xl p-4 flex items-start gap-3">
+                            <span class="material-symbols-outlined text-slate-400 text-2xl flex-shrink-0 mt-0.5">account_box</span>
+                            <div>
+                                <p class="text-sm font-bold text-slate-800">PAN Card</p>
+                                <p class="text-xs text-slate-400 mt-1">Standard ID for quick and automated digital verification</p>
+                            </div>
+                        </button>
+                        <button type="button" data-value="Driving License"
+                            class="pv-id-type-option relative text-left border-2 border-slate-200 rounded-xl p-4 flex items-start gap-3">
+                            <span class="material-symbols-outlined text-slate-400 text-2xl flex-shrink-0 mt-0.5">directions_car</span>
+                            <div>
+                                <p class="text-sm font-bold text-slate-800">Driving License</p>
+                                <p class="text-xs text-slate-400 mt-1">Photo ID with auto and automated digital verification</p>
+                            </div>
+                        </button>
+                        <button type="button" data-value="Passport"
+                            class="pv-id-type-option relative text-left border-2 border-slate-200 rounded-xl p-4 flex items-start gap-3">
+                            <span class="material-symbols-outlined text-slate-400 text-2xl flex-shrink-0 mt-0.5">flight_takeoff</span>
+                            <div>
+                                <p class="text-sm font-bold text-slate-800">Passport</p>
+                                <p class="text-xs text-slate-400 mt-1">Accepted for rapid and automated digital verification</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-xs font-semibold text-slate-600 mb-3">Upload Aadhaar Card (PDF or Word document)</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label
+                                class="pv-upload-drop cursor-pointer flex flex-col items-center justify-center text-center border-2 border-dashed border-slate-300 rounded-xl py-8 px-4 hover:border-primary-yellow transition">
+                                <span class="material-symbols-outlined text-3xl text-slate-400">upload</span>
+                                <span class="text-xs font-semibold text-slate-600 mt-2">Click to upload or drag and drop</span>
+                                <span class="text-[10px] text-slate-400">PDF, DOC or DOCX (max 5MB)</span>
+                                <span class="pv-file-name text-[11px] font-semibold text-emerald-600 mt-1"></span>
+                                <input type="file" name="aadhaarFront" accept=".pdf,.doc,.docx" data-required="true" class="hidden">
+                            </label>
+                            <div class="mt-2.5 p-3 bg-blue-50/60 border border-blue-100 rounded-xl flex items-center gap-2 text-xs font-medium text-blue-700">
+                                <span class="material-symbols-outlined text-base text-blue-600">info</span>
+                                <span>Aadhaar front side will be scanned automatically</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                class="pv-upload-drop cursor-pointer flex flex-col items-center justify-center text-center border-2 border-dashed border-slate-300 rounded-xl py-8 px-4 hover:border-primary-yellow transition">
+                                <span class="material-symbols-outlined text-3xl text-slate-400">upload</span>
+                                <span class="text-xs font-semibold text-slate-600 mt-2">Click to upload or drag and drop</span>
+                                <span class="text-[10px] text-slate-400">PDF, DOC or DOCX (max 5MB)</span>
+                                <span class="pv-file-name text-[11px] font-semibold text-emerald-600 mt-1"></span>
+                                <input type="file" name="aadhaarBack" accept=".pdf,.doc,.docx" class="hidden">
+                            </label>
+                            <div class="mt-2.5 p-3 bg-blue-50/60 border border-blue-100 rounded-xl flex items-center gap-2 text-xs font-medium text-blue-700">
+                                <span class="material-symbols-outlined text-base text-blue-600">speed</span>
+                                <span>Uploading back side helps faster verification</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-2">Ensure the document is clear and readable. Supported formats: PDF, DOC, DOCX.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs font-semibold text-slate-600">Full Name (as per Aadhaar)</label>
+                        <input type="text" name="idFullName" data-required="true"
+                            class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="Rishi Acharya">
+                        <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                    </div>
+                    <div>
+                        <label class="text-xs font-semibold text-slate-600">Aadhaar Number</label>
+                        <input type="text" name="idNumber" data-required="true" maxlength="12"
+                            class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="123456789012" placeholder="123456789012">
+                        <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                    </div>
+                </div>
+
+                <div class="pv-step-actions flex justify-between items-center gap-3 pt-2">
+                    <button type="button" class="pv-back-btn border border-primary-yellow text-primary-yellow hover:bg-yellow-50 font-bold text-xs px-6 py-2.5 rounded-xl transition flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm">arrow_back</span> Back
+                    </button>
+                    <button type="submit"
+                        class="bg-[#FBBF24] hover:bg-[#F59E0B] text-white font-bold text-xs px-8 py-3 rounded-xl transition shadow-sm flex items-center gap-2">
+                        Verify & Continue
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Edit Tab: Business Information -->
+            <form id="stepBusinessInfo" class="pv-step hidden space-y-6" data-step="businessInfo" novalidate>
+                <div>
+                    <h3 class="text-sm font-bold text-slate-800 mb-4">Business Information</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Company / Business Name</label>
+                            <input type="text" name="biCompanyName" data-required="true"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="ACME Pvt Ltd.">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Business Type</label>
+                            <input type="text" name="biBusinessType"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="Private Limited">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Industry Type</label>
+                            <input type="text" name="biIndustryType"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="Data center services">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Company Website</label>
+                            <input type="text" name="biWebsite"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="www.acme.com" placeholder="www.acme.com">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Year of Establishment</label>
+                            <input type="text" name="yearEstablished" maxlength="4"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="2020" placeholder="2020">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Number of Employees</label>
+                            <select name="employeeCount" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2">
+                                <option>1 - 10</option>
+                                <option selected>10 - 50</option>
+                                <option>50 - 200</option>
+                                <option>200+</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-800 mb-4">Registration Details</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Company Registration Number (CIN)</label>
+                            <input type="text" name="cin" maxlength="21" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2"
+                                value="ASDFET3456234" placeholder="U12345MH2020PTC123456">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">GSTIN</label>
+                            <input type="text" name="gstin" data-required="true" maxlength="15"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="22AAAAA0000A1Z5" placeholder="22AAAAA0000A1Z5">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">PAN Number</label>
+                            <input type="text" name="biPan" data-required="true" maxlength="10"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="GXBPM1211E" placeholder="ABCDE1234F">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Tax Deduction Account Number (TAN)</label>
+                            <input type="text" name="tan" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2"
+                                placeholder="(Optional)">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-800 mb-4">Business Address</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">State</label>
+                            <input type="text" name="biState" data-required="true"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="Maharashtra" placeholder="Maharashtra">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">City</label>
+                            <input type="text" name="biCity" data-required="true"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="Ulhasnagar" placeholder="Bhopal">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Pincode</label>
+                            <input type="text" name="biPincode" data-required="true" maxlength="6"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="123456" placeholder="421501">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Office Address</label>
+                            <input type="text" name="biOfficeAddress"
+                                class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2"
+                                value="Vadol Gaon, Waldhuni, Ambernath, Ulhasnagar, Maharashtra 421501">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pv-step-actions flex justify-between items-center gap-3 pt-2">
+                    <button type="button" class="pv-back-btn border border-primary-yellow text-primary-yellow hover:bg-yellow-50 font-bold text-xs px-6 py-2.5 rounded-xl transition flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm">arrow_back</span> Back
+                    </button>
+                    <button type="submit"
+                        class="bg-[#FBBF24] hover:bg-[#F59E0B] text-white font-bold text-xs px-8 py-3 rounded-xl transition shadow-sm flex items-center gap-2">
+                        Save & Continue
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Edit Tab: Payment Method -->
+            <form id="stepPaymentMethod" class="pv-step hidden space-y-6" data-step="paymentMethod" novalidate>
+                <div>
+                    <h3 class="text-sm font-bold text-slate-800">Add Payment Method</h3>
+                    <p class="text-xs text-slate-400 mt-1">Add a preferred payment method to receive invoices and manage payments.</p>
+                </div>
+
+                <input type="hidden" name="paymentType" data-required="true" value="UPI">
+                <div id="paymentTypeOptions" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <button type="button" data-value="UPI"
+                        class="pv-payment-type-option flex flex-col items-center gap-2 border-2 border-primary-yellow bg-yellow-50/40 rounded-xl py-5">
+                        <span class="material-symbols-outlined text-primary-yellow text-2xl">account_balance_wallet</span>
+                        <span class="text-xs font-bold text-slate-800">UPI</span>
+                    </button>
+                    <button type="button" data-value="Bank Account"
+                        class="pv-payment-type-option flex flex-col items-center gap-2 border-2 border-slate-200 rounded-xl py-5">
+                        <span class="material-symbols-outlined text-slate-400 text-2xl">account_balance</span>
+                        <span class="text-xs font-bold text-slate-800">Bank Account</span>
+                    </button>
+                    <button type="button" data-value="Credit Card"
+                        class="pv-payment-type-option flex flex-col items-center gap-2 border-2 border-slate-200 rounded-xl py-5">
+                        <span class="material-symbols-outlined text-slate-400 text-2xl">credit_card</span>
+                        <span class="text-xs font-bold text-slate-800">Credit Card</span>
+                    </button>
+                    <button type="button" data-value="Debit Card"
+                        class="pv-payment-type-option flex flex-col items-center gap-2 border-2 border-slate-200 rounded-xl py-5">
+                        <span class="material-symbols-outlined text-slate-400 text-2xl">credit_card</span>
+                        <span class="text-xs font-bold text-slate-800">Debit Card</span>
+                    </button>
+                </div>
+
+                <!-- UPI Details Fields -->
+                <div id="upiDetailsFields" class="space-y-3">
+                    <p class="text-xs font-semibold text-slate-600">UPI Details</p>
+                    <label class="text-xs font-semibold text-slate-600 block">UPI ID</label>
+                    <input type="text" name="upiId" data-required="true"
+                        class="pv-input mt-1 w-full sm:w-1/2 text-sm rounded-lg px-3 py-2" value="acme@paytm" placeholder="yourname@upi">
+                    <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+
+                    <div class="mt-3 p-3.5 bg-emerald-50/80 border border-emerald-200 rounded-xl flex items-start gap-3">
+                        <span class="material-symbols-outlined text-emerald-600 text-xl mt-0.5">check_circle</span>
+                        <div>
+                            <p class="text-xs font-bold text-emerald-800">UPI Verified Successfully</p>
+                            <p class="text-[11px] text-emerald-600 mt-0.5">You will receive payment on this UPI ID.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bank Account Details Fields -->
+                <div id="bankDetailsFields" class="hidden space-y-4">
+                    <p class="text-xs font-semibold text-slate-600">Bank Account Details</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Account Holder Name</label>
+                            <input type="text" name="bankAccountName" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="ACME Pvt Ltd." placeholder="ACME Pvt Ltd.">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Bank Name</label>
+                            <input type="text" name="bankName" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="HDFC Bank" placeholder="HDFC Bank">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Account Number</label>
+                            <input type="text" name="bankAccountNumber" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="501002345678" placeholder="Account Number">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">IFSC Code</label>
+                            <input type="text" name="bankIfsc" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" value="HDFC0001234" placeholder="HDFC0001234">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 bg-blue-50/60 border border-blue-100 rounded-xl flex items-start gap-3">
+                        <span class="material-symbols-outlined text-blue-600 text-xl mt-0.5">account_balance</span>
+                        <div>
+                            <p class="text-xs font-bold text-blue-800">Direct Bank Transfer</p>
+                            <p class="text-[11px] text-blue-600 mt-0.5">Payments will be transferred directly to your bank account after verification.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Details Fields -->
+                <div id="cardDetailsFields" class="hidden space-y-4">
+                    <p class="text-xs font-semibold text-slate-600">Card Details</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="sm:col-span-2">
+                            <label class="text-xs font-semibold text-slate-600">Card Number</label>
+                            <input type="text" name="cardNumber" maxlength="19" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" placeholder="4532 •••• •••• 8921">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-slate-600">Cardholder Name</label>
+                            <input type="text" name="cardName" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" placeholder="Rishi Acharya">
+                            <span class="pv-error-msg text-[11px] font-semibold text-red-500 hidden mt-1 block"></span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="text-xs font-semibold text-slate-600">Expiry (MM/YY)</label>
+                                <input type="text" name="cardExpiry" maxlength="5" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" placeholder="08/28">
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold text-slate-600">CVV</label>
+                                <input type="password" name="cardCvv" maxlength="4" class="pv-input mt-1 w-full text-sm rounded-lg px-3 py-2" placeholder="•••">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl flex items-start gap-3">
+                        <span class="material-symbols-outlined text-slate-600 text-xl mt-0.5">credit_card</span>
+                        <div>
+                            <p class="text-xs font-bold text-slate-800">Card Payment Security</p>
+                            <p class="text-[11px] text-slate-600 mt-0.5">Card details are processed via secure 256-bit encrypted gateway.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security & Encryption Information Box -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-600 shadow-xs flex-shrink-0">
+                            <span class="material-symbols-outlined text-lg">lock</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-slate-800">Secure & Encrypted</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Your payment information is encrypted and secure.</p>
+                        </div>
+                    </div>
+                    <div class="sm:text-right">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-[10px] font-bold text-slate-700 shadow-xs">
+                            <span class="material-symbols-outlined text-xs text-emerald-600">verified_user</span>
+                            PCI DSS Compliant - 256-bit SSL Security
+                        </span>
+                    </div>
+                </div>
+
+                <div class="pv-step-actions flex justify-between items-center gap-3 pt-2">
+                    <button type="button" class="pv-back-btn border border-primary-yellow text-primary-yellow hover:bg-yellow-50 font-bold text-xs px-6 py-2.5 rounded-xl transition flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm">arrow_back</span> Back
+                    </button>
+                    <button type="submit"
+                        class="bg-[#FBBF24] hover:bg-[#F59E0B] text-white font-bold text-xs px-8 py-3 rounded-xl transition shadow-sm flex items-center gap-2">
+                        Save & Continue
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Edit Tab: Documents (Redesigned matching reference screenshot) -->
+            <form id="stepDocuments" class="pv-step hidden space-y-6" data-step="documents" novalidate>
+                <div>
+                    <span class="text-xs font-bold text-slate-400">Step 5 of 5</span>
+                    <h3 class="text-xl font-bold text-ink mt-1">Upload verification Documents</h3>
+                    <p class="text-xs text-granite-gray mt-1">Upload required business documents for faster approval and service access.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Card 1: GST Certificate -->
+                    <div class="pv-doc-upload border-2 border-dashed border-emerald-400 rounded-2xl p-5 bg-white shadow-xs relative" data-doc="GST Certificate">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs flex-shrink-0">1</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-800">GST Certificate</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Required for GST verification.</p>
+                                </div>
+                            </div>
+                            <span class="pv-doc-status inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-600 border border-emerald-200">
+                                <span class="material-symbols-outlined text-xs font-bold">check</span> VERIFIED
+                            </span>
+                        </div>
+                        <div class="mt-4 bg-slate-50 border border-slate-100 rounded-xl p-3 flex items-center justify-between">
+                            <div class="flex items-center gap-3 overflow-hidden">
+                                <span class="material-symbols-outlined text-emerald-600 text-xl flex-shrink-0">description</span>
+                                <div class="truncate">
+                                    <p class="pv-file-name text-xs font-bold text-slate-800 truncate">GST_Certificate.pd</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5">1.2 MB</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-400 flex-shrink-0">
+                                <span class="material-symbols-outlined text-sm cursor-pointer hover:text-slate-700">visibility</span>
+                                <span class="material-symbols-outlined text-sm cursor-pointer hover:text-slate-700">download</span>
+                                <span class="material-symbols-outlined text-sm cursor-pointer hover:text-slate-700">sync</span>
+                            </div>
+                        </div>
+                        <input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" data-required="true" class="hidden">
+                    </div>
+
+                    <!-- Card 2: Company Incorporation Certificate -->
+                    <div class="pv-doc-upload border border-emerald-100 rounded-2xl p-5 bg-white shadow-xs relative" data-doc="Company Incorporation Certificate">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs flex-shrink-0">2</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-800">Company Incorporation Certificate</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Required for company verification.</p>
+                                </div>
+                            </div>
+                            <span class="pv-doc-status inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">
+                                <span class="material-symbols-outlined text-xs font-bold">check</span> UPLOADED
+                            </span>
+                        </div>
+                        <div class="mt-4 bg-slate-50 border border-slate-100 rounded-xl p-3 flex items-center justify-between">
+                            <div class="flex items-center gap-3 overflow-hidden">
+                                <span class="material-symbols-outlined text-emerald-600 text-xl flex-shrink-0">description</span>
+                                <div class="truncate">
+                                    <p class="pv-file-name text-xs font-bold text-slate-800 truncate">Incorporation_Certificate.pdf</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5">1.5 MB</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-400 flex-shrink-0">
+                                <span class="material-symbols-outlined text-sm cursor-pointer hover:text-slate-700">visibility</span>
+                                <span class="material-symbols-outlined text-sm cursor-pointer hover:text-slate-700">download</span>
+                                <span class="material-symbols-outlined text-sm cursor-pointer hover:text-slate-700">sync</span>
+                            </div>
+                        </div>
+                        <input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" class="hidden">
+                    </div>
+
+                    <!-- Card 3: Company PAN Card -->
+                    <div class="pv-doc-upload border-l-4 border-l-emerald-500 border-t border-r border-b border-slate-200 rounded-2xl p-5 bg-white shadow-xs relative" data-doc="Company PAN Card">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs flex-shrink-0">3</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-800">Company PAN Card</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Required for tax verification.</p>
+                                </div>
+                            </div>
+                            <span class="pv-doc-status inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100">
+                                <span class="material-symbols-outlined text-xs font-bold">check</span> UPLOADED
+                            </span>
+                        </div>
+                        <div class="mt-4 bg-slate-50 border border-slate-100 rounded-xl p-3 flex items-center justify-between">
+                            <div class="flex items-center gap-3 overflow-hidden">
+                                <span class="material-symbols-outlined text-emerald-600 text-xl flex-shrink-0">description</span>
+                                <div class="truncate">
+                                    <p class="pv-file-name text-xs font-bold text-slate-800 truncate">PAN_Card.pdf</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5">0.8 MB</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-slate-400 flex-shrink-0">
+                                <span class="material-symbols-outlined text-sm cursor-pointer hover:text-slate-700">visibility</span>
+                                <span class="material-symbols-outlined text-sm cursor-pointer hover:text-slate-700">download</span>
+                                <span class="material-symbols-outlined text-sm cursor-pointer hover:text-slate-700">sync</span>
+                            </div>
+                        </div>
+                        <input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" data-required="true" class="hidden">
+                    </div>
+
+                    <!-- Card 4: Address Proof -->
+                    <div class="pv-doc-upload border-l-4 border-l-amber-400 border-t border-r border-b border-amber-200 rounded-2xl p-5 bg-white shadow-xs relative" data-doc="Address Proof">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-7 h-7 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-xs flex-shrink-0">4</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-800">Address Proof</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Accepted: Electricity Bill, Lease Agreement, Property Tax Receipt, Government Address Proof</p>
+                                </div>
+                            </div>
+                            <span class="pv-doc-status inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 border border-amber-200">
+                                ⚠ PENDING
+                            </span>
+                        </div>
+                        <label class="mt-4 border-2 border-dashed border-amber-300 rounded-xl bg-amber-50/20 py-5 text-center flex flex-col items-center justify-center cursor-pointer hover:bg-amber-50/40 transition">
+                            <span class="material-symbols-outlined text-amber-500 text-2xl">cloud_upload</span>
+                            <span class="mt-2 bg-white border border-amber-400 text-amber-600 hover:bg-amber-50 font-bold text-xs px-4 py-1.5 rounded-lg shadow-xs">Upload Document</span>
+                            <span class="text-[10px] text-slate-400 mt-1">PNG, JPG or PDF (Max 10MB)</span>
+                            <span class="pv-file-name text-xs font-bold text-emerald-600 mt-1"></span>
+                            <input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" data-required="true" class="hidden">
+                        </label>
+                    </div>
+
+                    <!-- Card 5: Authorized Signatory ID -->
+                    <div class="pv-doc-upload border-l-4 border-l-amber-400 border-t border-r border-b border-amber-200 rounded-2xl p-5 bg-white shadow-xs relative" data-doc="Authorized Signatory ID">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-7 h-7 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-xs flex-shrink-0">5</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-800">Authorized Signatory ID</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Accepted: Aadhaar, Passport, Driving License, Voter ID</p>
+                                </div>
+                            </div>
+                            <span class="pv-doc-status inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 border border-amber-200">
+                                ⚠ PENDING
+                            </span>
+                        </div>
+                        <label class="mt-4 border-2 border-dashed border-amber-300 rounded-xl bg-amber-50/20 py-5 text-center flex flex-col items-center justify-center cursor-pointer hover:bg-amber-50/40 transition">
+                            <span class="material-symbols-outlined text-amber-500 text-2xl">cloud_upload</span>
+                            <span class="mt-2 bg-white border border-amber-400 text-amber-600 hover:bg-amber-50 font-bold text-xs px-4 py-1.5 rounded-lg shadow-xs">Upload Document</span>
+                            <span class="text-[10px] text-slate-400 mt-1">PNG, JPG or PDF (Max 10MB)</span>
+                            <span class="pv-file-name text-xs font-bold text-emerald-600 mt-1"></span>
+                            <input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" class="hidden">
+                        </label>
+                    </div>
+
+                    <!-- Card 6: Additional Documents (OPTIONAL) -->
+                    <div class="pv-doc-upload border border-slate-200 rounded-2xl p-5 bg-white shadow-xs relative" data-doc="Additional Documents">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold text-xs flex-shrink-0">6</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-800">Additional Documents <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wide ml-1">(OPTIONAL)</span></h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Company Brochure, ISO Certificates, Project Portfolio, Client References</p>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="mt-4 border-2 border-dashed border-slate-200 rounded-xl bg-slate-50/50 py-5 text-center flex flex-col items-center justify-center cursor-pointer hover:bg-slate-100/70 transition">
+                            <span class="material-symbols-outlined text-slate-400 text-2xl">cloud_upload</span>
+                            <span class="mt-2 bg-white border border-slate-300 text-slate-600 hover:bg-slate-50 font-bold text-xs px-4 py-1.5 rounded-lg shadow-xs">Upload Files</span>
+                            <span class="text-[10px] text-slate-400 mt-1">PNG, JPG or PDF (Max 10MB)</span>
+                            <span class="pv-file-name text-xs font-bold text-emerald-600 mt-1"></span>
+                            <input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" class="hidden">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Bottom Guidelines Box -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-emerald-600 text-xl">shield</span>
+                        <h4 class="text-sm font-bold text-slate-800">Upload Guidelines</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-6">
+                        <div class="flex items-center gap-2.5 text-xs text-slate-600 font-medium">
+                            <span class="material-symbols-outlined text-emerald-500 text-base">check_circle</span>
+                            <span>PDF, JPG, PNG format only</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs text-slate-600 font-medium">
+                            <span class="material-symbols-outlined text-emerald-500 text-base">check_circle</span>
+                            <span>No password-protected files</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs text-slate-600 font-medium">
+                            <span class="material-symbols-outlined text-emerald-500 text-base">check_circle</span>
+                            <span>Maximum file size: 10 MB per file</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs text-slate-600 font-medium">
+                            <span class="material-symbols-outlined text-emerald-500 text-base">check_circle</span>
+                            <span>Ensure all information is visible</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs text-slate-600 font-medium">
+                            <span class="material-symbols-outlined text-emerald-500 text-base">check_circle</span>
+                            <span>Documents should be clear and readable</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-xs text-slate-600 font-medium">
+                            <span class="material-symbols-outlined text-emerald-500 text-base">check_circle</span>
+                            <span>Company name should match profile details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Actions Bar -->
+                <div class="pv-step-actions flex justify-between items-center gap-3 pt-2">
+                    <button type="button" class="pv-back-btn border border-primary-yellow text-primary-yellow hover:bg-yellow-50 font-bold text-xs px-6 py-2.5 rounded-xl transition flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm">arrow_back</span> Back
+                    </button>
+                    <button type="submit"
+                        class="bg-[#FBBF24] hover:bg-[#F59E0B] text-white font-bold text-xs px-8 py-3 rounded-xl transition shadow-sm flex items-center gap-2">
+                        Submit Documents
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="/static/script/profile/profile-verification.js"></script>
+
 {% endblock %}

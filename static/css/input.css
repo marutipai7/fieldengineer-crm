@@ -219,6 +219,7 @@
   --color-dark-slate-gray: #323641;
   --color-dark-muted-blue-gray: #474B56;
   --color-dark-blue-black: #161C24;
+  --color-neutral-white-gray: #FAFAFA;
 
 
 
@@ -8623,3 +8624,232 @@ textarea:focus {
 .user-chat-box {
   @apply bg-primary-yellow text-white rounded-l-[16px] rounded-tr-[4px] rounded-br-[16px] p-3 text-sm leading-relaxed;
 }
+
+
+
+/* ============================================================
+   Profile & Verification Center — supplementary styles
+   Everything achievable with plain Tailwind utility classes is
+   kept inline in the HTML; this file only covers dynamic states
+   (stepper node status, connectors, toasts, uploads) that need
+   custom rules or animation.
+   ============================================================ */
+
+/* ---------- Generic form controls used inside the wizard ---------- */
+.pv-input {
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    color: #1e293b;
+}
+
+.pv-input:focus {
+    border-color: #1466DE;
+    box-shadow: 0 0 0 2px rgba(20, 102, 222, 0.15);
+    outline: none;
+}
+
+.pv-input.pv-input-error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* ---------- Stepper nodes (shared by dashboard banner + wizard) ---------- */
+.pv-step-node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 0%;
+    min-width: 0;
+    padding: 0 2px;
+}
+
+.pv-step-node .pv-node-circle {
+    position: relative;
+    z-index: 10;
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 700;
+    transition: all 0.25s ease;
+    border: 2px solid #cbd5e1;
+    background: #fff;
+    color: #94a3b8;
+}
+
+.pv-step-node .pv-node-label {
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.15;
+    color: #94a3b8;
+    word-break: break-word;
+}
+
+@media (min-width: 640px) {
+    .pv-step-node .pv-node-label {
+        font-size: 13px;
+    }
+}
+
+/* Completed step */
+.pv-step-node.is-complete .pv-node-circle {
+    background: #22C55E;
+    border-color: #22C55E;
+    color: #fff;
+}
+
+.pv-step-node.is-complete .pv-node-label {
+    color: #334155;
+}
+
+/* Active (current) step — orange, dotted ring per reference screens */
+.pv-step-node.is-active .pv-node-circle {
+    background: #fff;
+    border: 2px dashed #FBBF24;
+    color: #FBBF24;
+    box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.15);
+}
+
+.pv-step-node.is-active .pv-node-label {
+    color: #B45309;
+    font-weight: 700;
+}
+
+/* Connector segment between nodes */
+.pv-step-node .pv-node-connector {
+    position: absolute;
+    top: 14px;
+    right: 50%;
+    width: 100%;
+    height: 2px;
+    background: #cbd5e1;
+    z-index: 0;
+}
+
+.pv-step-node .pv-node-connector.connector-complete {
+    background: #22C55E !important;
+}
+
+.pv-step-node .pv-node-connector.connector-active {
+    background: repeating-linear-gradient(90deg, #FBBF24 0 6px, transparent 6px 12px) !important;
+}
+
+/* Edit mode normal tabs styling */
+.pv-edit-tab {
+    cursor: pointer;
+}
+
+.pv-edit-tab.is-active {
+    border-bottom-color: #FBBF24 !important;
+    color: #1e293b !important;
+    font-weight: 700 !important;
+}
+
+/* Clickable nodes once a user is editing an already-completed profile */
+.pv-step-node.is-clickable {
+    cursor: pointer;
+}
+
+/* ---------- Identity / payment "select type" cards ---------- */
+.pv-id-type-option.is-selected,
+.pv-payment-type-option.is-selected {
+    border-color: #FBBF24 !important;
+    background: rgba(251, 191, 36, 0.08) !important;
+}
+
+/* ---------- File upload state ---------- */
+.pv-upload-drop.has-file {
+    border-color: #22C55E;
+    background: rgba(34, 197, 94, 0.05);
+}
+
+.pv-doc-upload.is-uploaded .pv-doc-status {
+    background: #DCFCE7 !important;
+    color: #16A34A !important;
+}
+
+/* ---------- Toast ---------- */
+.pv-toast {
+    min-width: 260px;
+    max-width: 340px;
+    background: #1e293b;
+    color: #fff;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    animation: pv-toast-in 0.25s ease forwards;
+}
+
+.pv-toast.pv-toast-success {
+    background: #14532d;
+}
+
+.pv-toast.pv-toast-error {
+    background: #7f1d1d;
+}
+
+.pv-toast .material-symbols-outlined {
+    font-size: 18px;
+    margin-top: 1px;
+}
+
+.pv-toast.pv-toast-leaving {
+    animation: pv-toast-out 0.2s ease forwards;
+}
+
+@keyframes pv-toast-in {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pv-toast-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
+/* ---------- Misc ---------- */
+#wizardView .pv-step {
+    animation: pv-fade-in 0.2s ease;
+}
+
+@keyframes pv-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
