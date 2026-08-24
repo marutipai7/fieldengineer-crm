@@ -162,6 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentTab = 'all';
     let currentSort = 'recent';
+    let activeBooking = null;
 
     // =============================================
     // CARD RENDERERS
@@ -546,13 +547,66 @@ document.addEventListener('DOMContentLoaded', function () {
         if (el) el.textContent = value;
     }
 
-    function showDetails(b) {
-        const statusText = b.status.charAt(0).toUpperCase() + b.status.slice(1);
+    function showConfirmedDetails(b) {
+        activeBooking = b;
+        fillText('cTitle', b.title);
+        fillText('cBookingId', b.bookingId || 'BK-56874');
+        fillText('cLocation', b.location);
+        fillText('cLocation2', b.location);
+        fillText('cLocationName', b.location);
+        fillText('cDate', b.date);
+        fillText('cDate2', b.date);
+        fillText('cTimelineDate', b.date);
+        fillText('cDuration', b.time);
+        fillText('cDuration2', '15 Hours');
+        fillText('cServiceType', b.title);
+        fillText('cDescription', `End to end ${b.title.toLowerCase()} for office setup including rack setup, cable pulling, termination and testing.`);
+        fillText('cCreatedOn', '28 May 2026, 10:30 AM');
 
-        // Set page title
-        const pageTitle = 'Offer Details';
-        const headerTitle = document.querySelector('#detailsView .text-lg.font-bold.text-ink');
-        if (headerTitle) headerTitle.textContent = pageTitle;
+        const eng = b.engineer || { name: 'Rahul Sharma', rating: '4.8', reviews: 280, initials: 'RS' };
+        fillText('cEngName', eng.name);
+        fillText('cEngRating', eng.rating);
+        fillText('cEngReviews', eng.reviews);
+        fillText('cEngAvatar', eng.initials);
+
+        // scope of work
+        const scope = [
+            'Rack setup and arrangement', 'Cable laying (Cat6)',
+            'Termination and labeling', 'Network testing and validation',
+            'Complete documentation and handover', 'Post-installation support'
+        ];
+        document.getElementById('cScopeGrid').innerHTML = scope.map(s =>
+            `<div class="scope-item"><span class="bg-primary-yellow w-[7px] h-[7px] rounded-full"></span>${s}</div>`
+        ).join('');
+
+        // what's included
+        const included = ['10 Certified Engineers', 'All tools and equipment', 'Testing and quality check', 'Work report and documentation', 'Post work support'];
+        document.getElementById('cIncludedRow').innerHTML = included.map(i =>
+            `<span class="included-pill"><span class="material-symbols-outlined text-[14px] text-emerald-500">check_circle</span>${i}</span>`
+        ).join('');
+
+        // Reset tabs to Overview by default
+        document.querySelectorAll('.confirm-tab-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.tab === 'overview');
+        });
+        document.getElementById('confirm-overviewContent').classList.remove('hidden');
+        document.getElementById('confirm-teamContent').classList.add('hidden');
+
+        listView.classList.add('hidden');
+        detailsView.classList.add('hidden');
+        const confirmView = document.getElementById('confirm-detail-view');
+        if (confirmView) confirmView.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showDetails(b) {
+        activeBooking = b;
+        if (b.status === 'confirmed') {
+            showConfirmedDetails(b);
+            return;
+        }
+
+        const isOffer = b.status === 'offer';
 
         fillText('dTitle', b.title);
         fillText('dBookingId', b.bookingId || 'BK-56874');
@@ -610,6 +664,8 @@ document.addEventListener('DOMContentLoaded', function () {
         fillText('dBottomEngText', '1 Verified Engineer Ready for Assignment');
 
         listView.classList.add('hidden');
+        const confirmView = document.getElementById('confirm-detail-view');
+        if (confirmView) confirmView.classList.add('hidden');
         detailsView.classList.remove('hidden');
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -619,8 +675,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const btn = e.target.closest('button');
         if (!btn) return;
         
-        // ONLY offer-view-details buttons are clickable
-        if (!btn.classList.contains('offer-view-details')) return;
+        if (!btn.classList.contains('offer-view-details') && !btn.classList.contains('confirmed-view-details')) return;
         
         const row = btn.closest('.booking-row');
         const idx = [...bookingContainer.children].indexOf(row);
@@ -630,6 +685,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     backBtn.addEventListener('click', function () {
         detailsView.classList.add('hidden');
+        listView.classList.remove('hidden');
+    });
+
+    document.getElementById('backToBookingBtn3').addEventListener('click', function () {
+        document.getElementById('confirm-detail-view').classList.add('hidden');
         listView.classList.remove('hidden');
     });
 
@@ -649,4 +709,244 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // =============================================
+    // CHAT SUPPORT LOGIC
+    // =============================================
+    function populateChatContext(b) {
+        if (!b) return;
+
+        // Determine icon, bg class, color class, status badge, etc.
+        const icon = b.icon || 'device_hub';
+        const bgClass = b.bg || 'bg-cloud-blue';
+        const colorClass = b.color || 'text-primary-yellow';
+        
+        // Populate Icon
+        const iconWrap = document.getElementById('chatCtxIconWrap');
+        if (iconWrap) {
+            iconWrap.className = `w-12 h-12 rounded-xl ${bgClass} flex items-center justify-center shrink-0 mb-2`;
+        }
+        const iconEl = document.getElementById('chatCtxIcon');
+        if (iconEl) {
+            iconEl.className = `material-symbols-outlined ${colorClass} text-[22px]`;
+            iconEl.textContent = icon;
+        }
+
+        // Title
+        fillText('chatCtxTitle', b.title);
+
+        // Status Badge
+        const statusBadge = document.getElementById('chatCtxStatusBadge');
+        if (statusBadge) {
+            let statusText = 'In Progress';
+            let badgeClass = 'badge-inprogress';
+            if (b.status === 'confirmed') {
+                statusText = 'Confirmed';
+                badgeClass = 'badge-confirmed';
+            } else if (b.status === 'offer') {
+                statusText = 'Offer';
+                badgeClass = 'badge-offers';
+            } else if (b.status === 'completed') {
+                statusText = 'Completed';
+                badgeClass = 'badge-completed';
+            } else if (b.status === 'cancelled') {
+                statusText = 'Cancelled';
+                badgeClass = 'badge-cancelled';
+            }
+            statusBadge.textContent = statusText;
+            statusBadge.className = `status-pill ${badgeClass} mt-2`;
+        }
+
+        // Booking ID
+        fillText('chatCtxBookingId', b.bookingId || 'BK-56874');
+
+        // Service Type
+        fillText('chatCtxServiceType', b.title);
+
+        // Location
+        fillText('chatCtxLocation', b.location || 'DLF Cyber City, Gurgaon');
+
+        // Lead Engineer
+        const engName = b.engineer ? b.engineer.name : 'Rahul Sharma';
+        fillText('chatCtxLeadEngineer', engName);
+
+        // Date
+        fillText('chatCtxDate', (b.date || '29 May 2026') + ', 10:00 AM');
+
+        // Progress
+        const progressVal = document.getElementById('chatCtxProgressVal');
+        const progressBar = document.getElementById('chatCtxProgressBar');
+        let progressPercent = '40%';
+        if (b.status === 'completed') {
+            progressPercent = '100%';
+        } else if (b.status === 'cancelled') {
+            progressPercent = '0%';
+        } else if (b.status === 'confirmed') {
+            progressPercent = '20%';
+        }
+        if (progressVal) progressVal.textContent = progressPercent;
+        if (progressBar) progressBar.style.width = progressPercent;
+    }
+
+    function appendMessage(text, isUser) {
+        const container = document.getElementById('chatMessagesContainer');
+        if (!container) return;
+
+        const timeString = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const messageDiv = document.createElement('div');
+
+        if (isUser) {
+            messageDiv.className = 'flex flex-col items-end max-w-[35%] ml-auto';
+            messageDiv.innerHTML = `
+                <div class="user-chat-box">
+                    ${text}
+                </div>
+                <span class="text-[12px] text-time-gray font-normal mt-1 mr-1">${timeString}</span>
+            `;
+        } else {
+            messageDiv.className = 'flex flex-col items-start max-w-[85%]';
+            messageDiv.innerHTML = `
+                <div class="system-chat-box">
+                    ${text}
+                </div>
+                <span class="text-[12px] text-time-gray font-normal mt-1 ml-1">${timeString}</span>
+            `;
+        }
+
+        container.appendChild(messageDiv);
+        container.scrollTop = container.scrollHeight;
+    }
+
+    const staticReplies = [
+        "Thanks for your message! Our team is looking into this and will get back to you shortly.",
+        "Your update has been received. The lead engineer on site has been notified.",
+        "We are currently reviewing your request. Please wait a moment while we check the status.",
+        "Understood. If you need immediate assistance, you can also use the Call Support option.",
+        "Thank you! We've noted your preference and will update the job details accordingly."
+    ];
+    let replyIndex = 0;
+
+    function triggerSupportReply() {
+        setTimeout(() => {
+            const replyText = staticReplies[replyIndex % staticReplies.length];
+            replyIndex++;
+            appendMessage(replyText, false);
+        }, 1000);
+    }
+
+    function handleSendMessage() {
+        const input = document.getElementById('chatInput');
+        if (!input) return;
+        const text = input.value.trim();
+        if (!text) return;
+
+        appendMessage(text, true);
+        input.value = '';
+        triggerSupportReply();
+    }
+
+    // Suggestions click listeners
+    document.querySelectorAll('.chat-suggestion-pill').forEach(pill => {
+        pill.addEventListener('click', function () {
+            const text = this.textContent.trim();
+            appendMessage(text, true);
+            triggerSupportReply();
+        });
+    });
+
+    // Enter key listener
+    const chatInput = document.getElementById('chatInput');
+    if (chatInput) {
+        chatInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                handleSendMessage();
+            }
+        });
+    }
+
+    // Send button click listener
+    const chatSendBtn = document.getElementById('chatSendBtn');
+    if (chatSendBtn) {
+        chatSendBtn.addEventListener('click', handleSendMessage);
+    }
+
+    // Chat support entry button click
+    const chatSupportBtn = document.getElementById('chatSupportBtn');
+    if (chatSupportBtn) {
+        chatSupportBtn.addEventListener('click', function () {
+            const confirmView = document.getElementById('confirm-detail-view');
+            const detailsView = document.getElementById('detailsView');
+            const chatView = document.getElementById('chatView');
+
+            if (confirmView) confirmView.classList.add('hidden');
+            if (detailsView) detailsView.classList.add('hidden');
+            if (chatView) {
+                chatView.classList.remove('hidden');
+                populateChatContext(activeBooking);
+                // Scroll chat to bottom initially
+                const container = document.getElementById('chatMessagesContainer');
+                if (container) container.scrollTop = container.scrollHeight;
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // Go back helper
+    function goBackFromChat() {
+        const chatView = document.getElementById('chatView');
+        if (chatView) chatView.classList.add('hidden');
+
+        if (activeBooking && activeBooking.status === 'confirmed') {
+            const confirmView = document.getElementById('confirm-detail-view');
+            if (confirmView) confirmView.classList.remove('hidden');
+        } else if (activeBooking && activeBooking.status === 'offer') {
+            const detailsView = document.getElementById('detailsView');
+            if (detailsView) detailsView.classList.remove('hidden');
+        } else {
+            // Default fallback
+            const listView = document.getElementById('listView');
+            if (listView) listView.classList.remove('hidden');
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const backToConfirmDetailBtn = document.getElementById('backToConfirmDetailBtn');
+    if (backToConfirmDetailBtn) {
+        backToConfirmDetailBtn.addEventListener('click', goBackFromChat);
+    }
+
+    const chatCtxViewDetailsBtn = document.getElementById('chatCtxViewDetailsBtn');
+    if (chatCtxViewDetailsBtn) {
+        chatCtxViewDetailsBtn.addEventListener('click', goBackFromChat);
+    }
 });
+
+// Confirm Tabs
+document.querySelectorAll('.confirm-tab-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+        document.querySelectorAll('.confirm-tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        document.getElementById('confirm-overviewContent').classList.add('hidden');
+        document.getElementById('confirm-teamContent').classList.add('hidden');
+
+        const overviewWidgets = document.getElementById('confirm-sidebar-overview-widgets');
+        const teamWidgets = document.getElementById('confirm-sidebar-team-widgets');
+
+        if (overviewWidgets) overviewWidgets.classList.add('hidden');
+        if (teamWidgets) teamWidgets.classList.add('hidden');
+
+        if (this.dataset.tab === 'overview') {
+            document.getElementById('confirm-overviewContent').classList.remove('hidden');
+            if (overviewWidgets) overviewWidgets.classList.remove('hidden');
+        } else if (this.dataset.tab === 'team') {
+            document.getElementById('confirm-teamContent').classList.remove('hidden');
+            if (teamWidgets) teamWidgets.classList.remove('hidden');
+        }
+    });
+});
+
+window.switchTabInConfirm = function (tabName) {
+    const btn = document.querySelector(`.confirm-tab-btn[data-tab="${tabName}"]`);
+    if (btn) btn.click();
+};

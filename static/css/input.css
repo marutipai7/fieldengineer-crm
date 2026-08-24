@@ -91,6 +91,15 @@
   --color-halo-pink:#FFF0F2;
    --color-primary-grayy:#FFC9490D;
   --color-dark-yellow:#FFC94933;
+  --color-mid-white: #FFFFFF1A;
+  --color-mid-yellow: #FFC9491A;
+  --color-mid-green: #EAFFE9;
+  --color-mid-light-green: #E3FFE3;
+  --color-low-gray: #F0F0F0;
+  --color-dark-black-2:#0A0A0F;
+  --color-offwhite:#fefefe;
+  --color-time-gray:#3C3C3C;
+  --color-chat-input:#E4E9F2;
 
   /* Neutrals */
 
@@ -276,6 +285,9 @@
   --color-article-medium-yellow: #92400E;
   --color-article-green-2: #F0FDF8;
   --shadow-metric-card: 0px 2px 8px 0px #0000000F;
+  --shadow-overview-card: 0 1px 2px rgba(255, 255, 255, 0.45) inset,
+      0 -1px 2px rgba(255, 255, 255, 0.25) inset,
+      0 2px 8px rgba(0, 0, 0, 0.04);
 
   /* About FE Theme */
 
@@ -296,6 +308,7 @@
 
   --color-about-card: #FFFFFF;
   --color-about-border: #E0ECD8;
+  --color-chat-text:#637381;
 
   --color-about-bg-start: #FBF2C0;
   --color-about-bg-middle: #D8EDBC;
@@ -347,6 +360,7 @@
   --color-about-btn-text: #1A1A1A;
   --color-about-btn-secondary-bg: #FFFFFF;
   --color-about-btn-secondary-border: #D9E1E5;
+
 
 
 
@@ -8530,13 +8544,33 @@ textarea:focus {
             flex-wrap: wrap;
             box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.05);
         }
-        .detail-tab-btn.active {
-    opacity: 1;
-}
+      .detail-tab-btn,
+      .confirm-tab-btn {
+        border: 1px solid #E4E9F0 !important;
+        background: #ffffff !important;
+        color: #4A5568 !important;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        white-space: nowrap;
+        transition: all 0.15s ease;
+        cursor: pointer;
+      }
 
-.detail-tab-btn:not(.active) {
-    opacity: 0.7;
-}
+      .detail-tab-btn.active,
+      .confirm-tab-btn.active {
+        background: #FFC949 !important;
+        color: #ffffff !important;
+        border-color: transparent !important;
+        opacity: 1 !important;
+      }
+
+      .detail-tab-btn:not(.active):hover,
+      .confirm-tab-btn:not(.active):hover {
+        background: #F8FAFC !important;
+        color: #1A1A1A !important;
+      }
 
         @media (max-width:640px) {
             .sticky-action-bar {
@@ -8544,3 +8578,48 @@ textarea:focus {
                 align-items: stretch;
             }
         }
+
+
+.overview-card {
+  @apply bg-mid-white border border-light-medium rounded-[20px] p-4 mb-4 shadow-overview-card backdrop-blur-sm;
+}
+
+.btn-fill-yellow-2 {
+  border: none;
+  background: #FFC949;
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.btn-fill-yellow-2:hover {
+  background: #f5b936;
+}
+
+.btn-outline-yellow-2 {
+  border: 1px solid #FFC949;
+  color: #FFC949;
+  background: #ffffff;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.chat-card {
+    @apply shadow-overview-card backdrop-blur-sm;
+}
+
+.system-chat-box {
+  @apply bg-white border border-light-medium rounded-r-[16px] rounded-tl-[4px] rounded-bl-[16px] p-3 text-sm text-black leading-relaxed font-normal;
+}
+
+.user-chat-box {
+  @apply bg-primary-yellow text-white rounded-l-[16px] rounded-tr-[4px] rounded-br-[16px] p-3 text-sm leading-relaxed;
+}
