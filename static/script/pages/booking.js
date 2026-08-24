@@ -1,5 +1,118 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    /* =======================================================
+   LIVE ENGINEER TRACKING VIEW LOGIC
+======================================================== */
+(function () {
+
+    const trkEngineers = [
+        { name: 'Rahul Sharma', role: 'Network Cabling Expert', status: 'On Site',  color: '#DC7B24', initials: 'RS', time: 'Checked in 10:33 AM' },
+        { name: 'Rahul Sharma', role: 'Network Cabling Expert', status: 'On Route', color: '#00897B', initials: 'RS', time: 'Checked in 10:32 AM' },
+        { name: 'Rahul Sharma', role: 'Network Cabling Expert', status: 'On Break', color: '#8B5CF6', initials: 'RS', time: 'Checked in 10:33 AM' },
+        { name: 'Rahul Sharma', role: 'Network Cabling Expert', status: 'On Site',  color: '#F97316', initials: 'RS', time: 'Checked in 10:31 AM' },
+        { name: 'Rahul Sharma', role: 'Network Cabling Expert', status: 'On Site',  color: '#6D28D9', initials: 'RS', time: 'Checked in 10:30 AM' },
+    ];
+
+    const statusColorMap = {
+        'On Site':  ['#DCFCE7', '#16A34A'],
+        'On Route': ['#FFF6E5', '#F5A623'],
+        'On Break': ['#EDE9FE', '#7C3AED'],
+        'Offline':  ['#F1F5F9', '#64748B']
+    };
+
+    function renderTrkEngineerList(list) {
+        const container = document.getElementById('trkEngineerList');
+        if (!container) return;
+
+        if (!list.length) {
+            container.innerHTML = '<p class="text-center text-sm text-slate-400 py-6">No engineers match your search.</p>';
+            return;
+        }
+
+        container.innerHTML = list.map(eng => {
+            const colors = statusColorMap[eng.status] || statusColorMap['Offline'];
+            return `
+            <div class="trk-eng-card">
+                <div class="trk-eng-left">
+                    <div class="trk-eng-avatar" style="background:${eng.color}">${eng.initials}</div>
+                    <div>
+                        <p class="trk-eng-name">${eng.name}</p>
+                        <p class="trk-eng-role">${eng.role}</p>
+                        <p class="trk-eng-time">${eng.time || ''}</p>
+                        <span class="trk-eng-status-badge" style="background:${colors[0]};color:${colors[1]};">${eng.status}</span>
+                    </div>
+                </div>
+                <button type="button" class="trk-track-btn">Track</button>
+            </div>`;
+        }).join('');
+    }
+
+    function initTrackingView() {
+        renderTrkEngineerList(trkEngineers);
+
+        const countEl = document.getElementById('trkEngCount');
+        const viewAllCountEl = document.getElementById('trkViewAllCount');
+        if (countEl) countEl.textContent = trkEngineers.length;
+        if (viewAllCountEl) viewAllCountEl.textContent = trkEngineers.length;
+    }
+
+    function showTrackingView() {
+        const detailsView = document.getElementById('detailsView');
+        const trackingView = document.getElementById('trackingView');
+        if (!trackingView) return;
+        if (detailsView) detailsView.classList.add('hidden');
+        trackingView.classList.remove('hidden');
+        initTrackingView();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function hideTrackingView() {
+        const detailsView = document.getElementById('detailsView');
+        const trackingView = document.getElementById('trackingView');
+        if (!trackingView) return;
+        trackingView.classList.add('hidden');
+        if (detailsView) detailsView.classList.remove('hidden');
+    }
+
+    // ---- Delegated click handling (works even for dynamically rendered buttons) ----
+    document.addEventListener('click', function (e) {
+
+        // Open tracking view
+        if (e.target.closest('#trackAllEngineersBtn') || e.target.closest('#dTrackLiveBtn')) {
+            e.preventDefault();
+            showTrackingView();
+            return;
+        }
+
+        // Back button inside tracking view
+        if (e.target.closest('#backToTeamViewBtn')) {
+            e.preventDefault();
+            hideTrackingView();
+            return;
+        }
+
+        // Map / Satellite toggle
+        const mapBtn = e.target.closest('.map-toggle-btn');
+        if (mapBtn) {
+            document.querySelectorAll('.map-toggle-btn').forEach(b => b.classList.remove('active'));
+            mapBtn.classList.add('active');
+            return;
+        }
+    });
+
+    // ---- Delegated search input handling ----
+    document.addEventListener('input', function (e) {
+        if (e.target && e.target.id === 'trkSearchInput') {
+            const q = e.target.value.toLowerCase().trim();
+            const filtered = trkEngineers.filter(eng =>
+                eng.name.toLowerCase().includes(q) || eng.role.toLowerCase().includes(q)
+            );
+            renderTrkEngineerList(filtered);
+        }
+    });
+
+})();
+
     // =============================================
     // MOCK DATA
     // =============================================
@@ -100,7 +213,58 @@ document.addEventListener('DOMContentLoaded', function () {
             location: 'DLF Cyber City, Gurgaon',
             date: '29 May 2026',
             time: '12 Hours',
-            engineersCount: 10
+            engineersCount: 10,
+            engineer: { name: 'Rahul Sharma', rating: '4.8', reviews: 24, initials: 'RS', color: 'bg-dark-orange text-white' },
+
+            // header panel
+            totalAmount: '1,000',
+            liveTimer: '01:15:20',
+            overallProgress: 40,
+
+            // job details
+            estimatedDuration: '15 Hours',
+            createdOn: '28 May 2026, 10:30 AM',
+            paymentStatus: 'Unpaid',
+
+            // milestone stepper (currentStep is 0-indexed into milestones array)
+            currentStep: 2,
+            milestones: [
+                { label: 'Confirmed', date: '23 May 2026, 10:15 AM' },
+                { label: 'Team Assigned', date: '23 May 2026, 03:45 PM' },
+                { label: 'Work in Progress', date: '24 May 2026, 11:30 AM' },
+                { label: 'Testing', date: '27 May 2026, 09:00 AM' },
+                { label: 'Completed', date: 'Pending' }
+            ],
+
+            // additional tasks list
+            tasks: [
+                {
+                    title: 'Extra Rack Installation',
+                    status: 'Requested',
+                    statusClass: 'bg-amber-50 text-amber-600',
+                    subtext: 'Requested on 29 May, 11:20 AM',
+                    cost: '2,500',
+                    duration: null
+                },
+                {
+                    title: 'Additional Cable Testing',
+                    status: 'In-Progress',
+                    statusClass: 'bg-emerald-50 text-emerald-600',
+                    subtext: 'Accepted on 29 May, 12:20 AM',
+                    cost: '2,500',
+                    duration: '01:00 Hrs'
+                }
+            ],
+
+            // team stats + availability ring (in %)
+            teamStats: { total: 10, onSite: 3, onRoute: 2, onBreak: 0 },
+            availability: 80,
+            teamInfo: {
+                reporting: '9:00 AM',
+                workStart: '10:00 AM',
+                duration: '15 Hours',
+                breakTime: '1:00 AM - 1:30 AM'
+            }
         };
     }
 
@@ -162,7 +326,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let currentTab = 'all';
     let currentSort = 'recent';
-    let activeBooking = null;
 
     // =============================================
     // CARD RENDERERS
@@ -290,7 +453,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>`;
     }
 
-    // 3. IN PROGRESS ROW - View Details
+   
     function inProgressRow(b) {
         return `
         <div class="booking-row bg-white border border-slate-200 rounded-xl p-4">
@@ -464,7 +627,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function getVisible() {
         let list = currentTab === 'all' ? bookings : bookings.filter(b => b.status === currentTab);
         if (currentSort === 'price') {
-            list = [...list].sort((a, b) => parseFloat((b.price || b.paidAmount || b.estPrice || '0').replace(/,/g,'')) - parseFloat((a.price || a.paidAmount || a.estPrice || '0').replace(/,/g,'')));
+            list = [...list].sort((a, b) => parseFloat((b.price || b.paidAmount || b.estPrice || b.totalAmount || '0').replace(/,/g,'')) - parseFloat((a.price || a.paidAmount || a.estPrice || a.totalAmount || '0').replace(/,/g,'')));
         }
         if (currentSort === 'oldest') list = [...list].reverse();
         return list;
@@ -536,78 +699,190 @@ document.addEventListener('DOMContentLoaded', function () {
     render();
 
     // =============================================
-    // VIEW DETAILS - ONLY FOR OFFERS
+    // VIEW DETAILS / VIEW REPORT
     // =============================================
     const listView = document.getElementById('listView');
     const detailsView = document.getElementById('detailsView');
     const backBtn = document.getElementById('backToBookingBtn');
+
+    // Elements that differ between Offer and In-Progress layouts
+    const dAmountBlock = document.getElementById('dAmountBlock');
+    const dOfferPriceBlock = document.getElementById('dOfferPriceBlock');
+    const dProgressBlock = document.getElementById('dProgressBlock');
+    const offersTimelineCard = document.getElementById('offersTimelineCard');
+    const milestoneCard = document.getElementById('milestoneCard');
+    const additionalTasksCard = document.getElementById('additionalTasksCard');
+    const dPaymentStatusRow = document.getElementById('dPaymentStatusRow');
+    const dCreatedOnRow = document.getElementById('dCreatedOnRow');
+    const teamOverviewOfferBlock = document.getElementById('teamOverviewOfferBlock');
+    const teamOverviewProgressBlock = document.getElementById('teamOverviewProgressBlock');
+    const teamSearchRow = document.getElementById('teamSearchRow');
+    const whyChooseTeamContainer = document.getElementById('whyChooseTeamContainer');
+    const teamAvailabilityCard = document.getElementById('teamAvailabilityCard');
+    const teamInfoCard = document.getElementById('teamInfoCard');
+    const trackSummaryContainer = document.getElementById('trackSummaryContainer');
+    const whyBestMatchContainer = document.getElementById('whyBestMatchContainer');
+    const helpTitle = document.getElementById('helpTitle');
+    const helpDesc = document.getElementById('helpDesc');
+    const helpMainBtnText = document.getElementById('helpMainBtnText');
+    const helpExtraButtons = document.getElementById('helpExtraButtons');
+    const dEngCardTitle = document.getElementById('dEngCardTitle');
+
+    // Tracks which booking is currently open, so the detail-tab click handler
+    // (Overview vs Team & Engineers) knows which sidebar/content variant to show.
+    let currentDetailBooking = null;
 
     function fillText(id, value) {
         const el = document.getElementById(id);
         if (el) el.textContent = value;
     }
 
-    function showConfirmedDetails(b) {
-        activeBooking = b;
-        fillText('cTitle', b.title);
-        fillText('cBookingId', b.bookingId || 'BK-56874');
-        fillText('cLocation', b.location);
-        fillText('cLocation2', b.location);
-        fillText('cLocationName', b.location);
-        fillText('cDate', b.date);
-        fillText('cDate2', b.date);
-        fillText('cTimelineDate', b.date);
-        fillText('cDuration', b.time);
-        fillText('cDuration2', '15 Hours');
-        fillText('cServiceType', b.title);
-        fillText('cDescription', `End to end ${b.title.toLowerCase()} for office setup including rack setup, cable pulling, termination and testing.`);
-        fillText('cCreatedOn', '28 May 2026, 10:30 AM');
+  function renderMilestones(milestones, currentStep) {
+    const wrap = document.getElementById('milestoneRow');
+    wrap.innerHTML = milestones.map((m, idx) => {
+        let iconName, circleClass;
+        if (idx < currentStep) {
+            iconName = 'check';
+            circleClass = 'milestone-icon-done';
+        } else if (idx === currentStep) {
+            iconName = 'schedule';
+            circleClass = 'milestone-icon-current';
+        } else {
+            iconName = '';
+            circleClass = 'milestone-icon-pending';
+        }
 
-        const eng = b.engineer || { name: 'Rahul Sharma', rating: '4.8', reviews: 280, initials: 'RS' };
-        fillText('cEngName', eng.name);
-        fillText('cEngRating', eng.rating);
-        fillText('cEngReviews', eng.reviews);
-        fillText('cEngAvatar', eng.initials);
+        // Segment connecting this node to the next one
+        let lineClass;
+        if (idx < currentStep - 1) {
+            lineClass = 'milestone-line-done';
+        } else if (idx === currentStep - 1) {
+            lineClass = 'milestone-line-transition';
+        } else {
+            lineClass = 'milestone-line-pending';
+        }
 
-        // scope of work
-        const scope = [
-            'Rack setup and arrangement', 'Cable laying (Cat6)',
-            'Termination and labeling', 'Network testing and validation',
-            'Complete documentation and handover', 'Post-installation support'
-        ];
-        document.getElementById('cScopeGrid').innerHTML = scope.map(s =>
-            `<div class="scope-item"><span class="bg-primary-yellow w-[7px] h-[7px] rounded-full"></span>${s}</div>`
-        ).join('');
+        const lineHTML = idx < milestones.length - 1 ? 
+            `<div class="milestone-line ${lineClass}"></div>` : '';
 
-        // what's included
-        const included = ['10 Certified Engineers', 'All tools and equipment', 'Testing and quality check', 'Work report and documentation', 'Post work support'];
-        document.getElementById('cIncludedRow').innerHTML = included.map(i =>
-            `<span class="included-pill"><span class="material-symbols-outlined text-[14px] text-emerald-500">check_circle</span>${i}</span>`
-        ).join('');
+        // Format date: split date and time into separate lines
+        let dateHTML;
+        const isPending = m.date.trim().toLowerCase() === 'pending';
+        const dateClass = isPending ? 'milestone-date-pending' : 'milestone-date';
+        
+        if (m.date.includes(',')) {
+            const parts = m.date.split(',');
+            const datePart = parts[0].trim();
+            const timePart = parts.slice(1).join(',').trim();
+            dateHTML = `
+                <p class="${dateClass}">${datePart}</p>
+                <p class="${dateClass}">${timePart}</p>
+            `;
+        } else {
+            dateHTML = `<p class="${dateClass}">${m.date}</p>`;
+        }
 
-        // Reset tabs to Overview by default
-        document.querySelectorAll('.confirm-tab-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.tab === 'overview');
-        });
-        document.getElementById('confirm-overviewContent').classList.remove('hidden');
-        document.getElementById('confirm-teamContent').classList.add('hidden');
+        return `
+            <div class="milestone-step">
+                <div class="milestone-icon-row">
+                    <div class="milestone-icon ${circleClass}">
+                        ${iconName ? `<span class="material-symbols-outlined">${iconName}</span>` : ''}
+                    </div>
+                    ${lineHTML}
+                </div>
+                <p class="milestone-step-label">${m.label}</p>
+                ${dateHTML}
+            </div>
+        `;
+    }).join('');
+}
 
-        listView.classList.add('hidden');
-        detailsView.classList.add('hidden');
-        const confirmView = document.getElementById('confirm-detail-view');
-        if (confirmView) confirmView.classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+  function renderTasks(tasks) {
+    const list = document.getElementById('additionalTasksList');
+    fillText('dTaskCount', tasks.length);
+
+    list.innerHTML = tasks.map(t => `
+        <div class="additional-task-row">
+
+            <!-- Task -->
+            <div class="additional-task-info">
+                <div class="additional-task-icon ${t.status === 'Requested'
+                    ? 'task-icon-requested'
+                    : 'task-icon-progress'}">
+                    
+                    <span class="material-symbols-outlined">
+                        ${t.status === 'Requested' ? 'hourglass_top' : 'check_circle'}
+                    </span>
+                </div>
+
+                <div>
+                    <p class="additional-task-title">
+                        ${t.title}
+                    </p>
+
+                    <p class="additional-task-subtext">
+                        ${t.subtext}
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Status - CENTER -->
+            <div class="additional-task-status-wrapper">
+                <span class="additional-task-status ${t.status === 'Requested'
+                    ? 'status-review'
+                    : 'status-progress'}">
+                    ${t.status === 'Requested' ? 'In Review' : 'In Progress'}
+                </span>
+            </div>
+
+
+            <!-- Estimated Cost -->
+            <div class="additional-task-cost">
+                <p class="additional-task-meta">Est Cost</p>
+                <p class="additional-task-price">Rs.${t.cost}</p>
+            </div>
+
+
+            <!-- Estimated Duration -->
+            <div class="additional-task-duration">
+                ${t.duration ? `
+                    <p class="additional-task-meta">Est Duration</p>
+                    <p class="additional-task-duration-value">
+                        ${t.duration}
+                    </p>
+                ` : ''}
+            </div>
+
+        </div>
+    `).join('');
+}
+
+    function applyOverviewTabVariant(isInProgress) {
+        // Overview tab: milestone/tasks vs offer timeline; sidebar track summary/why-best-match stay for both,
+        // but only In Progress gets milestones + additional tasks + payment status.
+        offersTimelineCard.classList.toggle('hidden', isInProgress);
+        milestoneCard.classList.toggle('hidden', !isInProgress);
+        additionalTasksCard.classList.toggle('hidden', !isInProgress);
+        dPaymentStatusRow.classList.toggle('hidden', !isInProgress);
+        dCreatedOnRow.classList.toggle('job-detail-row-last', !isInProgress);
+        dPaymentStatusRow.classList.toggle('job-detail-row-last', isInProgress);
+    }
+
+    function applyTeamTabVariant(isInProgress) {
+        teamOverviewOfferBlock.classList.toggle('hidden', isInProgress);
+        teamOverviewProgressBlock.classList.toggle('hidden', !isInProgress);
+        teamSearchRow.classList.toggle('hidden', !isInProgress);
+        whyChooseTeamContainer.classList.toggle('hidden', isInProgress);
+        teamAvailabilityCard.classList.toggle('hidden', !isInProgress);
+        teamInfoCard.classList.toggle('hidden', !isInProgress);
     }
 
     function showDetails(b) {
-        activeBooking = b;
-        if (b.status === 'confirmed') {
-            showConfirmedDetails(b);
-            return;
-        }
+        currentDetailBooking = b;
+        const isInProgress = b.status === 'inprogress';
 
-        const isOffer = b.status === 'offer';
-
+        // ---- Header summary card ----
         fillText('dTitle', b.title);
         fillText('dBookingId', b.bookingId || 'BK-56874');
         fillText('dLocation', b.location);
@@ -615,15 +890,9 @@ document.addEventListener('DOMContentLoaded', function () {
         fillText('dDate', b.date);
         fillText('dDate2', b.date);
         fillText('dDuration', b.time);
-        fillText('dDuration2', b.time);
+        fillText('dDuration2', b.estimatedDuration || b.time);
         fillText('dServiceType', b.title);
-        fillText('dDescription', `End to end ${b.title.toLowerCase()} for office setup including setup, testing and handover.`);
-        fillText('dCreatedOn', b.date + ', 10:30 AM');
-        fillText('dPosted', b.date + ', 09:00 AM');
-        fillText('dExpires', b.date + ', 12:00 PM');
-        fillText('dPrice', b.price || '7,434');
-        fillText('dBottomPrice', b.price || '7,434');
-        fillText('dEngAssigned', '1');
+        fillText('dCreatedOn', b.createdOn || (b.date + ', 10:30 AM'));
 
         const eng = b.engineer || { name: 'Rahul Sharma', rating: '4.8', reviews: 24, initials: 'RS' };
         fillText('dEngName', eng.name);
@@ -635,48 +904,131 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // status pill
         const pill = document.getElementById('dStatusPill');
-        pill.textContent = 'Offer';
-        pill.className = 'status-pill badge-offers';
-
-        // icon
         const iconWrap = document.getElementById('dTitleIconWrap');
         const icon = document.getElementById('dTitleIcon');
         iconWrap.className = 'w-12 h-12 rounded-xl ' + (b.bg || 'bg-cloud-blue') + ' flex items-center justify-center shrink-0';
         icon.className = 'material-symbols-outlined ' + (b.color || 'text-primary-yellow') + ' text-[22px]';
         icon.textContent = b.icon || 'device_hub';
 
-        // scope of work
+        // scope of work + what's included (shared across offer/in-progress)
         const scope = [
             'Rack setup and arrangement', 'Cable laying (Cat6)',
             'Termination and labeling', 'Network testing and validation',
             'Complete documentation and handover', 'Post-installation support'
         ];
         document.getElementById('dScopeGrid').innerHTML = scope.map(s =>
-            `<div class="scope-item"><span class="material-symbols-outlined text-primary-yellow text-[16px]">circle</span>${s}</div>`
+            `<div class="scope-item">
+                <span class="material-symbols-outlined text-primary-yellow text-[16px]" style="font-variation-settings: 'FILL' 1;">circle</span>
+                ${s}
+            </div>`
         ).join('');
 
-        // what's included
         const included = ['10 Verified Engineers', 'All tools and equipment', 'Testing and quality check', 'Work report and documentation', 'Post work support'];
         document.getElementById('dIncludedRow').innerHTML = included.map(i =>
             `<span class="included-pill"><span class="material-symbols-outlined text-[14px] text-emerald-500">check_circle</span>${i}</span>`
         ).join('');
 
-        fillText('dBottomEngText', '1 Verified Engineer Ready for Assignment');
+        if (isInProgress) {
+            // ---- In Progress specific header ----
+            pill.textContent = 'In Progress';
+            pill.className = 'status-pill badge-inprogress';
+            document.getElementById('dEngAssignedWrap').classList.remove('hidden');
+            fillText('dEngAssigned', b.engineersCount || 10);
+
+            dOfferPriceBlock.classList.add('hidden');
+            dAmountBlock.classList.remove('hidden');
+            dProgressBlock.classList.remove('hidden');
+            fillText('dTotalAmount', b.totalAmount || '1,000');
+            fillText('dLiveTimer', b.liveTimer || '01:15:20');
+            fillText('dOverallProgress', b.overallProgress != null ? b.overallProgress : 40);
+            document.getElementById('dProgressBar').style.width = (b.overallProgress != null ? b.overallProgress : 40) + '%';
+
+            fillText('dDescription', `End to end ${b.title.toLowerCase()} for office setup including rack setup, cable pulling, termination, testing and handover.`);
+            fillText('dPaymentStatus', b.paymentStatus || 'Unpaid');
+
+            renderMilestones(b.milestones, b.currentStep);
+            renderTasks(b.tasks);
+
+            // team overview stats
+            const stats = b.teamStats || { total: 10, onSite: 0, onRoute: 0, onBreak: 0 };
+            fillText('dStatTotal', stats.total);
+            fillText('dStatOnSite', stats.onSite);
+            fillText('dStatOnRoute', stats.onRoute);
+            fillText('dStatOnBreak', stats.onBreak);
+
+            // availability ring: circumference = 2*pi*50 ≈ 314.16
+            const pct = b.availability != null ? b.availability : 80;
+            const circumference = 314.16;
+            const offset = circumference - (circumference * pct / 100);
+            document.getElementById('dAvailabilityRing').setAttribute('stroke-dasharray', circumference.toFixed(2));
+            document.getElementById('dAvailabilityRing').setAttribute('stroke-dashoffset', offset.toFixed(2));
+            fillText('dAvailabilityPct', pct + '%');
+
+            const ti = b.teamInfo || {};
+            fillText('dReportingTime', ti.reporting || '9:00 AM');
+            fillText('dWorkStartTime', ti.workStart || '10:00 AM');
+            fillText('dEstDuration', ti.duration || b.time);
+            fillText('dBreakTime', ti.breakTime || '1:00 AM - 1:30 AM');
+
+            fillText('dEngCardTitle', 'Team Leader');
+            fillText('dBottomEngText', `${b.engineersCount || 10} Engineers Assigned to This Job`);
+            fillText('dBottomPrice', b.totalAmount || '1,000');
+
+            document.getElementById('dPrimaryActionBtn').textContent = 'Track Live';
+            document.getElementById('dCancelBtn').classList.add('hidden');
+
+            resetTeamSearch();
+        } else {
+            // ---- Offer (default) header ----
+            pill.textContent = 'Offer';
+            pill.className = 'status-pill badge-offers';
+
+            dAmountBlock.classList.add('hidden');
+            dProgressBlock.classList.add('hidden');
+            dOfferPriceBlock.classList.remove('hidden');
+
+            fillText('dPrice', b.price || '7,434');
+            fillText('dBottomPrice', b.price || '7,434');
+            fillText('dEngAssigned', '1');
+            fillText('dPosted', b.date + ', 09:00 AM');
+            fillText('dExpires', b.date + ', 12:00 PM');
+            fillText('dDescription', `End to end ${b.title.toLowerCase()} for office setup including setup, testing and handover.`);
+            fillText('dBottomEngText', '1 Verified Engineer Ready for Assignment');
+
+            document.getElementById('dPrimaryActionBtn').textContent = 'Accept Offer';
+        }
+
+        // ---- Apply Overview + Team tab content variants ----
+        applyOverviewTabVariant(isInProgress);
+        applyTeamTabVariant(isInProgress);
+
+        // Reset to Overview tab whenever a new booking is opened
+        document.querySelectorAll('.detail-tab-btn').forEach(b2 => b2.classList.remove('active'));
+        document.querySelector('.detail-tab-btn[data-tab="overview"]').classList.add('active');
+        document.getElementById('overviewContent').classList.remove('hidden');
+        document.getElementById('teamContent').classList.add('hidden');
+        trackSummaryContainer.classList.remove('hidden');
+        whyBestMatchContainer.classList.remove('hidden');
+        whyChooseTeamContainer.classList.add('hidden');
+        teamAvailabilityCard.classList.add('hidden');
+        teamInfoCard.classList.add('hidden');
+        helpTitle.textContent = 'Need Help Deciding?';
+        helpDesc.textContent = 'Our experts can help you choose the best team for your job.';
+        helpMainBtnText.textContent = 'Talk to Expert';
+        helpExtraButtons.classList.add('hidden');
 
         listView.classList.add('hidden');
-        const confirmView = document.getElementById('confirm-detail-view');
-        if (confirmView) confirmView.classList.add('hidden');
         detailsView.classList.remove('hidden');
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Click handler - ONLY for OFFER view details buttons
+    // Click handler for OFFER and IN PROGRESS view-details/view-report buttons
     bookingContainer.addEventListener('click', function (e) {
         const btn = e.target.closest('button');
         if (!btn) return;
-        
-        if (!btn.classList.contains('offer-view-details') && !btn.classList.contains('confirmed-view-details')) return;
-        
+
+        if (!btn.classList.contains('offer-view-details') && !btn.classList.contains('progress-view-details')) return;
+
         const row = btn.closest('.booking-row');
         const idx = [...bookingContainer.children].indexOf(row);
         const clicked = getVisible()[idx];
@@ -688,265 +1040,93 @@ document.addEventListener('DOMContentLoaded', function () {
         listView.classList.remove('hidden');
     });
 
-    document.getElementById('backToBookingBtn3').addEventListener('click', function () {
-        document.getElementById('confirm-detail-view').classList.add('hidden');
-        listView.classList.remove('hidden');
-    });
-
-    // Detail Tabs
+    // Detail Tabs (Overview | Team & Engineers) - sidebar/content swap is status-aware
     document.querySelectorAll('.detail-tab-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.detail-tab-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            
+
             document.getElementById('overviewContent').classList.add('hidden');
             document.getElementById('teamContent').classList.add('hidden');
-            
+
+            const isInProgress = currentDetailBooking && currentDetailBooking.status === 'inprogress';
+
             if (this.dataset.tab === 'overview') {
                 document.getElementById('overviewContent').classList.remove('hidden');
+                trackSummaryContainer.classList.remove('hidden');
+                whyBestMatchContainer.classList.remove('hidden');
+                whyChooseTeamContainer.classList.add('hidden');
+                teamAvailabilityCard.classList.add('hidden');
+                teamInfoCard.classList.add('hidden');
+                fillText('dEngCardTitle', 'Team Leader');
+                helpTitle.textContent = 'Need Help Deciding?';
+                helpDesc.textContent = 'Our experts can help you choose the best team for your job.';
+                helpMainBtnText.textContent = 'Talk to Expert';
+                helpExtraButtons.classList.add('hidden');
             } else if (this.dataset.tab === 'team') {
                 document.getElementById('teamContent').classList.remove('hidden');
+                trackSummaryContainer.classList.add('hidden');
+                whyBestMatchContainer.classList.add('hidden');
+
+                if (isInProgress) {
+                    whyChooseTeamContainer.classList.add('hidden');
+                    teamAvailabilityCard.classList.remove('hidden');
+                    teamInfoCard.classList.remove('hidden');
+                    fillText('dEngCardTitle', 'Lead Engineer');
+                    helpTitle.textContent = 'Need help?';
+                    helpDesc.textContent = 'Questions about your bookings, assigned engineers or project progress?';
+                    helpMainBtnText.textContent = 'Chat Support';
+                    helpExtraButtons.classList.remove('hidden');
+                } else {
+                    whyChooseTeamContainer.classList.remove('hidden');
+                    teamAvailabilityCard.classList.add('hidden');
+                    teamInfoCard.classList.add('hidden');
+                    fillText('dEngCardTitle', 'Team Leader');
+                    helpTitle.textContent = 'Need help?';
+                    helpDesc.textContent = 'Questions about your bookings, assigned engineers or project progress?';
+                    helpMainBtnText.textContent = 'Talk to Expert';
+                    helpExtraButtons.classList.add('hidden');
+                }
             }
         });
     });
 
     // =============================================
-    // CHAT SUPPORT LOGIC
+    // TEAM MEMBERS SEARCH + STATUS FILTER (In Progress)
     // =============================================
-    function populateChatContext(b) {
-        if (!b) return;
+    const teamSearchInput = document.getElementById('teamSearchInput');
+    const teamStatusFilter = document.getElementById('teamStatusFilter');
+    const teamNoResults = document.getElementById('teamNoResults');
 
-        // Determine icon, bg class, color class, status badge, etc.
-        const icon = b.icon || 'device_hub';
-        const bgClass = b.bg || 'bg-cloud-blue';
-        const colorClass = b.color || 'text-primary-yellow';
-        
-        // Populate Icon
-        const iconWrap = document.getElementById('chatCtxIconWrap');
-        if (iconWrap) {
-            iconWrap.className = `w-12 h-12 rounded-xl ${bgClass} flex items-center justify-center shrink-0 mb-2`;
-        }
-        const iconEl = document.getElementById('chatCtxIcon');
-        if (iconEl) {
-            iconEl.className = `material-symbols-outlined ${colorClass} text-[22px]`;
-            iconEl.textContent = icon;
-        }
-
-        // Title
-        fillText('chatCtxTitle', b.title);
-
-        // Status Badge
-        const statusBadge = document.getElementById('chatCtxStatusBadge');
-        if (statusBadge) {
-            let statusText = 'In Progress';
-            let badgeClass = 'badge-inprogress';
-            if (b.status === 'confirmed') {
-                statusText = 'Confirmed';
-                badgeClass = 'badge-confirmed';
-            } else if (b.status === 'offer') {
-                statusText = 'Offer';
-                badgeClass = 'badge-offers';
-            } else if (b.status === 'completed') {
-                statusText = 'Completed';
-                badgeClass = 'badge-completed';
-            } else if (b.status === 'cancelled') {
-                statusText = 'Cancelled';
-                badgeClass = 'badge-cancelled';
-            }
-            statusBadge.textContent = statusText;
-            statusBadge.className = `status-pill ${badgeClass} mt-2`;
-        }
-
-        // Booking ID
-        fillText('chatCtxBookingId', b.bookingId || 'BK-56874');
-
-        // Service Type
-        fillText('chatCtxServiceType', b.title);
-
-        // Location
-        fillText('chatCtxLocation', b.location || 'DLF Cyber City, Gurgaon');
-
-        // Lead Engineer
-        const engName = b.engineer ? b.engineer.name : 'Rahul Sharma';
-        fillText('chatCtxLeadEngineer', engName);
-
-        // Date
-        fillText('chatCtxDate', (b.date || '29 May 2026') + ', 10:00 AM');
-
-        // Progress
-        const progressVal = document.getElementById('chatCtxProgressVal');
-        const progressBar = document.getElementById('chatCtxProgressBar');
-        let progressPercent = '40%';
-        if (b.status === 'completed') {
-            progressPercent = '100%';
-        } else if (b.status === 'cancelled') {
-            progressPercent = '0%';
-        } else if (b.status === 'confirmed') {
-            progressPercent = '20%';
-        }
-        if (progressVal) progressVal.textContent = progressPercent;
-        if (progressBar) progressBar.style.width = progressPercent;
+    function resetTeamSearch() {
+        if (teamSearchInput) teamSearchInput.value = '';
+        if (teamStatusFilter) teamStatusFilter.value = 'all';
+        filterTeamTable();
     }
 
-    function appendMessage(text, isUser) {
-        const container = document.getElementById('chatMessagesContainer');
-        if (!container) return;
+    function filterTeamTable() {
+        const table = document.getElementById('teamMembersTable');
+        if (!table) return;
+        const term = (teamSearchInput ? teamSearchInput.value : '').trim().toLowerCase();
+        const statusFilter = teamStatusFilter ? teamStatusFilter.value : 'all';
+        const rows = table.querySelectorAll('tbody tr');
+        let visibleCount = 0;
 
-        const timeString = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        const messageDiv = document.createElement('div');
-
-        if (isUser) {
-            messageDiv.className = 'flex flex-col items-end max-w-[35%] ml-auto';
-            messageDiv.innerHTML = `
-                <div class="user-chat-box">
-                    ${text}
-                </div>
-                <span class="text-[12px] text-time-gray font-normal mt-1 mr-1">${timeString}</span>
-            `;
-        } else {
-            messageDiv.className = 'flex flex-col items-start max-w-[85%]';
-            messageDiv.innerHTML = `
-                <div class="system-chat-box">
-                    ${text}
-                </div>
-                <span class="text-[12px] text-time-gray font-normal mt-1 ml-1">${timeString}</span>
-            `;
-        }
-
-        container.appendChild(messageDiv);
-        container.scrollTop = container.scrollHeight;
-    }
-
-    const staticReplies = [
-        "Thanks for your message! Our team is looking into this and will get back to you shortly.",
-        "Your update has been received. The lead engineer on site has been notified.",
-        "We are currently reviewing your request. Please wait a moment while we check the status.",
-        "Understood. If you need immediate assistance, you can also use the Call Support option.",
-        "Thank you! We've noted your preference and will update the job details accordingly."
-    ];
-    let replyIndex = 0;
-
-    function triggerSupportReply() {
-        setTimeout(() => {
-            const replyText = staticReplies[replyIndex % staticReplies.length];
-            replyIndex++;
-            appendMessage(replyText, false);
-        }, 1000);
-    }
-
-    function handleSendMessage() {
-        const input = document.getElementById('chatInput');
-        if (!input) return;
-        const text = input.value.trim();
-        if (!text) return;
-
-        appendMessage(text, true);
-        input.value = '';
-        triggerSupportReply();
-    }
-
-    // Suggestions click listeners
-    document.querySelectorAll('.chat-suggestion-pill').forEach(pill => {
-        pill.addEventListener('click', function () {
-            const text = this.textContent.trim();
-            appendMessage(text, true);
-            triggerSupportReply();
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            const rowStatus = row.dataset.engStatus || '';
+            const matchesText = !term || text.includes(term);
+            const matchesStatus = statusFilter === 'all' || rowStatus === statusFilter;
+            const show = matchesText && matchesStatus;
+            row.style.display = show ? '' : 'none';
+            if (show) visibleCount++;
         });
-    });
 
-    // Enter key listener
-    const chatInput = document.getElementById('chatInput');
-    if (chatInput) {
-        chatInput.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                handleSendMessage();
-            }
-        });
+        teamNoResults.classList.toggle('hidden', visibleCount !== 0);
     }
 
-    // Send button click listener
-    const chatSendBtn = document.getElementById('chatSendBtn');
-    if (chatSendBtn) {
-        chatSendBtn.addEventListener('click', handleSendMessage);
-    }
+    if (teamSearchInput) teamSearchInput.addEventListener('input', filterTeamTable);
+    if (teamStatusFilter) teamStatusFilter.addEventListener('change', filterTeamTable);
 
-    // Chat support entry button click
-    const chatSupportBtn = document.getElementById('chatSupportBtn');
-    if (chatSupportBtn) {
-        chatSupportBtn.addEventListener('click', function () {
-            const confirmView = document.getElementById('confirm-detail-view');
-            const detailsView = document.getElementById('detailsView');
-            const chatView = document.getElementById('chatView');
-
-            if (confirmView) confirmView.classList.add('hidden');
-            if (detailsView) detailsView.classList.add('hidden');
-            if (chatView) {
-                chatView.classList.remove('hidden');
-                populateChatContext(activeBooking);
-                // Scroll chat to bottom initially
-                const container = document.getElementById('chatMessagesContainer');
-                if (container) container.scrollTop = container.scrollHeight;
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-    // Go back helper
-    function goBackFromChat() {
-        const chatView = document.getElementById('chatView');
-        if (chatView) chatView.classList.add('hidden');
-
-        if (activeBooking && activeBooking.status === 'confirmed') {
-            const confirmView = document.getElementById('confirm-detail-view');
-            if (confirmView) confirmView.classList.remove('hidden');
-        } else if (activeBooking && activeBooking.status === 'offer') {
-            const detailsView = document.getElementById('detailsView');
-            if (detailsView) detailsView.classList.remove('hidden');
-        } else {
-            // Default fallback
-            const listView = document.getElementById('listView');
-            if (listView) listView.classList.remove('hidden');
-        }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    const backToConfirmDetailBtn = document.getElementById('backToConfirmDetailBtn');
-    if (backToConfirmDetailBtn) {
-        backToConfirmDetailBtn.addEventListener('click', goBackFromChat);
-    }
-
-    const chatCtxViewDetailsBtn = document.getElementById('chatCtxViewDetailsBtn');
-    if (chatCtxViewDetailsBtn) {
-        chatCtxViewDetailsBtn.addEventListener('click', goBackFromChat);
-    }
+    
 });
-
-// Confirm Tabs
-document.querySelectorAll('.confirm-tab-btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-        document.querySelectorAll('.confirm-tab-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-
-        document.getElementById('confirm-overviewContent').classList.add('hidden');
-        document.getElementById('confirm-teamContent').classList.add('hidden');
-
-        const overviewWidgets = document.getElementById('confirm-sidebar-overview-widgets');
-        const teamWidgets = document.getElementById('confirm-sidebar-team-widgets');
-
-        if (overviewWidgets) overviewWidgets.classList.add('hidden');
-        if (teamWidgets) teamWidgets.classList.add('hidden');
-
-        if (this.dataset.tab === 'overview') {
-            document.getElementById('confirm-overviewContent').classList.remove('hidden');
-            if (overviewWidgets) overviewWidgets.classList.remove('hidden');
-        } else if (this.dataset.tab === 'team') {
-            document.getElementById('confirm-teamContent').classList.remove('hidden');
-            if (teamWidgets) teamWidgets.classList.remove('hidden');
-        }
-    });
-});
-
-window.switchTabInConfirm = function (tabName) {
-    const btn = document.querySelector(`.confirm-tab-btn[data-tab="${tabName}"]`);
-    if (btn) btn.click();
-};
