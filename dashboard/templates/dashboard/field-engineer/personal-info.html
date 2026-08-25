@@ -4,6 +4,574 @@
 
 {% block content %}
 <div class="space-y-6">
-    Personal info
+
+    <!-- ============ TOP SECTION: PROFILE CARD ============ -->
+    <div class="bg-lightest-warm-golden-orange rounded-[20px] p-5 md:px-6 md:py-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+            <!-- Profile Photo with Edit pencil -->
+            <div class="relative shrink-0">
+                <div class="w-18 h-18 sm:w-[71px] sm:h-[71px] rounded-full overflow-hidden border-2 border-white shadow-user-div">
+                    <img src="https://i.pravatar.cc/100?img=12" alt="Shams Jan" class="w-full h-full object-cover">
+                </div>
+                <button class="absolute bottom-0.5 right-0.5 w-6 h-6 bg-dark-blue text-white rounded-full flex items-center justify-center border border-white shadow-user-div cursor-pointer transition">
+                    <span class="material-symbols-outlined tiny-icon">edit</span>
+                </button>
+            </div>
+            
+            <!-- Details -->
+            <div>
+                <div class="flex items-start gap-1.5 flex-wrap">
+                    <h1 class="text-xl sm:text-3xl font-bold text-dark-navy">Shams Jan</h1>
+                    <span class="w-6 h-6 rounded-full bg-dark-navy-2 text-white flex items-center justify-center">
+                        <span class="material-symbols-outlined">
+                            check_small
+                        </span>
+                    </span>
+                </div>
+                <p class="text-xs sm:text-[16px] text-dark-navy font-normal mt-1 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 leading-relaxed">
+                    <span class="font-medium">Field Engineer</span>
+                    <span>vikramsingh@gmail.com</span>
+                    <span>+9188003678</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Availability Widget -->
+        <div class="bg-white border border-slate-mist rounded-[16px] p-4 w-full md:w-64 shrink-0">
+            <div class="flex items-center justify-between">
+                <span class="text-[16px] font-bold text-ink">Availability</span>
+                <!-- Switch Toggle -->
+                <button type="button" id="availability-toggle" data-on="true"
+                    class="relative inline-flex items-center w-11 h-6 rounded-full bg-primary-yellow transition duration-200 cursor-pointer">
+                    <span id="availability-toggle-dot"
+                        class="absolute top-1 left-6 w-4 h-4 bg-white rounded-full shadow transition-all duration-200"></span>
+                </button>
+            </div>
+            <div class="flex items-start gap-2 mt-2.5">
+                <span id="availability-dot" class="w-2 h-2 rounded-full bg-bright-green shrink-0"></span>
+                <p class="text-[12px] font-normal text-granite-gray leading-normal">
+                    <span id="availability-status" class="font-bold text-bright-green">Online</span><br>
+                    You are visible for new leads and incoming job requests.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SUB-TABS ROW ============ -->
+    <div class="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-none">
+        <button id="tabBtnPersonal" class="tab-btn active">
+            Personal Information
+        </button>
+        <button id="tabBtnContact" class="tab-btn">
+            Contact Information
+        </button>
+        <button id="tabBtnEmergency" class="tab-btn">
+            Emergency Contact
+        </button>
+    </div>
+
+    <!-- ============ CONTAINER: PERSONAL DETAILS CARD ============ -->
+    <div id="personal-card" class="bg-mid-white border border-light-medium rounded-[20px] p-5 md:px-4 md:py-2 relative">
+        <div class="flex items-center justify-between pb-4 mb-4">
+            <h2 class="text-lg font-bold text-dark-navy">Personal Details</h2>
+            <button type="button" id="edit-personal-btn"
+                class="bg-primary-yellow text-white text-xs font-semibold py-2.5 px-5 rounded-md cursor-pointer transition">
+                Edit Information
+            </button>
+        </div>
+
+        <form id="personal-details-form" class="space-y-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <!-- Full Name -->
+                <div class="space-y-1.5">
+                    <label class="text-[16px] font-normal text-ink">Full Name</label>
+                    <input type="text" name="fullname" value="ACME Pvt Ltd." disabled
+                        class="form-input w-full px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition">
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="space-y-1.5">
+                    <label class="text-[16px] font-normal text-ink">Date of Birth</label>
+                    <input type="text" name="dob" value="Private Limited" disabled
+                        class="form-input w-full px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition">
+                </div>
+
+                <!-- Gender (Custom Dropdown) -->
+                <div class="space-y-1.5 relative">
+                    <label class="text-[16px] font-normal text-ink">Gender</label>
+                    <input type="hidden" name="gender" id="gender-value" value="Male">
+                    <button type="button" id="gender-trigger" disabled
+                        class="dropdown-trigger w-full flex items-center justify-between px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition text-left cursor-not-allowed">
+                        <span id="gender-label">Male</span>
+                        <span class="material-symbols-outlined text-[16px] text-slate-400">expand_more</span>
+                    </button>
+                    <div id="gender-list" class="dropdown-list hidden absolute left-0 right-0 mt-1.5 bg-white border border-input-border rounded-[12px] z-50 overflow-hidden divide-y divide-slate-50">
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Male">Male</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Female">Female</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Other">Other</div>
+                    </div>
+                </div>
+
+                <!-- Marital Status (Custom Dropdown) -->
+                <div class="space-y-1.5 relative">
+                    <label class="text-[16px] font-normal text-ink">Marital Status</label>
+                    <input type="hidden" name="marital_status" id="marital-value" value="Married">
+                    <button type="button" id="marital-trigger" disabled
+                        class="dropdown-trigger w-full flex items-center justify-between px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition text-left cursor-not-allowed">
+                        <span id="marital-label">Married</span>
+                        <span class="material-symbols-outlined text-[16px] text-slate-400">expand_more</span>
+                    </button>
+                    <div id="marital-list" class="dropdown-list hidden absolute left-0 right-0 mt-1.5 bg-white border border-input-border rounded-[12px] z-50 overflow-hidden divide-y divide-slate-50">
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Single">Single</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Married">Married</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Divorced">Divorced</div>
+                    </div>
+                </div>
+
+                <!-- Nationality -->
+                <div class="space-y-1.5">
+                    <label class="text-[16px] font-normal text-ink">Nationality</label>
+                    <input type="text" name="nationality" value="Indian" disabled
+                        class="form-input w-full px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition">
+                </div>
+
+                <!-- Languages Known (Custom Dropdown) -->
+                <div class="space-y-1.5 relative">
+                    <label class="text-[16px] font-normal text-ink">Languages Known</label>
+                    <input type="hidden" name="languages" id="languages-value" value="English">
+                    <button type="button" id="languages-trigger" disabled
+                        class="dropdown-trigger w-full flex items-center justify-between px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition text-left cursor-not-allowed">
+                        <span id="languages-label">English</span>
+                        <span class="material-symbols-outlined text-[16px] text-slate-400">expand_more</span>
+                    </button>
+                    <div id="languages-list" class="dropdown-list hidden absolute left-0 right-0 mt-1.5 bg-white border border-input-border rounded-[12px] z-50 overflow-hidden divide-y divide-slate-50">
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="English">English</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Hindi">Hindi</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Spanish">Spanish</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="German">German</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="flex items-center justify-end gap-3 pt-6 border-t border-slate-100">
+                <button type="button" id="cancel-personal-btn" disabled
+                    class="bg-input-div text-granite-gray text-sm font-semibold py-2.5 px-6 rounded-md cursor-not-allowed transition opacity-50">
+                    Cancel
+                </button>
+                <button type="button" id="save-personal-btn" disabled
+                    class="bg-primary-yellow text-white text-sm font-semibold py-2.5 px-6 rounded-md cursor-not-allowed transition opacity-50">
+                    Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- ============ CONTAINER: CONTACT DETAILS CARD ============ -->
+    <div id="contact-card" class="bg-mid-white border border-light-medium rounded-[20px] p-5 md:px-4 md:py-2 relative hidden">
+        <div class="flex items-center justify-between pb-4 mb-4">
+            <h2 class="text-lg font-bold text-dark-navy">Contact Details</h2>
+            <button type="button" id="edit-contact-btn"
+                class="bg-primary-yellow text-white text-xs font-semibold py-2.5 px-5 rounded-md cursor-pointer transition">
+                Edit Information
+            </button>
+        </div>
+
+        <form id="contact-details-form" class="space-y-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <!-- Phone Number -->
+                <div class="space-y-1.5">
+                    <label class="text-[16px] font-normal text-ink">Phone Number</label>
+                    <div class="flex gap-2">
+                        <!-- Prefix Dropdown -->
+                        <div class="relative shrink-0 w-20">
+                            <input type="hidden" name="contact_phone_prefix" id="contact-phone-prefix-value" value="+91">
+                            <button type="button" id="contact-phone-prefix-trigger" disabled
+                                class="dropdown-trigger w-full flex items-center justify-between px-3 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition cursor-not-allowed">
+                                <span id="contact-phone-prefix-label">+91</span>
+                                <span class="material-symbols-outlined text-[14px] text-slate-400">expand_more</span>
+                            </button>
+                            <div id="contact-phone-prefix-list" class="dropdown-list hidden absolute left-0 w-24 mt-1.5 bg-white border border-input-border rounded-[12px] shadow-lg z-50 overflow-hidden divide-y divide-slate-50">
+                                <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="+91">+91</div>
+                                <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="+1">+1</div>
+                                <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="+44">+44</div>
+                            </div>
+                        </div>
+                        <input type="text" name="contact_phone_number" value="9876443666" disabled
+                            class="form-input flex-1 px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition">
+                    </div>
+                </div>
+
+                <!-- Email Address -->
+                <div class="space-y-1.5">
+                    <label class="text-[16px] font-normal text-ink">Email Address</label>
+                    <input type="email" name="contact_email" value="rahulsharma@gmail.com" disabled
+                        class="form-input w-full px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition">
+                </div>
+
+                <!-- Current Address -->
+                <div class="space-y-1.5">
+                    <label class="text-[16px] font-normal text-ink">Current Address</label>
+                    <input type="text" name="contact_current_address" value="Mirzapur, Maharashtra, 42605" disabled
+                        class="form-input w-full px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition">
+                </div>
+
+                <!-- Permanent Addresss -->
+                <div class="space-y-1.5">
+                    <label class="text-[16px] font-normal text-ink">Permanent Addresss</label>
+                    <input type="text" name="contact_permanent_address" value="Mirzapur, Maharashtra, 42605" disabled
+                        class="form-input w-full px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition">
+                </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="flex items-center justify-end gap-3 pt-6 border-t border-slate-100">
+                <button type="button" id="cancel-contact-btn" disabled
+                    class="bg-input-div text-granite-gray text-sm font-semibold py-2.5 px-6 rounded-md cursor-not-allowed transition opacity-50">
+                    Cancel
+                </button>
+                <button type="button" id="save-contact-btn" disabled
+                    class="bg-primary-yellow text-white text-sm font-semibold py-2.5 px-6 rounded-md cursor-not-allowed transition opacity-50">
+                    Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- ============ CONTAINER: EMERGENCY CONTACT DETAILS CARD ============ -->
+    <div id="emergency-card" class="bg-mid-white border border-light-medium rounded-[20px] p-5 md:px-4 md:py-2 relative hidden">
+        <div class="flex items-center justify-between pb-4 mb-4">
+            <h2 class="text-lg font-bold text-dark-navy">Emergency Contact Details</h2>
+            <button type="button" id="edit-emergency-btn"
+                class="bg-primary-yellow text-white text-xs font-semibold py-2.5 px-5 rounded-md cursor-pointer transition">
+                Edit Information
+            </button>
+        </div>
+
+        <form id="emergency-details-form" class="space-y-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                <!-- Contact Name (Custom Dropdown) -->
+                <div class="space-y-1.5 relative">
+                    <label class="text-[16px] font-normal text-ink">Contact Name</label>
+                    <input type="hidden" name="emergency_name" id="emergency-name-value" value="Rajesh Sharma">
+                    <button type="button" id="emergency-name-trigger" disabled
+                        class="dropdown-trigger w-full flex items-center justify-between px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition text-left cursor-not-allowed">
+                        <span id="emergency-name-label">Rajesh Sharma</span>
+                        <span class="material-symbols-outlined text-[16px] text-slate-400">expand_more</span>
+                    </button>
+                    <div id="emergency-name-list" class="dropdown-list hidden absolute left-0 right-0 mt-1.5 bg-white border border-input-border rounded-[12px] shadow-lg z-50 overflow-hidden divide-y divide-slate-50">
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Rajesh Sharma">Rajesh Sharma</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Amit Sharma">Amit Sharma</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Sunita Sharma">Sunita Sharma</div>
+                    </div>
+                </div>
+
+                <!-- Relationship (Custom Dropdown) -->
+                <div class="space-y-1.5 relative">
+                    <label class="text-[16px] font-normal text-ink">Relationship</label>
+                    <input type="hidden" name="emergency_relation" id="emergency-relation-value" value="Brother">
+                    <button type="button" id="emergency-relation-trigger" disabled
+                        class="dropdown-trigger w-full flex items-center justify-between px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition text-left cursor-not-allowed">
+                        <span id="emergency-relation-label">Brother</span>
+                        <span class="material-symbols-outlined text-[16px] text-slate-400">expand_more</span>
+                    </button>
+                    <div id="emergency-relation-list" class="dropdown-list hidden absolute left-0 right-0 mt-1.5 bg-white border border-input-border rounded-[12px] shadow-lg z-50 overflow-hidden divide-y divide-slate-50">
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Brother">Brother</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Father">Father</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Mother">Mother</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Sister">Sister</div>
+                        <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="Spouse">Spouse</div>
+                    </div>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="space-y-1.5">
+                    <label class="text-[16px] font-normal text-ink">Phone Number</label>
+                    <div class="flex gap-2">
+                        <!-- Prefix Dropdown -->
+                        <div class="relative shrink-0 w-20">
+                            <input type="hidden" name="emergency_phone_prefix" id="emergency-phone-prefix-value" value="+91">
+                            <button type="button" id="emergency-phone-prefix-trigger" disabled
+                                class="dropdown-trigger w-full flex items-center justify-between px-3 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition cursor-not-allowed">
+                                <span id="emergency-phone-prefix-label">+91</span>
+                                <span class="material-symbols-outlined text-[14px] text-slate-400">expand_more</span>
+                            </button>
+                            <div id="emergency-phone-prefix-list" class="dropdown-list hidden absolute left-0 w-24 mt-1.5 bg-white border border-input-border rounded-[12px] shadow-lg z-50 overflow-hidden divide-y divide-slate-50">
+                                <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="+91">+91</div>
+                                <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="+1">+1</div>
+                                <div class="dropdown-option px-4 py-2 text-xs font-semibold hover:bg-slate-50 text-slate-700 cursor-pointer" data-val="+44">+44</div>
+                            </div>
+                        </div>
+                        <input type="text" name="emergency_phone_number" value="9876443666" disabled
+                            class="form-input flex-1 px-3.5 py-2.5 border border-input-border rounded-[12px] text-sm font-normal text-granite-gray bg-input-div focus:outline-none transition">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="flex items-center justify-end gap-3 pt-6 border-t border-slate-100">
+                <button type="button" id="cancel-emergency-btn" disabled
+                    class="bg-input-div text-granite-gray text-sm font-semibold py-2.5 px-6 rounded-md cursor-not-allowed transition opacity-50">
+                    Cancel
+                </button>
+                <button type="button" id="save-emergency-btn" disabled
+                    class="bg-primary-yellow text-white text-sm font-semibold py-2.5 px-6 rounded-md cursor-not-allowed transition opacity-50">
+                    Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        
+        // =============================================
+        // SUB-TABS NAV CONTROLLER
+        // =============================================
+        const tabBtnPersonal = document.getElementById("tabBtnPersonal");
+        const tabBtnContact = document.getElementById("tabBtnContact");
+        const tabBtnEmergency = document.getElementById("tabBtnEmergency");
+
+        const personalCard = document.getElementById("personal-card");
+        const contactCard = document.getElementById("contact-card");
+        const emergencyCard = document.getElementById("emergency-card");
+
+        const tabButtons = [tabBtnPersonal, tabBtnContact, tabBtnEmergency];
+        const cardContainers = [personalCard, contactCard, emergencyCard];
+
+        function switchSubTab(activeBtn, activeCard) {
+            tabButtons.forEach(btn => {
+                if (btn) btn.classList.remove('active');
+            });
+            if (activeBtn) activeBtn.classList.add('active');
+
+            cardContainers.forEach(card => {
+                if (card) card.classList.add("hidden");
+            });
+            if (activeCard) activeCard.classList.remove("hidden");
+        }
+
+        if (tabBtnPersonal) tabBtnPersonal.addEventListener("click", () => switchSubTab(tabBtnPersonal, personalCard));
+        if (tabBtnContact) tabBtnContact.addEventListener("click", () => switchSubTab(tabBtnContact, contactCard));
+        if (tabBtnEmergency) tabBtnEmergency.addEventListener("click", () => switchSubTab(tabBtnEmergency, emergencyCard));
+
+        // =============================================
+        // AVAILABILITY TOGGLE WIDGET
+        // =============================================
+        const toggleBtn = document.getElementById("availability-toggle");
+        const toggleDot = document.getElementById("availability-toggle-dot");
+        const dotIndicator = document.getElementById("availability-dot");
+        const statusLabel = document.getElementById("availability-status");
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener("click", function() {
+                const isOn = this.getAttribute("data-on") === "true";
+                if (isOn) {
+                    this.setAttribute("data-on", "false");
+                    this.className = "relative inline-flex items-center w-11 h-6 rounded-full bg-slate-350 transition duration-200 cursor-pointer";
+                    toggleDot.style.left = "4px";
+                    dotIndicator.className = "w-2 h-2 rounded-full bg-slate-400 shrink-0";
+                    statusLabel.className = "font-bold text-slate-500";
+                    statusLabel.textContent = "Offline";
+                } else {
+                    this.setAttribute("data-on", "true");
+                    this.className = "relative inline-flex items-center w-11 h-6 rounded-full bg-primary-yellow transition duration-200 cursor-pointer";
+                    toggleDot.style.left = "24px";
+                    dotIndicator.className = "w-2 h-2 rounded-full bg-bright-green shrink-0";
+                    statusLabel.className = "font-bold text-bright-green";
+                    statusLabel.textContent = "Online";
+                }
+            });
+        }
+
+        // =============================================
+        // CUSTOM DROPDOWNS LOGIC
+        // =============================================
+        const dropdowns = [
+            'gender', 'marital', 'languages', 
+            'contact-phone-prefix', 'emergency-phone-prefix', 
+            'emergency-name', 'emergency-relation'
+        ];
+
+        dropdowns.forEach(id => {
+            const trigger = document.getElementById(`${id}-trigger`);
+            const list = document.getElementById(`${id}-list`);
+            const label = document.getElementById(`${id}-label`);
+            const valueInput = document.getElementById(`${id}-value`);
+
+            if (trigger && list) {
+                trigger.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    
+                    dropdowns.forEach(oId => {
+                        if (oId !== id) {
+                            const oList = document.getElementById(`${oId}-list`);
+                            if (oList) oList.classList.add("hidden");
+                        }
+                    });
+
+                    list.classList.toggle("hidden");
+                });
+
+                list.querySelectorAll('.dropdown-option').forEach(opt => {
+                    opt.addEventListener("click", function(e) {
+                        e.stopPropagation();
+                        const val = this.getAttribute("data-val");
+                        
+                        valueInput.value = val;
+                        label.textContent = val;
+                        list.classList.add("hidden");
+                    });
+                });
+            }
+        });
+
+        document.addEventListener("click", function() {
+            dropdowns.forEach(id => {
+                const list = document.getElementById(`${id}-list`);
+                if (list) list.classList.add("hidden");
+            });
+        });
+
+        // =============================================
+        // FORM MANAGER CLASS (Handles Edit Mode for forms)
+        // =============================================
+        class FormManager {
+            constructor(formId, editBtnId, cancelBtnId, saveBtnId, dropdownIds) {
+                this.form = document.getElementById(formId);
+                this.editBtn = document.getElementById(editBtnId);
+                this.cancelBtn = document.getElementById(cancelBtnId);
+                this.saveBtn = document.getElementById(saveBtnId);
+                this.dropdownIds = dropdownIds;
+
+                this.formInputs = this.form.querySelectorAll(".form-input");
+                this.triggerBtns = this.form.querySelectorAll(".dropdown-trigger");
+                this.initialValues = {};
+
+                this.initEvents();
+            }
+
+            initEvents() {
+                if (this.editBtn) {
+                    this.editBtn.addEventListener("click", () => this.enableEditMode());
+                }
+                if (this.cancelBtn) {
+                    this.cancelBtn.addEventListener("click", () => {
+                        this.restoreValues();
+                        this.disableEditMode();
+                    });
+                }
+                if (this.saveBtn) {
+                    this.saveBtn.addEventListener("click", () => {
+                        this.disableEditMode();
+                        alert("Details updated successfully!");
+                    });
+                }
+            }
+
+            storeInitialValues() {
+                this.formInputs.forEach(input => {
+                    this.initialValues[input.name] = input.value;
+                });
+                this.dropdownIds.forEach(id => {
+                    const el = document.getElementById(`${id}-value`);
+                    if (el) this.initialValues[id] = el.value;
+                });
+            }
+
+            restoreValues() {
+                this.formInputs.forEach(input => {
+                    input.value = this.initialValues[input.name] || "";
+                });
+                this.dropdownIds.forEach(id => {
+                    const val = this.initialValues[id] || "";
+                    const valEl = document.getElementById(`${id}-value`);
+                    const lblEl = document.getElementById(`${id}-label`);
+                    if (valEl) valEl.value = val;
+                    if (lblEl) lblEl.textContent = val;
+                });
+            }
+
+            enableEditMode() {
+                this.storeInitialValues();
+
+                this.formInputs.forEach(input => {
+                    input.disabled = false;
+                    input.classList.remove("text-granite-gray", "bg-input-div");
+                    input.classList.add("text-slate-800", "bg-white");
+                });
+
+                this.triggerBtns.forEach(btn => {
+                    btn.disabled = false;
+                    btn.classList.remove("text-granite-gray", "bg-input-div", "cursor-not-allowed");
+                    btn.classList.add("text-slate-800", "bg-white", "cursor-pointer");
+                });
+
+                this.cancelBtn.disabled = false;
+                this.cancelBtn.classList.remove("cursor-not-allowed", "opacity-50");
+                this.cancelBtn.classList.add("cursor-pointer", "text-slate-700", "bg-slate-100", "hover:bg-slate-200");
+
+                this.saveBtn.disabled = false;
+                this.saveBtn.classList.remove("cursor-not-allowed", "opacity-50");
+                this.saveBtn.classList.add("cursor-pointer", "hover:bg-amber-500");
+
+                this.editBtn.classList.add("hidden");
+            }
+
+            disableEditMode() {
+                this.formInputs.forEach(input => {
+                    input.disabled = true;
+                    input.classList.add("text-granite-gray", "bg-input-div");
+                    input.classList.remove("text-slate-800", "bg-white");
+                });
+
+                this.triggerBtns.forEach(btn => {
+                    btn.disabled = true;
+                    btn.classList.add("text-granite-gray", "bg-input-div", "cursor-not-allowed");
+                    btn.classList.remove("text-slate-800", "bg-white", "cursor-pointer");
+                });
+
+                this.cancelBtn.disabled = true;
+                this.cancelBtn.classList.add("cursor-not-allowed", "opacity-50");
+                this.cancelBtn.classList.remove("cursor-pointer", "text-slate-700", "bg-slate-100", "hover:bg-slate-200");
+
+                this.saveBtn.disabled = true;
+                this.saveBtn.classList.add("cursor-not-allowed", "opacity-50");
+                this.saveBtn.classList.remove("cursor-pointer", "hover:bg-amber-500");
+
+                this.editBtn.classList.remove("hidden");
+            }
+        }
+
+        // Initialize form managers for the three tabs
+        new FormManager(
+            "personal-details-form", 
+            "edit-personal-btn", 
+            "cancel-personal-btn", 
+            "save-personal-btn", 
+            ['gender', 'marital', 'languages']
+        );
+
+        new FormManager(
+            "contact-details-form", 
+            "edit-contact-btn", 
+            "cancel-contact-btn", 
+            "save-contact-btn", 
+            ['contact-phone-prefix']
+        );
+
+        new FormManager(
+            "emergency-details-form", 
+            "edit-emergency-btn", 
+            "cancel-emergency-btn", 
+            "save-emergency-btn", 
+            ['emergency-name', 'emergency-relation', 'emergency-phone-prefix']
+        );
+
+    });
+</script>
 {% endblock %}
