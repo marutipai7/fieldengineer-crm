@@ -1,9 +1,1006 @@
 {% extends "dashboard/field-engineer/layout.html" %}
+{% load static %}
 
 {% block title %}Professional Information - Field Engineer{% endblock %}
 
 {% block content %}
-<div class="space-y-6">
-    Professional Info
+
+<!-- Professional Information Page -->
+<div class="professional-page">
+
+    <div class="professional-container">
+
+        <!-- =====================================================
+             PROFILE HEADER
+        ====================================================== -->
+        <section class="profile-header-card">
+
+            <div class="profile-header-left">
+
+                <div class="profile-avatar-wrapper">
+
+                    <div class="profile-avatar">
+                        SJ
+                    </div>
+
+                    <span class="profile-online-dot"></span>
+
+                </div>
+
+                <div class="profile-user-info">
+
+                    <div class="profile-name-row">
+
+                        <h1>
+                            Shams Jan
+                        </h1>
+
+                        <span class="verified-badge">
+                            ✓
+                        </span>
+
+                    </div>
+
+                    <p class="profile-role">
+                        Field Engineer
+                    </p>
+
+                    <div class="profile-contact">
+
+                        <span>
+                            shamsjan@gmail.com
+                        </span>
+
+                        <span>
+                            +9180030678
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="availability-wrapper">
+
+    <div class="availability-text">
+
+        <h3>Availability</h3>
+
+        <p id="availabilityMessage">
+            You are available for new projects and opportunities.
+        </p>
+
+    </div>
+
+    <button
+        type="button"
+        id="availabilityToggle"
+        class="availability-toggle active"
+        aria-pressed="true">
+
+        <span class="availability-knob"></span>
+
+    </button>
+
 </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROFESSIONAL SUMMARY
+        ====================================================== -->
+        <section class="professional-card">
+<div class="card-header">
+
+    <div>
+
+        <h2>
+            Professional Summary
+        </h2>
+
+        <p>
+            Your professional experience and expertise.
+        </p>
+
+    </div>
+
+    <button
+        type="button"
+        class="outline-action-btn"
+        id="editSummaryButton">
+
+        <span>✎</span>
+        Edit Summary
+
+    </button>
+
+</div>
+
+            <div class="summary-content">
+
+                <p>
+                    Results-driven Network Engineer with 8+ years of experience
+                    in designing, implementing and maintaining enterprise
+                    networks. Proven track record in optimizing network
+                    performance, managing vendor operations, and ensuring
+                    critical infrastructure uptime. Skilled in network
+                    troubleshooting, configuration, monitoring, and implementing
+                    secure network solutions.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TOP SKILLS + LICENSES
+        ====================================================== -->
+        <div class="two-column-grid">
+
+
+            <!-- TOP SKILLS -->
+<section class="professional-card top-skills-card">
+
+    <div class="card-header">
+
+        <h2>
+            Top Skills
+        </h2>
+
+        <button
+            type="button"
+            class="text-action-btn manage-skills-btn"
+            id="manageSkillsBtn">
+
+            Manage Skills
+
+        </button>
+
+    </div>
+
+
+    <div class="skills-container" id="skillsContainer">
+
+        <span class="skill-tag">
+            <span class="skill-dot">•</span>
+            Network Cabling
+        </span>
+
+        <span class="skill-tag">
+            <span class="skill-dot">•</span>
+            Server Installation
+        </span>
+
+        <span class="skill-tag">
+            <span class="skill-dot">•</span>
+            CCTV Systems
+        </span>
+
+        <span class="skill-tag">
+            <span class="skill-dot">•</span>
+            Data Center Setup
+        </span>
+
+        <span class="skill-tag">
+            <span class="skill-dot">•</span>
+            Switch Configuration
+        </span>
+
+        <span class="skill-tag">
+            <span class="skill-dot">•</span>
+            Routing &amp; Switching
+        </span>
+
+        <span class="skill-tag">
+            <span class="skill-dot">•</span>
+            Network Security
+        </span>
+
+        <span class="skill-tag">
+            <span class="skill-dot">•</span>
+            Troubleshooting
+        </span>
+
+        <span class="skill-tag">
+            <span class="skill-dot">•</span>
+            Firewall Management
+        </span>
+
+        <!-- Add Skill -->
+        <button
+            type="button"
+            class="add-skill-btn"
+            id="addSkillBtn">
+
+            <span class="add-skill-icon">+</span>
+            Add Skill
+
+        </button>
+
+    </div>
+
+</section>
+
+
+            <!-- LICENSES -->
+            <section class="professional-card">
+
+                <div class="card-header">
+
+                    <h2>
+                        Licenses
+                    </h2>
+
+                    <button
+                        type="button"
+                        class="outline-action-btn">
+
+                        <span>+</span>
+                        Add License
+
+                    </button>
+
+                </div>
+
+
+                <div class="license-list">
+
+
+                    <!-- License 1 -->
+                    <div class="license-item">
+
+                        <div class="document-icon">
+                            📄
+                        </div>
+
+                        <div class="license-info">
+
+                            <h3>
+                                Electrical Contractor License
+                            </h3>
+
+                            <p>
+                                Maharashtra • License No. 123456
+                            </p>
+
+                            <span>
+                                Valid till May 2028
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- License 2 -->
+                    <div class="license-item">
+
+                        <div class="document-icon">
+                            📄
+                        </div>
+
+                        <div class="license-info">
+
+                            <h3>
+                                Network Engineer License
+                            </h3>
+
+                            <p>
+                                Cisco • License No. NE-2024-001
+                            </p>
+
+                            <span>
+                                Valid till Dec 2027
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =====================================================
+             WORK EXPERIENCE
+        ====================================================== -->
+        <section class="professional-card">
+
+            <div class="card-header">
+
+                <h2>
+                    Work Experience
+                </h2>
+
+                <button
+                    type="button"
+                    class="outline-action-btn">
+
+                    <span>+</span>
+                    Add Experience
+
+                </button>
+
+            </div>
+
+
+            <div class="experience-list">
+
+
+                <!-- Experience 1 -->
+                <div class="experience-item">
+
+                    <span class="timeline-dot timeline-green"></span>
+
+                    <div class="experience-content">
+
+                        <div class="experience-top">
+
+                            <div>
+
+                                <h3>
+                                    Senior Network Engineer
+                                </h3>
+
+                                <p class="company-name">
+                                    TechSolutions Pvt. Ltd.
+                                </p>
+
+                                <p class="experience-description">
+                                    Leading network infrastructure projects,
+                                    handling enterprise clients and managing
+                                    a team of 4 engineers.
+                                </p>
+
+                            </div>
+
+                            <div class="experience-meta">
+
+                                <span>
+                                    Jan 2022 - Present
+                                </span>
+
+                                <span>
+                                    2+ Years
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Experience 2 -->
+                <div class="experience-item">
+
+                    <span class="timeline-dot timeline-blue"></span>
+
+                    <div class="experience-content">
+
+                        <div class="experience-top">
+
+                            <div>
+
+                                <h3>
+                                    Network Engineer
+                                </h3>
+
+                                <p class="company-name">
+                                    NetConnect Systems
+                                </p>
+
+                                <p class="experience-description">
+                                    Managed network installations,
+                                    configurations and maintenance
+                                    for enterprise clients.
+                                </p>
+
+                            </div>
+
+                            <div class="experience-meta">
+
+                                <span>
+                                    Jan 2019 - Dec 2021
+                                </span>
+
+                                <span>
+                                    3 Years
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Experience 3 -->
+                <div class="experience-item">
+
+                    <span class="timeline-dot timeline-gray"></span>
+
+                    <div class="experience-content">
+
+                        <div class="experience-top">
+
+                            <div>
+
+                                <h3>
+                                    Junior Network Engineer
+                                </h3>
+
+                                <p class="company-name">
+                                    Infotech Services
+                                </p>
+
+                                <p class="experience-description">
+                                    Assisted network setup,
+                                    troubleshooting and documentation
+                                    for various projects.
+                                </p>
+
+                            </div>
+
+                            <div class="experience-meta">
+
+                                <span>
+                                    Jan 2017 - Dec 2018
+                                </span>
+
+                                <span>
+                                    2 Years
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="view-all-wrapper">
+
+                <button
+                    type="button"
+                    class="view-all-btn">
+
+                    View All Experiences →
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EDUCATION
+        ====================================================== -->
+        <section class="professional-card">
+
+            <div class="card-header">
+
+                <h2>
+                    Education
+                </h2>
+
+                <button
+                    type="button"
+                    class="outline-action-btn">
+
+                    <span>+</span>
+                    Add Education
+
+                </button>
+
+            </div>
+
+
+            <div class="education-list">
+
+
+                <!-- Education 1 -->
+                <div class="education-item">
+
+                    <div class="education-icon education-green">
+                        🎓
+                    </div>
+
+                    <div class="education-info">
+
+                        <h3>
+                            Bachelor of Engineering (B.E.) in Electronics &amp; Communication
+                        </h3>
+
+                        <p>
+                            Mumbai University • 2017
+                        </p>
+
+                    </div>
+
+                    <span class="verified-label">
+                        ✓ Verified
+                    </span>
+
+                </div>
+
+
+                <!-- Education 2 -->
+                <div class="education-item">
+
+                    <div class="education-icon education-purple">
+                        🎓
+                    </div>
+
+                    <div class="education-info">
+
+                        <h3>
+                            Diploma in Electronics &amp; Telecommunication
+                        </h3>
+
+                        <p>
+                            Maharashtra State Board • 2014
+                        </p>
+
+                    </div>
+
+                    <span class="verified-label">
+                        ✓ Verified
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TOOLS & TECHNOLOGIES
+        ====================================================== -->
+        <section class="professional-card">
+
+            <div class="card-header">
+
+                <h2>
+                    Tools &amp; Technologies
+                </h2>
+
+                <button
+                    type="button"
+                    class="text-action-btn">
+
+                    Manage Tools
+
+                </button>
+
+            </div>
+
+
+            <div class="tools-container">
+
+                <span class="tool-tag">
+                    Cisco Routers
+                </span>
+
+                <span class="tool-tag">
+                    Cisco Switches
+                </span>
+
+                <span class="tool-tag">
+                    Juniper
+                </span>
+
+                <span class="tool-tag">
+                    Fortinet Firewall
+                </span>
+
+                <span class="tool-tag">
+                    Mikrotik
+                </span>
+
+                <span class="tool-tag">
+                    Ubiquiti
+                </span>
+
+                <span class="tool-tag">
+                    NMS
+                </span>
+
+                <span class="tool-tag">
+                    Network Monitoring
+                </span>
+
+                <span class="tool-tag">
+                    SolarWinds
+                </span>
+
+                <span class="tool-tag">
+                    Putty
+                </span>
+
+                <span class="tool-tag">
+                    Fiber Testing
+                </span>
+
+                <span class="tool-tag">
+                    Fluke Tester
+                </span>
+
+                <span class="tool-tag">
+                    +5 more
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CERTIFICATIONS + DOCUMENTS
+        ====================================================== -->
+        <div class="two-column-grid">
+
+
+            <!-- CERTIFICATIONS -->
+            <section class="professional-card">
+
+                <div class="card-header">
+
+                    <h2>
+                        Certifications
+                    </h2>
+
+                    <button
+                        type="button"
+                        class="outline-action-btn">
+
+                        + Add Certification
+
+                    </button>
+
+                </div>
+
+
+                <div class="certification-list">
+
+
+                    <!-- Certification 1 -->
+                    <div class="certification-item">
+
+                        <div class="certification-logo ccna">
+                            CCNA
+                        </div>
+
+                        <div class="certification-info">
+
+                            <h3>
+                                Cisco Certified Network Associate
+                            </h3>
+
+                            <p>
+                                Cisco Certified • 2023
+                            </p>
+
+                        </div>
+
+                        <span class="cert-check">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+                    <!-- Certification 2 -->
+                    <div class="certification-item">
+
+                        <div class="certification-logo ccnp">
+                            CCNP
+                        </div>
+
+                        <div class="certification-info">
+
+                            <h3>
+                                Cisco Certified Network Professional
+                            </h3>
+
+                            <p>
+                                Cisco Certified • 2024
+                            </p>
+
+                        </div>
+
+                        <span class="cert-check">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+                    <!-- Certification 3 -->
+                    <div class="certification-item">
+
+                        <div class="certification-logo fiber">
+                            FIBER
+                        </div>
+
+                        <div class="certification-info">
+
+                            <h3>
+                                Fiber Optic Technician
+                            </h3>
+
+                            <p>
+                                FOA • 2022
+                            </p>
+
+                        </div>
+
+                        <span class="cert-check">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+                    <!-- Certification 4 -->
+                    <div class="certification-item">
+
+                        <div class="certification-logo cctv">
+                            CCTV
+                        </div>
+
+                        <div class="certification-info">
+
+                            <h3>
+                                CCTV Installation Technician
+                            </h3>
+
+                            <p>
+                                Hikvision • 2021
+                            </p>
+
+                        </div>
+
+                        <span class="cert-check">
+                            ✓
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="view-all-wrapper">
+
+                    <button
+                        type="button"
+                        class="view-all-btn">
+
+                        View All Certifications →
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- PROFESSIONAL DOCUMENTS -->
+            <section class="professional-card">
+
+                <div class="card-header">
+
+                    <h2>
+                        Professional Documents
+                    </h2>
+
+                    <button
+                        type="button"
+                        class="text-action-btn">
+
+                        Manage
+
+                    </button>
+
+                </div>
+
+
+                <div class="documents-content">
+
+
+                    <!-- Upload -->
+                    <label class="document-upload">
+
+                        <div class="upload-icon">
+                            ↑
+                        </div>
+
+                        <h3>
+                            Upload Documents
+                        </h3>
+
+                        <p>
+                            Drag and drop files here or browse
+                        </p>
+
+                        <span class="browse-button">
+                            Browse Files
+                        </span>
+
+                        <input
+                            type="file"
+                            id="documentInput"
+                            multiple
+                            accept=".pdf,.jpg,.jpeg,.png">
+
+                    </label>
+
+
+                    <!-- Document List -->
+                    <div class="document-list">
+
+
+                        <!-- Resume -->
+                        <div class="document-item">
+
+                            <div class="pdf-icon">
+                                PDF
+                            </div>
+
+                            <div class="document-info">
+
+                                <h3>
+                                    Resume.pdf
+                                </h3>
+
+                                <p>
+                                    1.2 MB • Uploaded
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="remove-document"
+                                data-document="Resume.pdf">
+
+                                ×
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- Experience -->
+                        <div class="document-item">
+
+                            <div class="pdf-icon">
+                                PDF
+                            </div>
+
+                            <div class="document-info">
+
+                                <h3>
+                                    Experience_Letter.pdf
+                                </h3>
+
+                                <p>
+                                    850 KB • Uploaded
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="remove-document"
+                                data-document="Experience_Letter.pdf">
+
+                                ×
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- Recommendation -->
+                        <div class="document-item">
+
+                            <div class="pdf-icon">
+                                PDF
+                            </div>
+
+                            <div class="document-info">
+
+                                <h3>
+                                    Recommendation.pdf
+                                </h3>
+
+                                <p>
+                                    620 KB • Uploaded
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="remove-document"
+                                data-document="Recommendation.pdf">
+
+                                ×
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =====================================================
+             BOTTOM ACTIONS
+        ====================================================== -->
+        <div class="page-actions">
+
+            <button
+                type="button"
+                id="cancelProfessionalInfo"
+                class="cancel-btn">
+
+                Cancel
+
+            </button>
+
+            <button
+                type="button"
+                id="saveProfessionalInfo"
+                class="save-btn">
+
+                Save Changes
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     CSS
+========================================================= -->
+
+<link
+    rel="stylesheet"
+    href="{% static 'css/professional-info.css' %}">
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="{% static 'script/profile/professional-info.js' %}"></script>
+
 {% endblock %}
