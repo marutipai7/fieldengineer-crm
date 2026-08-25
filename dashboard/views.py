@@ -405,3 +405,6 @@ def fe_settings(request):
 
 def vendor_dashboard(request):
     return render(request, 'dashboard/vendor/dashboard.html')
+
+def notification(request):
+    return render(request, 'dashboard/notification.html')

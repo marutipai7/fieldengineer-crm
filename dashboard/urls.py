@@ -45,4 +45,5 @@ urlpatterns = [
     path('articles/', views.articles, name='articles'),
     path('job-description/', views.job_description, name='job_description'),
     path('news/', views.news, name='news'),
+    path('notification/', views.notification, name='notification'),
 ]
