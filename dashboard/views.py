@@ -353,28 +353,58 @@ Submitted At: {enquiry.created_at.strftime('%Y-%m-%d %H:%M:%S')}
         return JsonResponse({'success': False, 'error': str(e)}, status=500)
     
 def dashboard(request):
-    return render(request, 'dashboard/dashboard.html')
+    return render(request, 'dashboard/customer/dashboard.html')
 
 def profile(request):
-    return render(request, 'dashboard/profile.html')
+    return render(request, 'dashboard/customer/profile.html')
 
 def bookings(request):
-    return render(request, 'dashboard/bookings.html')
+    return render(request, 'dashboard/customer/bookings.html')
 
 def saved_address(request):
-    return render(request, 'dashboard/saved-address.html')
+    return render(request, 'dashboard/customer/saved-address.html')
 
 def payment_methods(request):
-    return render(request, 'dashboard/payment-methods.html')
+    return render(request, 'dashboard/customer/payment-methods.html')
 
 def support_center(request):
-    return render(request, 'dashboard/support-center.html')
+    return render(request, 'dashboard/customer/support-center.html')
 
 def settings(request):
-    return render(request, 'dashboard/settings.html')
+    return render(request, 'dashboard/customer/settings.html')
 
 def invoice(request):
-    return render(request, 'dashboard/invoice.html')
+    return render(request, 'dashboard/customer/invoice.html')
 
 def login(request):
     return render(request, 'dashboard/login.html')
+
+def field_engineer_dashboard(request):
+    return render(request, 'dashboard/field-engineer/dashboard.html')
+
+def fe_personal_info(request):
+    return render(request, 'dashboard/field-engineer/personal-info.html')
+
+def fe_professional_info(request):
+    return render(request, 'dashboard/field-engineer/professional-info.html')
+
+def fe_availability(request):
+    return render(request, 'dashboard/field-engineer/availability.html')
+
+def fe_payment_details(request):
+    return render(request, 'dashboard/field-engineer/payment-details.html')
+
+def fe_saved_address(request):
+    return render(request, 'dashboard/field-engineer/saved-address.html')
+
+def fe_support_center(request):
+    return render(request, 'dashboard/field-engineer/support-center.html')
+
+def fe_settings(request):
+    return render(request, 'dashboard/field-engineer/settings.html')
+
+def vendor_dashboard(request):
+    return render(request, 'dashboard/vendor/dashboard.html')
+
+def notification(request):
+    return render(request, 'dashboard/notification.html')

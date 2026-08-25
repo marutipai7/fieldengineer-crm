@@ -3,6 +3,15 @@ from . import views
 
 urlpatterns = [
     path('', views.dashboard, name='dashboard'),
+    path('fe-dashboard/', views.field_engineer_dashboard, name='field_engineer_dashboard'),
+    path('fe-dashboard/personal-info/', views.fe_personal_info, name='fe_personal_info'),
+    path('fe-dashboard/professional-info/', views.fe_professional_info, name='fe_professional_info'),
+    path('fe-dashboard/availability/', views.fe_availability, name='fe_availability'),
+    path('fe-dashboard/payment-details/', views.fe_payment_details, name='fe_payment_details'),
+    path('fe-dashboard/saved-address/', views.fe_saved_address, name='fe_saved_address'),
+    path('fe-dashboard/support-center/', views.fe_support_center, name='fe_support_center'),
+    path('fe-dashboard/settings/', views.fe_settings, name='fe_settings'),
+    path('vendor-dashboard/', views.vendor_dashboard, name='vendor_dashboard'),
     path('profile/', views.profile, name='profile'),
     path('bookings/', views.bookings, name='bookings'),
     path('saved_address/', views.saved_address, name='saved_address'),
@@ -36,4 +45,5 @@ urlpatterns = [
     path('articles/', views.articles, name='articles'),
     path('job-description/', views.job_description, name='job_description'),
     path('news/', views.news, name='news'),
+    path('notification/', views.notification, name='notification'),
 ]

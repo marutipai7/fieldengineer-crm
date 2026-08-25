@@ -214,23 +214,45 @@
     </div>
 
     <!-- Pagination -->
-    <div class="flex items-center justify-between text-sm text-gray-500 mt-2">
-        <p id="paginationText">Showing 1-5 of 127 invoices</p>
-        <div class="flex items-center gap-2" id="paginationControls">
-            <button
-                class="pagination-prev w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-400 transition-colors">&lsaquo;</button>
-            <button data-page="1"
-                class="pagination-btn w-8 h-8 rounded border border-[#FFC949] flex items-center justify-center bg-white text-[#FFC949] font-medium active">1</button>
-            <button data-page="2"
-                class="pagination-btn w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-500 font-medium transition-colors">2</button>
-            <button data-page="3"
-                class="pagination-btn w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-500 font-medium transition-colors">3</button>
-            <button data-page="4"
-                class="pagination-btn w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-500 font-medium transition-colors">4</button>
-            <button
-                class="pagination-next w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-400 transition-colors">&rsaquo;</button>
-        </div>
+<!--div class="flex items-center justify-between text-sm text-gray-500 mt-2">
+
+    <p id="paginationText">
+        Showing 1-5 of 9 invoices
+    </p>
+
+    <div
+        class="flex items-center gap-2"
+        id="paginationControls">
+
+        <button
+            type="button"
+            class="pagination-prev w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-400 transition-colors">
+            &lsaquo;
+        </button>
+
+        <button
+            type="button"
+            data-page="1"
+            class="pagination-btn w-8 h-8 rounded border border-[#FFC949] flex items-center justify-center bg-white text-[#FFC949] font-medium active">
+            1
+        </button>
+
+        <button
+            type="button"
+            data-page="2"
+            class="pagination-btn w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-500 font-medium transition-colors">
+            2
+        </button>
+
+        <button
+            type="button"
+            class="pagination-next w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-400 transition-colors">
+            &rsaquo;
+        </button>
+
     </div>
+
+</div-->
 
     <!-- Support Block -->
     <div class="mt-4 bg-[#F2F7FF] rounded-xl flex items-center justify-between p-6">
@@ -252,157 +274,547 @@
     </div>
 
     <!-- Invoice Modal -->
-    <div id="invoiceModal" class="fixed inset-0 backdrop-blur-md bg-black/20 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-lg shadow-xl w-full max-w-3xl relative">
-            <div class="sticky top-0 bg-white z-10 border-b border-gray-200">
-                <div class="flex justify-between items-center p-2 px-4">
-                    <div class="flex gap-2">
-                        <button
-                            class="bg-[#00B884] text-white rounded p-1 flex items-center justify-center w-8 h-8"><span
-                                class="material-symbols-outlined text-sm">share</span></button>
-                        <button id="downloadInvoiceBtn"
-                            class="bg-[#00B884] text-white rounded p-1 flex items-center justify-center w-8 h-8"><span
-                                class="material-symbols-outlined text-sm">download</span></button>
-                    </div>
-                    <h2 class="text-xl font-semibold text-[#00B884]">Invoice</h2>
-                    <button id="closeInvoiceModal" onclick="closeInvoiceModalUI()"
-                        class="text-gray-500 hover:text-gray-700 w-8 h-8 flex items-center justify-center">
-                        <span class="material-symbols-outlined">close</span>
+    <!-- =========================================================
+     INVOICE MODAL
+========================================================= -->
+<div
+    id="invoiceModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/30 px-4 py-6">
+
+    <!-- =====================================================
+         INVOICE POPUP
+    ====================================================== -->
+    <div
+        class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto
+               rounded-lg bg-white shadow-xl">
+
+        <!-- =================================================
+             MODAL HEADER
+        ================================================== -->
+        <div
+            class="sticky top-0 z-10 border-b border-gray-200 bg-white">
+
+            <div
+                class="flex items-center justify-between p-2 px-4">
+
+                <!-- ================= LEFT BUTTONS ================= -->
+                <div class="flex gap-2">
+
+                    <!-- SHARE -->
+                    <button
+                        type="button"
+                        class="flex h-8 w-8 items-center justify-center
+                               rounded bg-[#00B884] p-1 text-white
+                               transition hover:bg-[#009F73]"
+                        title="Share Invoice">
+
+                        <span class="material-symbols-outlined text-sm">
+                            share
+                        </span>
+
                     </button>
+
+
+                    <!-- DOWNLOAD -->
+                    <button
+                        type="button"
+                        id="downloadInvoiceBtn"
+                        class="flex h-8 w-8 items-center justify-center
+                               rounded bg-[#00B884] p-1 text-white
+                               transition hover:bg-[#009F73]"
+                        title="Download Invoice">
+
+                        <span class="material-symbols-outlined text-sm">
+                            download
+                        </span>
+
+                    </button>
+
                 </div>
+
+
+                <!-- ================= TITLE ================= -->
+                <h2
+                    class="text-xl font-semibold text-[#00B884]">
+                    Invoice
+                </h2>
+
+
+                <!-- ================= CLOSE ================= -->
+                <button
+                    id="closeInvoiceModal"
+                    type="button"
+                    onclick="closeInvoiceModalUI()"
+                    class="flex h-8 w-8 items-center justify-center
+                           text-gray-500 transition
+                           hover:text-gray-700"
+                    title="Close">
+
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+
+                </button>
+
             </div>
-            <div id="invoiceContent" class="p-4 text-[10px] leading-tight bg-white">
-                <!-- Header section of invoice -->
-                <div class="text-center mb-2">
-                    <p class="font-bold text-xs">TAX INVOICE</p>
-                    <p class="text-[9px]">(Under GST - Advertising Service: SAC 998361)</p>
-                    <hr class="my-1 border-dashed border-gray-300">
-                </div>
 
-                <div class="grid grid-cols-2 gap-1 mb-2">
-                    <div>
-                        <div class="flex"><span class="w-24 font-medium">Invoice No:</span><span>INV/AD/2025/0045</span>
-                        </div>
-                        <div class="flex"><span class="w-24 font-medium">Date:</span><span>17-May-2025</span></div>
+        </div>
+
+
+        <!-- =================================================
+             INVOICE CONTENT
+        ================================================== -->
+        <div
+            id="invoiceContent"
+            class="bg-white p-4 text-[10px] leading-tight">
+
+            <!-- ================= INVOICE HEADER ================= -->
+            <div class="mb-2 text-center">
+
+                <p class="text-xs font-bold">
+                    TAX INVOICE
+                </p>
+
+                <p class="text-[9px]">
+                    (Under GST - Advertising Service: SAC 998361)
+                </p>
+
+                <hr class="my-1 border-dashed border-gray-300">
+
+            </div>
+
+
+            <!-- ================= INVOICE NUMBER / DATE ================= -->
+            <div class="mb-2 grid grid-cols-2 gap-1">
+
+                <div>
+
+                    <div class="flex">
+                        <span class="w-24 font-medium">
+                            Invoice No:
+                        </span>
+
+                        <span>
+                            INV/AD/2025/0045
+                        </span>
                     </div>
-                    <div></div>
-                </div>
 
-                <div class="grid grid-cols-2 gap-1 mb-2 text-[9px]">
-                    <div>
-                        <div class="flex"><span class="w-24 font-medium">Platform Name:</span><span>MediConnect Digital
-                                Services Pvt. Ltd.</span></div>
-                        <div class="flex mt-2"><span
-                                class="w-24 font-medium">GSTIN:</span><span>27PLATFORM7890123</span>
-                        </div>
-                        <div class="flex mt-1"><span class="w-24 font-medium">Address:</span><span>3rd Floor, Knowledge
-                                Tower, Bengaluru - 560034</span></div>
-                        <div class="flex mt-1"><span class="w-24 font-medium text-red-500">Contact:</span><span
-                                class="text-red-500">+91-9988776655 | billing@mediconnect.in</span></div>
+
+                    <div class="flex">
+                        <span class="w-24 font-medium">
+                            Date:
+                        </span>
+
+                        <span>
+                            17-May-2025
+                        </span>
                     </div>
+
                 </div>
 
-                <div class="grid grid-cols-2 gap-1 mb-2 text-[9px]">
-                    <div>
-                        <p class="font-medium">Billed To:</p>
-                        <div class="flex"><span class="w-24 font-medium">Advertiser Name:</span><span>WellnessFit
-                                Nutrition Pvt. Ltd.</span></div>
-                        <div class="flex"><span class="w-24 font-medium">GSTIN:</span><span>27WELLFIT12345129</span>
-                        </div>
-                        <div class="flex"><span class="w-24 font-medium">Address:</span><span>22, Link Road, Mumbai
-                                - 400072</span></div>
-                        <div class="flex"><span class="w-24 font-medium text-red-500">Contact:</span><span
-                                class="text-red-500">info@wellnessfit.in</span></div>
+                <div></div>
+
+            </div>
+
+
+            <!-- ================= PLATFORM DETAILS ================= -->
+            <div
+                class="mb-2 grid grid-cols-2 gap-1 text-[9px]">
+
+                <div>
+
+                    <div class="flex">
+                        <span class="w-24 font-medium">
+                            Platform Name:
+                        </span>
+
+                        <span>
+                            MediConnect Digital Services Pvt. Ltd.
+                        </span>
                     </div>
-                </div>
 
-                <div class="grid grid-cols-2 gap-1 mb-2 text-[9px]">
-                    <div>
-                        <div class="flex"><span class="w-24 font-medium">Order
-                                Reference:</span><span>COUP-ORD-2025/223</span></div>
-                        <div class="flex"><span class="w-24 font-medium text-red-500">Campaign
-                                Duration:</span><span class="text-red-500">18-May-2025 to 25-May-2025</span></div>
+
+                    <div class="mt-2 flex">
+                        <span class="w-24 font-medium">
+                            GSTIN:
+                        </span>
+
+                        <span>
+                            27PLATFORM7890123
+                        </span>
                     </div>
+
+
+                    <div class="mt-1 flex">
+                        <span class="w-24 font-medium">
+                            Address:
+                        </span>
+
+                        <span>
+                            3rd Floor, Knowledge Tower, Bengaluru - 560034
+                        </span>
+                    </div>
+
+
+                    <div class="mt-1 flex">
+                        <span class="w-24 font-medium text-red-500">
+                            Contact:
+                        </span>
+
+                        <span class="text-red-500">
+                            +91-9988776655 | billing@mediconnect.in
+                        </span>
+                    </div>
+
                 </div>
 
-                <hr class="my-1 border-dashed border-red-300">
+            </div>
 
-                <table class="w-full text-[9px] text-red-500 mb-2">
+
+            <!-- ================= BILLED TO ================= -->
+            <div
+                class="mb-2 grid grid-cols-2 gap-1 text-[9px]">
+
+                <div>
+
+                    <p class="font-medium">
+                        Billed To:
+                    </p>
+
+
+                    <div class="flex">
+                        <span class="w-24 font-medium">
+                            Advertiser Name:
+                        </span>
+
+                        <span>
+                            WellnessFit Nutrition Pvt. Ltd.
+                        </span>
+                    </div>
+
+
+                    <div class="flex">
+                        <span class="w-24 font-medium">
+                            GSTIN:
+                        </span>
+
+                        <span>
+                            27WELLFIT12345129
+                        </span>
+                    </div>
+
+
+                    <div class="flex">
+                        <span class="w-24 font-medium">
+                            Address:
+                        </span>
+
+                        <span>
+                            22, Link Road, Mumbai - 400072
+                        </span>
+                    </div>
+
+
+                    <div class="flex">
+                        <span class="w-24 font-medium text-red-500">
+                            Contact:
+                        </span>
+
+                        <span class="text-red-500">
+                            info@wellnessfit.in
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ORDER DETAILS ================= -->
+            <div
+                class="mb-2 grid grid-cols-2 gap-1 text-[9px]">
+
+                <div>
+
+                    <div class="flex">
+                        <span class="w-24 font-medium">
+                            Order Reference:
+                        </span>
+
+                        <span>
+                            COUP-ORD-2025/223
+                        </span>
+                    </div>
+
+
+                    <div class="flex">
+                        <span class="w-24 font-medium text-red-500">
+                            Campaign Duration:
+                        </span>
+
+                        <span class="text-red-500">
+                            18-May-2025 to 25-May-2025
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SEPARATOR ================= -->
+            <hr class="my-1 border-dashed border-red-300">
+
+
+            <!-- ================= ITEMS TABLE ================= -->
+            <div class="w-full overflow-x-auto">
+
+                <table
+                    class="mb-2 w-full min-w-[600px] text-[9px] text-red-500">
+
                     <thead>
+
                         <tr class="text-left">
-                            <th class="font-medium pb-1">Description</th>
-                            <th class="font-medium pb-1">SAC code</th>
-                            <th class="font-medium pb-1">Qty</th>
-                            <th class="font-medium pb-1">Rate</th>
-                            <th class="font-medium pb-1">GST %</th>
-                            <th class="font-medium text-right pb-1">Total (INR)</th>
+
+                            <th class="pb-1 font-medium">
+                                Description
+                            </th>
+
+                            <th class="pb-1 font-medium">
+                                SAC code
+                            </th>
+
+                            <th class="pb-1 font-medium">
+                                Qty
+                            </th>
+
+                            <th class="pb-1 font-medium">
+                                Rate
+                            </th>
+
+                            <th class="pb-1 font-medium">
+                                GST %
+                            </th>
+
+                            <th class="pb-1 text-right font-medium">
+                                Total (INR)
+                            </th>
+
                         </tr>
+
                     </thead>
+
+
                     <tbody class="text-black">
-                        <tr class="mt-2">
-                            <td class="pt-2">Coupon Posting - 6 coupons x 10 views<br>(Digital display services)</td>
-                            <td class="pt-2">998361</td>
-                            <td class="pt-2">60</td>
-                            <td class="pt-2">₹100.00</td>
-                            <td class="pt-2">18%</td>
-                            <td class="pt-2 text-right">₹6,000.00</td>
+
+                        <tr>
+
+                            <td class="pt-2">
+                                Coupon Posting - 6 coupons x 10 views
+                                <br>
+                                (Digital display services)
+                            </td>
+
+                            <td class="pt-2">
+                                998361
+                            </td>
+
+                            <td class="pt-2">
+                                60
+                            </td>
+
+                            <td class="pt-2">
+                                ₹100.00
+                            </td>
+
+                            <td class="pt-2">
+                                18%
+                            </td>
+
+                            <td class="pt-2 text-right">
+                                ₹6,000.00
+                            </td>
+
                         </tr>
+
                     </tbody>
+
                 </table>
 
-                <div class="flex justify-end text-[9px] mb-1">
-                    <div class="w-56">
-                        <div class="flex justify-between"><span
-                                class="font-medium">Subtotal:</span><span>₹6,000.00</span>
-                        </div>
-                        <div class="flex justify-between text-red-500"><span class="font-medium">Add: GST
-                                @18%</span><span>₹1,080.00</span></div>
-                    </div>
-                </div>
-
-                <hr class="my-1 border-dashed border-gray-300">
-
-                <div class="flex justify-end text-[9px] mb-1">
-                    <div class="w-56">
-                        <div class="flex justify-between"><span class="font-medium">Gross Invoice
-                                Amount:</span><span>₹7,080.00</span></div>
-                        <div class="flex justify-between text-red-500"><span class="font-medium">Less: Advance Adjusted
-                                (Ref: ADV/2025/0007)</span><span>₹100.00</span></div>
-                    </div>
-                </div>
-
-                <hr class="my-1 border-dashed border-red-400">
-
-                <div class="flex justify-end text-[9px] mb-2">
-                    <div class="w-56">
-                        <div class="flex justify-between font-bold"><span>**Net Payable
-                                Now:**</span><span>₹6,980.00</span>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="my-1 border-dashed border-gray-300">
-
-                <div class="text-[9px] mb-2">
-                    <p>Amount in Words: INR Six Thousand Nine Hundred Eighty Only</p>
-                    <p>Mode of Payment: UPI / Bank Transfer</p>
-                </div>
-
-                <div class="text-[9px] text-red-500 mb-2">
-                    <p class="font-bold text-black">**Notes:**</p>
-                    <p>- Services pertain to digital advertisement placements on MediConnect Platform.</p>
-                    <p>- Advance of ₹100 received earlier has been adjusted.</p>
-                    <p class="text-black">- Input Tax Credit (ITC) can be claimed on this invoice.</p>
-                    <p>- NO TDS applicable under section 194C for online ad media (under ₹30,000 single contract).</p>
-                </div>
-
-                <div class="text-xs">
-                    <p>Authorized Signatory,</p>
-                    <p>[Signature]</p>
-                </div>
             </div>
+
+
+            <!-- ================= SUBTOTAL ================= -->
+            <div
+                class="mb-1 flex justify-end text-[9px]">
+
+                <div class="w-56">
+
+                    <div class="flex justify-between">
+
+                        <span class="font-medium">
+                            Subtotal:
+                        </span>
+
+                        <span>
+                            ₹6,000.00
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="flex justify-between text-red-500">
+
+                        <span class="font-medium">
+                            Add: GST @18%
+                        </span>
+
+                        <span>
+                            ₹1,080.00
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <hr class="my-1 border-dashed border-gray-300">
+
+
+            <!-- ================= GROSS AMOUNT ================= -->
+            <div
+                class="mb-1 flex justify-end text-[9px]">
+
+                <div class="w-56">
+
+                    <div class="flex justify-between">
+
+                        <span class="font-medium">
+                            Gross Invoice Amount:
+                        </span>
+
+                        <span>
+                            ₹7,080.00
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="flex justify-between text-red-500">
+
+                        <span class="font-medium">
+                            Less: Advance Adjusted
+                            (Ref: ADV/2025/0007)
+                        </span>
+
+                        <span>
+                            ₹100.00
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <hr class="my-1 border-dashed border-red-400">
+
+
+            <!-- ================= NET PAYABLE ================= -->
+            <div
+                class="mb-2 flex justify-end text-[9px]">
+
+                <div class="w-56">
+
+                    <div
+                        class="flex justify-between font-bold">
+
+                        <span>
+                            **Net Payable Now:**
+                        </span>
+
+                        <span>
+                            ₹6,980.00
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <hr class="my-1 border-dashed border-gray-300">
+
+
+            <!-- ================= PAYMENT ================= -->
+            <div class="mb-2 text-[9px]">
+
+                <p>
+                    Amount in Words:
+                    INR Six Thousand Nine Hundred Eighty Only
+                </p>
+
+                <p>
+                    Mode of Payment:
+                    UPI / Bank Transfer
+                </p>
+
+            </div>
+
+
+            <!-- ================= NOTES ================= -->
+            <div
+                class="mb-2 text-[9px] text-red-500">
+
+                <p class="font-bold text-black">
+                    **Notes:**
+                </p>
+
+                <p>
+                    - Services pertain to digital advertisement placements
+                    on MediConnect Platform.
+                </p>
+
+                <p>
+                    - Advance of ₹100 received earlier has been adjusted.
+                </p>
+
+                <p class="text-black">
+                    - Input Tax Credit (ITC) can be claimed on this invoice.
+                </p>
+
+                <p>
+                    - NO TDS applicable under section 194C for online ad media
+                    (under ₹30,000 single contract).
+                </p>
+
+            </div>
+
+
+            <!-- ================= SIGNATURE ================= -->
+            <div class="text-xs">
+
+                <p>
+                    Authorized Signatory,
+                </p>
+
+                <p>
+                    [Signature]
+                </p>
+
+            </div>
+
         </div>
+
     </div>
+
+</div>
 </main>
 {% endblock %}
 

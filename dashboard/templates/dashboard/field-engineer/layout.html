@@ -1,0 +1,319 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Field Engineer Dashboard{% endblock %}</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <!-- Tailwind compiled output -->
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+
+    {% block css %}{% endblock %}
+
+    <style>
+        .nav-link.active-fe-tab {
+            background-color: #FFC949 !important; /* bg-primary-yellow value */
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+        .nav-link.active-fe-tab .material-symbols-outlined {
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F8FAFC]">
+
+    <div class="min-h-screen flex flex-col">
+
+        <!-- ============ HEADER ============ -->
+        <header class="fixed top-0 inset-x-0 bg-white border-b border-light-medium z-45 flex items-center px-4 sm:px-6 h-20">
+            <div class="flex items-center justify-between w-full gap-4">
+
+                <!-- Left: Logo + Mobile menu toggle -->
+                <div class="flex items-center gap-3 min-w-0 shrink-0">
+                    <button id="menuBtn" aria-label="Toggle sidebar"
+                        class="lg:hidden p-2 -ml-2 rounded-lg hover:bg-slate-100 text-slate-600 cursor-pointer">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+
+                    <a href="#" class="flex items-center gap-3 flex-shrink-0">
+                        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-primary-yellow">
+                            <span class="text-[20px] font-semibold text-white">FE</span>
+                        </div>
+                        <div class="leading-tight">
+                            <p class="text-[20px] font-bold text-ink">Field Engineer</p>
+                            <p class="text-[12px] text-granite-gray font-normal">Engineer Network</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Center: Navbar Links (desktop only) -->
+                <ul class="hidden xl:flex items-center gap-9 text-[16px] font-normal text-ink">
+                    <li>
+                        <a href="#" class="transition">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="transition">Leads</a>
+                    </li>
+                    <li>
+                        <a href="#" class="transition">My Jobs</a>
+                    </li>
+                    <li>
+                        <a href="#" class="transition">Team</a>
+                    </li>
+                    <li>
+                        <a href="#" class="transition">Earnings</a>
+                    </li>
+                </ul>
+
+                <!-- Right: Notification, Chat & Profile Card -->
+                <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+                    
+                    <!-- Notification Wrapper -->
+                    <div class="relative" id="notificationWrapper">
+                        <button type="button" id="notificationBell" aria-label="Notifications" aria-expanded="false"
+                            class="relative p-2 rounded-lg hover:bg-slate-100 text-slate-500 transition cursor-pointer">
+                            <span class="material-symbols-outlined text-[22px]">notifications</span>
+                            <span id="notificationBadge"
+                                class="absolute top-1.5 right-1.5 w-3.5 h-3.5 text-[9px] leading-3.5 text-center bg-red-500 text-white rounded-full font-bold">
+                                3
+                            </span>
+                        </button>
+
+                        <!-- Notification Panel -->
+                        <div id="notificationPanel"
+                            class="hidden absolute right-0 top-12 w-[420px] max-w-[calc(100vw-32px)] bg-white rounded-2xl shadow-xl border border-slate-200 z-[999] overflow-hidden">
+                            <div class="flex items-center justify-between px-5 py-3.5 border-b border-slate-100">
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-800">Notifications</h3>
+                                    <p id="notificationSubtitle" class="text-xs text-slate-500 mt-0.5">You have 3 unread notifications</p>
+                                </div>
+                                <button type="button" id="markAllRead" class="text-xs font-semibold text-[#FAB819] hover:underline cursor-pointer">
+                                    Mark all read
+                                </button>
+                            </div>
+                            <!-- List -->
+                            <div class="max-h-[280px] overflow-y-auto divide-y divide-slate-100">
+                                <div class="flex items-start gap-3 px-5 py-3 hover:bg-slate-50 cursor-pointer transition">
+                                    <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                                        <span class="material-symbols-outlined text-sm">event</span>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <p class="text-xs font-bold text-slate-800">New job assigned</p>
+                                            <span class="w-1.5 h-1.5 bg-blue-600 rounded-full shrink-0"></span>
+                                        </div>
+                                        <p class="text-[11px] text-slate-500 mt-0.5">Cabling job BK-56874 assigned on site.</p>
+                                        <span class="text-[10px] text-slate-400 mt-1 block">5m ago</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 px-5 py-3 hover:bg-slate-50 cursor-pointer transition">
+                                    <div class="w-8 h-8 rounded-lg bg-green-50 text-green-600 flex items-center justify-center shrink-0 mt-0.5">
+                                        <span class="material-symbols-outlined text-sm">payments</span>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <p class="text-xs font-bold text-slate-800">Payment Processed</p>
+                                            <span class="w-1.5 h-1.5 bg-green-600 rounded-full shrink-0"></span>
+                                        </div>
+                                        <p class="text-[11px] text-slate-500 mt-0.5">Payout processed successfully for this week.</p>
+                                        <span class="text-[10px] text-slate-400 mt-1 block">1h ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Support Button -->
+                    <button type="button" class="relative p-2 rounded-lg hover:bg-slate-100 text-slate-500 transition cursor-pointer">
+                        <span class="material-symbols-outlined text-[22px]">chat</span>
+                    </button>
+
+                    <!-- User Capsule Profile -->
+                    <div class="flex items-center gap-2 pl-2 border-l border-slate-200">
+                        <div class="flex items-center gap-2 bg-[#EEF4FB] rounded-full pl-1.5 pr-4 py-1 border border-slate-100 shadow-sm">
+                            <div class="w-8 h-8 rounded-full overflow-hidden shrink-0 ring-1 ring-slate-200 bg-white">
+                                <img src="https://i.pravatar.cc/80?img=12" alt="Harsh Mahakal" class="w-full h-full object-cover">
+                            </div>
+                            <div class="hidden sm:block text-left leading-tight">
+                                <p class="text-xs font-bold text-[#FAB819]">Harsh Mahakal</p>
+                                <p class="text-[9px] font-semibold text-slate-500 flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>
+                                    Online
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- Overlay for mobile sidebar -->
+        <div id="overlay" class="hidden fixed inset-0 bg-black/40 z-30 lg:hidden"></div>
+
+        <!-- ============ SIDEBAR ============ -->
+        <aside id="sidebar" class="fixed top-20 left-0 bottom-0 w-64 bg-white z-30 flex flex-col -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out border border-pale-blue-gray">
+            
+            <div class="flex-1 overflow-y-auto">
+
+                <!-- Profile Info Block -->
+                <div class="flex flex-col items-center text-center py-6 px-4 border-b border-slate-100">
+                    <div class="w-12 h-12 rounded-[3px] bg-primary-yellow text-white flex items-center justify-center font-bold text-[16px] mb-3">
+                        RA
+                    </div>
+                    <div class="space-y-0.5">
+                        <p class="font-semibold text-ink text-sm">Rishi Acharya</p>
+                        <p class="text-xs text-granite-gray font-normal">rishi@acme.me</p>
+                        <p class="text-xs text-granite-gray font-normal">+91 81022 62067</p>
+                    </div>
+                </div>
+
+                <!-- Navigation List -->
+                <nav class="space-y-1.5 py-2 px-3 text-sm font-normal text-ink">
+                    
+                    <a href="{% url 'field_engineer_dashboard' %}" class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] active-fe-tab hover:bg-slate-50 hover:text-slate-900">
+                        <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                        Overview
+                    </a>
+
+                    <a href="{% url 'fe_personal_info' %}" class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+                        <span class="material-symbols-outlined text-[18px]">person</span>
+                        Personal Information
+                    </a>
+
+                    <a href="{% url 'fe_professional_info' %}" class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+                        <span class="material-symbols-outlined text-[18px]">badge</span>
+                        Professional Information
+                    </a>
+
+                    <a href="{% url 'fe_availability' %}" class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+                        <span class="material-symbols-outlined text-[18px]">schedule</span>
+                        Availability
+                    </a>
+
+                    <a href="{% url 'fe_payment_details' %}" class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+                        <span class="material-symbols-outlined text-[18px]">credit_card</span>
+                        Payment Details
+                    </a>
+
+                    <a href="{% url 'fe_saved_address' %}" class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+                        <span class="material-symbols-outlined text-[18px]">location_on</span>
+                        Saved Address
+                    </a>
+
+                    <a href="{% url 'fe_support_center' %}" class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+                        <span class="material-symbols-outlined text-[18px]">support_agent</span>
+                        Support Center
+                    </a>
+
+                    <a href="{% url 'fe_settings' %}" class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+                        <span class="material-symbols-outlined text-[18px]">settings</span>
+                        Settings
+                    </a>
+
+                </nav>
+            </div>
+
+            <!-- Logout Pinned Bottom -->
+            <div class="border-t border-light-medium p-4">
+                <button class="flex items-center justify-start gap-2.5 px-4 py-2.5 rounded-lg font-bold text-[#FF453A] hover:bg-red-50 text-xs w-full transition cursor-pointer">
+                    <span class="material-symbols-outlined text-[12.7px] font-semibold">logout</span>
+                    Logout
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- ============ MAIN CONTENT AREA ============ -->
+        <main class="flex-1 mt-16 lg:ml-64 p-4 sm:p-5 lg:p-6 transition-all duration-200 bg-white">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <!-- JavaScript block for general UI triggers -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            
+            // Active link highlighting
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(function (link) {
+                link.classList.remove('active-fe-tab');
+                const linkPath = new URL(link.href, window.location.origin).pathname;
+                if (linkPath === currentPath) {
+                    link.classList.add('active-fe-tab');
+                }
+            });
+
+            // Mobile Sidebar drawer triggers
+            const sidebar = document.getElementById("sidebar");
+            const overlay = document.getElementById("overlay");
+            const menuBtn = document.getElementById("menuBtn");
+
+            function openSidebar() {
+                sidebar.classList.remove("-translate-x-full");
+                overlay.classList.remove("hidden");
+                document.body.style.overflow = "hidden";
+            }
+            function closeSidebar() {
+                sidebar.classList.add("-translate-x-full");
+                overlay.classList.add("hidden");
+                document.body.style.overflow = "";
+            }
+
+            if (menuBtn) {
+                menuBtn.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    const isOpen = !sidebar.classList.contains("-translate-x-full");
+                    isOpen ? closeSidebar() : openSidebar();
+                });
+            }
+            if (overlay) {
+                overlay.addEventListener("click", closeSidebar);
+            }
+
+            window.addEventListener("resize", function() {
+                if (window.innerWidth >= 1024) closeSidebar();
+            });
+
+            // Notification dropdown panel toggle
+            const notificationBell = document.getElementById("notificationBell");
+            const notificationPanel = document.getElementById("notificationPanel");
+            const notificationBadge = document.getElementById("notificationBadge");
+            const markAllRead = document.getElementById("markAllRead");
+            const notificationSubtitle = document.getElementById("notificationSubtitle");
+
+            if (notificationBell && notificationPanel) {
+                notificationBell.addEventListener("click", function (event) {
+                    event.stopPropagation();
+                    notificationPanel.classList.toggle("hidden");
+                });
+
+                document.addEventListener("click", function () {
+                    notificationPanel.classList.add("hidden");
+                });
+
+                notificationPanel.addEventListener("click", function (event) {
+                    event.stopPropagation();
+                });
+            }
+
+            if (markAllRead) {
+                markAllRead.addEventListener("click", function () {
+                    if (notificationBadge) notificationBadge.classList.add("hidden");
+                    if (notificationSubtitle) notificationSubtitle.textContent = "You're all caught up";
+                });
+            }
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>
