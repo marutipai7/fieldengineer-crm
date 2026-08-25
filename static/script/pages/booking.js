@@ -658,6 +658,26 @@ document.addEventListener('DOMContentLoaded', function () {
         bookingContainer.innerHTML = visible.map(rowHTML).join('');
     }
 
+    let cameFromTracking = false;
+
+const trkChatBtn = document.getElementById('trkChatBtn');
+if (trkChatBtn) {
+    trkChatBtn.addEventListener('click', function () {
+        const trackingView = document.getElementById('trackingView');
+        const chatView = document.getElementById('chatView');
+        if (trackingView) trackingView.classList.add('hidden');
+        if (chatView) {
+            chatView.classList.remove('hidden');
+            fillText('chatHeaderTitle', 'Chat with Engineer');
+            populateChatContext(currentDetailBooking);
+            cameFromTracking = true;
+            const container = document.getElementById('chatMessagesContainer');
+            if (container) container.scrollTop = container.scrollHeight;
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
     // =============================================
     // TABS & CARDS HANDLERS
     // =============================================
@@ -1031,20 +1051,37 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Click handler for details buttons
-    bookingContainer.addEventListener('click', function (e) {
-        const btn = e.target.closest('button');
-        if (!btn) return;
+   bookingContainer.addEventListener('click', function (e) {
+    const btn = e.target.closest('button');
+    if (!btn) return;
 
-        if (!btn.classList.contains('offer-view-details') && 
-            !btn.classList.contains('progress-view-details') &&
-            !btn.classList.contains('confirmed-view-details') &&
-            !btn.classList.contains('cancelled-view-details')) return;
+    if (!btn.classList.contains('offer-view-details') && 
+        !btn.classList.contains('progress-view-details') &&
+        !btn.classList.contains('confirmed-view-details') &&
+        !btn.classList.contains('completed-view-details') && 
+        !btn.classList.contains('cancelled-view-details')) return;
 
-        const row = btn.closest('.booking-row');
-        const idx = [...bookingContainer.children].indexOf(row);
-        const clicked = getVisible()[idx];
-        showDetails(clicked);
-    });
+    const row = btn.closest('.booking-row');
+    const visible = getVisible();
+    
+    // Try to find matching booking by title and location
+    const titleEl = row.querySelector('h4');
+    const locationEl = row.querySelector('.text-slate-500 .flex.items-center.gap-1');
+    
+    if (titleEl) {
+        const title = titleEl.textContent.trim();
+        const clicked = visible.find(b => b.title === title);
+        if (clicked) {
+            showDetails(clicked);
+            return;
+        }
+    }
+    
+    // Fallback: use index
+    const idx = [...bookingContainer.children].indexOf(row);
+    const clicked = visible[idx];
+    showDetails(clicked);
+});
 
     backBtn.addEventListener('click', function () {
         detailsView.classList.add('hidden');
@@ -1469,45 +1506,358 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Chat support entry button click
-    const chatSupportBtn = document.getElementById('chatSupportBtn');
-    if (chatSupportBtn) {
-        chatSupportBtn.addEventListener('click', function () {
-            const confirmView = document.getElementById('confirm-detail-view');
-            const detailsView = document.getElementById('detailsView');
-            const chatView = document.getElementById('chatView');
-
-            if (confirmView) confirmView.classList.add('hidden');
-            if (detailsView) detailsView.classList.add('hidden');
-            if (chatView) {
-                chatView.classList.remove('hidden');
-                populateChatContext(currentDetailBooking);
-                const container = document.getElementById('chatMessagesContainer');
-                if (container) container.scrollTop = container.scrollHeight;
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-    // Go back helper
-    function goBackFromChat() {
+ const chatSupportBtn = document.getElementById('chatSupportBtn');
+if (chatSupportBtn) {
+    chatSupportBtn.addEventListener('click', function () {
+        const confirmView = document.getElementById('confirm-detail-view');
+        const detailsView = document.getElementById('detailsView');
         const chatView = document.getElementById('chatView');
-        if (chatView) chatView.classList.add('hidden');
 
-        if (currentDetailBooking && currentDetailBooking.status === 'confirmed') {
-            const confirmView = document.getElementById('confirm-detail-view');
-            if (confirmView) confirmView.classList.remove('hidden');
-        } else if (currentDetailBooking && currentDetailBooking.status === 'offer') {
-            const detailsView = document.getElementById('detailsView');
-            if (detailsView) detailsView.classList.remove('hidden');
-        } else if (currentDetailBooking && currentDetailBooking.status === 'cancelled') {
-            const cancelledView = document.getElementById('cancelled-detail-view');
-            if (cancelledView) cancelledView.classList.remove('hidden');
-        } else {
-            const listView = document.getElementById('listView');
-            if (listView) listView.classList.remove('hidden');
+        if (confirmView) confirmView.classList.add('hidden');
+        if (detailsView) detailsView.classList.add('hidden');
+        if (chatView) {
+            chatView.classList.remove('hidden');
+            fillText('chatHeaderTitle', 'Customer Support'); // <-- added
+            populateChatContext(currentDetailBooking);
+            const container = document.getElementById('chatMessagesContainer');
+            if (container) container.scrollTop = container.scrollHeight;
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// =============================================
+// CANCEL BOOKING MODAL
+// =============================================
+const trkCancelBtn = document.getElementById('trkCancelBtn');
+const cancelBookingModal = document.getElementById('cancelBookingModal');
+const cancelModalCloseBtn = document.getElementById('cancelModalClose');
+const cancelModalKeepBtn = document.getElementById('cancelModalKeepBtn');
+const cancelModalConfirmBtn = document.getElementById('cancelModalConfirmBtn');
+
+function openCancelModal() {
+    if (!cancelBookingModal) return;
+    const b = currentDetailBooking || {};
+    fillText('cancelModalServiceTitle', b.title || 'Network Cabling');
+    fillText('cancelModalBookingId', b.bookingId || 'BK-56874');
+    fillText('cancelModalLocation', b.location || 'DLF Cyber City, Gurgaon');
+    cancelBookingModal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+}
+
+function closeCancelModal() {
+    if (!cancelBookingModal) return;
+    cancelBookingModal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+}
+
+if (trkCancelBtn) trkCancelBtn.addEventListener('click', openCancelModal);
+if (cancelModalCloseBtn) cancelModalCloseBtn.addEventListener('click', closeCancelModal);
+if (cancelModalKeepBtn) cancelModalKeepBtn.addEventListener('click', closeCancelModal);
+if (cancelModalConfirmBtn) {
+    cancelModalConfirmBtn.addEventListener('click', function () {
+        // Hook your real cancel-booking API call here
+        closeCancelModal();
+    });
+}
+if (cancelBookingModal) {
+    cancelBookingModal.addEventListener('click', function (e) {
+        if (e.target === cancelBookingModal) closeCancelModal();
+    });
+}
+
+
+// =============================================
+// ACTIVE JOB / JOB DETAILS VIEW
+// =============================================
+const activeJobSteps = [
+    { title: 'Engineer Arrived', desc: 'Your booking request has been submitted successfully', date: '29 May 2026', time: '09:00 AM', status: 'completed', completedBy: 'Customer' },
+    { title: 'Site check-in complete', desc: 'Engineer team arrived at site and started installation', status: 'completed', completedBy: '—' },
+    { title: 'Work in progress', desc: 'Engineer team arrived at site and started installation', date: '29 May 2026', time: '09:00 AM', status: 'completed', completedBy: 'Customer' },
+    { title: 'Job Completed', desc: 'Installation tested and validated successfully', status: 'completed', completedBy: '—' },
+    { title: 'Make the Payment', desc: 'Project completed and handed over successfully', status: 'pending', completedBy: '—', payNow: true },
+    { title: 'Payment Completed', desc: 'Project completed and handed over successfully', status: 'pending', completedBy: '—' },
+    { title: 'Engineers exit the site', desc: 'Project completed and handed over successfully', status: 'pending', completedBy: '—' }
+];
+
+function ajRenderTimeline(steps) {
+    const wrap = document.getElementById('ajTimeline');
+    if (!wrap) return;
+
+    wrap.innerHTML = steps.map((s, idx) => {
+        const isCompleted = s.status === 'completed';
+        const isCurrent = s.status === 'current';
+
+        const iconHTML = isCompleted
+            ? `<span class="aj-step-icon aj-icon-done"><span class="material-symbols-outlined">check</span></span>`
+            : isCurrent
+                ? `<span class="aj-step-icon aj-icon-current"><span class="material-symbols-outlined">schedule</span></span>`
+                : `<span class="aj-step-icon aj-icon-pending"></span>`;
+
+        let badgeHTML;
+        if (s.payNow) {
+            badgeHTML = `<span class="status-pill badge-pay-now">Pay Now</span>`;
+        } else if (isCompleted) {
+            badgeHTML = `<span class="status-pill badge-completed">Completed</span>`;
+        } else {
+            badgeHTML = `<span class="status-pill badge-not-started">Not Started</span>`;
+        }
+
+        const lineHTML = idx < steps.length - 1
+            ? `<div class="aj-step-line ${isCompleted ? 'aj-line-done' : ''}"></div>`
+            : '';
+
+        const metaHTML = s.date
+            ? `<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">calendar_today</span>${s.date}</span>
+               <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">schedule</span>${s.time}</span>`
+            : `<span>${s.note ? '' : '—'}</span>`;
+
+        return `
+        <div class="aj-step-row">
+            <div class="aj-step-track">
+                ${iconHTML}
+                ${lineHTML}
+            </div>
+            <div class="aj-step-card ${isCompleted ? 'aj-step-completed' : ''}">
+                <div class="flex items-start justify-between gap-2">
+                    <p class="aj-step-title">${s.title}</p>
+                    ${badgeHTML}
+                </div>
+                <p class="aj-step-desc">${s.desc}</p>
+                <div class="flex items-center justify-between mt-2 text-[11px] text-slate-400">
+                    <span class="flex items-center gap-3">${metaHTML}</span>
+                    <span>Completed by: <strong class="text-slate-500">${s.completedBy || '—'}</strong></span>
+                </div>
+                ${s.note ? `<p class="text-[11px] text-slate-400 mt-1">${s.note}</p>` : ''}
+                ${s.payNow ? `<button type="button" class="aj-pay-now-btn">Pay Now</button>` : ''}
+            </div>
+        </div>`;
+    }).join('');
+
+    wrap.querySelectorAll('.aj-pay-now-btn').forEach(btn => {
+        btn.addEventListener('click', openPaymentModal);
+    });
+}
+
+function ajRenderEngineers() {
+    const list = document.getElementById('ajEngineerList');
+    if (!list) return;
+    list.innerHTML = trkEngineers.map(eng => {
+        const colors = statusColorMap[eng.status] || statusColorMap['Offline'];
+        return `
+        <div class="trk-eng-card">
+            <div class="trk-eng-left">
+                <div class="trk-eng-avatar" style="background:${eng.color}">${eng.initials}</div>
+                <div>
+                    <p class="trk-eng-name">${eng.name}</p>
+                    <p class="trk-eng-role">${eng.role}</p>
+                    <span class="trk-eng-status-badge" style="background:${colors[0]};color:${colors[1]};">${eng.status}</span>
+                </div>
+            </div>
+            <button type="button" class="trk-track-btn">Track</button>
+        </div>`;
+    }).join('');
+}
+
+function initActiveJobView() {
+    ajRenderTimeline(activeJobSteps);
+    ajRenderEngineers();
+}
+
+const trkJobDetailsBtn = document.getElementById('trkJobDetailsBtn');
+if (trkJobDetailsBtn) {
+    trkJobDetailsBtn.addEventListener('click', function () {
+        document.getElementById('trackingView').classList.add('hidden');
+        document.getElementById('activeJobView').classList.remove('hidden');
+        initActiveJobView();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+const backToTrackingFromJobBtn = document.getElementById('backToTrackingFromJobBtn');
+if (backToTrackingFromJobBtn) {
+    backToTrackingFromJobBtn.addEventListener('click', function () {
+        document.getElementById('activeJobView').classList.add('hidden');
+        document.getElementById('trackingView').classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// =============================================
+// PAYMENT MODAL
+// =============================================
+// =============================================
+// PAYMENT MODAL DATA
+// =============================================
+const recommendedPayments = [
+    { id: 'netbanking-rec', icon: 'account_balance', label: 'Net Banking',
+      details: { accountNumber: '7412 4785 4568 1254', ifsc: 'HDFC0001234', holder: 'Vikram Singh' } }
+];
+
+const savedPaymentMethods = [
+    { id: 'upi', icon: 'bolt', label: 'UPI', type: 'upi', details: { vpa: 'aditya03@paytm' } },
+    { id: 'netbanking-saved', icon: 'account_balance', label: 'Net Banking', type: 'bank',
+      details: { accountNumber: '7412 4785 4568 1254', ifsc: 'HDFC0001234', holder: 'Vikram Singh' } },
+    { id: 'card', icon: 'credit_card', label: 'Debit / Credit Card', type: 'card',
+      details: { masked: '**** **** **** 3456', nameOnCard: 'Aditya Singh', cardType: 'Visa' } }
+];
+
+function pmDetailBody(p) {
+    if (p.type === 'upi') {
+        return `<p class="pm-detail-label">UPI ID</p><p class="pm-detail-value">${p.details.vpa}</p>`;
     }
+    if (p.type === 'card') {
+        return `
+            <div class="flex items-center gap-2 mb-2">
+                <span class="text-[10px] font-bold px-1.5 py-0.5 border border-slate-200 rounded">${p.details.cardType}</span>
+                <span class="pm-detail-value">${p.details.masked}</span>
+            </div>
+            <p class="pm-detail-label">Name on Card</p><p class="pm-detail-value mb-2">${p.details.nameOnCard}</p>
+            <p class="pm-detail-label">Type</p><p class="pm-detail-value">${p.details.cardType}</p>`;
+    }
+    return `
+        <p class="pm-detail-label">Account Number</p><p class="pm-detail-value mb-2">${p.details.accountNumber}</p>
+        <p class="pm-detail-label">IFSC Code</p><p class="pm-detail-value mb-2">${p.details.ifsc}</p>
+        <p class="pm-detail-label">Account Holder Name</p><p class="pm-detail-value">${p.details.holder}</p>`;
+}
+
+function pmAccordionHTML(p) {
+    return `
+    <div class="pm-accordion" data-id="${p.id}">
+        <button type="button" class="pm-accordion-header">
+            <span class="flex items-center gap-2 text-sm font-medium">
+                <span class="material-symbols-outlined text-emerald-500 text-[18px]">${p.icon}</span>${p.label}
+            </span>
+            <span class="material-symbols-outlined pm-chevron text-[18px]">expand_more</span>
+        </button>
+        <div class="pm-accordion-body hidden pt-3">
+            <div class="flex items-end justify-between gap-3">
+                <div class="text-xs">${pmDetailBody(p)}</div>
+                <button type="button" class="pm-proceed-btn shrink-0" data-method-id="${p.id}">Proceed</button>
+            </div>
+        </div>
+    </div>`;
+}
+
+function pmRenderRecommended() {
+    document.getElementById('pmRecommendedList').innerHTML = recommendedPayments.map(pmAccordionHTML).join('');
+}
+function pmRenderSaved() {
+    document.getElementById('pmSavedList').innerHTML = savedPaymentMethods.map(pmAccordionHTML).join('');
+}
+
+function openPaymentModal() {
+    pmRenderRecommended();
+    pmRenderSaved();
+    document.getElementById('paymentModal').classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+}
+function closePaymentModal() {
+    document.getElementById('paymentModal').classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+}
+
+document.getElementById('paymentModalClose').addEventListener('click', closePaymentModal);
+document.getElementById('paymentModal').addEventListener('click', function (e) {
+    if (e.target === this) closePaymentModal();
+});
+
+// Accordion toggle (single-open) + Proceed
+document.getElementById('paymentModal').addEventListener('click', function (e) {
+    const header = e.target.closest('.pm-accordion-header');
+    if (header) {
+        const body = header.closest('.pm-accordion').querySelector('.pm-accordion-body');
+        const chevron = header.querySelector('.pm-chevron');
+        const isOpen = !body.classList.contains('hidden');
+        document.querySelectorAll('#paymentModal .pm-accordion-body').forEach(b => b.classList.add('hidden'));
+        document.querySelectorAll('#paymentModal .pm-chevron').forEach(c => c.textContent = 'expand_more');
+        if (!isOpen) { body.classList.remove('hidden'); chevron.textContent = 'expand_less'; }
+        return;
+    }
+    const proceedBtn = e.target.closest('.pm-proceed-btn');
+    if (proceedBtn) {
+        closePaymentModal();
+        processPayment();
+    }
+});
+
+// =============================================
+// PAYMENT RESULT MODAL
+// =============================================
+function processPayment() {
+    // Replace with a real payment API call; simulating outcome for now.
+    const success = Math.random() > 0.3;
+    showPaymentResult(success);
+}
+
+function showPaymentResult(success) {
+    const iconWrap = document.getElementById('prIconWrap');
+    const icon = document.getElementById('prIcon');
+    const title = document.getElementById('prTitle');
+    const bookingId = document.getElementById('prBookingId');
+
+    iconWrap.className = 'w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ' + (success ? 'pr-success' : 'pr-fail');
+    icon.textContent = success ? 'check' : 'close';
+    title.textContent = success ? 'Payment Successful' : 'Payment Failed';
+    bookingId.textContent = '#SZF-2024-00847';
+
+    document.getElementById('paymentResultModal').classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+
+    if (success) {
+        // Mark remaining timeline steps as completed, matching the fully-green final state
+        activeJobSteps[4].status = 'completed';
+        activeJobSteps[4].payNow = false;
+        activeJobSteps[5].status = 'completed';
+        activeJobSteps[6].status = 'completed';
+        ajRenderTimeline(activeJobSteps);
+    }
+}
+
+function closePaymentResultModal() {
+    document.getElementById('paymentResultModal').classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+}
+
+document.getElementById('paymentResultClose').addEventListener('click', closePaymentResultModal);
+document.getElementById('paymentResultModal').addEventListener('click', function (e) {
+    if (e.target === this) closePaymentResultModal();
+});
+document.getElementById('prBackHomeBtn').addEventListener('click', closePaymentResultModal);
+document.getElementById('prBookingHistoryBtn').addEventListener('click', function () {
+    closePaymentResultModal();
+    document.getElementById('activeJobView').classList.add('hidden');
+    document.getElementById('listView').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+function goBackFromChat() {
+    const chatView = document.getElementById('chatView');
+    if (chatView) chatView.classList.add('hidden');
+
+    if (cameFromTracking) {
+        cameFromTracking = false;
+        const trackingView = document.getElementById('trackingView');
+        if (trackingView) trackingView.classList.remove('hidden');
+    } else if (currentDetailBooking && currentDetailBooking.status === 'confirmed') {
+        const confirmView = document.getElementById('confirm-detail-view');
+        if (confirmView) confirmView.classList.remove('hidden');
+    } else if (currentDetailBooking && currentDetailBooking.status === 'offer') {
+        const detailsView = document.getElementById('detailsView');
+        if (detailsView) detailsView.classList.remove('hidden');
+    } else if (currentDetailBooking && currentDetailBooking.status === 'cancelled') {
+        const cancelledView = document.getElementById('cancelled-detail-view');
+        if (cancelledView) cancelledView.classList.remove('hidden');
+    } else if (currentDetailBooking && currentDetailBooking.status === 'completed') {
+        const detailsView = document.getElementById('detailsView');
+        if (detailsView) detailsView.classList.remove('hidden');
+    } else {
+        const listView = document.getElementById('listView');
+        if (listView) listView.classList.remove('hidden');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 
     const backToConfirmDetailBtn = document.getElementById('backToConfirmDetailBtn');
     if (backToConfirmDetailBtn) {

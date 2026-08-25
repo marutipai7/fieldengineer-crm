@@ -106,6 +106,10 @@
    --color-mint-green:#C8FFC7;
    --color-input-div:#F9F9F9;
    --color-input-border:#E9E9E9;
+   --color-anti-flash-white:#F0F0F0;
+  --color-mint-green:#C8FFC7;
+  --color-lightning-yellow.:#FAB819;
+
 
 
   /* Neutrals */
@@ -12327,3 +12331,170 @@ textarea:focus {
     }
 
 }
+
+
+ /* Active Job timeline */
+        .aj-step-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .aj-step-track {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .aj-step-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .aj-step-icon .material-symbols-outlined {
+            font-size: 16px;
+        }
+
+        .aj-icon-done {
+            background: #22C55E;
+            color: #fff;
+        }
+
+        .aj-icon-current {
+            background: #FAB819;
+            color: #fff;
+        }
+
+        .aj-icon-pending {
+            width: 12px;
+            height: 12px;
+            margin: 8px;
+            border-radius: 9999px;
+            border: 2px solid #E2E8F0;
+            background: #fff;
+        }
+
+        .aj-step-line {
+            width: 2px;
+            flex: 1;
+            min-height: 32px;
+            background: #E2E8F0;
+            margin-top: 2px;
+        }
+
+        .aj-line-done {
+            background: #22C55E;
+        }
+
+        .aj-step-card {
+            flex: 1;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            background: #fff;
+        }
+
+        .aj-step-completed {
+            background: #F0FDF4;
+            border-color: #BBF7D0;
+        }
+
+        .aj-step-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: #1A1A1A;
+        }
+
+        .aj-step-desc {
+            font-size: 12px;
+            color: #64748B;
+            margin-top: 2px;
+        }
+
+        .aj-pay-now-btn {
+            margin-top: 10px;
+            background: #FAB819;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .badge-onroute {
+            background: #FFF6E5;
+            color: #F5A623;
+        }
+
+        .badge-not-started {
+            background: #F1F5F9;
+            color: #64748B;
+        }
+
+        .badge-pay-now {
+            background: #FFF6E5;
+            color: #F5A623;
+        }
+
+
+        /* Payment modal accordions (light) */
+        .pm-accordion {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px 14px;
+        }
+
+        .pm-accordion-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #1A1A1A;
+        }
+
+        .pm-chevron {
+            color: #64748B;
+            transition: transform 0.2s;
+        }
+
+        .pm-proceed-btn {
+            background: #FAB819;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 20px;
+            border-radius: 9999px;
+            height: fit-content;
+        }
+
+        .pm-detail-label {
+            font-size: 11px;
+            color: #94A3B8;
+        }
+
+        .pm-detail-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1A1A1A;
+        }
+
+        /* Payment result modal */
+        .pr-success {
+            background: linear-gradient(180deg, #34D399, #22C55E);
+            box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.12);
+        }
+
+        .pr-fail {
+            background: linear-gradient(180deg, #F87171, #EF4444);
+            box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.12);
+        }
