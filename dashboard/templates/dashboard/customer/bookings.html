@@ -125,396 +125,7 @@
 
 
 
-        <!-- ============================================
-     COMPLETED BOOKING DETAIL VIEW
-============================================= -->
-<div id="completed-detail-view" class="hidden">
-    <!-- Back Button -->
-    <button id="backToBookingFromCompletedBtn"
-        class="inline-flex items-center gap-1 text-sm font-semibold text-granite-gray hover:text-ink mb-4">
-        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-        Back to Booking
-    </button>
-
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-5 items-start">
-        
-        <!-- LEFT COLUMN -->
-        <div>
-            <!-- Header Card -->
-            <div class="bg-white border border-slate-200 rounded-2xl p-5 mb-4">
-                <div class="flex flex-col md:flex-row md:items-center gap-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-14 h-14 rounded-xl bg-cloud-blue flex items-center justify-center shrink-0">
-                            <span class="material-symbols-outlined text-primary-yellow text-[28px]">device_hub</span>
-                        </div>
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <h1 id="compTitle" class="text-xl font-bold text-ink">Network Cabling</h1>
-                                <span class="status-pill badge-completed">Completed</span>
-                            </div>
-                            <p class="text-xs text-slate-500 mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
-                                <span class="flex items-center gap-1">
-                                    Booking ID <span id="compBookingId" class="text-primary-yellow font-bold">BK-56874</span>
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <span class="material-symbols-outlined text-[13px]">location_on</span>
-                                    <span id="compLocation">DLF Cyber City, Gurgaon</span>
-                                </span>
-                            </p>
-                            <p class="text-xs text-slate-500 mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1">
-                                <span class="flex items-center gap-1">
-                                    <span class="material-symbols-outlined text-[13px]">calendar_today</span>
-                                    <span id="compDate">29 May 2026</span>
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <span class="material-symbols-outlined text-[13px]">schedule</span>
-                                    <span id="compDuration">12 Hours</span>
-                                </span>
-                                <span class="flex items-center gap-1">
-                                    <span class="material-symbols-outlined text-[13px]">engineering</span>
-                                    <span id="compEngineersCount">10</span> Engineers Assigned
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="md:ml-auto text-right shrink-0">
-                        <p class="text-[11px] font-semibold text-granite-gray">Final Cost</p>
-                        <p class="font-bold text-ink text-2xl">$<span id="compFinalCost">1,000</span></p>
-                        <span class="status-pill badge-completed mt-1">Paid</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tabs -->
-            <div class="flex gap-2 mb-5">
-                <button class="btn-fill-yellow mt-2 completed-tab-btn active" data-tab="overview">Overview</button>
-                <button class="btn-fill-yellow mt-2 completed-tab-btn" data-tab="team">Team & Engineers</button>
-            </div>
-
-            <!-- Overview Tab -->
-            <div id="completed-overviewContent">
-                <!-- Project Completion Summary -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-5 mb-4">
-                    <h3 class="text-ink font-bold text-base mb-4">Project Completion Summary</h3>
-                    <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-4 mb-4 flex items-start gap-3">
-                        <span class="material-symbols-outlined text-emerald-500 text-[24px]">check_circle</span>
-                        <div>
-                            <p class="font-bold text-emerald-700">Successfully Completed</p>
-                            <p class="text-sm text-emerald-600">Network cabling installation completed successfully.</p>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div>
-                            <p class="text-xs text-granite-gray font-medium">Completion Date</p>
-                            <p id="compCompletedDate" class="font-bold text-ink mt-1">29 May 2026</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-granite-gray font-medium">Work Duration</p>
-                            <p id="compWorkDuration" class="font-bold text-ink mt-1">30 Hours</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-granite-gray font-medium">Engineers Deployed</p>
-                            <p id="compDeployedEngineers" class="font-bold text-ink mt-1">10</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-granite-gray font-medium">Final Cost</p>
-                            <p id="compFinalCost2" class="font-bold text-ink mt-1">$1,000</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Completion Program (Timeline) -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-5 mb-4">
-                    <h3 class="text-ink font-bold text-base mb-4">Completion Program</h3>
-                    <div id="compMilestoneRow" class="space-y-4"></div>
-                </div>
-
-                <!-- Project Statistics -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-5 mb-4">
-                    <h3 class="text-ink font-bold text-base mb-4">Project Statistics</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="bg-slate-50 rounded-xl p-4 text-center">
-                            <p class="text-2xl font-extrabold text-ink" id="compStatEngineers">10</p>
-                            <p class="text-xs text-granite-gray font-medium">Engineer</p>
-                        </div>
-                        <div class="bg-slate-50 rounded-xl p-4 text-center">
-                            <p class="text-2xl font-extrabold text-ink" id="compStatHours">15</p>
-                            <p class="text-xs text-granite-gray font-medium">Hours</p>
-                        </div>
-                        <div class="bg-slate-50 rounded-xl p-4 text-center">
-                            <p class="text-2xl font-extrabold text-emerald-500" id="compStatCompletion">100%</p>
-                            <p class="text-xs text-granite-gray font-medium">Completion</p>
-                        </div>
-                        <div class="bg-slate-50 rounded-xl p-4 text-center">
-                            <p class="text-2xl font-extrabold text-ink" id="compStatMilestones">4</p>
-                            <p class="text-xs text-granite-gray font-medium">Milestones</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Order Summary -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-5 mb-4">
-                    <h3 class="text-ink font-bold text-base mb-4">Order Summary</h3>
-                    <div class="space-y-2">
-                        <div class="flex justify-between py-1.5 border-b border-slate-100">
-                            <span class="text-granite-gray text-sm">Service Charges</span>
-                            <span class="font-bold text-ink">$<span id="compServiceCharges">7,434</span></span>
-                        </div>
-                        <div class="flex justify-between py-1.5 border-b border-slate-100">
-                            <span class="text-granite-gray text-sm">Express platform charges</span>
-                            <span class="font-bold text-ink">$<span id="compPlatformCharges">50</span></span>
-                        </div>
-                        <div class="flex justify-between py-1.5 border-b border-slate-100">
-                            <span class="text-granite-gray text-sm">Discount coupon applied</span>
-                            <span class="font-bold text-emerald-500">-$<span id="compDiscount">20</span></span>
-                        </div>
-                        <div class="flex justify-between py-1.5 border-b border-slate-100">
-                            <span class="text-granite-gray text-sm">Tax</span>
-                            <span class="font-bold text-ink">$<span id="compTax">20</span></span>
-                        </div>
-                        <div class="flex justify-between py-2 mt-1 border-t-2 border-slate-200">
-                            <span class="font-bold text-ink">Total</span>
-                            <span class="font-bold text-ink text-lg">$<span id="compTotal">7,504</span></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Billing Status -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-5 mb-4">
-                    <h3 class="text-ink font-bold text-base mb-4">Billing Status</h3>
-                    <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-4 mb-4 flex items-center gap-3">
-                        <span class="material-symbols-outlined text-emerald-500 text-[24px]">receipt_long</span>
-                        <div>
-                            <p class="font-bold text-emerald-700">Completed</p>
-                            <p class="text-sm text-emerald-600">Invoice has been generated and payment received.</p>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <p class="text-xs text-granite-gray font-medium">Invoice ID</p>
-                            <p id="compInvoiceId" class="font-bold text-ink mt-1">INV-2026-4455</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-granite-gray font-medium">Payment Date</p>
-                            <p id="compPaymentDate" class="font-bold text-ink mt-1">29 May 2026, 06:12 PM</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Share Your Feedback -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-5 mb-4">
-                    <h3 class="text-ink font-bold text-base mb-3">Share Your Feedback</h3>
-                    <p class="text-sm text-granite-gray mb-3">How would you rate your experience?</p>
-                    <div class="flex items-center gap-4 mb-4">
-                        <button class="feedback-rating-btn px-3 py-1.5 border border-slate-200 rounded-full text-sm hover:bg-slate-50">Poor</button>
-                        <button class="feedback-rating-btn px-3 py-1.5 border border-slate-200 rounded-full text-sm hover:bg-slate-50">Fair</button>
-                        <button class="feedback-rating-btn px-3 py-1.5 border border-slate-200 rounded-full text-sm hover:bg-slate-50 bg-primary-yellow text-white border-primary-yellow">Good</button>
-                        <button class="feedback-rating-btn px-3 py-1.5 border border-slate-200 rounded-full text-sm hover:bg-slate-50">Excellent</button>
-                    </div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-sm text-granite-gray">★★★★★</span>
-                        <span class="text-sm font-bold text-ink">Excellent</span>
-                    </div>
-                    <textarea id="feedbackInput" placeholder="Tell us what you think (optional)" 
-                        class="w-full p-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-primary-yellow resize-none" rows="3"></textarea>
-                    <button id="sendFeedbackBtn" class="btn-fill-yellow mt-3 w-full md:w-auto px-6 py-2.5">
-                        Send Feedback
-                    </button>
-                    <p class="text-xs text-granite-gray mt-2">Your feedback helps us improve</p>
-                </div>
-
-                <!-- Project Completed Banner -->
-                <div class="bg-gradient-to-r from-emerald-50 to-emerald-100 border border-emerald-200 rounded-2xl p-5 text-center">
-                    <span class="material-symbols-outlined text-emerald-500 text-[40px] block mx-auto mb-2">celebration</span>
-                    <h3 class="text-ink font-bold text-lg">Project Completed Successfully</h3>
-                    <p class="text-sm text-granite-gray">All reports and documents have been submitted</p>
-                    <div class="flex flex-wrap justify-center gap-3 mt-4">
-                        <button class="btn-outline-yellow flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[16px]">download</span> Download Report
-                        </button>
-                        <button class="btn-fill-yellow flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[16px]">file_present</span> View Documents
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team & Engineers Tab -->
-            <div id="completed-teamContent" class="hidden">
-                <!-- Team Overview -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-5 mb-4">
-                    <h3 class="text-ink font-bold text-base mb-4">Team Overview</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div class="bg-slate-50 rounded-xl p-3 text-center">
-                            <p class="text-2xl font-extrabold text-ink">10</p>
-                            <p class="text-xs text-granite-gray font-medium">Total Engineers</p>
-                        </div>
-                        <div class="bg-slate-50 rounded-xl p-3 text-center">
-                            <p class="text-2xl font-extrabold text-ink">3</p>
-                            <p class="text-xs text-granite-gray font-medium">Senior Engineers</p>
-                        </div>
-                        <div class="bg-slate-50 rounded-xl p-3 text-center">
-                            <p class="text-2xl font-extrabold text-ink">5+ Years</p>
-                            <p class="text-xs text-granite-gray font-medium">Avg. Experience</p>
-                        </div>
-                        <div class="bg-slate-50 rounded-xl p-3 text-center">
-                            <p class="text-2xl font-extrabold text-ink">52+</p>
-                            <p class="text-xs text-granite-gray font-medium">Similar Projects</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Members -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-5 mb-4">
-                    <div class="flex items-center mb-4">
-                        <h3 class="text-ink font-bold text-base">Team Members</h3>
-                        <span class="bg-cloud-blue text-primary-yellow text-xs px-2 py-0.5 rounded-full font-bold ml-2">10</span>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-sm">
-                            <thead class="bg-slate-50">
-                                <tr class="text-ink font-semibold">
-                                    <th class="text-left py-2.5 px-3 text-xs">Engineer</th>
-                                    <th class="text-left py-2.5 px-3 text-xs">Role</th>
-                                    <th class="text-left py-2.5 px-3 text-xs">Status</th>
-                                    <th class="text-left py-2.5 px-3 text-xs">Location</th>
-                                    <th class="text-right py-2.5 px-3 text-xs">Rating</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100">
-                                <!-- Engineer 1 -->
-                                <tr>
-                                    <td class="py-2.5 px-3">
-                                        <div class="flex items-center gap-2">
-                                            <div class="w-8 h-8 rounded-full bg-dark-orange text-white flex items-center justify-center font-bold text-xs shrink-0">RS</div>
-                                            <div>
-                                                <p class="font-semibold text-ink text-sm">Rahul Sharma</p>
-                                                <p class="text-xs text-granite-gray">ID: ENG-1001</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-ink font-semibold text-sm">Lead Engineer</td>
-                                    <td><span class="status-pill badge-completed text-xs">Completed</span></td>
-                                    <td class="text-xs text-granite-gray">DLF Cyber City, Gurgaon</td>
-                                    <td class="text-right">
-                                        <div class="flex items-center justify-end gap-1">
-                                            <span class="material-symbols-outlined text-amber-400 text-[14px]">star</span>
-                                            <span class="font-semibold text-ink">4.8</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!-- Engineer 2 -->
-                                <tr>
-                                    <td class="py-2.5 px-3">
-                                        <div class="flex items-center gap-2">
-                                            <div class="w-8 h-8 rounded-full bg-electric-violet text-white flex items-center justify-center font-bold text-xs shrink-0">VS</div>
-                                            <div>
-                                                <p class="font-semibold text-ink text-sm">Vikas Singh</p>
-                                                <p class="text-xs text-granite-gray">ID: ENG-1002</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-ink font-semibold text-sm">Senior Technician</td>
-                                    <td><span class="status-pill badge-completed text-xs">Completed</span></td>
-                                    <td class="text-xs text-granite-gray">DLF Cyber City, Gurgaon</td>
-                                    <td class="text-right">
-                                        <div class="flex items-center justify-end gap-1">
-                                            <span class="material-symbols-outlined text-amber-400 text-[14px]">star</span>
-                                            <span class="font-semibold text-ink">4.7</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!-- Engineer 3 -->
-                                <tr>
-                                    <td class="py-2.5 px-3">
-                                        <div class="flex items-center gap-2">
-                                            <div class="w-8 h-8 rounded-full bg-primary-yellow text-white flex items-center justify-center font-bold text-xs shrink-0">AK</div>
-                                            <div>
-                                                <p class="font-semibold text-ink text-sm">Amit Kumar</p>
-                                                <p class="text-xs text-granite-gray">ID: ENG-1003</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-ink font-semibold text-sm">Technician</td>
-                                    <td><span class="status-pill badge-completed text-xs">Completed</span></td>
-                                    <td class="text-xs text-granite-gray">DLF Phase 3</td>
-                                    <td class="text-right">
-                                        <div class="flex items-center justify-end gap-1">
-                                            <span class="material-symbols-outlined text-amber-400 text-[14px]">star</span>
-                                            <span class="font-semibold text-ink">4.6</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- RIGHT SIDEBAR -->
-        <div class="lg:sticky lg:top-4">
-            <!-- Lead Engineer Card -->
-            <div class="bg-white border border-slate-200 rounded-2xl p-4 mb-4">
-                <h3 class="text-ink font-bold text-sm mb-3">Lead Engineer</h3>
-                <div class="flex items-center gap-3">
-                    <div id="compEngAvatar" class="w-12 h-12 rounded-full bg-dark-orange text-white flex items-center justify-center font-bold shrink-0">RS</div>
-                    <div>
-                        <p id="compEngName" class="font-semibold text-ink text-sm">Rahul Sharma</p>
-                        <p id="compEngRole" class="text-xs text-granite-gray">Network Cabling Expert</p>
-                        <p class="text-xs mt-0.5 flex items-center gap-2">
-                            <span class="flex items-center gap-0.5">
-                                <span class="material-symbols-outlined text-[14px] text-amber-400">star</span>
-                                <span id="compEngRating" class="font-bold text-ink">4.8</span>
-                                <span class="text-slate-400">(<span id="compEngReviews">248</span>)</span>
-                            </span>
-                            <span class="status-pill badge-completed text-xs">Project Completed</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-2 mt-3">
-                    <button class="btn-outline-yellow flex-1 text-sm">Call</button>
-                    <button class="btn-fill-yellow flex-1 text-sm">Message</button>
-                </div>
-            </div>
-
-            <!-- Quick Stats -->
-            <div class="bg-white border border-slate-200 rounded-2xl p-4 mb-4">
-                <h3 class="text-ink font-bold text-sm mb-3">Quick Stats</h3>
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="bg-slate-50 rounded-xl p-3 text-center">
-                        <p class="text-xl font-extrabold text-ink">10</p>
-                        <p class="text-xs text-granite-gray">Engineers</p>
-                    </div>
-                    <div class="bg-slate-50 rounded-xl p-3 text-center">
-                        <p class="text-xl font-extrabold text-ink">30</p>
-                        <p class="text-xs text-granite-gray">Hours</p>
-                    </div>
-                    <div class="bg-slate-50 rounded-xl p-3 text-center">
-                        <p class="text-xl font-extrabold text-emerald-500">100%</p>
-                        <p class="text-xs text-granite-gray">Complete</p>
-                    </div>
-                    <div class="bg-slate-50 rounded-xl p-3 text-center">
-                        <p class="text-xl font-extrabold text-ink">4</p>
-                        <p class="text-xs text-granite-gray">Milestones</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Need Help -->
-            <div class="bg-white border border-slate-200 rounded-2xl p-4">
-                <h3 class="text-ink font-bold text-sm mb-2">Need help?</h3>
-                <p class="text-xs text-granite-gray mb-3">Questions about your completed bookings?</p>
-                <button class="btn-fill-yellow w-full flex items-center justify-center gap-1 text-sm py-2.5">
-                    <span class="material-symbols-outlined text-[16px]">support_agent</span> Contact Support
-                </button>
-                <p class="text-xs text-emerald-600 font-semibold flex items-center gap-1 justify-center mt-3">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Available 24/7
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
+       
         <!-- =======================================================
          SECTION BAR BEFORE CARDS LIST (TITLE + SORT)
     ======================================================== -->
@@ -790,297 +401,249 @@
 
                 <!-- Team & Engineers Content -->
                 <div id="teamContent" class="hidden">
+                       
 
                     <!-- Team Overview (Offer / default) -->
-                    <div id="teamOverviewOfferBlock" class="detail-card mb-4">
-                        <h3 class="detail-card-title text-ink font-semibold">Team Overview</h3>
-                        <div class="grid grid-cols-4 gap-3 mb-3">
-                            <div class="bg-slate-50 rounded-xl p-3 text-center">
-                                <p class="text-2xl font-extrabold text-dark">10</p>
-                                <p class="text-xs text-granite-gray font-regular">Total Engineers</p>
-                            </div>
-                            <div class="bg-slate-50 rounded-xl p-3 text-center">
-                                <p class="text-2xl font-extrabold text-dark">3</p>
-                                <p class="text-xs text-granite-gray font-regular">Senior Engineers</p>
-                            </div>
-                            <div class="bg-slate-50 rounded-xl p-3 text-center">
-                                <p class="text-2xl font-extrabold text-dark">5+ Years</p>
-                                <p class="text-xs text-granite-gray font-regular">Avg. Experience</p>
-                            </div>
-                            <div class="bg-slate-50 rounded-xl p-3 text-center">
-                                <p class="text-2xl font-extrabold text-dark">52+</p>
-                                <p class="text-xs text-granite-gray font-regular">Similar Projects</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3 pt-3 border-t border-slate-200">
-                            <span class="text-sm text-ink font-semibold">Team Members</span>
-                            <span class="text-base font-bold text-primary-yellow" id="dTeamMembers">10</span>
-                        </div>
-                    </div>
+                 <!-- Team Overview (Offer / default) -->
+<div id="teamOverviewOfferBlock" class="detail-card mb-4">
+    <h3 class="detail-card-title text-ink font-semibold">Team Overview</h3>
+    <div class="grid grid-cols-4 gap-3 mb-3">
+        <div class="bg-slate-50 rounded-xl p-3 text-center">
+            <p class="text-2xl font-extrabold text-dark">10</p>
+            <p class="text-xs text-granite-gray font-regular">Total Engineers</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-3 text-center">
+            <p class="text-2xl font-extrabold text-dark">3</p>
+            <p class="text-xs text-granite-gray font-regular">Senior Engineers</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-3 text-center">
+            <p class="text-2xl font-extrabold text-dark">5+ Years</p>
+            <p class="text-xs text-granite-gray font-regular">Avg. Experience</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-3 text-center">
+            <p class="text-2xl font-extrabold text-dark">52+</p>
+            <p class="text-xs text-granite-gray font-regular">Similar Projects</p>
+        </div>
+    </div>
+    <div class="flex items-center gap-3 pt-3 border-t border-slate-200">
+        <span class="text-sm text-ink font-semibold">Team Members</span>
+        <span class="text-base font-bold text-primary-yellow" id="dTeamMembers">10</span>
+    </div>
+</div>
 
+<!-- Team Overview (In Progress) -->
+<div id="teamOverviewProgressBlock" class="detail-card mb-4 hidden">
+    <div class="flex items-center justify-between mb-3">
+        <h3 class="detail-card-title text-ink font-semibold mb-0">Team Overview</h3>
+        <button id="trackAllEngineersBtn" class="btn-outline-yellow text-xs px-3 py-1.5 flex items-center gap-1 shrink-0">
+            <span class="material-symbols-outlined text-[14px]">my_location</span> Track All Engineers
+        </button>
+    </div>
+    <div class="grid grid-cols-4 gap-3">
+        <div class="bg-slate-50 rounded-xl p-3 text-center">
+            <p class="text-2xl font-extrabold text-dark" id="dStatTotal">10</p>
+            <p class="text-xs text-granite-gray font-regular">Total Engineers</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-3 text-center">
+            <p class="text-2xl font-extrabold text-emerald-500" id="dStatOnSite">3</p>
+            <p class="text-xs text-granite-gray font-regular">On Site</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-3 text-center">
+            <p class="text-2xl font-extrabold text-primary-yellow" id="dStatOnRoute">2</p>
+            <p class="text-xs text-granite-gray font-regular">On Route</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-3 text-center">
+            <p class="text-2xl font-extrabold text-slate-400" id="dStatOnBreak">0</p>
+            <p class="text-xs text-granite-gray font-regular">On Break</p>
+        </div>
+    </div>
+</div>
+
+<!-- Team Members Table - CONFIRMED STYLE with Search + Filter (In Progress only) -->
+<div class="detail-card mb-4">
+    <!-- Search + Filter (In Progress only) -->
+    <div id="teamSearchRow" class="flex items-center gap-2 mb-3 hidden">
+        <div class="relative flex-1">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-slate-400">search</span>
+            <input id="teamSearchInput" type="text" placeholder="Search by name or role" class="w-full h-9 pl-9 pr-3 rounded-lg border border-slate-200 text-sm focus:outline-none">
+        </div>
+        <select id="teamStatusFilter" class="h-9 px-3 rounded-lg border border-slate-200 text-sm text-granite-gray">
+            <option value="all">All Status</option>
+            <option value="On-Site">On-Site</option>
+            <option value="On-Route">On-Route</option>
+        </select>
+    </div>
+
+    <!-- TABLE - Confirmed Style -->
+    <div class="border border-light-medium rounded-[12px] overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm" id="teamMembersTable">
+                <thead class="bg-low-gray">
+                    <tr class="text-ink font-semibold text-sm">
+                        <th class="text-left py-3 px-3 font-semibold">Engineer</th>
+                        <th class="text-left py-3 px-3 font-semibold">Role</th>
+                        <th class="text-left py-3 px-3 font-semibold">Status</th>
+                        <th class="text-left py-3 px-3 font-semibold">Location</th>
+                        <th class="text-right py-3 px-3 font-semibold">Rating</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-50">
+                    <!-- Engineer 1 - RS (amber-400) -->
+                    <tr class="hover:bg-slate-50/60" data-eng-status="On-Site">
+                        <td class="py-3 px-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">RS</div>
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <p class="font-bold text-slate-800 text-xs">Rahul Sharma</p>
+                                        <span class="bg-amber-50 text-amber-600 text-[9px] font-bold px-1.5 py-0.5 rounded">Lead</span>
+                                    </div>
+                                    <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1001</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3 px-3 text-xs text-slate-700 font-medium">Lead Engineer</td>
+                        <td class="py-3 px-3"><span class="bg-emerald-50 border border-emerald-100 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full">On-Site</span></td>
+                        <td class="py-3 px-3 text-xs text-slate-500 font-medium">DLF Cyber City, Gurgaon</td>
+                        <td class="py-3 px-3 text-right">
+                            <div class="flex items-center justify-end gap-1 text-slate-700 font-bold text-xs">
+                                <span class="material-symbols-outlined text-amber-400 text-[14px]">star</span>4.8
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Engineer 2 - VS (amber-400) -->
+                    <tr class="hover:bg-slate-50/60" data-eng-status="On-Route">
+                        <td class="py-3 px-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">VS</div>
+                                <div>
+                                    <p class="font-bold text-slate-800 text-xs">Vikas Singh</p>
+                                    <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1002</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3 px-3 text-xs text-slate-700 font-medium">Senior Technician</td>
+                        <td class="py-3 px-3"><span class="bg-amber-50 border border-amber-100 text-amber-600 text-[10px] font-bold px-2 py-0.5 rounded-full">On-Route</span></td>
+                        <td class="py-3 px-3">
+                            <p class="text-xs text-slate-700 font-semibold">On the way (12 mins)</p>
+                            <p class="text-[10px] text-slate-400 mt-0.5">2.5 km away</p>
+                        </td>
+                        <td class="py-3 px-3 text-right">
+                            <div class="flex items-center justify-end gap-1 text-slate-700 font-bold text-xs">
+                                <span class="material-symbols-outlined text-amber-400 text-[14px]">star</span>4.7
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Engineer 3 - AK (amber-400) -->
+                    <tr class="hover:bg-slate-50/60" data-eng-status="On-Site">
+                        <td class="py-3 px-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">AK</div>
+                                <div>
+                                    <p class="font-bold text-slate-800 text-xs">Amit Kumar</p>
+                                    <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1003</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3 px-3 text-xs text-slate-700 font-medium">Technician</td>
+                        <td class="py-3 px-3"><span class="bg-emerald-50 border border-emerald-100 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full">On-Site</span></td>
+                        <td class="py-3 px-3">
+                            <p class="text-xs text-slate-700 font-semibold">Base Location</p>
+                            <p class="text-[10px] text-slate-400 mt-0.5">DLF Phase 3</p>
+                        </td>
+                        <td class="py-3 px-3 text-right">
+                            <div class="flex items-center justify-end gap-1 text-slate-700 font-bold text-xs">
+                                <span class="material-symbols-outlined text-amber-400 text-[14px]">star</span>4.6
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Engineer 4 - PV (amber-400) -->
+                    <tr class="hover:bg-slate-50/60" data-eng-status="On-Site">
+                        <td class="py-3 px-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">PV</div>
+                                <div>
+                                    <p class="font-bold text-slate-800 text-xs">Pawan Verma</p>
+                                    <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1004</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3 px-3 text-xs text-slate-700 font-medium">Technician</td>
+                        <td class="py-3 px-3"><span class="bg-emerald-50 border border-emerald-100 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full">On-Site</span></td>
+                        <td class="py-3 px-3">
+                            <p class="text-xs text-slate-700 font-semibold">Base Location</p>
+                            <p class="text-[10px] text-slate-400 mt-0.5">DLF Phase 3</p>
+                        </td>
+                        <td class="py-3 px-3 text-right">
+                            <div class="flex items-center justify-end gap-1 text-slate-700 font-bold text-xs">
+                                <span class="material-symbols-outlined text-amber-400 text-[14px]">star</span>4.5
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Engineer 5 - NY (amber-400) -->
+                    <tr class="hover:bg-slate-50/60" data-eng-status="On-Route">
+                        <td class="py-3 px-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">NY</div>
+                                <div>
+                                    <p class="font-bold text-slate-800 text-xs">Neeraj Yadav</p>
+                                    <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1005</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3 px-3 text-xs text-slate-700 font-medium">Helper</td>
+                        <td class="py-3 px-3"><span class="bg-amber-50 border border-amber-100 text-amber-600 text-[10px] font-bold px-2 py-0.5 rounded-full">On-Route</span></td>
+                        <td class="py-3 px-3">
+                            <p class="text-xs text-slate-700 font-semibold">On the way (18 mins)</p>
+                            <p class="text-[10px] text-slate-400 mt-0.5">3.1 km away</p>
+                        </td>
+                        <td class="py-3 px-3 text-right">
+                            <div class="flex items-center justify-end gap-1 text-slate-700 font-bold text-xs">
+                                <span class="material-symbols-outlined text-amber-400 text-[14px]">star</span>4.4
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Engineer 6 - SD (amber-400) -->
+                    <tr class="hover:bg-slate-50/60" data-eng-status="On-Route">
+                        <td class="py-3 px-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-amber-400 text-white flex items-center justify-center font-bold text-xs shrink-0">SD</div>
+                                <div>
+                                    <p class="font-bold text-slate-800 text-xs">Sanjay Dutt</p>
+                                    <p class="text-[10px] text-slate-400 font-medium">ID: ENG-1006</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3 px-3 text-xs text-slate-700 font-medium">Helper</td>
+                        <td class="py-3 px-3"><span class="bg-amber-50 border border-amber-100 text-amber-600 text-[10px] font-bold px-2 py-0.5 rounded-full">On-Route</span></td>
+                        <td class="py-3 px-3">
+                            <p class="text-xs text-slate-700 font-semibold">On the way (18 mins)</p>
+                            <p class="text-[10px] text-slate-400 mt-0.5">3.1 km away</p>
+                        </td>
+                        <td class="py-3 px-3 text-right">
+                            <div class="flex items-center justify-end gap-1 text-slate-700 font-bold text-xs">
+                                <span class="material-symbols-outlined text-amber-400 text-[14px]">star</span>4.3
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p id="teamNoResults" class="text-center text-sm text-slate-400 py-6 hidden">No engineers match your search.</p>
+    </div>
+</div>
+
+                  
                     <!-- Team Overview (In Progress) -->
-                    <div id="teamOverviewProgressBlock" class="detail-card mb-4 hidden">
-                        <div class="flex items-center justify-between mb-3">
-                            <h3 class="detail-card-title text-ink font-semibold mb-0">Team Overview</h3>
-                            <button id="trackAllEngineersBtn"
-                                class="btn-outline-yellow text-xs px-3 py-1.5 flex items-center gap-1 shrink-0">
-                                <span class="material-symbols-outlined text-[14px]">my_location</span> Track All
-                                Engineers
-                            </button>
-                        </div>
-                        <div class="grid grid-cols-4 gap-3">
-                            <div class="bg-slate-50 rounded-xl p-3 text-center">
-                                <p class="text-2xl font-extrabold text-dark" id="dStatTotal">10</p>
-                                <p class="text-xs text-granite-gray font-regular">Total Engineers</p>
-                            </div>
-                            <div class="bg-slate-50 rounded-xl p-3 text-center">
-                                <p class="text-2xl font-extrabold text-emerald-500" id="dStatOnSite">3</p>
-                                <p class="text-xs text-granite-gray font-regular">On Site</p>
-                            </div>
-                            <div class="bg-slate-50 rounded-xl p-3 text-center">
-                                <p class="text-2xl font-extrabold text-primary-yellow" id="dStatOnRoute">2</p>
-                                <p class="text-xs text-granite-gray font-regular">On Route</p>
-                            </div>
-                            <div class="bg-slate-50 rounded-xl p-3 text-center">
-                                <p class="text-2xl font-extrabold text-slate-400" id="dStatOnBreak">0</p>
-                                <p class="text-xs text-granite-gray font-regular">On Break</p>
-                            </div>
-                        </div>
-                    </div>
+                 
 
                     <!-- Team Members List - FULL WIDTH -->
-                    <div class="detail-card mb-4">
-
-                        <!-- Search + Filter (In Progress only) -->
-                        <div id="teamSearchRow" class="flex items-center gap-2 mb-3 hidden">
-                            <div class="relative flex-1">
-                                <span
-                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-slate-400">search</span>
-                                <input id="teamSearchInput" type="text" placeholder="Search by name or role"
-                                    class="w-full h-9 pl-9 pr-3 rounded-lg border border-slate-200 text-sm focus:outline-none">
-                            </div>
-                            <select id="teamStatusFilter"
-                                class="h-9 px-3 rounded-lg border border-slate-200 text-sm text-granite-gray">
-                                <option value="all">All Status</option>
-                                <option value="On-Site">On-Site</option>
-                                <option value="On-Route">On-Route</option>
-                            </select>
-                        </div>
-
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm" id="teamMembersTable">
-                                <thead>
-                                    <tr class="border-b bg-anti-flash-white border-slate-200">
-                                        <th class="text-left py-2 px-3 text-xs font-semibold text-ink">Engineer</th>
-                                        <th class="text-left py-2 px-3 text-xs font-semibold text-ink">Role</th>
-                                        <th class="text-left py-2 px-3 text-xs font-semibold text-ink">Status</th>
-                                        <th class="text-left py-2 px-3 text-xs font-semibold text-ink">Location</th>
-                                        <th class="text-right py-2 px-3 text-xs font-semibold text-ink">Rating</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Engineer 1 -->
-                                    <tr class="border-b border-slate-100 hover:bg-slate-50" data-eng-status="On-Site">
-                                        <td class="py-2 px-3">
-                                            <div class="flex items-center gap-2">
-                                                <div
-                                                    class="w-8 h-8 rounded-full bg-dark-orange text-white flex items-center justify-center font-bold text-xs shrink-0">
-                                                    RS</div>
-                                                <div>
-                                                    <p class="font-semibold text-ink text-sm">Rahul Sharma <span
-                                                            class="text-xs bg-anti-flash-white text-primary-yellow font-semibold ml-1">Lead</span>
-                                                    </p>
-                                                    <p class="text-xs text-granite-gray font-regular">ID: ENG-1001</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-ink font-semibold">
-                                            Lead Engineer
-                                        </td>
-                                        <td class="py-2 px-3">
-                                            <span class="status-pill badge-onsite text-xs">On-Site</span>
-                                        </td>
-                                        <td class="py-2 px-3 text-xs text-granite-gray font-semibold">
-                                            DLF Cyber City, Gurgaon
-                                        </td>
-                                        <td class="py-2 px-3 text-right">
-                                            <div class="flex items-center justify-end gap-1">
-                                                <span
-                                                    class="material-symbols-outlined text-amber-400 text-[14px]">star</span>
-                                                <span class="font-semibold text-ink">4.8</span>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Engineer 2 -->
-                                    <tr class="border-b border-slate-100 hover:bg-slate-50" data-eng-status="On-Route">
-                                        <td class="py-2 px-3">
-                                            <div class="flex items-center gap-2">
-                                                <div
-                                                    class="w-8 h-8 rounded-full bg-electric-violet text-white flex items-center justify-center font-bold text-xs shrink-0">
-                                                    VS</div>
-                                                <div>
-                                                    <p class="font-semibold text-ink text-sm">Vikas Singh</p>
-                                                    <p class="text-xs font-regular text-granite-gray">ID: ENG-1002</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-ink font-semibold">
-                                            Senior Technician
-                                        </td>
-                                        <td class="py-2 px-3">
-                                            <span
-                                                class="bg-cloud-blue text-primary-yellow text-xs px-2 py-0.5 rounded-full">On-Route</span>
-                                        </td>
-                                        <td class="py-2 px-3 text-xs text-granite-gray font-semibold">
-                                            On the way (12 mins)<br>
-                                            2.5 km away
-                                        </td>
-                                        <td class="py-2 px-3 text-right">
-                                            <div class="flex items-center justify-end gap-1">
-                                                <span
-                                                    class="material-symbols-outlined text-amber-400 text-[14px]">star</span>
-                                                <span class="font-bold text-ink font-semibold">4.7</span>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Engineer 3 -->
-                                    <tr class="border-b border-slate-100 hover:bg-slate-50" data-eng-status="On-Site">
-                                        <td class="py-2 px-3">
-                                            <div class="flex items-center gap-2">
-                                                <div
-                                                    class="w-8 h-8 rounded-full bg-primary-yellow text-white flex items-center justify-center font-bold text-xs shrink-0">
-                                                    AK</div>
-                                                <div>
-                                                    <p class="font-semibold text-ink font-regular text-sm">Amit Kumar
-                                                    </p>
-                                                    <p class="text-xs text-granite-gray font-regular">ID: ENG-1003</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-ink font-semibold">
-                                            Technician
-                                        </td>
-                                        <td class="py-2 px-3">
-                                            <span class="status-pill badge-onsite text-xs">On-Site</span>
-                                        </td>
-                                        <td class="py-2 px-3 text-xs text-granite-gray font-semibold">
-                                            Base Location<br>
-                                            DLF Phase 3
-                                        </td>
-                                        <td class="py-2 px-3 text-right">
-                                            <div class="flex items-center justify-end gap-1">
-                                                <span
-                                                    class="material-symbols-outlined text-amber-400 text-[14px]">star</span>
-                                                <span class="font-bold text-ink font-semibold">4.6</span>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Engineer 4 -->
-                                    <tr class="border-b border-slate-100 hover:bg-slate-50" data-eng-status="On-Site">
-                                        <td class="py-2 px-3">
-                                            <div class="flex items-center gap-2">
-                                                <div
-                                                    class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs shrink-0">
-                                                    PV</div>
-                                                <div>
-                                                    <p class="font-semibold text-ink text-sm">Pawan Verma</p>
-                                                    <p class="text-xs text-granite-gray font-regular">ID: ENG-1004</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-ink font-semibold">
-                                            Technician
-                                        </td>
-                                        <td class="py-2 px-3">
-                                            <span class="status-pill badge-onsite text-xs">On-Site</span>
-                                        </td>
-                                        <td class="py-2 px-3 text-xs text-granite-gray font-semibold">
-                                            Base Location<br>
-                                            DLF Phase 3
-                                        </td>
-                                        <td class="py-2 px-3 text-right">
-                                            <div class="flex items-center justify-end gap-1">
-                                                <span
-                                                    class="material-symbols-outlined text-amber-400 text-[14px]">star</span>
-                                                <span class="font-bold text-ink font-semibold">4.5</span>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Engineer 5 -->
-                                    <tr class="border-b border-slate-100 hover:bg-slate-50" data-eng-status="On-Route">
-                                        <td class="py-2 px-3">
-                                            <div class="flex items-center gap-2">
-                                                <div
-                                                    class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">
-                                                    NY</div>
-                                                <div>
-                                                    <p class="font-semibold text-ink text-sm">Neeraj Yadav</p>
-                                                    <p class="text-xs text-granite-gray font-regular">ID: ENG-1005</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-ink font-semibold">
-                                            Helper
-                                        </td>
-                                        <td class="py-2 px-3">
-                                            <span
-                                                class="bg-cloud-blue text-primary-yellow text-xs px-2 py-0.5 rounded-full">On-Route</span>
-                                        </td>
-                                        <td class="py-2 px-3 text-xs text-slate-600">
-                                            On the way (18 mins)<br>
-                                            3.1 km away
-                                        </td>
-                                        <td class="py-2 px-3 text-right">
-                                            <div class="flex items-center justify-end gap-1">
-                                                <span
-                                                    class="material-symbols-outlined text-amber-400 text-[14px]">star</span>
-                                                <span class="font-bold text-ink">4.4</span>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Engineer 6 -->
-                                    <tr class="hover:bg-slate-50" data-eng-status="On-Route">
-                                        <td class="py-2 px-3">
-                                            <div class="flex items-center gap-2">
-                                                <div
-                                                    class="w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center font-bold text-xs shrink-0">
-                                                    NY</div>
-                                                <div>
-                                                    <p class="font-semibold text-ink text-sm">Neeraj Yadav</p>
-                                                    <p class="text-xs text-granite-gray font-regular">ID: ENG-1005</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-ink font-semibold">
-                                            Helper
-                                        </td>
-                                        <td class="py-2 px-3">
-                                            <span
-                                                class="bg-cloud-blue text-primary-yellow text-xs px-2 py-0.5 rounded-full">On-Route</span>
-                                        </td>
-                                        <td class="py-2 px-3 text-xs text-slate-600">
-                                            On the way (18 mins)<br>
-                                            3.1 km away
-                                        </td>
-                                        <td class="py-2 px-3 text-right">
-                                            <div class="flex items-center justify-end gap-1">
-                                                <span
-                                                    class="material-symbols-outlined text-amber-400 text-[14px]">star</span>
-                                                <span class="font-bold text-ink">4.4</span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p id="teamNoResults" class="text-center text-sm text-slate-400 py-6 hidden">No engineers
-                                match your search.</p>
-                        </div>
-                    </div>
+                  
                 </div>
 
 
@@ -3239,6 +2802,363 @@
             </button>
         </div>
     </div>
+  
+<!-- Completed Booking Flow -->
+<div id="completed-detail-view" class="hidden">
+    <button id="backToBookingBtn4" class="inline-flex items-center gap-1 text-sm font-semibold text-granite-gray hover:text-ink mb-4">
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+        Back to Booking
+    </button>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-5 items-start">
+        <div>
+            <!-- SUMMARY CARD -->
+            <div class="overview-card">
+                <div class="flex flex-col md:flex-row md:items-center gap-4 justify-between">
+                    <div class="flex items-center gap-3 pr-6 border-r border-light-medium">
+                        <div class="w-[64px] h-[64px] rounded-[10px] bg-cloud-blue flex items-center justify-center shrink-0">
+                            <span id="compIcon" class="material-symbols-outlined text-primary-yellow text-[28px]">device_hub</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3">
+                                <h1 id="compTitle" class="text-xl font-semibold text-ink">Network Cabling</h1>
+                                <span class="status-pill badge-completed">Completed</span>
+                            </div>
+                            <p class="text-xs text-granite-gray font-normal mt-1 flex items-center gap-1">
+                                Booking ID <span id="compBookingId" class="text-primary-yellow font-bold">BK-56874</span>
+                            </p>
+                            <p class="text-xs text-granite-gray font-normal mt-1 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[13px]">location_on</span>
+                                <span id="compLocation">DLF Cyber City, Gurgaon</span>
+                            </p>
+                            <p class="text-xs text-granite-gray font-normal mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">calendar_today</span><span id="compDate">29 May 2026</span></span>
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">schedule</span><span id="compDuration">12 Hours</span></span>
+                            </p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <div class="flex -space-x-1.5">
+                                    <div class="w-5 h-5 rounded-full overflow-hidden border border-white"><img src="https://i.pravatar.cc/80?img=12" class="w-full h-full object-cover"></div>
+                                    <div class="w-5 h-5 rounded-full overflow-hidden border border-white"><img src="https://i.pravatar.cc/80?img=11" class="w-full h-full object-cover"></div>
+                                    <div class="w-5 h-5 rounded-full overflow-hidden border border-white"><img src="https://i.pravatar.cc/80?img=13" class="w-full h-full object-cover"></div>
+                                    <div class="w-5 h-5 rounded-full bg-slate-200 border border-white flex items-center justify-center text-[8px] font-bold text-slate-500 shrink-0">+7</div>
+                                </div>
+                                <span id="compEngText" class="text-xs text-slate-500 font-semibold">10 Engineers Assigned</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Final Cost block: label -> price+paid -> buttons, STACKED -->
+                    <div class="shrink-0 text-right">
+                        <p class="text-[11px] font-regular text-dark">Final Cost</p>
+                        <div class="flex items-center gap-2 justify-end mt-0.5">
+                            <p class="font-bold text-ink text-xl">$<span id="compFinalCost">1,000</span></p>
+                            <span class="status-pill">Paid</span>
+                        </div>
+                        <div class="flex items-center gap-2 mt-2 justify-end">
+                            <button id="compReportsBtn" class="btn-outline-yellow text-xs px-3 py-1.5 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[14px]">description</span>Reports
+                            </button>
+                            <button id="compInvoiceBtn" class="btn-fill-yellow text-xs px-3 py-1.5 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[14px]">download</span>Invoice
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABS: fixed — only .active gets yellow bg -->
+            <div class="flex gap-2 mb-5 mt-2">
+                <button class="detail-tab-btn completed-tab-btn active" data-tab="overview">Overview</button>
+                <button class="detail-tab-btn completed-tab-btn" data-tab="team">Team & Engineers</button>
+            </div>
+
+            <!-- OVERVIEW CONTENT -->
+            <div id="completed-overviewContent">
+                <div class="overview-card">
+                    <div class="flex items-start gap-3 mb-4">
+                        <div class="w-9 h-9 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-[20px]">check</span>
+                        </div>
+                        <div>
+                            <h3 class="text-ink font-bold text-base">Successfully Completed</h3>
+                            <p class="text-xs text-granite-gray font-normal mt-0.5">Network cabling installation complete successfully.</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div class="border border-light-medium rounded-[10px] p-3 flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-primary-yellow text-[20px]">calendar_today</span>
+                            <div>
+                                <p class="text-[10px] text-granite-gray">Completion Date</p>
+                                <p id="compCompletionDate" class="text-sm font-bold text-ink">29 May 2026</p>
+                            </div>
+                        </div>
+                        <div class="border border-light-medium rounded-[10px] p-3 flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-primary-yellow text-[20px]">schedule</span>
+                            <div>
+                                <p class="text-[10px] text-granite-gray">Work Duration</p>
+                                <p id="compWorkDuration" class="text-sm font-bold text-ink">30 Hours</p>
+                            </div>
+                        </div>
+                        <div class="border border-light-medium rounded-[10px] p-3 flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-primary-yellow text-[20px]">engineering</span>
+                            <div>
+                                <p class="text-[10px] text-granite-gray">Engineers Deployed</p>
+                                <p id="compEngDeployed" class="text-sm font-bold text-ink">10</p>
+                            </div>
+                        </div>
+                        <div class="border border-light-medium rounded-[10px] p-3 flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-primary-yellow text-[20px]">payments</span>
+                            <div>
+                                <p class="text-[10px] text-granite-gray">Final Cost</p>
+                                <p id="compFinalCost2" class="text-sm font-bold text-ink">$1,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overview-card">
+                    <h3 class="text-ink font-bold text-base mb-2">Completion Program</h3>
+                    <div id="compMilestoneRow" class="milestone-row"></div>
+                </div>
+
+                <!-- SHARE YOUR FEEDBACK — centered layout -->
+                <div class="overview-card text-center">
+                    <div class="w-12 h-12 rounded-2xl bg-mid-yellow flex items-center justify-center mx-auto mb-3">
+                        <span class="material-symbols-outlined text-primary-yellow text-[24px]">forum</span>
+                    </div>
+                    <h3 class="text-ink font-bold text-base">Share Your Feedback</h3>
+                    <p class="text-xs text-granite-gray mt-1 mb-3">How would you rate your experience?</p>
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <span class="text-xs text-granite-gray">Poor</span>
+                        <span class="comp-star material-symbols-outlined" data-val="1">star</span>
+                        <span class="comp-star material-symbols-outlined" data-val="2">star</span>
+                        <span class="comp-star material-symbols-outlined" data-val="3">star</span>
+                        <span class="comp-star material-symbols-outlined" data-val="4">star</span>
+                        <span class="comp-star material-symbols-outlined" data-val="5">star</span>
+                        <span class="text-xs text-granite-gray">Excellent</span>
+                    </div>
+                    <div class="text-left">
+                        <label class="text-xs text-granite-gray font-semibold">Tell us what you think (optional)</label>
+                        <textarea id="compFeedbackText" class="w-full mt-1 border border-light-medium rounded-[10px] p-3 text-sm focus:outline-none" rows="3" placeholder="Tell us more about your experience..."></textarea>
+                    </div>
+                    <button id="compSendFeedbackBtn" class="btn-fill-yellow w-full mt-3 flex items-center justify-center gap-1.5">
+                        Send Feedback <span class="material-symbols-outlined text-[16px]">send</span>
+                    </button>
+                    <p class="text-[11px] text-granite-gray mt-2">Your feedback helps us improve</p>
+                </div>
+
+                <!-- CUSTOMER FEEDBACK LIST -->
+                <div class="overview-card">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-ink font-bold text-base">Customer Feedback</h3>
+                        <button class="btn-outline-yellow text-xs px-3 py-1.5 flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[14px]">filter_list</span>Filter
+                        </button>
+                    </div>
+                    <div id="compFeedbackList" class="space-y-3"></div>
+                </div>
+            </div>
+
+            <!-- TEAM & ENGINEERS CONTENT -->
+            <div id="completed-teamContent" class="hidden">
+                <div class="overview-card">
+                    <h3 class="text-ink font-bold text-base mb-3">Team Members <span class="bg-cloud-blue text-primary-yellow text-xs px-2 py-0.5 rounded-full font-bold ml-1" id="compTeamCount">10</span></h3>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <div class="relative min-w-[200px] flex-1 sm:flex-initial">
+                            <span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">search</span>
+                            <input id="compTeamSearch" type="text" placeholder="Search by name or role..." class="w-full pl-8 pr-3 py-1.5 border border-light-medium rounded-[6px] text-xs focus:outline-none text-granite-gray">
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <select id="compTeamStatusFilter" class="h-9 px-3 rounded-lg border border-slate-200 text-xs text-granite-gray">
+                                <option value="all">All Status</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                            <button class="px-3 py-1.5 border border-light-medium rounded-[6px] text-xs text-granite-gray flex items-center gap-1 bg-white hover:bg-slate-50">
+                                <span class="material-symbols-outlined text-[14px]">filter_list</span> Filter
+                            </button>
+                        </div>
+                    </div>
+                    <div class="border border-light-medium rounded-[12px] overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm" id="compTeamTable">
+                                <thead class="bg-low-gray">
+                                    <tr>
+                                        <th class="text-left py-3 px-4 text-xs font-bold text-ink">Engineer</th>
+                                        <th class="text-left py-3 px-4 text-xs font-bold text-ink">Role</th>
+                                        <th class="text-left py-3 px-4 text-xs font-bold text-ink">Status</th>
+                                        <th class="text-left py-3 px-4 text-xs font-bold text-ink">Location</th>
+                                        <th class="text-right py-3 px-4 text-xs font-bold text-ink">Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="compTeamTableBody"></tbody>
+                            </table>
+                        </div>
+                        <p id="compTeamNoResults" class="text-center text-sm text-slate-400 py-6 hidden">No engineers match your search.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sticky-action-bar">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-emerald-500 text-[20px]">check_circle</span>
+                    <span class="text-sm font-semibold text-ink">Project Completed Successfully</span>
+                    <span class="text-xs text-granite-gray hidden sm:inline">— All reports and documents have been submitted</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button id="compDownloadInvoiceBtn" class="btn-outline-yellow flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">download</span>Download Invoice</button>
+                    <button class="btn-fill-yellow flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">replay</span>Book Again</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDEBAR: content differs per tab -->
+        <div class="lg:sticky lg:top-4">
+
+            <!-- Lead Engineer / Team Leader card — title & 2nd button label swap by tab -->
+            <div class="overview-card">
+                <h3 id="compEngCardTitle" class="text-ink font-bold text-[13px] mb-2">Lead Engineer</h3>
+                <div class="flex items-center gap-3">
+                    <div id="compEngAvatar" class="w-12 h-12 rounded-full bg-dark-orange text-white flex items-center justify-center font-bold shrink-0">RS</div>
+                    <div>
+                        <p id="compEngName" class="font-semibold text-ink text-sm">Rahul Sharma</p>
+                        <p class="text-xs text-granite-gray mt-0.5">Network Cabling Expert</p>
+                        <p class="text-xs mt-0.5 flex items-center gap-2">
+                            <span class="flex items-center gap-0.5 font-bold text-ink">
+                                <span class="material-symbols-outlined text-[14px] text-amber-400">star</span>
+                                <span id="compEngRating">4.8</span> <span class="text-slate-400 font-normal">(<span id="compEngReviews">24</span>)</span>
+                            </span>
+                            <span class="text-light-green font-normal flex items-center gap-0.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-light-green"></span><span id="compEngAvail">Project Completed</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 mt-3">
+                    <button class="btn-outline-yellow-2 flex-1">Call</button>
+                    <button id="compEngSecondBtn" class="btn-fill-yellow-2 flex-1">Manage</button>
+                </div>
+            </div>
+
+            <!-- OVERVIEW-ONLY sidebar widgets -->
+            <div id="compSidebarOverview">
+                <div class="overview-card">
+                    <h3 class="text-ink font-semibold text-[12.63px] mb-2">Project Statistics</h3>
+                    <div class="grid grid-cols-2 gap-2 text-center">
+                        <div class="py-2"><p class="text-sm font-bold text-dark" id="compStatEng">10</p><p class="text-xs text-granite-gray">Engineer</p></div>
+                        <div class="py-2 border-l border-light-medium"><p class="text-sm font-bold text-dark">15</p><p class="text-xs text-granite-gray">Hours</p></div>
+                        <div class="py-2 border-t border-light-medium"><p class="text-sm font-bold text-dark">100%</p><p class="text-xs text-granite-gray">Completion</p></div>
+                        <div class="py-2 border-t border-l border-light-medium"><p class="text-sm font-bold text-dark">4</p><p class="text-xs text-granite-gray">Milestones</p></div>
+                    </div>
+                </div>
+
+                <div class="overview-card">
+                    <h3 class="text-ink font-semibold text-[12.63px] mb-3">Order Summary</h3>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between"><span class="text-granite-gray">Service Charges</span><span class="font-semibold text-ink">$7,434</span></div>
+                        <div class="flex justify-between"><span class="text-granite-gray">Express platform charges</span><span class="font-semibold text-ink">$50</span></div>
+                        <div class="flex justify-between"><span class="text-granite-gray">Discount coupon applied</span><span class="font-semibold text-red-500">-$20</span></div>
+                        <div class="flex justify-between"><span class="text-granite-gray">Tax</span><span class="font-semibold text-ink">$20</span></div>
+                    </div>
+                    <button class="btn-fill-yellow w-full mt-3 flex items-center justify-center gap-2">Proforma Bill <span class="font-bold">Total $7,504</span></button>
+                </div>
+
+                <div class="overview-card">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-ink font-semibold text-[12.63px]">Billing Status</h3>
+                        <span class="status-pill badge-completed">Completed</span>
+                    </div>
+                    <p class="text-xs text-granite-gray mb-2">Invoice has been generated and payment received.</p>
+                    <div class="flex justify-between text-xs mt-2"><span class="text-granite-gray">Invoice ID</span><span class="font-bold text-ink" id="compInvoiceId">INV-2026-4455</span></div>
+                    <div class="flex justify-between text-xs mt-2"><span class="text-granite-gray">Payment Date</span><span class="font-bold text-ink">29 May 2026, 06:12 PM</span></div>
+                </div>
+            </div>
+
+            <!-- TEAM-ONLY sidebar widgets -->
+            <div id="compSidebarTeam" class="hidden">
+                <div class="overview-card">
+                    <h3 class="text-ink font-semibold text-[12.63px] mb-2">Why Choose This Team?</h3>
+                    <ul class="best-match-list">
+                        <li><span class="material-symbols-outlined text-forest-green text-[16px]">check</span>Dedicated Team Leader</li>
+                        <li><span class="material-symbols-outlined text-forest-green text-[16px]">check</span>Verified & Certified Engineers</li>
+                        <li><span class="material-symbols-outlined text-forest-green text-[16px]">check</span>Enterprise Experience</li>
+                        <li><span class="material-symbols-outlined text-forest-green text-[16px]">check</span>Pan India Support</li>
+                        <li><span class="material-symbols-outlined text-forest-green text-[16px]">check</span>Work Report Included</li>
+                        <li><span class="material-symbols-outlined text-forest-green text-[16px]">check</span>SLA Compliant</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Need help — shared in both tabs -->
+            <div class="overview-card">
+                <h3 class="text-ink font-semibold text-[12.63px] mb-2">Need help?</h3>
+                <p class="text-xs text-granite-gray leading-relaxed mb-3">Questions about your bookings, assigned engineers, or project progress?</p>
+                <div class="flex flex-col gap-2">
+                    <button id="compChatSupportBtn" class="btn-fill-yellow-2 w-full text-xs py-2 flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">chat</span>Chat Support</button>
+                    <button class="w-full text-xs py-2 border border-slate-mist rounded-[8px] text-ink flex items-center justify-center gap-1.5 font-semibold hover:bg-slate-50"><span class="material-symbols-outlined text-[16px]">call</span>Call Support</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- INVOICE MODAL -->
+<div id="invoiceModal" class="hidden fixed inset-0 z-[999] flex items-center justify-center bg-black/70 p-4">
+    <div class="bg-white w-full max-w-[440px] rounded-[14px] overflow-hidden">
+        <div class="flex items-center justify-between px-4 py-2.5 bg-[#1b1f24]">
+            <p class="text-xs font-semibold text-white/80">Invoice</p>
+            <button id="invoiceModalClose" class="text-white/60 hover:text-white text-lg leading-none">&times;</button>
+        </div>
+        <div class="flex justify-end gap-3 px-4 pt-3">
+            <button id="invoiceCopyBtn" class="text-[11px] text-granite-gray hover:text-ink flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">content_copy</span>Copy</button>
+            <button id="invoiceEditBtn" class="text-[11px] text-granite-gray hover:text-ink flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">edit</span>Edit</button>
+        </div>
+        <div id="invoiceContent" class="p-4 max-h-[65vh] overflow-y-auto text-[11px] leading-relaxed font-mono text-ink">
+            <p class="text-center font-bold text-sm mb-1">TAX INVOICE</p>
+            <p class="text-center text-slate-400 mb-2">(Under GST – Advertising Service: SAC 998361)</p>
+            <p class="text-red-500">------------------------------------------</p>
+            <p>Invoice No: INV/AD/2025/0045</p>
+            <p>Date: 17-May-2025</p>
+            <p class="text-red-500">------------------------------------------</p>
+            <p>Platform Name: MediConnect Digital Services Pvt. Ltd.</p>
+            <p>GSTIN: 27PLTFORM7890A123</p>
+            <p>Address: 3rd Floor, Knowledge Tower, Bengaluru – 560034</p>
+            <p>Contact: +91-9988776655 | billing@mediconnect.in</p>
+            <p class="text-red-500">------------------------------------------</p>
+            <p>Billed To:</p>
+            <p>Advertiser Name: WellnessFit Nutrition Pvt. Ltd.</p>
+            <p>GSTIN: 27WELLFIT1234G129</p>
+            <p>Address: 22, Link Road, Mumbai – 400072</p>
+            <p>Contact: info@wellnessfit.in</p>
+            <p class="text-red-500">------------------------------------------</p>
+            <p>Order Reference: COUP-ORD-2025/223</p>
+            <p>Campaign Duration: 18-May-2025 to 25-May-2025</p>
+            <p class="text-red-500">------------------------------------------</p>
+            <p>Description | SAC Code | Qty | Rate | GST % | Total (INR)</p>
+            <p>Coupon Posting – 6 coupons × 10 views (Digital display services) | 998361 | 60 | ₹100.00 | 18% | ₹6,000.00</p>
+            <p class="text-red-500">------------------------------------------</p>
+            <p>Subtotal: ₹6,000.00</p>
+            <p>Add: GST @18%: ₹1,000.00</p>
+            <p>Gross Invoice Amount: ₹7,080.00</p>
+            <p>Less: Advance Adjusted (Ref: ADV/2025/0007): ₹100.00</p>
+            <p class="font-bold">**Net Payable Now:** ₹6,980.00</p>
+            <p class="text-red-500">------------------------------------------</p>
+            <p>Amount in Words: INR Six Thousand Nine Hundred Eighty Only</p>
+            <p>Mode of Payment: UPI / Bank Transfer</p>
+            <p class="text-red-500">------------------------------------------</p>
+            <p>**Notes:**</p>
+            <p>- Services pertain to digital advertisement placements on MediConnect Platform.</p>
+            <p>- Advance of ₹100 received earlier has been adjusted.</p>
+            <p>- Input Tax Credit (ITC) can be claimed on this invoice.</p>
+            <p>- No TDS applicable under Section 194C for online ad media (under ₹30,000 single contract).</p>
+            <p class="text-red-500">------------------------------------------</p>
+            <p class="mt-2">Authorized Signatory,</p>
+            <p>[signature]</p>
+        </div>
+        <div class="flex items-center px-4 py-3 border-t border-slate-200">
+            <button id="invoiceDownloadBtn" class="ml-auto btn-fill-yellow flex items-center gap-1.5 text-xs"><span class="material-symbols-outlined text-[16px]">download</span>Download</button>
+        </div>
+    </div>
+</div>
 
     <style>
        
