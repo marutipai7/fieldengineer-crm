@@ -216,6 +216,7 @@
   --color-bluish-gray: #85878D;
   --color-lightest-warm-golden-orange: #FFC9490D;
   --color-bright-green: #00C950;
+  --color-bright-green1: #12CD39;
   --color-neutral-gray1: #EFEFEF;
   --color-bright-sky-blue: #1A94FF;
   --color-bright-light-purple: #C985FF;
@@ -228,10 +229,22 @@
   --color-soft-muted-blue-gray: #A4A9B4;
   --color-dark-charcoal-blue: #252936;
   --color-light-warm-creme: #FFF3D5;
+  --color-light-warm-creme1: #FFFBF0;
   --color-dark-slate-gray: #323641;
   --color-dark-muted-blue-gray: #474B56;
   --color-dark-blue-black: #161C24;
   --color-neutral-white-gray: #FAFAFA;
+  --color-bright-orange: #F6880A;
+  --color-very-light-green: #E3F5E7;
+  --color-pale-lavender: #F0E8F6;
+  --color-vibrant-violet: #8F5CD1;
+  --color-very-light-blue: #E7F2F8;
+  --color-strong-blue: #016FC7;
+  --color-deep-blue-purple: #1A1A2E;
+  --color-slate-gray1: #8A929D;
+  --color-medium-slate-gray: #737C88;
+  --color-pale-cream-yellow: #FFF8E1;
+
 
 
 
@@ -12497,4 +12510,570 @@ textarea:focus {
         .pr-fail {
             background: linear-gradient(180deg, #F87171, #EF4444);
             box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.12);
+        }
+        /* =========================================================
+   SETTINGS PAGE
+========================================================= */
+
+.settings-page {
+    width: 100%;
+    min-height: calc(100vh - 155px);
+    padding: 24px 32px 50px;
+    box-sizing: border-box;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.settings-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.settings-title h1 {
+    margin: 0;
+
+    font-size: 20px;
+    line-height: 28px;
+
+    font-weight: 700;
+
+    color: #172033;
+}
+
+.global-notification {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.global-notification > span {
+    font-size: 13px;
+    line-height: 18px;
+
+    font-weight: 600;
+
+    color: #172033;
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.notification-tabs {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 14px;
+}
+
+.notification-tab {
+    border: 1px solid #e1e5eb;
+
+    background: #ffffff;
+
+    color: #7b8490;
+
+    border-radius: 13px;
+
+    padding: 9px 16px;
+
+    font-size: 11px;
+    line-height: 16px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    white-space: nowrap;
+
+    font-family: inherit;
+}
+
+.notification-tab:hover {
+    border-color: #ffc43d;
+
+    color: #e3a100;
+
+    background: #fffdf7;
+}
+
+.notification-tab.active {
+    background: #ffc43d;
+
+    border-color: #ffc43d;
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+    box-shadow: 0 2px 5px rgba(255, 196, 61, 0.18);
+}
+
+
+/* =========================================================
+   PANELS
+========================================================= */
+
+.notification-panel {
+    display: none;
+
+    width: 100%;
+}
+
+.notification-panel.active {
+    display: block;
+}
+
+
+/* =========================================================
+   NOTIFICATION CARD
+========================================================= */
+
+.notification-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e8ed;
+
+    border-left: 3px solid #6658f5;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 2px 8px rgba(22, 34, 51, 0.06);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   NOTIFICATION ROW
+========================================================= */
+
+.notification-row {
+    width: 100%;
+
+    min-height: 58px;
+
+    padding: 10px 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    border-bottom: 1px solid #edf0f3;
+
+    box-sizing: border-box;
+}
+
+.notification-row:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   NOTIFICATION INFORMATION
+========================================================= */
+
+.notification-info {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.notification-info h3 {
+    margin: 0 0 3px;
+
+    font-size: 12px;
+
+    line-height: 16px;
+
+    font-weight: 700;
+
+    color: #202733;
+}
+
+.notification-info p {
+    margin: 0;
+
+    font-size: 10px;
+
+    line-height: 14px;
+
+    font-weight: 400;
+
+    color: #7c858f;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   SWITCH
+========================================================= */
+
+.notification-switch {
+    position: relative;
+
+    display: inline-block;
+
+    width: 30px;
+    height: 17px;
+
+    flex-shrink: 0;
+}
+
+.notification-switch input {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    opacity: 0;
+}
+
+
+/* Switch background */
+
+.notification-slider {
+    position: absolute;
+
+    inset: 0;
+
+    cursor: pointer;
+
+    background: #dce1e7;
+
+    border-radius: 20px;
+
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Switch circle */
+
+.notification-slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 11px;
+    height: 11px;
+
+    left: 3px;
+    top: 3px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    transition: transform 0.2s ease;
+
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ON */
+
+.notification-switch input:checked + .notification-slider {
+    background: #ffc43d !important;
+}
+
+.notification-switch input:checked + .notification-slider::before {
+    transform: translateX(13px);
+}
+
+
+/* Focus */
+
+.notification-switch input:focus-visible + .notification-slider {
+    outline: 2px solid rgba(255, 196, 61, 0.4);
+
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   DESKTOP LARGE SCREEN
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .settings-page {
+        padding: 25px 40px 60px;
+    }
+
+    .settings-title h1 {
+        font-size: 20px;
+    }
+
+    .global-notification > span {
+        font-size: 13px;
+    }
+
+    .notification-tab {
+        font-size: 11px;
+
+        padding: 10px 17px;
+    }
+
+    .notification-row {
+        min-height: 60px;
+
+        padding: 10px 14px;
+    }
+
+    .notification-info h3 {
+        font-size: 12px;
+    }
+
+    .notification-info p {
+        font-size: 10px;
+    }
+
+    .notification-card {
+        border-radius: 11px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .settings-page {
+        padding: 22px 20px 40px;
+    }
+
+    .settings-title h1 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .global-notification > span {
+        font-size: 12px;
+    }
+
+    .notification-tab {
+        font-size: 10px;
+
+        padding: 8px 13px;
+    }
+
+    .notification-row {
+        min-height: 55px;
+
+        padding: 9px 12px;
+    }
+
+    .notification-info h3 {
+        font-size: 11px;
+    }
+
+    .notification-info p {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+    .settings-page {
+        min-height: calc(100vh - 100px);
+
+        padding: 18px 14px 35px;
+    }
+
+    .settings-header {
+        align-items: flex-start;
+
+        gap: 15px;
+
+        margin-bottom: 16px;
+    }
+
+    .settings-title h1 {
+        font-size: 18px;
+
+        line-height: 24px;
+    }
+
+    .global-notification {
+        gap: 8px;
+    }
+
+    .global-notification > span {
+        font-size: 10px;
+    }
+
+
+    /* Tabs */
+
+    .notification-tabs {
+        width: 100%;
+
+        overflow-x: auto;
+
+        padding-bottom: 4px;
+
+        margin-bottom: 12px;
+
+        scrollbar-width: none;
+    }
+
+    .notification-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .notification-tab {
+        flex-shrink: 0;
+
+        font-size: 9px;
+
+        padding: 8px 12px;
+    }
+
+
+    /* Card */
+
+    .notification-card {
+        border-left-width: 3px;
+
+        border-radius: 9px;
+    }
+
+
+    /* Rows */
+
+    .notification-row {
+        min-height: 58px;
+
+        padding: 10px 11px;
+
+        gap: 15px;
+    }
+
+
+    /* Text */
+
+    .notification-info h3 {
+        font-size: 10px;
+
+        line-height: 14px;
+    }
+
+    .notification-info p {
+        font-size: 8px;
+
+        line-height: 11px;
+
+        white-space: normal;
+    }
+
+
+    /* Switch */
+
+    .notification-switch {
+        width: 28px;
+
+        height: 16px;
+    }
+
+    .notification-slider::before {
+        width: 10px;
+
+        height: 10px;
+
+        left: 3px;
+
+        top: 3px;
+    }
+
+    .notification-switch input:checked + .notification-slider::before {
+        transform: translateX(12px);
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .settings-page {
+        padding: 16px 10px 30px;
+    }
+
+    .settings-header {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .global-notification {
+        align-self: flex-end;
+    }
+
+    .notification-row {
+        min-height: 56px;
+
+        padding: 9px;
+    }
+}
+
+
+
+        .btn-fill-yellow {
+            background: #FFC949;
+            color: #ffffff;
+            border: 1.5px solid #FFC949;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 8px 18px;
+            border-radius: 999px;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background 0.15s ease, border-color 0.15s ease;
+         }
+        .btn-fill-yellow:hover {
+           background: #f5b936;
+           border-color: #f5b936;
         }

@@ -1,9 +1,853 @@
 {% extends "dashboard/field-engineer/layout.html" %}
+{% load static %}
 
 {% block title %}Settings - Field Engineer{% endblock %}
 
 {% block content %}
-<div class="space-y-6">
-   Settings
+
+<link rel="stylesheet" href="{% static 'dashboard/css/settings.css' %}">
+
+<div class="settings-page">
+
+    <!-- =====================================================
+         SETTINGS HEADER
+    ====================================================== -->
+    <div class="settings-header">
+
+        <div class="settings-title">
+            <h1>Notification Preferences</h1>
+        </div>
+
+        <div class="global-notification">
+
+            <span>Enable Notification</span>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    id="globalNotificationToggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NOTIFICATION TABS
+    ====================================================== -->
+    <div class="notification-tabs">
+
+        <button
+            type="button"
+            class="notification-tab active"
+            data-tab="push">
+            Push Notification
+        </button>
+
+        <button
+            type="button"
+            class="notification-tab"
+            data-tab="sms">
+            SMS Notification
+        </button>
+
+        <button
+            type="button"
+            class="notification-tab"
+            data-tab="email">
+            Email Notification
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         PUSH NOTIFICATIONS
+    ====================================================== -->
+    <div
+        class="notification-panel active"
+        id="pushPanel">
+
+        <div class="notification-card">
+
+            <!-- Priority -->
+            <div class="notification-row">
+
+                <div class="notification-info">
+
+                    <h3>Priority</h3>
+
+                    <p>
+                        Get alerts for priority job offers
+                    </p>
+
+                </div>
+
+                <label class="notification-switch">
+
+                    <input
+                        type="checkbox"
+                        class="notification-toggle"
+                        checked
+                    >
+
+                    <span class="notification-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- New Job Requests -->
+            <div class="notification-row">
+
+                <div class="notification-info">
+
+                    <h3>New Job Requests</h3>
+
+                    <p>
+                        Receive reminders before leads expire
+                    </p>
+
+                </div>
+
+                <label class="notification-switch">
+
+                    <input
+                        type="checkbox"
+                        class="notification-toggle"
+                        checked
+                    >
+
+                    <span class="notification-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Job Assigned -->
+            <div class="notification-row">
+
+                <div class="notification-info">
+
+                    <h3>Job Assigned</h3>
+
+                    <p>
+                        Notifications about job assignments and reassignments
+                    </p>
+
+                </div>
+
+                <label class="notification-switch">
+
+                    <input
+                        type="checkbox"
+                        class="notification-toggle"
+                        checked
+                    >
+
+                    <span class="notification-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Job Reminders -->
+            <div class="notification-row">
+
+                <div class="notification-info">
+
+                    <h3>Job Reminders</h3>
+
+                    <p>
+                        Get notified about schedule or timing changes
+                    </p>
+
+                </div>
+
+                <label class="notification-switch">
+
+                    <input
+                        type="checkbox"
+                        class="notification-toggle"
+                        checked
+                    >
+
+                    <span class="notification-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Job Updates -->
+            <div class="notification-row">
+
+                <div class="notification-info">
+
+                    <h3>Job Updates</h3>
+
+                    <p>
+                        Get notified about schedule or timing changes
+                    </p>
+
+                </div>
+
+                <label class="notification-switch">
+
+                    <input
+                        type="checkbox"
+                        class="notification-toggle"
+                        checked
+                    >
+
+                    <span class="notification-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Chat Messages -->
+            <div class="notification-row">
+
+                <div class="notification-info">
+
+                    <h3>Chat Messages</h3>
+
+                    <p>
+                        Get notified about new chat messages
+                    </p>
+
+                </div>
+
+                <label class="notification-switch">
+
+                    <input
+                        type="checkbox"
+                        class="notification-toggle"
+                        checked
+                    >
+
+                    <span class="notification-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Missed Messages Reminder -->
+            <div class="notification-row">
+
+                <div class="notification-info">
+
+                    <h3>Missed Messages Reminder</h3>
+
+                    <p>
+                        Get notified about schedule or timing changes
+                    </p>
+
+                </div>
+
+                <label class="notification-switch">
+
+                    <input
+                        type="checkbox"
+                        class="notification-toggle"
+                    >
+
+                    <span class="notification-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Payment Received -->
+            <div class="notification-row">
+
+                <div class="notification-info">
+
+                    <h3>Payment Received</h3>
+
+                    <p>
+                        Get notified about payments received
+                    </p>
+
+                </div>
+
+                <label class="notification-switch">
+
+                    <input
+                        type="checkbox"
+                        class="notification-toggle"
+                        checked
+                    >
+
+                    <span class="notification-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Payout Updates -->
+            <div class="notification-row">
+
+                <div class="notification-info">
+
+                    <h3>Payout Updates</h3>
+
+                    <p>
+                        When someone invites you to join their team
+                    </p>
+
+                </div>
+
+                <label class="notification-switch">
+
+                    <input
+                        type="checkbox"
+                        class="notification-toggle"
+                        checked
+                    >
+
+                    <span class="notification-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- App Updates -->
+            <div class="notification-row">
+
+                <div class="notification-info">
+
+                    <h3>App Updates</h3>
+
+                    <p>
+                        When someone invites you to join their team
+                    </p>
+
+                </div>
+
+                <label class="notification-switch">
+
+                    <input
+                        type="checkbox"
+                        class="notification-toggle"
+                        checked
+                    >
+
+                    <span class="notification-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Maintenance Alerts -->
+            <div class="notification-row">
+
+                <div class="notification-info">
+
+                    <h3>Maintenance Alerts</h3>
+
+                    <p>
+                        When someone invites you to join their team
+                    </p>
+
+                </div>
+
+                <label class="notification-switch">
+
+                    <input
+                        type="checkbox"
+                        class="notification-toggle"
+                    >
+
+                    <span class="notification-slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     SMS NOTIFICATIONS
+====================================================== -->
+
+<div
+    class="notification-panel"
+    id="smsPanel">
+
+    <div class="notification-card">
+
+        <!-- Priority -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Priority</h3>
+                <p>Get alerts for priority job offers</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- New Job Requests -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>New Job Requests</h3>
+                <p>Receive reminders before leads expire</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Job Assigned -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Job Assigned</h3>
+                <p>Notifications about job assignments and reassignments</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Job Reminders -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Job Reminders</h3>
+                <p>Get notified about schedule or timing changes</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Job Updates -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Job Updates</h3>
+                <p>Get notified about schedule or timing changes</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Chat Messages -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Chat Messages</h3>
+                <p>Get notified about new chat messages</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Missed Messages Reminder -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Missed Messages Reminder</h3>
+                <p>Get notified about schedule or timing changes</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Payment Received -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Payment Received</h3>
+                <p>Get notified about payments received</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Payout Updates -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Payout Updates</h3>
+                <p>When someone invites you to join their team</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- App Updates -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>App Updates</h3>
+                <p>When someone invites you to join their team</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Maintenance Alerts -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Maintenance Alerts</h3>
+                <p>When someone invites you to join their team</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+    </div>
+
 </div>
+
+    <!-- =====================================================
+     EMAIL NOTIFICATIONS
+====================================================== -->
+
+<div
+    class="notification-panel"
+    id="emailPanel">
+
+    <div class="notification-card">
+
+        <!-- Priority -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Priority</h3>
+                <p>Get alerts for priority job offers</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- New Job Requests -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>New Job Requests</h3>
+                <p>Receive reminders before leads expire</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Job Assigned -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Job Assigned</h3>
+                <p>Notifications about job assignments and reassignments</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Job Reminders -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Job Reminders</h3>
+                <p>Get notified about schedule or timing changes</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Job Updates -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Job Updates</h3>
+                <p>Get notified about schedule or timing changes</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Chat Messages -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Chat Messages</h3>
+                <p>Get notified about new chat messages</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Missed Messages Reminder -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Missed Messages Reminder</h3>
+                <p>Get notified about schedule or timing changes</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Payment Received -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Payment Received</h3>
+                <p>Get notified about payments received</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Payout Updates -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Payout Updates</h3>
+                <p>When someone invites you to join their team</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- App Updates -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>App Updates</h3>
+                <p>When someone invites you to join their team</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                    checked
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+
+        <!-- Maintenance Alerts -->
+        <div class="notification-row">
+
+            <div class="notification-info">
+                <h3>Maintenance Alerts</h3>
+                <p>When someone invites you to join their team</p>
+            </div>
+
+            <label class="notification-switch">
+                <input
+                    type="checkbox"
+                    class="notification-toggle"
+                >
+                <span class="notification-slider"></span>
+            </label>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="{% static 'script/profile/settings.js' %}"></script>
+
 {% endblock %}
