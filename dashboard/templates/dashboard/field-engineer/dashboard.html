@@ -1,17 +1,730 @@
 {% extends "dashboard/field-engineer/layout.html" %}
-
-{% block title %}Field Engineer - Overview{% endblock %}
-
+ {% load static %} 
+ {% block title %}Field Engineer - Overview{% endblock %}
 {% block content %}
+
 <div class="space-y-6">
-    <!-- Greeting Card -->
-    <div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-100 flex items-center shadow-sm">
+  <!-- ============================================
+       SCREEN 1 — OVERVIEW
+       ============================================ -->
+  <div id="screen-overview">
+    <!-- Profile header -->
+    <div
+      class="bg-primary-grayy rounded-2xl p-6 flex items-start justify-between gap-6 flex-wrap shadow-sm"
+    >
+      <div class="flex items-start gap-4">
+        <img
+          src="/static/img/avatar-placeholder.png"
+          alt="Shams Jan"
+          class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm"
+        />
+
         <div>
-            <h1 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
-                Hello Rishi <span class="inline-block animate-bounce">👋</span>
-            </h1>
-            <p class="text-slate-500 mt-1 text-sm font-medium">You are logged in to the Field Engineer Portal. Welcome back!</p>
+          <div class="flex items-center gap-1.5">
+            <h2 class="text-3xl font-bold text-dark-navy">Shams Jan</h2>
+            <span class="material-symbols-outlined text-dark-navy-2 text-lg"
+              >check_circle</span
+            >
+          </div>
+
+          <p class="text-xl font-bold text-dark-navy">Field Engineer</p>
+
+          <div
+            class="flex items-center gap-1 mt-1 text-base font-normal text-time-gray"
+          >
+            <span class="material-symbols-outlined text-golden-orange text-base"
+              >star</span
+            >
+            <span class="font-medium">4.3</span>
+            (125 reviews)
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-4">
+            <div
+              class="flex items-center gap-3 bg-white rounded-lg px-5 py-4 shadow-sm border border-slate-mist"
+            >
+              <span
+                class="w-7 h-7 rounded-md bg-pastel-champagne flex items-center justify-center text-bright-orange"
+              >
+                <span class="material-symbols-outlined text-base"
+                  >enterprise</span
+                >
+              </span>
+              <div>
+                <p class="text-sm font-normal text-medium leading-none">
+                  Total Jobs
+                </p>
+                <p class="text-sm font-bold text-ink leading-tight mt-2">159</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-3 bg-white rounded-lg px-5 py-4 shadow-sm border border-slate-mist"
+            >
+              <span
+                class="w-7 h-7 rounded-md bg-very-light-green flex items-center justify-center text-bright-green1"
+              >
+                <span class="material-symbols-outlined text-base"
+                  >check_circle</span
+                >
+              </span>
+              <div>
+                <p class="text-sm font-normal text-medium leading-none">
+                  Completed
+                </p>
+                <p class="text-sm font-bold text-ink leading-tight mt-2">142</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-3 bg-white rounded-lg px-5 py-4 shadow-sm border border-slate-mist"
+            >
+              <span
+                class="w-7 h-7 rounded-md bg-pale-lavender flex items-center justify-center text-vibrant-violet"
+              >
+                <span class="material-symbols-outlined text-base"
+                  >schedule</span
+                >
+              </span>
+              <div>
+                <p class="text-sm font-normal text-medium leading-none">
+                  Active Hours
+                </p>
+                <p class="text-sm font-bold text-ink leading-tight mt-2">
+                  348h 45m
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-3 bg-white rounded-lg px-5 py-4 shadow-sm border border-slate-mist"
+            >
+              <span
+                class="w-7 h-7 rounded-md bg-very-light-blue flex items-center justify-center text-strong-blue"
+              >
+                <span class="material-symbols-outlined text-base"
+                  >calendar_month</span
+                >
+              </span>
+              <div>
+                <p class="text-sm font-normal text-medium leading-none">
+                  Member Since
+                </p>
+                <p class="text-sm font-bold text-ink leading-tight mt-2">
+                  Jan 2023
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Availability toggle -->
+      <div class="bg-white rounded-xl p-4 w-full sm:w-64 shadow-sm shrink-0">
+        <div class="flex items-center justify-between">
+          <p class="text-base font-bold text-ink">Availability</p>
+
+          <button
+            type="button"
+            id="availability-toggle"
+            data-on="true"
+            onclick="toggleAvailability(this)"
+            class="relative inline-flex h-6 w-11 items-center rounded-full bg-primary-yellow transition-colors duration-200"
+            aria-pressed="true"
+            aria-label="Toggle availability"
+          >
+            <span
+              class="availability-toggle-dot absolute top-1 left-6 h-4 w-4 rounded-full bg-white shadow transition-all duration-200"
+            ></span>
+          </button>
+        </div>
+
+        <p
+          class="mt-2 flex items-center gap-1 text-sm font-bold text-bright-green"
+        >
+          <span
+            id="availability-status-dot"
+            class="h-1.5 w-1.5 rounded-full bg-bright-green"
+          ></span>
+
+          <span id="availability-status">Online</span>
+        </p>
+
+        <p class="mt-1 text-xs font-normal text-granite-gray">
+          You are visible for new leads and incoming job requests.
+        </p>
+      </div>
     </div>
+
+    <!-- Vendor Association -->
+    <div
+      class="bg-white-33 border border-slate-mist rounded-2xl p-6 mt-6 min-h-[320px] flex flex-col md:flex-row items-stretch gap-6 shadow-md"
+    >
+      <!-- Left: Vendor Illustration -->
+      <div class="w-full md:w-1/2 flex items-center justify-center gap-5">
+        <!-- Vendor illustration -->
+        <div
+          class="w-56 h-56 rounded-full bg-pale-cream-yellow flex items-center justify-center overflow-hidden shrink-0"
+        >
+          <img
+            src="{% static 'img/fe-individual-overview.png' %}"
+            alt="Field engineer working illustration for vendor association"
+            width="224"
+            height="224"
+            class="w-56 h-56 object-contain"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+
+        <!-- Association icon -->
+        <div
+          class="w-14 h-14 rounded-lg border border-primary-yellow bg-white flex items-center justify-center shadow-sm shrink-0"
+        >
+          <span class="material-symbols-outlined text-primary-yellow text-2xl">
+            handshake
+          </span>
+        </div>
+      </div>
+
+      <!-- Right: Vendor Association Details -->
+      <div class="w-full md:w-1/2 flex flex-col justify-center">
+        <h3 class="text-2xl font-extrabold text-deep-blue-purple">
+          Vendor Association
+        </h3>
+
+        <div class="mt-4">
+          <p
+            class="text-xs font-semibold text-slate-gray1 uppercase tracking-wide"
+          >
+            Current Status
+          </p>
+
+          <p
+            class="mt-3 flex items-center gap-1.5 text-base font-bold text-ink"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-primary-yellow"></span>
+            Independent Engineer
+          </p>
+
+          <p class="mt-3 text-sm font-normal text-medium-slate-gray">
+            Not associated with any vendor
+          </p>
+        </div>
+
+        <!-- Vendor information -->
+        <div
+          class="mt-4 flex items-start gap-2 border-l-4 border-primary-yellow rounded-lg bg-light-warm-creme1 px-3 py-2.5"
+        >
+          <span
+            class="material-symbols-outlined text-primary-yellow text-sm shrink-0"
+          >
+            info
+          </span>
+
+          <p class="text-sm font-normal leading-relaxed text-slate-gray1">
+            <span class="font-bold text-ink"> Do you work with a vendor? </span>
+            <br />
+            If you work with any vendor association, now you can connect with
+            vendor's account.
+          </p>
+        </div>
+
+        <!-- Add Vendor -->
+        <button
+          type="button"
+          id="open-add-vendor"
+          class="w-full mt-3 bg-primary-yellow text-white text-sm font-bold rounded-lg py-2.5 flex items-center justify-center gap-1.5 transition-colors"
+        >
+          Add Vendor
+
+          <span class="material-symbols-outlined text-sm"> arrow_forward </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- My Availability banner -->
+    <a
+      href="#"
+      class="mt-6 flex items-center justify-between gap-4 bg-[#FFF8E9] border border-[#F5C14A]/30 rounded-2xl px-5 py-4 hover:bg-[#FFFDF5] transition-colors"
+    >
+      <div class="flex items-center gap-3">
+        <span
+          class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#F5C14A] shrink-0"
+        >
+          <span class="material-symbols-outlined text-xl">event_available</span>
+        </span>
+        <div>
+          <p class="font-semibold text-[#212121]">My Availability</p>
+          <p class="text-sm text-[#6B7280]">Availability for jobs</p>
+        </div>
+      </div>
+      <span
+        class="bg-[#F5C14A] text-white text-sm font-medium rounded-lg px-4 py-2 flex items-center gap-1 shrink-0"
+      >
+        View Availability
+        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+      </span>
+    </a>
+
+    <!-- Performance / Month overview -->
+    <div class="grid md:grid-cols-2 gap-6 mt-6">
+      <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+        <h4 class="font-semibold text-[#212121] mb-4">Performance Overview</h4>
+        <ul class="divide-y divide-gray-200">
+          <li class="flex items-center justify-between py-2.5 text-sm">
+            <span class="flex items-center gap-2 text-[#6B7280]">
+              <span class="material-symbols-outlined text-[#F5C14A] text-base"
+                >insights</span
+              >
+              On Time Job
+            </span>
+            <span class="font-semibold text-[#212121]">142 (91%)</span>
+          </li>
+          <li class="flex items-center justify-between py-2.5 text-sm">
+            <span class="flex items-center gap-2 text-[#6B7280]">
+              <span class="material-symbols-outlined text-[#F5C14A] text-base"
+                >insights</span
+              >
+              Quality Score
+            </span>
+            <span class="font-semibold text-[#212121]">4.8/5</span>
+          </li>
+          <li class="flex items-center justify-between py-2.5 text-sm">
+            <span class="flex items-center gap-2 text-[#6B7280]">
+              <span class="material-symbols-outlined text-[#F5C14A] text-base"
+                >insights</span
+              >
+              Rework Rate
+            </span>
+            <span class="font-semibold text-[#212121]">3%</span>
+          </li>
+          <li class="flex items-center justify-between py-2.5 text-sm">
+            <span class="flex items-center gap-2 text-[#6B7280]">
+              <span class="material-symbols-outlined text-[#F5C14A] text-base"
+                >insights</span
+              >
+              Customer Satisfaction
+            </span>
+            <span class="font-semibold text-[#212121]">4.9/5</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+        <h4 class="font-semibold text-[#212121] mb-4">This Month Overview</h4>
+        <ul class="divide-y divide-gray-200">
+          <li class="flex items-center justify-between py-2.5 text-sm">
+            <span class="flex items-center gap-2 text-[#6B7280]">
+              <span class="material-symbols-outlined text-[#F5C14A] text-base"
+                >check_circle</span
+              >
+              Job Complete
+            </span>
+            <span class="font-semibold text-[#212121]">18</span>
+          </li>
+          <li class="flex items-center justify-between py-2.5 text-sm">
+            <span class="flex items-center gap-2 text-[#6B7280]">
+              <span class="material-symbols-outlined text-[#F5C14A] text-base"
+                >check_circle</span
+              >
+              Total Hours
+            </span>
+            <span class="font-semibold text-[#212121]">86.5hrs</span>
+          </li>
+          <li class="flex items-center justify-between py-2.5 text-sm">
+            <span class="flex items-center gap-2 text-[#6B7280]">
+              <span class="material-symbols-outlined text-[#F5C14A] text-base"
+                >check_circle</span
+              >
+              On Time %
+            </span>
+            <span class="font-semibold text-[#212121]">94%</span>
+          </li>
+          <li class="flex items-center justify-between py-2.5 text-sm">
+            <span class="flex items-center gap-2 text-[#6B7280]">
+              <span class="material-symbols-outlined text-[#F5C14A] text-base"
+                >check_circle</span
+              >
+              Rating
+            </span>
+            <span class="font-semibold text-[#212121]">4.9/5</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       SCREEN 2 — ADD VENDOR (hidden until "Add Vendor" is clicked)
+       ============================================ -->
+  <div id="screen-add-vendor" class="hidden">
+    <button
+      type="button"
+      id="back-to-overview"
+      class="flex items-center gap-1.5 text-[#212121] font-semibold mb-5"
+    >
+      <span class="material-symbols-outlined text-xl">arrow_back</span>
+      Add Vendor
+    </button>
+
+    <form id="add-vendor-form" class="space-y-6">
+      <div
+        class="bg-white border border-gray-200 rounded-2xl p-6 grid sm:grid-cols-2 gap-5 shadow-sm"
+      >
+        <div>
+          <label
+            for="vendor-select"
+            class="block text-sm font-medium text-[#212121] mb-1.5"
+            >Select Vendor</label
+          >
+          <select
+            id="vendor-select"
+            name="vendor_id"
+            class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-[#212121] focus:outline-none focus:ring-2 focus:ring-[#F5C14A]"
+          >
+            <option value="">Select vendor</option>
+            <option value="sizaf">sizaf</option>
+            <option value="acme-networks">Acme Networks</option>
+            <option value="northbridge">Northbridge Tech</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            for="years-experience"
+            class="block text-sm font-medium text-[#212121] mb-1.5"
+            >Years of Experience</label
+          >
+          <select
+            id="years-experience"
+            name="years_experience"
+            class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-[#212121] focus:outline-none focus:ring-2 focus:ring-[#F5C14A]"
+          >
+            <option value="">Select range</option>
+            <option value="0-2">0-2 years</option>
+            <option value="2-5" selected>2-5 years</option>
+            <option value="5-10">5-10 years</option>
+            <option value="10+">10+ years</option>
+          </select>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label
+            for="primary-specialization"
+            class="block text-sm font-medium text-[#212121] mb-1.5"
+            >Primary Specialization</label
+          >
+          <select
+            id="primary-specialization"
+            name="primary_specialization"
+            class="w-full sm:w-1/2 rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-[#212121] focus:outline-none focus:ring-2 focus:ring-[#F5C14A]"
+          >
+            <option value="">Select specialization</option>
+            <option value="Network Cabling" selected>Network Cabling</option>
+            <option value="Server Installation">Server Installation</option>
+            <option value="CCTV Systems">CCTV Systems</option>
+            <option value="Data Center Setup">Data Center Setup</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <h4 class="font-semibold text-[#212121]">Top Skills</h4>
+          <button
+            type="button"
+            class="text-sm font-medium text-[#F5C14A] hover:underline"
+          >
+            Manage Skills
+          </button>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3" id="skills-grid">
+          <label
+            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              name="skills"
+              value="Network Cabling"
+              checked
+              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
+            />
+            Network Cabling
+          </label>
+          <label
+            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              name="skills"
+              value="Server Installation"
+              checked
+              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
+            />
+            Server Installation
+          </label>
+          <label
+            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              name="skills"
+              value="CCTV Systems"
+              checked
+              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
+            />
+            CCTV Systems
+          </label>
+          <label
+            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              name="skills"
+              value="Data Center Setup"
+              checked
+              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
+            />
+            Data Center Setup
+          </label>
+          <label
+            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              name="skills"
+              value="Switch Configuration"
+              checked
+              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
+            />
+            Switch Configuration
+          </label>
+          <label
+            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              name="skills"
+              value="Routing & Switching"
+              checked
+              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
+            />
+            Routing & Switching
+          </label>
+          <label
+            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              name="skills"
+              value="Network Security"
+              checked
+              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
+            />
+            Network Security
+          </label>
+          <label
+            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              name="skills"
+              value="Troubleshooting"
+              checked
+              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
+            />
+            Troubleshooting
+          </label>
+          <label
+            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              name="skills"
+              value="Firewall Management"
+              checked
+              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
+            />
+            Firewall Management
+          </label>
+
+          <button
+            type="button"
+            id="add-skill"
+            class="flex items-center justify-center gap-1.5 rounded-lg bg-[#F5C14A] text-white text-sm font-medium px-4 py-2.5 hover:bg-[#e0b138] transition-colors"
+          >
+            <span class="material-symbols-outlined text-lg">add</span>
+            Add Skill
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-3">
+        <button
+          type="button"
+          id="cancel-add-vendor"
+          class="rounded-lg border border-gray-200 px-6 py-2.5 text-sm font-medium text-[#212121] hover:bg-gray-50 transition-colors"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          class="rounded-lg bg-[#F5C14A] hover:bg-[#e0b138] text-white text-sm font-medium px-6 py-2.5 transition-colors"
+        >
+          Save Vendor
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // ------------------------------------------------------------
+    // DOM ELEMENTS
+    // ------------------------------------------------------------
+
+    const overviewScreen = document.getElementById("screen-overview");
+    const addVendorScreen = document.getElementById("screen-add-vendor");
+
+    const openBtn = document.getElementById("open-add-vendor");
+    const backBtn = document.getElementById("back-to-overview");
+    const cancelBtn = document.getElementById("cancel-add-vendor");
+
+    const addSkillBtn = document.getElementById("add-skill");
+    const skillsGrid = document.getElementById("skills-grid");
+    const form = document.getElementById("add-vendor-form");
+
+    // ------------------------------------------------------------
+    // SCREEN NAVIGATION
+    // ------------------------------------------------------------
+
+    // Show the Add Vendor screen and hide the Overview screen
+    const showAddVendor = () => {
+      overviewScreen.classList.add("hidden");
+      addVendorScreen.classList.remove("hidden");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+
+    // Return to the Overview screen
+    const showOverview = () => {
+      addVendorScreen.classList.add("hidden");
+      overviewScreen.classList.remove("hidden");
+    };
+
+    // ------------------------------------------------------------
+    // NAVIGATION EVENTS
+    // ------------------------------------------------------------
+
+    openBtn.addEventListener("click", showAddVendor);
+    backBtn.addEventListener("click", showOverview);
+    cancelBtn.addEventListener("click", showOverview);
+
+    // ------------------------------------------------------------
+    // AVAILABILITY TOGGLE
+    // Flips toggle state, track color, thumb position,
+    // status text, and status dot.
+    // ------------------------------------------------------------
+
+    window.toggleAvailability = (btn) => {
+      const isOn = btn.getAttribute("data-on") === "true";
+      const nowOn = !isOn;
+
+      // Update toggle state
+      btn.setAttribute("data-on", nowOn);
+      btn.setAttribute("aria-pressed", nowOn);
+
+      // Get toggle thumb and availability status elements
+      const dot = btn.querySelector(".availability-toggle-dot");
+      const status = document.getElementById("availability-status");
+      const statusDot = document.getElementById("availability-status-dot");
+
+      if (nowOn) {
+        // -------------------------
+        // TOGGLE ON
+        // -------------------------
+
+        btn.classList.remove("bg-gray-300");
+        btn.classList.add("bg-primary-yellow");
+
+        dot.classList.remove("left-1");
+        dot.classList.add("left-6");
+
+        status.textContent = "Online";
+        status.classList.remove("text-granite-gray");
+        status.classList.add("text-bright-green");
+
+        statusDot.classList.remove("bg-gray-300");
+        statusDot.classList.add("bg-bright-green");
+      } else {
+        // -------------------------
+        // TOGGLE OFF
+        // -------------------------
+
+        btn.classList.remove("bg-primary-yellow");
+        btn.classList.add("bg-gray-300");
+
+        dot.classList.remove("left-6");
+        dot.classList.add("left-1");
+
+        status.textContent = "Offline";
+        status.classList.remove("text-bright-green");
+        status.classList.add("text-granite-gray");
+
+        statusDot.classList.remove("bg-bright-green");
+        statusDot.classList.add("bg-gray-300");
+      }
+    };
+
+    // ------------------------------------------------------------
+    // ADD NEW SKILL
+    // Creates a new checkbox/skill item and adds it before
+    // the "Add Skill" button.
+    // ------------------------------------------------------------
+
+    addSkillBtn.addEventListener("click", () => {
+      const skillName = prompt("Skill name");
+
+      // Do nothing if the user cancels or leaves the field empty
+      if (!skillName?.trim()) return;
+
+      const label = document.createElement("label");
+
+      label.className =
+        "flex items-center gap-2 rounded-lg border border-primary/30 bg-primary-light px-4 py-2.5 text-sm text-ink cursor-pointer";
+
+      label.innerHTML = `
+        <input
+          type="checkbox"
+          name="skills"
+          value="${skillName.trim()}"
+          checked
+          class="w-3.5 h-3.5 rounded-full accent-primary shrink-0"
+        >
+        ${skillName.trim()}
+      `;
+
+      skillsGrid.insertBefore(label, addSkillBtn);
+    });
+
+    // ------------------------------------------------------------
+    // SAVE VENDOR FORM
+    // Prevents the default form submission and returns to
+    // the Overview screen.
+    // ------------------------------------------------------------
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      // TODO: Send form data to your save-vendor endpoint
+      showOverview();
+    });
+  });
+</script>
 {% endblock %}
