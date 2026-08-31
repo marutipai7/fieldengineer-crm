@@ -394,6 +394,9 @@ def fe_availability(request):
 def fe_payment_details(request):
     return render(request, 'dashboard/field-engineer/payment-details.html')
 
+def fe_invoices(request):
+    return render(request, 'dashboard/field-engineer/invoices.html')
+
 def fe_saved_address(request):
     return render(request, 'dashboard/field-engineer/saved-address.html')
 

@@ -1,0 +1,401 @@
+{% extends "dashboard/field-engineer/layout.html" %}
+{% load static %}
+
+{% block title %}Payment Methods - Invoices{% endblock %}
+
+
+{% block content %}
+<div class="flex flex-col gap-6 pt-6">
+    
+    <!-- Title Section -->
+    <div class="flex flex-col gap-2">
+        <p class="font-bold text-xl lg:text-2xl text-ink">Payment Methods</p>
+        <p class="text-sm font-normal text-granite-gray">Manage payments, view invoices, and download billing reports.</p>
+    </div>
+
+    <!-- Status Filters -->
+    <div class="flex items-center gap-3 flex-wrap" id="statusFilters">
+        <button data-status="all"
+            class="filter-tab bg-primary-yellow text-white py-2 px-6 rounded-[20px] font-medium text-sm flex items-center justify-center transition-colors active-tab border border-transparent">All</button>
+        <button data-status="paid"
+            class="filter-tab border border-gray-200 bg-white py-2 px-6 rounded-[20px] font-medium text-sm text-gray-500 hover:bg-primary-yellow hover:text-white hover:border-primarbg-primary-yellow transition-colors">Paid</button>
+        <button data-status="pending"
+            class="filter-tab border border-gray-200 bg-white py-2 px-6 rounded-[20px] font-medium text-sm text-gray-500 hover:bg-primary-yellow hover:text-white hover:border-primarbg-primary-yellow transition-colors">Pending</button>
+        <button data-status="refunded"
+            class="filter-tab border border-gray-200 bg-white py-2 px-6 rounded-[20px] font-medium text-sm text-gray-500 hover:bg-primary-yellow hover:text-white hover:border-primarbg-primary-yellow transition-colors">Refunded</button>
+    </div>
+
+    <!-- Filter Controls Row -->
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-center justify-between">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+            <!-- Search Box -->
+            <div class="border border-pale-blue-gray rounded-[10px] bg-arctic-white flex items-center gap-1.5 py-[7.5px] px-2.5 sm:w-65!">
+                <span class="material-symbols-outlined text-lg! text-medium">search</span>
+                <input type="text" id="invoiceSearchInput" class="focus:ring-0 focus:outline-none w-full placeholder:font-normal placeholder:text-sm placeholder:text-medium font-normal text-sm text-ink bg-transparent" placeholder="Search invoice" autocomplete="off">
+            </div>
+
+            <!-- Date Range Button -->
+            <button type="button" id="invoiceDateRangeBtn" class="date-picker-btn bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75 flex items-center justify-center gap-2 cursor-pointer hover:bg-slate-50 transition">
+                <span class="material-symbols-outlined text-lg! text-granite-gray">calendar_today</span>
+                <p class="font-normal text-sm text-granite-gray">Date Range</p>
+            </button>
+
+            <!-- Filters Button -->
+            <button type="button" id="invoiceFilterBtn" class="bg-white border border-pale-blue-gray rounded-[10px] py-2 px-3.75 flex items-center justify-center gap-2 cursor-pointer hover:bg-slate-50 transition">
+                <span class="material-symbols-outlined text-lg! text-granite-gray">tune</span>
+                <p class="font-normal text-sm text-granite-gray">Filters</p>
+            </button>
+        </div>
+
+        <!-- View All Link -->
+        <a href="{% url 'fe_invoices' %}" class="font-semibold text-sm text-dark cursor-pointer hover:underline self-start sm:self-center">
+            View All Invoices
+        </a>
+    </div>
+
+    <!-- Responsive Table -->
+    <div class="w-full overflow-x-auto border border-light-medium rounded-[20px]">
+        <table class="w-full whitespace-nowrap">
+            <thead class="bg-primary-yellow text-white font-semibold text-base">
+                <tr>
+                    <th class="py-4 px-4 border-r border-white rounded-tl-xl text-center">Invoice ID</th>
+                    <th class="py-4 px-4 border-r border-white text-center">Type</th>
+                    <th class="py-4 px-4 border-r border-white text-center">Description</th>
+                    <th class="py-4 px-4 border-r border-white text-center">Amount</th>
+                    <th class="py-4 px-4 border-r border-white text-center">Status</th>
+                    <th class="py-4 px-4 border-r border-white text-center">Invoice Date</th>
+                    <th class="py-4 px-4 rounded-tr-xl text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody class="text-sm" id="invoiceTableBody">
+                <!-- Row 1 -->
+                <tr class="invoice-row text-dark-gray font-semibold transition text-center" data-status="paid">
+                    <td class="py-6 px-6 whitespace-nowrap">INV-2026-001</td>
+                    <td class="py-6 px-6 whitespace-nowrap">BK-5684</td>
+                    <td class="py-6 px-6 whitespace-nowrap">Network Cabling</td>
+                    <td class="py-6 px-6 whitespace-nowrap">Rs. 5,730</td>
+                    <td class="py-6 px-6">
+                        <span class="inline-flex items-center justify-center bg-pale-mint text-forest-green font-bold px-3 py-1.5 rounded-lg text-sm">Paid</span>
+                    </td>
+                    <td class="py-6 px-6 whitespace-nowrap">15 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4">
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800 download-invoice-btn">download</span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 2 -->
+                <tr class="invoice-row text-dark-gray font-semibold transition text-center" data-status="paid">
+                    <td class="py-6 px-6 whitespace-nowrap">INV-2026-001</td>
+                    <td class="py-6 px-6 whitespace-nowrap">BK-5684</td>
+                    <td class="py-6 px-6 whitespace-nowrap">Network Cabling</td>
+                    <td class="py-6 px-6 whitespace-nowrap">Rs. 5,730</td>
+                    <td class="py-6 px-6">
+                        <span class="inline-flex items-center justify-center bg-pale-mint text-forest-green font-bold px-3 py-1.5 rounded-lg text-sm">Paid</span>
+                    </td>
+                    <td class="py-6 px-6 whitespace-nowrap">15 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4">
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800 download-invoice-btn">download</span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 3 -->
+                <tr class="invoice-row text-dark-gray font-semibold transition text-center" data-status="pending">
+                    <td class="py-6 px-6 whitespace-nowrap">INV-2026-003</td>
+                    <td class="py-6 px-6 whitespace-nowrap">BK-5684</td>
+                    <td class="py-6 px-6 whitespace-nowrap">CCTV Installation</td>
+                    <td class="py-6 px-6 whitespace-nowrap">Rs. 5,730</td>
+                    <td class="py-6 px-6">
+                        <span class="inline-flex items-center justify-center bg-apricot-cream text-golden-orange font-bold px-3 py-1.5 rounded-lg text-sm">Pending</span>
+                    </td>
+                    <td class="py-6 px-6 whitespace-nowrap">15 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4">
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800 download-invoice-btn">download</span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 4 -->
+                <tr class="invoice-row text-dark-gray font-semibold transition text-center" data-status="pending">
+                    <td class="py-6 px-6 whitespace-nowrap">INV-2026-003</td>
+                    <td class="py-6 px-6 whitespace-nowrap">BK-5684</td>
+                    <td class="py-6 px-6 whitespace-nowrap">CCTV Installation</td>
+                    <td class="py-6 px-6 whitespace-nowrap">Rs. 5,730</td>
+                    <td class="py-6 px-6">
+                        <span class="inline-flex items-center justify-center bg-apricot-cream text-golden-orange font-bold px-3 py-1.5 rounded-lg text-sm">Pending</span>
+                    </td>
+                    <td class="py-6 px-6 whitespace-nowrap">15 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4">
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800 download-invoice-btn">download</span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Row 5 -->
+                <tr class="invoice-row text-dark-gray font-semibold transition text-center" data-status="pending">
+                    <td class="py-6 px-6 whitespace-nowrap">INV-2026-003</td>
+                    <td class="py-6 px-6 whitespace-nowrap">BK-5684</td>
+                    <td class="py-6 px-6 whitespace-nowrap">CCTV Installation</td>
+                    <td class="py-6 px-6 whitespace-nowrap">Rs. 5,730</td>
+                    <td class="py-6 px-6">
+                        <span class="inline-flex items-center justify-center bg-apricot-cream text-golden-orange font-bold px-3 py-1.5 rounded-lg text-sm">Pending</span>
+                    </td>
+                    <td class="py-6 px-6 whitespace-nowrap">15 May 2026</td>
+                    <td class="py-6 px-6">
+                        <div class="flex items-center justify-center gap-4">
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800 view-invoice-btn">visibility</span>
+                            <span class="material-symbols-outlined cursor-pointer hover:text-slate-800 download-invoice-btn">download</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Responsive Pagination Footer -->
+    <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-granite-gray mt-1 font-normal gap-4">
+        <p id="paginationText">
+            Showing 1-5 of 127 invoices
+        </p>
+
+        <div class="flex items-center gap-2" id="paginationControls">
+            <!-- Prev -->
+            <button type="button" class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-400 transition-colors cursor-pointer">
+                <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+            </button>
+            <!-- Pages -->
+            <button type="button" class="w-8 h-8 rounded border border-[#FFC949] flex items-center justify-center bg-white text-[#FFC949] font-medium transition-colors hover:bg-[#FFFDF5] cursor-pointer">
+                1
+            </button>
+            <button type="button" class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white text-gray-500 font-medium transition-colors hover:bg-gray-50 cursor-pointer">
+                2
+            </button>
+            <button type="button" class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white text-gray-500 font-medium transition-colors hover:bg-gray-50 cursor-pointer">
+                3
+            </button>
+            <button type="button" class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white text-gray-500 font-medium transition-colors hover:bg-gray-50 cursor-pointer">
+                4
+            </button>
+            <!-- Next -->
+            <button type="button" class="w-8 h-8 rounded border border-gray-200 flex items-center justify-center bg-white hover:bg-gray-50 text-gray-400 transition-colors cursor-pointer">
+                <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+            </button>
+        </div>
+    </div>
+
+     <!-- Help Banner Section -->
+    <div class="bg-cloud-blue rounded-[12px] p-6 border border-baby-blue flex flex-col md:flex-row items-center justify-between gap-4 mt-2">
+        <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-[12px] bg-baby-blue text-primary-yellow flex items-center justify-center shrink-0 mt-0.5">
+                <span class="material-symbols-outlined">help_outline</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <p class="font-semibold text-[15px] text-primary-yellow">Need help with invoices or payments?</p>
+                <p class="text-xs font-normal text-granite-gray">Our support team is here to help you with any billing-related queries.</p>
+            </div>
+        </div>
+        <button type="button" class="bg-primary-yellow text-white px-5 py-3 rounded-[12px] font-semibold text-sm flex items-center justify-center gap-2 transition shrink-0 cursor-pointer">
+            <span class="material-symbols-outlined">chat_bubble</span>
+            Contact Support
+        </button>
+    </div>
+
+</div>
+
+<!-- =========================================================
+     INVOICE MODAL
+     ========================================================= -->
+<div id="invoiceModalfe" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/40">
+    <div class="relative w-[92%] max-w-[550px] h-[86vh] max-h-[650px] overflow-hidden rounded-lg bg-white shadow-2xl">
+        
+        <!-- Header -->
+        <div class="sticky top-0 z-20 flex h-12 items-center justify-between border-b border-gray-200 bg-white px-3">
+            <div class="flex items-center gap-2">
+                <button type="button" class="flex h-7 w-7 items-center justify-center rounded-md bg-[#00B884] text-white transition hover:bg-[#00A876]" aria-label="Share invoice">
+                    <span class="material-symbols-outlined text-[16px]">share</span>
+                </button>
+                <button type="button" class="flex h-7 w-7 items-center justify-center rounded-md bg-[#00B884] text-white transition hover:bg-[#00A876]" aria-label="Download invoice">
+                    <span class="material-symbols-outlined text-[16px]">download</span>
+                </button>
+            </div>
+            <h2 class="text-lg font-semibold text-[#00B884]">Invoice</h2>
+            <button type="button" id="closeInvoiceModalfe" class="flex h-7 w-7 items-center justify-center rounded-md text-gray-500 transition hover:bg-gray-100 hover:text-gray-700" aria-label="Close invoice">
+                <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+        </div>
+
+        <!-- Content -->
+        <div id="invoiceContentfe" class="h-[calc(86vh-48px)] overflow-y-auto bg-white px-6 py-5 text-[11px] leading-[1.4] text-slate-700">
+            <div class="mb-4 text-center">
+                <p class="font-bold text-sm text-slate-800">TAX INVOICE</p>
+                <p class="text-[9px] text-gray-400">(Under GST - Field Engineering Service: SAC 998713)</p>
+                <hr class="my-2 border-dashed border-gray-300">
+            </div>
+
+            <div class="mb-4 flex justify-between">
+                <div>
+                    <p class="font-semibold text-slate-800">Field Engineer Network</p>
+                    <p class="text-gray-500">Rishi Acharya</p>
+                    <p class="text-gray-500">rishi@acme.me</p>
+                </div>
+                <div class="text-right">
+                    <p><span class="font-medium">Invoice No:</span> <span id="modalInvoiceId">INV-2026-001</span></p>
+                    <p><span class="font-medium">Date:</span> 15 May 2026</p>
+                </div>
+            </div>
+
+            <hr class="my-3 border-gray-100">
+
+            <table class="w-full text-left my-4">
+                <thead>
+                    <tr class="border-b border-gray-200 font-semibold text-slate-800">
+                        <th class="pb-2">Description</th>
+                        <th class="pb-2 text-right">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-2" id="modalDescription">Network Cabling Service</td>
+                        <td class="py-2 text-right">Rs. 5,730</td>
+                    </tr>
+                    <tr>
+                        <td class="pt-3 font-semibold text-slate-800">Total</td>
+                        <td class="pt-3 font-semibold text-slate-800 text-right">Rs. 5,730</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr class="my-4 border-dashed border-gray-200">
+            <div class="text-[9px] text-gray-400 mt-6">
+                <p class="font-semibold text-slate-500 mb-1">Notes:</p>
+                <p>- Payment will be credited directly to the primary bank account.</p>
+                <p>- Input Tax Credit (ITC) can be claimed as applicable.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        
+        // --- Highlight "Payment Details" sidebar link manually ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if (link.href.includes('payment-details')) {
+                link.classList.add('active-fe-tab');
+            } else {
+                link.classList.remove('active-fe-tab');
+            }
+        });
+
+        // --- Tab Switching Logic & Filtering ---
+        const tabs = document.querySelectorAll(".filter-tab");
+        const rows = document.querySelectorAll(".invoice-row");
+        const searchInput = document.getElementById("invoiceSearchInput");
+
+        function filterInvoices() {
+            const activeTab = document.querySelector(".filter-tab.bg-\\[\\#FFC949\\]");
+            const status = activeTab ? activeTab.getAttribute("data-status") : "all";
+            const query = searchInput ? searchInput.value.toLowerCase().trim() : "";
+
+            rows.forEach(row => {
+                const rowStatus = row.getAttribute("data-status");
+                const idText = row.querySelector("td:nth-child(1)").textContent.toLowerCase();
+                const descText = row.querySelector("td:nth-child(3)").textContent.toLowerCase();
+                
+                const matchesStatus = (status === "all" || rowStatus === status);
+                const matchesSearch = (idText.includes(query) || descText.includes(query));
+
+                if (matchesStatus && matchesSearch) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", function () {
+                // Reset all tabs to inactive state
+                tabs.forEach(t => {
+                    t.classList.remove("bg-primary-yellow", "text-white", "active-tab", "border-transparent");
+                    t.classList.add("border-gray-200", "bg-white", "text-gray-500");
+                });
+
+                // Set this tab to active
+                this.classList.remove("border-gray-200", "bg-white", "text-gray-500");
+                this.classList.add("bg-primary-yellow", "text-white", "active-tab", "border-transparent");
+
+                filterInvoices();
+            });
+        });
+
+        if (searchInput) {
+            searchInput.addEventListener("input", filterInvoices);
+        }
+
+        // --- Flatpickr Date Picker ---
+        if (typeof flatpickr !== "undefined") {
+            const dateBtn = document.getElementById("invoiceDateRangeBtn");
+            const fp = flatpickr(dateBtn, {
+                mode: "range",
+                dateFormat: "M j, Y",
+                onChange: function (selectedDates, dateStr, instance) {
+                    const label = instance.element.querySelector(".date-range-text");
+                    if (label) {
+                        label.textContent = dateStr ? dateStr : "Date Range";
+                    }
+                }
+            });
+            dateBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                fp.open();
+            });
+        }
+
+        // --- View Invoice Modal ---
+        const invoiceModal = document.getElementById("invoiceModalfe");
+        const closeInvoiceBtn = document.getElementById("closeInvoiceModalfe");
+        
+        rows.forEach(row => {
+            const viewBtn = row.querySelector(".view-invoice-btn");
+            const downloadBtn = row.querySelector(".download-invoice-btn");
+            
+            const openInvoice = () => {
+                const invId = row.querySelector("td:nth-child(1)").textContent;
+                const desc = row.querySelector("td:nth-child(3)").textContent;
+                
+                document.getElementById("modalInvoiceId").textContent = invId;
+                document.getElementById("modalDescription").textContent = desc + " Service";
+                
+                invoiceModal.classList.remove("hidden");
+                invoiceModal.classList.add("flex");
+            };
+
+            if (viewBtn) viewBtn.addEventListener("click", openInvoice);
+            if (downloadBtn) downloadBtn.addEventListener("click", openInvoice);
+        });
+
+        if (invoiceModal && closeInvoiceBtn) {
+            closeInvoiceBtn.addEventListener("click", () => {
+                invoiceModal.classList.add("hidden");
+                invoiceModal.classList.remove("flex");
+            });
+            invoiceModal.addEventListener("click", (e) => {
+                if (e.target === invoiceModal) {
+                    invoiceModal.classList.add("hidden");
+                    invoiceModal.classList.remove("flex");
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}
