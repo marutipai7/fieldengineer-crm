@@ -385,6 +385,18 @@ def field_engineer_dashboard(request):
 def fe_personal_info(request):
     return render(request, 'dashboard/field-engineer/personal-info.html')
 
+def fe_earnings(request):
+    return render(request, 'dashboard/field-engineer/earnings.html')
+
+def home(request):
+    return render(request, 'dashboard/field-engineer/home.html')
+
+def fe_leads(request):
+    return render(request, 'dashboard/field-engineer/leads.html')
+
+def fe_my_jobs(request):
+    return render(request, 'dashboard/field-engineer/my_jobs.html')
+
 def fe_professional_info(request):
     return render(request, 'dashboard/field-engineer/professional-info.html')
 
@@ -393,6 +405,9 @@ def fe_availability(request):
 
 def fe_payment_details(request):
     return render(request, 'dashboard/field-engineer/payment-details.html')
+
+def fe_invoices(request):
+    return render(request, 'dashboard/field-engineer/invoices.html')
 
 def fe_saved_address(request):
     return render(request, 'dashboard/field-engineer/saved-address.html')

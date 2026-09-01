@@ -1,0 +1,964 @@
+{% extends "dashboard/field-engineer/layout-1.html" %}
+{% load static %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+<div class="fe-home-page">
+
+    <!-- =====================================================
+         WELCOME / AVAILABILITY
+    ====================================================== -->
+
+    <section class="home-welcome-card">
+
+        <div class="home-welcome-left">
+
+            <h1>
+                Hello Harsh 👋
+            </h1>
+
+            <p>
+                You're all set for a productive day.
+            </p>
+
+            <div class="home-stats">
+
+                <div class="home-stat">
+                    <span>Today's earnings</span>
+                    <strong>₹8,750</strong>
+                </div>
+
+                <div class="home-stat">
+                    <span>Active jobs</span>
+                    <strong>2</strong>
+                </div>
+
+                <div class="home-stat">
+                    <span>Upcoming</span>
+                    <strong>1</strong>
+                </div>
+
+                <div class="home-stat">
+                    <span>Rating</span>
+                    <strong>4.9 ★</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Availability -->
+
+        <div class="home-availability">
+
+            <div class="availability-header">
+
+                <div>
+                    <strong>Availability</strong>
+
+                    <span>
+                        You're visible to new leads
+                    </span>
+                </div>
+
+                <button
+                    type="button"
+                    id="availabilityToggle"
+                    class="availability-switch active"
+                    aria-label="Toggle availability">
+
+                    <span></span>
+
+                </button>
+
+            </div>
+
+            <p>
+                Toggle your availability to receive new work opportunities.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         QUICK ACTIONS
+    ====================================================== -->
+
+    <section class="quick-actions">
+
+        <!-- Find Leads -->
+
+        <button
+            type="button"
+            class="quick-action-card"
+            onclick="goToLeads()">
+
+            <div class="quick-action-icon blue">
+                ☷
+            </div>
+
+            <div class="quick-action-content">
+
+                <strong>
+                    Find Leads
+                </strong>
+
+                <span>
+                    Discover new<br>
+                    opportunities
+                </span>
+
+            </div>
+
+            <div class="quick-arrow">
+                ›
+            </div>
+
+        </button>
+
+
+        <!-- My Jobs -->
+
+        <button
+            type="button"
+            class="quick-action-card"
+            onclick="goToJobs()">
+
+            <div class="quick-action-icon green">
+                ▣
+            </div>
+
+            <div class="quick-action-content">
+
+                <strong>
+                    My Jobs
+                </strong>
+
+                <span>
+                    View and manage<br>
+                    your jobs
+                </span>
+
+            </div>
+
+            <div class="quick-arrow">
+                ›
+            </div>
+
+        </button>
+
+
+        <!-- Earnings -->
+
+        <button
+            type="button"
+            class="quick-action-card"
+            onclick="goToEarnings()">
+
+            <div class="quick-action-icon orange">
+                ₹
+            </div>
+
+            <div class="quick-action-content">
+
+                <strong>
+                    Earnings
+                </strong>
+
+                <span>
+                    Check payments<br>
+                    and history
+                </span>
+
+            </div>
+
+            <div class="quick-arrow">
+                ›
+            </div>
+
+        </button>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HIGH DEMAND
+    ====================================================== -->
+
+    <section class="demand-banner">
+
+        <div class="demand-icon">
+            ϟ
+        </div>
+
+        <div class="demand-content">
+
+            <strong>
+                High Demand in Your Area
+            </strong>
+
+            <span>
+                12 new installation opportunities are available nearby
+            </span>
+
+        </div>
+
+        <button
+            type="button"
+            class="yellow-button"
+            onclick="viewLeads()">
+
+            View Leads →
+        </button>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         NEARBY LEADS
+    ====================================================== -->
+
+    <section class="home-section">
+
+        <div class="section-title-row">
+
+            <h2>
+                Nearby Leads
+            </h2>
+
+            <button
+                type="button"
+                onclick="viewAllLeads()">
+
+                View All Leads →
+            </button>
+
+        </div>
+
+
+        <div class="nearby-leads-grid">
+
+
+            <!-- Lead 1 -->
+
+            <article class="lead-card">
+
+                <div class="lead-top">
+
+                    <span class="lead-priority urgent">
+                        URGENT
+                    </span>
+
+                    <span class="lead-distance">
+                        2.2 km away
+                    </span>
+
+                </div>
+
+
+                <div class="lead-heading">
+
+                    <div class="lead-icon">
+                        ⚙
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Network Cabling Setup
+                        </strong>
+
+                        <span>
+                            ICT · Navi Mumbai
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p class="lead-description">
+                    Installation of CAT6 cabling for new office.
+                </p>
+
+
+                <div class="lead-details">
+
+                    <div>
+                        <span>Budget</span>
+
+                        <strong>
+                            ₹5,000–₹10,000
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Duration</span>
+
+                        <strong>
+                            1–2 days
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="lead-buttons">
+
+                    <button
+                        type="button"
+                        class="view-details"
+                        onclick="viewLeadDetails('Network Cabling Setup')">
+
+                        View Details
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="accept-lead"
+                        onclick="acceptLead('Network Cabling Setup')">
+
+                        Accept Lead
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- Lead 2 -->
+
+            <article class="lead-card">
+
+                <div class="lead-top">
+
+                    <span class="lead-priority priority">
+                        PRIORITY
+                    </span>
+
+                    <span class="lead-distance">
+                        2.2 km away
+                    </span>
+
+                </div>
+
+
+                <div class="lead-heading">
+
+                    <div class="lead-icon">
+                        ⚙
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Network Cabling Setup
+                        </strong>
+
+                        <span>
+                            ICT · Navi Mumbai
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p class="lead-description">
+                    Installation of Cat6 cabling for new office.
+                </p>
+
+
+                <div class="lead-details">
+
+                    <div>
+                        <span>Budget</span>
+
+                        <strong>
+                            ₹5,000–₹10,000
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Duration</span>
+
+                        <strong>
+                            2–3 days
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="lead-buttons">
+
+                    <button
+                        type="button"
+                        class="view-details"
+                        onclick="viewLeadDetails('Network Cabling Setup')">
+
+                        View Details
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="accept-lead"
+                        onclick="acceptLead('Network Cabling Setup')">
+
+                        Accept Lead
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- Lead 3 -->
+
+            <article class="lead-card">
+
+                <div class="lead-top">
+
+                    <span class="lead-priority standard">
+                        STANDARD
+                    </span>
+
+                    <span class="lead-distance">
+                        2.2 km away
+                    </span>
+
+                </div>
+
+
+                <div class="lead-heading">
+
+                    <div class="lead-icon">
+                        ⚙
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Network Cabling Setup
+                        </strong>
+
+                        <span>
+                            ICT · Navi Mumbai
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p class="lead-description">
+                    Installation of CAT6 cabling for new office.
+                </p>
+
+
+                <div class="lead-details">
+
+                    <div>
+                        <span>Budget</span>
+
+                        <strong>
+                            ₹5,000–₹10,000
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Duration</span>
+
+                        <strong>
+                            1–2 days
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="lead-buttons">
+
+                    <button
+                        type="button"
+                        class="view-details"
+                        onclick="viewLeadDetails('Network Cabling Setup')">
+
+                        View Details
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="accept-lead"
+                        onclick="acceptLead('Network Cabling Setup')">
+
+                        Accept Lead
+
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ACTIVE JOB
+    ====================================================== -->
+
+    <section class="home-section">
+
+        <div class="section-title-row">
+
+            <h2>
+                Active Job
+            </h2>
+
+            <button
+                type="button"
+                class="yellow-button small"
+                onclick="trackJob()">
+
+                Track Details →
+
+            </button>
+
+        </div>
+
+
+        <article class="active-job-card">
+
+            <div class="active-job-image">
+
+            <div class="job-image-placeholder">
+
+                <img
+            src="{% static 'img/active-job.jpg' %}"
+            alt="Office Network Installation"
+            class="active-job-photo"
+        >
+
+            </div>
+
+        </div>
+
+            <div class="active-job-content">
+
+                <div class="job-header">
+
+                    <div>
+
+                        <span class="job-status">
+                            In Progress
+                        </span>
+
+                        <h3>
+                            Office Network Installation
+                        </h3>
+
+                        <p>
+                            Prestige Tech Park, Whitefield, Bengaluru
+                        </p>
+
+                    </div>
+
+                    <span class="job-progress-text">
+                        85% Complete
+                    </span>
+
+                </div>
+
+
+                <div class="job-progress">
+
+                    <div>
+                        <span></span>
+                    </div>
+
+                </div>
+
+
+                <div class="job-info">
+
+                    <div>
+                        <span>Customer</span>
+
+                        <strong>
+                            Global Tech Solutions
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Team Size</span>
+
+                        <strong>
+                            6 Engineers
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>ETA to Site</span>
+
+                        <strong>
+                            🕐 22 mins
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="job-bottom">
+
+                    <span>
+                        Started: 20 May 2024, 09:00 AM
+                    </span>
+
+                    <span>
+                        Estimated End: 20 May 2024, 05:00 PM
+                    </span>
+
+                    <button
+                        type="button"
+                        onclick="openJobDetails()">
+
+                        JOB #FE-507
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EARNINGS OVERVIEW
+    ====================================================== -->
+
+    <section class="home-section">
+
+        <div class="section-title-row">
+
+            <h2>
+                Earnings Overview
+            </h2>
+
+            <button onclick="viewAllEarnings()">
+                View All
+            </button>
+
+        </div>
+
+
+        <div class="earnings-card">
+
+            <div class="earnings-month">
+
+                <span>
+                    THIS MONTH
+                </span>
+
+                <strong>
+                    ₹48,750
+                </strong>
+
+                <small>
+                    ↑ 12% vs last month
+                </small>
+
+            </div>
+
+
+            <div class="earning-list">
+
+                <div>
+                    <span>
+                        <i class="earning-dot green"></i>
+                        Job Earnings
+                    </span>
+
+                    <strong>
+                        ₹32,500
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>
+                        <i class="earning-dot blue"></i>
+                        Engineer Earnings
+                    </span>
+
+                    <strong>
+                        ₹12,300
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>
+                        <i class="earning-dot orange"></i>
+                        Vendor Earnings
+                    </span>
+
+                    <strong>
+                        ₹500
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>
+                        <i class="earning-dot red"></i>
+                        Platform Fee
+                    </span>
+
+                    <strong class="negative">
+                        -₹600
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>
+                        <i class="earning-dot red"></i>
+                        GST (18%)
+                    </span>
+
+                    <strong class="negative">
+                        -₹450
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="available-balance">
+
+                <div>
+                    <span>
+                        Available Balance
+                    </span>
+
+                    <strong>
+                        ₹9,999
+                    </strong>
+                </div>
+
+                <button onclick="withdrawAmount()">
+                    Withdraw
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LEADS NEAR YOU
+    ====================================================== -->
+
+    <section class="home-section leads-near-section">
+
+        <div class="section-title-row">
+
+            <h2>
+                Leads Near You
+            </h2>
+
+            <button onclick="viewAllNearby()">
+                View All Leads →
+            </button>
+
+        </div>
+
+
+        <div class="near-map-wrapper">
+
+            <!-- MAP -->
+
+            <div class="dashboard-map">
+
+                <div class="map-road map-road-1"></div>
+                <div class="map-road map-road-2"></div>
+                <div class="map-road map-road-3"></div>
+                <div class="map-road map-road-4"></div>
+
+                <span class="map-place place-one">
+                    Area View
+                </span>
+
+                <span class="map-place place-two">
+                    NH 3
+                </span>
+
+
+                <div class="map-person">
+                    👨‍🔧
+                </div>
+
+                <div class="map-route"></div>
+
+            </div>
+
+
+            <!-- NEARBY JOBS -->
+
+            <div class="nearby-job-list">
+
+                <div class="nearby-job">
+
+                    <div class="nearby-job-icon blue">
+                        ◉
+                    </div>
+
+                    <div>
+                        <strong>
+                            Network Cabling Setup
+                        </strong>
+
+                        <span>
+                            Airoli, Navi Mumbai · 2.2 km
+                        </span>
+                    </div>
+
+                    <b>
+                        ₹25K–40K
+                    </b>
+
+                </div>
+
+
+                <div class="nearby-job">
+
+                    <div class="nearby-job-icon yellow">
+                        ⚙
+                    </div>
+
+                    <div>
+                        <strong>
+                            Fiber Installation
+                        </strong>
+
+                        <span>
+                            Powai, Mumbai · 3.1 km
+                        </span>
+                    </div>
+
+                    <b>
+                        ₹18K–30K
+                    </b>
+
+                </div>
+
+
+                <div class="nearby-job">
+
+                    <div class="nearby-job-icon orange">
+                        ◉
+                    </div>
+
+                    <div>
+                        <strong>
+                            Server Rack Installation
+                        </strong>
+
+                        <span>
+                            BKC, Mumbai · 4.2 km
+                        </span>
+                    </div>
+
+                    <b>
+                        ₹12K–25K
+                    </b>
+
+                </div>
+
+
+                <div class="nearby-job">
+
+                    <div class="nearby-job-icon green">
+                        ◉
+                    </div>
+
+                    <div>
+                        <strong>
+                            CCTV Installation
+                        </strong>
+
+                        <span>
+                            Powai, Mumbai · 4.5 km
+                        </span>
+                    </div>
+
+                    <b>
+                        ₹10K–30K
+                    </b>
+
+                </div>
+
+
+                <div class="nearby-job">
+
+                    <div class="nearby-job-icon green">
+                        ◉
+                    </div>
+
+                    <div>
+                        <strong>
+                            CCTV Installation
+                        </strong>
+
+                        <span>
+                            Navi Mumbai · 4.8 km
+                        </span>
+                    </div>
+
+                    <b>
+                        ₹10K–30K
+                    </b>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="{% static 'script/profile/home.js' %}"></script>
+
+{% endblock %}

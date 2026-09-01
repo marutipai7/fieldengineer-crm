@@ -1,6 +1,6 @@
-{% extends "dashboard/field-engineer/layout.html" %}
- {% load static %} 
- {% block title %}Field Engineer - Overview{% endblock %}
+{% extends "dashboard/field-engineer/layout.html" %} 
+{% load static %} 
+{% block title %}Field Engineer - Overview{% endblock %}
 {% block content %}
 
 <div class="space-y-6">
@@ -13,12 +13,30 @@
       class="bg-primary-grayy rounded-2xl p-6 flex items-start justify-between gap-6 flex-wrap shadow-sm"
     >
       <div class="flex items-start gap-4">
-        <img
-          src="/static/img/avatar-placeholder.png"
-          alt="Shams Jan"
-          class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm"
-        />
+        <div class="relative h-14 w-14 shrink-0">
+          <!-- Circular Profile Image -->
 
+          <div class="profile-photo-wrapper">
+            <img
+              id="profile-photo"
+              src="/static/img/fe-overview-shams.jpg"
+              alt="Shams Jan"
+              class="profile-photo-image"
+            />
+
+            <!-- Edit Profile Photo -->
+            <button
+              type="button"
+              id="edit-profile-photo"
+              aria-label="Edit profile photo"
+              class="profile-photo-edit"
+            >
+              <span class="material-symbols-outlined"> edit </span>
+            </button>
+          </div>
+
+          <!-- Edit Profile Photo -->
+        </div>
         <div>
           <div class="flex items-center gap-1.5">
             <h2 class="text-3xl font-bold text-dark-navy">Shams Jan</h2>
@@ -129,7 +147,7 @@
             id="availability-toggle"
             data-on="true"
             onclick="toggleAvailability(this)"
-            class="relative inline-flex h-6 w-11 items-center rounded-full bg-primary-yellow transition-colors duration-200"
+            class="relative inline-flex h-6 w-11 items-center rounded-full bg-primary-yellow transition-colors duration-200 cursor-pointer"
             aria-pressed="true"
             aria-label="Toggle availability"
           >
@@ -234,7 +252,7 @@
         <button
           type="button"
           id="open-add-vendor"
-          class="w-full mt-3 bg-primary-yellow text-white text-sm font-bold rounded-lg py-2.5 flex items-center justify-center gap-1.5 transition-colors"
+          class="w-full mt-3 bg-primary-yellow text-white text-sm font-bold rounded-lg py-2.5 flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
         >
           Add Vendor
 
@@ -246,21 +264,21 @@
     <!-- My Availability banner -->
     <a
       href="#"
-      class="mt-6 flex items-center justify-between gap-4 bg-[#FFF8E9] border border-[#F5C14A]/30 rounded-2xl px-5 py-4 hover:bg-[#FFFDF5] transition-colors"
+      class="mt-6 flex items-center justify-between gap-4 bg-primary-grayy border border-primary-yellow border-l-4 rounded-2xl px-5 py-4 hover:bg-[#FFFDF5] transition-colors"
     >
       <div class="flex items-center gap-3">
         <span
-          class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#F5C14A] shrink-0"
+          class="w-12 h-12 rounded-xl flex items-center justify-center text-golden-orange bg-creamy-yellow rounded-md shrink-0"
         >
           <span class="material-symbols-outlined text-xl">event_available</span>
         </span>
         <div>
-          <p class="font-semibold text-[#212121]">My Availability</p>
-          <p class="text-sm text-[#6B7280]">Availability for jobs</p>
+          <p class="text-xl font-bold text-ink">My Availability</p>
+          <p class="text-sm font-normal text-dark">Availability for jobs</p>
         </div>
       </div>
       <span
-        class="bg-[#F5C14A] text-white text-sm font-medium rounded-lg px-4 py-2 flex items-center gap-1 shrink-0"
+        class="bg-primary-yellow text-white text-sm font-semibold rounded-lg px-4 py-2 flex items-center gap-1 shrink-0"
       >
         View Availability
         <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -269,119 +287,354 @@
 
     <!-- Performance / Month overview -->
     <div class="grid md:grid-cols-2 gap-6 mt-6">
-      <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-        <h4 class="font-semibold text-[#212121] mb-4">Performance Overview</h4>
-        <ul class="divide-y divide-gray-200">
-          <li class="flex items-center justify-between py-2.5 text-sm">
-            <span class="flex items-center gap-2 text-[#6B7280]">
-              <span class="material-symbols-outlined text-[#F5C14A] text-base"
-                >insights</span
+      <div
+        class="bg-white-33 border border-slate-mist rounded-2xl p-5 shadow-md"
+      >
+        <h4 class="font-semibold text-lg text-almost-black mb-4">
+          Performance Overview
+        </h4>
+        <ul>
+          <li class="flex items-center justify-between py-2.5">
+            <span
+              class="flex items-center gap-2 text-almost-black text-sm font-normal"
+            >
+              <span
+                class="material-symbols-outlined text-primary-yellow text-base"
+                >finance_mode</span
               >
               On Time Job
             </span>
-            <span class="font-semibold text-[#212121]">142 (91%)</span>
+            <span class="font-semibold text-sm text-almost-black"
+              >142 (91%)</span
+            >
           </li>
-          <li class="flex items-center justify-between py-2.5 text-sm">
-            <span class="flex items-center gap-2 text-[#6B7280]">
-              <span class="material-symbols-outlined text-[#F5C14A] text-base"
-                >insights</span
+          <li class="flex items-center justify-between py-2.5">
+            <span
+              class="flex items-center gap-2 text-almost-black text-sm font-normal"
+            >
+              <span
+                class="material-symbols-outlined text-primary-yellow text-base"
+                >reviews</span
               >
               Quality Score
             </span>
-            <span class="font-semibold text-[#212121]">4.8/5</span>
+            <span class="font-semibold text-sm text-almost-black">4.8/5</span>
           </li>
-          <li class="flex items-center justify-between py-2.5 text-sm">
-            <span class="flex items-center gap-2 text-[#6B7280]">
-              <span class="material-symbols-outlined text-[#F5C14A] text-base"
-                >insights</span
+          <li class="flex items-center justify-between py-2.5">
+            <span
+              class="flex items-center gap-2 text-almost-black text-sm font-normal"
+            >
+              <span
+                class="material-symbols-outlined text-primary-yellow text-base"
+                >conversion_path</span
               >
               Rework Rate
             </span>
-            <span class="font-semibold text-[#212121]">3%</span>
+            <span class="font-semibold text-sm text-almost-black">3%</span>
           </li>
-          <li class="flex items-center justify-between py-2.5 text-sm">
-            <span class="flex items-center gap-2 text-[#6B7280]">
-              <span class="material-symbols-outlined text-[#F5C14A] text-base"
-                >insights</span
+          <li class="flex items-center justify-between py-2.5">
+            <span
+              class="flex items-center gap-2 text-almost-black text-sm font-normal"
+            >
+              <span
+                class="material-symbols-outlined text-primary-yellow text-base"
+                >deployed_code_account</span
               >
               Customer Satisfaction
             </span>
-            <span class="font-semibold text-[#212121]">4.9/5</span>
+            <span class="font-semibold text-sm text-almost-black">4.9/5</span>
           </li>
         </ul>
       </div>
 
-      <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-        <h4 class="font-semibold text-[#212121] mb-4">This Month Overview</h4>
-        <ul class="divide-y divide-gray-200">
-          <li class="flex items-center justify-between py-2.5 text-sm">
-            <span class="flex items-center gap-2 text-[#6B7280]">
-              <span class="material-symbols-outlined text-[#F5C14A] text-base"
-                >check_circle</span
+      <div
+        class="bg-white-33 border border-slate-mist rounded-2xl p-5 shadow-md"
+      >
+        <h4 class="font-semibold text-lg text-almost-black mb-4">
+          This Month Overview
+        </h4>
+        <ul>
+          <li class="flex items-center justify-between py-2.5">
+            <span
+              class="flex items-center gap-2 text-almost-black text-sm font-normal"
+            >
+              <span class="material-symbols-outlined text-light-green text-base"
+                >task_alt</span
               >
               Job Complete
             </span>
-            <span class="font-semibold text-[#212121]">18</span>
+            <span class="font-semibold text-sm text-almost-black">18</span>
           </li>
-          <li class="flex items-center justify-between py-2.5 text-sm">
-            <span class="flex items-center gap-2 text-[#6B7280]">
-              <span class="material-symbols-outlined text-[#F5C14A] text-base"
-                >check_circle</span
+          <li class="flex items-center justify-between py-2.5">
+            <span
+              class="flex items-center gap-2 text-almost-black text-sm font-normal"
+            >
+              <span class="material-symbols-outlined text-light-green text-base"
+                >timelapse</span
               >
               Total Hours
             </span>
-            <span class="font-semibold text-[#212121]">86.5hrs</span>
+            <span class="font-semibold text-sm text-almost-black">86.5hrs</span>
           </li>
-          <li class="flex items-center justify-between py-2.5 text-sm">
-            <span class="flex items-center gap-2 text-[#6B7280]">
-              <span class="material-symbols-outlined text-[#F5C14A] text-base"
-                >check_circle</span
+          <li class="flex items-center justify-between py-2.5">
+            <span
+              class="flex items-center gap-2 text-almost-black text-sm font-normal"
+            >
+              <span class="material-symbols-outlined text-light-green text-base"
+                >vital_signs</span
               >
               On Time %
             </span>
-            <span class="font-semibold text-[#212121]">94%</span>
+            <span class="font-semibold text-sm text-almost-black">94%</span>
           </li>
-          <li class="flex items-center justify-between py-2.5 text-sm">
-            <span class="flex items-center gap-2 text-[#6B7280]">
-              <span class="material-symbols-outlined text-[#F5C14A] text-base"
-                >check_circle</span
+          <li class="flex items-center justify-between py-2.5">
+            <span
+              class="flex items-center gap-2 text-almost-black text-sm font-normal"
+            >
+              <span class="material-symbols-outlined text-light-green text-base"
+                >star</span
               >
               Rating
             </span>
-            <span class="font-semibold text-[#212121]">4.9/5</span>
+            <span class="font-semibold text-sm text-almost-black">4.9/5</span>
           </li>
         </ul>
       </div>
     </div>
   </div>
 
+  <!--UPLOAD POPUP-->
+
+  <!-- Upload Profile Photo Modal -->
+  <div
+    id="profile-photo-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 px-4"
+  >
+    <div
+      class="w-full max-w-[300px] rounded-[24px] bg-white px-3 py-3 shadow-xl"
+    >
+      <!-- Modal Title -->
+      <h3 class="px-1 pb-3 text-lg font-bold text-ink">
+        Upload Profile Photo
+      </h3>
+
+      <!-- ========================================================= -->
+      <!-- Take Photo -->
+      <!-- ========================================================= -->
+      <button
+        type="button"
+        id="take-photo-btn"
+        class="flex w-full items-center gap-3 rounded-lg px-1 py-2 text-left hover:bg-gray-50 transition-colors"
+      >
+        <!-- Camera Icon -->
+        <span class="flex w-7 justify-center">
+          <span class="material-symbols-outlined text-[20px] text-[#8B5CF6]">
+            photo_camera
+          </span>
+        </span>
+
+        <!-- Text -->
+        <span class="flex-1">
+          <span class="block text-sm font-semibold text-dark">
+            Take Photo
+          </span>
+
+          <span class="block text-xs font-medium text-granite-gray">
+            Capture new photo
+          </span>
+        </span>
+
+        <!-- Right Arrow -->
+        <span class="flex items-center text-time-gray">
+          <span class="material-symbols-outlined text-[20px]">
+            chevron_right
+          </span>
+        </span>
+      </button>
+
+      <!-- ========================================================= -->
+      <!-- Choose From Gallery -->
+      <!-- ========================================================= -->
+      <button
+        type="button"
+        id="choose-gallery-btn"
+        class="flex w-full items-center gap-3 rounded-lg px-1 py-2 text-left hover:bg-gray-50 transition-colors"
+      >
+        <!-- Gallery Icon -->
+        <span class="flex w-7 justify-center">
+          <span class="material-symbols-outlined text-[20px] text-[#F59E0B]">
+            image
+          </span>
+        </span>
+
+        <!-- Text -->
+        <span class="flex-1">
+          <span class="block text-sm font-semibold text-dark">
+            Choose from Gallery
+          </span>
+
+          <span class="block text-xs font-medium text-granite-gray">
+            Select from your photos
+          </span>
+        </span>
+
+        <!-- Right Arrow -->
+        <span class="flex items-center text-time-gray">
+          <span class="material-symbols-outlined text-[20px]">
+            chevron_right
+          </span>
+        </span>
+      </button>
+
+      <!-- ========================================================= -->
+      <!-- Remove Photo -->
+      <!-- ========================================================= -->
+      <button
+        type="button"
+        id="remove-profile-photo"
+        class="flex w-full items-center gap-3 rounded-lg px-1 py-2 text-left hover:bg-gray-50 transition-colors"
+      >
+        <!-- Delete Icon -->
+        <span class="flex w-7 justify-center">
+          <span class="material-symbols-outlined text-[20px] text-[#FF3B30]">
+            delete
+          </span>
+        </span>
+
+        <!-- Text -->
+        <span class="flex-1">
+          <span class="block text-sm font-semibold text-dark">
+            Remove Photo
+          </span>
+
+          <span class="block text-xs font-medium text-granite-gray">
+            Remove current profile photo
+          </span>
+        </span>
+
+        <!-- Right Arrow -->
+        <span class="flex items-center text-time-gray">
+          <span class="material-symbols-outlined text-[20px]">
+            chevron_right
+          </span>
+        </span>
+      </button>
+
+      <!-- ========================================================= -->
+      <!-- Cancel Button -->
+      <!-- ========================================================= -->
+      <button
+        type="button"
+        id="cancel-profile-photo"
+        class="mt-1 w-full rounded-xl bg-primary-yellow py-1.5 text-sm font-bold text-almost-black shadow-sm"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+
+  <!-- ============================================================= -->
+  <!-- Hidden File Inputs -->
+  <!-- ============================================================= -->
+
+  <!-- Gallery input -->
+  <input type="file" id="gallery-photo-input" accept="image/*" class="hidden" />
+
+  <!-- Camera input -->
+  <input
+    type="file"
+    id="camera-photo-input"
+    accept="image/*"
+    capture="environment"
+    class="hidden"
+  />
+
+  <!-- ========================================================= -->
+  <!-- Camera Modal -->
+  <!-- ========================================================= -->
+
+  <div
+    id="camera-modal"
+    class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/60 px-4"
+  >
+    <div
+      class="w-full max-w-[360px] overflow-hidden rounded-2xl bg-white shadow-xl"
+    >
+      <!-- Camera Header -->
+      <div class="flex items-center justify-between px-4 py-3">
+        <h3 class="text-[16px] font-semibold text-[#212121]">Take Photo</h3>
+
+        <button
+          type="button"
+          id="close-camera"
+          aria-label="Close camera"
+          class="flex h-8 w-8 items-center justify-center rounded-full hover:bg-gray-100"
+        >
+          <span class="material-symbols-outlined text-[20px] text-[#212121]">
+            close
+          </span>
+        </button>
+      </div>
+
+      <!-- Camera Preview -->
+      <div class="relative aspect-square w-full overflow-hidden bg-black">
+        <video
+          id="camera-video"
+          autoplay
+          playsinline
+          muted
+          class="h-full w-full object-cover"
+        ></video>
+      </div>
+
+      <!-- Camera Controls -->
+      <div class="flex items-center justify-center px-4 py-4">
+        <button
+          type="button"
+          id="capture-photo"
+          aria-label="Capture photo"
+          class="flex h-14 w-14 items-center justify-center rounded-full border-4 border-gray-200 bg-[#2563EB] shadow-md transition-transform hover:scale-105"
+        >
+          <span class="material-symbols-outlined text-[28px] text-white">
+            photo_camera
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden canvas used to capture the camera frame -->
+  <canvas id="camera-canvas" class="hidden"></canvas>
+
   <!-- ============================================
        SCREEN 2 — ADD VENDOR (hidden until "Add Vendor" is clicked)
        ============================================ -->
-  <div id="screen-add-vendor" class="hidden">
+  <div id="screen-add-vendor" class="hidden mt-4">
     <button
       type="button"
       id="back-to-overview"
-      class="flex items-center gap-1.5 text-[#212121] font-semibold mb-5"
+      class="flex items-center gap-1.5 text-ink text-xl font-bold mb-5"
     >
-      <span class="material-symbols-outlined text-xl">arrow_back</span>
+      <span class="material-symbols-outlined text-xl cursor-pointer"
+        >arrow_back</span
+      >
       Add Vendor
     </button>
 
     <form id="add-vendor-form" class="space-y-6">
       <div
-        class="bg-white border border-gray-200 rounded-2xl p-6 grid sm:grid-cols-2 gap-5 shadow-sm"
+        class="bg-white border border-light-medium rounded-2xl p-6 grid sm:grid-cols-2 gap-5 shadow-sm"
       >
         <div>
           <label
             for="vendor-select"
-            class="block text-sm font-medium text-[#212121] mb-1.5"
+            class="block text-base font-normal text-ink mb-1.5"
             >Select Vendor</label
           >
           <select
             id="vendor-select"
             name="vendor_id"
-            class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-[#212121] focus:outline-none focus:ring-2 focus:ring-[#F5C14A]"
+            class="w-full rounded-lg border border-input-border bg-input-div px-3 py-2.5 text-sm text-[#212121] focus:outline-none focus:ring-2 focus:ring-[#F5C14A]"
           >
             <option value="">Select vendor</option>
             <option value="sizaf">sizaf</option>
@@ -393,13 +646,13 @@
         <div>
           <label
             for="years-experience"
-            class="block text-sm font-medium text-[#212121] mb-1.5"
+            class="block text-base font-normal text-ink mb-1.5"
             >Years of Experience</label
           >
           <select
             id="years-experience"
             name="years_experience"
-            class="w-full rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-[#212121] focus:outline-none focus:ring-2 focus:ring-[#F5C14A]"
+            class="w-full rounded-lg border border-input-border bg-input-div px-3 py-2.5 text-sm text-[#212121] focus:outline-none focus:ring-2 focus:ring-[#F5C14A]"
           >
             <option value="">Select range</option>
             <option value="0-2">0-2 years</option>
@@ -412,13 +665,13 @@
         <div class="sm:col-span-2">
           <label
             for="primary-specialization"
-            class="block text-sm font-medium text-[#212121] mb-1.5"
+            class="block text-base font-normal text-ink mb-1.5"
             >Primary Specialization</label
           >
           <select
             id="primary-specialization"
             name="primary_specialization"
-            class="w-full sm:w-1/2 rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-[#212121] focus:outline-none focus:ring-2 focus:ring-[#F5C14A]"
+            class="w-full sm:w-1/2 rounded-lg border border-input-border bg-input-div px-3 py-2.5 text-sm text-[#212121] focus:outline-none focus:ring-2 focus:ring-[#F5C14A]"
           >
             <option value="">Select specialization</option>
             <option value="Network Cabling" selected>Network Cabling</option>
@@ -429,149 +682,34 @@
         </div>
       </div>
 
-      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+      <div class="bg-white border border-slate-mist rounded-2xl p-6 shadow-sm">
         <div class="flex items-center justify-between mb-4">
-          <h4 class="font-semibold text-[#212121]">Top Skills</h4>
+          <h4 class="font-bold text-xl text-ink">Top Skills</h4>
           <button
             type="button"
-            class="text-sm font-medium text-[#F5C14A] hover:underline"
+            id="manage-skills-btn"
+            class="text-sm font-medium text-primary-yellow bg-light-emerald rounded-md px-4 py-2 cursor-pointer"
           >
             Manage Skills
           </button>
         </div>
 
-        <div class="grid sm:grid-cols-2 gap-3" id="skills-grid">
-          <label
-            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
-          >
-            <input
-              type="checkbox"
-              name="skills"
-              value="Network Cabling"
-              checked
-              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
-            />
-            Network Cabling
-          </label>
-          <label
-            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
-          >
-            <input
-              type="checkbox"
-              name="skills"
-              value="Server Installation"
-              checked
-              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
-            />
-            Server Installation
-          </label>
-          <label
-            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
-          >
-            <input
-              type="checkbox"
-              name="skills"
-              value="CCTV Systems"
-              checked
-              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
-            />
-            CCTV Systems
-          </label>
-          <label
-            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
-          >
-            <input
-              type="checkbox"
-              name="skills"
-              value="Data Center Setup"
-              checked
-              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
-            />
-            Data Center Setup
-          </label>
-          <label
-            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
-          >
-            <input
-              type="checkbox"
-              name="skills"
-              value="Switch Configuration"
-              checked
-              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
-            />
-            Switch Configuration
-          </label>
-          <label
-            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
-          >
-            <input
-              type="checkbox"
-              name="skills"
-              value="Routing & Switching"
-              checked
-              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
-            />
-            Routing & Switching
-          </label>
-          <label
-            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
-          >
-            <input
-              type="checkbox"
-              name="skills"
-              value="Network Security"
-              checked
-              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
-            />
-            Network Security
-          </label>
-          <label
-            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
-          >
-            <input
-              type="checkbox"
-              name="skills"
-              value="Troubleshooting"
-              checked
-              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
-            />
-            Troubleshooting
-          </label>
-          <label
-            class="flex items-center gap-2 rounded-lg border border-[#F5C14A]/30 bg-[#FFF8E9] px-4 py-2.5 text-sm text-[#212121] cursor-pointer"
-          >
-            <input
-              type="checkbox"
-              name="skills"
-              value="Firewall Management"
-              checked
-              class="w-3.5 h-3.5 rounded-full accent-[#F5C14A] shrink-0"
-            />
-            Firewall Management
-          </label>
-
-          <button
-            type="button"
-            id="add-skill"
-            class="flex items-center justify-center gap-1.5 rounded-lg bg-[#F5C14A] text-white text-sm font-medium px-4 py-2.5 hover:bg-[#e0b138] transition-colors"
-          >
-            <span class="material-symbols-outlined text-lg">add</span>
-            Add Skill
-          </button>
-        </div>
+        <!-- Skill pills + hidden inputs are rendered here by JS -->
+        <div class="grid sm:grid-cols-2 gap-3" id="skills-grid"></div>
       </div>
 
-      <div class="flex items-center justify-end gap-3">
+      <div class="flex items-center justify-center gap-3">
         <button
           type="button"
           id="cancel-add-vendor"
-          class="rounded-lg border border-gray-200 px-6 py-2.5 text-sm font-medium text-[#212121] hover:bg-gray-50 transition-colors"
+          class="w-1/2 rounded-lg border border-light-medium py-2.5 text-sm font-semibold text-ink cursor-pointer"
         >
           Cancel
         </button>
+
         <button
           type="submit"
-          class="rounded-lg bg-[#F5C14A] hover:bg-[#e0b138] text-white text-sm font-medium px-6 py-2.5 transition-colors"
+          class="w-1/2 rounded-lg bg-primary-yellow text-white text-sm font-semibold py-2.5 cursor-pointer"
         >
           Save Vendor
         </button>
@@ -580,151 +718,5 @@
   </div>
 </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // ------------------------------------------------------------
-    // DOM ELEMENTS
-    // ------------------------------------------------------------
-
-    const overviewScreen = document.getElementById("screen-overview");
-    const addVendorScreen = document.getElementById("screen-add-vendor");
-
-    const openBtn = document.getElementById("open-add-vendor");
-    const backBtn = document.getElementById("back-to-overview");
-    const cancelBtn = document.getElementById("cancel-add-vendor");
-
-    const addSkillBtn = document.getElementById("add-skill");
-    const skillsGrid = document.getElementById("skills-grid");
-    const form = document.getElementById("add-vendor-form");
-
-    // ------------------------------------------------------------
-    // SCREEN NAVIGATION
-    // ------------------------------------------------------------
-
-    // Show the Add Vendor screen and hide the Overview screen
-    const showAddVendor = () => {
-      overviewScreen.classList.add("hidden");
-      addVendorScreen.classList.remove("hidden");
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    };
-
-    // Return to the Overview screen
-    const showOverview = () => {
-      addVendorScreen.classList.add("hidden");
-      overviewScreen.classList.remove("hidden");
-    };
-
-    // ------------------------------------------------------------
-    // NAVIGATION EVENTS
-    // ------------------------------------------------------------
-
-    openBtn.addEventListener("click", showAddVendor);
-    backBtn.addEventListener("click", showOverview);
-    cancelBtn.addEventListener("click", showOverview);
-
-    // ------------------------------------------------------------
-    // AVAILABILITY TOGGLE
-    // Flips toggle state, track color, thumb position,
-    // status text, and status dot.
-    // ------------------------------------------------------------
-
-    window.toggleAvailability = (btn) => {
-      const isOn = btn.getAttribute("data-on") === "true";
-      const nowOn = !isOn;
-
-      // Update toggle state
-      btn.setAttribute("data-on", nowOn);
-      btn.setAttribute("aria-pressed", nowOn);
-
-      // Get toggle thumb and availability status elements
-      const dot = btn.querySelector(".availability-toggle-dot");
-      const status = document.getElementById("availability-status");
-      const statusDot = document.getElementById("availability-status-dot");
-
-      if (nowOn) {
-        // -------------------------
-        // TOGGLE ON
-        // -------------------------
-
-        btn.classList.remove("bg-gray-300");
-        btn.classList.add("bg-primary-yellow");
-
-        dot.classList.remove("left-1");
-        dot.classList.add("left-6");
-
-        status.textContent = "Online";
-        status.classList.remove("text-granite-gray");
-        status.classList.add("text-bright-green");
-
-        statusDot.classList.remove("bg-gray-300");
-        statusDot.classList.add("bg-bright-green");
-      } else {
-        // -------------------------
-        // TOGGLE OFF
-        // -------------------------
-
-        btn.classList.remove("bg-primary-yellow");
-        btn.classList.add("bg-gray-300");
-
-        dot.classList.remove("left-6");
-        dot.classList.add("left-1");
-
-        status.textContent = "Offline";
-        status.classList.remove("text-bright-green");
-        status.classList.add("text-granite-gray");
-
-        statusDot.classList.remove("bg-bright-green");
-        statusDot.classList.add("bg-gray-300");
-      }
-    };
-
-    // ------------------------------------------------------------
-    // ADD NEW SKILL
-    // Creates a new checkbox/skill item and adds it before
-    // the "Add Skill" button.
-    // ------------------------------------------------------------
-
-    addSkillBtn.addEventListener("click", () => {
-      const skillName = prompt("Skill name");
-
-      // Do nothing if the user cancels or leaves the field empty
-      if (!skillName?.trim()) return;
-
-      const label = document.createElement("label");
-
-      label.className =
-        "flex items-center gap-2 rounded-lg border border-primary/30 bg-primary-light px-4 py-2.5 text-sm text-ink cursor-pointer";
-
-      label.innerHTML = `
-        <input
-          type="checkbox"
-          name="skills"
-          value="${skillName.trim()}"
-          checked
-          class="w-3.5 h-3.5 rounded-full accent-primary shrink-0"
-        >
-        ${skillName.trim()}
-      `;
-
-      skillsGrid.insertBefore(label, addSkillBtn);
-    });
-
-    // ------------------------------------------------------------
-    // SAVE VENDOR FORM
-    // Prevents the default form submission and returns to
-    // the Overview screen.
-    // ------------------------------------------------------------
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      // TODO: Send form data to your save-vendor endpoint
-      showOverview();
-    });
-  });
-</script>
+<script src="{% static 'script/profile/fe-overview.js' %}"></script>
 {% endblock %}

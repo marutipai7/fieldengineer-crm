@@ -1,9 +1,1327 @@
-{% extends "dashboard/field-engineer/layout.html" %}
-
+{% extends "dashboard/field-engineer/layout.html" %} 
+{% load static %}
 {% block title %}Availability - Field Engineer{% endblock %}
-
 {% block content %}
-<div class="space-y-6">
-    Availability
+
+<!-- Profile header -->
+<div
+  class="bg-primary-grayy rounded-2xl p-6 flex items-start justify-between gap-6 flex-wrap shadow-sm"
+>
+  <div class="flex items-start gap-4">
+    <div class="relative h-14 w-14 shrink-0">
+      <!-- Circular Profile Image -->
+
+      <div class="profile-photo-wrapper">
+        <img
+          id="profile-photo"
+          src="/static/img/fe-overview-shams.jpg"
+          alt="Shams Jan"
+          class="profile-photo-image"
+        />
+
+        <!-- Edit Profile Photo -->
+        <button
+          type="button"
+          id="edit-profile-photo"
+          aria-label="Edit profile photo"
+          class="profile-photo-edit"
+        >
+          <span class="material-symbols-outlined"> edit </span>
+        </button>
+      </div>
+
+      <!-- Edit Profile Photo -->
+    </div>
+    <div>
+      <div class="flex items-center gap-1.5">
+        <h2 class="text-3xl font-bold text-dark-navy">Shams Jan</h2>
+         
+        <span class="material-symbols-outlined text-dark-navy-2 text-lg"
+          >check_circle</span
+        >
+      </div>
+
+      <div class="mt-3 text-lg text-dark-navy">
+        <span class="font-medium">Field Engineer</span>
+        <span class="font-normal">vikramsingh@gmail.com</span>
+        <span class="font-normal">+9188003678</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Availability toggle -->
+  <div class="bg-white rounded-xl p-4 w-full sm:w-64 shadow-sm shrink-0">
+    <div class="flex items-center justify-between">
+      <p class="text-base font-bold text-ink">Availability</p>
+
+      <button
+        type="button"
+        id="fe-individual-availability-online-toggle"
+        data-on="true"
+        onclick="toggleFeIndividualAvailabilityOnline(this)"
+        class="fe-individual-availability-online-toggle relative inline-flex h-6 w-11 items-center rounded-full bg-primary-yellow transition-colors duration-200 cursor-pointer"
+        aria-pressed="true"
+        aria-label="Toggle availability"
+      >
+        <span
+          class="fe-individual-availability-online-dot absolute top-1 left-6 h-4 w-4 rounded-full bg-white shadow transition-all duration-200"
+        ></span>
+      </button>
+    </div>
+
+    <!-- Availability Status -->
+    <p class="mt-2 flex items-center gap-1 text-sm font-bold text-bright-green">
+      <span
+        id="fe-individual-availability-status-dot"
+        class="h-1.5 w-1.5 rounded-full bg-bright-green"
+      ></span>
+
+      <span id="fe-individual-availability-status"> Online </span>
+    </p>
+
+    <!-- Description -->
+    <p
+      id="fe-individual-availability-description"
+      class="mt-1 text-xs font-normal text-granite-gray"
+    >
+      You are visible for new leads and incoming job requests.
+    </p>
+  </div>
 </div>
+
+<!-- My Availability banner -->
+<a
+  href="#"
+  class="mt-6 flex items-center justify-between gap-4 bg-arctic-white rounded-2xl px-5 py-4"
+>
+  <div class="flex items-center gap-3">
+    <span
+      class="w-12 h-12 rounded-xl flex items-center justify-center text-primary-yellow bg-cloud-blue rounded-md shrink-0"
+    >
+      <span class="material-symbols-outlined text-xl">event_available</span>
+    </span>
+    <div>
+      <p class="text-sm font-semibold text-ink">Weekly Availibility</p>
+    </div>
+  </div>
+</a>
+
+<!-- ============================================================
+     WEEKLY AVAILABILITY
+     ============================================================ -->
+
+<!-- ============================================================
+     FIELD ENGINEER - WEEKLY AVAILABILITY
+     ============================================================ -->
+
+<div class="w-full border-t border-gray-100 pt-6">
+  <!-- Header -->
+  <div class="mb-6 flex items-center justify-between">
+    <p class="text-base font-normal text-medium">
+      Set your regular weekly available hours
+    </p>
+
+    <button
+      type="button"
+      id="fe-individual-availability-reset-hours"
+      class="rounded-xl bg-primary-yellow px-6 py-3 text-lg font-semibold text-white transition-colors hover:opacity-90"
+    >
+      Reset to Default
+    </button>
+  </div>
+
+  <!-- Weekly Availability -->
+  <div
+    id="fe-individual-availability-weekly-hours"
+    class="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-x-32"
+  >
+    <!-- ========================================================
+         MONDAY
+         ======================================================== -->
+
+    <div
+      class="fe-individual-availability-day-row flex items-center gap-5"
+      data-day="monday"
+      data-enabled="true"
+    >
+      <!-- Day -->
+      <span class="w-[80px] shrink-0 text-sm text-dark-navy"> Monday </span>
+
+      <!-- Toggle -->
+      <button
+        type="button"
+        class="fe-individual-availability-toggle relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-primary-yellow transition-colors"
+        aria-label="Toggle Monday availability"
+        aria-pressed="true"
+      >
+        <span
+          class="fe-individual-availability-toggle-knob inline-block h-5 w-5 translate-x-5 rounded-full bg-white shadow transition-transform"
+        ></span>
+      </button>
+
+      <!-- Time Dropdown -->
+      <div class="fe-individual-availability-time-dropdown relative">
+        <button
+          type="button"
+          class="fe-individual-availability-time-trigger flex h-9 w-[180px] items-center justify-between rounded-md border border-gray-200 bg-gray-50 px-3 text-dark-navy transition-colors hover:border-gray-300"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <span class="fe-individual-availability-selected-time text-xs">
+            09:00 AM - 07:00 PM
+          </span>
+
+          <span
+            class="material-symbols-outlined fe-individual-availability-dropdown-icon text-[17px] text-gray-500 transition-transform"
+          >
+            keyboard_arrow_down
+          </span>
+        </button>
+
+        <!-- Custom Dropdown -->
+        <div
+          class="fe-individual-availability-time-menu absolute left-0 top-11 z-30 hidden w-[210px] rounded-lg border border-gray-200 bg-white p-2 shadow-lg"
+          role="listbox"
+        >
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 05:00 PM"
+          >
+            09:00 AM - 05:00 PM
+          </button>
+
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 06:00 PM"
+          >
+            09:00 AM - 06:00 PM
+          </button>
+
+          <button
+            type="button"
+            class="fe-individual-availability-time-option selected"
+            data-value="09:00 AM - 07:00 PM"
+          >
+            09:00 AM - 07:00 PM
+          </button>
+
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 08:00 PM"
+          >
+            09:00 AM - 08:00 PM
+          </button>
+
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 06:00 PM"
+          >
+            10:00 AM - 06:00 PM
+          </button>
+
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 07:00 PM"
+          >
+            10:00 AM - 07:00 PM
+          </button>
+
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 08:00 PM"
+          >
+            10:00 AM - 08:00 PM
+          </button>
+
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 07:00 PM"
+          >
+            11:00 AM - 07:00 PM
+          </button>
+
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 08:00 PM"
+          >
+            11:00 AM - 08:00 PM
+          </button>
+
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="12:00 PM - 08:00 PM"
+          >
+            12:00 PM - 08:00 PM
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         TUESDAY
+         ======================================================== -->
+
+    <div
+      class="fe-individual-availability-day-row flex items-center gap-5"
+      data-day="tuesday"
+      data-enabled="true"
+    >
+      <span class="w-[80px] shrink-0 text-sm text-dark-navy"> Tuesday </span>
+
+      <button
+        type="button"
+        class="fe-individual-availability-toggle relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-primary-yellow transition-colors"
+        aria-label="Toggle Tuesday availability"
+        aria-pressed="true"
+      >
+        <span
+          class="fe-individual-availability-toggle-knob inline-block h-5 w-5 translate-x-5 rounded-full bg-white shadow transition-transform"
+        ></span>
+      </button>
+
+      <div class="fe-individual-availability-time-dropdown relative">
+        <button
+          type="button"
+          class="fe-individual-availability-time-trigger flex h-9 w-[180px] items-center justify-between rounded-md border border-gray-200 bg-gray-50 px-3 text-dark-navy transition-colors hover:border-gray-300"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <span class="fe-individual-availability-selected-time text-xs">
+            09:00 AM - 07:00 PM
+          </span>
+
+          <span
+            class="material-symbols-outlined fe-individual-availability-dropdown-icon text-[17px] text-gray-500 transition-transform"
+          >
+            keyboard_arrow_down
+          </span>
+        </button>
+
+        <div
+          class="fe-individual-availability-time-menu absolute left-0 top-11 z-30 hidden w-[210px] rounded-lg border border-gray-200 bg-white p-2 shadow-lg"
+          role="listbox"
+        >
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 05:00 PM"
+          >
+            09:00 AM - 05:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 06:00 PM"
+          >
+            09:00 AM - 06:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option selected"
+            data-value="09:00 AM - 07:00 PM"
+          >
+            09:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 08:00 PM"
+          >
+            09:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 06:00 PM"
+          >
+            10:00 AM - 06:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 07:00 PM"
+          >
+            10:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 08:00 PM"
+          >
+            10:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 07:00 PM"
+          >
+            11:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 08:00 PM"
+          >
+            11:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="12:00 PM - 08:00 PM"
+          >
+            12:00 PM - 08:00 PM
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         WEDNESDAY
+         ======================================================== -->
+
+    <div
+      class="fe-individual-availability-day-row flex items-center gap-5"
+      data-day="wednesday"
+      data-enabled="true"
+    >
+      <span class="w-[80px] shrink-0 text-sm text-dark-navy"> Wednesday </span>
+
+      <button
+        type="button"
+        class="fe-individual-availability-toggle relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-primary-yellow transition-colors"
+        aria-label="Toggle Wednesday availability"
+        aria-pressed="true"
+      >
+        <span
+          class="fe-individual-availability-toggle-knob inline-block h-5 w-5 translate-x-5 rounded-full bg-white shadow transition-transform"
+        ></span>
+      </button>
+
+      <div class="fe-individual-availability-time-dropdown relative">
+        <button
+          type="button"
+          class="fe-individual-availability-time-trigger flex h-9 w-[180px] items-center justify-between rounded-md border border-gray-200 bg-gray-50 px-3 text-dark-navy transition-colors hover:border-gray-300"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <span class="fe-individual-availability-selected-time text-xs">
+            09:00 AM - 07:00 PM
+          </span>
+
+          <span
+            class="material-symbols-outlined fe-individual-availability-dropdown-icon text-[17px] text-gray-500 transition-transform"
+          >
+            keyboard_arrow_down
+          </span>
+        </button>
+
+        <div
+          class="fe-individual-availability-time-menu absolute left-0 top-11 z-30 hidden w-[210px] rounded-lg border border-gray-200 bg-white p-2 shadow-lg"
+          role="listbox"
+        >
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 05:00 PM"
+          >
+            09:00 AM - 05:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 06:00 PM"
+          >
+            09:00 AM - 06:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option selected"
+            data-value="09:00 AM - 07:00 PM"
+          >
+            09:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 08:00 PM"
+          >
+            09:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 06:00 PM"
+          >
+            10:00 AM - 06:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 07:00 PM"
+          >
+            10:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 08:00 PM"
+          >
+            10:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 07:00 PM"
+          >
+            11:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 08:00 PM"
+          >
+            11:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="12:00 PM - 08:00 PM"
+          >
+            12:00 PM - 08:00 PM
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         THURSDAY
+         ======================================================== -->
+
+    <div
+      class="fe-individual-availability-day-row flex items-center gap-5"
+      data-day="thursday"
+      data-enabled="true"
+    >
+      <span class="w-[80px] shrink-0 text-sm text-dark-navy"> Thursday </span>
+
+      <button
+        type="button"
+        class="fe-individual-availability-toggle relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-primary-yellow transition-colors"
+        aria-label="Toggle Thursday availability"
+        aria-pressed="true"
+      >
+        <span
+          class="fe-individual-availability-toggle-knob inline-block h-5 w-5 translate-x-5 rounded-full bg-white shadow transition-transform"
+        ></span>
+      </button>
+
+      <div class="fe-individual-availability-time-dropdown relative">
+        <button
+          type="button"
+          class="fe-individual-availability-time-trigger flex h-9 w-[180px] items-center justify-between rounded-md border border-gray-200 bg-gray-50 px-3 text-dark-navy transition-colors hover:border-gray-300"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <span class="fe-individual-availability-selected-time text-xs">
+            09:00 AM - 07:00 PM
+          </span>
+
+          <span
+            class="material-symbols-outlined fe-individual-availability-dropdown-icon text-[17px] text-gray-500 transition-transform"
+          >
+            keyboard_arrow_down
+          </span>
+        </button>
+
+        <div
+          class="fe-individual-availability-time-menu absolute left-0 top-11 z-30 hidden w-[210px] rounded-lg border border-gray-200 bg-white p-2 shadow-lg"
+          role="listbox"
+        >
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 05:00 PM"
+          >
+            09:00 AM - 05:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 06:00 PM"
+          >
+            09:00 AM - 06:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option selected"
+            data-value="09:00 AM - 07:00 PM"
+          >
+            09:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 08:00 PM"
+          >
+            09:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 06:00 PM"
+          >
+            10:00 AM - 06:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 07:00 PM"
+          >
+            10:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 08:00 PM"
+          >
+            10:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 07:00 PM"
+          >
+            11:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 08:00 PM"
+          >
+            11:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="12:00 PM - 08:00 PM"
+          >
+            12:00 PM - 08:00 PM
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         FRIDAY
+         ======================================================== -->
+
+    <div
+      class="fe-individual-availability-day-row flex items-center gap-5"
+      data-day="friday"
+      data-enabled="true"
+    >
+      <span class="w-[80px] shrink-0 text-sm text-dark-navy"> Friday </span>
+
+      <button
+        type="button"
+        class="fe-individual-availability-toggle relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-primary-yellow transition-colors"
+        aria-label="Toggle Friday availability"
+        aria-pressed="true"
+      >
+        <span
+          class="fe-individual-availability-toggle-knob inline-block h-5 w-5 translate-x-5 rounded-full bg-white shadow transition-transform"
+        ></span>
+      </button>
+
+      <div class="fe-individual-availability-time-dropdown relative">
+        <button
+          type="button"
+          class="fe-individual-availability-time-trigger flex h-9 w-[180px] items-center justify-between rounded-md border border-gray-200 bg-gray-50 px-3 text-dark-navy transition-colors hover:border-gray-300"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <span class="fe-individual-availability-selected-time text-xs">
+            09:00 AM - 07:00 PM
+          </span>
+
+          <span
+            class="material-symbols-outlined fe-individual-availability-dropdown-icon text-[17px] text-gray-500 transition-transform"
+          >
+            keyboard_arrow_down
+          </span>
+        </button>
+
+        <div
+          class="fe-individual-availability-time-menu absolute left-0 top-11 z-30 hidden w-[210px] rounded-lg border border-gray-200 bg-white p-2 shadow-lg"
+          role="listbox"
+        >
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 05:00 PM"
+          >
+            09:00 AM - 05:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 06:00 PM"
+          >
+            09:00 AM - 06:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option selected"
+            data-value="09:00 AM - 07:00 PM"
+          >
+            09:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 08:00 PM"
+          >
+            09:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 06:00 PM"
+          >
+            10:00 AM - 06:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 07:00 PM"
+          >
+            10:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 08:00 PM"
+          >
+            10:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 07:00 PM"
+          >
+            11:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 08:00 PM"
+          >
+            11:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="12:00 PM - 08:00 PM"
+          >
+            12:00 PM - 08:00 PM
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         SATURDAY
+         ======================================================== -->
+
+    <div
+      class="fe-individual-availability-day-row flex items-center gap-5"
+      data-day="saturday"
+      data-enabled="true"
+    >
+      <span class="w-[80px] shrink-0 text-sm text-dark-navy"> Saturday </span>
+
+      <button
+        type="button"
+        class="fe-individual-availability-toggle relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-primary-yellow transition-colors"
+        aria-label="Toggle Saturday availability"
+        aria-pressed="true"
+      >
+        <span
+          class="fe-individual-availability-toggle-knob inline-block h-5 w-5 translate-x-5 rounded-full bg-white shadow transition-transform"
+        ></span>
+      </button>
+
+      <div class="fe-individual-availability-time-dropdown relative">
+        <button
+          type="button"
+          class="fe-individual-availability-time-trigger flex h-9 w-[180px] items-center justify-between rounded-md border border-gray-200 bg-gray-50 px-3 text-dark-navy transition-colors hover:border-gray-300"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <span class="fe-individual-availability-selected-time text-xs">
+            09:00 AM - 07:00 PM
+          </span>
+
+          <span
+            class="material-symbols-outlined fe-individual-availability-dropdown-icon text-[17px] text-gray-500 transition-transform"
+          >
+            keyboard_arrow_down
+          </span>
+        </button>
+
+        <div
+          class="fe-individual-availability-time-menu absolute left-0 top-11 z-30 hidden w-[210px] rounded-lg border border-gray-200 bg-white p-2 shadow-lg"
+          role="listbox"
+        >
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 05:00 PM"
+          >
+            09:00 AM - 05:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 06:00 PM"
+          >
+            09:00 AM - 06:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option selected"
+            data-value="09:00 AM - 07:00 PM"
+          >
+            09:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="09:00 AM - 08:00 PM"
+          >
+            09:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 06:00 PM"
+          >
+            10:00 AM - 06:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 07:00 PM"
+          >
+            10:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="10:00 AM - 08:00 PM"
+          >
+            10:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 07:00 PM"
+          >
+            11:00 AM - 07:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="11:00 AM - 08:00 PM"
+          >
+            11:00 AM - 08:00 PM
+          </button>
+          <button
+            type="button"
+            class="fe-individual-availability-time-option"
+            data-value="12:00 PM - 08:00 PM"
+          >
+            12:00 PM - 08:00 PM
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         SUNDAY
+         ======================================================== -->
+
+    <div
+      class="fe-individual-availability-day-row flex items-center gap-5"
+      data-day="sunday"
+      data-enabled="false"
+    >
+      <span class="w-[80px] shrink-0 text-sm text-dark-navy"> Sunday </span>
+
+      <button
+        type="button"
+        class="fe-individual-availability-toggle relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-gray-200 transition-colors"
+        aria-label="Toggle Sunday availability"
+        aria-pressed="false"
+      >
+        <span
+          class="fe-individual-availability-toggle-knob inline-block h-5 w-5 translate-x-0 rounded-full bg-white shadow transition-transform"
+        ></span>
+      </button>
+
+      <span
+        class="fe-individual-availability-not-available text-xs text-gray-500"
+      >
+        Not Available
+      </span>
+
+      <div
+        class="fe-individual-availability-time-dropdown relative hidden"
+      ></div>
+    </div>
+  </div>
+</div>
+
+<!-- Performance / Month overview -->
+<div class="grid md:grid-cols-2 gap-6 mt-6">
+  <div class="bg-white-33 border border-slate-mist rounded-2xl p-5 shadow-md">
+    <div class="flex items-center gap-3">
+      <span
+        class="w-12 h-12 rounded-xl flex items-center justify-center text-bright-medium-blue bg-cloud-blue rounded-md shrink-0"
+      >
+        <span class="material-symbols-outlined text-xl">bar_chart</span>
+      </span>
+      <div>
+        <p class="text-base font-semibold text-ink">Availability Summary</p>
+      </div>
+    </div>
+    <ul class="divide-y divide-soft-slate">
+      <li class="flex items-center justify-between py-2.5 mt-2">
+        <span
+          class="flex items-center gap-2 text-chat-text text-sm font-normal"
+        >
+          <span class="material-symbols-outlined text-chat-text text-base"
+            >schedule</span
+          >
+          Weekly Available Hours
+        </span>
+        <span class="font-semibold text-sm text-almost-black">42 Hours</span>
+      </li>
+      <li class="flex items-center justify-between py-2.5">
+        <span
+          class="flex items-center gap-2 text-chat-text text-sm font-normal"
+        >
+          <span class="material-symbols-outlined text-chat-text text-base"
+            >event_available</span
+          >
+          Weekend Availability
+        </span>
+        <span class="font-semibold text-sm text-spend-green">Yes</span>
+      </li>
+      <li class="flex items-center justify-between py-2.5">
+        <span
+          class="flex items-center gap-2 text-chat-text text-sm font-normal"
+        >
+          <span class="material-symbols-outlined text-chat-text text-base"
+            >timer</span
+          >
+          Shortest Notice Period
+        </span>
+        <span class="font-semibold text-sm text-almost-black">2 Hours</span>
+      </li>
+      <li class="flex items-center justify-between py-2.5">
+        <span
+          class="flex items-center gap-2 text-chat-text text-sm font-normal"
+        >
+          <span class="material-symbols-outlined text-chat-text text-base"
+            >location_on</span
+          >
+          Preferred Radius
+        </span>
+        <span class="font-semibold text-sm text-almost-black">25 KM</span>
+      </li>
+
+      <li class="flex items-center justify-between py-2.5">
+        <span
+          class="flex items-center gap-2 text-chat-text text-sm font-normal"
+        >
+          <span class="material-symbols-outlined text-chat-text text-base"
+            >autorenew</span
+          >
+          Last Updated
+        </span>
+        <span class="font-semibold text-sm text-almost-black"
+          >18 May 2024, 10:30 AM</span
+        >
+      </li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+     AVAILABILITY PREFERENCES
+     ============================================================ -->
+
+  <div class="bg-white-33 border border-slate-mist rounded-2xl p-5 shadow-md">
+    <!-- Header -->
+    <div class="mb-6 flex items-start gap-3">
+      <div
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cloud-blue"
+      >
+        <span
+          class="material-symbols-outlined text-bright-medium-blue text-[20px]"
+        >
+          event_available
+        </span>
+      </div>
+
+      <div>
+        <h4 class="text-base font-semibold text-ink">
+          Availability Preferences
+        </h4>
+
+        <p class="mt-1 text-xs font-normal text-chat-text">
+          Set your job preferences
+        </p>
+      </div>
+    </div>
+
+    <!-- ==========================================================
+       FLEXIBLE WITH LOCATION
+       ========================================================== -->
+
+    <div class="mb-5 flex items-center justify-between gap-4">
+      <div class="flex min-w-0 items-center gap-3">
+        <!-- Location Icon -->
+        <div
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cloud-blue"
+        >
+          <span
+            class="material-symbols-outlined text-bright-medium-blue text-[20px]"
+          >
+            location_on
+          </span>
+        </div>
+
+        <!-- Content -->
+        <div class="min-w-0">
+          <p class="text-sm font-normal leading-tight text-ink">
+            Flexible with Location
+          </p>
+
+          <p class="mt-1 text-xs font-normal text-chat-text">
+            Willing to travel based on job location
+          </p>
+        </div>
+      </div>
+
+      <!-- Location Toggle -->
+      <div class="flex shrink-0 items-center gap-2">
+        <span
+          id="fe-individual-availability-location-label"
+          class="text-xs font-normal text-slate-gray1"
+        >
+          ON
+        </span>
+
+        <button
+          type="button"
+          id="fe-individual-availability-location-toggle"
+          class="fe-individual-availability-preference-toggle relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-primary-yellow transition-colors"
+          aria-label="Toggle flexible with location"
+          aria-pressed="true"
+          data-enabled="true"
+        >
+          <span
+            class="fe-individual-availability-preference-knob inline-block h-5 w-5 translate-x-5 rounded-full bg-white shadow transition-transform"
+          ></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ==========================================================
+       SHORT NOTICE JOBS
+       ========================================================== -->
+
+    <div class="flex items-center justify-between gap-4">
+      <div class="flex min-w-0 items-center gap-3">
+        <!-- Clock Icon -->
+        <div
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-peach-cream"
+        >
+          <span
+            class="material-symbols-outlined text-bright-orange text-[20px]"
+          >
+            schedule
+          </span>
+        </div>
+
+        <!-- Content -->
+        <div class="min-w-0">
+          <p class="text-sm font-normal leading-tight text-ink">
+            Short Notice Jobs
+          </p>
+
+          <p class="mt-1 text-xs font-normal text-chat-text">
+            Accept jobs with short notice
+          </p>
+        </div>
+      </div>
+
+      <!-- Short Notice Toggle -->
+      <div class="flex shrink-0 items-center gap-2">
+        <span
+          id="fe-individual-availability-notice-label"
+          class="text-xs font-normal text-slate-gray1"
+        >
+          ON
+        </span>
+
+        <button
+          type="button"
+          id="fe-individual-availability-notice-toggle"
+          class="fe-individual-availability-preference-toggle relative inline-flex h-6 w-11 shrink-0 items-center rounded-full bg-primary-yellow transition-colors"
+          aria-label="Toggle short notice jobs"
+          aria-pressed="true"
+          data-enabled="true"
+        >
+          <span
+            class="fe-individual-availability-preference-knob inline-block h-5 w-5 translate-x-5 rounded-full bg-white shadow transition-transform"
+          ></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     AVAILABILITY ACTIONS
+     ============================================================ -->
+
+<div class="mt-6 flex items-center justify-end gap-3">
+  <button
+    type="button"
+    id="fe-individual-availability-cancel"
+    class="rounded-xl  bg-pale-blue-gray1 px-6 py-3 text-sm font-semibold text-cool-medium-gray"
+  >
+    Cancel
+  </button>
+
+  <button
+    type="button"
+    id="fe-individual-availability-save"
+    class="rounded-xl bg-primary-yellow px-6 py-3 text-sm font-semibold text-white transition-colors hover:opacity-90"
+  >
+    Save Changes
+  </button>
+</div>
+
+<!--UPLOAD POPUP-->
+
+<!-- Upload Profile Photo Modal -->
+<div
+  id="profile-photo-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 px-4"
+>
+  <div class="w-full max-w-[300px] rounded-[24px] bg-white px-3 py-3 shadow-xl">
+    <!-- Modal Title -->
+    <h3 class="px-1 pb-3 text-lg font-bold text-ink">Upload Profile Photo</h3>
+
+    <!-- ========================================================= -->
+    <!-- Take Photo -->
+    <!-- ========================================================= -->
+    <button
+      type="button"
+      id="take-photo-btn"
+      class="flex w-full items-center gap-3 rounded-lg px-1 py-2 text-left hover:bg-gray-50 transition-colors"
+    >
+      <!-- Camera Icon -->
+      <span class="flex w-7 justify-center">
+        <span class="material-symbols-outlined text-[20px] text-[#8B5CF6]">
+          photo_camera
+        </span>
+      </span>
+
+      <!-- Text -->
+      <span class="flex-1">
+        <span class="block text-sm font-semibold text-dark"> Take Photo </span>
+
+        <span class="block text-xs font-medium text-granite-gray">
+          Capture new photo
+        </span>
+      </span>
+
+      <!-- Right Arrow -->
+      <span class="flex items-center text-time-gray">
+        <span class="material-symbols-outlined text-[20px]">
+          chevron_right
+        </span>
+      </span>
+    </button>
+
+    <!-- ========================================================= -->
+    <!-- Choose From Gallery -->
+    <!-- ========================================================= -->
+    <button
+      type="button"
+      id="choose-gallery-btn"
+      class="flex w-full items-center gap-3 rounded-lg px-1 py-2 text-left hover:bg-gray-50 transition-colors"
+    >
+      <!-- Gallery Icon -->
+      <span class="flex w-7 justify-center">
+        <span class="material-symbols-outlined text-[20px] text-[#F59E0B]">
+          image
+        </span>
+      </span>
+
+      <!-- Text -->
+      <span class="flex-1">
+        <span class="block text-sm font-semibold text-dark">
+          Choose from Gallery
+        </span>
+
+        <span class="block text-xs font-medium text-granite-gray">
+          Select from your photos
+        </span>
+      </span>
+
+      <!-- Right Arrow -->
+      <span class="flex items-center text-time-gray">
+        <span class="material-symbols-outlined text-[20px]">
+          chevron_right
+        </span>
+      </span>
+    </button>
+
+    <!-- ========================================================= -->
+    <!-- Remove Photo -->
+    <!-- ========================================================= -->
+    <button
+      type="button"
+      id="remove-profile-photo"
+      class="flex w-full items-center gap-3 rounded-lg px-1 py-2 text-left hover:bg-gray-50 transition-colors"
+    >
+      <!-- Delete Icon -->
+      <span class="flex w-7 justify-center">
+        <span class="material-symbols-outlined text-[20px] text-[#FF3B30]">
+          delete
+        </span>
+      </span>
+
+      <!-- Text -->
+      <span class="flex-1">
+        <span class="block text-sm font-semibold text-dark">
+          Remove Photo
+        </span>
+
+        <span class="block text-xs font-medium text-granite-gray">
+          Remove current profile photo
+        </span>
+      </span>
+
+      <!-- Right Arrow -->
+      <span class="flex items-center text-time-gray">
+        <span class="material-symbols-outlined text-[20px]">
+          chevron_right
+        </span>
+      </span>
+    </button>
+
+    <!-- ========================================================= -->
+    <!-- Cancel Button -->
+    <!-- ========================================================= -->
+    <button
+      type="button"
+      id="cancel-profile-photo"
+      class="mt-1 w-full rounded-xl bg-primary-yellow py-1.5 text-sm font-bold text-almost-black shadow-sm cursor-pointer"
+    >
+      Cancel
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<!-- Hidden File Inputs -->
+<!-- ============================================================= -->
+
+<!-- Gallery input -->
+<input type="file" id="gallery-photo-input" accept="image/*" class="hidden" />
+
+<!-- Camera input -->
+<input
+  type="file"
+  id="camera-photo-input"
+  accept="image/*"
+  capture="environment"
+  class="hidden"
+/>
+
+<!-- ========================================================= -->
+<!-- Camera Modal -->
+<!-- ========================================================= -->
+
+<div
+  id="camera-modal"
+  class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/60 px-4"
+>
+  <div
+    class="w-full max-w-[360px] overflow-hidden rounded-2xl bg-white shadow-xl"
+  >
+    <!-- Camera Header -->
+    <div class="flex items-center justify-between px-4 py-3">
+      <h3 class="text-[16px] font-semibold text-[#212121]">Take Photo</h3>
+
+      <button
+        type="button"
+        id="close-camera"
+        aria-label="Close camera"
+        class="flex h-8 w-8 items-center justify-center rounded-full hover:bg-gray-100"
+      >
+        <span class="material-symbols-outlined text-[20px] text-[#212121]">
+          close
+        </span>
+      </button>
+    </div>
+
+    <!-- Camera Preview -->
+    <div class="relative aspect-square w-full overflow-hidden bg-black">
+      <video
+        id="camera-video"
+        autoplay
+        playsinline
+        muted
+        class="h-full w-full object-cover"
+      ></video>
+    </div>
+
+    <!-- Camera Controls -->
+    <div class="flex items-center justify-center px-4 py-4">
+      <button
+        type="button"
+        id="capture-photo"
+        aria-label="Capture photo"
+        class="flex h-14 w-14 items-center justify-center rounded-full border-4 border-gray-200 bg-[#2563EB] shadow-md transition-transform hover:scale-105"
+      >
+        <span class="material-symbols-outlined text-[28px] text-white">
+          photo_camera
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden canvas used to capture the camera frame -->
+<canvas id="camera-canvas" class="hidden"></canvas>
+
+<script src="{% static 'script/profile/fe-overview.js' %}"></script>
+<script src="{% static 'script/profile/fe-availability.js' %}"></script>
+
 {% endblock %}
