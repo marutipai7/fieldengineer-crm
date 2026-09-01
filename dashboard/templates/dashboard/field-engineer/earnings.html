@@ -1,8 +1,906 @@
 {% extends "dashboard/field-engineer/layout-1.html" %}
 {% load static %}
+{% block title %}Field Engineer - Overview{% endblock %}
 
-{% block title %}Payment Methods - Invoices{% endblock %}
 {% block content %}
-<p>Hello earnings</p>
 
+<div class="fe-earnings">
+
+    <!-- =================== PAGE 1: EARNINGS & PAYMENTS =================== -->
+    <section class="fe-page is-active" id="feDashboardPage">
+
+      <div class="fe-hero">
+    <div class="fe-hero-left">
+        <h1 class="text-ink font-bold">Earnings &amp; Payments</h1>
+        <p class="text-granite-gray font-regular">Manage your earnings, withdrawals, invoices, and payout settings.</p>
+        <div class="fe-hero-stats">
+            <div class="fe-stat-box">
+                <div class="fe-stat-label text-ink font-semibold">AVAILABLE</div>
+                <div class="fe-stat-value text-green font-bold">$50,000</div>
+            </div>
+            <div class="fe-stat-box">
+                <div class="fe-stat-label text-ink font-semibold">TOTAL EARNINGS</div>
+                <div class="fe-stat-value text-golden-orange font-bold">$90,000</div>
+            </div>
+            <div class="fe-stat-box">
+                <div class="fe-stat-label text-ink font-semibold">LAST PAYOUT</div>
+                <div class="fe-stat-value text-epic-blue font-bold">$50,000</div>
+            </div>
+        </div>
+        <button class="fe-withdraw-btn bg-primary-yellow font-semibold" type="button" data-fe-open-statement>Download Statement</button>
+    </div>
+    <div class="fe-hero-art">
+        <img src="/static/img/earning-bag.png" alt="Earnings bag illustration">
+    </div>
+</div> <style>
+    .fe-hero-art img {
+    max-width: 320px;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 720px) {
+    .fe-hero-art img {
+        max-width: 220px;
+    }
+}
+</style>
+<p class="text-ink font-bold">Quick action</p> <br>
+        <div class="fe-quick-actions">
+            <div class="fe-quick-card" id="feOpenTransactions">
+                <div class="fe-quick-left">
+                    <div class="fe-quick-icon bg-vivid-blue" ><span class="material-symbols-outlined">
+cycle
+</span></div>
+                    <div>
+                        <p class="fe-quick-title text-ink font-bold">Transactions</p>
+                        <p class="text-sm text-dark font-regular">View all your earning transactions</p>
+                    </div>
+                </div>
+                <span class="fe-quick-arrow"><span class="material-symbols-outlined">
+arrow_forward
+</span></span>
+            </div>
+            <div class="fe-quick-card" data-fe-open-invoice>
+                <div class="fe-quick-left">
+                    <div class="fe-quick-icon bg-light-violet"><span class="material-symbols-outlined">
+description
+</span></div>
+                    <div>
+                        <p class="fe-quick-title text-ink font-bold">Invoices</p>
+                        <p class=" text-sm text-dark font-regular">Download your invoices</p>
+                    </div>
+                </div>
+                <span class="fe-quick-arrow"><span class="material-symbols-outlined">
+arrow_forward
+</span></span>
+            </div>
+        </div>
+
+        <div class="fe-card" style="margin-bottom: 16px;">
+            <div class="fe-overview-head">
+                <p class="fe-panel-title text-ink font-bold" style="margin:0;">Earnings Overview</p>
+                <button class="fe-range-btn" type="button">📅 Date Range</button>
+            </div>
+            <div class="fe-chart-body">
+                <div class="fe-y-axis-title">Total spend in Rupees</div>
+                <div class="fe-y-axis">
+                    <span>₹0k</span><span>₹20k</span><span>₹40k</span><span>₹60k</span><span>₹80k</span>
+                </div>
+                <div class="fe-bars-wrap">
+                    <div class="fe-bars">
+                        <div class="fe-bar-col">
+                            <div class="fe-bar-value">Rs.<br>30k</div>
+                            <div class="fe-bar" style="height:58%;"></div>
+                            <div class="fe-bar-month">Jan</div>
+                        </div>
+                        <div class="fe-bar-col">
+                            <div class="fe-bar-value">Rs.<br>30k</div>
+                            <div class="fe-bar" style="height:58%;"></div>
+                            <div class="fe-bar-month">Feb</div>
+                        </div>
+                        <div class="fe-bar-col">
+                            <div class="fe-bar-value">Rs.<br>30k</div>
+                            <div class="fe-bar" style="height:52%;"></div>
+                            <div class="fe-bar-month">Mar</div>
+                        </div>
+                        <div class="fe-bar-col">
+                            <div class="fe-bar-value">Rs.<br>30k</div>
+                            <div class="fe-bar" style="height:88%;"></div>
+                            <div class="fe-bar-month">Apr</div>
+                        </div>
+                        <div class="fe-bar-col">
+                            <div class="fe-bar-value">Rs.<br>30k</div>
+                            <div class="fe-bar" style="height:60%;"></div>
+                            <div class="fe-bar-month">May</div>
+                        </div>
+                        <div class="fe-bar-col">
+                            <div class="fe-bar-value">Rs.<br>30k</div>
+                            <div class="fe-bar" style="height:90%;"></div>
+                            <div class="fe-bar-month">Jun</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fe-row-2">
+            <div class="fe-card">
+                <div class="fe-panel-head">
+                    <p class="fe-panel-title text-ink font-bold " style="margin:0;">Recent Transactions</p>
+                    <button class="fe-link-btn text-primary-yellow" type="button" data-fe-view-all>View all transactions</button>
+                </div>
+                <div>
+                    <div class="fe-tx-row">
+                        <div class="fe-tx-icon" style="background: var(--blue);">🏢</div>
+                        <div>
+                            <p class="fe-tx-title text-ink font-bold">Network Cabling Setup</p>
+                            <p class="fe-tx-sub font-regular">Office Network Installation • #SZF-847</p>
+                        </div>
+                        <div class="fe-tx-amount">₹1,800<br><span class="fe-pill paid">Paid</span></div>
+                    </div>
+                    <div class="fe-tx-row">
+                        <div class="fe-tx-icon" style="background: var(--gold);">⚙️</div>
+                        <div>
+                            <p class="fe-tx-title">Server Installation</p>
+                            <p class="fe-tx-sub">Server Rack Installation • #SZF-852</p>
+                        </div>
+                        <div class="fe-tx-amount">₹1,800<br><span class="fe-pill paid">Paid</span></div>
+                    </div>
+                    <div class="fe-tx-row">
+                        <div class="fe-tx-icon" style="background: var(--purple);">🔍</div>
+                        <div>
+                            <p class="fe-tx-title">Hardware Inspection</p>
+                            <p class="fe-tx-sub">CCTV Installation • #SZF-819</p>
+                        </div>
+                        <div class="fe-tx-amount">₹1,800<br><span class="fe-pill paid">Paid</span></div>
+                    </div>
+                    <div class="fe-tx-row">
+                        <div class="fe-tx-icon" style="background: var(--teal);">🔲</div>
+                        <div>
+                            <p class="fe-tx-title">Power Check &amp; Configuration</p>
+                            <p class="fe-tx-sub">Office Network Installation • #SZF-847</p>
+                        </div>
+                        <div class="fe-tx-amount">₹1,800<br><span class="fe-pill paid">Paid</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fe-card">
+                <p class="fe-panel-title text-ink font-bold">Earnings Breakdown</p>
+                <div class="fe-donut-wrap">
+                    <div class="fe-donut">
+                        <svg width="132" height="132" viewBox="0 0 132 132">
+                            <circle cx="66" cy="66" r="54" fill="none" stroke="#ECEEF3" stroke-width="16" />
+                            <circle cx="66" cy="66" r="54" fill="none" stroke="#4E7CF6" stroke-width="16"
+                                stroke-dasharray="339.3" stroke-dashoffset="0" />
+                            <circle cx="66" cy="66" r="54" fill="none" stroke="#2FBF9F" stroke-width="16"
+                                stroke-dasharray="339.3" stroke-dashoffset="220" />
+                            <circle cx="66" cy="66" r="54" fill="none" stroke="#7C5CFC" stroke-width="16"
+                                stroke-dasharray="339.3" stroke-dashoffset="290" />
+                            <circle cx="66" cy="66" r="54" fill="none" stroke="#F6A821" stroke-width="16"
+                                stroke-dasharray="339.3" stroke-dashoffset="320" />
+                        </svg>
+                        <div class="fe-donut-center"><span class="lbl">TOTAL EARNED</span><span
+                                class="val">$72,450</span></div>
+                    </div>
+                    <div class="fe-legend">
+                        <div class="fe-legend-row"><span><span class="fe-legend-dot"
+                                    style="background:var(--blue);"></span>Job Amount</span><b>₹72,450</b></div>
+                        <div class="fe-legend-row"><span><span class="fe-legend-dot"
+                                    style="background:var(--teal);"></span>Engineer Earnings</span><b>₹60,880</b></div>
+                        <div class="fe-legend-row"><span><span class="fe-legend-dot"
+                                    style="background:var(--purple);"></span>Platform Fee</span><b>-₹6,880</b></div>
+                        <div class="fe-legend-row"><span><span class="fe-legend-dot"
+                                    style="background:var(--gold);"></span>GST (18%)</span><b>-₹4,690</b></div>
+                        <div class="fe-legend-total"><span>Final Amount You Earn</span><span>$60,800</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fe-row-2">
+            <div class="fe-card">
+                <p class="fe-panel-title text-ink font-semibold">Payment Methods</p>
+                <div class="fe-pm-row">
+                    <div class="fe-pm-icon">🏦</div>
+                    <div>
+                        <p class="fe-pm-name">HDFC Bank</p>
+                        <p class="fe-pm-sub">HDFC Savings A/C ...1254 · IFSC HDFC0001234</p>
+                    </div>
+                    <span class="fe-pm-default">Primary</span>
+                    <div class="fe-pm-menu-wrap">
+                        <span class="fe-pm-menu" data-fe-pm-menu>⋮</span>
+                        <div class="fe-pm-dropdown" data-fe-pm-dropdown>
+                            <button type="button" class="fe-pm-dropdown-item" data-fe-edit-method
+                                data-method-type="netbanking" data-card-name="HDFC Bank">✏️ Edit</button>
+                            <button type="button" class="fe-pm-dropdown-item danger">🗑️ Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fe-pm-row">
+                    <div class="fe-pm-icon">🏦</div>
+                    <div>
+                        <p class="fe-pm-name">SBI Bank</p>
+                        <p class="fe-pm-sub">SBI Current A/C ...5678 · IFSC SBIN0012345</p>
+                    </div>
+                    <div class="fe-pm-menu-wrap" style="margin-left:auto;">
+                        <span class="fe-pm-menu" data-fe-pm-menu>⋮</span>
+                        <div class="fe-pm-dropdown" data-fe-pm-dropdown>
+                            <button type="button" class="fe-pm-dropdown-item" data-fe-edit-method
+                                data-method-type="netbanking" data-card-name="SBI Bank">✏️ Edit</button>
+                            <button type="button" class="fe-pm-dropdown-item danger">🗑️ Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fe-pm-row">
+                    <div class="fe-pm-icon">💳</div>
+                    <div>
+                        <p class="fe-pm-name">Credit Card</p>
+                        <p class="fe-pm-sub">Axis Credit Card ...9876</p>
+                    </div>
+                    <div class="fe-pm-menu-wrap" style="margin-left:auto;">
+                        <span class="fe-pm-menu" data-fe-pm-menu>⋮</span>
+                        <div class="fe-pm-dropdown" data-fe-pm-dropdown>
+                            <button type="button" class="fe-pm-dropdown-item" data-fe-edit-method
+                                data-method-type="card" data-card-name="Credit Card">✏️ Edit</button>
+                            <button type="button" class="fe-pm-dropdown-item danger">🗑️ Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fe-pm-row">
+                    <div class="fe-pm-icon">📱</div>
+                    <div>
+                        <p class="fe-pm-name">UPI acme@paytm</p>
+                        <p class="fe-pm-sub">UPI ID acme@paytm</p>
+                    </div>
+                    <div class="fe-pm-menu-wrap" style="margin-left:auto;">
+                        <span class="fe-pm-menu" data-fe-pm-menu>⋮</span>
+                        <div class="fe-pm-dropdown" data-fe-pm-dropdown>
+                            <button type="button" class="fe-pm-dropdown-item" data-fe-edit-method data-method-type="upi"
+                                data-card-name="acme@paytm">✏️ Edit</button>
+                            <button type="button" class="fe-pm-dropdown-item danger">🗑️ Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="fe-add-pm" type="button" data-fe-open-choose-pm>+ Add Payment Method</button>
+            </div>
+
+
+            <div class="fe-card">
+                <p class="fe-panel-title font-semibold text-ink">Download Center</p>
+                <div class="fe-dl-row" data-fe-open-statement>
+                    <div class="fe-dl-icon" style="background:#FDF1DC; color:var(--gold-dark);">📄</div>
+                    <p class="fe-dl-name">Download GST Report</p>
+                    <span class="fe-dl-arrow">⬇</span>
+                </div>
+                <div class="fe-dl-row" data-fe-open-statement>
+                    <div class="fe-dl-icon" style="background:#E4F8EF; color:#1E9E6C;">📊</div>
+                    <p class="fe-dl-name">Download Expense Report</p>
+                    <span class="fe-dl-arrow">⬇</span>
+                </div>
+                <div class="fe-dl-row" data-fe-open-statement>
+                    <div class="fe-dl-icon" style="background:#EFEBFF; color:var(--purple);">🧾</div>
+                    <p class="fe-dl-name">Download All Invoices</p>
+                    <span class="fe-dl-arrow">⬇</span>
+                </div>
+                <div class="fe-dl-row" data-fe-open-statement>
+                    <div class="fe-dl-icon" style="background:#FDF1DC; color:var(--gold-dark);">🗂️</div>
+                    <p class="fe-dl-name">Export as CSV</p>
+                    <span class="fe-dl-arrow">⬇</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="fe-card">
+            <div class="fe-table-head">
+                <p class="fe-panel-title" style="margin:0;">Invoice History</p>
+                <div class="fe-search-row">
+                    <input class="fe-search" type="text" placeholder="🔍 Search invoice">
+                    <button class="fe-ghost-btn" type="button">📅 Date Range</button>
+                    <button class="fe-ghost-btn" type="button">▤ Filters</button>
+                </div>
+            </div>
+            <div class="fe-tabs-row">
+                <div class="fe-tabs">
+                    <button class="fe-tab active" type="button">All</button>
+                    <button class="fe-tab" type="button">Paid</button>
+                    <button class="fe-tab" type="button">Pending</button>
+                    <button class="fe-tab" type="button">Refunded</button>
+                </div>
+                <button class="fe-link-btn" type="button" data-fe-view-invoices>View All Invoices</button>
+            </div>
+            <table class="fe-table">
+                <thead>
+                    <tr>
+                        <th>Invoice ID</th>
+                        <th>Booking ID</th>
+                        <th>Service</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Invoice Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>INV-2026-001</td>
+                        <td>BK-5684</td>
+                        <td>Network Cabling</td>
+                        <td>Rs. 5,730</td>
+                        <td><span class="fe-pill paid">Paid</span></td>
+                        <td>15 May 2026</td>
+                        <td class="fe-action-icons"><span>👁</span><span data-fe-open-invoice>⬇</span></td>
+                    </tr>
+                    <tr>
+                        <td>INV-2026-002</td>
+                        <td>BK-5684</td>
+                        <td>Rack Installation</td>
+                        <td>Rs. 5,730</td>
+                        <td><span class="fe-pill paid">Paid</span></td>
+                        <td>15 May 2026</td>
+                        <td class="fe-action-icons"><span>👁</span><span data-fe-open-invoice>⬇</span></td>
+                    </tr>
+                    <tr>
+                        <td>INV-2026-003</td>
+                        <td>BK-5684</td>
+                        <td>CCTV Installation</td>
+                        <td>Rs. 5,730</td>
+                        <td><span class="fe-pill pending">Pending</span></td>
+                        <td>15 May 2026</td>
+                        <td class="fe-action-icons"><span>👁</span><span data-fe-open-invoice>⬇</span></td>
+                    </tr>
+                    <tr>
+                        <td>INV-2026-004</td>
+                        <td>BK-5684</td>
+                        <td>Fiber Optic</td>
+                        <td>Rs. 5,730</td>
+                        <td><span class="fe-pill pending">Pending</span></td>
+                        <td>15 May 2026</td>
+                        <td class="fe-action-icons"><span>👁</span><span data-fe-open-invoice>⬇</span></td>
+                    </tr>
+                    <tr>
+                        <td>INV-2026-005</td>
+                        <td>BK-5684</td>
+                        <td>Fiber Optic</td>
+                        <td>Rs. 5,730</td>
+                        <td><span class="fe-pill pending">Pending</span></td>
+                        <td>15 May 2026</td>
+                        <td class="fe-action-icons"><span>👁</span><span data-fe-open-invoice>⬇</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- =================== PAGE 2: TRANSACTIONS (hidden by default) =================== -->
+    <section class="fe-page" id="feTransactionsPage">
+        <button class="fe-back" type="button" data-fe-back>‹ Back to earnings</button>
+        <h2 class="fe-tx-title-row">Transactions</h2>
+
+        <div class="fe-stat-strip">
+            <div class="fe-card fe-stat-card">
+                <div class="fe-stat-icon" style="background: var(--gold);">💰</div>
+                <div>
+                    <div class="fe-stat-label">Total payout</div>
+                    <div class="fe-stat-value">$56,999</div>
+                </div>
+            </div>
+            <div class="fe-card fe-stat-card">
+                <div class="fe-stat-icon" style="background: var(--teal);">✅</div>
+                <div>
+                    <div class="fe-stat-label">Completed</div>
+                    <div class="fe-stat-value">14</div>
+                </div>
+            </div>
+            <div class="fe-card fe-stat-card">
+                <div class="fe-stat-icon" style="background: var(--purple);">⏳</div>
+                <div>
+                    <div class="fe-stat-label">Processing</div>
+                    <div class="fe-stat-value">2</div>
+                </div>
+            </div>
+            <div class="fe-card fe-stat-card">
+                <div class="fe-stat-icon" style="background: var(--pink);">📆</div>
+                <div>
+                    <div class="fe-stat-label">This month</div>
+                    <div class="fe-stat-value">$100</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fe-card">
+            <div class="fe-tx-toolbar">
+                <input class="fe-search" type="text" placeholder="🔍 Search transactions">
+                <div class="fe-toolbar-actions">
+                    <button class="fe-ghost-btn" type="button">📅 Date range</button>
+                    <button class="fe-ghost-btn" type="button">▤ Filters</button>
+                </div>
+            </div>
+
+            <div class="fe-tx-list-row fe-tx-list-head">
+                <div>Job</div>
+                <div>Date</div>
+                <div>Payment</div>
+                <div>Amount</div>
+                <div>Status</div>
+            </div>
+
+            <div id="feTxListBody"><!-- rows injected by JS --></div>
+
+            <p class="fe-tx-showing" id="feTxShowingText"></p>
+            <div class="fe-pager" id="feTxPager"><!-- pager injected by JS --></div>
+        </div>
+    </section>
+
+    <!-- =================== PAGE 3: INVOICES (hidden by default) =================== -->
+    <section class="fe-page" id="feInvoicesPage">
+        <button class="fe-back" type="button" data-fe-back>‹ Back to Earnings</button>
+        <h2 class="fe-tx-title-row">Invoices</h2>
+
+        <div class="fe-stat-strip">
+            <div class="fe-card fe-stat-card">
+                <div class="fe-stat-icon" style="background: var(--blue);">🕐</div>
+                <div>
+                    <div class="fe-stat-label">Total Payout</div>
+                    <div class="fe-stat-value">$50,999</div>
+                </div>
+            </div>
+            <div class="fe-card fe-stat-card">
+                <div class="fe-stat-icon" style="background: var(--teal);">✅</div>
+                <div>
+                    <div class="fe-stat-label">Completed</div>
+                    <div class="fe-stat-value">14</div>
+                </div>
+            </div>
+            <div class="fe-card fe-stat-card">
+                <div class="fe-stat-icon" style="background: var(--purple);">👍</div>
+                <div>
+                    <div class="fe-stat-label">Processing</div>
+                    <div class="fe-stat-value">3</div>
+                </div>
+            </div>
+            <div class="fe-card fe-stat-card">
+                <div class="fe-stat-icon" style="background: var(--pink);">🗓️</div>
+                <div>
+                    <div class="fe-stat-label">This month</div>
+                    <div class="fe-stat-value">$100</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fe-card">
+            <div class="fe-tx-toolbar">
+                <input class="fe-search" type="text" placeholder="🔍 Search invoice">
+                <div class="fe-toolbar-actions">
+                    <button class="fe-ghost-btn" type="button">📅 Date Range</button>
+                    <button class="fe-ghost-btn" type="button">▤ Filters</button>
+                </div>
+            </div>
+
+            <table class="fe-table">
+                <thead>
+                    <tr>
+                        <th>Invoice ID</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Invoice Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="feInvListBody"><!-- rows injected by JS --></tbody>
+            </table>
+
+            <div class="fe-tx-footer">
+                <p class="fe-tx-showing" id="feInvShowingText" style="margin: 0;"></p>
+                <div class="fe-pager" id="feInvPager"><!-- pager injected by JS --></div>
+                <div class="fe-rows-per-page">
+                    Rows per page:
+                    <select id="feInvPageSize">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================== PAGE 4: STATEMENT MODAL (popup) =================== -->
+    <div class="fe-modal-overlay" id="feStatementOverlay">
+        <div class="fe-modal fe-modal-statement">
+            <div class="fe-modal-head">
+                <h3>Statement</h3>
+                <button class="fe-modal-close" type="button" data-fe-close-statement>✕</button>
+            </div>
+
+            <p class="fe-modal-label">Select Format</p>
+            <label class="fe-format-opt selected" data-fe-format>
+                <input type="radio" name="feFormat" value="csv" checked>
+                <div>
+                    <p class="fe-format-name">CSV</p>
+                    <p class="fe-format-desc">Comma-separated values file, best for spreadsheets.</p>
+                </div>
+            </label>
+            <label class="fe-format-opt" data-fe-format>
+                <input type="radio" name="feFormat" value="pdf">
+                <div>
+                    <p class="fe-format-name">PDF</p>
+                    <p class="fe-format-desc">Portable document format, best for sharing.</p>
+                </div>
+            </label>
+
+            <div class="fe-range-chips" style="margin-top:16px;">
+                <button class="fe-chip active" type="button" data-fe-chip>Last 7 Days</button>
+                <button class="fe-chip" type="button" data-fe-chip>Last 30 Days</button>
+                <button class="fe-chip" type="button" data-fe-chip>This Month</button>
+                <button class="fe-chip" type="button" data-fe-chip>Custom</button>
+            </div>
+
+            <p class="fe-modal-label">Select Date Range</p>
+            <div class="fe-date-inputs">
+                <input type="date" value="2026-08-01">
+                <span style="color:var(--sub);">–</span>
+                <input type="date" value="2026-08-31">
+            </div>
+
+            <button class="fe-export-btn" type="button" data-fe-close-statement>Export</button>
+        </div>
+    </div>
+
+    <!-- =================== MODAL: CHOOSE PAYMENT METHOD =================== -->
+    <div class="fe-modal-overlay" id="feChoosePmOverlay">
+        <div class="fe-modal fe-modal-wide">
+            <div class="fe-modal-head">
+                <h3>Choose Payment Method</h3>
+                <button class="fe-modal-close" type="button" data-fe-close-choose-pm>✕</button>
+            </div>
+
+            <div id="fePmOptionList">
+                <div class="fe-pm-option selected" data-fe-pm-option="card">
+                    <div class="fe-pm-option-radio"><span class="fe-pm-option-radio-dot"></span></div>
+                    <span class="fe-pm-option-icon">💳</span>
+                    <div>
+                        <p class="fe-pm-option-title">Credit / Debit Card</p>
+                        <p class="fe-pm-option-sub">Visa, Mastercard</p>
+                    </div>
+                </div>
+                <div class="fe-pm-option" data-fe-pm-option="upi">
+                    <div class="fe-pm-option-radio"><span class="fe-pm-option-radio-dot"></span></div>
+                    <span class="fe-pm-option-icon">📱</span>
+                    <div>
+                        <p class="fe-pm-option-title">UPI</p>
+                        <p class="fe-pm-option-sub">Google Pay, PhonePe, BHIM</p>
+                    </div>
+                </div>
+                <div class="fe-pm-option" data-fe-pm-option="netbanking">
+                    <div class="fe-pm-option-radio"><span class="fe-pm-option-radio-dot"></span></div>
+                    <span class="fe-pm-option-icon">🏦</span>
+                    <div>
+                        <p class="fe-pm-option-title">Net Banking</p>
+                        <p class="fe-pm-option-sub">All major banks</p>
+                    </div>
+                </div>
+                <div class="fe-pm-option" data-fe-pm-option="wallet">
+                    <div class="fe-pm-option-radio"><span class="fe-pm-option-radio-dot"></span></div>
+                    <span class="fe-pm-option-icon">👛</span>
+                    <div>
+                        <p class="fe-pm-option-title">Wallet</p>
+                        <p class="fe-pm-option-sub">Drodo Credits, Mobikwik</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fe-secure-banner">🔒 Your payment information is secure and encrypted</div>
+
+            <div class="fe-feature-grid">
+                <div class="fe-feature-card">
+                    <div class="fe-feature-icon">⚡</div>
+                    <p class="fe-feature-title">Instant Confirmation</p>
+                    <p class="fe-feature-desc">Get confirmed immediately</p>
+                </div>
+                <div class="fe-feature-card">
+                    <div class="fe-feature-icon">🛡️</div>
+                    <p class="fe-feature-title">Secure &amp; Private</p>
+                    <p class="fe-feature-desc">Data protected always</p>
+                </div>
+                <div class="fe-feature-card">
+                    <div class="fe-feature-icon">🎧</div>
+                    <p class="fe-feature-title">24/7 Support</p>
+                    <p class="fe-feature-desc">Always here to help</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== MODAL: ADD CARD DETAILS =================== -->
+    <div class="fe-modal-overlay" id="feAddCardOverlay">
+        <div class="fe-modal fe-modal-wide">
+            <div class="fe-modal-head">
+                <div>
+                    <h3>Add Card Details</h3>
+                    <p class="fe-modal-subtitle" style="margin-top:4px;">Add your card details for quick and secure
+                        payments.</p>
+                </div>
+                <button class="fe-modal-close" type="button" data-fe-close-add-card>✕</button>
+            </div>
+
+            <div class="fe-card-tabs">
+                <button class="fe-card-tab active" type="button" data-fe-card-tab="add">Credit Card</button>
+                <button class="fe-card-tab" type="button" data-fe-card-tab="add">Debit Card</button>
+            </div>
+
+            <div class="fe-card-details-box">
+                <p class="fe-card-details-title">Card Details</p>
+                <div class="fe-card-form-grid">
+                    <div class="fe-form-field"><label>Name on Card*</label><input type="text" placeholder="Enter name">
+                    </div>
+                    <div class="fe-form-field"><label>Card Number*</label><input type="text"
+                            placeholder="Enter Card number"></div>
+                    <div class="fe-form-field"><label>Expiration Date*</label><input type="text"
+                            placeholder="Enter Expiration Date"></div>
+                    <div class="fe-form-field"><label>CVC Code*</label><input type="text" placeholder="Enter Code">
+                    </div>
+                </div>
+                <div class="fe-secure-banner green">✅ Your payment information is secure and encrypted.</div>
+                <div class="fe-modal-actions">
+                    <button class="fe-btn-outline" type="button" data-fe-close-add-card>Cancel</button>
+                    <button class="fe-btn-gold" type="button" data-fe-close-add-card>Add Card</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== MODAL: EDIT CARD DETAILS =================== -->
+    <div class="fe-modal-overlay" id="feEditCardOverlay">
+        <div class="fe-modal fe-modal-wide">
+            <div class="fe-modal-head">
+                <div>
+                    <h3>Edit Card Details</h3>
+                    <p class="fe-modal-subtitle" style="margin-top:4px;">Add your card details for quick and secure
+                        payments.</p>
+                </div>
+                <button class="fe-modal-close" type="button" data-fe-close-edit-card>✕</button>
+            </div>
+
+            <div class="fe-card-tabs">
+                <button class="fe-card-tab active" type="button" data-fe-card-tab="edit">Credit Card</button>
+                <button class="fe-card-tab" type="button" data-fe-card-tab="edit">Debit Card</button>
+            </div>
+
+            <div class="fe-card-details-box">
+                <p class="fe-card-details-title">Card Details</p>
+                <div class="fe-card-form-grid">
+                    <div class="fe-form-field edit-mode"><label>Name on Card*</label><input type="text"
+                            placeholder="Enter name" id="feEditCardName"></div>
+                    <div class="fe-form-field edit-mode"><label>Card Number*</label><input type="text"
+                            placeholder="Enter Card number"></div>
+                    <div class="fe-form-field edit-mode"><label>Expiration Date*</label><input type="text"
+                            placeholder="Enter Expiration Date"></div>
+                    <div class="fe-form-field edit-mode"><label>CVC Code*</label><input type="text"
+                            placeholder="Enter Code"></div>
+                </div>
+                <div class="fe-secure-banner green">✅ Your payment information is secure and encrypted.</div>
+                <div class="fe-modal-actions">
+                    <button class="fe-btn-outline" type="button" data-fe-close-edit-card>Cancel</button>
+                    <button class="fe-btn-gold" type="button" data-fe-close-edit-card>Add Card</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== MODAL: ADD / EDIT UPI ID =================== -->
+    <div class="fe-modal-overlay" id="feUpiOverlay">
+        <div class="fe-modal fe-modal-wide">
+            <div class="fe-modal-head">
+                <div>
+                    <h3 id="feUpiModalTitle">Add UPI ID</h3>
+                    <p class="fe-modal-subtitle" style="margin-top:4px;">Link your UPI account for quick and secure
+                        payments.</p>
+                </div>
+                <button class="fe-modal-close" type="button" data-fe-close-upi>✕</button>
+            </div>
+
+            <div class="fe-card-details-box">
+                <p class="fe-card-details-title">UPI ID details</p>
+                <div class="fe-form-field" id="feUpiFormField" style="margin-bottom:12px;">
+                    <label>UPI ID</label>
+                    <div class="fe-upi-input-wrap">
+                        <input type="text" placeholder="example@upi" id="feUpiInput">
+                        <span class="fe-upi-badge">UPI</span>
+                    </div>
+                </div>
+                <div class="fe-secure-banner green">✅ Your payment information is secure and encrypted.</div>
+                <div class="fe-modal-actions">
+                    <button class="fe-btn-outline" type="button" data-fe-close-upi>Cancel</button>
+                    <button class="fe-btn-gold" type="button" data-fe-close-upi id="feUpiSubmitBtn">Verify &amp;
+                        Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== MODAL: ADD / EDIT NET BANKING =================== -->
+    <div class="fe-modal-overlay" id="feNetBankingOverlay">
+        <div class="fe-modal fe-modal-wide">
+            <div class="fe-modal-head">
+                <div>
+                    <h3 id="feNetBankingModalTitle">Add Net Banking Details</h3>
+                    <p class="fe-modal-subtitle" style="margin-top:4px;">Link your netbanking account for quick and
+                        secure payments.</p>
+                </div>
+                <button class="fe-modal-close" type="button" data-fe-close-netbanking>✕</button>
+            </div>
+
+            <div class="fe-card-details-box">
+                <p class="fe-card-details-title">Net Banking Details</p>
+                <div class="fe-form-field" style="margin-bottom:12px;">
+                    <label>Select Bank</label>
+                    <select class="fe-select">
+                        <option>Select</option>
+                        <option>HDFC Bank</option>
+                        <option>SBI Bank</option>
+                        <option>ICICI Bank</option>
+                        <option>Axis Bank</option>
+                    </select>
+                </div>
+                <div class="fe-card-form-grid">
+                    <div class="fe-form-field"><label>Account Holder Name*</label><input type="text"
+                            placeholder="Enter name" id="feNetBankingName"></div>
+                    <div class="fe-form-field"><label>Account Number*</label><input type="text"
+                            placeholder="Enter Account number"></div>
+                    <div class="fe-form-field"><label>Confirm Account Number*</label><input type="text"
+                            placeholder="Confirm account number"></div>
+                    <div class="fe-form-field"><label>IFSC Code*</label><input type="text" placeholder="Enter Code">
+                    </div>
+                </div>
+                <div class="fe-secure-banner green">✅ Your payment information is secure and encrypted.</div>
+                <div class="fe-modal-actions">
+                    <button class="fe-btn-outline" type="button" data-fe-close-netbanking>Cancel</button>
+                    <button class="fe-btn-gold" type="button" data-fe-close-netbanking>Verify Bank</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== MODAL: ADD WALLET =================== -->
+    <div class="fe-modal-overlay" id="feWalletOverlay">
+        <div class="fe-modal fe-modal-wide">
+            <div class="fe-modal-head">
+                <div>
+                    <h3>Add Wallet</h3>
+                    <p class="fe-modal-subtitle" style="margin-top:4px;">Link your digital wallet for quick and secure
+                        payments for all your service bookings.</p>
+                </div>
+                <button class="fe-modal-close" type="button" data-fe-close-wallet>✕</button>
+            </div>
+
+            <div class="fe-card-details-box">
+                <p class="fe-card-details-title">Wallet Details</p>
+                <input class="fe-wallet-search" type="text" placeholder="🔍 Search your preferred wallet">
+                <div class="fe-wallet-grid">
+                    <div class="fe-wallet-option selected" data-fe-wallet-option>
+                        <div class="fe-wallet-icon" style="background:#6A4CF2;">P</div>
+                        <div>
+                            <p class="fe-wallet-name">Paytm</p>
+                            <p class="fe-wallet-sub">Link your Paytm Wallet</p>
+                        </div>
+                        <div class="fe-wallet-radio"><span class="fe-wallet-radio-dot"></span></div>
+                    </div>
+                    <div class="fe-wallet-option" data-fe-wallet-option>
+                        <div class="fe-wallet-icon" style="background:#6739B7;">P</div>
+                        <div>
+                            <p class="fe-wallet-name">PhonePe</p>
+                            <p class="fe-wallet-sub">Link your PhonePe Wallet</p>
+                        </div>
+                        <div class="fe-wallet-radio"><span class="fe-wallet-radio-dot"></span></div>
+                    </div>
+                    <div class="fe-wallet-option" data-fe-wallet-option>
+                        <div class="fe-wallet-icon" style="background:#F6A821;">A</div>
+                        <div>
+                            <p class="fe-wallet-name">Amazon Pay</p>
+                            <p class="fe-wallet-sub">Link your Amazon Pay</p>
+                        </div>
+                        <div class="fe-wallet-radio"><span class="fe-wallet-radio-dot"></span></div>
+                    </div>
+                    <div class="fe-wallet-option" data-fe-wallet-option>
+                        <div class="fe-wallet-icon" style="background:#2FBF9F;">M</div>
+                        <div>
+                            <p class="fe-wallet-name">MobiKwik</p>
+                            <p class="fe-wallet-sub">Link your MobiKwik wallet</p>
+                        </div>
+                        <div class="fe-wallet-radio"><span class="fe-wallet-radio-dot"></span></div>
+                    </div>
+                    <div class="fe-wallet-option" data-fe-wallet-option>
+                        <div class="fe-wallet-icon" style="background:#F4438A;">A</div>
+                        <div>
+                            <p class="fe-wallet-name">Airtel Money</p>
+                            <p class="fe-wallet-sub">Link your Airtel Money</p>
+                        </div>
+                        <div class="fe-wallet-radio"><span class="fe-wallet-radio-dot"></span></div>
+                    </div>
+                </div>
+                <div class="fe-secure-banner green" style="margin-top:12px;">✅ <b>Safe &amp; Secure:</b>&nbsp;Your
+                    payment information is encrypted and never stored on our servers. We use bank-grade security
+                    protocols to protect your data.</div>
+                <div class="fe-modal-actions">
+                    <button class="fe-btn-outline" type="button" data-fe-close-wallet>Cancel</button>
+                    <button class="fe-btn-gold" type="button" data-fe-close-wallet>Link Digital Wallet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== MODAL: DOWNLOAD INVOICE =================== -->
+    <div class="fe-modal-overlay" id="feInvoiceOverlay">
+        <div class="fe-modal fe-modal-invoice">
+            <div class="fe-invoice-header">
+                <div class="fe-invoice-header-actions">
+                    <button class="fe-invoice-icon-btn" type="button" title="Share">⤴</button>
+                    <button class="fe-invoice-icon-btn" type="button" title="Download">⬇</button>
+                </div>
+                <h3>Invoice</h3>
+                <button class="fe-modal-close" type="button" data-fe-close-invoice>✕</button>
+            </div>
+
+            <div class="fe-invoice-body">
+                <div class="fe-invoice-center">
+                    <p class="fe-invoice-title-line">TAX INVOICE</p>
+                    <p class="fe-invoice-sub-line">(Under GST – Advertising Service: SAC 998361)</p>
+                </div>
+                <hr class="fe-invoice-rule">
+                <p>Invoice No: <b>INV/AD/2025/0045</b></p>
+                <p>Date: <b>17-May-2025</b></p>
+                <p>&nbsp;</p>
+                <p>Platform Name: <b>MediConnect Digital Services Pvt. Ltd.</b></p>
+                <p>GSTIN: 27PLTFORM7890A1Z3</p>
+                <p>Address: 3rd Floor, Knowledge Tower, Bengaluru – 560034</p>
+                <p>Contact: +91-9988776655 | billing@mediconnect.in</p>
+                <hr class="fe-invoice-rule">
+                <div class="fe-invoice-row-head">
+                    <p><b>Billed To:</b></p>
+                    <span class="fe-invoice-actions-inline">⧉ Copy &nbsp; ✎ Edit</span>
+                </div>
+                <p>Advertiser Name: <b>WellnessFit Nutrition Pvt. Ltd.</b></p>
+                <p>GSTIN: 27WELLFIT1234G1Z9</p>
+                <p>Address: 22, Link Road, Mumbai – 400072</p>
+                <p>Contact: info@wellnessfit.in</p>
+                <hr class="fe-invoice-rule">
+                <p>Order Reference: COUP-ORD-2025/223</p>
+                <p class="fe-invoice-highlight">Campaign Duration: 18-May-2025 to 25-May-2025</p>
+                <hr class="fe-invoice-rule">
+                <p class="fe-invoice-highlight">Description | SAC Code | Qty | Rate | GST % | Total (INR)</p>
+                <p>Coupon Posting – 6 coupons x 10 views<br>(Digital display services) | 998361 | 60 | ₹100.00 | 18% |
+                    ₹6,000.00</p>
+                <hr class="fe-invoice-rule">
+                <p>Subtotal: ₹6,000.00</p>
+                <p>Add: GST @18%: ₹1,080.00</p>
+                <p>Gross Invoice Amount: ₹7,080.00</p>
+                <p class="fe-invoice-highlight">Less: Advance Adjusted (Ref: ADV/2025/0007): ₹100.00</p>
+                <hr class="fe-invoice-rule">
+                <p class="fe-invoice-highlight fe-invoice-bold">Net Payable Now: ₹6,980.00</p>
+                <hr class="fe-invoice-rule">
+                <p>Amount in Words: INR Six Thousand Nine Hundred Eighty Only</p>
+                <p>Mode of Payment: UPI / Bank Transfer</p>
+                <hr class="fe-invoice-rule">
+                <p class="fe-invoice-bold">Notes:</p>
+                <ul class="fe-invoice-notes">
+                    <li>Services pertain to digital advertisement placements on MediConnect Platform.</li>
+                    <li>Advance of ₹100 received earlier has been adjusted.</li>
+                    <li>Input tax credit (ITC) can be claimed on this invoice.</li>
+                    <li>No TDS applicable under Section 194C for online ad media (under ₹30,000 single contract).</li>
+                </ul>
+                <hr class="fe-invoice-rule">
+                <p>Authorized Signatory,</p>
+                <p>[Signature]</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="{% static 'script/pages/earnings.js' %}"></script>
 {% endblock %}
