@@ -402,6 +402,87 @@
                 });
             });
         }
+        document.addEventListener('DOMContentLoaded', () => {
+
+    const feWalletOverlay = document.getElementById('feWalletOverlay');
+    const feWalletOtpOverlay = document.getElementById('feWalletOtpOverlay');
+    const feWalletSuccessOverlay = document.getElementById('feWalletSuccessOverlay');
+    const feOtpBoxes = document.querySelectorAll('#feWalletOtpBoxes .fe-otp-box');
+
+    function showFeSuccess(methodType, idLabel, idValue) {
+        const t = document.getElementById('feSuccessMethodType');
+        const l = document.getElementById('feSuccessIdLabel');
+        const v = document.getElementById('feSuccessIdValue');
+        if (t) t.textContent = methodType;
+        if (l) l.textContent = idLabel;
+        if (v) v.textContent = idValue;
+        if (feWalletSuccessOverlay) feWalletSuccessOverlay.classList.add('is-open');
+    }
+
+    const openWalletOtpBtn = document.querySelector('[data-fe-open-wallet-otp]');
+    if (openWalletOtpBtn) {
+        openWalletOtpBtn.addEventListener('click', () => {
+            const selectedWallet = document.querySelector('.fe-wallet-option.selected .fe-wallet-name');
+            if (feWalletOverlay) feWalletOverlay.classList.remove('is-open');
+            if (feWalletOtpOverlay) feWalletOtpOverlay.classList.add('is-open');
+            if (feOtpBoxes[0]) feOtpBoxes[0].focus();
+            const nameEl = document.getElementById('feWalletSuccessName');
+            if (nameEl) nameEl.textContent = selectedWallet ? selectedWallet.textContent : 'Wallet';
+        });
+    }
+
+    const closeWalletOtpBtn = document.querySelector('[data-fe-close-wallet-otp]');
+    if (closeWalletOtpBtn) {
+        closeWalletOtpBtn.addEventListener('click', () => {
+            if (feWalletOtpOverlay) feWalletOtpOverlay.classList.remove('is-open');
+            if (feWalletOverlay) feWalletOverlay.classList.add('is-open');
+        });
+    }
+
+    const verifyWalletOtpBtn = document.querySelector('[data-fe-verify-wallet-otp]');
+    if (verifyWalletOtpBtn) {
+        verifyWalletOtpBtn.addEventListener('click', () => {
+            const selectedWallet = document.querySelector('.fe-wallet-option.selected .fe-wallet-name');
+            if (feWalletOtpOverlay) feWalletOtpOverlay.classList.remove('is-open');
+            showFeSuccess('Wallet', 'Wallet', selectedWallet ? selectedWallet.textContent : 'Wallet');
+        });
+    }
+
+    const upiSubmitBtn = document.getElementById('feUpiSubmitBtn');
+    if (upiSubmitBtn) {
+        upiSubmitBtn.addEventListener('click', () => {
+            const upiInput = document.getElementById('feUpiInput');
+            const upiValue = (upiInput && upiInput.value) ? upiInput.value : 'rahul@upi';
+            const upiOverlay = document.getElementById('feUpiOverlay');
+            if (upiOverlay) upiOverlay.classList.remove('is-open');
+            showFeSuccess('UPI ID', 'UPI ID', upiValue);
+        });
+    }
+
+    document.querySelectorAll('[data-fe-close-wallet-success]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (feWalletSuccessOverlay) feWalletSuccessOverlay.classList.remove('is-open');
+        });
+    });
+
+    const addAnotherBtn = document.querySelector('[data-fe-add-another-pm]');
+    if (addAnotherBtn) {
+        addAnotherBtn.addEventListener('click', () => {
+            if (feWalletSuccessOverlay) feWalletSuccessOverlay.classList.remove('is-open');
+            if (feWalletOverlay) feWalletOverlay.classList.add('is-open');
+        });
+    }
+
+    feOtpBoxes.forEach((box, i) => {
+        box.addEventListener('input', () => {
+            if (box.value && feOtpBoxes[i + 1]) feOtpBoxes[i + 1].focus();
+        });
+        box.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && !box.value && feOtpBoxes[i - 1]) feOtpBoxes[i - 1].focus();
+        });
+    });
+
+});
 
         function initInvoicesList() {
             invInitialized = true;

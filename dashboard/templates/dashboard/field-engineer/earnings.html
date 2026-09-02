@@ -9,71 +9,61 @@
     <!-- =================== PAGE 1: EARNINGS & PAYMENTS =================== -->
     <section class="fe-page is-active" id="feDashboardPage">
 
-      <div class="fe-hero">
-    <div class="fe-hero-left">
-        <h1 class="text-ink font-bold">Earnings &amp; Payments</h1>
-        <p class="text-granite-gray font-regular">Manage your earnings, withdrawals, invoices, and payout settings.</p>
-        <div class="fe-hero-stats">
-            <div class="fe-stat-box">
-                <div class="fe-stat-label text-ink font-semibold">AVAILABLE</div>
-                <div class="fe-stat-value text-green font-bold">$50,000</div>
+        <div class="fe-hero">
+            <div class="fe-hero-left">
+                <h1 class="text-ink font-bold">Earnings &amp; Payments</h1>
+                <p class="text-granite-gray font-regular">Manage your earnings, withdrawals, invoices, and payout
+                    settings.</p>
+                <div class="fe-hero-stats">
+                    <div class="fe-stat-box">
+                        <div class="fe-stat-label text-ink font-semibold">AVAILABLE</div>
+                        <div class="fe-stat-value text-green font-bold">$50,000</div>
+                    </div>
+                    <div class="fe-stat-box">
+                        <div class="fe-stat-label text-ink font-semibold">TOTAL EARNINGS</div>
+                        <div class="fe-stat-value text-golden-orange font-bold">$90,000</div>
+                    </div>
+                    <div class="fe-stat-box">
+                        <div class="fe-stat-label text-ink font-semibold">LAST PAYOUT</div>
+                        <div class="fe-stat-value text-epic-blue font-bold">$50,000</div>
+                    </div>
+                </div>
+                <button class="fe-withdraw-btn bg-primary-yellow font-semibold" type="button"
+                    data-fe-open-statement>Download Statement</button>
             </div>
-            <div class="fe-stat-box">
-                <div class="fe-stat-label text-ink font-semibold">TOTAL EARNINGS</div>
-                <div class="fe-stat-value text-golden-orange font-bold">$90,000</div>
-            </div>
-            <div class="fe-stat-box">
-                <div class="fe-stat-label text-ink font-semibold">LAST PAYOUT</div>
-                <div class="fe-stat-value text-epic-blue font-bold">$50,000</div>
+            <div class="fe-hero-art">
+                <img src="/static/img/earning-bag.png" alt="Earnings bag illustration">
             </div>
         </div>
-        <button class="fe-withdraw-btn bg-primary-yellow font-semibold" type="button" data-fe-open-statement>Download Statement</button>
-    </div>
-    <div class="fe-hero-art">
-        <img src="/static/img/earning-bag.png" alt="Earnings bag illustration">
-    </div>
-</div> <style>
-    .fe-hero-art img {
-    max-width: 320px;
-    height: auto;
-    display: block;
-}
-
-@media (max-width: 720px) {
-    .fe-hero-art img {
-        max-width: 220px;
-    }
-}
-</style>
-<p class="text-ink font-bold">Quick action</p> <br>
+        <p class="text-ink font-bold">Quick action</p> <br>
         <div class="fe-quick-actions">
             <div class="fe-quick-card" id="feOpenTransactions">
                 <div class="fe-quick-left">
-                    <div class="fe-quick-icon bg-vivid-blue" ><span class="material-symbols-outlined">
-cycle
-</span></div>
+                    <div class="fe-quick-icon bg-vivid-blue"><span class="material-symbols-outlined">
+                            cycle
+                        </span></div>
                     <div>
                         <p class="fe-quick-title text-ink font-bold">Transactions</p>
                         <p class="text-sm text-dark font-regular">View all your earning transactions</p>
                     </div>
                 </div>
                 <span class="fe-quick-arrow"><span class="material-symbols-outlined">
-arrow_forward
-</span></span>
+                        arrow_forward
+                    </span></span>
             </div>
             <div class="fe-quick-card" data-fe-open-invoice>
                 <div class="fe-quick-left">
                     <div class="fe-quick-icon bg-light-violet"><span class="material-symbols-outlined">
-description
-</span></div>
+                            description
+                        </span></div>
                     <div>
                         <p class="fe-quick-title text-ink font-bold">Invoices</p>
                         <p class=" text-sm text-dark font-regular">Download your invoices</p>
                     </div>
                 </div>
                 <span class="fe-quick-arrow"><span class="material-symbols-outlined">
-arrow_forward
-</span></span>
+                        arrow_forward
+                    </span></span>
             </div>
         </div>
 
@@ -128,24 +118,43 @@ arrow_forward
             <div class="fe-card">
                 <div class="fe-panel-head">
                     <p class="fe-panel-title text-ink font-bold " style="margin:0;">Recent Transactions</p>
-                    <button class="fe-link-btn text-primary-yellow" type="button" data-fe-view-all>View all transactions</button>
+                    <button class="fe-link-btn text-primary-yellow" type="button" data-fe-view-all>View all
+                        transactions</button>
                 </div>
                 <div>
-                    <div class="fe-tx-row">
-                        <div class="fe-tx-icon" style="background: var(--blue);">🏢</div>
-                        <div>
-                            <p class="fe-tx-title text-ink font-bold">Network Cabling Setup</p>
-                            <p class="fe-tx-sub font-regular">Office Network Installation • #SZF-847</p>
-                        </div>
-                        <div class="fe-tx-amount">₹1,800<br><span class="fe-pill paid">Paid</span></div>
-                    </div>
+                    <div class="fe-tx-list-row">
+    <div class="fe-service-cell">
+        <div class="fe-tx-icon" style="background: var(--blue);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                <path d="M4 9h16"></path>
+            </svg>
+        </div>
+        <div>
+            <p class="fe-service-name">Network Cabling Setup</p>
+            <p class="fe-service-sub">#GH-6507 · Field engineering</p>
+        </div>
+    </div>
+    <div>
+        <p class="fe-cell-label">Booking date</p>
+        <p class="fe-cell-value">26 Apr 2026</p>
+    </div>
+    <div>
+        <p class="fe-cell-label">Job Payout</p>
+        <p class="fe-cell-value">Bank Transfer</p>
+    </div>
+    <div class="fe-cell-value">$1,900</div>
+    <div><span class="fe-tx-status paid">Paid</span></div>
+</div>
+   
                     <div class="fe-tx-row">
                         <div class="fe-tx-icon" style="background: var(--gold);">⚙️</div>
                         <div>
                             <p class="fe-tx-title">Server Installation</p>
                             <p class="fe-tx-sub">Server Rack Installation • #SZF-852</p>
                         </div>
-                        <div class="fe-tx-amount">₹1,800<br><span class="fe-pill paid">Paid</span></div>
+                        <div class="fe-tx-amount">₹1,800<br><span
+                                class="fe-pill  bg-light-greeen text-green font-regular">Paid</span></div>
                     </div>
                     <div class="fe-tx-row">
                         <div class="fe-tx-icon" style="background: var(--purple);">🔍</div>
@@ -153,7 +162,8 @@ arrow_forward
                             <p class="fe-tx-title">Hardware Inspection</p>
                             <p class="fe-tx-sub">CCTV Installation • #SZF-819</p>
                         </div>
-                        <div class="fe-tx-amount">₹1,800<br><span class="fe-pill paid">Paid</span></div>
+                        <div class="fe-tx-amount">₹1,800<br><span
+                                class="fe-pill  bg-light-greeen text-green font-regular">Paid</span></div>
                     </div>
                     <div class="fe-tx-row">
                         <div class="fe-tx-icon" style="background: var(--teal);">🔲</div>
@@ -161,7 +171,8 @@ arrow_forward
                             <p class="fe-tx-title">Power Check &amp; Configuration</p>
                             <p class="fe-tx-sub">Office Network Installation • #SZF-847</p>
                         </div>
-                        <div class="fe-tx-amount">₹1,800<br><span class="fe-pill paid">Paid</span></div>
+                        <div class="fe-tx-amount">₹1,800<br><span
+                                class="fe-pill  bg-light-greeen text-green font-regular">Paid</span></div>
                     </div>
                 </div>
             </div>
@@ -185,15 +196,17 @@ arrow_forward
                                 class="val">$72,450</span></div>
                     </div>
                     <div class="fe-legend">
-                        <div class="fe-legend-row"><span><span class="fe-legend-dot"
-                                    style="background:var(--blue);"></span>Job Amount</span><b>₹72,450</b></div>
+                        <div class="fe-legend-row "><span><span class="fe-legend-dot"
+                                    style="background:var(--blue);"></span>Job Amount</span><b
+                                class="text-ink font-bold">₹72,450</b></div>
                         <div class="fe-legend-row"><span><span class="fe-legend-dot"
                                     style="background:var(--teal);"></span>Engineer Earnings</span><b>₹60,880</b></div>
                         <div class="fe-legend-row"><span><span class="fe-legend-dot"
                                     style="background:var(--purple);"></span>Platform Fee</span><b>-₹6,880</b></div>
                         <div class="fe-legend-row"><span><span class="fe-legend-dot"
                                     style="background:var(--gold);"></span>GST (18%)</span><b>-₹4,690</b></div>
-                        <div class="fe-legend-total"><span>Final Amount You Earn</span><span>$60,800</span></div>
+                        <div class="fe-legend-total"><span class="text-ink font-bold">Final Amount You Earn</span><span
+                                class="text-primary-yellow font-bold">$60,800</span></div>
                     </div>
                 </div>
             </div>
@@ -263,7 +276,8 @@ arrow_forward
                         </div>
                     </div>
                 </div>
-                <button class="fe-add-pm" type="button" data-fe-open-choose-pm>+ Add Payment Method</button>
+                <button class="fe-add-pm text-primary-yellow font-semibold border b-[#FFC949]" type="button"
+                    data-fe-open-choose-pm>+ Add Payment Method</button>
             </div>
 
 
@@ -271,36 +285,61 @@ arrow_forward
                 <p class="fe-panel-title font-semibold text-ink">Download Center</p>
                 <div class="fe-dl-row" data-fe-open-statement>
                     <div class="fe-dl-icon" style="background:#FDF1DC; color:var(--gold-dark);">📄</div>
-                    <p class="fe-dl-name">Download GST Report</p>
+                    <p class="fe-dl-name text-ink font-regular">Download GST Report</p>
                     <span class="fe-dl-arrow">⬇</span>
                 </div>
                 <div class="fe-dl-row" data-fe-open-statement>
                     <div class="fe-dl-icon" style="background:#E4F8EF; color:#1E9E6C;">📊</div>
-                    <p class="fe-dl-name">Download Expense Report</p>
+                    <p class="fe-dl-name text-ink font-regular">Download Expense Report</p>
                     <span class="fe-dl-arrow">⬇</span>
                 </div>
                 <div class="fe-dl-row" data-fe-open-statement>
                     <div class="fe-dl-icon" style="background:#EFEBFF; color:var(--purple);">🧾</div>
-                    <p class="fe-dl-name">Download All Invoices</p>
+                    <p class="fe-dl-name text-ink font-regular">Download All Invoices</p>
                     <span class="fe-dl-arrow">⬇</span>
                 </div>
                 <div class="fe-dl-row" data-fe-open-statement>
                     <div class="fe-dl-icon" style="background:#FDF1DC; color:var(--gold-dark);">🗂️</div>
-                    <p class="fe-dl-name">Export as CSV</p>
+                    <p class="fe-dl-name text-ink font-regular">Export as CSV</p>
                     <span class="fe-dl-arrow">⬇</span>
                 </div>
             </div>
         </div>
 
         <div class="fe-card">
-            <div class="fe-table-head">
-                <p class="fe-panel-title" style="margin:0;">Invoice History</p>
-                <div class="fe-search-row">
-                    <input class="fe-search" type="text" placeholder="🔍 Search invoice">
-                    <button class="fe-ghost-btn" type="button">📅 Date Range</button>
-                    <button class="fe-ghost-btn" type="button">▤ Filters</button>
-                </div>
+            <div class="fe-title-row">
+                <p class="text-ink font-semibold">Invoice History</p>
             </div>
+
+            <div class="fe-controls-row">
+                <div class="fe-search-wrap">
+                    <svg class="fe-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input class="fe-search text-ink font-regular" type="text" placeholder="Search invoice">
+                </div>
+                <button class="fe-ghost-btn" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Date Range
+                </button>
+                <button class="fe-ghost-btn" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="7" y1="12" x2="17" y2="12"></line>
+                        <line x1="10" y1="18" x2="14" y2="18"></line>
+                    </svg>
+                    Filters
+                </button>
+                <button class="fe-link-btn text-primary-yellow" type="button" data-fe-view-invoices>View All
+                    Invoices</button>
+            </div>
+
             <div class="fe-tabs-row">
                 <div class="fe-tabs">
                     <button class="fe-tab active" type="button">All</button>
@@ -308,8 +347,8 @@ arrow_forward
                     <button class="fe-tab" type="button">Pending</button>
                     <button class="fe-tab" type="button">Refunded</button>
                 </div>
-                <button class="fe-link-btn" type="button" data-fe-view-invoices>View All Invoices</button>
             </div>
+
             <table class="fe-table">
                 <thead>
                     <tr>
@@ -324,53 +363,129 @@ arrow_forward
                 </thead>
                 <tbody>
                     <tr>
-                        <td>INV-2026-001</td>
-                        <td>BK-5684</td>
-                        <td>Network Cabling</td>
+                        <td class="fe-link-cell">INV-2026-001</td>
+                        <td class="fe-link-cell">BK-5684</td>
+                        <td class="fe-link-cell">Network Cabling</td>
                         <td>Rs. 5,730</td>
-                        <td><span class="fe-pill paid">Paid</span></td>
+                        <td><span class="fe-status paid">Paid</span></td>
                         <td>15 May 2026</td>
-                        <td class="fe-action-icons"><span>👁</span><span data-fe-open-invoice>⬇</span></td>
+                        <td class="fe-action-icons">
+                            <button class="fe-icon-btn" type="button" aria-label="View invoice">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="fe-icon-btn" type="button" data-fe-open-invoice
+                                aria-label="Download invoice">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 3v12"></path>
+                                    <path d="M7 10l5 5 5-5"></path>
+                                    <path d="M5 21h14"></path>
+                                </svg>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>INV-2026-002</td>
-                        <td>BK-5684</td>
-                        <td>Rack Installation</td>
+                        <td class="fe-link-cell">INV-2026-002</td>
+                        <td class="fe-link-cell">BK-5684</td>
+                        <td class="fe-link-cell">Rack Installation</td>
                         <td>Rs. 5,730</td>
-                        <td><span class="fe-pill paid">Paid</span></td>
+                        <td><span class="fe-status paid bg-green ">Paid</span></td>
                         <td>15 May 2026</td>
-                        <td class="fe-action-icons"><span>👁</span><span data-fe-open-invoice>⬇</span></td>
+                        <td class="fe-action-icons">
+                            <button class="fe-icon-btn" type="button" aria-label="View invoice">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="fe-icon-btn" type="button" data-fe-open-invoice
+                                aria-label="Download invoice">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 3v12"></path>
+                                    <path d="M7 10l5 5 5-5"></path>
+                                    <path d="M5 21h14"></path>
+                                </svg>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>INV-2026-003</td>
-                        <td>BK-5684</td>
-                        <td>CCTV Installation</td>
+                        <td class="fe-link-cell">INV-2026-003</td>
+                        <td class="fe-link-cell">BK-5684</td>
+                        <td class="fe-link-cell">CCTV Installation</td>
                         <td>Rs. 5,730</td>
-                        <td><span class="fe-pill pending">Pending</span></td>
+                        <td><span class="fe-status pending">Pending</span></td>
                         <td>15 May 2026</td>
-                        <td class="fe-action-icons"><span>👁</span><span data-fe-open-invoice>⬇</span></td>
+                        <td class="fe-action-icons">
+                            <button class="fe-icon-btn" type="button" aria-label="View invoice">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="fe-icon-btn" type="button" data-fe-open-invoice
+                                aria-label="Download invoice">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 3v12"></path>
+                                    <path d="M7 10l5 5 5-5"></path>
+                                    <path d="M5 21h14"></path>
+                                </svg>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>INV-2026-004</td>
-                        <td>BK-5684</td>
-                        <td>Fiber Optic</td>
+                        <td class="fe-link-cell">INV-2026-004</td>
+                        <td class="fe-link-cell">BK-5684</td>
+                        <td class="fe-link-cell">Fiber Optic</td>
                         <td>Rs. 5,730</td>
-                        <td><span class="fe-pill pending">Pending</span></td>
+                        <td><span class="fe-status pending">Pending</span></td>
                         <td>15 May 2026</td>
-                        <td class="fe-action-icons"><span>👁</span><span data-fe-open-invoice>⬇</span></td>
+                        <td class="fe-action-icons">
+                            <button class="fe-icon-btn" type="button" aria-label="View invoice">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="fe-icon-btn" type="button" data-fe-open-invoice
+                                aria-label="Download invoice">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 3v12"></path>
+                                    <path d="M7 10l5 5 5-5"></path>
+                                    <path d="M5 21h14"></path>
+                                </svg>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>INV-2026-005</td>
-                        <td>BK-5684</td>
-                        <td>Fiber Optic</td>
+                        <td class="fe-link-cell">INV-2026-005</td>
+                        <td class="fe-link-cell">BK-5684</td>
+                        <td class="fe-link-cell">Fiber Optic</td>
                         <td>Rs. 5,730</td>
-                        <td><span class="fe-pill pending">Pending</span></td>
+                        <td><span class="fe-status pending">Pending</span></td>
                         <td>15 May 2026</td>
-                        <td class="fe-action-icons"><span>👁</span><span data-fe-open-invoice>⬇</span></td>
+                        <td class="fe-action-icons">
+                            <button class="fe-icon-btn" type="button" aria-label="View invoice">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="fe-icon-btn" type="button" data-fe-open-invoice
+                                aria-label="Download invoice">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 3v12"></path>
+                                    <path d="M7 10l5 5 5-5"></path>
+                                    <path d="M5 21h14"></path>
+                                </svg>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        
     </section>
 
     <!-- =================== PAGE 2: TRANSACTIONS (hidden by default) =================== -->
@@ -409,110 +524,155 @@ arrow_forward
             </div>
         </div>
 
-        <div class="fe-card">
-            <div class="fe-tx-toolbar">
-                <input class="fe-search" type="text" placeholder="🔍 Search transactions">
-                <div class="fe-toolbar-actions">
-                    <button class="fe-ghost-btn" type="button">📅 Date range</button>
-                    <button class="fe-ghost-btn" type="button">▤ Filters</button>
-                </div>
+       <div class="fe-card">
+    <div class="fe-tx-toolbar">
+        <div class="fe-tx-toolbar-left">
+            <div class="fe-search-wrap">
+                <svg class="fe-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input class="fe-search" type="text" placeholder="Search transactions">
             </div>
-
-            <div class="fe-tx-list-row fe-tx-list-head">
-                <div>Job</div>
-                <div>Date</div>
-                <div>Payment</div>
-                <div>Amount</div>
-                <div>Status</div>
-            </div>
-
-            <div id="feTxListBody"><!-- rows injected by JS --></div>
-
-            <p class="fe-tx-showing" id="feTxShowingText"></p>
-            <div class="fe-pager" id="feTxPager"><!-- pager injected by JS --></div>
+            <button class="fe-ghost-btn" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Date Range
+            </button>
+            <button class="fe-ghost-btn" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                    <line x1="7" y1="12" x2="17" y2="12"></line>
+                    <line x1="10" y1="18" x2="14" y2="18"></line>
+                </svg>
+                Filters
+            </button>
         </div>
+        <button class="fe-link-btn text-primary-yellow" type="button" data-fe-view-invoices>View All Invoices</button>
+    </div>
+
+    <div class="fe-tx-list-row fe-tx-list-head">
+        <div>Job</div>
+        <div>Date</div>
+        <div>Payment</div>
+        <div>Amount</div>
+        <div>Status</div>
+    </div>
+
+    <div id="feTxListBody"><!-- rows injected by JS --></div>
+
+    <p class="fe-tx-showing" id="feTxShowingText"></p>
+    <div class="fe-pager" id="feTxPager"><!-- pager injected by JS --></div>
+</div>
     </section>
 
+   
     <!-- =================== PAGE 3: INVOICES (hidden by default) =================== -->
-    <section class="fe-page" id="feInvoicesPage">
-        <button class="fe-back" type="button" data-fe-back>‹ Back to Earnings</button>
-        <h2 class="fe-tx-title-row">Invoices</h2>
+ <section class="fe-page" id="feInvoicesPage">
+    <button class="fe-back" type="button" data-fe-back>‹ Back to Earnings</button>
+    <h2 class="fe-tx-title-row">Invoices</h2>
 
-        <div class="fe-stat-strip">
-            <div class="fe-card fe-stat-card">
-                <div class="fe-stat-icon" style="background: var(--blue);">🕐</div>
-                <div>
-                    <div class="fe-stat-label">Total Payout</div>
-                    <div class="fe-stat-value">$50,999</div>
-                </div>
-            </div>
-            <div class="fe-card fe-stat-card">
-                <div class="fe-stat-icon" style="background: var(--teal);">✅</div>
-                <div>
-                    <div class="fe-stat-label">Completed</div>
-                    <div class="fe-stat-value">14</div>
-                </div>
-            </div>
-            <div class="fe-card fe-stat-card">
-                <div class="fe-stat-icon" style="background: var(--purple);">👍</div>
-                <div>
-                    <div class="fe-stat-label">Processing</div>
-                    <div class="fe-stat-value">3</div>
-                </div>
-            </div>
-            <div class="fe-card fe-stat-card">
-                <div class="fe-stat-icon" style="background: var(--pink);">🗓️</div>
-                <div>
-                    <div class="fe-stat-label">This month</div>
-                    <div class="fe-stat-value">$100</div>
-                </div>
+    <div class="fe-stat-strip">
+        <div class="fe-card fe-stat-card">
+            <div class="fe-stat-icon" style="background: var(--blue);">🕐</div>
+            <div>
+                <div class="fe-stat-value">$50,999</div>
+                <div class="fe-stat-label">Total Payout</div>
             </div>
         </div>
-
-        <div class="fe-card">
-            <div class="fe-tx-toolbar">
-                <input class="fe-search" type="text" placeholder="🔍 Search invoice">
-                <div class="fe-toolbar-actions">
-                    <button class="fe-ghost-btn" type="button">📅 Date Range</button>
-                    <button class="fe-ghost-btn" type="button">▤ Filters</button>
-                </div>
-            </div>
-
-            <table class="fe-table">
-                <thead>
-                    <tr>
-                        <th>Invoice ID</th>
-                        <th>Type</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                        <th>Invoice Date</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="feInvListBody"><!-- rows injected by JS --></tbody>
-            </table>
-
-            <div class="fe-tx-footer">
-                <p class="fe-tx-showing" id="feInvShowingText" style="margin: 0;"></p>
-                <div class="fe-pager" id="feInvPager"><!-- pager injected by JS --></div>
-                <div class="fe-rows-per-page">
-                    Rows per page:
-                    <select id="feInvPageSize">
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                    </select>
-                </div>
+        <div class="fe-card fe-stat-card">
+            <div class="fe-stat-icon" style="background: var(--teal);">✅</div>
+            <div>
+                <div class="fe-stat-value">14</div>
+                <div class="fe-stat-label">Completed</div>
             </div>
         </div>
-    </section>
+        <div class="fe-card fe-stat-card">
+            <div class="fe-stat-icon" style="background: var(--purple);">👍</div>
+            <div>
+                <div class="fe-stat-value">3</div>
+                <div class="fe-stat-label">Processing</div>
+            </div>
+        </div>
+        <div class="fe-card fe-stat-card">
+            <div class="fe-stat-icon" style="background: var(--pink);">🗓️</div>
+            <div>
+                <div class="fe-stat-value">$100</div>
+                <div class="fe-stat-label">This month</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fe-card">
+        <div class="fe-tx-toolbar">
+            <div class="fe-tx-toolbar-left">
+                <div class="fe-search-wrap">
+                    <svg class="fe-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input class="fe-search" type="text" placeholder="Search invoice">
+                </div>
+                <button class="fe-ghost-btn" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Date Range
+                </button>
+                <button class="fe-ghost-btn" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="7" y1="12" x2="17" y2="12"></line>
+                        <line x1="10" y1="18" x2="14" y2="18"></line>
+                    </svg>
+                    Filters
+                </button>
+            </div>
+            <button class="fe-link-btn text-primary-yellow" type="button" data-fe-view-invoices>View All Invoices</button>
+        </div>
+
+        <table class="fe-table">
+            <thead>
+                <tr>
+                    <th>Invoice ID</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Invoice Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="feInvListBody"><!-- rows injected by JS --></tbody>
+        </table>
+
+        <div class="fe-tx-footer">
+            <p class="fe-tx-showing" id="feInvShowingText" style="margin: 0;"></p>
+            <div class="fe-pager" id="feInvPager"><!-- pager injected by JS --></div>
+            <div class="fe-rows-per-page">
+                Rows per page:
+                <select id="feInvPageSize">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- =================== PAGE 4: STATEMENT MODAL (popup) =================== -->
     <div class="fe-modal-overlay" id="feStatementOverlay">
         <div class="fe-modal fe-modal-statement">
             <div class="fe-modal-head">
-                <h3>Statement</h3>
+                <h3 class="text-dark-blue-black font-semibold">Statement</h3>
                 <button class="fe-modal-close" type="button" data-fe-close-statement>✕</button>
             </div>
 
@@ -827,11 +987,134 @@ arrow_forward
                     protocols to protect your data.</div>
                 <div class="fe-modal-actions">
                     <button class="fe-btn-outline" type="button" data-fe-close-wallet>Cancel</button>
-                    <button class="fe-btn-gold" type="button" data-fe-close-wallet>Link Digital Wallet</button>
+                    <button class="fe-btn-gold" type="button" data-fe-open-wallet-otp>Link Digital Wallet</button>
                 </div>
             </div>
         </div>
     </div>
+  
+
+    <!-- =================== MODAL: WALLET OTP VERIFICATION =================== -->
+<div class="fe-modal-overlay" id="feWalletOtpOverlay">
+    <div class="fe-modal fe-modal-otp">
+        <div class="fe-otp-icon-wrap">
+            <div class="fe-otp-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#F0A836" stroke-width="1.5" width="26" height="26">
+                    <rect x="7" y="2" width="10" height="20" rx="2"></rect>
+                    <line x1="11" y1="18" x2="13" y2="18"></line>
+                </svg>
+            </div>
+            <div class="fe-otp-icon-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
+                    <path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5l7-3z"></path>
+                </svg>
+            </div>
+        </div>
+
+        <h3 class="fe-otp-title">Verify Payment Method</h3>
+        <p class="fe-otp-sub">Enter the 6-digit OTP sent to <span id="feWalletOtpPhone">+91 81022 62067</span></p>
+
+        <div class="fe-otp-boxes" id="feWalletOtpBoxes">
+            <input type="text" inputmode="numeric" maxlength="1" class="fe-otp-box">
+            <input type="text" inputmode="numeric" maxlength="1" class="fe-otp-box">
+            <input type="text" inputmode="numeric" maxlength="1" class="fe-otp-box">
+            <input type="text" inputmode="numeric" maxlength="1" class="fe-otp-box">
+            <input type="text" inputmode="numeric" maxlength="1" class="fe-otp-box">
+            <input type="text" inputmode="numeric" maxlength="1" class="fe-otp-box">
+        </div>
+
+        <p class="fe-otp-resend">Didn't receive OTP? <button type="button" class="fe-otp-resend-btn" data-fe-resend-otp>Resend OTP</button></p>
+
+        <button class="fe-otp-verify-btn" type="button" data-fe-verify-wallet-otp>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                <path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5l7-3z"></path>
+            </svg>
+            Verify OTP
+        </button>
+        <button class="fe-otp-cancel-btn" type="button" data-fe-close-wallet-otp>Cancel</button>
+
+        <div class="fe-otp-secure-strip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <rect x="4" y="10" width="16" height="10" rx="2"></rect>
+                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+            </svg>
+            Secure and Private
+        </div>
+        <p class="fe-otp-validity">OTP valid for 10 minutes</p>
+    </div>
+</div>
+
+
+<!-- =================== MODAL: PAYMENT METHOD ADDED SUCCESS =================== -->
+<div class="fe-modal-overlay" id="feWalletSuccessOverlay">
+    <div class="fe-modal fe-modal-success">
+        <button class="fe-modal-close fe-success-close" type="button" data-fe-close-wallet-success aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <line x1="5" y1="5" x2="19" y2="19"></line>
+                <line x1="19" y1="5" x2="5" y2="19"></line>
+            </svg>
+        </button>
+
+        <div class="fe-success-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E9E6C" stroke-width="2.5" width="34" height="34">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 12.5l2.5 2.5L16 9.5"></path>
+            </svg>
+        </div>
+
+        <h3 class="fe-success-title">Payment Method Added Successfully!</h3>
+        <p class="fe-success-sub">Your payment method has been securely linked and is ready to use</p>
+
+        <div class="fe-success-details">
+            <div class="fe-success-row">
+                <span>Payment Method</span>
+                <b id="feSuccessMethodType">UPI ID</b>
+            </div>
+            <div class="fe-success-row">
+                <span id="feSuccessIdLabel">UPI ID</span>
+                <b id="feSuccessIdValue">rahul@upi</b>
+            </div>
+            <div class="fe-success-row">
+                <span>Status</span>
+                <span class="fe-success-status">Active</span>
+            </div>
+        </div>
+
+        <button class="fe-success-done-btn" type="button" data-fe-close-wallet-success>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 12.5l2.5 2.5L16 9.5"></path>
+            </svg>
+            Done
+        </button>
+        <button class="fe-success-again-btn" type="button" data-fe-add-another-pm>Add Another Payment Method</button>
+
+        <div class="fe-success-feature-strip">
+            <div class="fe-success-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M12 7v5l3 3"></path>
+                </svg>
+                <p><b>Instant Confirmation</b>Get verified in seconds</p>
+            </div>
+            <div class="fe-success-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <rect x="4" y="10" width="16" height="10" rx="2"></rect>
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                </svg>
+                <p><b>Secure & Private</b>100% protected payments</p>
+            </div>
+            <div class="fe-success-feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <path d="M4 15v-3a8 8 0 0116 0v3"></path>
+                    <path d="M4 15a2 2 0 002 2h1v-5H6a2 2 0 00-2 2z"></path>
+                    <path d="M20 15a2 2 0 01-2 2h-1v-5h1a2 2 0 012 2z"></path>
+                </svg>
+                <p><b>24/7 Support</b>Always here to help</p>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- =================== MODAL: DOWNLOAD INVOICE =================== -->
     <div class="fe-modal-overlay" id="feInvoiceOverlay">
