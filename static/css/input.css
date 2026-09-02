@@ -16652,3 +16652,4098 @@ select.fe-select {
     background-color: #F5A623;
     border-radius: 2px;
   }
+  /* ============================================================
+   FIELD ENGINEER HOME
+   Designed around the supplied 1448px reference
+============================================================ */
+
+.fe-home {
+    width: 100%;
+    min-height: calc(100vh - 82px);
+    background: #ffffff;
+    padding: 22px 0 40px;
+    box-sizing: border-box;
+}
+
+.fe-dashboard-container {
+    width: calc(100% - 172px);
+    max-width: 1276px;
+    margin: 0 auto;
+}
+
+
+/* ============================================================
+   TOP
+============================================================ */
+
+.fe-top-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 925px) 293px;
+    gap: 18px;
+    align-items: stretch;
+}
+
+
+/* ============================================================
+   WELCOME
+============================================================ */
+
+.fe-welcome-panel {
+    height: 260px;
+    background: #fffaf3;
+    border: 1px solid #f1eadf;
+    border-radius: 13px;
+    padding: 21px 18px;
+    box-sizing: border-box;
+}
+
+.fe-welcome-title h1 {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 29px;
+    line-height: 35px;
+    font-weight: 700;
+    color: #17283a;
+    letter-spacing: -0.5px;
+}
+
+.fe-welcome-title h1 span {
+    font-size: 25px;
+}
+
+.fe-welcome-title p {
+    margin: 2px 0 18px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #59636e;
+}
+
+
+/* ============================================================
+   STATUS
+============================================================ */
+
+.fe-status-row {
+    display: grid;
+    grid-template-columns: 151px 139px 178px 158px;
+    gap: 18px;
+}
+
+.fe-status-card {
+    height: 60px;
+    background: #ffffff;
+    border: 1px solid #e9eaec;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+.fe-status-icon {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 10px;
+}
+
+.fe-status-icon svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+    stroke: #46525e;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.fe-status-info span {
+    display: block;
+
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #606a75;
+}
+
+.fe-status-info strong {
+    display: block;
+
+    margin-top: 1px;
+
+    font-size: 13px;
+    line-height: 15px;
+
+    font-weight: 700;
+    color: #202a35;
+}
+
+.fe-status-info strong.required {
+    color: #e64c49;
+}
+
+
+/* ============================================================
+   KYC WARNING
+============================================================ */
+
+.fe-kyc-warning {
+    height: 64px;
+
+    margin-top: 17px;
+
+    border: 1px solid #f2dfa9;
+    border-radius: 10px;
+
+    background: #fffaf0;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 12px 0 15px;
+    box-sizing: border-box;
+}
+
+.fe-warning-icon {
+    width: 39px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 13px;
+}
+
+.fe-warning-icon svg {
+    width: 36px;
+    height: 40px;
+
+    fill: #f7b52a;
+    stroke: #ffffff;
+    stroke-width: 1.4;
+    stroke-linejoin: round;
+}
+
+.fe-warning-content {
+    flex: 1;
+}
+
+.fe-warning-content h3 {
+    margin: 0 0 2px;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    font-weight: 700;
+    color: #26323d;
+}
+
+.fe-warning-content p {
+    margin: 0;
+
+    font-size: 11px;
+    line-height: 15px;
+
+    color: #69737d;
+}
+
+.fe-complete-kyc {
+    width: 161px;
+    height: 37px;
+
+    border-radius: 9px;
+
+    background: #f7b51b;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #111827;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: all .2s ease;
+}
+
+.fe-complete-kyc:hover {
+    background: #eaaa00;
+}
+
+.fe-complete-kyc span {
+    font-size: 20px;
+    line-height: 1;
+}
+
+
+/* ============================================================
+   AVAILABILITY
+============================================================ */
+
+.fe-availability-card {
+    height: 260px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    padding: 32px 23px;
+
+    box-sizing: border-box;
+}
+
+.fe-availability-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fe-availability-header h2 {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 20px;
+
+    font-weight: 700;
+
+    color: #28333e;
+}
+
+
+/* TOGGLE */
+
+.fe-switch {
+    width: 43px;
+    height: 25px;
+
+    position: relative;
+
+    display: block;
+}
+
+.fe-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.fe-slider {
+    position: absolute;
+    inset: 0;
+
+    background: #cfd3d7;
+    border-radius: 30px;
+
+    cursor: pointer;
+}
+
+.fe-slider::before {
+    content: "";
+
+    width: 19px;
+    height: 19px;
+
+    position: absolute;
+
+    left: 3px;
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: .2s;
+}
+
+.fe-switch input:checked + .fe-slider {
+    background: #f7b51b;
+}
+
+.fe-switch input:checked + .fe-slider::before {
+    transform: translateX(18px);
+}
+
+
+/* AVAILABILITY MESSAGE */
+
+.fe-availability-message {
+    position: relative;
+
+    margin-top: 30px;
+    padding-right: 27px;
+}
+
+.fe-availability-message p {
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 20px;
+
+    color: #68727d;
+}
+
+.fe-side-lock {
+    position: absolute;
+
+    width: 17px;
+    height: 17px;
+
+    right: 3px;
+    top: 9px;
+
+    fill: none;
+    stroke: #626c76;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.fe-learn-kyc {
+    margin-top: 27px;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: #26313b;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.fe-learn-kyc span {
+    font-size: 17px;
+}
+
+
+/* ============================================================
+   FEATURE GRID
+============================================================ */
+
+.fe-feature-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr 1fr 1fr;
+
+    gap: 14px;
+
+    margin-top: 18px;
+}
+
+.fe-feature-card {
+    height: 108px;
+
+    position: relative;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: flex-start;
+
+    text-decoration: none;
+
+    transition: .2s;
+}
+
+.fe-feature-card:hover {
+    box-shadow: 0 4px 14px rgba(0,0,0,.05);
+}
+
+.fe-feature-icon {
+    width: 39px;
+    height: 39px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.fe-feature-icon svg {
+    width: 22px;
+    height: 22px;
+
+    fill: none;
+    stroke: white;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.fe-feature-icon.blue {
+    background: #4489e0;
+}
+
+.fe-feature-icon.green {
+    background: #43c18f;
+}
+
+.fe-feature-icon.purple {
+    background: #a46ad9;
+}
+
+.fe-feature-icon.orange {
+    background: #f39a42;
+}
+
+.fe-feature-icon.pink {
+    background: #d64e87;
+}
+
+.fe-feature-text {
+    margin-left: 12px;
+}
+
+.fe-feature-text h3 {
+    margin: 1px 0 8px;
+
+    color: #26313b;
+
+    font-size: 14px;
+    line-height: 17px;
+
+    font-weight: 700;
+}
+
+.fe-feature-text p {
+    margin: 0;
+
+    color: #6d7680;
+
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.fe-card-lock {
+    width: 16px;
+    height: 16px;
+
+    position: absolute;
+
+    right: 14px;
+    bottom: 23px;
+
+    fill: none;
+    stroke: #68727b;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ============================================================
+   HIGH DEMAND
+============================================================ */
+
+.fe-demand-card {
+    height: 65px;
+
+    margin-top: 18px;
+
+    border: 1px solid #f0dfb0;
+    border-left: 5px solid #f6c15b;
+
+    border-radius: 11px;
+
+    background: #fffdf8;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 15px;
+
+    box-sizing: border-box;
+}
+
+.fe-demand-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fe-demand-icon svg {
+    width: 28px;
+    height: 28px;
+
+    fill: #f6b91d;
+    stroke: #f6b91d;
+    stroke-width: 1;
+}
+
+.fe-demand-content {
+    flex: 1;
+}
+
+.fe-demand-content h3 {
+    margin: 0 0 2px;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    font-weight: 700;
+
+    color: #29343e;
+}
+
+.fe-demand-content p {
+    margin: 0;
+
+    font-size: 11px;
+    line-height: 15px;
+
+    color: #69737c;
+}
+
+.fe-view-leads {
+    width: 125px;
+    height: 37px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: #f4f5f6;
+
+    color: #b7bcc1;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+}
+
+.fe-view-leads svg {
+    width: 15px;
+    height: 15px;
+
+    fill: none;
+    stroke: #adb3b9;
+    stroke-width: 1.5;
+}
+
+
+/* ============================================================
+   SECTION HEADER
+============================================================ */
+
+.fe-section-header {
+    height: 43px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.fe-section-header h2 {
+    margin: 0;
+
+    font-size: 17px;
+    line-height: 20px;
+
+    font-weight: 700;
+
+    color: #202c37;
+}
+
+.fe-section-header a {
+    text-decoration: none;
+
+    color: #e9aa10;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.fe-section-header a span {
+    font-size: 17px;
+    margin-left: 3px;
+}
+
+
+/* ============================================================
+   LEADS
+============================================================ */
+
+.fe-leads-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+.fe-lead-card {
+    height: 199px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #f8f9fa;
+
+    border: 1px solid #e3e5e7;
+    border-radius: 12px;
+
+    padding: 13px 15px;
+
+    box-sizing: border-box;
+
+    color: #8d949a;
+}
+
+.fe-lead-top {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 8px;
+    line-height: 11px;
+
+    color: #a7adb2;
+}
+
+.fe-lead-title {
+    display: flex;
+
+    gap: 9px;
+
+    margin-top: 11px;
+}
+
+.fe-lead-mini-icon {
+    width: 25px;
+
+    color: #dfbd65;
+
+    opacity: .45;
+
+    font-size: 17px;
+}
+
+.fe-lead-title h3 {
+    margin: 0 0 3px;
+
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #81888e;
+
+    font-weight: 700;
+}
+
+.fe-lead-title span {
+    font-size: 8px;
+    color: #a5abb0;
+}
+
+.fe-lead-description {
+    margin: 9px 0 9px;
+
+    font-size: 8px;
+    line-height: 12px;
+
+    color: #a4a9ad;
+}
+
+.fe-lead-divider {
+    width: 100%;
+    height: 1px;
+
+    background: #e5e7e9;
+}
+
+.fe-lead-info {
+    margin-top: 7px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    row-gap: 3px;
+}
+
+.fe-lead-info div {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 8px;
+}
+
+.fe-lead-info span {
+    color: #a1a7ac;
+}
+
+.fe-lead-info strong {
+    color: #d5b96d;
+
+    font-size: 8px;
+}
+
+.fe-lead-info div:nth-child(2) strong,
+.fe-lead-info div:nth-child(3) strong {
+    color: #9fa5aa;
+}
+
+.fe-lead-buttons {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin-top: 11px;
+}
+
+.fe-lead-buttons button {
+    height: 30px;
+
+    border: 1px solid #dfe1e3;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #a4a9ae;
+
+    font-size: 9px;
+}
+
+.fe-lead-buttons button:last-child {
+    background: #f2f3f4;
+}
+
+.fe-lead-buttons svg {
+    width: 12px;
+    height: 12px;
+
+    vertical-align: middle;
+
+    fill: none;
+    stroke: #9da3a8;
+    stroke-width: 1.5;
+}
+
+
+/* CENTER LOCK */
+
+.fe-center-lock {
+    width: 51px;
+    height: 51px;
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -44%);
+
+    background: rgba(255,255,255,.97);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.12);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fe-center-lock svg {
+    width: 19px;
+    height: 19px;
+
+    fill: none;
+    stroke: #364350;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ============================================================
+   BOTTOM
+============================================================ */
+
+.fe-bottom-grid {
+    display: grid;
+
+    grid-template-columns: 2.02fr .88fr;
+
+    gap: 17px;
+
+    margin-top: 17px;
+}
+
+.fe-active-job h2,
+.fe-earnings h2 {
+    margin: 0 0 9px;
+
+    font-size: 17px;
+    line-height: 20px;
+
+    font-weight: 700;
+
+    color: #202c37;
+}
+
+
+/* ACTIVE JOB */
+
+.fe-active-job-card {
+    height: 155px;
+
+    border: 1px solid #e4e6e8;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+
+    padding: 10px 20px;
+
+    box-sizing: border-box;
+}
+
+.fe-worker-image {
+    width: 130px;
+    height: 130px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fe-worker-image img {
+    width: 120px;
+    height: 120px;
+
+    object-fit: contain;
+
+    opacity: .65;
+}
+
+.fe-active-content {
+    margin-left: 22px;
+}
+
+.fe-active-content h3 {
+    margin: 0 0 5px;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    font-weight: 700;
+
+    color: #28333d;
+}
+
+.fe-active-content p {
+    margin: 0 0 12px;
+
+    font-size: 11px;
+    line-height: 16px;
+
+    color: #707982;
+}
+
+.fe-job-kyc {
+    height: 36px;
+
+    padding: 0 15px;
+
+    border: 1px solid #dfe2e4;
+
+    border-radius: 7px;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+
+    color: #29343e;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.fe-job-kyc svg {
+    width: 14px;
+    height: 14px;
+
+    fill: none;
+    stroke: #69737c;
+    stroke-width: 1.6;
+}
+
+
+/* ============================================================
+   EARNINGS
+============================================================ */
+
+.fe-earnings-card {
+    height: 155px;
+
+    position: relative;
+
+    border: 1px solid #e4e6e8;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+}
+
+.fe-earnings-lock {
+    width: 17px;
+    height: 17px;
+
+    position: absolute;
+
+    right: 21px;
+    top: 17px;
+
+    fill: none;
+    stroke: #6c757e;
+    stroke-width: 1.6;
+}
+
+.fe-earnings-card p {
+    margin: 4px 0 13px;
+
+    text-align: center;
+
+    font-size: 11px;
+    line-height: 19px;
+
+    color: #707982;
+}
+
+.fe-earnings-kyc {
+    min-width: 131px;
+    height: 36px;
+
+    padding: 0 14px;
+
+    border: 1px solid #dfe2e4;
+
+    border-radius: 7px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+
+    color: #29343e;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.fe-earnings-kyc svg {
+    width: 14px;
+    height: 14px;
+
+    fill: none;
+    stroke: #69737c;
+    stroke-width: 1.6;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 1250px) {
+
+    .fe-dashboard-container {
+        width: calc(100% - 50px);
+    }
+
+    .fe-top-layout {
+        grid-template-columns: minmax(0, 1fr) 280px;
+    }
+
+    .fe-status-row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+@media (max-width: 1050px) {
+
+    .fe-top-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .fe-availability-card {
+        height: auto;
+    }
+
+    .fe-feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .fe-dashboard-container {
+        width: calc(100% - 30px);
+    }
+
+    .fe-status-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fe-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fe-leads-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fe-bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .fe-home {
+        padding-top: 15px;
+    }
+
+    .fe-dashboard-container {
+        width: calc(100% - 20px);
+    }
+
+    .fe-welcome-panel {
+        height: auto;
+    }
+
+    .fe-status-row {
+        grid-template-columns: 1fr;
+    }
+
+    .fe-kyc-warning {
+        height: auto;
+        min-height: 64px;
+        flex-wrap: wrap;
+        padding: 12px;
+    }
+
+    .fe-warning-content {
+        min-width: calc(100% - 55px);
+    }
+
+    .fe-complete-kyc {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .fe-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fe-demand-card {
+        height: auto;
+        min-height: 65px;
+        padding: 10px;
+    }
+
+    .fe-view-leads {
+        display: none;
+    }
+
+    .fe-active-job-card {
+        height: auto;
+        min-height: 200px;
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .fe-active-content {
+        margin-left: 0;
+    }
+
+    .fe-worker-image {
+        height: 100px;
+    }
+}
+/* ============================================================
+   KYC STEP 1
+   COMPLETE PROFILE
+============================================================ */
+
+.profile-verification-page {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   MAIN CONTAINER
+============================================================ */
+
+.profile-verification-container {
+    width: calc(100% - 80px);
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    padding: 48px 0 60px;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   PAGE HEADER
+============================================================ */
+
+.profile-page-header {
+    margin-bottom: 26px;
+}
+
+.profile-page-header h1 {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 30px;
+    line-height: 38px;
+
+    font-weight: 700;
+
+    color: #17283a;
+
+    letter-spacing: -0.5px;
+}
+
+.profile-page-header p {
+    margin: 5px 0 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #536273;
+}
+
+
+/* ============================================================
+   STEPPER
+============================================================ */
+
+.profile-stepper {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    margin-bottom: 34px;
+}
+
+.profile-step {
+    position: relative;
+
+    text-align: center;
+
+    min-width: 0;
+}
+
+
+/* connecting line */
+
+.profile-step:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    top: 7px;
+
+    left: calc(50% + 8px);
+    right: calc(-50% + 8px);
+
+    height: 2px;
+
+    background: #d9dddf;
+
+    z-index: 0;
+}
+
+
+/* step circle */
+
+.profile-step-number {
+    position: relative;
+
+    width: 15px;
+    height: 15px;
+
+    margin: 0 auto 8px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #d9dddf;
+
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    z-index: 2;
+}
+
+
+/* active step */
+
+.profile-step.active .profile-step-number {
+    background: #f7b52b;
+}
+
+
+/* step label */
+
+.profile-step-label {
+    display: block;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 12px;
+    line-height: 18px;
+
+    color: #536273;
+
+    white-space: nowrap;
+}
+
+.profile-step.active .profile-step-label {
+    color: #34485b;
+
+    font-weight: 500;
+}
+
+
+/* ============================================================
+   FORM AREA
+============================================================ */
+
+.profile-form-area {
+    position: relative;
+
+    width: 100%;
+
+    padding-top: 2px;
+}
+
+
+/* ============================================================
+   AVATAR
+============================================================ */
+
+.profile-avatar-area {
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+
+    margin-bottom: 18px;
+}
+
+.profile-avatar {
+    width: 72px;
+    height: 72px;
+
+    border: 2px solid #f7b52b;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    box-sizing: border-box;
+}
+
+.profile-avatar span {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 27px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    color: #263849;
+}
+
+
+/* camera */
+
+.profile-avatar-camera {
+    position: absolute;
+
+    right: -3px;
+    bottom: -3px;
+
+    width: 21px;
+    height: 21px;
+
+    border-radius: 50%;
+
+    background: #f7b52b;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   VENDOR CONNECTIVITY CARD
+============================================================ */
+
+.vendor-connectivity-card {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 250px;
+
+    min-height: 72px;
+
+    padding: 14px 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e1e5e8;
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 12px rgba(23, 40, 58, 0.08);
+
+    box-sizing: border-box;
+}
+
+.vendor-connectivity-content {
+    padding-right: 55px;
+}
+
+.vendor-connectivity-title {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+    line-height: 19px;
+
+    font-weight: 700;
+
+    color: #243547;
+}
+
+.vendor-connectivity-description {
+    display: block;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+    line-height: 15px;
+
+    color: #687685;
+
+    white-space: nowrap;
+}
+
+
+/* ============================================================
+   TOGGLE
+============================================================ */
+
+.vendor-connectivity-toggle {
+    position: absolute;
+
+    top: 25px;
+    right: 18px;
+
+    width: 34px;
+    height: 20px;
+}
+
+.vendor-connectivity-toggle input {
+    position: absolute;
+
+    opacity: 0;
+
+    width: 0;
+    height: 0;
+}
+
+.vendor-connectivity-slider {
+    position: absolute;
+
+    inset: 0;
+
+    background: #d2d6da;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.vendor-connectivity-slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 16px;
+    height: 16px;
+
+    left: 2px;
+    top: 2px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+
+    transition: 0.2s ease;
+}
+
+.vendor-connectivity-toggle input:checked
++ .vendor-connectivity-slider {
+    background: #f7b52b;
+}
+
+.vendor-connectivity-toggle input:checked
++ .vendor-connectivity-slider::before {
+    transform: translateX(14px);
+}
+
+
+/* ============================================================
+   COMPANY DETAILS
+============================================================ */
+
+.company-details-section {
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 25px;
+
+    border: 1px solid #e1e5e8;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+}
+
+.company-details-title {
+    margin: 0 0 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 18px;
+    line-height: 24px;
+
+    font-weight: 700;
+
+    color: #182b3e;
+}
+
+
+/* ============================================================
+   FORM GRID
+============================================================ */
+
+.company-details-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 22px;
+    row-gap: 20px;
+
+    width: 100%;
+}
+
+
+/* ============================================================
+   FORM GROUP
+============================================================ */
+
+.profile-form-group {
+    width: 100%;
+}
+
+.profile-form-group label {
+    display: block;
+
+    margin: 0 0 8px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+    line-height: 18px;
+
+    font-weight: 600;
+
+    color: #33485b;
+}
+
+
+/* ============================================================
+   SELECT
+============================================================ */
+
+.profile-select-wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+.profile-select {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 45px 0 15px;
+
+    border: 1px solid #dfe4e8;
+
+    border-radius: 8px;
+
+    background: #fafafa;
+
+    color: #667686;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    outline: none;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.profile-select:hover {
+    border-color: #cfd6dc;
+
+    background: #ffffff;
+}
+
+.profile-select:focus {
+    border-color: #f7b52b;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 0 3px rgba(247, 181, 43, 0.12);
+}
+
+
+/* ============================================================
+   SELECT ARROW
+============================================================ */
+
+.profile-select-arrow {
+    position: absolute;
+
+    right: 17px;
+    top: 50%;
+
+    width: 8px;
+    height: 8px;
+
+    border-right: 1.5px solid #758391;
+    border-bottom: 1.5px solid #758391;
+
+    transform: translateY(-65%) rotate(45deg);
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   ACTION AREA
+============================================================ */
+
+.profile-action-area {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #e7eaed;
+}
+
+
+/* ============================================================
+   SAVE BUTTON
+============================================================ */
+
+.profile-save-button {
+    width: 210px;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #ffc13d;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 0 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+    line-height: 18px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.profile-save-button:hover {
+    background: #f4b52c;
+
+    box-shadow: 0 5px 14px rgba(247, 181, 43, 0.25);
+}
+
+.profile-save-button:active {
+    transform: translateY(1px);
+}
+
+.profile-save-button .save-arrow {
+    font-size: 19px;
+
+    line-height: 1;
+
+    font-weight: 400;
+}
+
+
+/* ============================================================
+   STEP SECTION CONTROL
+============================================================ */
+
+.kyc-step-section {
+    width: 100%;
+}
+
+.kyc-step-section.is-hidden {
+    display: none;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 1400px) {
+
+    .profile-verification-container {
+        width: calc(100% - 70px);
+    }
+}
+
+
+@media (max-width: 1100px) {
+
+    .profile-verification-container {
+        width: calc(100% - 50px);
+
+        padding-top: 38px;
+    }
+
+    .profile-page-header h1 {
+        font-size: 28px;
+    }
+
+    .profile-step-label {
+        font-size: 11px;
+    }
+
+    .vendor-connectivity-card {
+        width: 230px;
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    .profile-verification-container {
+        width: calc(100% - 35px);
+
+        padding-top: 30px;
+    }
+
+    .vendor-connectivity-card {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 250px;
+
+        margin: 0 0 25px;
+    }
+
+    .profile-form-area {
+        padding-top: 0;
+    }
+
+    .profile-stepper {
+        overflow-x: auto;
+
+        padding-bottom: 10px;
+
+        grid-template-columns:
+            repeat(6, minmax(130px, 1fr));
+    }
+
+    .company-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .profile-verification-container {
+        width: calc(100% - 24px);
+
+        padding-top: 25px;
+        padding-bottom: 40px;
+    }
+
+    .profile-page-header h1 {
+        font-size: 25px;
+        line-height: 32px;
+    }
+
+    .profile-page-header p {
+        font-size: 13px;
+    }
+
+    .profile-stepper {
+        margin-bottom: 25px;
+    }
+
+    .profile-step-label {
+        font-size: 10px;
+    }
+
+    .profile-avatar {
+        width: 64px;
+        height: 64px;
+    }
+
+    .profile-avatar span {
+        font-size: 23px;
+    }
+
+    .company-details-section {
+        padding: 18px;
+    }
+
+    .company-details-title {
+        font-size: 17px;
+    }
+
+    .profile-save-button {
+        width: 100%;
+    }
+
+    .profile-action-area {
+        margin-top: 22px;
+    }
+}
+/* =========================================================
+   KYC STEP 2 - UPLOAD DOCUMENTS
+   FULL PAGE DESIGN
+========================================================= */
+
+.kyc-upload-documents-section {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    background: #ffffff;
+    padding: 45px 0 55px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.kyc-upload-container {
+    width: calc(100% - 80px);
+    max-width: 1450px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.kyc-upload-header {
+    margin-bottom: 28px;
+}
+
+.kyc-upload-header h1 {
+    margin: 0 0 8px;
+    color: #172433;
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.kyc-upload-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   STEPPER
+========================================================= */
+
+.kyc-stepper {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 0 34px;
+    position: relative;
+}
+
+
+/* Horizontal line */
+
+.kyc-stepper::before {
+    content: "";
+    position: absolute;
+    left: 8.3%;
+    right: 8.3%;
+    top: 14px;
+    height: 2px;
+    background: #d9dde3;
+    z-index: 0;
+}
+
+
+/* Individual step */
+
+.kyc-step {
+    width: 16.66%;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+
+/* Top area */
+
+.kyc-step-top {
+    min-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+/* Hide individual line because main line handles it */
+
+.kyc-step-line {
+    display: none;
+}
+
+
+/* Step circle */
+
+.kyc-step-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #d9dde3;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    border: 3px solid #ffffff;
+    box-sizing: content-box;
+}
+
+
+/* Completed step */
+
+.kyc-step.completed .kyc-step-dot {
+    background: #22c55e;
+}
+
+
+/* Active step */
+
+.kyc-step.active .kyc-step-dot {
+    background: #f7b52c;
+    color: #ffffff;
+}
+
+
+/* Step name */
+
+.kyc-step-name {
+    display: block;
+    margin-top: 8px;
+
+    color: #64748b;
+
+    font-size: 13px;
+    line-height: 1.3;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+
+/* Active name */
+
+.kyc-step.active .kyc-step-name {
+    color: #172433;
+    font-weight: 700;
+}
+
+
+/* Completed name */
+
+.kyc-step.completed .kyc-step-name {
+    color: #475569;
+}
+
+
+/* =========================================================
+   DOCUMENT MAIN CARD
+========================================================= */
+
+.kyc-documents-card {
+    width: 100%;
+    background: #ffffff;
+
+    border: 1px solid #dce1e7;
+    border-radius: 12px;
+
+    padding: 24px 22px 18px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+
+/* =========================================================
+   REQUIRED DOCUMENT HEADER
+========================================================= */
+
+.kyc-documents-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+
+.kyc-documents-title-row h2 {
+    margin: 0 0 6px;
+
+    color: #172433;
+
+    font-size: 17px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+
+.kyc-documents-title-row h2 span {
+    display: inline-block;
+
+    margin-left: 7px;
+
+    color: #ef4444;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    vertical-align: middle;
+}
+
+
+.kyc-documents-title-row p {
+    margin: 0;
+
+    color: #7b8794;
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
+.kyc-upload-counter {
+    color: #f5aa16;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    padding-top: 2px;
+}
+
+
+/* =========================================================
+   REQUIRED DOCUMENTS LIST
+========================================================= */
+
+.kyc-required-documents {
+    width: 100%;
+
+    border: 1px solid #dce1e7;
+    border-radius: 11px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   DOCUMENT ROW
+========================================================= */
+
+.kyc-document-row {
+    width: 100%;
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 9px 12px;
+
+    box-sizing: border-box;
+
+    border-bottom: 1px solid #e3e7eb;
+
+    background: #ffffff;
+}
+
+
+.kyc-document-row:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   DOCUMENT INFORMATION
+========================================================= */
+
+.kyc-document-info {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.kyc-document-icon {
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+/* Icon backgrounds */
+
+.kyc-document-icon.gst {
+    background: #e9f9ee;
+    color: #22c55e;
+}
+
+.kyc-document-icon.tax {
+    background: #efedff;
+    color: #6366f1;
+}
+
+.kyc-document-icon.company {
+    background: #eeedff;
+    color: #5b5ce2;
+}
+
+.kyc-document-icon.moa {
+    background: #fff5dc;
+    color: #f59e0b;
+}
+
+.kyc-document-icon.bank {
+    background: #e7f8f8;
+    color: #06a6a6;
+}
+
+
+/* =========================================================
+   DOCUMENT TEXT
+========================================================= */
+
+.kyc-document-info h3 {
+    margin: 0 0 4px;
+
+    color: #172433;
+
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+
+.kyc-document-info h3 b {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+
+.kyc-document-info h3 span {
+    color: #64748b;
+    font-weight: 400;
+}
+
+
+.kyc-document-info p {
+    margin: 0;
+
+    color: #84909d;
+
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+
+.kyc-document-info small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   UPLOAD BOX
+========================================================= */
+
+.kyc-document-upload {
+    width: 340px;
+    min-width: 340px;
+    height: 58px;
+
+    margin-left: 25px;
+
+    border: 1.5px dashed #f4b12b;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    background: #fffdf8;
+
+    box-sizing: border-box;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.kyc-document-upload:hover {
+    background: #fff9eb;
+    border-color: #e89e00;
+}
+
+
+.kyc-file-input {
+    display: none;
+}
+
+
+/* Upload icon */
+
+.kyc-upload-symbol {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #f2a900;
+
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+/* Upload text */
+
+.kyc-document-upload div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.kyc-document-upload strong {
+    color: #eaa20a;
+
+    font-size: 13px;
+    line-height: 1.3;
+
+    font-weight: 600;
+}
+
+
+.kyc-document-upload small {
+    margin-top: 2px;
+
+    color: #8b929c;
+
+    font-size: 9px;
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   OPTIONAL DOCUMENTS
+========================================================= */
+
+.kyc-optional-documents {
+    width: 100%;
+
+    margin-top: 18px;
+}
+
+
+.kyc-optional-heading {
+    margin-bottom: 12px;
+}
+
+
+.kyc-optional-heading h2 {
+    margin: 0 0 5px;
+
+    color: #172433;
+
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+
+.kyc-optional-heading p {
+    margin: 0;
+
+    color: #7b8794;
+
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   OPTIONAL GRID
+========================================================= */
+
+.kyc-optional-grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+
+/* Optional card */
+
+.kyc-optional-card {
+    min-height: 74px;
+
+    border: 1px solid #dce1e7;
+    border-radius: 9px;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.kyc-optional-card:hover {
+    border-color: #f4b12b;
+
+    box-shadow:
+        0 3px 10px rgba(15, 23, 42, 0.05);
+}
+
+
+.kyc-optional-input {
+    display: none;
+}
+
+
+/* Optional name */
+
+.kyc-optional-name {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.kyc-optional-name strong {
+    color: #334155;
+
+    font-size: 11px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+
+/* Optional icon */
+
+.kyc-optional-icon {
+    width: 25px;
+    height: 25px;
+
+    flex: 0 0 25px;
+
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+}
+
+
+.kyc-optional-icon.iso {
+    background: #e9f9ee;
+    color: #22c55e;
+}
+
+.kyc-optional-icon.cisco {
+    background: #edf5ff;
+    color: #3b82f6;
+}
+
+.kyc-optional-icon.safety {
+    background: #efedff;
+    color: #6366f1;
+}
+
+.kyc-optional-icon.other {
+    background: #fff4df;
+    color: #f59e0b;
+}
+
+
+/* Optional upload */
+
+.kyc-optional-upload {
+    width: 100%;
+    height: 25px;
+
+    border: 1px dashed #f4b12b;
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #eaa20a;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   ACTION BUTTON AREA
+========================================================= */
+
+.kyc-document-actions {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 14px;
+    padding-top: 13px;
+
+    border-top: 1px solid #e3e7eb;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.kyc-back-btn {
+    min-width: 76px;
+    height: 38px;
+
+    padding: 0 17px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid #f2b02a;
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #e9a10a;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+.kyc-back-btn:hover {
+    background: #fff8e8;
+}
+
+
+.kyc-back-btn span {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+========================================================= */
+
+.kyc-continue-btn {
+    min-width: 165px;
+    height: 38px;
+
+    padding: 0 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #f9b82e;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.kyc-continue-btn:hover {
+    background: #efa916;
+
+    transform: translateY(-1px);
+}
+
+
+.kyc-continue-btn span:last-child {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   STEP SECTION VISIBILITY
+========================================================= */
+
+.kyc-step-section {
+    display: none;
+}
+
+
+.kyc-step-section.active-step {
+    display: block;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1600px) {
+
+    .kyc-upload-container {
+        max-width: 1500px;
+        width: calc(100% - 100px);
+    }
+
+    .kyc-upload-header h1 {
+        font-size: 34px;
+    }
+
+    .kyc-upload-header p {
+        font-size: 17px;
+    }
+
+    .kyc-document-row {
+        min-height: 84px;
+    }
+
+    .kyc-document-upload {
+        width: 365px;
+        min-width: 365px;
+        height: 62px;
+    }
+
+    .kyc-document-info h3 {
+        font-size: 15px;
+    }
+
+    .kyc-document-info p {
+        font-size: 11px;
+    }
+
+    .kyc-optional-card {
+        min-height: 82px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .kyc-upload-container {
+        width: calc(100% - 40px);
+    }
+
+    .kyc-document-upload {
+        width: 280px;
+        min-width: 280px;
+    }
+
+    .kyc-optional-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .kyc-upload-documents-section {
+        padding: 25px 0 35px;
+    }
+
+    .kyc-upload-container {
+        width: calc(100% - 24px);
+    }
+
+
+    /* Header */
+
+    .kyc-upload-header h1 {
+        font-size: 25px;
+    }
+
+    .kyc-upload-header p {
+        font-size: 13px;
+    }
+
+
+    /* Stepper */
+
+    .kyc-stepper {
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+
+    .kyc-step {
+        min-width: 115px;
+    }
+
+    .kyc-step-name {
+        font-size: 10px;
+    }
+
+
+    /* Card */
+
+    .kyc-documents-card {
+        padding: 17px 12px 14px;
+    }
+
+
+    /* Header */
+
+    .kyc-documents-title-row {
+        gap: 10px;
+    }
+
+    .kyc-documents-title-row h2 {
+        font-size: 15px;
+    }
+
+    .kyc-documents-title-row p {
+        font-size: 10px;
+    }
+
+    .kyc-upload-counter {
+        font-size: 9px;
+    }
+
+
+    /* Document row */
+
+    .kyc-document-row {
+        min-height: auto;
+
+        padding: 12px 10px;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 10px;
+    }
+
+
+    .kyc-document-info {
+        width: 100%;
+    }
+
+
+    .kyc-document-upload {
+        width: 100%;
+        min-width: 0;
+
+        margin-left: 0;
+    }
+
+
+    /* Optional */
+
+    .kyc-optional-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Buttons */
+
+    .kyc-document-actions {
+        gap: 10px;
+    }
+
+    .kyc-back-btn {
+        min-width: 75px;
+    }
+
+    .kyc-continue-btn {
+        min-width: 150px;
+    }
+
+}
+/* ============================================================
+   KYC STEP 3
+   SERVICE AREA
+============================================================ */
+
+.kyc-service-area-section {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.kyc-service-area-container {
+    width: calc(100% - 248px);
+    max-width: 1520px;
+    margin: 0 auto;
+    padding: 42px 0 70px;
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.kyc-service-header {
+    margin-bottom: 24px;
+}
+
+.kyc-service-header h1 {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    line-height: 38px;
+    font-weight: 700;
+
+    color: #17283a;
+    letter-spacing: -0.5px;
+}
+
+.kyc-service-header p {
+    margin: 4px 0 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 22px;
+
+    color: #536273;
+}
+
+
+/* ============================================================
+   STEPPER
+============================================================ */
+
+.kyc-service-stepper {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    margin-bottom: 30px;
+}
+
+.kyc-service-step {
+    position: relative;
+    text-align: center;
+    min-width: 0;
+}
+
+.kyc-service-step-top {
+    position: relative;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kyc-service-step:not(:last-child)
+.kyc-service-step-top::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: calc(50% + 9px);
+    right: calc(-50% + 9px);
+
+    top: 50%;
+
+    height: 2px;
+
+    background: #d9dcdf;
+
+    transform: translateY(-50%);
+
+    z-index: 0;
+}
+
+.kyc-service-step-dot {
+    position: relative;
+
+    width: 14px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: #d5d8db;
+
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+
+    z-index: 2;
+}
+
+.kyc-service-step.completed
+.kyc-service-step-dot {
+
+    background: #39c77a;
+}
+
+.kyc-service-step.active
+.kyc-service-step-dot {
+
+    background: #f7b52b;
+}
+
+.kyc-service-step.completed
+.kyc-service-step-top::after {
+
+    background: #39c77a;
+}
+
+.kyc-service-step-name {
+    display: block;
+
+    margin-top: 7px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+
+    color: #536273;
+
+    white-space: nowrap;
+}
+
+.kyc-service-step.active
+.kyc-service-step-name {
+
+    color: #33485b;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   MAIN CARD
+============================================================ */
+
+.kyc-service-content-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe3e7;
+    border-radius: 10px;
+
+    padding: 22px 22px 18px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 1px 3px rgba(23, 40, 58, 0.03);
+}
+
+
+/* ============================================================
+   SERVICE AREA TITLE
+============================================================ */
+
+.kyc-service-area-title {
+    margin-bottom: 18px;
+}
+
+.kyc-service-area-title h2 {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 18px;
+    line-height: 24px;
+
+    font-weight: 700;
+
+    color: #17283a;
+}
+
+.kyc-service-area-title p {
+    margin: 4px 0 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 12px;
+    line-height: 17px;
+
+    color: #687685;
+}
+
+
+/* ============================================================
+   COMPANY DETAILS
+============================================================ */
+
+.kyc-service-company-section {
+    margin-bottom: 18px;
+}
+
+.kyc-service-company-section h3 {
+    margin: 0 0 12px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #1d3043;
+
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   FORM
+============================================================ */
+
+.kyc-service-form-group {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.kyc-service-form-group label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+    line-height: 15px;
+
+    color: #34485a;
+
+    font-weight: 500;
+}
+
+.kyc-service-form-group label span {
+    color: #7a8792;
+    font-weight: 400;
+}
+
+
+/* ============================================================
+   SELECT
+============================================================ */
+
+.kyc-service-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.kyc-service-select {
+    width: 100%;
+    height: 42px;
+
+    padding: 0 42px 0 13px;
+
+    border: 1px solid #dfe3e7;
+    border-radius: 7px;
+
+    background: #fafbfc;
+
+    color: #6b7785;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+}
+
+.kyc-service-select:focus {
+    border-color: #f7b52b;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(247, 181, 43, 0.10);
+}
+
+.kyc-service-select-arrow {
+    position: absolute;
+
+    right: 15px;
+    top: 50%;
+
+    width: 7px;
+    height: 7px;
+
+    border-right: 1.5px solid #7b8792;
+    border-bottom: 1.5px solid #7b8792;
+
+    transform: translateY(-65%) rotate(45deg);
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   SELECTED AREA TAGS
+============================================================ */
+
+.kyc-selected-area-box {
+    width: 100%;
+    min-height: 42px;
+
+    padding: 7px 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    border: 1px solid #dfe3e7;
+    border-radius: 7px;
+
+    background: #fafbfc;
+
+    box-sizing: border-box;
+}
+
+.kyc-area-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 4px 7px;
+
+    background: #fff4d9;
+
+    border-radius: 4px;
+
+    color: #e3a521;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 10px;
+    line-height: 13px;
+}
+
+.kyc-area-remove {
+    border: none;
+    background: transparent;
+
+    color: #e4ac2b;
+
+    font-size: 12px;
+    line-height: 1;
+
+    padding: 0;
+
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   CURRENT LOCATION
+============================================================ */
+
+.kyc-current-location-btn {
+    width: 100%;
+    height: 42px;
+
+    border: 1px dashed #f2b83d;
+    border-radius: 7px;
+
+    background: #fffdf8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    color: #eba929;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.kyc-current-location-btn:hover {
+    background: #fff8e9;
+}
+
+.location-loading {
+    font-size: 9px;
+}
+
+
+/* ============================================================
+   AVAILABILITY CARD
+============================================================ */
+
+.kyc-availability-card {
+    width: 100%;
+
+    border: 1px solid #e0e4e8;
+    border-radius: 9px;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    margin-top: 18px;
+}
+
+.kyc-availability-header {
+    margin-bottom: 12px;
+}
+
+.kyc-availability-header h3 {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+    line-height: 18px;
+
+    font-weight: 700;
+
+    color: #243547;
+}
+
+
+/* ============================================================
+   AVAILABILITY GRID
+============================================================ */
+
+.kyc-availability-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px 10px;
+}
+
+.kyc-preference-item {
+    min-height: 52px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #e2e6e9;
+
+    border-radius: 8px;
+
+    padding: 7px 10px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+}
+
+.kyc-preference-icon {
+    width: 28px;
+    height: 28px;
+
+    flex: 0 0 28px;
+
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+
+    margin-right: 9px;
+}
+
+.kyc-preference-icon.weekday {
+    background: #e9fff2;
+    color: #31bd72;
+}
+
+.kyc-preference-icon.weekend {
+    background: #fff1df;
+    color: #efaa35;
+}
+
+.kyc-preference-icon.night {
+    background: #f3ecff;
+    color: #936cf0;
+}
+
+.kyc-preference-icon.emergency {
+    background: #ffecef;
+    color: #ee6474;
+}
+
+.kyc-preference-icon.alltime {
+    background: #eef1ff;
+    color: #6675df;
+}
+
+.kyc-preference-text {
+    min-width: 0;
+    flex: 1;
+}
+
+.kyc-preference-text strong {
+    display: block;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    color: #26394b;
+}
+
+.kyc-preference-text span {
+    display: block;
+
+    margin-top: 1px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 8px;
+    line-height: 11px;
+
+    color: #87919b;
+}
+
+
+/* ============================================================
+   TOGGLE
+============================================================ */
+
+.kyc-preference-toggle {
+    position: relative;
+
+    width: 28px;
+    height: 17px;
+
+    flex: 0 0 28px;
+
+    margin-left: 8px;
+}
+
+.kyc-preference-toggle input {
+    opacity: 0;
+
+    width: 0;
+    height: 0;
+
+    position: absolute;
+}
+
+.kyc-preference-toggle span {
+    position: absolute;
+    inset: 0;
+
+    background: #d6dadd;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.kyc-preference-toggle span::before {
+    content: "";
+
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    left: 2px;
+    top: 2px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,.15);
+
+    transition: .2s ease;
+}
+
+.kyc-preference-toggle input:checked + span {
+    background: #ffc13d;
+}
+
+.kyc-preference-toggle input:checked + span::before {
+    transform: translateX(11px);
+}
+
+
+/* ============================================================
+   INFO BOX
+============================================================ */
+
+.kyc-preference-info {
+    min-height: 52px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    background: #fff9e9;
+
+    box-sizing: border-box;
+}
+
+.kyc-info-icon {
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background: #fff1c8;
+
+    color: #e6a82d;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    flex: 0 0 22px;
+
+    margin-right: 8px;
+}
+
+.kyc-preference-info p {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 8px;
+    line-height: 12px;
+
+    color: #9a7b35;
+}
+
+
+/* ============================================================
+   SERVICE RADIUS
+============================================================ */
+
+.kyc-service-radius-card {
+    width: 100%;
+
+    margin-top: 18px;
+
+    border: 1px solid #e0e4e8;
+
+    border-radius: 9px;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+}
+
+.kyc-radius-header {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 13px;
+}
+
+.kyc-radius-icon {
+    width: 29px;
+    height: 29px;
+
+    border-radius: 7px;
+
+    background: #f1f0ff;
+
+    color: #7066e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+
+    margin-right: 9px;
+}
+
+.kyc-radius-header h3 {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #243547;
+}
+
+.kyc-radius-header p {
+    margin: 2px 0 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 8px;
+    line-height: 11px;
+
+    color: #89939d;
+}
+
+
+/* ============================================================
+   RANGE SLIDER
+============================================================ */
+
+.kyc-radius-slider-wrapper {
+    width: 100%;
+}
+
+.kyc-radius-slider {
+    width: 100%;
+
+    height: 5px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: #eeeeee;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+.kyc-radius-slider::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+
+    background: #ffc13d;
+
+    border: 2px solid #ffffff;
+
+    box-shadow: 0 1px 4px rgba(0,0,0,.18);
+
+    cursor: pointer;
+}
+
+.kyc-radius-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+
+    background: #ffc13d;
+
+    border: 2px solid #ffffff;
+
+    box-shadow: 0 1px 4px rgba(0,0,0,.18);
+
+    cursor: pointer;
+}
+
+.kyc-radius-values {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 8px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 9px;
+
+    color: #35495b;
+}
+
+.kyc-radius-values strong {
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   MAP
+============================================================ */
+
+.kyc-service-map {
+    width: 100%;
+    height: 145px;
+
+    margin-top: 9px;
+
+    overflow: hidden;
+
+    border-radius: 7px;
+
+    background: #d4e9df;
+}
+
+.kyc-map-placeholder {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(130deg,
+            transparent 0 22%,
+            rgba(255,255,255,.75) 22% 24%,
+            transparent 24% 100%),
+        linear-gradient(45deg,
+            transparent 0 45%,
+            rgba(255,255,255,.55) 45% 47%,
+            transparent 47% 100%),
+        #c9e3d7;
+}
+
+.kyc-map-road {
+    position: absolute;
+
+    height: 3px;
+
+    background: rgba(124, 157, 180, .75);
+
+    border-radius: 50%;
+
+    transform-origin: left center;
+}
+
+.road-one {
+    width: 65%;
+    top: 38%;
+    left: 18%;
+    transform: rotate(22deg);
+}
+
+.road-two {
+    width: 60%;
+    top: 70%;
+    left: 25%;
+    transform: rotate(-28deg);
+}
+
+.road-three {
+    width: 50%;
+    top: 15%;
+    left: 58%;
+    transform: rotate(74deg);
+}
+
+.map-place {
+    position: absolute;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 8px;
+
+    color: #68786f;
+
+    text-shadow: 0 1px #ffffff;
+}
+
+.place-one {
+    left: 8%;
+    top: 25%;
+}
+
+.place-two {
+    left: 23%;
+    top: 18%;
+}
+
+.place-three {
+    left: 10%;
+    top: 68%;
+}
+
+.place-four {
+    left: 28%;
+    top: 58%;
+}
+
+.place-five {
+    left: 46%;
+    top: 30%;
+}
+
+.place-six {
+    left: 58%;
+    top: 57%;
+}
+
+.place-seven {
+    left: 45%;
+    top: 70%;
+}
+
+.place-eight {
+    right: 25%;
+    top: 17%;
+}
+
+.place-nine {
+    right: 10%;
+    top: 40%;
+}
+
+.kyc-map-marker {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 22px;
+    height: 22px;
+
+    margin-left: -11px;
+    margin-top: -11px;
+
+    border-radius: 50%;
+
+    background: rgba(255,193,61,.18);
+
+    color: #f5b52e;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   MAP LOCATION BUTTON
+============================================================ */
+
+.kyc-map-location-wrapper {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 8px;
+}
+
+.kyc-map-location-btn {
+    height: 26px;
+
+    padding: 0 12px;
+
+    border: 1px solid #f5bb43;
+
+    border-radius: 5px;
+
+    background: #ffffff;
+
+    color: #eca92b;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 8px;
+
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   ACTIONS
+============================================================ */
+
+.kyc-service-actions {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid #e4e7e9;
+
+    margin-top: 16px;
+    padding-top: 13px;
+}
+
+.kyc-service-back-btn,
+.kyc-service-continue-btn {
+    height: 42px;
+
+    border-radius: 8px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    transition: .2s ease;
+}
+
+.kyc-service-back-btn {
+    min-width: 78px;
+
+    padding: 0 15px;
+
+    background: #ffffff;
+
+    border: 1px solid #f2b83d;
+
+    color: #e9a929;
+}
+
+.kyc-service-back-btn:hover {
+    background: #fff9eb;
+}
+
+.kyc-service-continue-btn {
+    min-width: 190px;
+
+    padding: 0 18px;
+
+    background: #ffc13d;
+
+    border: none;
+
+    color: #ffffff;
+}
+
+.kyc-service-continue-btn:hover {
+    background: #f3b42e;
+
+    box-shadow: 0 4px 12px rgba(247,181,43,.22);
+}
+
+.kyc-service-continue-btn span:last-child {
+    font-size: 17px;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 1400px) {
+
+    .kyc-service-area-container {
+        width: calc(100% - 160px);
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .kyc-service-area-container {
+        width: calc(100% - 80px);
+        padding-top: 35px;
+    }
+
+    .kyc-service-header h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 850px) {
+
+    .kyc-service-area-container {
+        width: calc(100% - 40px);
+    }
+
+    .kyc-availability-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kyc-service-stepper {
+        overflow-x: auto;
+
+        grid-template-columns:
+            repeat(6, minmax(130px, 1fr));
+
+        padding-bottom: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .kyc-service-area-container {
+        width: calc(100% - 28px);
+
+        padding-top: 25px;
+        padding-bottom: 45px;
+    }
+
+    .kyc-service-header h1 {
+        font-size: 24px;
+        line-height: 31px;
+    }
+
+    .kyc-service-header p {
+        font-size: 13px;
+    }
+
+    .kyc-service-content-card {
+        padding: 15px;
+    }
+
+    .kyc-service-actions {
+        gap: 10px;
+    }
+
+    .kyc-service-back-btn,
+    .kyc-service-continue-btn {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .kyc-service-map {
+        height: 180px;
+    }
+}
+
+/* =========================================================
+   STEP 1
+========================================================= */
+
+#kycStep1 {
+    width: 100%;
+}
+
+
+/* =========================================================
+   STEP 2
+========================================================= */
+
+#kycStep2 {
+    width: 100%;
+}
+
+
+/* =========================================================
+   SMOOTH SECTION TRANSITION
+========================================================= */
+
+.kyc-step-section {
+    animation: kycStepFade 0.25s ease;
+}
+
+@keyframes kycStepFade {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}

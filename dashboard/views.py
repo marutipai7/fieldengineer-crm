@@ -426,3 +426,9 @@ def vendor_dashboard(request):
 
 def notification(request):
     return render(request, 'dashboard/notification.html')
+
+def fe_kyc_home(request):
+    return render(request, 'dashboard/field-engineer/kyc-home.html')
+
+def fe_profile_verification(request):
+    return render(request, 'dashboard/field-engineer/profile-verification.html')

@@ -1,0 +1,1911 @@
+{% extends "dashboard/field-engineer/layout-1.html" %}
+{% load static %}
+
+{% block title %}
+    Complete Your Profile
+{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================
+     KYC STEP 1
+     COMPLETE PROFILE
+========================================================= -->
+
+<section
+    class="profile-verification-page kyc-step-section active-step"
+    id="kycStep1"
+>
+
+    <div class="profile-verification-container">
+
+        <!-- PAGE TITLE -->
+        <div class="profile-page-header">
+
+            <h1>
+                Complete Your Profile
+            </h1>
+
+            <p>
+                This helps engineers know who they're working with
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
+             STEPPER
+        ====================================================== -->
+
+        <div class="profile-stepper">
+
+            <!-- STEP 1 -->
+
+            <div class="profile-step active">
+
+                <div class="profile-step-number">
+                    1
+                </div>
+
+                <span class="profile-step-label">
+                    Complete Profile
+                </span>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="profile-step">
+
+                <div class="profile-step-number">
+                    2
+                </div>
+
+                <span class="profile-step-label">
+                    Upload documents
+                </span>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="profile-step">
+
+                <div class="profile-step-number">
+                    3
+                </div>
+
+                <span class="profile-step-label">
+                    Service Area
+                </span>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+
+            <div class="profile-step">
+
+                <div class="profile-step-number">
+                    4
+                </div>
+
+                <span class="profile-step-label">
+                    Add Service
+                </span>
+
+            </div>
+
+
+            <!-- STEP 5 -->
+
+            <div class="profile-step">
+
+                <div class="profile-step-number">
+                    5
+                </div>
+
+                <span class="profile-step-label">
+                    Availability
+                </span>
+
+            </div>
+
+
+            <!-- STEP 6 -->
+
+            <div class="profile-step">
+
+                <div class="profile-step-number">
+                    6
+                </div>
+
+                <span class="profile-step-label">
+                    Bank Information
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             FORM AREA
+        ====================================================== -->
+
+        <div class="profile-form-area">
+
+
+            <!-- AVATAR -->
+
+            <div class="profile-avatar-area">
+
+                <div class="profile-avatar">
+
+                    <span>
+                        FE
+                    </span>
+
+                    <div class="profile-avatar-camera">
+                        📷
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 VENDOR CONNECTIVITY
+            ================================================== -->
+
+            <div class="vendor-connectivity-card">
+
+                <div class="vendor-connectivity-content">
+
+                    <span class="vendor-connectivity-title">
+                        Vendor Connectivity
+                    </span>
+
+                    <span class="vendor-connectivity-description">
+                        Are you associated with the vendor
+                    </span>
+
+                </div>
+
+
+                <label class="vendor-connectivity-toggle">
+
+                    <input
+                        type="checkbox"
+                        checked
+                    >
+
+                    <span class="vendor-connectivity-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- =================================================
+                 COMPANY DETAILS
+            ================================================== -->
+
+            <div class="company-details-section">
+
+                <h2 class="company-details-title">
+                    Company Details
+                </h2>
+
+
+                <div class="company-details-grid">
+
+
+                    <!-- SELECT VENDOR -->
+
+                    <div class="profile-form-group">
+
+                        <label>
+                            Select vendor
+                        </label>
+
+                        <div class="profile-select-wrapper">
+
+                            <select class="profile-select">
+
+                                <option>
+                                    Select vendor
+                                </option>
+
+                                <option>
+                                    Vendor 1
+                                </option>
+
+                                <option>
+                                    Vendor 2
+                                </option>
+
+                            </select>
+
+                            <span class="profile-select-arrow"></span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EXPERIENCE -->
+
+                    <div class="profile-form-group">
+
+                        <label>
+                            Years of experience
+                        </label>
+
+                        <div class="profile-select-wrapper">
+
+                            <select class="profile-select">
+
+                                <option>
+                                    Years of Experience
+                                </option>
+
+                                <option>
+                                    1 - 3 Years
+                                </option>
+
+                                <option>
+                                    3 - 5 Years
+                                </option>
+
+                                <option>
+                                    5 - 10 Years
+                                </option>
+
+                                <option>
+                                    10+ Years
+                                </option>
+
+                            </select>
+
+                            <span class="profile-select-arrow"></span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SPECIALIZATION -->
+
+                    <div class="profile-form-group">
+
+                        <label>
+                            Primary specialization
+                        </label>
+
+                        <div class="profile-select-wrapper">
+
+                            <select class="profile-select">
+
+                                <option>
+                                    Select Specialization
+                                </option>
+
+                                <option>
+                                    Network Engineering
+                                </option>
+
+                                <option>
+                                    Hardware Engineering
+                                </option>
+
+                                <option>
+                                    Electrical Engineering
+                                </option>
+
+                            </select>
+
+                            <span class="profile-select-arrow"></span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SKILLS -->
+
+                    <div class="profile-form-group">
+
+                        <label>
+                            Skill
+                        </label>
+
+                        <div class="profile-select-wrapper">
+
+                            <select class="profile-select">
+
+                                <option>
+                                    Select skills
+                                </option>
+
+                                <option>
+                                    Networking
+                                </option>
+
+                                <option>
+                                    Installation
+                                </option>
+
+                                <option>
+                                    Troubleshooting
+                                </option>
+
+                            </select>
+
+                            <span class="profile-select-arrow"></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     STEP 1 SAVE BUTTON
+                ================================================== -->
+
+                <div class="profile-action-area">
+
+                    <button
+                        type="button"
+                        class="profile-save-button"
+                        id="saveProfileButton"
+                    >
+
+                        <span>
+                            Save &amp; Continue
+                        </span>
+
+                        <span class="save-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     KYC STEP 2
+     UPLOAD DOCUMENTS
+========================================================= -->
+
+<section
+    class="kyc-upload-documents-section kyc-step-section"
+    id="kycStep2"
+>
+
+    <div class="kyc-upload-container">
+
+
+        <!-- =====================================================
+             PAGE TITLE
+        ====================================================== -->
+
+        <div class="kyc-upload-header">
+
+            <h1>
+                Complete Your Profile
+            </h1>
+
+            <p>
+                This helps engineers know who they're working with
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
+             STEPPER
+        ====================================================== -->
+
+        <div class="kyc-stepper">
+
+
+            <!-- =================================================
+                 STEP 1
+            ================================================== -->
+
+            <div class="kyc-step completed">
+
+                <div class="kyc-step-top">
+
+                    <span class="kyc-step-dot">
+                        ✓
+                    </span>
+
+                    <span class="kyc-step-line"></span>
+
+                </div>
+
+                <span class="kyc-step-name">
+                    Complete Profile
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 STEP 2
+            ================================================== -->
+
+            <div class="kyc-step active">
+
+                <div class="kyc-step-top">
+
+                    <span class="kyc-step-dot">
+                        2
+                    </span>
+
+                    <span class="kyc-step-line"></span>
+
+                </div>
+
+                <span class="kyc-step-name">
+                    Upload documents
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 STEP 3
+            ================================================== -->
+
+            <div class="kyc-step">
+
+                <div class="kyc-step-top">
+
+                    <span class="kyc-step-dot">
+                        3
+                    </span>
+
+                    <span class="kyc-step-line"></span>
+
+                </div>
+
+                <span class="kyc-step-name">
+                    Service Area
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 STEP 4
+            ================================================== -->
+
+            <div class="kyc-step">
+
+                <div class="kyc-step-top">
+
+                    <span class="kyc-step-dot">
+                        4
+                    </span>
+
+                    <span class="kyc-step-line"></span>
+
+                </div>
+
+                <span class="kyc-step-name">
+                    Add Service
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 STEP 5
+            ================================================== -->
+
+            <div class="kyc-step">
+
+                <div class="kyc-step-top">
+
+                    <span class="kyc-step-dot">
+                        5
+                    </span>
+
+                    <span class="kyc-step-line"></span>
+
+                </div>
+
+                <span class="kyc-step-name">
+                    Availability
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 STEP 6
+            ================================================== -->
+
+            <div class="kyc-step">
+
+                <div class="kyc-step-top">
+
+                    <span class="kyc-step-dot">
+                        6
+                    </span>
+
+                </div>
+
+                <span class="kyc-step-name">
+                    Bank Information
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             DOCUMENT MAIN CARD
+        ====================================================== -->
+
+        <div class="kyc-documents-card">
+
+
+            <!-- =================================================
+                 REQUIRED DOCUMENT HEADER
+            ================================================== -->
+
+            <div class="kyc-documents-title-row">
+
+                <div class="kyc-documents-heading">
+
+                    <h2>
+
+                        Required Documents
+
+                        <span>
+                            MANDATORY
+                        </span>
+
+                    </h2>
+
+                    <p>
+                        All marked documents are required for verification.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="kyc-upload-counter"
+                    id="kycUploadCounter"
+                >
+                    0 of 5 uploaded
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 REQUIRED DOCUMENTS
+            ================================================== -->
+
+            <div class="kyc-required-documents">
+
+
+                <!-- =================================================
+                     GST CERTIFICATE
+                ================================================== -->
+
+                <div class="kyc-document-row">
+
+                    <div class="kyc-document-info">
+
+                        <div class="kyc-document-icon gst">
+                            ♧
+                        </div>
+
+                        <div class="kyc-document-text">
+
+                            <h3>
+                                GST Certificate
+                                <b>*</b>
+                            </h3>
+
+                            <p>
+                                Upload your GST registration certificate.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <label
+                        class="kyc-document-upload"
+                        for="kycGST"
+                        id="gstUploadArea"
+                    >
+
+                        <input
+                            type="file"
+                            id="kycGST"
+                            class="kyc-file-input"
+                            accept=".pdf,.jpg,.jpeg,.png"
+                        >
+
+                        <span class="kyc-upload-symbol">
+                            ⇧
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Drop file here or Browse
+                            </strong>
+
+                            <small>
+                                PDF, JPG, PNG - Max 15MB
+                            </small>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     INCOME TAX
+                ================================================== -->
+
+                <div class="kyc-document-row">
+
+                    <div class="kyc-document-info">
+
+                        <div class="kyc-document-icon tax">
+                            ▤
+                        </div>
+
+                        <div class="kyc-document-text">
+
+                            <h3>
+                                Income Tax Document
+                                <b>*</b>
+                            </h3>
+
+                            <p>
+                                Upload your Income Tax Return.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <label
+                        class="kyc-document-upload"
+                        for="kycIncomeTax"
+                    >
+
+                        <input
+                            type="file"
+                            id="kycIncomeTax"
+                            class="kyc-file-input"
+                            accept=".pdf,.jpg,.jpeg,.png"
+                        >
+
+                        <span class="kyc-upload-symbol">
+                            ⇧
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Drop file here or Browse
+                            </strong>
+
+                            <small>
+                                PDF, JPG, PNG - Max 15MB
+                            </small>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     COMPANY REGISTRATION
+                ================================================== -->
+
+                <div class="kyc-document-row">
+
+                    <div class="kyc-document-info">
+
+                        <div class="kyc-document-icon company">
+                            ▥
+                        </div>
+
+                        <div class="kyc-document-text">
+
+                            <h3>
+                                Company Registration Certificate
+                                <b>*</b>
+                            </h3>
+
+                            <p>
+                                Upload business registration certificate.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <label
+                        class="kyc-document-upload"
+                        for="kycCompanyRegistration"
+                    >
+
+                        <input
+                            type="file"
+                            id="kycCompanyRegistration"
+                            class="kyc-file-input"
+                            accept=".pdf,.jpg,.jpeg,.png"
+                        >
+
+                        <span class="kyc-upload-symbol">
+                            ⇧
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Drop file here or Browse
+                            </strong>
+
+                            <small>
+                                PDF, JPG, PNG - Max 15MB
+                            </small>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MOA / AOA
+                ================================================== -->
+
+                <div class="kyc-document-row">
+
+                    <div class="kyc-document-info">
+
+                        <div class="kyc-document-icon moa">
+                            ⌖
+                        </div>
+
+                        <div class="kyc-document-text">
+
+                            <h3>
+                                MOA / AOA
+
+                                <span>
+                                    (Optional)
+                                </span>
+
+                            </h3>
+
+                            <p>
+                                Upload Memorandum/Articles of Association.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <label
+                        class="kyc-document-upload"
+                        for="kycMoaAoa"
+                    >
+
+                        <input
+                            type="file"
+                            id="kycMoaAoa"
+                            class="kyc-file-input"
+                            accept=".pdf,.jpg,.jpeg,.png"
+                        >
+
+                        <span class="kyc-upload-symbol">
+                            ⇧
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Drop file here or Browse
+                            </strong>
+
+                            <small>
+                                PDF, JPG, PNG - Max 15MB
+                            </small>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     BANK ACCOUNT PROOF
+                ================================================== -->
+
+                <div class="kyc-document-row">
+
+                    <div class="kyc-document-info">
+
+                        <div class="kyc-document-icon bank">
+                            ⌂
+                        </div>
+
+                        <div class="kyc-document-text">
+
+                            <h3>
+                                Bank Account Proof
+                            </h3>
+
+                            <p>
+                                Upload cancelled cheque or bank statement.
+                            </p>
+
+                            <small>
+                                Optional
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <label
+                        class="kyc-document-upload"
+                        for="kycBankProof"
+                    >
+
+                        <input
+                            type="file"
+                            id="kycBankProof"
+                            class="kyc-file-input"
+                            accept=".pdf,.jpg,.jpeg,.png"
+                        >
+
+                        <span class="kyc-upload-symbol">
+                            ⇧
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Drop file here or Browse
+                            </strong>
+
+                            <small>
+                                PDF, JPG, PNG - Max 15MB
+                            </small>
+
+                        </div>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================================
+                 OPTIONAL DOCUMENTS
+            ====================================================== -->
+
+            <div class="kyc-optional-documents">
+
+
+                <div class="kyc-optional-heading">
+
+                    <h2>
+                        Optional Documents
+                    </h2>
+
+                    <p>
+                        Boost credibility by uploading additional certifications.
+                    </p>
+
+                </div>
+
+
+                <div class="kyc-optional-grid">
+
+
+                    <!-- =================================================
+                         ISO CERTIFICATION
+                    ================================================== -->
+
+                    <label class="kyc-optional-card">
+
+                        <input
+                            type="file"
+                            class="kyc-optional-input"
+                            id="kycISO"
+                            accept=".pdf,.jpg,.jpeg,.png"
+                        >
+
+                        <div class="kyc-optional-name">
+
+                            <span class="kyc-optional-icon iso">
+                                ◉
+                            </span>
+
+                            <strong>
+                                ISO Certification
+                            </strong>
+
+                        </div>
+
+                        <span class="kyc-optional-upload">
+                            ⇧ Upload (Optional)
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- =================================================
+                         CISCO PARTNERSHIP
+                    ================================================== -->
+
+                    <label class="kyc-optional-card">
+
+                        <input
+                            type="file"
+                            class="kyc-optional-input"
+                            id="kycCisco"
+                            accept=".pdf,.jpg,.jpeg,.png"
+                        >
+
+                        <div class="kyc-optional-name">
+
+                            <span class="kyc-optional-icon cisco">
+                                ◇
+                            </span>
+
+                            <strong>
+                                Cisco Partnership
+                            </strong>
+
+                        </div>
+
+                        <span class="kyc-optional-upload">
+                            ⇧ Upload (Optional)
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- =================================================
+                         SAFETY COMPLIANCE
+                    ================================================== -->
+
+                    <label class="kyc-optional-card">
+
+                        <input
+                            type="file"
+                            class="kyc-optional-input"
+                            id="kycSafety"
+                            accept=".pdf,.jpg,.jpeg,.png"
+                        >
+
+                        <div class="kyc-optional-name">
+
+                            <span class="kyc-optional-icon safety">
+                                ♡
+                            </span>
+
+                            <strong>
+                                Safety Compliance
+                            </strong>
+
+                        </div>
+
+                        <span class="kyc-optional-upload">
+                            ⇧ Upload (Optional)
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- =================================================
+                         OTHER CERTIFICATION
+                    ================================================== -->
+
+                    <label class="kyc-optional-card">
+
+                        <input
+                            type="file"
+                            class="kyc-optional-input"
+                            id="kycOther"
+                            accept=".pdf,.jpg,.jpeg,.png"
+                        >
+
+                        <div class="kyc-optional-name">
+
+                            <span class="kyc-optional-icon other">
+                                ▣
+                            </span>
+
+                            <strong>
+                                Other Certification
+                            </strong>
+
+                        </div>
+
+                        <span class="kyc-optional-upload">
+                            ⇧ Upload (Optional)
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================================
+                 STEP 2 ACTION BUTTONS
+            ====================================================== -->
+
+            <div class="kyc-document-actions">
+
+
+                <!-- =================================================
+                     BACK TO STEP 1
+                ================================================== -->
+
+                <button
+                    type="button"
+                    class="kyc-back-btn"
+                    id="kycBackBtn"
+                >
+
+                    <span>
+                        ←
+                    </span>
+
+                    <span>
+                        Back
+                    </span>
+
+                </button>
+
+
+
+                <!-- =================================================
+                     STEP 2 → STEP 3
+                ================================================== -->
+
+                <button
+                    type="button"
+                    class="kyc-continue-btn"
+                    id="kycContinueBtn"
+                >
+
+                    <span>
+                        Save &amp; Continue
+                    </span>
+
+                    <span class="kyc-continue-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     KYC STEP 3
+     SERVICE AREA
+========================================================= -->
+
+<section
+    class="kyc-service-area-section kyc-step-section"
+    id="kycStep3"
+>
+
+    <div class="kyc-service-area-container">
+
+        <!-- =====================================================
+             PAGE TITLE
+        ====================================================== -->
+
+        <div class="kyc-service-header">
+
+            <h1>
+                Complete Your Profile
+            </h1>
+
+            <p>
+                This helps engineers know who they're working with
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
+             STEPPER
+        ====================================================== -->
+
+        <div class="kyc-service-stepper">
+
+            <!-- STEP 1 -->
+
+            <div class="kyc-service-step completed">
+
+                <div class="kyc-service-step-top">
+
+                    <span class="kyc-service-step-dot">
+                        ✓
+                    </span>
+
+                    <span class="kyc-service-step-line"></span>
+
+                </div>
+
+                <span class="kyc-service-step-name">
+                    Complete Profile
+                </span>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="kyc-service-step completed">
+
+                <div class="kyc-service-step-top">
+
+                    <span class="kyc-service-step-dot">
+                        ✓
+                    </span>
+
+                    <span class="kyc-service-step-line"></span>
+
+                </div>
+
+                <span class="kyc-service-step-name">
+                    Upload documents
+                </span>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="kyc-service-step active">
+
+                <div class="kyc-service-step-top">
+
+                    <span class="kyc-service-step-dot">
+                        3
+                    </span>
+
+                    <span class="kyc-service-step-line"></span>
+
+                </div>
+
+                <span class="kyc-service-step-name">
+                    Service Area
+                </span>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+
+            <div class="kyc-service-step">
+
+                <div class="kyc-service-step-top">
+
+                    <span class="kyc-service-step-dot">
+                        4
+                    </span>
+
+                    <span class="kyc-service-step-line"></span>
+
+                </div>
+
+                <span class="kyc-service-step-name">
+                    Add Service
+                </span>
+
+            </div>
+
+
+            <!-- STEP 5 -->
+
+            <div class="kyc-service-step">
+
+                <div class="kyc-service-step-top">
+
+                    <span class="kyc-service-step-dot">
+                        5
+                    </span>
+
+                    <span class="kyc-service-step-line"></span>
+
+                </div>
+
+                <span class="kyc-service-step-name">
+                    Availability
+                </span>
+
+            </div>
+
+
+            <!-- STEP 6 -->
+
+            <div class="kyc-service-step">
+
+                <div class="kyc-service-step-top">
+
+                    <span class="kyc-service-step-dot">
+                        6
+                    </span>
+
+                </div>
+
+                <span class="kyc-service-step-name">
+                    Bank Information
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             SERVICE AREA CONTENT
+        ====================================================== -->
+
+        <div class="kyc-service-content-card">
+
+
+            <!-- =================================================
+                 SERVICE AREA TITLE
+            ================================================== -->
+
+            <div class="kyc-service-area-title">
+
+                <h2>
+                    Select your service area
+                </h2>
+
+                <p>
+                    Choose the areas where you want to work
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 COMPANY DETAILS
+            ================================================== -->
+
+            <div class="kyc-service-company-section">
+
+                <h3>
+                    Company Details
+                </h3>
+
+
+                <!-- PRIMARY CITY -->
+
+                <div class="kyc-service-form-group">
+
+                    <label>
+                        Primary City
+                    </label>
+
+                    <div class="kyc-service-select-wrapper">
+
+                        <select
+                            id="primaryCity"
+                            class="kyc-service-select"
+                        >
+
+                            <option value="">
+                                Mumbai
+                            </option>
+
+                            <option value="Mumbai">
+                                Mumbai
+                            </option>
+
+                            <option value="Pune">
+                                Pune
+                            </option>
+
+                            <option value="Delhi">
+                                Delhi
+                            </option>
+
+                            <option value="Bangalore">
+                                Bangalore
+                            </option>
+
+                            <option value="Hyderabad">
+                                Hyderabad
+                            </option>
+
+                            <option value="Chennai">
+                                Chennai
+                            </option>
+
+                        </select>
+
+                        <span class="kyc-service-select-arrow"></span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PREFERRED WORK AREAS -->
+
+                <div class="kyc-service-form-group">
+
+                    <label>
+                        Preferred Work Areas
+                        <span>(Optional)</span>
+                    </label>
+
+
+                    <div
+                        class="kyc-selected-area-box"
+                        id="selectedAreaBox"
+                    >
+
+                        <span class="kyc-area-tag">
+                            Mumbai
+                            <button
+                                type="button"
+                                class="kyc-area-remove"
+                            >
+                                ×
+                            </button>
+                        </span>
+
+                        <span class="kyc-area-tag">
+                            Delhi
+                            <button
+                                type="button"
+                                class="kyc-area-remove"
+                            >
+                                ×
+                            </button>
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SELECT CITY -->
+
+                <div class="kyc-service-form-group">
+
+                    <div class="kyc-service-select-wrapper">
+
+                        <select
+                            id="preferredCity"
+                            class="kyc-service-select"
+                        >
+
+                            <option value="">
+                                Select City
+                            </option>
+
+                            <option value="Mumbai">
+                                Mumbai
+                            </option>
+
+                            <option value="Pune">
+                                Pune
+                            </option>
+
+                            <option value="Delhi">
+                                Delhi
+                            </option>
+
+                            <option value="Bangalore">
+                                Bangalore
+                            </option>
+
+                            <option value="Hyderabad">
+                                Hyderabad
+                            </option>
+
+                            <option value="Chennai">
+                                Chennai
+                            </option>
+
+                        </select>
+
+                        <span class="kyc-service-select-arrow"></span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CURRENT LOCATION -->
+
+                <button
+                    type="button"
+                    class="kyc-current-location-btn"
+                    id="currentLocationBtn"
+                >
+
+                    <span>
+                        ◎
+                    </span>
+
+                    Use Current Location
+
+                    <span class="location-loading">
+                        ◉
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 AVAILABILITY PREFERENCES
+            ================================================== -->
+
+            <div class="kyc-availability-card">
+
+                <div class="kyc-availability-header">
+
+                    <div>
+
+                        <h3>
+                            ◉ Availability Preferences
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="kyc-availability-grid">
+
+
+                    <!-- WEEKDAY -->
+
+                    <div class="kyc-preference-item">
+
+                        <div class="kyc-preference-icon weekday">
+                            ◷
+                        </div>
+
+                        <div class="kyc-preference-text">
+
+                            <strong>
+                                Weekday Availability
+                            </strong>
+
+                            <span>
+                                Available during Mon - Fri 09:00 AM - 06:00 PM
+                            </span>
+
+                        </div>
+
+                        <label class="kyc-preference-toggle">
+
+                            <input
+                                type="checkbox"
+                                checked
+                            >
+
+                            <span></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- WEEKEND -->
+
+                    <div class="kyc-preference-item">
+
+                        <div class="kyc-preference-icon weekend">
+                            ◷
+                        </div>
+
+                        <div class="kyc-preference-text">
+
+                            <strong>
+                                Weekend Support
+                            </strong>
+
+                            <span>
+                                Available on Saturday 09:00 AM - 06:00 PM
+                            </span>
+
+                        </div>
+
+                        <label class="kyc-preference-toggle">
+
+                            <input
+                                type="checkbox"
+                                checked
+                            >
+
+                            <span></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- NIGHT SHIFT -->
+
+                    <div class="kyc-preference-item">
+
+                        <div class="kyc-preference-icon night">
+                            ◔
+                        </div>
+
+                        <div class="kyc-preference-text">
+
+                            <strong>
+                                Night Shift Support
+                            </strong>
+
+                            <span>
+                                Available during night hours 08:00 PM - 12:00 AM
+                            </span>
+
+                        </div>
+
+                        <label class="kyc-preference-toggle">
+
+                            <input
+                                type="checkbox"
+                                checked
+                            >
+
+                            <span></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- EMERGENCY -->
+
+                    <div class="kyc-preference-item">
+
+                        <div class="kyc-preference-icon emergency">
+                            ♧
+                        </div>
+
+                        <div class="kyc-preference-text">
+
+                            <strong>
+                                Emergency Dispatch
+                            </strong>
+
+                            <span>
+                                Get emergency job requests anytime
+                            </span>
+
+                        </div>
+
+                        <label class="kyc-preference-toggle">
+
+                            <input
+                                type="checkbox"
+                                checked
+                            >
+
+                            <span></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- 24/7 -->
+
+                    <div class="kyc-preference-item">
+
+                        <div class="kyc-preference-icon alltime">
+                            ◎
+                        </div>
+
+                        <div class="kyc-preference-text">
+
+                            <strong>
+                                24 × 7 Availability
+                            </strong>
+
+                            <span>
+                                Round the clock availability
+                            </span>
+
+                        </div>
+
+                        <label class="kyc-preference-toggle">
+
+                            <input
+                                type="checkbox"
+                                checked
+                            >
+
+                            <span></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- INFO -->
+
+                    <div class="kyc-preference-info">
+
+                        <span class="kyc-info-icon">
+                            !
+                        </span>
+
+                        <p>
+                            Enabling more availability options increases your chance of
+                            getting more jobs.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SERVICE RADIUS
+            ================================================== -->
+
+            <div class="kyc-service-radius-card">
+
+                <div class="kyc-radius-header">
+
+                    <div class="kyc-radius-icon">
+                        ◎
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Service Radius
+                        </h3>
+
+                        <p>
+                            Set the maximum distance you are willing to travel for a job.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SLIDER -->
+
+                <div class="kyc-radius-slider-wrapper">
+
+                    <input
+                        type="range"
+                        min="5"
+                        max="1000"
+                        value="250"
+                        id="serviceRadiusSlider"
+                        class="kyc-radius-slider"
+                    >
+
+                </div>
+
+
+                <div class="kyc-radius-values">
+
+                    <span>
+                        5 km
+                    </span>
+
+                    <span>
+                        <strong id="radiusValue">
+                            250 km
+                        </strong>
+                    </span>
+
+                    <span>
+                        1000 km
+                    </span>
+
+                </div>
+
+
+                <!-- MAP -->
+
+                <div class="kyc-service-map">
+
+                    <div class="kyc-map-placeholder">
+
+                        <div class="kyc-map-road road-one"></div>
+                        <div class="kyc-map-road road-two"></div>
+                        <div class="kyc-map-road road-three"></div>
+
+                        <span class="map-place place-one">
+                            Gothawane
+                        </span>
+
+                        <span class="map-place place-two">
+                            Sarde
+                        </span>
+
+                        <span class="map-place place-three">
+                            Kadape
+                        </span>
+
+                        <span class="map-place place-four">
+                            Vasheini
+                        </span>
+
+                        <span class="map-place place-five">
+                            Kelvane
+                        </span>
+
+                        <span class="map-place place-six">
+                            Rave
+                        </span>
+
+                        <span class="map-place place-seven">
+                            Pune
+                        </span>
+
+                        <span class="map-place place-eight">
+                            Igatpuri
+                        </span>
+
+                        <span class="map-place place-nine">
+                            Kharpada
+                        </span>
+
+                        <div class="kyc-map-marker">
+                            ●
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MAP LOCATION -->
+
+                <div class="kyc-map-location-wrapper">
+
+                    <button
+                        type="button"
+                        class="kyc-map-location-btn"
+                        id="mapLocationBtn"
+                    >
+
+                        ◎
+
+                        Use current location
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ACTION BUTTONS
+            ================================================== -->
+
+            <div class="kyc-service-actions">
+
+                <button
+                    type="button"
+                    class="kyc-service-back-btn"
+                    id="kycServiceBackBtn"
+                >
+
+                    <span>
+                        ←
+                    </span>
+
+                    Back
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="kyc-service-continue-btn"
+                    id="kycServiceContinueBtn"
+                >
+
+                    <span>
+                        Save &amp; Continue
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<script src="{% static 'script/profile/profile-verification-1.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,605 @@
+{% extends "dashboard/field-engineer/layout-1.html" %}
+{% load static %}
+
+{% block title %}Home - Field Engineer{% endblock %}
+
+{% block content %}
+
+<div class="fe-home">
+
+    <!-- =========================================================
+         DASHBOARD WRAPPER
+    ========================================================== -->
+
+    <div class="fe-dashboard-container">
+
+        <!-- =====================================================
+             TOP AREA
+        ====================================================== -->
+
+        <div class="fe-top-layout">
+
+            <!-- LEFT WELCOME PANEL -->
+            <section class="fe-welcome-panel">
+
+                <div class="fe-welcome-title">
+                    <h1>
+                        Hello Harsh <span>👋</span>
+                    </h1>
+
+                    <p>
+                        Complete your KYC to unlock leads and start applying for jobs.
+                    </p>
+                </div>
+
+
+                <!-- STATUS CARDS -->
+                <div class="fe-status-row">
+
+                    <!-- KYC -->
+                    <div class="fe-status-card">
+
+                        <div class="fe-status-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="5" y="10" width="14" height="10"
+                                      rx="2"></rect>
+                                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                            </svg>
+                        </div>
+
+                        <div class="fe-status-info">
+                            <span>KYC Status</span>
+                            <strong class="required">Required</strong>
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIVE JOBS -->
+                    <div class="fe-status-card">
+
+                        <div class="fe-status-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="5" y="10" width="14" height="10"
+                                      rx="2"></rect>
+                                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                            </svg>
+                        </div>
+
+                        <div class="fe-status-info">
+                            <span>Active Jobs</span>
+                            <strong>0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <!-- UPCOMING -->
+                    <div class="fe-status-card">
+
+                        <div class="fe-status-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="5" y="10" width="14" height="10"
+                                      rx="2"></rect>
+                                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                            </svg>
+                        </div>
+
+                        <div class="fe-status-info">
+                            <span>Upcoming Jobs</span>
+                            <strong>0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <!-- EARNINGS -->
+                    <div class="fe-status-card">
+
+                        <div class="fe-status-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="5" y="10" width="14" height="10"
+                                      rx="2"></rect>
+                                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                            </svg>
+                        </div>
+
+                        <div class="fe-status-info">
+                            <span>Today's Earnings</span>
+                            <strong>$0</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- KYC WARNING -->
+                <div class="fe-kyc-warning">
+
+                    <div class="fe-warning-icon">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3L21 7v5c0 5.5-3.8 8.6-9 9-5.2-.4-9-3.5-9-9V7l9-4z"></path>
+                            <path d="M12 8v5"></path>
+                            <circle cx="12" cy="16.5" r=".7"></circle>
+                        </svg>
+
+                    </div>
+
+
+                    <div class="fe-warning-content">
+
+                        <h3>
+                            KYC verification is required
+                        </h3>
+
+                        <p>
+                            Please complete your KYC to access leads, jobs and all platform features.
+                        </p>
+
+                    </div>
+
+
+                    <a href="{% url 'fe_profile_verification' %}" class="fe-complete-kyc">
+    Complete KYC
+    <span>→</span>
+</a>
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 AVAILABILITY
+            ================================================== -->
+
+            <aside class="fe-availability-card">
+
+                <div class="fe-availability-header">
+
+                    <h2>Availability</h2>
+
+                    <label class="fe-switch">
+
+                        <input
+                            type="checkbox"
+                            id="availabilityToggle"
+                        >
+
+                        <span class="fe-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="fe-availability-message">
+
+                    <p>
+                        You are not visible for new leads
+                        until your KYC is completed.
+                    </p>
+
+                    <svg class="fe-side-lock" viewBox="0 0 24 24">
+                        <rect x="5" y="10" width="14" height="10"
+                              rx="2"></rect>
+                        <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                    </svg>
+
+                </div>
+
+
+                <a
+                    href="{% url 'fe_kyc_home' %}"
+                    class="fe-learn-kyc"
+                >
+                    Learn more about KYC
+                    <span>→</span>
+                </a>
+
+            </aside>
+
+        </div>
+
+
+        <!-- =====================================================
+             FEATURE CARDS
+        ====================================================== -->
+
+        <div class="fe-feature-grid">
+
+
+            <!-- FIND LEADS -->
+            <a href="#" class="fe-feature-card locked-feature">
+
+                <div class="fe-feature-icon blue">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"></path>
+                        <path d="M4 21h16"></path>
+                        <path d="M10 7h1M13 7h1M10 11h1M13 11h1M10 15h1M13 15h1"></path>
+                    </svg>
+
+                </div>
+
+                <div class="fe-feature-text">
+                    <h3>Find Leads</h3>
+                    <p>Discover new<br>opportunities</p>
+                </div>
+
+                <svg class="fe-card-lock" viewBox="0 0 24 24">
+                    <rect x="5" y="10" width="14" height="10"
+                          rx="2"></rect>
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                </svg>
+
+            </a>
+
+
+            <!-- MY JOBS -->
+            <a href="#" class="fe-feature-card locked-feature">
+
+                <div class="fe-feature-icon green">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"></path>
+                        <path d="M4 21h16"></path>
+                        <path d="M10 7h1M13 7h1M10 11h1M13 11h1M10 15h1M13 15h1"></path>
+                    </svg>
+
+                </div>
+
+                <div class="fe-feature-text">
+                    <h3>My Jobs</h3>
+                    <p>View and manage<br>your jobs</p>
+                </div>
+
+                <svg class="fe-card-lock" viewBox="0 0 24 24">
+                    <rect x="5" y="10" width="14" height="10"
+                          rx="2"></rect>
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                </svg>
+
+            </a>
+
+
+            <!-- TEAM -->
+            <a href="#" class="fe-feature-card locked-feature">
+
+                <div class="fe-feature-icon purple">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"></path>
+                        <path d="M4 21h16"></path>
+                        <path d="M10 7h1M13 7h1M10 11h1M13 11h1M10 15h1M13 15h1"></path>
+                    </svg>
+
+                </div>
+
+                <div class="fe-feature-text">
+                    <h3>Team</h3>
+                    <p>Build and manage<br>your team</p>
+                </div>
+
+                <svg class="fe-card-lock" viewBox="0 0 24 24">
+                    <rect x="5" y="10" width="14" height="10"
+                          rx="2"></rect>
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                </svg>
+
+            </a>
+
+
+            <!-- EARNINGS -->
+            <a href="#" class="fe-feature-card locked-feature">
+
+                <div class="fe-feature-icon orange">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"></path>
+                        <path d="M4 21h16"></path>
+                        <path d="M10 7h1M13 7h1M10 11h1M13 11h1M10 15h1M13 15h1"></path>
+                    </svg>
+
+                </div>
+
+                <div class="fe-feature-text">
+                    <h3>Earnings</h3>
+                    <p>Check payments<br>and history</p>
+                </div>
+
+                <svg class="fe-card-lock" viewBox="0 0 24 24">
+                    <rect x="5" y="10" width="14" height="10"
+                          rx="2"></rect>
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                </svg>
+
+            </a>
+
+
+            <!-- ATTENDANCE -->
+            <a href="#" class="fe-feature-card locked-feature">
+
+                <div class="fe-feature-icon pink">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"></path>
+                        <path d="M4 21h16"></path>
+                        <path d="M10 7h1M13 7h1M10 11h1M13 11h1M10 15h1M13 15h1"></path>
+                    </svg>
+
+                </div>
+
+                <div class="fe-feature-text">
+                    <h3>Attendance</h3>
+                    <p>Mark attendance<br>and view logs</p>
+                </div>
+
+                <svg class="fe-card-lock" viewBox="0 0 24 24">
+                    <rect x="5" y="10" width="14" height="10"
+                          rx="2"></rect>
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                </svg>
+
+            </a>
+
+        </div>
+
+
+        <!-- =====================================================
+             HIGH DEMAND
+        ====================================================== -->
+
+        <div class="fe-demand-card">
+
+            <div class="fe-demand-icon">
+
+                <svg viewBox="0 0 24 24">
+                    <path d="M13 2L5 13h6l-1 9 9-12h-6z"></path>
+                </svg>
+
+            </div>
+
+            <div class="fe-demand-content">
+
+                <h3>
+                    High Demand In Your Area
+                </h3>
+
+                <p>
+                    Complete your KYC to see high demand opportunities near you.
+                </p>
+
+            </div>
+
+            <button class="fe-view-leads" disabled>
+                View Leads
+
+                <svg viewBox="0 0 24 24">
+                    <rect x="5" y="10" width="14" height="10"
+                          rx="2"></rect>
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                </svg>
+            </button>
+
+        </div>
+
+
+        <!-- =====================================================
+             NEARBY LEADS HEADER
+        ====================================================== -->
+
+        <div class="fe-section-header">
+
+            <h2>Nearby Leads</h2>
+
+            <a href="#">
+                View All Leads
+                <span>→</span>
+            </a>
+
+        </div>
+
+
+        <!-- =====================================================
+             NEARBY LEADS
+        ====================================================== -->
+
+        <div class="fe-leads-grid">
+
+            {% for i in "123" %}
+
+            <div class="fe-lead-card">
+
+                <div class="fe-lead-top">
+                    <span>LOCKED</span>
+                    <span>— km away</span>
+                </div>
+
+
+                <div class="fe-lead-title">
+
+                    <div class="fe-lead-mini-icon">
+                        ⚯
+                    </div>
+
+                    <div>
+                        <h3>Network Cabling Setup</h3>
+                        <span>▣ DC - Mumbai</span>
+                    </div>
+
+                </div>
+
+
+                <p class="fe-lead-description">
+                    Installation of Cat6 cabling for new office.
+                </p>
+
+
+                <div class="fe-lead-divider"></div>
+
+
+                <div class="fe-lead-info">
+
+                    <div>
+                        <span>Budget:</span>
+                        <strong>$5,000-$10,000</strong>
+                    </div>
+
+                    <div>
+                        <span>Duration:</span>
+                        <strong>4-6 hrs</strong>
+                    </div>
+
+                    <div>
+                        <span>Team:</span>
+                        <strong>2 Engineers</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="fe-lead-buttons">
+
+                    <button disabled>
+                        View Details
+                    </button>
+
+                    <button disabled>
+                        Apply Now
+
+                        <svg viewBox="0 0 24 24">
+                            <rect x="5" y="10" width="14" height="10"
+                                  rx="2"></rect>
+                            <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                        </svg>
+
+                    </button>
+
+                </div>
+
+
+                <!-- CENTER LOCK -->
+
+                <div class="fe-center-lock">
+
+                    <svg viewBox="0 0 24 24">
+                        <rect x="5" y="10" width="14" height="10"
+                              rx="2"></rect>
+                        <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                    </svg>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- =====================================================
+             BOTTOM SECTION
+        ====================================================== -->
+
+        <div class="fe-bottom-grid">
+
+
+            <!-- ACTIVE JOB -->
+
+            <section class="fe-active-job">
+
+                <h2>Active Job</h2>
+
+                <div class="fe-active-job-card">
+
+                    <div class="fe-worker-image">
+
+                        <!-- Replace this with your actual image -->
+                        <img
+                            src="{% static 'images/field-engineer/active-job-worker.png' %}"
+                            alt="Field Engineer"
+                        >
+
+                    </div>
+
+
+                    <div class="fe-active-content">
+
+                        <h3>
+                            No Active Job
+                        </h3>
+
+                        <p>
+                            Once your KYC is verified and you are assigned a job,<br>
+                            it will appear here.
+                        </p>
+
+                        <a
+                            href="{% url 'fe_kyc_home' %}"
+                            class="fe-job-kyc"
+                        >
+                            Complete KYC to Get Started
+
+                            <svg viewBox="0 0 24 24">
+                                <rect x="5" y="10" width="14" height="10"
+                                      rx="2"></rect>
+                                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                            </svg>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- EARNINGS -->
+
+            <section class="fe-earnings">
+
+                <h2>Earnings Overview</h2>
+
+                <div class="fe-earnings-card">
+
+                    <svg class="fe-earnings-lock" viewBox="0 0 24 24">
+                        <rect x="5" y="10" width="14" height="10"
+                              rx="2"></rect>
+                        <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                    </svg>
+
+                    <p>
+                        Complete your KYC to view your<br>
+                        earnings and balance details.
+                    </p>
+
+                    <a
+                        href="{% url 'fe_kyc_home' %}"
+                        class="fe-earnings-kyc"
+                    >
+                        Complete KYC
+
+                        <svg viewBox="0 0 24 24">
+                            <rect x="5" y="10" width="14" height="10"
+                                  rx="2"></rect>
+                            <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                        </svg>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{% static 'script/profile/kyc-home.js' %}"></script>
+
+{% endblock %}
