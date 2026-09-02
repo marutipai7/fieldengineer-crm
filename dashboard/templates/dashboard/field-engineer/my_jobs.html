@@ -1,8 +1,1512 @@
-{% extends "dashboard/field-engineer/layout-1.html" %}
-{% load static %}
+{% extends "dashboard/field-engineer/layout-1.html" %} {% load static %} {%
+block title %}My Jobs{% endblock %} {% block content %}
 
-{% block title %}My Job {% endblock %}
-{% block content %}
-<p>Hello my jobs page</p>
+<div
+  id="fe-my-jobs-page"
+  class="min-h-screen bg-[#F8F9FB] px-4 sm:px-6 lg:px-8 py-6"
+>
+  <!-- ============================ Page heading ============================ -->
+  <div class="mb-5">
+    <nav
+      class="flex items-center gap-1.5 text-xs text-gray-400 mb-1"
+      aria-label="Breadcrumb"
+    >
+      <span>Home</span>
+      <span class="material-symbols-outlined" style="font-size: 14px"
+        >chevron_right</span
+      >
+      <span class="text-gray-500">My Jobs</span>
+    </nav>
+    <h1 class="text-xl font-semibold text-gray-900">My Jobs</h1>
+  </div>
 
+  <!-- ============================ Stat cards =============================
+       Numbers are placeholders (data-stat-*) and are filled in by
+       feMyJobsUpdateStats() so they always reflect feMyJobsData, even as
+       more jobs / screens are added later.
+  ======================================================================== -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-5">
+    <div
+      class="fe-my-jobs-stat-card bg-white border border-gray-100 rounded-2xl px-4 py-3.5 flex items-center gap-3 shadow-sm"
+    >
+      <span
+        class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-50 text-amber-500 shrink-0"
+      >
+        <span class="material-symbols-outlined" style="font-size: 20px"
+          >work</span
+        >
+      </span>
+      <div>
+        <p class="text-[11px] text-gray-400 leading-none mb-1">Total Jobs</p>
+        <p
+          class="text-xl font-semibold text-gray-900 leading-none"
+          data-stat="total"
+        >
+          0
+        </p>
+        <p class="text-[11px] text-gray-400 mt-1">All Time</p>
+      </div>
+    </div>
+
+    <div
+      class="fe-my-jobs-stat-card bg-white border border-gray-100 rounded-2xl px-4 py-3.5 flex items-center gap-3 shadow-sm"
+    >
+      <span
+        class="flex items-center justify-center w-10 h-10 rounded-full bg-sky-50 text-sky-500 shrink-0"
+      >
+        <span class="material-symbols-outlined" style="font-size: 20px"
+          >play_circle</span
+        >
+      </span>
+      <div>
+        <p class="text-[11px] text-gray-400 leading-none mb-1">In Progress</p>
+        <p
+          class="text-xl font-semibold text-gray-900 leading-none"
+          data-stat="in_progress"
+        >
+          0
+        </p>
+        <p class="text-[11px] text-gray-400 mt-1">Currently Running</p>
+      </div>
+    </div>
+
+    <div
+      class="fe-my-jobs-stat-card bg-white border border-gray-100 rounded-2xl px-4 py-3.5 flex items-center gap-3 shadow-sm"
+    >
+      <span
+        class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-50 text-amber-500 shrink-0"
+      >
+        <span class="material-symbols-outlined" style="font-size: 20px"
+          >event</span
+        >
+      </span>
+      <div>
+        <p class="text-[11px] text-gray-400 leading-none mb-1">Upcoming</p>
+        <p
+          class="text-xl font-semibold text-gray-900 leading-none"
+          data-stat="upcoming"
+        >
+          0
+        </p>
+        <p class="text-[11px] text-gray-400 mt-1">Scheduled</p>
+      </div>
+    </div>
+
+    <div
+      class="fe-my-jobs-stat-card bg-white border border-gray-100 rounded-2xl px-4 py-3.5 flex items-center gap-3 shadow-sm"
+    >
+      <span
+        class="flex items-center justify-center w-10 h-10 rounded-full bg-violet-50 text-violet-500 shrink-0"
+      >
+        <span class="material-symbols-outlined" style="font-size: 20px"
+          >task_alt</span
+        >
+      </span>
+      <div>
+        <p class="text-[11px] text-gray-400 leading-none mb-1">Completed</p>
+        <p
+          class="text-xl font-semibold text-gray-900 leading-none"
+          data-stat="completed"
+        >
+          0
+        </p>
+        <p class="text-[11px] text-gray-400 mt-1">Successfully Done</p>
+      </div>
+    </div>
+
+    <div
+      class="fe-my-jobs-stat-card bg-white border border-gray-100 rounded-2xl px-4 py-3.5 flex items-center gap-3 shadow-sm"
+    >
+      <span
+        class="flex items-center justify-center w-10 h-10 rounded-full bg-rose-50 text-rose-500 shrink-0"
+      >
+        <span class="material-symbols-outlined" style="font-size: 20px"
+          >cancel</span
+        >
+      </span>
+      <div>
+        <p class="text-[11px] text-gray-400 leading-none mb-1">Cancelled</p>
+        <p
+          class="text-xl font-semibold text-gray-900 leading-none"
+          data-stat="cancelled"
+        >
+          0
+        </p>
+        <p class="text-[11px] text-gray-400 mt-1">Total Cancelled</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ Content card =========================== -->
+  <div class="bg-white border border-gray-100 rounded-2xl shadow-sm">
+    <!-- Tabs -->
+    <div
+      class="flex items-center gap-6 px-5 pt-1 border-b border-gray-100 overflow-x-auto"
+      id="fe-my-jobs-tabbar"
+      role="tablist"
+    >
+      <button
+        type="button"
+        class="fe-my-jobs-tab relative py-3.5 text-sm font-medium text-gray-500 whitespace-nowrap"
+        data-fe-my-jobs-tab="all"
+        role="tab"
+        aria-selected="true"
+      >
+        All
+      </button>
+      <button
+        type="button"
+        class="fe-my-jobs-tab relative py-3.5 text-sm font-medium text-gray-500 whitespace-nowrap"
+        data-fe-my-jobs-tab="in_progress"
+        role="tab"
+        aria-selected="false"
+      >
+        In Progress
+      </button>
+      <button
+        type="button"
+        class="fe-my-jobs-tab relative py-3.5 text-sm font-medium text-gray-500 whitespace-nowrap"
+        data-fe-my-jobs-tab="upcoming"
+        role="tab"
+        aria-selected="false"
+      >
+        Upcoming
+      </button>
+      <button
+        type="button"
+        class="fe-my-jobs-tab relative py-3.5 text-sm font-medium text-gray-500 whitespace-nowrap"
+        data-fe-my-jobs-tab="completed"
+        role="tab"
+        aria-selected="false"
+      >
+        Completed
+      </button>
+      <button
+        type="button"
+        class="fe-my-jobs-tab relative py-3.5 text-sm font-medium text-gray-500 whitespace-nowrap"
+        data-fe-my-jobs-tab="cancelled"
+        role="tab"
+        aria-selected="false"
+      >
+        Cancelled
+      </button>
+    </div>
+
+    <!-- Search + filter -->
+    <div class="flex items-center gap-3 px-5 py-4">
+      <label for="fe-my-jobs-search" class="relative flex-1 max-w-xs">
+        <span
+          class="material-symbols-outlined text-gray-400 absolute left-2.5 top-1/2 -translate-y-1/2"
+          style="font-size: 18px"
+          >search</span
+        >
+        <input
+          id="fe-my-jobs-search"
+          type="text"
+          placeholder="Search....."
+          class="w-full text-sm bg-white border border-gray-200 rounded-lg pl-9 pr-3 py-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
+          autocomplete="off"
+        />
+      </label>
+
+      <div class="ml-auto">
+        <button
+          type="button"
+          id="fe-my-jobs-filter-btn"
+          class="flex items-center gap-1.5 text-sm text-gray-500 border border-gray-200 rounded-lg px-3 py-2 hover:bg-gray-50"
+        >
+          Filter
+          <span
+            class="material-symbols-outlined text-amber-500"
+            style="font-size: 16px"
+            >filter_list</span
+          >
+        </button>
+      </div>
+    </div>
+
+    <!-- Card grid: populated entirely by fe-my-jobs.js -->
+    <div class="px-5 pb-2">
+      <div
+        id="fe-my-jobs-grid"
+        class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
+      ></div>
+
+      <!-- Empty state, shown when a search/tab combination yields no jobs -->
+      <div
+        id="fe-my-jobs-empty-state"
+        class="hidden flex-col items-center justify-center text-center py-14"
+      >
+        <span
+          class="material-symbols-outlined text-gray-300"
+          style="font-size: 32px"
+          >inventory_2</span
+        >
+        <p class="text-sm font-medium text-gray-700 mt-2">No jobs here yet</p>
+        <p class="text-xs text-gray-400 mt-1">
+          Try a different tab or search term.
+        </p>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div
+      id="fe-my-jobs-pagination"
+      class="hidden items-center justify-between px-5 py-4 border-t border-gray-100"
+    >
+      <button
+        type="button"
+        id="fe-my-jobs-prev-page"
+        class="text-sm font-medium text-gray-400 disabled:opacity-40 disabled:cursor-not-allowed hover:text-gray-600"
+      >
+        Previous Page
+      </button>
+      <span id="fe-my-jobs-page-indicator" class="text-xs text-gray-400"></span>
+      <button
+        type="button"
+        id="fe-my-jobs-next-page"
+        class="text-sm font-medium bg-amber-400 text-white rounded-lg px-4 py-2 hover:bg-amber-500 disabled:opacity-40 disabled:cursor-not-allowed"
+      >
+        Next Page
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================================
+     PROGRESS FLOW :: JOB DETAILS + TASK DETAILS + MODALS
+     ----------------------------------------------------------------------------
+     Everything below belongs to the "Progress" flow -- i.e. the detail screens
+     opened by clicking "View Details" on an In Progress job card (from either
+     the All tab or the In Progress tab). All ids/classes here are prefixed
+     `progress-` so they never collide with the list screen above (`fe-my-jobs-*`)
+     or with future flows for other tabs (e.g. an `upcoming-*` reschedule flow,
+     a `completed-*` invoice flow, a `cancelled-*` archive flow -- none of which
+     exist yet, but this naming convention leaves room for them).
+
+     Screens in this flow (only one visible at a time, toggled by
+     progressShowScreen() in fe-my-jobs-progress-flow.js):
+       1. #progress-job-details-view  -- Overview / Tasks / Activity / ... tabs
+       2. #progress-task-details-view -- single task drill-down
+
+     Modals in this flow (overlays, can open on top of either screen above):
+       - #progress-modal-attached-files
+       - #progress-modal-special-instructions
+       - #progress-modal-cancel-job
+  ============================================================================ -->
+
+<!-- ==========================================================================
+     1. JOB DETAILS SCREEN
+     Populated dynamically by progressRenderJobHeader() / progressRenderOverviewTab()
+     etc. in fe-my-jobs-progress-flow.js -- the static markup below only
+     provides the slots (data-progress-field="...") those functions fill in.
+========================================================================== -->
+<div
+  id="progress-job-details-view"
+  class="hidden min-h-screen bg-[#F8F9FB] px-4 sm:px-6 lg:px-8 py-6"
+>
+  <!-- Back link -->
+  <button
+    type="button"
+    class="progress-back-to-list flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600 mb-3"
+  >
+    <span class="material-symbols-outlined" style="font-size: 14px"
+      >chevron_left</span
+    >
+    Back to My Jobs
+  </button>
+
+  <!-- Job header card: icon, title, job id, location, date, quick stats, status badge -->
+  <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-5 mb-4">
+    <div class="flex items-start justify-between gap-3 mb-4">
+      <div class="flex items-start gap-3">
+        <span
+          class="flex items-center justify-center w-11 h-11 rounded-xl bg-sky-50 text-sky-500 shrink-0"
+        >
+          <span class="material-symbols-outlined" style="font-size: 22px"
+            >lan</span
+          >
+        </span>
+        <div>
+          <div class="flex items-center gap-2">
+            <p
+              class="text-base font-semibold text-gray-900"
+              data-progress-field="title"
+            >
+              Office Network Installation
+            </p>
+            <span
+              class="progress-status-badge text-[11px] font-medium px-2.5 py-1 rounded-full bg-sky-50 text-sky-600"
+              data-progress-field="status-badge"
+              >In Progress</span
+            >
+          </div>
+          <p
+            class="text-[11px] text-gray-400 mt-0.5"
+            data-progress-field="job-id"
+          >
+            Job #BK-56874
+          </p>
+          <p class="flex items-center gap-1 text-[11px] text-gray-400 mt-1">
+            <span class="material-symbols-outlined" style="font-size: 13px"
+              >location_on</span
+            >
+            <span data-progress-field="location"
+              >Connaught Place, New Delhi</span
+            >
+          </p>
+          <p class="flex items-center gap-1 text-[11px] text-gray-400 mt-0.5">
+            <span class="material-symbols-outlined" style="font-size: 13px"
+              >calendar_today</span
+            >
+            <span data-progress-field="date">20 May, 2024</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div>
+        <p class="text-[10px] text-gray-400 mb-1">Starts in</p>
+        <p
+          class="text-xs font-medium text-gray-700"
+          data-progress-field="starts-in"
+        >
+          01h 30m
+        </p>
+      </div>
+      <div>
+        <p class="text-[10px] text-gray-400 mb-1">Team</p>
+        <p class="text-xs font-medium text-gray-700" data-progress-field="team">
+          6 Engineers
+        </p>
+      </div>
+      <div>
+        <p class="text-[10px] text-gray-400 mb-1">Payment</p>
+        <p
+          class="text-xs font-medium text-gray-700"
+          data-progress-field="payment"
+        >
+          $5,000
+        </p>
+      </div>
+      <div
+        class="bg-amber-400 rounded-lg px-3 py-2 text-right progress-time-running-box"
+      >
+        <p class="text-[9px] text-amber-900 leading-none mb-0.5">
+          Time Running
+        </p>
+        <p
+          class="text-xs font-semibold text-white leading-none"
+          data-progress-field="time-running"
+        >
+          01:24:35
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Job Details tab bar -->
+  <div class="bg-white border border-gray-100 rounded-2xl shadow-sm">
+    <div
+      class="flex items-center gap-6 px-5 border-b border-gray-100 overflow-x-auto"
+      id="progress-tabbar"
+      role="tablist"
+    >
+      <button
+        type="button"
+        class="progress-tab relative py-3.5 text-sm font-medium text-gray-500 whitespace-nowrap"
+        data-progress-tab="overview"
+        role="tab"
+        aria-selected="true"
+      >
+        Overview
+      </button>
+      <button
+        type="button"
+        class="progress-tab relative py-3.5 text-sm font-medium text-gray-500 whitespace-nowrap"
+        data-progress-tab="tasks"
+        role="tab"
+        aria-selected="false"
+      >
+        Tasks
+      </button>
+      <button
+        type="button"
+        class="progress-tab relative py-3.5 text-sm font-medium text-gray-500 whitespace-nowrap"
+        data-progress-tab="activity"
+        role="tab"
+        aria-selected="false"
+      >
+        Activity
+      </button>
+      <button
+        type="button"
+        class="progress-tab relative py-3.5 text-sm font-medium text-gray-500 whitespace-nowrap"
+        data-progress-tab="additional"
+        role="tab"
+        aria-selected="false"
+      >
+        Additional Tasks
+      </button>
+      <button
+        type="button"
+        class="progress-tab relative py-3.5 text-sm font-medium text-gray-500 whitespace-nowrap"
+        data-progress-tab="client"
+        role="tab"
+        aria-selected="false"
+      >
+        Client Info
+      </button>
+    </div>
+
+    <!-- ====================================================================
+         1a. OVERVIEW TAB PANEL
+    ==================================================================== -->
+    <div class="progress-tab-panel p-5" data-progress-panel="overview">
+      <!-- Job Progress stepper (In Progress state) -->
+      <div class="progress-stepper-wrap mb-6">
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-sm font-semibold text-gray-800">Job Progress</p>
+          <p
+            class="text-xs font-medium text-gray-500"
+            data-progress-field="progress-pct"
+          >
+            20%
+          </p>
+        </div>
+        <div class="w-full h-1.5 bg-gray-100 rounded-full mb-4">
+          <div class="h-1.5 bg-amber-400 rounded-full" style="width: 20%"></div>
+        </div>
+        <div class="grid grid-cols-4 gap-2">
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-emerald-500"
+              style="font-size: 20px"
+              >check_circle</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">Accepted</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-emerald-500"
+              style="font-size: 20px"
+              >check_circle</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">In Progress</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-gray-300"
+              style="font-size: 20px"
+              >radio_button_unchecked</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">Review</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-gray-300"
+              style="font-size: 20px"
+              >radio_button_unchecked</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">Completed</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job Timeline (Cancelled state -- hidden unless job is cancelled) -->
+      <div class="progress-timeline-wrap mb-6 hidden">
+        <div class="flex items-center justify-between mb-3">
+          <p class="text-sm font-semibold text-gray-800">Job Timeline</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="flex-1 text-center">
+            <span
+              class="material-symbols-outlined text-emerald-500"
+              style="font-size: 20px"
+              >check_circle</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">Accepted</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+          <div class="flex-1 h-px bg-gray-200"></div>
+          <div class="flex-1 text-center">
+            <span
+              class="material-symbols-outlined text-rose-500"
+              style="font-size: 20px"
+              >cancel</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">Cancelled</p>
+            <p
+              class="text-[10px] text-gray-400"
+              data-progress-field="cancelled-at"
+            >
+              29 May 2026, 9:30 AM
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Requirements / Primary Contact / Job Summary -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+        <div class="border border-gray-100 rounded-xl p-4">
+          <p class="text-sm font-semibold text-gray-800 mb-3">Requirements</p>
+          <div class="space-y-2 text-xs">
+            <div class="flex justify-between">
+              <span class="text-gray-400">Engineers</span
+              ><span class="font-medium text-gray-700">6</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Est. Duration</span
+              ><span class="font-medium text-gray-700">4-6 hrs</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Priority</span
+              ><span class="font-medium text-rose-500">High</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Need By</span
+              ><span class="font-medium text-gray-700">May 20, 05:00 PM</span>
+            </div>
+          </div>
+        </div>
+        <div class="border border-gray-100 rounded-xl p-4">
+          <p class="text-sm font-semibold text-gray-800 mb-3">
+            Primary Contact
+          </p>
+          <div class="flex items-center gap-2 mb-3">
+            <span
+              class="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-gray-500 text-xs font-semibold"
+              >AM</span
+            >
+            <div>
+              <p class="text-xs font-medium text-gray-800">Arjun Mehta</p>
+              <p class="text-[10px] text-gray-400">
+                arjun.mehta@globaltech.com
+              </p>
+              <p class="text-[10px] text-gray-400">+91 8305544478</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <button
+              type="button"
+              class="border border-gray-200 rounded-lg py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-50"
+            >
+              Chat
+            </button>
+            <button
+              type="button"
+              class="bg-amber-400 rounded-lg py-1.5 text-xs font-medium text-white hover:bg-amber-500"
+            >
+              Call
+            </button>
+          </div>
+        </div>
+        <div class="border border-gray-100 rounded-xl p-4">
+          <p class="text-sm font-semibold text-gray-800 mb-3">Job Summary</p>
+          <p class="text-xs text-gray-500 mb-3">
+            Setup and configuration of network infrastructure including rack
+            installation, cabling and switch configuration for new DC floor.
+          </p>
+          <div class="space-y-2 text-xs">
+            <div class="flex justify-between">
+              <span class="text-gray-400">Work Type</span
+              ><span class="font-medium text-gray-700">Network Cabling</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Customer</span
+              ><span class="font-medium text-gray-700"
+                >SecureNet Pvt. Ltd.</span
+              >
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Job Priority</span
+              ><span class="font-medium text-rose-500">High</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Budget</span
+              ><span class="font-medium text-gray-700">$5,000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="border border-gray-100 rounded-xl p-4 mb-4">
+        <p class="text-sm font-semibold text-gray-800 mb-3">Location</p>
+        <p class="text-xs font-medium text-gray-700 mb-1">Prestige Tech Park</p>
+        <p class="text-[11px] text-gray-400 mb-3">
+          Building 5, 3rd Floor, Whitefield Main Rd, Whitefield,
+          Bengaluru-560066
+        </p>
+        <div
+          class="w-full h-32 rounded-lg bg-gray-100 flex items-center justify-center mb-3"
+        >
+          <span
+            class="material-symbols-outlined text-gray-300"
+            style="font-size: 32px"
+            >map</span
+          >
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <button
+            type="button"
+            class="border border-gray-200 rounded-lg py-2 text-xs font-medium text-gray-600 hover:bg-gray-50"
+          >
+            View In Map
+          </button>
+          <button
+            type="button"
+            class="bg-amber-400 rounded-lg py-2 text-xs font-medium text-white hover:bg-amber-500"
+          >
+            Start Navigating
+          </button>
+        </div>
+      </div>
+
+      <!-- Attached Files (View All opens the modal) -->
+      <div class="border border-gray-100 rounded-xl p-4 mb-4">
+        <div class="flex items-center justify-between mb-3">
+          <p class="text-sm font-semibold text-gray-800">Attached Files</p>
+          <button
+            type="button"
+            class="progress-open-attached-files text-xs font-medium text-amber-600 hover:underline"
+          >
+            View All
+          </button>
+        </div>
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2">
+              <span
+                class="material-symbols-outlined text-rose-400"
+                style="font-size: 18px"
+                >picture_as_pdf</span
+              >
+              <div>
+                <p class="font-medium text-gray-700">Installation Report.pdf</p>
+                <p class="text-[10px] text-gray-400">
+                  1.4 MB &bull; 20 May, 2024
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <button
+                type="button"
+                class="border border-gray-200 rounded-md px-2 py-1 text-[11px] text-gray-500 hover:bg-gray-50"
+              >
+                Preview
+              </button>
+              <button
+                type="button"
+                class="bg-amber-400 rounded-md px-2 py-1 text-[11px] text-white hover:bg-amber-500"
+              >
+                Download
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2">
+              <span
+                class="material-symbols-outlined text-violet-400"
+                style="font-size: 18px"
+                >folder_zip</span
+              >
+              <div>
+                <p class="font-medium text-gray-700">Photo.zip</p>
+                <p class="text-[10px] text-gray-400">
+                  24.4 MB &bull; 20 May, 2024
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <button
+                type="button"
+                class="border border-gray-200 rounded-md px-2 py-1 text-[11px] text-gray-500 hover:bg-gray-50"
+              >
+                Preview
+              </button>
+              <button
+                type="button"
+                class="bg-amber-400 rounded-md px-2 py-1 text-[11px] text-white hover:bg-amber-500"
+              >
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Members -->
+      <div class="border border-gray-100 rounded-xl p-4 mb-5">
+        <div class="flex items-center justify-between mb-3">
+          <p class="text-sm font-semibold text-gray-800">Team Members (6)</p>
+          <button
+            type="button"
+            class="text-xs font-medium text-amber-600 hover:underline"
+          >
+            View All
+          </button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
+          <template id="progress-team-member-template">
+            <div class="border border-gray-100 rounded-lg p-3">
+              <span
+                class="inline-block text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 mb-2"
+                >On Site</span
+              >
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="progress-team-avatar flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-gray-500 text-xs font-semibold"
+                  >RS</span
+                >
+                <div>
+                  <p class="text-xs font-medium text-gray-800">Rahul Sharma</p>
+                  <p class="text-[10px] text-gray-400">Network Engineer</p>
+                  <p class="text-[10px] text-amber-500">&#9733; 4.9</p>
+                </div>
+              </div>
+              <p class="text-[10px] text-gray-400 mb-2">
+                Skills: Cable, Rack Setup, Roting
+              </p>
+              <div class="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  class="border border-gray-200 rounded-md py-1 text-[11px] text-gray-500 hover:bg-gray-50"
+                >
+                  Chat
+                </button>
+                <button
+                  type="button"
+                  class="bg-amber-400 rounded-md py-1 text-[11px] text-white hover:bg-amber-500"
+                >
+                  Call
+                </button>
+              </div>
+            </div>
+          </template>
+          <div id="progress-team-members-grid" class="contents"></div>
+        </div>
+      </div>
+
+      <!-- Footer actions -- hidden entirely once the job is cancelled -->
+      <div class="progress-footer-actions flex justify-end gap-3">
+        <button
+          type="button"
+          class="progress-open-cancel-job border border-rose-300 text-rose-500 rounded-lg px-4 py-2 text-sm font-medium hover:bg-rose-50"
+        >
+          Cancel Job
+        </button>
+        <button
+          type="button"
+          class="bg-amber-400 rounded-lg px-4 py-2 text-sm font-medium text-white hover:bg-amber-500"
+        >
+          Call Customer
+        </button>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         1b. TASKS TAB PANEL
+    ==================================================================== -->
+    <div class="progress-tab-panel hidden p-5" data-progress-panel="tasks">
+      <!-- Special Instructions banner -->
+      <button
+        type="button"
+        class="progress-open-special-instructions w-full flex items-start gap-2 text-left bg-rose-50 border border-rose-100 rounded-xl px-4 py-3 mb-5 hover:bg-rose-100/60"
+      >
+        <span
+          class="material-symbols-outlined text-rose-400 shrink-0"
+          style="font-size: 18px"
+          >error</span
+        >
+        <span>
+          <span class="block text-xs font-semibold text-rose-600"
+            >Special Instructions</span
+          >
+          <span class="block text-[11px] text-rose-400"
+            >Report to security at gate no.2</span
+          >
+        </span>
+        <span
+          class="material-symbols-outlined text-rose-300 ml-auto"
+          style="font-size: 18px"
+          >chevron_right</span
+        >
+      </button>
+
+      <!-- Compact Job Progress stepper -->
+      <div class="mb-6">
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-sm font-semibold text-gray-800">Job Progress</p>
+          <p class="text-xs font-medium text-gray-500">20%</p>
+        </div>
+        <div class="w-full h-1.5 bg-gray-100 rounded-full mb-4">
+          <div class="h-1.5 bg-amber-400 rounded-full" style="width: 20%"></div>
+        </div>
+        <div class="grid grid-cols-4 gap-2">
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-emerald-500"
+              style="font-size: 20px"
+              >check_circle</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">Accepted</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-emerald-500"
+              style="font-size: 20px"
+              >check_circle</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">In Progress</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-gray-300"
+              style="font-size: 20px"
+              >radio_button_unchecked</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">Review</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-gray-300"
+              style="font-size: 20px"
+              >radio_button_unchecked</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">Completed</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task list -- rendered by progressRenderTaskList() from PROGRESS_TASKS -->
+      <div id="progress-task-list" class="space-y-4 mb-5"></div>
+
+      <div class="progress-footer-actions flex justify-end gap-3">
+        <button
+          type="button"
+          class="progress-open-cancel-job border border-rose-300 text-rose-500 rounded-lg px-4 py-2 text-sm font-medium hover:bg-rose-50"
+        >
+          Cancel Job
+        </button>
+        <button
+          type="button"
+          class="bg-amber-400 rounded-lg px-4 py-2 text-sm font-medium text-white hover:bg-amber-500"
+        >
+          Mark as complete
+        </button>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         1c. ACTIVITY TAB PANEL
+    ==================================================================== -->
+    <div class="progress-tab-panel hidden p-5" data-progress-panel="activity">
+      <div class="mb-6">
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-sm font-semibold text-gray-800">Job Progress</p>
+          <p class="text-xs font-medium text-gray-500">20%</p>
+        </div>
+        <div class="w-full h-1.5 bg-gray-100 rounded-full mb-4">
+          <div class="h-1.5 bg-amber-400 rounded-full" style="width: 20%"></div>
+        </div>
+        <div class="grid grid-cols-4 gap-2">
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-emerald-500"
+              style="font-size: 20px"
+              >check_circle</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">Accepted</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-emerald-500"
+              style="font-size: 20px"
+              >check_circle</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">In Progress</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-gray-300"
+              style="font-size: 20px"
+              >radio_button_unchecked</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">Review</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+          <div class="text-center">
+            <span
+              class="material-symbols-outlined text-gray-300"
+              style="font-size: 20px"
+              >radio_button_unchecked</span
+            >
+            <p class="text-xs font-medium text-gray-700 mt-1">Completed</p>
+            <p class="text-[10px] text-gray-400">29 May 2026, 9:30 AM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-gray-100 rounded-xl p-4 mb-5">
+        <p class="text-sm font-semibold text-gray-800 mb-3">
+          Job Activity Timeline
+        </p>
+        <div id="progress-activity-timeline" class="space-y-4"></div>
+      </div>
+
+      <div class="progress-footer-actions flex justify-end gap-3">
+        <button
+          type="button"
+          class="progress-open-cancel-job border border-rose-300 text-rose-500 rounded-lg px-4 py-2 text-sm font-medium hover:bg-rose-50"
+        >
+          Cancel Job
+        </button>
+        <button
+          type="button"
+          class="bg-amber-400 rounded-lg px-4 py-2 text-sm font-medium text-white hover:bg-amber-500"
+        >
+          Call Customer
+        </button>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         1d. ADDITIONAL TASKS / CLIENT INFO -- placeholder panels.
+         Not part of this task's required scope; kept as simple stubs so the
+         tab bar matches the design and future work has a clear drop-in spot.
+    ==================================================================== -->
+    <div
+      class="progress-tab-panel hidden p-5 text-center py-16"
+      data-progress-panel="additional"
+    >
+      <span
+        class="material-symbols-outlined text-gray-300"
+        style="font-size: 32px"
+        >construction</span
+      >
+      <p class="text-sm font-medium text-gray-600 mt-2">
+        Additional Tasks -- coming soon
+      </p>
+    </div>
+    <di0v
+      class="progress-tab-panel hidden p-5 text-center py-16"
+      data-progress-panel="client"
+    >
+      <span
+        class="material-symbols-outlined text-gray-300"
+        style="font-size: 32px"
+        >person</span
+      >
+      <p class="text-sm font-medium text-gray-600 mt-2">
+        Client Info -- coming soon
+      </p>
+    </di0v>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     2. TASK DETAILS SCREEN
+     Opened from a task's "View Details" link in the Tasks tab above.
+     Populated by progressOpenTaskDetails(taskKey) from PROGRESS_TASKS.
+========================================================================== -->
+<div
+  id="progress-task-details-view"
+  class="hidden min-h-screen bg-[#F8F9FB] px-4 sm:px-6 lg:px-8 py-6"
+>
+  <button
+    type="button"
+    class="progress-back-to-job-details flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600 mb-3"
+  >
+    <span class="material-symbols-outlined" style="font-size: 14px"
+      >chevron_left</span
+    >
+    Back to Job Details
+  </button>
+
+  <!-- Mini job header (reuses the same field slots as the Job Details header) -->
+  <div
+    class="bg-white border border-gray-100 rounded-2xl shadow-sm p-4 mb-4 flex items-center justify-between flex-wrap gap-3"
+  >
+    <div class="flex items-center gap-3">
+      <span
+        class="flex items-center justify-center w-10 h-10 rounded-xl bg-sky-50 text-sky-500 shrink-0"
+      >
+        <span class="material-symbols-outlined" style="font-size: 20px"
+          >lan</span
+        >
+      </span>
+      <div>
+        <div class="flex items-center gap-2">
+          <p class="text-sm font-semibold text-gray-900">
+            Office Network Installation
+          </p>
+          <span
+            class="text-[11px] font-medium px-2.5 py-1 rounded-full bg-sky-50 text-sky-600"
+            >In Progress</span
+          >
+        </div>
+        <p class="text-[11px] text-gray-400 mt-0.5">
+          Job #BK-56874 &bull; Connaught Place, New Delhi
+        </p>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 text-xs">
+      <div>
+        <p class="text-[10px] text-gray-400">Started at</p>
+        <p class="font-medium text-gray-700">09:30 AM</p>
+      </div>
+      <div>
+        <p class="text-[10px] text-gray-400">Team</p>
+        <p class="font-medium text-gray-700">6 Engineers</p>
+      </div>
+      <div>
+        <p class="text-[10px] text-gray-400">Payment</p>
+        <p class="font-medium text-gray-700">$5,000</p>
+      </div>
+      <div class="bg-amber-400 rounded-lg px-3 py-1.5 text-right">
+        <p class="text-[9px] text-amber-900 leading-none mb-0.5">
+          Time Running
+        </p>
+        <p class="text-xs font-semibold text-white leading-none">01:24:35</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Job Started Successfully banner -->
+  <div
+    id="progress-task-success-banner"
+    class="hidden items-start justify-between gap-3 bg-emerald-50 border border-emerald-100 rounded-xl px-4 py-3 mb-4"
+  >
+    <div class="flex items-start gap-2">
+      <span
+        class="material-symbols-outlined text-emerald-500"
+        style="font-size: 18px"
+        >check_circle</span
+      >
+      <span>
+        <span class="block text-xs font-semibold text-emerald-700"
+          >Job Started Successfully!</span
+        >
+        <span class="block text-[11px] text-emerald-500"
+          >You can start working on the task.</span
+        >
+      </span>
+    </div>
+    <button
+      type="button"
+      class="progress-dismiss-success-banner text-emerald-400 hover:text-emerald-600"
+    >
+      <span class="material-symbols-outlined" style="font-size: 16px"
+        >close</span
+      >
+    </button>
+  </div>
+
+  <!-- Task detail card -->
+  <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-5">
+    <div class="flex items-center justify-between mb-1">
+      <p
+        class="text-sm font-semibold text-gray-800"
+        data-progress-task-field="title"
+      >
+        Site Inspection
+      </p>
+      <span
+        class="text-[11px] font-medium px-2.5 py-1 rounded-full bg-sky-50 text-sky-600"
+        data-progress-task-field="status-badge"
+        >In Progress</span
+      >
+    </div>
+    <p
+      class="text-xs text-gray-500 mb-3"
+      data-progress-task-field="description"
+    >
+      Inspect the rack location and ensure all requirements are met
+    </p>
+    <p class="text-[11px] text-gray-400 mb-4" data-progress-task-field="meta">
+      <span
+        class="material-symbols-outlined align-middle"
+        style="font-size: 13px"
+        >schedule</span
+      >
+      <span data-progress-task-field="started-at"
+        >Task Started at: 20 May, 2024, 09:30 am</span
+      >
+      &nbsp;&bull;&nbsp;
+      <span data-progress-task-field="elapsed">Elapsed Time: 00:00:12</span>
+    </p>
+
+    <!-- View Instruction -->
+    <div class="border border-gray-100 rounded-xl p-4 mb-4">
+      <div class="flex items-center justify-between mb-2">
+        <p class="text-sm font-semibold text-gray-800">View Instruction</p>
+        <button
+          type="button"
+          class="progress-toggle-instructions text-xs font-medium text-amber-600 hover:underline"
+        >
+          Hide
+        </button>
+      </div>
+      <ul
+        id="progress-task-instructions"
+        class="list-disc pl-4 space-y-1 text-xs text-gray-500"
+      ></ul>
+    </div>
+
+    <!-- Checklist -->
+    <div class="mb-4">
+      <p class="text-sm font-semibold text-gray-800 mb-2">Checklist</p>
+      <div id="progress-task-checklist" class="space-y-2"></div>
+    </div>
+
+    <!-- Upload Photo + Notes -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-5">
+      <div>
+        <p class="text-sm font-semibold text-gray-800 mb-2">Upload Photo</p>
+        <label
+          class="flex flex-col items-center justify-center gap-1 border-2 border-dashed border-amber-200 bg-amber-50/50 rounded-xl py-6 cursor-pointer hover:bg-amber-50"
+        >
+          <span
+            class="material-symbols-outlined text-amber-400"
+            style="font-size: 24px"
+            >cloud_upload</span
+          >
+          <span class="text-xs text-amber-600 font-medium"
+            >Drag &amp; Drop files here</span
+          >
+          <span class="text-[11px] text-amber-400">or click to browse</span>
+          <input
+            type="file"
+            id="progress-task-photo-input"
+            class="hidden"
+            multiple
+            accept="image/*"
+          />
+        </label>
+        <ul
+          id="progress-task-photo-list"
+          class="mt-2 space-y-1 text-xs text-gray-500"
+        ></ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-gray-800 mb-2">Notes</p>
+        <textarea
+          id="progress-task-notes"
+          maxlength="500"
+          rows="5"
+          placeholder="Add notes about the task, observations, issues faced, or client instructions..."
+          class="w-full text-xs border border-gray-200 rounded-xl p-3 resize-none focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
+        ></textarea>
+        <div class="flex items-center justify-between mt-1.5">
+          <span id="progress-task-notes-count" class="text-[11px] text-gray-400"
+            >0/500 characters</span
+          >
+          <button
+            type="button"
+            id="progress-task-save-notes"
+            class="bg-amber-400 rounded-lg px-4 py-1.5 text-xs font-medium text-white hover:bg-amber-500"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-end gap-3">
+      <button
+        type="button"
+        class="progress-open-cancel-job border border-rose-300 text-rose-500 rounded-lg px-4 py-2 text-sm font-medium hover:bg-rose-50"
+      >
+        Cancel Job
+      </button>
+      <button
+        type="button"
+        class="progress-mark-task-complete bg-amber-400 rounded-lg px-4 py-2 text-sm font-medium text-white hover:bg-amber-500"
+      >
+        Mark as complete
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     3. MODAL: ATTACHED FILES
+========================================================================== -->
+<div
+  id="progress-modal-attached-files"
+  class="hidden fixed inset-0 z-50 items-center justify-center bg-black/50 px-4"
+>
+  <div
+    class="bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[85vh] overflow-y-auto"
+  >
+    <div
+      class="flex items-center justify-between px-5 py-4 border-b border-gray-100"
+    >
+      <p class="text-sm font-semibold text-gray-800">Attached Files</p>
+      <button
+        type="button"
+        class="progress-close-modal text-gray-400 hover:text-gray-600"
+        data-progress-modal="attached-files"
+      >
+        <span class="material-symbols-outlined" style="font-size: 18px"
+          >close</span
+        >
+      </button>
+    </div>
+    <div class="p-5">
+      <div id="progress-attached-files-list" class="space-y-3 mb-5"></div>
+      <p class="text-sm font-semibold text-gray-800 mb-2">Photos</p>
+      <div class="grid grid-cols-3 gap-2">
+        <div
+          class="h-20 rounded-lg bg-gray-100 flex items-center justify-center"
+        >
+          <span
+            class="material-symbols-outlined text-gray-300"
+            style="font-size: 22px"
+            >image</span
+          >
+        </div>
+        <div
+          class="h-20 rounded-lg bg-gray-100 flex items-center justify-center"
+        >
+          <span
+            class="material-symbols-outlined text-gray-300"
+            style="font-size: 22px"
+            >image</span
+          >
+        </div>
+        <div
+          class="h-20 rounded-lg bg-gray-100 flex items-center justify-center"
+        >
+          <span
+            class="material-symbols-outlined text-gray-300"
+            style="font-size: 22px"
+            >image</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     4. MODAL: SPECIAL INSTRUCTIONS
+========================================================================== -->
+<div
+  id="progress-modal-special-instructions"
+  class="hidden fixed inset-0 z-50 items-center justify-center bg-black/50 px-4"
+>
+  <div
+    class="bg-white rounded-2xl shadow-xl w-full max-w-md max-h-[85vh] overflow-y-auto"
+  >
+    <div
+      class="flex items-center justify-between px-5 py-4 border-b border-gray-100"
+    >
+      <p class="text-sm font-semibold text-gray-800">Special Instruction</p>
+      <button
+        type="button"
+        class="progress-close-modal text-gray-400 hover:text-gray-600"
+        data-progress-modal="special-instructions"
+      >
+        <span class="material-symbols-outlined" style="font-size: 18px"
+          >close</span
+        >
+      </button>
+    </div>
+    <div class="p-5">
+      <div
+        class="flex items-start gap-2 bg-rose-50 border border-rose-100 rounded-lg px-3 py-2 mb-4"
+      >
+        <span
+          class="material-symbols-outlined text-rose-400"
+          style="font-size: 16px"
+          >error</span
+        >
+        <p class="text-[11px] text-rose-500">
+          Please read all the instructions carefully before starting the job.
+        </p>
+      </div>
+
+      <div class="space-y-4 text-xs text-gray-600">
+        <div>
+          <p class="flex items-center gap-1.5 font-semibold text-gray-800 mb-1">
+            <span
+              class="material-symbols-outlined text-sky-400"
+              style="font-size: 16px"
+              >badge</span
+            >
+            Access Instruction
+          </p>
+          <ul class="list-disc pl-5 space-y-0.5">
+            <li>Report to security gate no.2</li>
+            <li>Carry valid ID proof and company card</li>
+            <li>Visitor entry mandatory</li>
+          </ul>
+        </div>
+        <div>
+          <p class="flex items-center gap-1.5 font-semibold text-gray-800 mb-1">
+            <span
+              class="material-symbols-outlined text-rose-400"
+              style="font-size: 16px"
+              >health_and_safety</span
+            >
+            Safety Guidelines
+          </p>
+          <ul class="list-disc pl-5 space-y-0.5">
+            <li>Helmet and safety shoes required</li>
+            <li>No unauthorized rack handling</li>
+            <li>Only assigned engineers allowed</li>
+          </ul>
+        </div>
+        <div>
+          <p class="flex items-center gap-1.5 font-semibold text-gray-800 mb-1">
+            <span
+              class="material-symbols-outlined text-emerald-400"
+              style="font-size: 16px"
+              >verified_user</span
+            >
+            Site Restriction
+          </p>
+          <ul class="list-disc pl-5 space-y-0.5">
+            <li>Photography not allowed</li>
+            <li>Restricted access after 6 PM</li>
+            <li>Only assigned engineers allowed</li>
+          </ul>
+        </div>
+        <div>
+          <p class="flex items-center gap-1.5 font-semibold text-gray-800 mb-1">
+            <span
+              class="material-symbols-outlined text-violet-400"
+              style="font-size: 16px"
+              >description</span
+            >
+            Required Documents
+          </p>
+          <ul class="list-disc pl-5 space-y-0.5">
+            <li>Work Permit</li>
+            <li>Government ID</li>
+            <li>Client approval Mail</li>
+          </ul>
+        </div>
+        <div>
+          <p class="flex items-center gap-1.5 font-semibold text-gray-800 mb-1">
+            <span
+              class="material-symbols-outlined text-sky-400"
+              style="font-size: 16px"
+              >emergency</span
+            >
+            Emergency Contact
+          </p>
+          <p>Site Supervisor - Rahul Sharma</p>
+          <p>Contact: +91 9305544478</p>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="w-full mt-5 bg-amber-400 rounded-lg py-2.5 text-sm font-medium text-white hover:bg-amber-500 flex items-center justify-center gap-2"
+      >
+        <span class="material-symbols-outlined" style="font-size: 16px"
+          >download</span
+        >
+        Download Safety Guidelines
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     5. MODAL: CANCEL JOB (two-panel: form + reason list)
+========================================================================== -->
+<div
+  id="progress-modal-cancel-job"
+  class="hidden fixed inset-0 z-50 items-center justify-center bg-black/50 px-4"
+>
+  <div
+    class="bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[85vh] overflow-y-auto"
+  >
+    <div
+      class="flex items-center justify-between px-5 py-4 border-b border-gray-100"
+    >
+      <p class="text-sm font-semibold text-gray-800">Cancel Job</p>
+      <button
+        type="button"
+        class="progress-close-modal text-gray-400 hover:text-gray-600"
+        data-progress-modal="cancel-job"
+      >
+        <span class="material-symbols-outlined" style="font-size: 18px"
+          >close</span
+        >
+      </button>
+    </div>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 gap-0 sm:divide-x sm:divide-gray-100"
+    >
+      <!-- Left: form -->
+      <div class="p-5">
+        <label
+          class="block text-xs font-medium text-gray-600 mb-1.5"
+          for="progress-cancel-reason-select"
+          >Select Cancellation Reason</label
+        >
+        <select
+          id="progress-cancel-reason-select"
+          class="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 mb-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
+        >
+          <option value="">Select Reason</option>
+        </select>
+
+        <label
+          class="block text-xs font-medium text-gray-600 mb-1.5"
+          for="progress-cancel-remarks"
+          >Additional Remarks (Optional)</label
+        >
+        <textarea
+          id="progress-cancel-remarks"
+          rows="4"
+          placeholder="Please provide more details..."
+          class="w-full text-xs border border-gray-200 rounded-xl p-3 resize-none mb-4 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
+        ></textarea>
+
+        <div class="grid grid-cols-2 gap-3">
+          <button
+            type="button"
+            id="progress-keep-job-btn"
+            class="border border-gray-200 rounded-lg py-2 text-sm font-medium text-gray-600 hover:bg-gray-50"
+          >
+            Keep Job
+          </button>
+          <button
+            type="button"
+            id="progress-confirm-cancel-btn"
+            class="bg-rose-500 rounded-lg py-2 text-sm font-medium text-white hover:bg-rose-600"
+          >
+            Cancel Job
+          </button>
+        </div>
+      </div>
+      <!-- Right: reason list -->
+      <div class="p-5">
+        <div
+          id="progress-cancel-reason-list"
+          class="space-y-3 text-sm text-gray-600"
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'script/profile/fe-my-jobs.js' %}"></script>
 {% endblock %}

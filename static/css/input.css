@@ -16621,3 +16621,34 @@ select.fe-select {
         width: 100%;
     }
 }
+
+
+/* Active tab underline + color -- scoped to this screen only */
+  .fe-my-jobs-tab.fe-my-jobs-tab-active {
+    color: #C9891A;
+  }
+  .fe-my-jobs-tab.fe-my-jobs-tab-active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background-color: #F5A623;
+    border-radius: 2px;
+  }
+
+  /* ---- Progress flow: same active-tab treatment, scoped to its own tab bar ---- */
+  .progress-tab.progress-tab-active {
+    color: #C9891A;
+  }
+  .progress-tab.progress-tab-active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background-color: #F5A623;
+    border-radius: 2px;
+  }
