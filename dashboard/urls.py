@@ -13,6 +13,7 @@ urlpatterns = [
     path('fe-dashboard/availability/', views.fe_availability, name='fe_availability'),
     path('fe-dashboard/payment-details/', views.fe_payment_details, name='fe_payment_details'),
     path('fe-dashboard/invoices/', views.fe_invoices, name='fe_invoices'),
+    path('fe-dashboard/transactions/', views.fe_transactions, name='fe_transactions'),
     path('fe-dashboard/saved-address/', views.fe_saved_address, name='fe_saved_address'),
     path('fe-dashboard/support-center/', views.fe_support_center, name='fe_support_center'),
     path('fe-dashboard/settings/', views.fe_settings, name='fe_settings'),
