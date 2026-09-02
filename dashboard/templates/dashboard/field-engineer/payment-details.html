@@ -184,12 +184,52 @@
             </div>
         </section>
 
-        <!-- Recent Transactions Section -->
+        <!-- Quick Actions Section -->
         <section class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <p class="font-bold text-xl lg:text-2xl text-ink">Quick Actions</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Transactions Card -->
+                <a href="{% url 'fe_transactions' %}" class="bg-white border border-slate-200 rounded-2xl p-5 flex items-center justify-between hover:bg-slate-50 transition cursor-pointer">
+                    <div class="flex items-center gap-4 min-w-0">
+                        <div class="w-12 h-12 rounded-[14px] flex items-center justify-center shrink-0 bg-[#3B82F6]">
+                            <span class="material-symbols-outlined text-white text-[24px]">history</span>
+                        </div>
+                        <div class="flex flex-col gap-0.5 min-w-0">
+                            <p class="font-bold text-base text-slate-800">Transactions</p>
+                            <p class="text-xs text-slate-500 font-normal truncate">View all your earningtransactions</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-[#FFF9EC] hover:bg-[#FFEACB] flex items-center justify-center shrink-0 transition">
+                        <span class="material-symbols-outlined text-[#FFC949] text-[18px]">arrow_forward</span>
+                    </div>
+                </a>
+
+                <!-- Invoices Card -->
+                <a href="{% url 'fe_invoices' %}" class="bg-white border border-slate-200 rounded-2xl p-5 flex items-center justify-between hover:bg-slate-50 transition cursor-pointer">
+                    <div class="flex items-center gap-4 min-w-0">
+                        <div class="w-12 h-12 rounded-[14px] flex items-center justify-center shrink-0 bg-[#A855F7]">
+                            <span class="material-symbols-outlined text-white text-[24px]">description</span>
+                        </div>
+                        <div class="flex flex-col gap-0.5 min-w-0">
+                            <p class="font-bold text-base text-slate-800">Invoices</p>
+                            <p class="text-xs text-slate-500 font-normal truncate">Download your invoices</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-[#FFF9EC] hover:bg-[#FFEACB] flex items-center justify-center shrink-0 transition">
+                        <span class="material-symbols-outlined text-[#FFC949] text-[18px]">arrow_forward</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Recent Transactions Section -->
+        <section id="recentTransactions" class="flex flex-col gap-4">
             <!-- Section Title -->
             <div class="flex flex-col gap-1">
-                <p class="font-bold text-xl lg:text-2xl text-ink">Recent Transactions</p>
-                <p class="text-sm font-normal text-granite-gray">Manage payments, view invoices, and download billing reports.</p>
+                <p class="font-bold text-xl lg:text-2xl text-ink">Invoice History</p>
             </div>
 
             <!-- Filter Controls Row -->
