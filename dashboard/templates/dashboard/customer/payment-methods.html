@@ -3251,16 +3251,17 @@
 
 </div>
 
+
+
 <!-- Verify OTP Modal -->
-<div id="verifyOtpModal" class="fixed inset-0 backdrop-blur-md bg-black/20 hidden items-center justify-center z-50">
+<div id="verifyOtpModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
     <div class="bg-white rounded-[24px] shadow-xl w-full max-w-md p-8 relative flex flex-col items-center">
         <!-- Icon -->
         <div class="relative mt-2">
             <div class="w-[72px] h-[72px] rounded-full bg-[#F0F5FF] flex items-center justify-center">
                 <span class="material-symbols-outlined text-[#3B82F6] text-3xl">smartphone</span>
             </div>
-            <div
-                class="absolute -bottom-1 -right-1 w-6 h-6 bg-[#22C55E] border-2 border-white rounded-full flex items-center justify-center">
+            <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-[#22C55E] border-2 border-white rounded-full flex items-center justify-center">
                 <span class="material-symbols-outlined text-white text-[14px] font-bold">check</span>
             </div>
         </div>
@@ -3270,41 +3271,31 @@
         <p class="text-[14px] text-gray-500 mt-2 text-center">Enter the 6-digit OTP sent to +91 81022 62067</p>
 
         <!-- OTP Inputs -->
-        <div class="flex justify-center gap-3 mt-8 w-full">
-            <input type="text" maxlength="1"
-                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
-            <input type="text" maxlength="1"
-                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
-            <input type="text" maxlength="1"
-                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
-            <input type="text" maxlength="1"
-                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
-            <input type="text" maxlength="1"
-                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
-            <input type="text" maxlength="1"
-                class="w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+        <div class="flex justify-center gap-3 mt-8 w-full" id="otpContainer">
+            <input type="text" maxlength="1" class="otp-input w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+            <input type="text" maxlength="1" class="otp-input w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+            <input type="text" maxlength="1" class="otp-input w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+            <input type="text" maxlength="1" class="otp-input w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+            <input type="text" maxlength="1" class="otp-input w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
+            <input type="text" maxlength="1" class="otp-input w-12 h-14 border border-gray-200 rounded-xl text-center text-xl font-semibold text-slate-800 focus:outline-none focus:border-primary-yellow focus:ring-1 focus:ring-primary-yellow shadow-sm">
         </div>
 
         <!-- Resend Link -->
-        <p class="text-[13px] text-gray-500 mt-6">Didn't receive OTP? <button
-                class="text-[#3B82F6] font-medium hover:underline focus:outline-none">Resend OTP</button></p>
+        <p class="text-[13px] text-gray-500 mt-6">Didn't receive OTP? <button class="text-[#3B82F6] font-medium hover:underline focus:outline-none">Resend OTP</button></p>
 
         <!-- Action Buttons -->
         <div class="w-full mt-6 flex flex-col gap-3">
-            <button id="verifyOtpSubmitBtn"
-                class="w-full bg-[#1D4ED8] hover:bg-opacity-90 text-white py-3.5 rounded-xl font-medium text-[15px] flex items-center justify-center gap-2 transition-colors">
+            <button id="verifyOtpSubmitBtn" class="w-full bg-[#1D4ED8] hover:bg-opacity-90 text-white py-3.5 rounded-xl font-medium text-[15px] flex items-center justify-center gap-2 transition-colors">
                 <span class="material-symbols-outlined text-[20px]">gpp_good</span>
                 Verify OTP
             </button>
-            <button id="cancelVerifyOtpBtn"
-                class="w-full bg-white border border-gray-200 text-slate-700 py-3.5 rounded-xl font-medium text-[15px] hover:bg-gray-50 transition-colors">
+            <button id="cancelVerifyOtpBtn" class="w-full bg-white border border-gray-200 text-slate-700 py-3.5 rounded-xl font-medium text-[15px] hover:bg-gray-50 transition-colors">
                 Cancel
             </button>
         </div>
 
         <!-- Secure Badge -->
-        <div
-            class="w-full bg-gray-50/50 rounded-xl py-3 flex items-center justify-center gap-2 mt-4 border border-gray-100">
+        <div class="w-full bg-gray-50/50 rounded-xl py-3 flex items-center justify-center gap-2 mt-4 border border-gray-100">
             <span class="material-symbols-outlined text-gray-400 text-[18px]">lock</span>
             <span class="text-[13px] font-medium text-gray-500">Secure and Private</span>
         </div>
@@ -3315,7 +3306,7 @@
 </div>
 
 <!-- Success Modal -->
-<div id="successModal" class="fixed inset-0 backdrop-blur-md bg-black/20 hidden items-center justify-center z-50">
+<div id="successModal" class="fixed inset-0  bg-black/70 hidden items-center justify-center z-50">
     <div
         class="bg-white rounded-[24px] shadow-xl w-full max-w-lg p-8 relative flex flex-col items-center overflow-hidden">
 

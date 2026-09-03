@@ -223,8 +223,284 @@ document.addEventListener("DOMContentLoaded", function() {
         // Close when clicking the close button
         const closeAddPaymentModalBtn = document.getElementById("closeAddPaymentModalBtn");
         const cancelPaymentBtn = document.getElementById("cancelPaymentBtn");
-        const savePaymentBtn = document.getElementById("savePaymentBtn");
+     // Save button in Add Payment Method Modal
+const savePaymentBtn = document.getElementById("savePaymentBtn");
+if (savePaymentBtn) {
+    savePaymentBtn.addEventListener("click", () => {
+        const selectedMethod = document.querySelector('input[name="payment_method"]:checked')?.value;
+        const addPaymentModal = document.getElementById("addPaymentModal");
+        const mainPaymentContent = document.getElementById("mainPaymentContent");
         
+        // Close the add payment modal
+        if (addPaymentModal) {
+            addPaymentModal.classList.add("hidden");
+            addPaymentModal.classList.remove("flex");
+        }
+        
+        // Navigate to the selected payment method form (NOT OTP yet)
+        if (selectedMethod === 'card') {
+            const addCardMainContent = document.getElementById("addCardMainContent");
+            if (mainPaymentContent && addCardMainContent) {
+                mainPaymentContent.classList.add("hidden");
+                addCardMainContent.classList.remove("hidden");
+            }
+        } else if (selectedMethod === 'upi') {
+            const addUpiMainContent = document.getElementById("addUpiMainContent");
+            if (mainPaymentContent && addUpiMainContent) {
+                mainPaymentContent.classList.add("hidden");
+                addUpiMainContent.classList.remove("hidden");
+            }
+        } else if (selectedMethod === 'netbanking') {
+            const addNetbankingMainContent = document.getElementById("addNetbankingMainContent");
+            if (mainPaymentContent && addNetbankingMainContent) {
+                mainPaymentContent.classList.add("hidden");
+                addNetbankingMainContent.classList.remove("hidden");
+            }
+        } else if (selectedMethod === 'wallet') {
+            const addWalletMainContent = document.getElementById("addWalletMainContent");
+            if (mainPaymentContent && addWalletMainContent) {
+                mainPaymentContent.classList.add("hidden");
+                addWalletMainContent.classList.remove("hidden");
+            }
+        }
+    });
+}
+// ============================================================
+// OTP AUTO-ADVANCE FUNCTIONALITY
+// ============================================================
+
+
+    
+    // Get all OTP input fields
+    const otpInputs = document.querySelectorAll('#verifyOtpModal input[type="text"]');
+    
+    otpInputs.forEach((input, index, inputs) => {
+        
+        // Auto-advance to next input when digit is entered
+        input.addEventListener('input', function() {
+            // Allow only numbers
+            this.value = this.value.replace(/\D/g, '');
+            
+            // If a digit was entered and it's not the last input, move to next
+            if (this.value.length === 1 && index < inputs.length - 1) {
+                inputs[index + 1].focus();
+            }
+        });
+        
+        // Handle backspace to go to previous input
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
+                inputs[index - 1].focus();
+            }
+        });
+        
+        // Handle paste event for OTP
+        input.addEventListener('paste', function(e) {
+            e.preventDefault();
+            const paste = (e.clipboardData || window.clipboardData).getData('text');
+            const digits = paste.replace(/\D/g, '').slice(0, 6);
+            
+            digits.split('').forEach((digit, i) => {
+                if (i < inputs.length) {
+                    inputs[i].value = digit;
+                }
+            });
+            
+            // Focus on the next empty input or last filled input
+            const nextIndex = Math.min(digits.length, inputs.length - 1);
+            inputs[nextIndex].focus();
+        });
+    });
+
+// Add Card - Submit button
+const submitAddCardBtn = document.getElementById("submitAddCardBtn");
+if (submitAddCardBtn) {
+    submitAddCardBtn.addEventListener("click", () => {
+        // Close Add Card Main Content
+        const addCardMainContent = document.getElementById("addCardMainContent");
+        if (addCardMainContent) {
+            addCardMainContent.classList.add("hidden");
+        }
+        
+        // Show main payment content
+        const mainPaymentContent = document.getElementById("mainPaymentContent");
+        if (mainPaymentContent) {
+            mainPaymentContent.classList.remove("hidden");
+        }
+        
+        // Show OTP modal
+        const verifyOtpModal = document.getElementById("verifyOtpModal");
+        if (verifyOtpModal) {
+            verifyOtpModal.classList.remove("hidden");
+            verifyOtpModal.classList.add("flex");
+            document.querySelectorAll('#verifyOtpModal input[type="text"]').forEach(input => input.value = '');
+            const firstInput = document.querySelector('#verifyOtpModal input[type="text"]');
+            if (firstInput) firstInput.focus();
+        }
+    });
+}
+      
+// Edit Card - Save Changes button
+const submitEditCardBtn = document.getElementById("submitEditCardBtn");
+if (submitEditCardBtn) {
+    submitEditCardBtn.addEventListener("click", () => {
+        // Close Edit Card Main Content
+        const editCardMainContent = document.getElementById("editCardMainContent");
+        if (editCardMainContent) {
+            editCardMainContent.classList.add("hidden");
+        }
+        
+        const mainPaymentContent = document.getElementById("mainPaymentContent");
+        if (mainPaymentContent) {
+            mainPaymentContent.classList.remove("hidden");
+        }
+        
+        // Show OTP modal
+        const verifyOtpModal = document.getElementById("verifyOtpModal");
+        if (verifyOtpModal) {
+            verifyOtpModal.classList.remove("hidden");
+            verifyOtpModal.classList.add("flex");
+            document.querySelectorAll('#verifyOtpModal input[type="text"]').forEach(input => input.value = '');
+            const firstInput = document.querySelector('#verifyOtpModal input[type="text"]');
+            if (firstInput) firstInput.focus();
+        }
+    });
+}
+// UPI - Verify & Save button (Add)
+const submitUpiBtn = document.getElementById("submitUpiBtn");
+if (submitUpiBtn) {
+    submitUpiBtn.addEventListener("click", () => {
+        // Validate UPI first
+        if (!validateUpiId()) {
+            return;
+        }
+        
+        // Close Add UPI Main Content
+        const addUpiMainContent = document.getElementById("addUpiMainContent");
+        if (addUpiMainContent) {
+            addUpiMainContent.classList.add("hidden");
+        }
+        
+        const mainPaymentContent = document.getElementById("mainPaymentContent");
+        if (mainPaymentContent) {
+            mainPaymentContent.classList.remove("hidden");
+        }
+        
+        // Show OTP modal
+        const verifyOtpModal = document.getElementById("verifyOtpModal");
+        if (verifyOtpModal) {
+            verifyOtpModal.classList.remove("hidden");
+            verifyOtpModal.classList.add("flex");
+            document.querySelectorAll('#verifyOtpModal input[type="text"]').forEach(input => input.value = '');
+            const firstInput = document.querySelector('#verifyOtpModal input[type="text"]');
+            if (firstInput) firstInput.focus();
+        }
+    });
+}
+// UPI - Verify & Save button (Edit)
+const submitEditUpiBtn = document.getElementById("submitEditUpiBtn");
+if (submitEditUpiBtn) {
+    submitEditUpiBtn.addEventListener("click", () => {
+        // Close Edit UPI Main Content
+        const editUpiMainContent = document.getElementById("editUpiMainContent");
+        if (editUpiMainContent) {
+            editUpiMainContent.classList.add("hidden");
+        }
+        
+        const mainPaymentContent = document.getElementById("mainPaymentContent");
+        if (mainPaymentContent) {
+            mainPaymentContent.classList.remove("hidden");
+        }
+        
+        // Show OTP modal
+        const verifyOtpModal = document.getElementById("verifyOtpModal");
+        if (verifyOtpModal) {
+            verifyOtpModal.classList.remove("hidden");
+            verifyOtpModal.classList.add("flex");
+            document.querySelectorAll('#verifyOtpModal input[type="text"]').forEach(input => input.value = '');
+            const firstInput = document.querySelector('#verifyOtpModal input[type="text"]');
+            if (firstInput) firstInput.focus();
+        }
+    });
+}
+// Net Banking - Verify Bank button (Add)
+const submitNetbankingBtn = document.getElementById("submitNetbankingBtn");
+if (submitNetbankingBtn) {
+    submitNetbankingBtn.addEventListener("click", () => {
+        // Close Add Netbanking Main Content
+        const addNetbankingMainContent = document.getElementById("addNetbankingMainContent");
+        if (addNetbankingMainContent) {
+            addNetbankingMainContent.classList.add("hidden");
+        }
+        
+        const mainPaymentContent = document.getElementById("mainPaymentContent");
+        if (mainPaymentContent) {
+            mainPaymentContent.classList.remove("hidden");
+        }
+        
+        // Show OTP modal
+        const verifyOtpModal = document.getElementById("verifyOtpModal");
+        if (verifyOtpModal) {
+            verifyOtpModal.classList.remove("hidden");
+            verifyOtpModal.classList.add("flex");
+            document.querySelectorAll('#verifyOtpModal input[type="text"]').forEach(input => input.value = '');
+            const firstInput = document.querySelector('#verifyOtpModal input[type="text"]');
+            if (firstInput) firstInput.focus();
+        }
+    });
+}
+// Net Banking - Verify Bank button (Edit)
+const submitEditNetbankingBtn = document.getElementById("submitEditNetbankingBtn");
+if (submitEditNetbankingBtn) {
+    submitEditNetbankingBtn.addEventListener("click", () => {
+        // Close Edit Netbanking Main Content
+        const editNetbankingMainContent = document.getElementById("editNetbankingMainContent");
+        if (editNetbankingMainContent) {
+            editNetbankingMainContent.classList.add("hidden");
+        }
+        
+        const mainPaymentContent = document.getElementById("mainPaymentContent");
+        if (mainPaymentContent) {
+            mainPaymentContent.classList.remove("hidden");
+        }
+        
+        // Show OTP modal
+        const verifyOtpModal = document.getElementById("verifyOtpModal");
+        if (verifyOtpModal) {
+            verifyOtpModal.classList.remove("hidden");
+            verifyOtpModal.classList.add("flex");
+            document.querySelectorAll('#verifyOtpModal input[type="text"]').forEach(input => input.value = '');
+            const firstInput = document.querySelector('#verifyOtpModal input[type="text"]');
+            if (firstInput) firstInput.focus();
+        }
+    });
+}
+// Wallet - Link Digital Wallet button
+const submitWalletBtn = document.getElementById("submitWalletBtn");
+if (submitWalletBtn) {
+    submitWalletBtn.addEventListener("click", () => {
+        // Close Add Wallet Main Content
+        const addWalletMainContent = document.getElementById("addWalletMainContent");
+        if (addWalletMainContent) {
+            addWalletMainContent.classList.add("hidden");
+        }
+        
+        const mainPaymentContent = document.getElementById("mainPaymentContent");
+        if (mainPaymentContent) {
+            mainPaymentContent.classList.remove("hidden");
+        }
+        
+        // Show OTP modal
+        const verifyOtpModal = document.getElementById("verifyOtpModal");
+        if (verifyOtpModal) {
+            verifyOtpModal.classList.remove("hidden");
+            verifyOtpModal.classList.add("flex");
+            document.querySelectorAll('#verifyOtpModal input[type="text"]').forEach(input => input.value = '');
+            const firstInput = document.querySelector('#verifyOtpModal input[type="text"]');
+            if (firstInput) firstInput.focus();
+        }
+    });
+}
         const closePaymentModal = () => {
             addPaymentModal.classList.add("hidden");
             addPaymentModal.classList.remove("flex");
@@ -391,18 +667,46 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
-        const verifyOtpSubmitBtn = document.getElementById("verifyOtpSubmitBtn");
-        const successModal = document.getElementById("successModal");
-        if (verifyOtpSubmitBtn && successModal && verifyOtpModal) {
-            verifyOtpSubmitBtn.addEventListener("click", () => {
-                verifyOtpModal.classList.add("hidden");
-                verifyOtpModal.classList.remove("flex");
-                successModal.classList.remove("hidden");
-                successModal.classList.add("flex");
-            });
+     // Verify OTP button
+const verifyOtpSubmitBtn = document.getElementById("verifyOtpSubmitBtn");
+const successModal = document.getElementById("successModal");
+if (verifyOtpSubmitBtn && successModal) {
+    verifyOtpSubmitBtn.addEventListener("click", () => {
+        // Get OTP value
+        let otp = '';
+        document.querySelectorAll('#verifyOtpModal input[type="text"]').forEach(input => {
+            otp += input.value;
+        });
+        
+        if (otp.length !== 6) {
+            alert('Please enter complete 6-digit OTP');
+            return;
         }
-
-        const successDoneBtn = document.getElementById("successDoneBtn");
+        
+        // Close OTP modal
+        const verifyOtpModal = document.getElementById("verifyOtpModal");
+        if (verifyOtpModal) {
+            verifyOtpModal.classList.add("hidden");
+            verifyOtpModal.classList.remove("flex");
+        }
+        
+        // Show Success modal
+        successModal.classList.remove("hidden");
+        successModal.classList.add("flex");
+    });
+}
+      // Success Done button
+const successDoneBtn = document.getElementById("successDoneBtn");
+if (successDoneBtn) {
+    successDoneBtn.addEventListener("click", () => {
+        // Close Success modal
+        const successModal = document.getElementById("successModal");
+        if (successModal) {
+            successModal.classList.add("hidden");
+            successModal.classList.remove("flex");
+        }
+    });
+}
         const addAnotherPaymentBtn = document.getElementById("addAnotherPaymentBtn");
         const mainPaymentContent = document.getElementById("mainPaymentContent");
         const addWalletMainContent = document.getElementById("addWalletMainContent");

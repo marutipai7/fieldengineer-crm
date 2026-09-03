@@ -424,6 +424,33 @@ def fe_settings(request):
 def vendor_dashboard(request):
     return render(request, 'dashboard/vendor/dashboard.html')
 
+def vendor_dashboard(request):
+    return render(request, 'dashboard/vendor/dashboard.html')
+
+
+def vendor_assignments(request):
+    return render(request, 'dashboard/vendor/assignments.html')
+
+
+def vendor_earnings(request):
+    return render(request, 'dashboard/vendor/earnings.html')
+
+
+def vendor_engineers(request):
+    return render(request, 'dashboard/vendor/engineers.html')
+
+
+def vendor_live_tracking(request):
+    return render(request, 'dashboard/vendor/live-tracking.html')
+
+
+def vendor_reports(request):
+    return render(request, 'dashboard/vendor/reports.html')
+
+
+def vendor_settings(request):
+    return render(request, 'dashboard/vendor/settings.html')
+
 def notification(request):
     return render(request, 'dashboard/notification.html')
 

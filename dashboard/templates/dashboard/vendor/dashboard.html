@@ -1,0 +1,1948 @@
+{% extends "dashboard/vendor/layout.html" %}
+{% load static %}
+
+{% block title %}Dashboard - Vendor{% endblock %}
+
+{% block css %}
+<style>
+    /* ---- Toggle switch (pure Tailwind peer pattern needs a tiny assist) ---- */
+    .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 36px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .toggle-switch .toggle-track {
+        position: absolute;
+        inset: 0;
+        background-color: #E2E8F0;
+        border-radius: 999px;
+        transition: background-color .15s ease-in-out;
+        cursor: pointer;
+    }
+
+    .toggle-switch .toggle-track::before {
+        content: "";
+        position: absolute;
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        top: 3px;
+        background-color: #fff;
+        border-radius: 50%;
+        transition: transform .15s ease-in-out;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-switch input:checked+.toggle-track {
+        background-color: #FFC949;
+    }
+
+    .toggle-switch input:checked+.toggle-track::before {
+        transform: translateX(16px);
+    }
+
+    /* ---- Service radius range slider ---- */
+    input[type="range"].radius-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 6px;
+        border-radius: 999px;
+        background: linear-gradient(to right, #FFC949 0%, #FFC949 var(--fill, 10%), #EDEDED var(--fill, 10%), #EDEDED 100%);
+        outline: none;
+    }
+
+    input[type="range"].radius-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #FFFFFF;
+        border: 3px solid #FFC949;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    }
+
+    input[type="range"].radius-slider::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #FFFFFF;
+        border: 3px solid #FFC949;
+        cursor: pointer;
+    }
+
+    /* ---- Circular onboarding-progress ring ---- */
+    .progress-ring-bg {
+        stroke: #F1F1F1;
+    }
+
+    .progress-ring-fill {
+        stroke: #FFC949;
+        stroke-linecap: round;
+        transition: stroke-dashoffset .35s ease-in-out;
+    }
+
+    .step-dot-line {
+        background-color: #E5E7EB;
+    }
+
+    .step-dot-line.filled {
+        background-color: #22C55E;
+    }
+
+    .upload-dropzone {
+        transition: border-color .15s ease, background-color .15s ease;
+    }
+
+    .upload-dropzone.dragging {
+        border-color: #FFC949;
+        background-color: #FFFBF0;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="vendorDashboardRoot">
+
+    <!-- =========================================================
+         DASHBOARD HOME (pre-onboarding welcome state)
+         ========================================================= -->
+    <div id="dashboardHomeView">
+        <p class="text-xs  font-semibold tracking-wide text-primary-yellow font-bold uppercase">Vendor Setup</p>
+        <h1 class="text-3xl font-semibold text-ink mt-1">Welcome {{ vendor.company_name|default:"NetTech Solutions" }}!
+            👋</h1>
+        <p class="text-sm font-semibold text-ink mt-3">Let's set up your business</p>
+        <p class="text-sm font-regular text-granite-gray mt-2">Complete your business profile to start assigning jobs
+            &amp; growing.</p>
+
+        <!-- Complete Your Profile card -->
+        <div
+            class="mt-5 rounded-2xl border border-gray-100 bg-white shadow-sm p-5 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="relative w-14 h-14 shrink-0">
+                    <svg class="w-14 h-14 -rotate-90" viewBox="0 0 56 56">
+                        <circle cx="28" cy="28" r="24" fill="none" stroke="#F1F1F1" stroke-width="5"></circle>
+                        <circle id="homeProfileRing" cx="28" cy="28" r="24" fill="none" stroke="#FFC949"
+                            stroke-width="5" stroke-linecap="round" stroke-dasharray="150.8" stroke-dashoffset="150.8">
+                        </circle>
+                    </svg>
+                    <span id="homeProfilePct"
+                        class="absolute inset-0 flex items-center justify-center text-xs font-semibold text-gray-700">0%</span>
+                </div>
+                <div>
+                    <p class="text-sm font-regular text-ink">Complete Your Profile</p>
+                    <p class="text-xs text-gray-500 mt-0.5">Complete your business profile to unlock all features &amp;
+                        start managing jobs.</p>
+                </div>
+            </div>
+            <button id="startOnboardingBtn" type="button"
+                class="shrink-0 bg-[#FFC949] hover:bg-[#f5bd38] text-gray-900 text-sm font-semibold px-6 py-2.5 rounded-xl transition">
+                Continue
+            </button>
+        </div>
+
+        <!-- Your Engineers -->
+        <div
+            class="mt-4 rounded-2xl border border-gray-100 bg-white shadow-sm p-5 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-[#FFF4DC] flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#FFA800]">groups</span>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-gray-900">Your Engineers</p>
+                    <p class="text-xs text-[#FFA800] font-medium mt-0.5">0 Engineers Added</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+                <span
+                    class="flex items-center gap-1.5 text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 rounded-full px-3 py-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#22C55E]"></span>0 Online
+                </span>
+                <span
+                    class="flex items-center gap-1.5 text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 rounded-full px-3 py-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#FFC949]"></span>0 Busy
+                </span>
+                <span
+                    class="flex items-center gap-1.5 text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 rounded-full px-3 py-1.5">
+                    <span class="w-2 h-2 rounded-full bg-gray-400"></span>0 Offline
+                </span>
+                <span
+                    class="flex items-center gap-1.5 text-xs font-medium text-gray-600 bg-gray-50 border border-gray-100 rounded-full px-3 py-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#EF4444]"></span>0 Break
+                </span>
+            </div>
+            <a href="{% url 'vendor_engineers' %}" class="text-xs font-semibold text-[#FFA800] whitespace-nowrap">View
+                Team &rarr;</a>
+        </div>
+
+        <!-- Grow your business -->
+        <div class="mt-4 rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4 text-white"
+            style="background: linear-gradient(90deg,#1F2937 0%, #FFC949 140%);">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold">Grow Your Business</p>
+                    <p class="text-xs text-white/80 mt-0.5">Onboard engineers, assign jobs and deliver quality service.
+                    </p>
+                </div>
+            </div>
+            <a href="{% url 'vendor_engineers' %}"
+                class="shrink-0 bg-[#FFC949] hover:bg-[#f5bd38] text-gray-900 text-sm font-semibold px-5 py-2.5 rounded-xl transition">
+                Invite Engineers
+            </a>
+        </div>
+
+        <!-- Tips -->
+        <div class="mt-4 rounded-2xl border border-[#FBE9C6] bg-[#FFF9EC] p-5">
+            <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-[#FFA800]">lightbulb</span>
+                <div class="flex-1">
+                    <p class="text-sm font-semibold text-gray-900">New Vendor Tips</p>
+                    <div class="flex flex-wrap gap-x-8 gap-y-2 mt-2">
+                        <p class="text-xs text-gray-600 flex items-center gap-1.5"><span
+                                class="material-symbols-outlined text-[15px] text-gray-400">person</span>Vendors with
+                            complete profile gets 3x more job opportunities</p>
+                        <p class="text-xs text-gray-600 flex items-center gap-1.5"><span
+                                class="material-symbols-outlined text-[15px] text-gray-400">groups</span>Add more
+                            engineers to handle multiple jobs at once</p>
+                        <p class="text-xs text-gray-600 flex items-center gap-1.5"><span
+                                class="material-symbols-outlined text-[15px] text-gray-400">location_on</span>Enable
+                            live tracking for better job visibility</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help -->
+        <div
+            class="mt-4 rounded-2xl border border-gray-100 bg-white shadow-sm p-5 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-[#E9F2FF] flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#3B82F6]">chat_bubble</span>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-gray-900">Need Help Getting Started?</p>
+                    <p class="text-xs text-gray-500 mt-0.5">Our team is here to help you get your first job.</p>
+                </div>
+            </div>
+            <a href="{% url 'vendor_reports' %}"
+                class="shrink-0 border border-gray-200 hover:bg-gray-50 text-gray-800 text-sm font-semibold px-5 py-2.5 rounded-xl transition">
+                Contact Support
+            </a>
+        </div>
+    </div>
+
+
+    <!-- =========================================================
+         VENDOR ONBOARDING WIZARD (sidebar hidden while active)
+         ========================================================= -->
+    <div id="vendorWizard" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+
+            <!-- LEFT: form column -->
+            <div class="lg:col-span-2">
+
+                <!-- Dynamic breadcrumb + header + step bar -->
+                <p class="text-xs text-gray-400">
+                    <span>Vendor Registration</span>
+                    <span class="mx-1">&gt;</span>
+                    <span id="wizardBreadcrumbCurrent" class="text-gray-500">Account Registration</span>
+                </p>
+                <div class="flex items-start justify-between mt-1 gap-4">
+                    <div>
+                        <h1 id="wizardStepTitle" class="text-xl font-semibold text-gray-900">Complete Vendor Account
+                        </h1>
+                        <p id="wizardStepSubtitle" class="text-sm text-gray-500 mt-1">Let's get your business registered
+                        </p>
+                    </div>
+                    <div class="text-right shrink-0 pt-1">
+                        <p id="wizardStepCountLabel" class="text-xs text-gray-400 whitespace-nowrap">Step 1 of 8</p>
+                        <div class="flex items-center gap-1 mt-2" id="wizardStepBar"></div>
+                        <p id="wizardStepPct" class="text-xs text-gray-400 mt-1">10%</p>
+                    </div>
+                </div>
+
+                <!-- ============= STEP 1 : Account Registration ============= -->
+                <div class="wizard-step mt-5 bg-white border border-gray-100 rounded-2xl shadow-sm p-6" data-step="1">
+                    <form id="stepForm1" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Company Name</label>
+                            <input type="text" name="company_name" value="{{ vendor.company_name }}"
+                                placeholder="Techno Solutions Pvt. Ltd."
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Business Email</label>
+                            <div class="mt-1.5 relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[18px]">mail</span>
+                                <input type="email" name="business_email" value="{{ vendor.business_email }}"
+                                    placeholder="info@techsolutions.com"
+                                    class="w-full rounded-xl border border-gray-200 pl-9 pr-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Mobile Number</label>
+                            <div
+                                class="mt-1.5 flex rounded-xl border border-gray-200 overflow-hidden focus-within:ring-2 focus-within:ring-[#FFE29A]">
+                                <select name="mobile_code"
+                                    class="bg-gray-50 border-r border-gray-200 text-sm px-2 focus:outline-none">
+                                    <option>+91</option>
+                                    <option>+1</option>
+                                    <option>+44</option>
+                                </select>
+                                <input type="tel" name="mobile_number" value="{{ vendor.mobile_number }}"
+                                    placeholder="98765 43210" class="w-full px-3.5 py-2.5 text-sm focus:outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Owner / Manager Name</label>
+                            <input type="text" name="owner_name" value="{{ vendor.owner_name }}"
+                                placeholder="Rahul Sharma"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Password</label>
+                            <div class="mt-1.5 relative">
+                                <input type="password" name="password" placeholder="••••••••" data-pw-field
+                                    class="w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm pr-10 focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                                <button type="button"
+                                    class="pw-toggle-btn absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Confirm Password</label>
+                            <div class="mt-1.5 relative">
+                                <input type="password" name="confirm_password" placeholder="••••••••" data-pw-field
+                                    class="w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm pr-10 focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                                <button type="button"
+                                    class="pw-toggle-btn absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label class="text-xs font-medium text-gray-600">Vendor Type</label>
+                            <p class="text-xs text-gray-400">Choose how you'll operate on Aibuzz.</p>
+                            <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-3" id="vendorTypeOptions">
+                                <label
+                                    class="vendor-type-option selected relative cursor-pointer border rounded-xl p-4 flex items-start gap-3 border-[#FFC949] bg-[#FFF9EC]"
+                                    data-value="individual">
+                                    <input type="radio" name="vendor_type" value="individual" checked class="hidden">
+                                    <span class="material-symbols-outlined text-[#FFA800]">person</span>
+                                    <span class="flex-1">
+                                        <span class="block text-sm font-semibold text-gray-900">Individual Vendor</span>
+                                        <span class="block text-xs text-gray-500 mt-0.5">You work independently and
+                                            manage your own jobs.</span>
+                                    </span>
+                                    <span
+                                        class="check-dot w-4 h-4 rounded-full border-2 border-[#FFA800] bg-[#FFA800] flex items-center justify-center mt-0.5">
+                                        <span class="material-symbols-outlined text-white text-[11px]">check</span>
+                                    </span>
+                                </label>
+                                <label
+                                    class="vendor-type-option relative cursor-pointer border rounded-xl p-4 flex items-start gap-3 border-gray-200"
+                                    data-value="company">
+                                    <input type="radio" name="vendor_type" value="company" class="hidden">
+                                    <span class="material-symbols-outlined text-gray-400">apartment</span>
+                                    <span class="flex-1">
+                                        <span class="block text-sm font-semibold text-gray-900">Company /
+                                            Organization</span>
+                                        <span class="block text-xs text-gray-500 mt-0.5">You represent a company or
+                                            organization.</span>
+                                    </span>
+                                    <span class="check-dot w-4 h-4 rounded-full border-2 border-gray-300 mt-0.5"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+
+                    <p class="text-xs text-gray-400 mt-5">
+                        By continuing you agree to our <a href="{% url 'settings' %}"
+                            class="text-[#FFA800] font-medium">Terms &amp; Conditions</a> and <a
+                            href="{% url 'settings' %}" class="text-[#FFA800] font-medium">Privacy Policy</a>.
+                    </p>
+
+                    <div class="flex justify-end mt-6">
+                        <button type="button"
+                            class="wizard-next-btn bg-[#FFC949] hover:bg-[#f5bd38] text-gray-900 text-sm font-semibold px-6 py-2.5 rounded-xl">
+                            Save &amp; Continue &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ============= STEP 2 : Business Information ============= -->
+                <div class="wizard-step hidden mt-5 bg-white border border-gray-100 rounded-2xl shadow-sm p-6"
+                    data-step="2">
+                    <form id="stepForm2" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Company Name</label>
+                            <input type="text" name="company_name" placeholder="Techno Solutions Pvt. Ltd."
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Company Description</label>
+                            <input type="text" name="company_description" placeholder="Lorem ipsum"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">GST Number</label>
+                            <input type="text" name="gst_number" placeholder="24ES7E8JMY938"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Pan Number</label>
+                            <input type="text" name="pan_number" placeholder="GXBOM1067F"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Business Category</label>
+                            <select name="business_category"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                                <option>IT Infrastructure Services</option>
+                                <option>Networking</option>
+                                <option>Electrical</option>
+                                <option>HVAC</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Website (Optional)</label>
+                            <input type="text" name="website" placeholder="www.tech.com"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="text-xs font-medium text-gray-600">Office Address</label>
+                            <input type="text" name="office_address" placeholder="Enter your office address"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">State</label>
+                            <select name="state"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                                <option>Maharashtra</option>
+                                <option>Gujarat</option>
+                                <option>Karnataka</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">City</label>
+                            <select name="city"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                                <option>Mumbai</option>
+                                <option>Pune</option>
+                                <option>Nashik</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Pincode</label>
+                            <select name="pincode"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                                <option>421 505</option>
+                                <option>400 001</option>
+                                <option>411 001</option>
+                            </select>
+                        </div>
+                    </form>
+
+                    <div class="flex justify-between mt-6">
+                        <button type="button"
+                            class="wizard-back-btn border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-semibold px-6 py-2.5 rounded-xl">
+                            &larr; Back
+                        </button>
+                        <button type="button"
+                            class="wizard-next-btn bg-[#FFC949] hover:bg-[#f5bd38] text-gray-900 text-sm font-semibold px-6 py-2.5 rounded-xl">
+                            Save &amp; Continue &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ============= STEP 3 : Upload Business Documents ============= -->
+                <div class="wizard-step hidden mt-5 bg-white border border-gray-100 rounded-2xl shadow-sm p-6"
+                    data-step="3">
+                    <div class="flex items-center justify-between mb-1">
+                        <p class="text-sm font-semibold text-gray-900">Required Documents <span
+                                class="text-[10px] font-semibold text-[#EF4444] bg-red-50 rounded-full px-2 py-0.5 align-middle">MANDATORY</span>
+                        </p>
+                        <p id="requiredDocsCounter" class="text-xs font-semibold text-[#FFA800]">1 of 5 uploaded</p>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-3">All marked documents are required for verification.</p>
+
+                    <div class="space-y-3" id="requiredDocsList">
+                        <div class="doc-upload-row flex items-center gap-4 border border-gray-100 rounded-xl p-3"
+                            data-doc="gst_certificate">
+                            <span class="material-symbols-outlined text-[#22C55E]">verified</span>
+                            <div class="w-40 shrink-0">
+                                <p class="text-sm font-medium text-gray-800">GST Certificate <span
+                                        class="text-[#EF4444]">*</span></p>
+                                <p class="text-xs text-gray-400">Upload your GST registration certificate.</p>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="doc-uploaded-state flex items-center justify-between bg-[#E9FBF3] border border-[#B9F0D6] rounded-xl px-4 py-2.5">
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-[#22C55E] text-[18px]">check_circle</span>
+                                        <div>
+                                            <p class="text-xs font-semibold text-[#0FA968]">Documents Uploaded</p>
+                                            <p class="text-[11px] text-gray-500">Ready for verification</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button type="button"
+                                            class="doc-remove-btn text-gray-400 hover:text-gray-600"><span
+                                                class="material-symbols-outlined text-[18px]">close</span></button>
+                                        <button type="button" class="text-gray-400 hover:text-gray-600"><span
+                                                class="material-symbols-outlined text-[18px]">visibility</span></button>
+                                    </div>
+                                </div>
+                                <label
+                                    class="doc-dropzone upload-dropzone hidden cursor-pointer border-2 border-dashed border-gray-200 rounded-xl px-4 py-3 text-center block">
+                                    <input type="file" class="doc-file-input hidden" accept=".pdf,.jpg,.jpeg,.png">
+                                    <p class="text-xs text-[#FFA800] font-medium">Drop file here or Browse</p>
+                                    <p class="text-[11px] text-gray-400">PDF, JPG, PNG - Max 15MB</p>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="doc-upload-row flex items-center gap-4 border border-gray-100 rounded-xl p-3"
+                            data-doc="income_tax">
+                            <span class="material-symbols-outlined text-gray-300">description</span>
+                            <div class="w-40 shrink-0">
+                                <p class="text-sm font-medium text-gray-800">Income Tax Document <span
+                                        class="text-[#EF4444]">*</span></p>
+                                <p class="text-xs text-gray-400">Upload your Income Tax Returns.</p>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="doc-uploaded-state hidden items-center justify-between bg-[#E9FBF3] border border-[#B9F0D6] rounded-xl px-4 py-2.5">
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-[#22C55E] text-[18px]">check_circle</span>
+                                        <div>
+                                            <p class="text-xs font-semibold text-[#0FA968]">Documents Uploaded</p>
+                                            <p class="text-[11px] text-gray-500">Ready for verification</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button type="button"
+                                            class="doc-remove-btn text-gray-400 hover:text-gray-600"><span
+                                                class="material-symbols-outlined text-[18px]">close</span></button>
+                                        <button type="button" class="text-gray-400 hover:text-gray-600"><span
+                                                class="material-symbols-outlined text-[18px]">visibility</span></button>
+                                    </div>
+                                </div>
+                                <label
+                                    class="doc-dropzone upload-dropzone cursor-pointer border-2 border-dashed border-gray-200 rounded-xl px-4 py-3 text-center block">
+                                    <input type="file" class="doc-file-input hidden" accept=".pdf,.jpg,.jpeg,.png">
+                                    <p class="text-xs text-[#FFA800] font-medium">Drop file here or Browse</p>
+                                    <p class="text-[11px] text-gray-400">PDF, JPG, PNG - Max 15MB</p>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="doc-upload-row flex items-center gap-4 border border-gray-100 rounded-xl p-3"
+                            data-doc="business_registration">
+                            <span class="material-symbols-outlined text-gray-300">business_center</span>
+                            <div class="w-40 shrink-0">
+                                <p class="text-sm font-medium text-gray-800">Business Registration Certificate <span
+                                        class="text-[#EF4444]">*</span></p>
+                                <p class="text-xs text-gray-400">Upload business registration certificate.</p>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="doc-uploaded-state hidden items-center justify-between bg-[#E9FBF3] border border-[#B9F0D6] rounded-xl px-4 py-2.5">
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-[#22C55E] text-[18px]">check_circle</span>
+                                        <div>
+                                            <p class="text-xs font-semibold text-[#0FA968]">Documents Uploaded</p>
+                                            <p class="text-[11px] text-gray-500">Ready for verification</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button type="button"
+                                            class="doc-remove-btn text-gray-400 hover:text-gray-600"><span
+                                                class="material-symbols-outlined text-[18px]">close</span></button>
+                                        <button type="button" class="text-gray-400 hover:text-gray-600"><span
+                                                class="material-symbols-outlined text-[18px]">visibility</span></button>
+                                    </div>
+                                </div>
+                                <label
+                                    class="doc-dropzone upload-dropzone cursor-pointer border-2 border-dashed border-gray-200 rounded-xl px-4 py-3 text-center block">
+                                    <input type="file" class="doc-file-input hidden" accept=".pdf,.jpg,.jpeg,.png">
+                                    <p class="text-xs text-[#FFA800] font-medium">Drop file here or Browse</p>
+                                    <p class="text-[11px] text-gray-400">PDF, JPG, PNG - Max 15MB</p>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="doc-upload-row flex items-center gap-4 border border-gray-100 rounded-xl p-3"
+                            data-doc="address_proof">
+                            <span class="material-symbols-outlined text-gray-300">home_pin</span>
+                            <div class="w-40 shrink-0">
+                                <p class="text-sm font-medium text-gray-800">Address Proof <span
+                                        class="text-[#EF4444]">*</span></p>
+                                <p class="text-xs text-gray-400">Upload address proof of your registered office.</p>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="doc-uploaded-state hidden items-center justify-between bg-[#E9FBF3] border border-[#B9F0D6] rounded-xl px-4 py-2.5">
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-[#22C55E] text-[18px]">check_circle</span>
+                                        <div>
+                                            <p class="text-xs font-semibold text-[#0FA968]">Documents Uploaded</p>
+                                            <p class="text-[11px] text-gray-500">Ready for verification</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button type="button"
+                                            class="doc-remove-btn text-gray-400 hover:text-gray-600"><span
+                                                class="material-symbols-outlined text-[18px]">close</span></button>
+                                        <button type="button" class="text-gray-400 hover:text-gray-600"><span
+                                                class="material-symbols-outlined text-[18px]">visibility</span></button>
+                                    </div>
+                                </div>
+                                <label
+                                    class="doc-dropzone upload-dropzone cursor-pointer border-2 border-dashed border-gray-200 rounded-xl px-4 py-3 text-center block">
+                                    <input type="file" class="doc-file-input hidden" accept=".pdf,.jpg,.jpeg,.png">
+                                    <p class="text-xs text-[#FFA800] font-medium">Drop file here or Browse</p>
+                                    <p class="text-[11px] text-gray-400">PDF, JPG, PNG - Max 15MB</p>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="doc-upload-row flex items-center gap-4 border border-gray-100 rounded-xl p-3"
+                            data-doc="bank_account_proof">
+                            <span class="material-symbols-outlined text-gray-300">account_balance</span>
+                            <div class="w-40 shrink-0">
+                                <p class="text-sm font-medium text-gray-800">Bank Account Proof</p>
+                                <p class="text-xs text-gray-400">Upload cancelled cheque or bank statement. <span
+                                        class="text-gray-300">(Optional)</span></p>
+                            </div>
+                            <div class="flex-1">
+                                <div
+                                    class="doc-uploaded-state hidden items-center justify-between bg-[#E9FBF3] border border-[#B9F0D6] rounded-xl px-4 py-2.5">
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="material-symbols-outlined text-[#22C55E] text-[18px]">check_circle</span>
+                                        <div>
+                                            <p class="text-xs font-semibold text-[#0FA968]">Documents Uploaded</p>
+                                            <p class="text-[11px] text-gray-500">Ready for verification</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button type="button"
+                                            class="doc-remove-btn text-gray-400 hover:text-gray-600"><span
+                                                class="material-symbols-outlined text-[18px]">close</span></button>
+                                        <button type="button" class="text-gray-400 hover:text-gray-600"><span
+                                                class="material-symbols-outlined text-[18px]">visibility</span></button>
+                                    </div>
+                                </div>
+                                <label
+                                    class="doc-dropzone upload-dropzone cursor-pointer border-2 border-dashed border-gray-200 rounded-xl px-4 py-3 text-center block">
+                                    <input type="file" class="doc-file-input hidden" accept=".pdf,.jpg,.jpeg,.png">
+                                    <p class="text-xs text-[#FFA800] font-medium">Drop file here or Browse</p>
+                                    <p class="text-[11px] text-gray-400">PDF, JPG, PNG - Max 15MB</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-sm font-semibold text-gray-900 mt-6">Optional Documents</p>
+                    <p class="text-xs text-gray-400 mb-3">Boost credibility by uploading additional certifications.</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <label
+                            class="doc-dropzone upload-dropzone cursor-pointer border-2 border-dashed border-gray-200 rounded-xl p-4 text-center block">
+                            <input type="file" class="doc-file-input hidden">
+                            <span class="material-symbols-outlined text-[#22C55E]">workspace_premium</span>
+                            <p class="text-xs font-medium text-gray-700 mt-1">ISO Certification</p>
+                            <p class="text-[11px] text-[#FFA800] mt-1">Upload (Optional)</p>
+                        </label>
+                        <label
+                            class="doc-dropzone upload-dropzone cursor-pointer border-2 border-dashed border-gray-200 rounded-xl p-4 text-center block">
+                            <input type="file" class="doc-file-input hidden">
+                            <span class="material-symbols-outlined text-[#3B82F6]">verified_user</span>
+                            <p class="text-xs font-medium text-gray-700 mt-1">Cisco Partnership</p>
+                            <p class="text-[11px] text-[#FFA800] mt-1">Upload (Optional)</p>
+                        </label>
+                        <label
+                            class="doc-dropzone upload-dropzone cursor-pointer border-2 border-dashed border-gray-200 rounded-xl p-4 text-center block">
+                            <input type="file" class="doc-file-input hidden">
+                            <span class="material-symbols-outlined text-[#A855F7]">shield</span>
+                            <p class="text-xs font-medium text-gray-700 mt-1">Safety Compliance</p>
+                            <p class="text-[11px] text-[#FFA800] mt-1">Upload (Optional)</p>
+                        </label>
+                        <label
+                            class="doc-dropzone upload-dropzone cursor-pointer border-2 border-dashed border-gray-200 rounded-xl p-4 text-center block">
+                            <input type="file" class="doc-file-input hidden">
+                            <span class="material-symbols-outlined text-[#FFA800]">military_tech</span>
+                            <p class="text-xs font-medium text-gray-700 mt-1">Other Certification</p>
+                            <p class="text-[11px] text-[#FFA800] mt-1">Upload (Optional)</p>
+                        </label>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button type="button"
+                            class="wizard-back-btn border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-semibold px-6 py-2.5 rounded-xl">&larr;
+                            Back</button>
+                        <button type="button"
+                            class="wizard-next-btn bg-[#FFC949] hover:bg-[#f5bd38] text-gray-900 text-sm font-semibold px-6 py-2.5 rounded-xl">Save
+                            &amp; Continue &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- ============= STEP 4 : Service Coverage & Availability ============= -->
+                <div class="wizard-step hidden mt-5 space-y-5" data-step="4">
+                    <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
+                        <p class="text-sm font-semibold text-gray-900 flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[#FFA800] text-[18px]">location_on</span>Service
+                            Coverage Area</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4">
+                            <div>
+                                <label class="text-xs font-medium text-gray-600">Select States <span
+                                        class="text-[#EF4444]">*</span></label>
+                                <div class="chip-select mt-1.5 flex flex-wrap gap-2 border border-gray-200 rounded-xl px-3 py-2"
+                                    data-name="states">
+                                    <span
+                                        class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1">Maharashtra
+                                        <button type="button" class="chip-remove">&times;</button></span>
+                                    <span
+                                        class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1">Gujarat
+                                        <button type="button" class="chip-remove">&times;</button></span>
+                                    <span
+                                        class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1">Karnataka
+                                        <button type="button" class="chip-remove">&times;</button></span>
+                                    <input type="text" placeholder="Add state..."
+                                        class="chip-input flex-1 min-w-[80px] text-xs focus:outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-xs font-medium text-gray-600">Select Cities <span
+                                        class="text-[#EF4444]">*</span></label>
+                                <div class="chip-select mt-1.5 flex flex-wrap gap-2 border border-gray-200 rounded-xl px-3 py-2"
+                                    data-name="cities">
+                                    <span
+                                        class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1">Mumbai
+                                        <button type="button" class="chip-remove">&times;</button></span>
+                                    <span
+                                        class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1">Pune
+                                        <button type="button" class="chip-remove">&times;</button></span>
+                                    <span
+                                        class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1">Nashik
+                                        <button type="button" class="chip-remove">&times;</button></span>
+                                    <span
+                                        class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1">Surat
+                                        <button type="button" class="chip-remove">&times;</button></span>
+                                    <input type="text" placeholder="Add city..."
+                                        class="chip-input flex-1 min-w-[80px] text-xs focus:outline-none">
+                                </div>
+                            </div>
+                        </div>
+                        <p
+                            class="text-xs text-[#B98900] bg-[#FFF9EC] border border-[#FBE9C6] rounded-lg px-3 py-2 mt-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[16px]">info</span>
+                            Your engineers will receive job requests only from the selected service areas.
+                        </p>
+                    </div>
+
+                    <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
+                        <p class="text-sm font-semibold text-gray-900 flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[#FFA800] text-[18px]">event_available</span>Availability
+                            Preferences</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                            <label
+                                class="flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3">
+                                <span class="text-sm text-gray-700 flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-[#22C55E] text-[18px]">event</span>Weekday
+                                    Availability</span>
+                                <span class="toggle-switch"><input type="checkbox" checked><span
+                                        class="toggle-track"></span></span>
+                            </label>
+                            <label
+                                class="flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3">
+                                <span class="text-sm text-gray-700 flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-[#3B82F6] text-[18px]">weekend</span>Weekend
+                                    Support</span>
+                                <span class="toggle-switch"><input type="checkbox" checked><span
+                                        class="toggle-track"></span></span>
+                            </label>
+                            <label
+                                class="flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3">
+                                <span class="text-sm text-gray-700 flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-[#A855F7] text-[18px]">dark_mode</span>Night
+                                    Shift Support</span>
+                                <span class="toggle-switch"><input type="checkbox" checked><span
+                                        class="toggle-track"></span></span>
+                            </label>
+                            <label
+                                class="flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3">
+                                <span class="text-sm text-gray-700 flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-[#EF4444] text-[18px]">emergency</span>Emergency
+                                    Dispatch</span>
+                                <span class="toggle-switch"><input type="checkbox" checked><span
+                                        class="toggle-track"></span></span>
+                            </label>
+                            <label
+                                class="flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3">
+                                <span class="text-sm text-gray-700 flex items-center gap-2"><span
+                                        class="material-symbols-outlined text-[#FFA800] text-[18px]">schedule</span>24 x
+                                    7 Availability</span>
+                                <span class="toggle-switch"><input type="checkbox" checked><span
+                                        class="toggle-track"></span></span>
+                            </label>
+                            <p
+                                class="text-xs text-[#B98900] bg-[#FFF9EC] border border-[#FBE9C6] rounded-lg px-3 py-2.5 flex items-center">
+                                Enabling more availability options increases your chance of getting more jobs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
+                        <p class="text-sm font-semibold text-gray-900 flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[#FFA800] text-[18px]">social_distance</span>Service
+                            Radius</p>
+                        <p class="text-xs text-gray-400">Set the maximum distance you are willing to travel for a job.
+                        </p>
+                        <div class="mt-5">
+                            <input type="range" min="5" max="1000" value="100" id="radiusSlider" class="radius-slider">
+                            <div class="flex justify-between text-xs text-gray-400 mt-2">
+                                <span>5 km</span><span id="radiusValueLabel">500 km</span><span>1000 km</span>
+                            </div>
+                        </div>
+                        <div
+                            class="mt-4 rounded-xl overflow-hidden border border-gray-100 relative h-56 bg-[#E9F5E3] flex items-center justify-center">
+                            <img src="https://maps.gstatic.com/tactile/pane/default_geocode-2x.png"
+                                alt="Service area map" class="w-14 h-14 opacity-40">
+                            <button type="button" id="useCurrentLocationBtn"
+                                class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white shadow rounded-full px-4 py-2 text-xs font-semibold text-gray-700 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[16px] text-[#FFA800]">my_location</span>Use
+                                current location
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button type="button"
+                            class="wizard-back-btn border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-semibold px-6 py-2.5 rounded-xl">&larr;
+                            Back</button>
+                        <button type="button"
+                            class="wizard-next-btn bg-[#FFC949] hover:bg-[#f5bd38] text-gray-900 text-sm font-semibold px-6 py-2.5 rounded-xl">Save
+                            &amp; Continue &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- ============= STEP 5 : Build Your Workforce ============= -->
+                <div class="wizard-step hidden mt-5 space-y-5" data-step="5">
+                    <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
+                        <p class="text-sm font-semibold text-gray-900 flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[#FFA800] text-[18px]">groups</span>Workforce
+                            Summary</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
+                            <div class="border border-gray-100 rounded-xl p-4">
+                                <span class="material-symbols-outlined text-[#3B82F6]">groups</span>
+                                <p class="text-xl font-semibold text-gray-900 mt-1">25</p>
+                                <p class="text-xs text-gray-400">Total Engineers</p>
+                            </div>
+                            <div class="border border-gray-100 rounded-xl p-4">
+                                <span class="material-symbols-outlined text-[#22C55E]">military_tech</span>
+                                <p class="text-xl font-semibold text-gray-900 mt-1">3</p>
+                                <p class="text-xs text-gray-400">Team Leads</p>
+                            </div>
+                            <div class="border border-gray-100 rounded-xl p-4">
+                                <span class="material-symbols-outlined text-[#FFA800]">workspace_premium</span>
+                                <p class="text-xl font-semibold text-gray-900 mt-1">8</p>
+                                <p class="text-xs text-gray-400">Specialists</p>
+                            </div>
+                            <div class="border border-gray-100 rounded-xl p-4">
+                                <span class="material-symbols-outlined text-[#A855F7]">history</span>
+                                <p class="text-xl font-semibold text-gray-900 mt-1">5+</p>
+                                <p class="text-xs text-gray-400">Avg Exp (Years)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
+                        <p class="text-sm font-semibold text-gray-900 flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[#FFA800] text-[18px]">stars</span>Skills &amp;
+                            Expertise</p>
+                        <p class="text-xs text-gray-400">Select the skills your team is experienced in.</p>
+                        <div class="mt-3 relative">
+                            <span
+                                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[18px]">search</span>
+                            <input type="text" id="skillInput" placeholder="Search and add skills..."
+                                class="w-full rounded-xl border border-gray-200 pl-9 pr-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-3" id="skillChips">
+                            <span
+                                class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1.5">Network
+                                Cabling <button type="button" class="chip-remove">&times;</button></span>
+                            <span
+                                class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1.5">Server
+                                Installation <button type="button" class="chip-remove">&times;</button></span>
+                            <span
+                                class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1.5">Rack
+                                Setup <button type="button" class="chip-remove">&times;</button></span>
+                            <span
+                                class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1.5">Hardware
+                                Maintenance <button type="button" class="chip-remove">&times;</button></span>
+                            <span
+                                class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1.5">Fiber
+                                Optics <button type="button" class="chip-remove">&times;</button></span>
+                            <span
+                                class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1.5">Firewall
+                                Configuration <button type="button" class="chip-remove">&times;</button></span>
+                            <span
+                                class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1.5">Data
+                                Center Setup <button type="button" class="chip-remove">&times;</button></span>
+                            <span
+                                class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1.5">CCTV
+                                Installation <button type="button" class="chip-remove">&times;</button></span>
+                            <span
+                                class="chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1.5">IP
+                                Telephony <button type="button" class="chip-remove">&times;</button></span>
+                            <button type="button" id="addSkillBtn"
+                                class="inline-flex items-center gap-1 border border-dashed border-gray-300 text-gray-500 text-xs font-medium rounded-full px-3 py-1.5">+
+                                Add Skill</button>
+                        </div>
+                        <div class="flex items-center gap-2 mt-3 flex-wrap">
+                            <span class="text-xs text-gray-400">Popular:</span>
+                            <button type="button"
+                                class="popular-skill-btn text-xs text-gray-600 border border-gray-200 rounded-full px-3 py-1">Solar
+                                Installation</button>
+                            <button type="button"
+                                class="popular-skill-btn text-xs text-gray-600 border border-gray-200 rounded-full px-3 py-1">UPS
+                                Setup</button>
+                            <button type="button"
+                                class="popular-skill-btn text-xs text-gray-600 border border-gray-200 rounded-full px-3 py-1">Structured
+                                Cabling</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
+                        <p class="text-sm font-semibold text-gray-900 flex items-center gap-2"><span
+                                class="material-symbols-outlined text-[#FFA800] text-[18px]">trending_up</span>Team
+                            Experience Level</p>
+                        <p class="text-xs text-gray-400">Choose the average experience across your team.</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-4" id="experienceLevelOptions">
+                            <button type="button"
+                                class="exp-level-option border border-gray-200 rounded-xl p-3 text-center"
+                                data-value="0-1">
+                                <span class="material-symbols-outlined text-gray-400">person</span>
+                                <p class="text-xs font-medium text-gray-700 mt-1">0 - 1 Years</p>
+                                <p class="text-[10px] text-gray-400">Entry Level</p>
+                            </button>
+                            <button type="button"
+                                class="exp-level-option border border-gray-200 rounded-xl p-3 text-center"
+                                data-value="1-2">
+                                <span class="material-symbols-outlined text-gray-400">person</span>
+                                <p class="text-xs font-medium text-gray-700 mt-1">1 - 2 Years</p>
+                                <p class="text-[10px] text-gray-400">Early Career</p>
+                            </button>
+                            <button type="button"
+                                class="exp-level-option selected border-2 border-[#FFC949] bg-[#FFF9EC] rounded-xl p-3 text-center"
+                                data-value="2-5">
+                                <span class="material-symbols-outlined text-[#FFA800]">person</span>
+                                <p class="text-xs font-semibold text-gray-900 mt-1">2 - 5 Years</p>
+                                <p class="text-[10px] text-[#FFA800]">Experienced</p>
+                            </button>
+                            <button type="button"
+                                class="exp-level-option border border-gray-200 rounded-xl p-3 text-center"
+                                data-value="5-10">
+                                <span class="material-symbols-outlined text-gray-400">person</span>
+                                <p class="text-xs font-medium text-gray-700 mt-1">5 - 10 Years</p>
+                                <p class="text-[10px] text-gray-400">Senior</p>
+                            </button>
+                            <button type="button"
+                                class="exp-level-option border border-gray-200 rounded-xl p-3 text-center"
+                                data-value="10+">
+                                <span class="material-symbols-outlined text-gray-400">person</span>
+                                <p class="text-xs font-medium text-gray-700 mt-1">10+ Years</p>
+                                <p class="text-[10px] text-gray-400">Expert</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <p class="text-sm font-semibold text-gray-900">Team Certifications <span
+                                    class="text-[10px] text-gray-400 font-normal">Optional</span></p>
+                            <button type="button" id="addCertificateBtn"
+                                class="text-xs font-semibold text-[#FFA800] border border-[#FFC949] rounded-lg px-3 py-1.5 flex items-center gap-1">+
+                                Add New Certificate</button>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-1">Upload team or company level certifications.</p>
+                        <div class="mt-3 flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3"
+                            id="existingCertRow">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-[#EF4444]">picture_as_pdf</span>
+                                <div>
+                                    <p class="text-sm text-gray-800">ISO 9001:2015 Certificate.pdf</p>
+                                    <p class="text-xs text-gray-400">Uploaded on 28 May 2025 &middot; 1.2 MB</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <button type="button"><span
+                                        class="material-symbols-outlined text-[18px]">visibility</span></button>
+                                <button type="button" id="removeExistingCertBtn"><span
+                                        class="material-symbols-outlined text-[18px]">delete</span></button>
+                            </div>
+                        </div>
+                        <label
+                            class="doc-dropzone upload-dropzone cursor-pointer border-2 border-dashed border-gray-200 rounded-xl px-4 py-3 text-center block mt-3">
+                            <input type="file" class="doc-file-input hidden">
+                            <p class="text-xs text-[#FFA800] font-medium">Drop certificate here or Browse Files</p>
+                            <p class="text-[11px] text-gray-400">PDF, JPG, PNG - Max 15MB</p>
+                        </label>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button type="button"
+                            class="wizard-back-btn border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-semibold px-6 py-2.5 rounded-xl">&larr;
+                            Back</button>
+                        <button type="button"
+                            class="wizard-next-btn bg-[#FFC949] hover:bg-[#f5bd38] text-gray-900 text-sm font-semibold px-6 py-2.5 rounded-xl">Save
+                            &amp; Continue &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- ============= STEP 6 : Bank & Payout Setup ============= -->
+                <div class="wizard-step hidden mt-5 bg-white border border-gray-100 rounded-2xl shadow-sm p-6"
+                    data-step="6">
+                    <form id="stepForm6" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Bank Name</label>
+                            <select name="bank_name"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                                <option>HDFC Bank</option>
+                                <option>ICICI Bank</option>
+                                <option>SBI</option>
+                                <option>Axis Bank</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Account Holder Name</label>
+                            <input type="text" name="account_holder_name" placeholder="Techno Solutions Pvt."
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Account Number</label>
+                            <input type="text" name="account_number" placeholder="58697 58741"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Confirm Account Number</label>
+                            <input type="text" name="confirm_account_number" placeholder="58697 58741"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">IFSC Code</label>
+                            <input type="text" name="ifsc_code" placeholder="HDFC0008976"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Branch Name</label>
+                            <input type="text" name="branch_name" placeholder="Andheri East"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Account Type</label>
+                            <select name="account_type"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                                <option>Current Account</option>
+                                <option>Savings Account</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Pan Number</label>
+                            <input type="text" name="pan_number" placeholder="GXBTM1045F"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Payout Preference</label>
+                            <select name="payout_preference"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                                <option>Weekly</option>
+                                <option>Bi-weekly</option>
+                                <option>Monthly</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs font-medium text-gray-600">Email invoice for every mail</label>
+                            <select name="email_invoice"
+                                class="mt-1.5 w-full rounded-xl border border-gray-200 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFE29A]">
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label class="text-xs font-medium text-gray-600">Upload Cancelled Cheque/ Bank
+                                Statement</label>
+                            <div
+                                class="mt-1.5 flex items-center justify-between border border-dashed border-gray-200 rounded-xl px-4 py-3">
+                                <span class="flex items-center gap-2 text-sm text-gray-600">
+                                    <span
+                                        class="material-symbols-outlined text-[#FFA800] text-[18px]">cloud_upload</span>
+                                    Click to upload or drag and drop
+                                </span>
+                                <span class="text-xs text-gray-400" id="bankProofFileName">cancelled_cheque.pdf</span>
+                            </div>
+                            <p class="text-[11px] text-gray-400 mt-1">Accepted formats: PDF, JPG, PNG (Max. 5MB)</p>
+                        </div>
+                    </form>
+
+                    <p class="text-xs text-gray-400 mt-5">
+                        By continuing you agree to our <a href="{% url 'settings' %}"
+                            class="text-[#FFA800] font-medium">Terms &amp; Conditions</a> and <a
+                            href="{% url 'settings' %}" class="text-[#FFA800] font-medium">Privacy Policy</a>.
+                    </p>
+
+                    <div class="flex justify-between mt-6">
+                        <button type="button"
+                            class="wizard-back-btn border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-semibold px-6 py-2.5 rounded-xl">&larr;
+                            Back</button>
+                        <button type="button"
+                            class="wizard-next-btn bg-[#FFC949] hover:bg-[#f5bd38] text-gray-900 text-sm font-semibold px-6 py-2.5 rounded-xl">Save
+                            &amp; Continue &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- ============= STEP 7 : Notification Preferences ============= -->
+                <div class="wizard-step hidden mt-5 bg-white border border-gray-100 rounded-2xl shadow-sm p-6"
+                    data-step="7">
+                    <p
+                        class="text-xs text-[#B98900] bg-[#FFF9EC] border border-[#FBE9C6] rounded-lg px-3 py-2.5 flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-[16px]">info</span>
+                        We will send you notifications based on your preferences. You can change these anytime from your
+                        account settings later.
+                    </p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-left text-xs text-gray-400 border-b border-gray-100">
+                                    <th class="py-2 font-medium">Notification type</th>
+                                    <th class="py-2 font-medium text-center">Push Notification</th>
+                                    <th class="py-2 font-medium text-center">In-App</th>
+                                    <th class="py-2 font-medium text-center">Mail</th>
+                                    <th class="py-2 font-medium text-center">SMS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="notificationPrefsBody">
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 flex items-center gap-2"><span
+                                            class="material-symbols-outlined text-[#22C55E] text-[18px]">work</span>New
+                                        Job Alerts<p class="text-[11px] text-gray-400 font-normal">When new job requests
+                                            are available.</p>
+                                    </td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 flex items-center gap-2"><span
+                                            class="material-symbols-outlined text-[#EF4444] text-[18px]">emergency</span>Emergency
+                                        Jobs<p class="text-[11px] text-gray-400 font-normal">Alerts for high-priority or
+                                            urgent work.</p>
+                                    </td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 flex items-center gap-2"><span
+                                            class="material-symbols-outlined text-[#3B82F6] text-[18px]">location_on</span>Engineer
+                                        Tracking Alerts<p class="text-[11px] text-gray-400 font-normal">Real-time status
+                                            updates of engineers.</p>
+                                    </td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 flex items-center gap-2"><span
+                                            class="material-symbols-outlined text-[#22C55E] text-[18px]">payments</span>Payout
+                                        &amp; Payment Alerts<p class="text-[11px] text-gray-400 font-normal">When
+                                            payouts or payments are available.</p>
+                                    </td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                </tr>
+                                <tr class="border-b border-gray-50">
+                                    <td class="py-3 flex items-center gap-2"><span
+                                            class="material-symbols-outlined text-[#A855F7] text-[18px]">chat</span>Customer
+                                        Messages<p class="text-[11px] text-gray-400 font-normal">Messages from clients
+                                            or support teams.</p>
+                                    </td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 flex items-center gap-2"><span
+                                            class="material-symbols-outlined text-[#FFA800] text-[18px]">campaign</span>System
+                                        Announcements<p class="text-[11px] text-gray-400 font-normal">Important updates
+                                            and platform news.</p>
+                                    </td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                    <td class="text-center"><span class="toggle-switch"><input type="checkbox"
+                                                checked><span class="toggle-track"></span></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button type="button"
+                            class="wizard-back-btn border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-semibold px-6 py-2.5 rounded-xl">&larr;
+                            Back</button>
+                        <button type="button"
+                            class="wizard-next-btn bg-[#FFC949] hover:bg-[#f5bd38] text-gray-900 text-sm font-semibold px-6 py-2.5 rounded-xl">Save
+                            &amp; Continue &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- ============= STEP 8 : Review & Submit ============= -->
+                <div class="wizard-step hidden mt-5 bg-white border border-gray-100 rounded-2xl shadow-sm p-6"
+                    data-step="8">
+                    <p class="text-sm font-semibold text-gray-900 mb-3">Review Your Information</p>
+                    <div class="space-y-3" id="reviewList">
+                        <div class="review-row flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3"
+                            data-goto-step="1">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-9 rounded-lg bg-[#FFF4DC] flex items-center justify-center"><span
+                                        class="material-symbols-outlined text-[#FFA800] text-[18px]">person</span></span>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Account Setup</p>
+                                    <p class="text-xs text-gray-400">Rahul Sharma &middot; info@techsolution.com
+                                        &middot; +91 572368583862</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-medium text-[#22C55E] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[16px]">check_circle</span>Completed</span>
+                                <button type="button"
+                                    class="review-edit-btn text-xs font-semibold text-[#3B82F6] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[14px]">edit</span>Edit</button>
+                            </div>
+                        </div>
+                        <div class="review-row flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3"
+                            data-goto-step="2">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-9 rounded-lg bg-[#E9FBF3] flex items-center justify-center"><span
+                                        class="material-symbols-outlined text-[#22C55E] text-[18px]">business_center</span></span>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Business Information</p>
+                                    <p class="text-xs text-gray-400">GST 24AB3E1234F1Z5 &middot; PAN ABC3E1234F &middot;
+                                        Mumbai, Maharashtra</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-medium text-[#22C55E] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[16px]">check_circle</span>Completed</span>
+                                <button type="button"
+                                    class="review-edit-btn text-xs font-semibold text-[#3B82F6] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[14px]">edit</span>Edit</button>
+                            </div>
+                        </div>
+                        <div class="review-row flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3"
+                            data-goto-step="3">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-9 rounded-lg bg-[#F3E8FF] flex items-center justify-center"><span
+                                        class="material-symbols-outlined text-[#A855F7] text-[18px]">folder</span></span>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Documents</p>
+                                    <p class="text-xs text-gray-400">5 Required Documents &middot; 3 Optional Documents
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-medium text-[#22C55E] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[16px]">check_circle</span>Completed</span>
+                                <button type="button"
+                                    class="review-edit-btn text-xs font-semibold text-[#3B82F6] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[14px]">edit</span>Edit</button>
+                            </div>
+                        </div>
+                        <div class="review-row flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3"
+                            data-goto-step="4">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-9 rounded-lg bg-[#FFF4DC] flex items-center justify-center"><span
+                                        class="material-symbols-outlined text-[#FFA800] text-[18px]">apartment</span></span>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Service Coverage</p>
+                                    <p class="text-xs text-gray-400">3 States &middot; 4 Cities &middot; 100 km Radius
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-medium text-[#22C55E] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[16px]">check_circle</span>Completed</span>
+                                <button type="button"
+                                    class="review-edit-btn text-xs font-semibold text-[#3B82F6] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[14px]">edit</span>Edit</button>
+                            </div>
+                        </div>
+                        <div class="review-row flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3"
+                            data-goto-step="5">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-9 rounded-lg bg-[#E9F2FF] flex items-center justify-center"><span
+                                        class="material-symbols-outlined text-[#3B82F6] text-[18px]">groups</span></span>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Build Your Workforce</p>
+                                    <p class="text-xs text-gray-400">25 Engineers &middot; 8 Skills &middot; 2-5 Years
+                                        Avg. Experience</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-medium text-[#22C55E] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[16px]">check_circle</span>Completed</span>
+                                <button type="button"
+                                    class="review-edit-btn text-xs font-semibold text-[#3B82F6] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[14px]">edit</span>Edit</button>
+                            </div>
+                        </div>
+                        <div class="review-row flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3"
+                            data-goto-step="6">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-9 rounded-lg bg-[#FDE8E8] flex items-center justify-center"><span
+                                        class="material-symbols-outlined text-[#EF4444] text-[18px]">account_balance</span></span>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Bank &amp; Payout Setup</p>
+                                    <p class="text-xs text-gray-400">HDFC Bank &middot; xxxx 7862 &middot; Weekly Payout
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-medium text-[#22C55E] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[16px]">check_circle</span>Completed</span>
+                                <button type="button"
+                                    class="review-edit-btn text-xs font-semibold text-[#3B82F6] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[14px]">edit</span>Edit</button>
+                            </div>
+                        </div>
+                        <div class="review-row flex items-center justify-between border border-gray-100 rounded-xl px-4 py-3"
+                            data-goto-step="7">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-9 rounded-lg bg-[#FFF4DC] flex items-center justify-center"><span
+                                        class="material-symbols-outlined text-[#FFA800] text-[18px]">notifications</span></span>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Notification Preferences</p>
+                                    <p class="text-xs text-gray-400">6 Notification Categories Selected</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-medium text-[#22C55E] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[16px]">check_circle</span>Completed</span>
+                                <button type="button"
+                                    class="review-edit-btn text-xs font-semibold text-[#3B82F6] flex items-center gap-1"><span
+                                        class="material-symbols-outlined text-[14px]">edit</span>Edit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between mt-6">
+                        <button type="button"
+                            class="wizard-back-btn border border-gray-200 hover:bg-gray-50 text-gray-700 text-sm font-semibold px-6 py-2.5 rounded-xl">&larr;
+                            Back</button>
+                        <button type="button" id="finalSubmitBtn"
+                            class="bg-[#FFC949] hover:bg-[#f5bd38] text-gray-900 text-sm font-semibold px-6 py-2.5 rounded-xl">Save
+                            &amp; Continue &rarr;</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: onboarding progress panel (dynamic) -->
+            <div class="lg:col-span-1">
+                <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6 sticky top-4">
+                    <p class="text-sm font-semibold text-gray-900">Your Onboarding Progress</p>
+                    <div class="flex flex-col items-center my-5">
+                        <div class="relative w-24 h-24">
+                            <svg class="w-24 h-24 -rotate-90" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="42" fill="none" class="progress-ring-bg" stroke-width="8">
+                                </circle>
+                                <circle id="wizardProgressRing" cx="50" cy="50" r="42" fill="none"
+                                    class="progress-ring-fill" stroke-width="8" stroke-dasharray="263.9"
+                                    stroke-dashoffset="263.9"></circle>
+                            </svg>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                <span id="wizardProgressPctLabel" class="text-lg font-semibold text-gray-900">10%</span>
+                                <span class="text-[10px] text-gray-400">Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul id="onboardingStepList" class="space-y-0"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =========================================================
+         VENDOR VERIFIED & ACTIVATED (final success view)
+         ========================================================= -->
+    <div id="vendorActivatedView" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            <div class="lg:col-span-2">
+                <p class="text-xs text-gray-400">
+                    <span>Vendor Registration</span><span class="mx-1">&gt;</span><span class="text-gray-500">Vendor
+                        Verified &amp; Activated</span>
+                </p>
+                <div class="flex items-start justify-between mt-1 gap-4">
+                    <div>
+                        <h1 class="text-xl font-semibold text-gray-900">Vendor Verified &amp; Activated</h1>
+                        <p class="text-sm text-gray-500 mt-1">Congratulations! Your vendor account is now active.</p>
+                    </div>
+                    <div class="text-right shrink-0 pt-1">
+                        <p class="text-xs text-gray-400 whitespace-nowrap">Step 8 of 8</p>
+                        <div class="flex items-center gap-1 mt-2">
+                            <span class="w-6 h-1.5 rounded-full bg-[#22C55E]"></span><span
+                                class="w-6 h-1.5 rounded-full bg-[#22C55E]"></span>
+                            <span class="w-6 h-1.5 rounded-full bg-[#22C55E]"></span><span
+                                class="w-6 h-1.5 rounded-full bg-[#22C55E]"></span>
+                            <span class="w-6 h-1.5 rounded-full bg-[#22C55E]"></span><span
+                                class="w-6 h-1.5 rounded-full bg-[#22C55E]"></span>
+                            <span class="w-6 h-1.5 rounded-full bg-[#22C55E]"></span><span
+                                class="w-6 h-1.5 rounded-full bg-[#22C55E]"></span>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-1">100%</p>
+                    </div>
+                </div>
+
+                <div class="mt-5 bg-white border border-gray-100 rounded-2xl shadow-sm p-8 text-center">
+                    <div class="w-16 h-16 rounded-full bg-[#E9FBF3] flex items-center justify-center mx-auto">
+                        <span class="material-symbols-outlined text-[#22C55E] text-3xl">verified</span>
+                    </div>
+                    <h2 class="text-xl font-semibold text-[#22C55E] mt-4">Congratulations!</h2>
+                    <p class="text-sm text-gray-500 mt-2 max-w-md mx-auto">
+                        Your vendor account has been verified and activated successfully. You can now start receiving
+                        job requests and manage your operations.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 text-left">
+                        <div class="border border-gray-100 rounded-xl p-3">
+                            <span class="material-symbols-outlined text-[#22C55E] text-[18px]">badge</span>
+                            <p class="text-xs text-gray-400 mt-1">Vendor ID</p>
+                            <p class="text-xs font-semibold text-gray-800">{{ vendor.vendor_id|default:"VN-2026-000124"
+                                }}</p>
+                        </div>
+                        <div class="border border-gray-100 rounded-xl p-3">
+                            <span class="material-symbols-outlined text-[#3B82F6] text-[18px]">badge</span>
+                            <p class="text-xs text-gray-400 mt-1">Vendor ID</p>
+                            <p class="text-xs font-semibold text-gray-800">{{ vendor.vendor_id|default:"VN-2026-000124"
+                                }}</p>
+                        </div>
+                        <div class="border border-gray-100 rounded-xl p-3">
+                            <span class="material-symbols-outlined text-[#A855F7] text-[18px]">badge</span>
+                            <p class="text-xs text-gray-400 mt-1">Vendor ID</p>
+                            <p class="text-xs font-semibold text-gray-800">{{ vendor.vendor_id|default:"VN-2026-000124"
+                                }}</p>
+                        </div>
+                        <div class="border border-gray-100 rounded-xl p-3">
+                            <span class="material-symbols-outlined text-[#FFA800] text-[18px]">badge</span>
+                            <p class="text-xs text-gray-400 mt-1">Vendor ID</p>
+                            <p class="text-xs font-semibold text-gray-800">{{ vendor.vendor_id|default:"VN-2026-000124"
+                                }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 bg-white border border-gray-100 rounded-2xl shadow-sm p-6">
+                    <p class="text-sm font-semibold text-gray-900 mb-3">What You Can Do Now</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                        <div class="border border-gray-100 rounded-xl p-4">
+                            <span class="material-symbols-outlined text-[#3B82F6]">work</span>
+                            <p class="text-sm font-medium text-gray-800 mt-2">Receive Job Requests</p>
+                            <p class="text-xs text-gray-400 mt-1">Start receiving job requests from customers in your
+                                service areas.</p>
+                            <a href="{% url 'earnings' %}"
+                                class="text-xs font-semibold text-[#FFA800] mt-2 inline-block">Go to Jobs &rarr;</a>
+                        </div>
+                        <div class="border border-gray-100 rounded-xl p-4">
+                            <span class="material-symbols-outlined text-[#22C55E]">groups</span>
+                            <p class="text-sm font-medium text-gray-800 mt-2">Manage Workforce</p>
+                            <p class="text-xs text-gray-400 mt-1">Add engineers, manage skills, attendance and
+                                availability.</p>
+                            <a href="{% url 'vendor_engineers' %}"
+                                class="text-xs font-semibold text-[#FFA800] mt-2 inline-block">Go to Workforce
+                                &rarr;</a>
+                        </div>
+                        <div class="border border-gray-100 rounded-xl p-4">
+                            <span class="material-symbols-outlined text-[#A855F7]">folder</span>
+                            <p class="text-sm font-medium text-gray-800 mt-2">Update Documents</p>
+                            <p class="text-xs text-gray-400 mt-1">Keep your documents updated to avoid any service
+                                interruptions.</p>
+                            <a href="{% url 'settings' %}"
+                                class="text-xs font-semibold text-[#FFA800] mt-2 inline-block">Go to Documents
+                                &rarr;</a>
+                        </div>
+                        <div class="border border-gray-100 rounded-xl p-4">
+                            <span class="material-symbols-outlined text-[#FFA800]">insights</span>
+                            <p class="text-sm font-medium text-gray-800 mt-2">View Analytics</p>
+                            <p class="text-xs text-gray-400 mt-1">Track your performance, jobs, response time and
+                                ratings.</p>
+                            <a href="{% url 'settings' %}"
+                                class="text-xs font-semibold text-[#FFA800] mt-2 inline-block">Go to Analytics
+                                &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" id="goToVendorDashboardBtn"
+                    class="w-full mt-5 bg-[#FFC949] hover:bg-[#f5bd38] text-gray-900 text-sm font-semibold px-6 py-3 rounded-xl">
+                    Go to Vendor Dashboard &rarr;
+                </button>
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-6 sticky top-4">
+                    <p class="text-sm font-semibold text-gray-900">Your Onboarding Progress</p>
+                    <div class="flex flex-col items-center my-5">
+                        <div class="relative w-24 h-24">
+                            <svg class="w-24 h-24 -rotate-90" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="42" fill="none" class="progress-ring-bg" stroke-width="8">
+                                </circle>
+                                <circle cx="50" cy="50" r="42" fill="none" class="progress-ring-fill" stroke-width="8"
+                                    stroke-dasharray="263.9" stroke-dashoffset="0"></circle>
+                            </svg>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                <span class="text-lg font-semibold text-gray-900">100%</span>
+                                <span class="text-[10px] text-gray-400">Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul id="finalStepList" class="space-y-0"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        /* =====================================================================
+           CONFIG — adjust SIDEBAR_SELECTOR to match the real element in your
+           layout.html (e.g. "#sidebar", ".dashboard-sidebar", "aside#nav").
+           We try a few common fallbacks automatically.
+           ===================================================================== */
+        const SIDEBAR_SELECTOR = "#sidebar";
+        const SIDEBAR_FALLBACKS = ["#sidebar", ".sidebar", "aside", "nav.sidebar", "#vendorSidebar"];
+
+        function getSidebarEl() {
+            for (const sel of SIDEBAR_FALLBACKS) {
+                const el = document.querySelector(sel);
+                if (el) return el;
+            }
+            return null;
+        }
+
+        function setSidebarVisible(visible) {
+            const sidebar = getSidebarEl();
+            if (!sidebar) return;
+            sidebar.classList.toggle("hidden", !visible);
+        }
+
+        /* =====================================================================
+           STEP METADATA
+           ===================================================================== */
+        const TOTAL_STEPS = 8;
+        const stepMeta = {
+            1: { breadcrumb: "Account Registration", title: "Complete Vendor Account", subtitle: "Let's get your business registered" },
+            2: { breadcrumb: "Business Information", title: "Business Information", subtitle: "Tell us about your business and service operations." },
+            3: { breadcrumb: "Upload Documents", title: "Upload Business Documents", subtitle: "Upload requires documents to verify your business" },
+            4: { breadcrumb: "Service Coverage & Availability", title: "Service Coverage & Availability", subtitle: "Set your service area and availability preferences." },
+            5: { breadcrumb: "Build Your Workforce", title: "Build Your Workforce", subtitle: "Add your team strength, skill and certifications." },
+            6: { breadcrumb: "Bank & Payout Setup", title: "Bank & Payout Setup", subtitle: "Add your bank details to receive payments." },
+            7: { breadcrumb: "Notification Preferences", title: "Notification Preferences", subtitle: "Choose what you want to be notified about." },
+            8: { breadcrumb: "Review & Submit", title: "Review & Submit", subtitle: "Please review all your details before submitting for verification" }
+        };
+        const stepPanelLabels = [
+            "Account Registration", "Business Information", "Document Verification", "Service Coverage",
+            "Build Your Workforce", "Bank & Payout Setup", "Notification Preferences", "Review & Submit"
+        ];
+
+        let currentStep = 1;
+
+        const wizardStepEls = document.querySelectorAll(".wizard-step");
+        const stepListContainer = document.getElementById("onboardingStepList");
+        const finalStepListContainer = document.getElementById("finalStepList");
+
+        /* Build the right-side numbered step list once, then just restyle it */
+        function buildStepList(container, activeStep, allComplete) {
+            if (!container) return;
+            container.innerHTML = "";
+            stepPanelLabels.forEach(function (label, idx) {
+                const stepNum = idx + 1;
+                const isCompleted = allComplete || stepNum < activeStep;
+                const isActive = !allComplete && stepNum === activeStep;
+                const isLast = stepNum === TOTAL_STEPS;
+
+                const li = document.createElement("li");
+                li.className = "flex gap-3";
+
+                const dotWrap = document.createElement("div");
+                dotWrap.className = "flex flex-col items-center";
+
+                const dot = document.createElement("div");
+                dot.className = "w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-semibold shrink-0 " +
+                    (isCompleted ? "bg-[#22C55E] text-white" : isActive ? "bg-[#FFC949] text-gray-900" : "bg-gray-100 text-gray-400");
+                dot.innerHTML = isCompleted ? '<span class="material-symbols-outlined text-[14px]">check</span>' : String(stepNum);
+                dotWrap.appendChild(dot);
+
+                if (!isLast) {
+                    const line = document.createElement("div");
+                    line.className = "step-dot-line w-0.5 flex-1 my-1" + (isCompleted ? " filled" : "");
+                    dotWrap.appendChild(line);
+                }
+
+                const textWrap = document.createElement("div");
+                textWrap.className = "pb-5";
+                const p = document.createElement("p");
+                p.className = "text-xs " + (isActive ? "font-semibold text-gray-900" : isCompleted ? "font-medium text-gray-600" : "text-gray-400");
+                p.textContent = label;
+                textWrap.appendChild(p);
+
+                li.appendChild(dotWrap);
+                li.appendChild(textWrap);
+                container.appendChild(li);
+            });
+        }
+
+        function updateProgressRing(ringEl, labelEl, percent) {
+            if (!ringEl) return;
+            const circumference = 2 * Math.PI * 42; // r=42
+            const offset = circumference - (percent / 100) * circumference;
+            ringEl.setAttribute("stroke-dasharray", circumference.toFixed(1));
+            ringEl.style.strokeDashoffset = offset.toFixed(1);
+            if (labelEl) labelEl.textContent = Math.round(percent) + "%";
+        }
+
+        function buildTopStepBar(activeStep) {
+            const bar = document.getElementById("wizardStepBar");
+            if (!bar) return;
+            bar.innerHTML = "";
+            for (let i = 1; i <= TOTAL_STEPS; i++) {
+                const seg = document.createElement("span");
+                seg.className = "w-6 h-1.5 rounded-full " + (i <= activeStep ? "bg-[#FFC949]" : "bg-gray-200");
+                bar.appendChild(seg);
+            }
+        }
+
+        function goToStep(step) {
+            currentStep = Math.min(Math.max(step, 1), TOTAL_STEPS);
+            wizardStepEls.forEach(function (el) {
+                el.classList.toggle("hidden", parseInt(el.getAttribute("data-step"), 10) !== currentStep);
+            });
+
+            const meta = stepMeta[currentStep];
+            document.getElementById("wizardBreadcrumbCurrent").textContent = meta.breadcrumb;
+            document.getElementById("wizardStepTitle").textContent = meta.title;
+            document.getElementById("wizardStepSubtitle").textContent = meta.subtitle;
+            document.getElementById("wizardStepCountLabel").textContent = "Step " + currentStep + " of " + TOTAL_STEPS;
+
+            const percent = (currentStep / TOTAL_STEPS) * 100;
+            document.getElementById("wizardStepPct").textContent = Math.round(percent) + "%";
+            buildTopStepBar(currentStep);
+            updateProgressRing(document.getElementById("wizardProgressRing"), document.getElementById("wizardProgressPctLabel"), percent);
+            buildStepList(stepListContainer, currentStep, false);
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        /* Next / Back buttons */
+        document.querySelectorAll(".wizard-next-btn").forEach(function (btn) {
+            btn.addEventListener("click", function () { goToStep(currentStep + 1); });
+        });
+        document.querySelectorAll(".wizard-back-btn").forEach(function (btn) {
+            btn.addEventListener("click", function () { goToStep(currentStep - 1); });
+        });
+
+        /* Review step "Edit" jumps back to the relevant step */
+        document.querySelectorAll(".review-edit-btn").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                const row = btn.closest(".review-row");
+                goToStep(parseInt(row.getAttribute("data-goto-step"), 10));
+            });
+        });
+
+        /* =====================================================================
+           START ONBOARDING (dashboard home -> wizard)
+           ===================================================================== */
+        document.getElementById("startOnboardingBtn").addEventListener("click", function () {
+            document.getElementById("dashboardHomeView").classList.add("hidden");
+            document.getElementById("vendorWizard").classList.remove("hidden");
+            setSidebarVisible(false);
+            goToStep(1);
+        });
+
+        /* =====================================================================
+           FINAL SUBMIT (wizard -> activated view)
+           ===================================================================== */
+        document.getElementById("finalSubmitBtn").addEventListener("click", function () {
+            document.getElementById("vendorWizard").classList.add("hidden");
+            document.getElementById("vendorActivatedView").classList.remove("hidden");
+            buildStepList(finalStepListContainer, TOTAL_STEPS, true);
+            setSidebarVisible(false);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        document.getElementById("goToVendorDashboardBtn").addEventListener("click", function () {
+            // Real navigation once the profile is marked complete on the backend.
+            window.location.href = "{% url 'vendor_dashboard' %}";
+        });
+
+        /* =====================================================================
+           PASSWORD VISIBILITY TOGGLE
+           ===================================================================== */
+        document.querySelectorAll(".pw-toggle-btn").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                const input = btn.parentElement.querySelector("[data-pw-field]");
+                const icon = btn.querySelector(".material-symbols-outlined");
+                if (input.type === "password") {
+                    input.type = "text";
+                    icon.textContent = "visibility_off";
+                } else {
+                    input.type = "password";
+                    icon.textContent = "visibility";
+                }
+            });
+        });
+
+        /* =====================================================================
+           VENDOR TYPE SELECTOR (step 1)
+           ===================================================================== */
+        document.querySelectorAll("#vendorTypeOptions .vendor-type-option").forEach(function (opt) {
+            opt.addEventListener("click", function () {
+                document.querySelectorAll("#vendorTypeOptions .vendor-type-option").forEach(function (o) {
+                    o.classList.remove("border-[#FFC949]", "bg-[#FFF9EC]");
+                    o.classList.add("border-gray-200");
+                    o.querySelector(".check-dot").className = "check-dot w-4 h-4 rounded-full border-2 border-gray-300 mt-0.5";
+                    o.querySelector("input").checked = false;
+                });
+                opt.classList.remove("border-gray-200");
+                opt.classList.add("border-[#FFC949]", "bg-[#FFF9EC]");
+                opt.querySelector(".check-dot").className = "check-dot w-4 h-4 rounded-full border-2 border-[#FFA800] bg-[#FFA800] flex items-center justify-center mt-0.5";
+                opt.querySelector(".check-dot").innerHTML = '<span class="material-symbols-outlined text-white text-[11px]">check</span>';
+                opt.querySelector("input").checked = true;
+            });
+        });
+
+        /* =====================================================================
+           DOCUMENT UPLOAD ROWS (step 3) + generic dropzones (step 3 optional, step 5, step 6)
+           ===================================================================== */
+        document.querySelectorAll(".doc-upload-row").forEach(function (row) {
+            const dropzone = row.querySelector(".doc-dropzone");
+            const uploadedState = row.querySelector(".doc-uploaded-state");
+            const input = row.querySelector(".doc-file-input");
+            const removeBtn = row.querySelector(".doc-remove-btn");
+            const icon = row.querySelector(":scope > .material-symbols-outlined");
+
+            if (input) {
+                input.addEventListener("change", function () {
+                    if (input.files.length) {
+                        dropzone.classList.add("hidden");
+                        uploadedState.classList.remove("hidden");
+                        uploadedState.classList.add("flex");
+                        if (icon) icon.classList.replace("text-gray-300", "text-[#22C55E]");
+                        updateRequiredDocsCounter();
+                    }
+                });
+            }
+            if (removeBtn) {
+                removeBtn.addEventListener("click", function () {
+                    uploadedState.classList.add("hidden");
+                    uploadedState.classList.remove("flex");
+                    dropzone.classList.remove("hidden");
+                    if (input) input.value = "";
+                    if (icon) icon.classList.replace("text-[#22C55E]", "text-gray-300");
+                    updateRequiredDocsCounter();
+                });
+            }
+        });
+
+        function updateRequiredDocsCounter() {
+            const counterEl = document.getElementById("requiredDocsCounter");
+            if (!counterEl) return;
+            const total = document.querySelectorAll(".doc-upload-row").length;
+            const uploaded = document.querySelectorAll(".doc-upload-row .doc-uploaded-state:not(.hidden)").length;
+            counterEl.textContent = uploaded + " of " + total + " uploaded";
+        }
+        updateRequiredDocsCounter();
+
+        /* Standalone optional-document / certificate / bank-proof dropzones */
+        document.querySelectorAll(".doc-dropzone").forEach(function (zone) {
+            if (zone.closest(".doc-upload-row")) return; // already handled above
+            const input = zone.querySelector(".doc-file-input");
+            if (!input) return;
+            input.addEventListener("change", function () {
+                if (!input.files.length) return;
+                const nameLabel = zone.querySelector("p.text-\\[11px\\], p.text-\\[10px\\]");
+                const firstLabel = zone.querySelector("p");
+                if (firstLabel) firstLabel.textContent = input.files[0].name;
+                zone.classList.add("border-[#22C55E]");
+            });
+        });
+
+        /* =====================================================================
+           CHIP SELECT (states / cities / skills)
+           ===================================================================== */
+        document.querySelectorAll(".chip-select, #skillChips").forEach(function (container) {
+            container.addEventListener("click", function (e) {
+                if (e.target.closest(".chip-remove")) {
+                    e.target.closest(".chip").remove();
+                }
+            });
+        });
+        document.querySelectorAll(".chip-input").forEach(function (input) {
+            input.addEventListener("keydown", function (e) {
+                if (e.key === "Enter" && input.value.trim()) {
+                    e.preventDefault();
+                    addChip(input.parentElement, input.value.trim());
+                    input.value = "";
+                }
+            });
+        });
+
+        function addChip(container, label) {
+            const chip = document.createElement("span");
+            chip.className = "chip inline-flex items-center gap-1 bg-[#FFF4DC] text-[#FFA800] text-xs font-medium rounded-full px-3 py-1";
+            chip.innerHTML = label + ' <button type="button" class="chip-remove">&times;</button>';
+            const referenceNode = container.querySelector(".chip-input") || container.querySelector("#addSkillBtn");
+            container.insertBefore(chip, referenceNode);
+        }
+
+        const skillInput = document.getElementById("skillInput");
+        const skillChips = document.getElementById("skillChips");
+        if (skillInput && skillChips) {
+            skillInput.addEventListener("keydown", function (e) {
+                if (e.key === "Enter" && skillInput.value.trim()) {
+                    e.preventDefault();
+                    addChip(skillChips, skillInput.value.trim());
+                    skillInput.value = "";
+                }
+            });
+        }
+        document.getElementById("addSkillBtn") && document.getElementById("addSkillBtn").addEventListener("click", function () {
+            const value = prompt("Add a skill");
+            if (value && value.trim()) addChip(skillChips, value.trim());
+        });
+        document.querySelectorAll(".popular-skill-btn").forEach(function (btn) {
+            btn.addEventListener("click", function () { addChip(skillChips, btn.textContent.trim()); });
+        });
+
+        /* =====================================================================
+           TEAM EXPERIENCE LEVEL (step 5, single-select)
+           ===================================================================== */
+        document.querySelectorAll("#experienceLevelOptions .exp-level-option").forEach(function (opt) {
+            opt.addEventListener("click", function () {
+                document.querySelectorAll("#experienceLevelOptions .exp-level-option").forEach(function (o) {
+                    o.classList.remove("selected", "border-2", "border-[#FFC949]", "bg-[#FFF9EC]");
+                    o.classList.add("border", "border-gray-200");
+                    o.querySelector(".material-symbols-outlined").classList.replace("text-[#FFA800]", "text-gray-400");
+                    o.querySelectorAll("p").forEach(function (p) { p.classList.remove("font-semibold", "text-gray-900", "text-[#FFA800]"); p.classList.add("font-medium", "text-gray-700"); });
+                });
+                opt.classList.add("selected", "border-2", "border-[#FFC949]", "bg-[#FFF9EC]");
+                opt.classList.remove("border", "border-gray-200");
+                opt.querySelector(".material-symbols-outlined").classList.replace("text-gray-400", "text-[#FFA800]");
+            });
+        });
+
+        /* Remove existing certificate row */
+        const removeExistingCertBtn = document.getElementById("removeExistingCertBtn");
+        if (removeExistingCertBtn) {
+            removeExistingCertBtn.addEventListener("click", function () {
+                document.getElementById("existingCertRow").remove();
+            });
+        }
+        const addCertificateBtn = document.getElementById("addCertificateBtn");
+        if (addCertificateBtn) {
+            addCertificateBtn.addEventListener("click", function () {
+                document.querySelector('[data-step="5"] .doc-dropzone .doc-file-input').click();
+            });
+        }
+
+        /* =====================================================================
+           SERVICE RADIUS SLIDER (step 4)
+           ===================================================================== */
+        const radiusSlider = document.getElementById("radiusSlider");
+        const radiusValueLabel = document.getElementById("radiusValueLabel");
+        if (radiusSlider) {
+            function updateRadiusFill() {
+                const min = parseInt(radiusSlider.min, 10);
+                const max = parseInt(radiusSlider.max, 10);
+                const val = parseInt(radiusSlider.value, 10);
+                const pct = ((val - min) / (max - min)) * 100;
+                radiusSlider.style.setProperty("--fill", pct + "%");
+                radiusValueLabel.textContent = val + " km";
+            }
+            radiusSlider.addEventListener("input", updateRadiusFill);
+            updateRadiusFill();
+        }
+        const useCurrentLocationBtn = document.getElementById("useCurrentLocationBtn");
+        if (useCurrentLocationBtn && navigator.geolocation) {
+            useCurrentLocationBtn.addEventListener("click", function () {
+                navigator.geolocation.getCurrentPosition(function () {
+                    useCurrentLocationBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-[#22C55E]">check_circle</span>Location set';
+                }, function () { /* permission denied - silently ignore */ });
+            });
+        }
+
+        /* =====================================================================
+           INIT: home profile ring at 0%
+           ===================================================================== */
+        updateProgressRing(document.getElementById("homeProfileRing"), document.getElementById("homeProfilePct"), 0);
+    });
+</script>
+{% endblock %}
