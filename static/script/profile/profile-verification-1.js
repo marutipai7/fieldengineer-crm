@@ -1,554 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const saveButton = document.getElementById("profileSaveBtn");
-
-    if (!saveButton) {
-        return;
-    }
-
-
-    saveButton.addEventListener("click", function () {
-
-        const vendor = document.getElementById("vendor").value;
-        const experience = document.getElementById("experience").value;
-        const specialization = document.getElementById("specialization").value;
-        const skill = document.getElementById("skill").value;
-
-
-        /*
-         * Basic validation
-         */
-
-        if (!vendor) {
-            alert("Please select a vendor.");
-            return;
-        }
-
-        if (!experience) {
-            alert("Please select your years of experience.");
-            return;
-        }
-
-        if (!specialization) {
-            alert("Please select your primary specialization.");
-            return;
-        }
-
-        if (!skill) {
-            alert("Please select a skill.");
-            return;
-        }
-
-
-        /*
-         * Save data locally for now.
-         * Later this can be connected to Django.
-         */
-
-        const profileData = {
-            vendor: vendor,
-            experience: experience,
-            specialization: specialization,
-            skill: skill
-        };
-
-        localStorage.setItem(
-            "fieldEngineerProfile",
-            JSON.stringify(profileData)
-        );
-
-
-        /*
-         * Go to next step
-         *
-         * Change this URL to your actual
-         * next-step Django URL.
-         */
-
-        window.location.href = "/fe-dashboard/kyc-home/";
-
-    });
-
-});
-/* =========================================================
-   KYC STEP 2 - DOCUMENT UPLOAD
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const MAX_FILE_SIZE = 15 * 1024 * 1024;
-
-    const requiredInputs = document.querySelectorAll(
-        ".kyc-file-input"
-    );
-
-    const counter = document.getElementById(
-        "kycUploadCounter"
-    );
-
-    const continueBtn = document.getElementById(
-        "kycContinueBtn"
-    );
-
-    const backBtn = document.getElementById(
-        "kycBackBtn"
-    );
-
-
-    /* =====================================================
-       UPLOAD COUNTER
-    ====================================================== */
-
-    function updateCounter() {
-
-        let count = 0;
-
-        document.querySelectorAll(
-            ".kyc-document-upload.uploaded"
-        ).forEach(function () {
-
-            count++;
-
-        });
-
-        /*
-         * GST is already uploaded in your screenshot.
-         * Count it manually.
-         */
-
-        const gstUploaded =
-            document.getElementById("gstUploadedBox");
-
-        if (
-            gstUploaded &&
-            !gstUploaded.classList.contains("removed")
-        ) {
-            count++;
-        }
-
-        if (count > 5) {
-            count = 5;
-        }
-
-        counter.textContent =
-            count + " of 5 uploaded";
-    }
-
-
-    /* =====================================================
-       FILE VALIDATION
-    ====================================================== */
-
-    function validateFile(file) {
-
-        if (!file) {
-            return false;
-        }
-
-        if (file.size > MAX_FILE_SIZE) {
-
-            alert(
-                "File size must be less than 15MB."
-            );
-
-            return false;
-        }
-
-        const allowedExtensions = [
-            ".pdf",
-            ".jpg",
-            ".jpeg",
-            ".png"
-        ];
-
-        const fileName =
-            file.name.toLowerCase();
-
-        const validExtension =
-            allowedExtensions.some(function (extension) {
-
-                return fileName.endsWith(extension);
-
-            });
-
-        if (!validExtension) {
-
-            alert(
-                "Please upload PDF, JPG or PNG files only."
-            );
-
-            return false;
-        }
-
-        return true;
-    }
-
-
-    /* =====================================================
-       REQUIRED DOCUMENT UPLOAD
-    ====================================================== */
-
-    requiredInputs.forEach(function (input) {
-
-        input.addEventListener(
-            "change",
-            function () {
-
-                const file = this.files[0];
-
-                if (!validateFile(file)) {
-
-                    this.value = "";
-                    return;
-
-                }
-
-                const uploadBox =
-                    this.closest(
-                        ".kyc-document-upload"
-                    );
-
-                uploadBox.classList.add(
-                    "uploaded"
-                );
-
-                uploadBox.innerHTML = `
-
-                    <div class="kyc-upload-check">
-                        ✓
-                    </div>
-
-                    <div class="kyc-uploaded-text">
-
-                        <strong>
-                            ${file.name}
-                        </strong>
-
-                        <span>
-                            Ready for verification
-                        </span>
-
-                    </div>
-
-                    <button
-                        type="button"
-                        class="kyc-remove-btn">
-
-                        ×
-
-                    </button>
-                `;
-
-                updateCounter();
-
-
-                /* REMOVE */
-
-                const removeButton =
-                    uploadBox.querySelector(
-                        ".kyc-remove-btn"
-                    );
-
-                removeButton.addEventListener(
-                    "click",
-                    function (event) {
-
-                        event.preventDefault();
-
-                        uploadBox.classList.remove(
-                            "uploaded"
-                        );
-
-                        uploadBox.innerHTML = `
-
-                            <input
-                                type="file"
-                                class="kyc-file-input"
-                                accept=".pdf,.jpg,.jpeg,.png">
-
-                            <span class="kyc-upload-symbol">
-                                ⇧
-                            </span>
-
-                            <div>
-
-                                <strong>
-                                    Drop file here or Browse
-                                </strong>
-
-                                <small>
-                                    PDF, JPG, PNG - Max 15MB
-                                </small>
-
-                            </div>
-                        `;
-
-                        const newInput =
-                            uploadBox.querySelector(
-                                ".kyc-file-input"
-                            );
-
-                        newInput.addEventListener(
-                            "change",
-                            function () {
-
-                                const newFile =
-                                    this.files[0];
-
-                                if (
-                                    !validateFile(
-                                        newFile
-                                    )
-                                ) {
-                                    this.value = "";
-                                    return;
-                                }
-
-                                uploadBox.classList.add(
-                                    "uploaded"
-                                );
-
-                                uploadBox.innerHTML = `
-
-                                    <div class="kyc-upload-check">
-                                        ✓
-                                    </div>
-
-                                    <div class="kyc-uploaded-text">
-
-                                        <strong>
-                                            ${newFile.name}
-                                        </strong>
-
-                                        <span>
-                                            Ready for verification
-                                        </span>
-
-                                    </div>
-
-                                    <button
-                                        type="button"
-                                        class="kyc-remove-btn">
-
-                                        ×
-
-                                    </button>
-                                `;
-
-                                updateCounter();
-
-                            }
-                        );
-
-                        updateCounter();
-
-                    }
-                );
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       GST REMOVE
-    ====================================================== */
-
-    const gstBox =
-        document.getElementById(
-            "gstUploadedBox"
-        );
-
-    if (gstBox) {
-
-        const gstRemove =
-            gstBox.querySelector(
-                ".kyc-remove-btn"
-            );
-
-        gstRemove.addEventListener(
-            "click",
-            function () {
-
-                gstBox.classList.add(
-                    "removed"
-                );
-
-                gstBox.style.display =
-                    "none";
-
-                updateCounter();
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       OPTIONAL DOCUMENTS
-    ====================================================== */
-
-    const optionalInputs =
-        document.querySelectorAll(
-            ".kyc-optional-input"
-        );
-
-    optionalInputs.forEach(function (input) {
-
-        input.addEventListener(
-            "change",
-            function () {
-
-                const file = this.files[0];
-
-                if (!validateFile(file)) {
-
-                    this.value = "";
-                    return;
-
-                }
-
-                const card =
-                    this.closest(
-                        ".kyc-optional-card"
-                    );
-
-                const uploadText =
-                    card.querySelector(
-                        ".kyc-optional-upload"
-                    );
-
-                uploadText.textContent =
-                    "✓ Uploaded";
-
-                uploadText.style.color =
-                    "#45b968";
-
-                uploadText.style.borderColor =
-                    "#a9dfb7";
-
-                uploadText.style.background =
-                    "#effaf2";
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       BACK BUTTON
-    ====================================================== */
-
-    if (backBtn) {
-
-        backBtn.addEventListener(
-            "click",
-            function () {
-
-                /*
-                 * If Section 1 is displayed/hidden using JS,
-                 * call your previous-section function here.
-                 */
-
-                console.log(
-                    "Back to Step 1"
-                );
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       SAVE & CONTINUE
-    ====================================================== */
-
-    if (continueBtn) {
-
-        continueBtn.addEventListener(
-            "click",
-            function () {
-
-                console.log(
-                    "KYC Step 2 completed"
-                );
-
-                /*
-                 * When Step 3 is ready, put your
-                 * Step 3 section/show logic here.
-                 */
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       INITIAL COUNTER
-    ====================================================== */
-
-    updateCounter();
-
-});
-document.addEventListener("DOMContentLoaded", function () {
-
     /* =========================================================
-       KYC SECTIONS
+       KYC STEP NAVIGATION
     ========================================================= */
 
-    const step1 =
-        document.getElementById("kycStep1");
-
-    const step2 =
-        document.getElementById("kycStep2");
+    const sections = document.querySelectorAll(".kyc-step-section");
 
 
-    /* =========================================================
-       BUTTONS
-    ========================================================= */
+    function showStep(stepNumber) {
 
-    const saveProfileButton =
-        document.getElementById("saveProfileButton");
+        sections.forEach(function (section) {
 
-    const backButton =
-        document.getElementById("kycBackBtn");
-
-    const continueButton =
-        document.getElementById("kycContinueBtn");
-
-
-    /* =========================================================
-       FUNCTION
-       SHOW STEP
-    ========================================================= */
-
-    function showStep(stepToShow) {
-
-        const allSteps =
-            document.querySelectorAll(".kyc-step-section");
-
-
-        allSteps.forEach(function (step) {
-
-            step.classList.remove("active-step");
+            section.classList.remove("active-step");
+            section.style.display = "none";
 
         });
 
 
-        stepToShow.classList.add("active-step");
+        const targetStep =
+            document.getElementById("kycStep" + stepNumber);
 
 
-        /* Scroll page to top */
+        if (!targetStep) {
+
+            console.error(
+                "KYC step not found:",
+                stepNumber
+            );
+
+            return;
+
+        }
+
+
+        targetStep.classList.add("active-step");
+        targetStep.style.display = "block";
+
 
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
+
+
+        console.log(
+            "Showing KYC Step:",
+            stepNumber
+        );
 
     }
 
@@ -557,18 +55,106 @@ document.addEventListener("DOMContentLoaded", function () {
        STEP 1 → STEP 2
     ========================================================= */
 
+    const saveProfileButton =
+        document.getElementById("saveProfileButton");
+
+
     if (saveProfileButton) {
 
         saveProfileButton.addEventListener(
             "click",
-            function () {
+            function (event) {
 
-                console.log(
-                    "Step 1 Save & Continue clicked"
+                event.preventDefault();
+                event.stopPropagation();
+
+
+                /* -----------------------------------------
+                   STEP 1 VALIDATION
+                ----------------------------------------- */
+
+                const vendor =
+                    document.getElementById("vendor")?.value || "";
+
+
+                const experience =
+                    document.getElementById("experience")?.value || "";
+
+
+                const specialization =
+                    document.getElementById("specialization")?.value || "";
+
+
+                const skill =
+                    document.getElementById("skill")?.value || "";
+
+
+                if (!vendor) {
+
+                    alert("Please select a vendor.");
+                    return;
+
+                }
+
+
+                if (!experience) {
+
+                    alert(
+                        "Please select your years of experience."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!specialization) {
+
+                    alert(
+                        "Please select your primary specialization."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!skill) {
+
+                    alert(
+                        "Please select a skill."
+                    );
+
+                    return;
+
+                }
+
+
+                /* -----------------------------------------
+                   SAVE PROFILE DATA
+                ----------------------------------------- */
+
+                const profileData = {
+
+                    vendor: vendor,
+                    experience: experience,
+                    specialization: specialization,
+                    skill: skill
+
+                };
+
+
+                localStorage.setItem(
+                    "fieldEngineerProfile",
+                    JSON.stringify(profileData)
                 );
 
 
-                showStep(step2);
+                /* -----------------------------------------
+                   OPEN STEP 2
+                ----------------------------------------- */
+
+                showStep(2);
 
             }
         );
@@ -578,21 +164,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================================================
        STEP 2 → STEP 1
-       BACK BUTTON
     ========================================================= */
 
-    if (backButton) {
+    const kycBackBtn =
+        document.getElementById("kycBackBtn");
 
-        backButton.addEventListener(
+
+    if (kycBackBtn) {
+
+        kycBackBtn.addEventListener(
             "click",
-            function () {
+            function (event) {
 
-                console.log(
-                    "Going back to Step 1"
-                );
+                event.preventDefault();
+                event.stopPropagation();
 
 
-                showStep(step1);
+                showStep(1);
 
             }
         );
@@ -602,104 +190,298 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================================================
        STEP 2 → STEP 3
-       CURRENTLY PLACEHOLDER
+       
+       THIS IS THE IMPORTANT FIX.
+       
+       NO:
+       window.location.href
+       
+       NO:
+       alert()
+       
+       JUST OPEN STEP 3.
     ========================================================= */
 
-    if (continueButton) {
+    const kycContinueBtn =
+        document.getElementById("kycContinueBtn");
 
-        continueButton.addEventListener(
+
+    if (kycContinueBtn) {
+
+        kycContinueBtn.addEventListener(
             "click",
-            function () {
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
 
                 console.log(
                     "Step 2 Save & Continue clicked"
                 );
 
-                /*
-                 * Step 3 will be connected here later.
-                 *
-                 * Example:
-                 *
-                 * showStep(
-                 *     document.getElementById("kycStep3")
-                 * );
-                 */
 
-                alert(
-                    "Step 2 completed. Step 3 will be added next."
-                );
+                /* -----------------------------------------
+                   OPEN STEP 3 DIRECTLY
+                ----------------------------------------- */
+
+                showStep(3);
 
             }
         );
 
     }
 
-});
-document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================================================
-       STEP 3 ELEMENTS
+       STEP 3 → STEP 2
     ========================================================= */
 
-    const step3 = document.getElementById("kycStep3");
+    const kycServiceBackBtn =
+        document.getElementById(
+            "kycServiceBackBtn"
+        );
 
-    if (!step3) {
-        return;
+
+    if (kycServiceBackBtn) {
+
+        kycServiceBackBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+
+                showStep(2);
+
+            }
+        );
+
     }
 
-    const preferredCity =
-        document.getElementById("preferredCity");
 
-    const selectedAreaBox =
-        document.getElementById("selectedAreaBox");
+    /* =========================================================
+       STEP 3 → STEP 4
+    ========================================================= */
 
-    const currentLocationBtn =
-        document.getElementById("currentLocationBtn");
+    const kycServiceContinueBtn =
+        document.getElementById(
+            "kycServiceContinueBtn"
+        );
 
-    const mapLocationBtn =
-        document.getElementById("mapLocationBtn");
 
-    const radiusSlider =
-        document.getElementById("serviceRadiusSlider");
+    if (kycServiceContinueBtn) {
 
-    const radiusValue =
-        document.getElementById("radiusValue");
+        kycServiceContinueBtn.addEventListener(
+            "click",
+            function (event) {
 
-    const backButton =
-        document.getElementById("kycServiceBackBtn");
+                event.preventDefault();
+                event.stopPropagation();
 
-    const continueButton =
-        document.getElementById("kycServiceContinueBtn");
+
+                /* -----------------------------------------
+                   SAVE SERVICE AREA DATA
+                ----------------------------------------- */
+
+                const primaryCity =
+                    document.getElementById(
+                        "primaryCity"
+                    )?.value || "";
+
+
+                const radiusSlider =
+                    document.getElementById(
+                        "serviceRadiusSlider"
+                    );
+
+
+                const serviceAreaData = {
+
+                    primaryCity: primaryCity,
+
+                    radius:
+                        radiusSlider
+                            ? radiusSlider.value
+                            : "250",
+
+                    savedAt:
+                        new Date().toISOString()
+
+                };
+
+
+                localStorage.setItem(
+                    "kycServiceArea",
+                    JSON.stringify(serviceAreaData)
+                );
+
+
+                console.log(
+                    "Step 3 Save & Continue clicked"
+                );
+
+
+                /* -----------------------------------------
+                   OPEN STEP 4
+                ----------------------------------------- */
+
+                showStep(4);
+
+            }
+        );
+
+    }
 
 
     /* =========================================================
-       SHOW ONLY CURRENT KYC STEP
+       STEP 4 → STEP 3
     ========================================================= */
 
-    function showStep(stepId) {
+    const kycStep4BackBtn =
+        document.getElementById(
+            "kycStep4BackBtn"
+        );
 
-        const sections =
-            document.querySelectorAll(".kyc-step-section");
 
-        sections.forEach(function (section) {
+    if (kycStep4BackBtn) {
 
-            section.style.display = "none";
+        kycStep4BackBtn.addEventListener(
+            "click",
+            function (event) {
 
-        });
+                event.preventDefault();
+                event.stopPropagation();
 
-        const target =
-            document.getElementById(stepId);
 
-        if (target) {
+                showStep(3);
 
-            target.style.display = "block";
+            }
+        );
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+    }
 
-        }
+
+    /* =========================================================
+       STEP 4 → STEP 5
+    ========================================================= */
+
+    const kycStep4ContinueBtn =
+        document.getElementById(
+            "kycStep4ContinueBtn"
+        );
+
+
+    if (kycStep4ContinueBtn) {
+
+        kycStep4ContinueBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+
+                console.log(
+                    "Step 4 Save & Continue clicked"
+                );
+
+
+                showStep(5);
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       STEP 5 → STEP 4
+    ========================================================= */
+
+    const kycStep5BackBtn =
+        document.getElementById(
+            "kycStep5BackBtn"
+        );
+
+
+    if (kycStep5BackBtn) {
+
+        kycStep5BackBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+
+                showStep(4);
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       STEP 5 → STEP 6
+    ========================================================= */
+
+    const kycStep5ContinueBtn =
+        document.getElementById(
+            "kycStep5ContinueBtn"
+        );
+
+
+    if (kycStep5ContinueBtn) {
+
+        kycStep5ContinueBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+
+                console.log(
+                    "Step 5 Save & Continue clicked"
+                );
+
+
+                showStep(6);
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       STEP 6 → STEP 5
+    ========================================================= */
+
+    const kycStep6BackBtn =
+        document.getElementById(
+            "kycStep6BackBtn"
+        );
+
+
+    if (kycStep6BackBtn) {
+
+        kycStep6BackBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+
+                showStep(5);
+
+            }
+        );
+
     }
 
 
@@ -707,65 +489,114 @@ document.addEventListener("DOMContentLoaded", function () {
        PREFERRED CITY
     ========================================================= */
 
-    if (preferredCity && selectedAreaBox) {
+    const preferredCity =
+        document.getElementById(
+            "preferredCity"
+        );
 
-        preferredCity.addEventListener("change", function () {
 
-            const city = this.value;
+    const selectedAreaBox =
+        document.getElementById(
+            "selectedAreaBox"
+        );
 
-            if (!city) {
-                return;
-            }
 
-            const existingTags =
-                selectedAreaBox.querySelectorAll(".kyc-area-tag");
+    if (
+        preferredCity &&
+        selectedAreaBox
+    ) {
 
-            let alreadyAdded = false;
+        preferredCity.addEventListener(
+            "change",
+            function () {
 
-            existingTags.forEach(function (tag) {
+                const city =
+                    this.value;
 
-                const text =
-                    tag.textContent
-                        .replace("×", "")
-                        .trim();
 
-                if (text === city) {
-                    alreadyAdded = true;
+                if (!city) {
+                    return;
                 }
 
-            });
 
-            if (alreadyAdded) {
+                let alreadyAdded = false;
+
+
+                selectedAreaBox
+                    .querySelectorAll(
+                        ".kyc-area-tag"
+                    )
+                    .forEach(function (tag) {
+
+                        const cityName =
+                            tag.dataset.city ||
+                            tag.textContent
+                                .replace("×", "")
+                                .trim();
+
+
+                        if (cityName === city) {
+
+                            alreadyAdded = true;
+
+                        }
+
+                    });
+
+
+                if (alreadyAdded) {
+
+                    this.value = "";
+                    return;
+
+                }
+
+
+                const tag =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                tag.className =
+                    "kyc-area-tag";
+
+
+                tag.dataset.city =
+                    city;
+
+
+                tag.innerHTML = `
+
+                    {city}
+
+                    <button
+                        type="button"
+                        class="kyc-area-remove"
+                        data-city="${city}"
+                        aria-label="Remove ${city}">
+
+                        ×
+
+                    </button>
+
+                `;
+
+
+                selectedAreaBox.appendChild(
+                    tag
+                );
+
 
                 this.value = "";
 
-                return;
             }
+        );
 
 
-            const tag =
-                document.createElement("span");
-
-            tag.className = "kyc-area-tag";
-
-            tag.innerHTML = `
-                ${city}
-                <button
-                    type="button"
-                    class="kyc-area-remove"
-                >
-                    ×
-                </button>
-            `;
-
-            selectedAreaBox.appendChild(tag);
-
-            this.value = "";
-
-        });
-
-
-        /* REMOVE CITY */
+        /* -----------------------------------------
+           REMOVE PREFERRED CITY
+        ----------------------------------------- */
 
         selectedAreaBox.addEventListener(
             "click",
@@ -777,14 +608,65 @@ document.addEventListener("DOMContentLoaded", function () {
                     )
                 ) {
 
-                    event.target
-                        .closest(".kyc-area-tag")
-                        .remove();
+                    event.preventDefault();
+
+
+                    const tag =
+                        event.target.closest(
+                            ".kyc-area-tag"
+                        );
+
+
+                    if (tag) {
+
+                        tag.remove();
+
+                    }
 
                 }
 
             }
         );
+
+    }
+
+
+    /* =========================================================
+       SERVICE RADIUS
+    ========================================================= */
+
+    const radiusSlider =
+        document.getElementById(
+            "serviceRadiusSlider"
+        );
+
+
+    const radiusValue =
+        document.getElementById(
+            "radiusValue"
+        );
+
+
+    if (
+        radiusSlider &&
+        radiusValue
+    ) {
+
+        function updateRadius() {
+
+            radiusValue.textContent =
+                radiusSlider.value + " km";
+
+        }
+
+
+        radiusSlider.addEventListener(
+            "input",
+            updateRadius
+        );
+
+
+        updateRadius();
 
     }
 
@@ -799,54 +681,68 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        button.disabled = true;
-
-        const originalText =
-            button.innerHTML;
-
-        button.innerHTML =
-            "◎ Detecting current location...";
-
 
         if (!navigator.geolocation) {
-
-            button.disabled = false;
-
-            button.innerHTML =
-                originalText;
 
             alert(
                 "Location is not supported by your browser."
             );
 
             return;
+
         }
+
+
+        button.disabled = true;
+
+
+        const originalText =
+            button.innerHTML;
+
+
+        button.innerHTML =
+            "◎ Detecting current location...";
 
 
         navigator.geolocation.getCurrentPosition(
 
-            function () {
+            function (position) {
+
+                console.log(
+                    "Current location:",
+                    position.coords.latitude,
+                    position.coords.longitude
+                );
+
 
                 button.disabled = false;
+
 
                 button.innerHTML =
                     "✓ Current location detected";
 
-                setTimeout(function () {
 
-                    button.innerHTML =
-                        originalText;
+                setTimeout(
+                    function () {
 
-                }, 2000);
+                        button.innerHTML =
+                            originalText;
+
+                    },
+                    2000
+                );
 
             },
+
 
             function () {
 
                 button.disabled = false;
 
+
                 button.innerHTML =
                     originalText;
+
 
                 alert(
                     "Unable to detect your current location."
@@ -859,11 +755,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    const currentLocationBtn =
+        document.getElementById(
+            "currentLocationBtn"
+        );
+
+
+    const mapLocationBtn =
+        document.getElementById(
+            "mapLocationBtn"
+        );
+
+
     if (currentLocationBtn) {
 
         currentLocationBtn.addEventListener(
             "click",
-            function () {
+            function (event) {
+
+                event.preventDefault();
+
 
                 useCurrentLocation(
                     currentLocationBtn
@@ -879,7 +790,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         mapLocationBtn.addEventListener(
             "click",
-            function () {
+            function (event) {
+
+                event.preventDefault();
+
 
                 useCurrentLocation(
                     mapLocationBtn
@@ -892,53 +806,333 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================================================
-       SERVICE RADIUS
+       INITIAL STEP
+       
+       Always start on Step 1.
     ========================================================= */
 
-    if (radiusSlider && radiusValue) {
+    showStep(1);
 
-        function updateRadius() {
+});
+/* =====================================================
+   STEP 4 → STEP 3
+===================================================== */
 
-            radiusValue.textContent =
-                radiusSlider.value + " km";
+const kycStep4BackBtn =
+    document.getElementById("kycStep4BackBtn");
+
+if (kycStep4BackBtn) {
+
+    kycStep4BackBtn.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            showStep(3);
+        }
+    );
+}
+
+
+/* =====================================================
+   STEP 4 → STEP 5
+===================================================== */
+
+const kycStep4ContinueBtn =
+    document.getElementById("kycStep4ContinueBtn");
+
+if (kycStep4ContinueBtn) {
+
+    kycStep4ContinueBtn.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            showStep(5);
+        }
+    );
+}
+
+
+/* =====================================================
+   STEP 4 PRICE SLIDER
+===================================================== */
+
+const minSlider =
+    document.getElementById("serviceMinSlider");
+
+const maxSlider =
+    document.getElementById("serviceMaxSlider");
+
+const minPrice =
+    document.getElementById("serviceMinPrice");
+
+const maxPrice =
+    document.getElementById("serviceMaxPrice");
+
+const suggestedRangeText =
+    document.getElementById("suggestedRangeText");
+
+
+function updateServicePriceRange() {
+
+    if (
+        !minSlider ||
+        !maxSlider ||
+        !minPrice ||
+        !maxPrice
+    ) {
+        return;
+    }
+
+    let minValue =
+        parseInt(minSlider.value);
+
+    let maxValue =
+        parseInt(maxSlider.value);
+
+
+    /* Prevent minimum from going above maximum */
+
+    if (minValue > maxValue) {
+
+        minValue = maxValue;
+
+        minSlider.value = minValue;
+    }
+
+
+    /* Update input boxes */
+
+    minPrice.value = minValue;
+    maxPrice.value = maxValue;
+
+
+    /* Update suggested range */
+
+    if (suggestedRangeText) {
+
+        suggestedRangeText.textContent =
+            "₹" +
+            minValue +
+            "–₹" +
+            maxValue +
+            "/hr";
+    }
+}
+
+
+if (minSlider) {
+
+    minSlider.addEventListener(
+        "input",
+        updateServicePriceRange
+    );
+}
+
+
+if (maxSlider) {
+
+    maxSlider.addEventListener(
+        "input",
+        updateServicePriceRange
+    );
+}
+
+
+if (minPrice) {
+
+    minPrice.addEventListener(
+        "input",
+        function () {
+
+            let value =
+                parseInt(this.value) || 0;
+
+            if (value > parseInt(maxSlider.value)) {
+
+                value =
+                    parseInt(maxSlider.value);
+            }
+
+            minSlider.value = value;
+
+            updateServicePriceRange();
+        }
+    );
+}
+
+
+if (maxPrice) {
+
+    maxPrice.addEventListener(
+        "input",
+        function () {
+
+            let value =
+                parseInt(this.value) || 0;
+
+            if (value < parseInt(minSlider.value)) {
+
+                value =
+                    parseInt(minSlider.value);
+            }
+
+            maxSlider.value = value;
+
+            updateServicePriceRange();
+        }
+    );
+}
+
+
+updateServicePriceRange();
+
+
+/* =====================================================
+   ADD SERVICE BUTTON
+===================================================== */
+
+const addServiceButton =
+    document.getElementById("addServiceButton");
+
+if (addServiceButton) {
+
+    addServiceButton.addEventListener(
+        "click",
+        function () {
+
+            const service =
+                document.getElementById(
+                    "addServiceType"
+                );
+
+            if (!service || !service.value) {
+
+                alert(
+                    "Please select a service."
+                );
+
+                return;
+            }
+
+
+            alert(
+                "Service added successfully."
+            );
+        }
+    );
+}
+/* ============================================================
+   STEP 5 → STEP 6
+============================================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const step5ContinueBtn =
+        document.getElementById("kycStep5ContinueBtn");
+
+    const step5BackBtn =
+        document.getElementById("kycStep5BackBtn");
+
+    const step6BackBtn =
+        document.getElementById("kycStep6BackBtn");
+
+    const completeBtn =
+        document.getElementById("kycCompleteBtn");
+
+
+    /* ========================================================
+       HELPER
+    ======================================================== */
+
+    function openKycStep(stepNumber) {
+
+        const sections =
+            document.querySelectorAll(".kyc-step-section");
+
+        sections.forEach(function (section) {
+
+            section.style.display = "none";
+            section.classList.remove("active-step");
+
+        });
+
+
+        const target =
+            document.getElementById(
+                "kycStep" + stepNumber
+            );
+
+
+        if (target) {
+
+            target.style.display = "block";
+
+            target.classList.add("active-step");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
         }
-
-        radiusSlider.addEventListener(
-            "input",
-            updateRadius
-        );
-
-        updateRadius();
 
     }
 
 
-    /* =========================================================
-       STEP 3 → STEP 4
-    ========================================================= */
+    /* ========================================================
+       STEP 5 → STEP 6
+    ======================================================== */
 
-    if (continueButton) {
+    if (step5ContinueBtn) {
 
-        continueButton.addEventListener(
+        step5ContinueBtn.addEventListener(
             "click",
-            function () {
+            function (event) {
 
-                /*
-                 * Save Step 3 data.
-                 */
+                event.preventDefault();
 
-                const serviceAreaData = {
+                /* Save Step 5 data */
 
-                    primaryCity:
-                        document.getElementById(
-                            "primaryCity"
-                        )?.value || "",
+                const availabilityData = {
 
-                    radius:
-                        radiusSlider
-                            ? radiusSlider.value
-                            : "250",
+                    monday:
+                        document.querySelector(
+                            'input[name="monday"]'
+                        )?.checked || false,
+
+                    tuesday:
+                        document.querySelector(
+                            'input[name="tuesday"]'
+                        )?.checked || false,
+
+                    wednesday:
+                        document.querySelector(
+                            'input[name="wednesday"]'
+                        )?.checked || false,
+
+                    thursday:
+                        document.querySelector(
+                            'input[name="thursday"]'
+                        )?.checked || false,
+
+                    friday:
+                        document.querySelector(
+                            'input[name="friday"]'
+                        )?.checked || false,
+
+                    saturday:
+                        document.querySelector(
+                            'input[name="saturday"]'
+                        )?.checked || false,
+
+                    sunday:
+                        document.querySelector(
+                            'input[name="sunday"]'
+                        )?.checked || false,
 
                     savedAt:
                         new Date().toISOString()
@@ -947,59 +1141,203 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 localStorage.setItem(
-                    "kycServiceArea",
+                    "kycAvailability",
                     JSON.stringify(
-                        serviceAreaData
+                        availabilityData
                     )
                 );
 
 
-                /*
-                 * STEP 4
-                 *
-                 * If you create Step 4 with id="kycStep4",
-                 * this will automatically open it.
-                 */
+                /* OPEN STEP 6 */
 
-                const step4 =
-                    document.getElementById("kycStep4");
+                openKycStep(6);
 
-                if (step4) {
+            }
+        );
 
-                    showStep("kycStep4");
+    }
 
-                } else {
+
+    /* ========================================================
+       STEP 5 → STEP 4
+    ======================================================== */
+
+    if (step5BackBtn) {
+
+        step5BackBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                openKycStep(4);
+
+            }
+        );
+
+    }
+
+
+    /* ========================================================
+       STEP 6 → STEP 5
+    ======================================================== */
+
+    if (step6BackBtn) {
+
+        step6BackBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                openKycStep(5);
+
+            }
+        );
+
+    }
+
+
+    /* ========================================================
+       COMPLETE PROFILE
+    ======================================================== */
+
+    if (completeBtn) {
+
+        completeBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const bankData = {
+
+                    accountHolderName:
+                        document.getElementById(
+                            "accountHolderName"
+                        )?.value.trim() || "",
+
+                    accountNumber:
+                        document.getElementById(
+                            "accountNumber"
+                        )?.value.trim() || "",
+
+                    ifscCode:
+                        document.getElementById(
+                            "ifscCode"
+                        )?.value.trim() || "",
+
+                    bankName:
+                        document.getElementById(
+                            "bankName"
+                        )?.value.trim() || "",
+
+                    accountType:
+                        document.getElementById(
+                            "accountType"
+                        )?.value || "",
+
+                    bankBranch:
+                        document.getElementById(
+                            "bankBranch"
+                        )?.value.trim() || ""
+
+                };
+
+
+                /* BASIC VALIDATION */
+
+                if (!bankData.accountHolderName) {
 
                     alert(
-                        "Step 3 saved successfully."
+                        "Please enter account holder name."
                     );
 
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =========================================================
-       STEP 3 → STEP 2
-    ========================================================= */
-
-    if (backButton) {
-
-        backButton.addEventListener(
-            "click",
-            function () {
-
-                const step2 =
-                    document.getElementById("kycStep2");
-
-                if (step2) {
-
-                    showStep("kycStep2");
+                    return;
 
                 }
+
+
+                if (!bankData.accountNumber) {
+
+                    alert(
+                        "Please enter account number."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!bankData.ifscCode) {
+
+                    alert(
+                        "Please enter IFSC code."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!bankData.bankName) {
+
+                    alert(
+                        "Please enter bank name."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!bankData.accountType) {
+
+                    alert(
+                        "Please select account type."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!bankData.bankBranch) {
+
+                    alert(
+                        "Please enter bank branch."
+                    );
+
+                    return;
+
+                }
+
+
+                /* SAVE BANK DATA */
+
+                localStorage.setItem(
+                    "kycBankInformation",
+                    JSON.stringify(
+                        bankData
+                    )
+                );
+
+
+                alert(
+                    "Profile completed successfully!"
+                );
+
+
+                /*
+                 * Later you can replace this
+                 * with your Django success URL.
+                 */
+
+                console.log(
+                    "KYC completed",
+                    bankData
+                );
 
             }
         );
@@ -1007,43 +1345,293 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+/* ============================================================
+   GLOBAL KYC STEP NAVIGATION
+   FIX FOR STEP 1 → 2 → 3 → 4 → 5 → 6
+============================================================ */
+
+window.showStep = function (stepNumber) {
+
+    const allSteps =
+        document.querySelectorAll(".kyc-step-section");
+
+    /* Hide every KYC step */
+    allSteps.forEach(function (step) {
+
+        step.style.display = "none";
+        step.classList.remove("active-step");
+
+    });
+
+
+    /* Open requested step */
+    const targetStep =
+        document.getElementById("kycStep" + stepNumber);
+
+    if (!targetStep) {
+        console.error(
+            "KYC Step not found: kycStep" + stepNumber
+        );
+        return;
+    }
+
+
+    targetStep.style.display = "block";
+    targetStep.classList.add("active-step");
+
+
+    /* Scroll to top */
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+};
+/* ============================================================
+   FINAL PROFILE VERIFICATION
+============================================================ */
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    const continueBtn = document.getElementById("kycContinueBtn");
-    const backBtn = document.getElementById("kycBackBtn");
+    const completeButton =
+        document.getElementById("kycCompleteBtn");
 
-    /*
-    ============================================================
-    STEP 2 → STEP 3
-    ============================================================
-    */
+    const step6 =
+        document.getElementById("kycStep6");
 
-    if (continueBtn) {
-
-        continueBtn.addEventListener("click", function () {
-
-            // Open Step 3 page
-            window.location.href = "/kyc/service-area/";
-
-        });
-
-    }
+    const finalPage =
+        document.getElementById("kycVerificationComplete");
 
 
-    /*
-    ============================================================
-    STEP 2 → STEP 1
-    ============================================================
-    */
+    if (completeButton && finalPage) {
 
-    if (backBtn) {
+        completeButton.addEventListener("click", function () {
 
-        backBtn.addEventListener("click", function () {
+            /* Hide Step 6 */
+            if (step6) {
+                step6.style.display = "none";
+                step6.classList.remove("active-step");
+            }
 
-            window.location.href = "/kyc/profile/";
+
+            /* Hide all KYC steps */
+            document
+                .querySelectorAll(".kyc-step-section")
+                .forEach(function (step) {
+
+                    if (step.id !== "kycVerificationComplete") {
+                        step.style.display = "none";
+                        step.classList.remove("active-step");
+                    }
+
+                });
+
+
+            /* Show final verification page */
+            finalPage.style.display = "block";
+            finalPage.classList.add("active-step");
+
+
+            /* Scroll to top */
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
         });
 
     }
 
 });
+/* ============================================================
+   KYC STEP 4 → STEP 5
+============================================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const step4ContinueBtn =
+        document.getElementById("kycStep4ContinueBtn");
+
+    const step4BackBtn =
+        document.getElementById("kycStep4BackBtn");
+
+    if (step4ContinueBtn) {
+
+        step4ContinueBtn.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            showKycStep(5);
+
+        });
+
+    }
+
+
+    if (step4BackBtn) {
+
+        step4BackBtn.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            showKycStep(3);
+
+        });
+
+    }
+
+});
+
+
+/* ============================================================
+   KYC STEP 5 → STEP 6
+============================================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const step5ContinueBtn =
+        document.getElementById("kycStep5ContinueBtn");
+
+    const step5BackBtn =
+        document.getElementById("kycStep5BackBtn");
+
+
+    if (step5ContinueBtn) {
+
+        step5ContinueBtn.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            showKycStep(6);
+
+        });
+
+    }
+
+
+    if (step5BackBtn) {
+
+        step5BackBtn.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            showKycStep(4);
+
+        });
+
+    }
+
+});
+
+
+/* ============================================================
+   KYC STEP 6 → STEP 7
+============================================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const step6CompleteBtn =
+        document.getElementById("kycCompleteBtn");
+
+    const step6BackBtn =
+        document.getElementById("kycStep6BackBtn");
+
+
+    if (step6CompleteBtn) {
+
+        step6CompleteBtn.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            console.log("Step 6 completed");
+
+            showKycStep(7);
+
+        });
+
+    }
+
+
+    if (step6BackBtn) {
+
+        step6BackBtn.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            showKycStep(5);
+
+        });
+
+    }
+
+});
+
+
+/* ============================================================
+   GLOBAL KYC STEP FUNCTION
+   IMPORTANT:
+   This function is OUTSIDE DOMContentLoaded
+   so every step can use it.
+============================================================ */
+
+function showKycStep(stepNumber) {
+
+    const sections =
+        document.querySelectorAll(".kyc-step-section");
+
+
+    sections.forEach(function (section) {
+
+        section.classList.remove("active-step");
+
+        section.classList.add("is-hidden");
+
+        section.style.display = "none";
+
+    });
+
+
+    const target =
+        document.getElementById("kycStep" + stepNumber);
+
+
+    if (!target) {
+
+        console.error(
+            "KYC Step " + stepNumber + " was not found."
+        );
+
+        return;
+
+    }
+
+
+    target.classList.remove("is-hidden");
+
+    target.classList.add("active-step");
+
+    target.style.display = "block";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+
+    console.log(
+        "Opened KYC Step " + stepNumber
+    );
+
+}
+function showStep(stepNumber) {
+
+    document.querySelectorAll('.kyc-step-section').forEach(function(section) {
+        section.classList.add('is-hidden');
+    });
+
+    const nextStep = document.getElementById('kycStep' + stepNumber);
+
+    if (nextStep) {
+        nextStep.classList.remove('is-hidden');
+    }
+}

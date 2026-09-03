@@ -1,507 +1,1356 @@
-{% extends "dashboard/login-layout.html" %}
+{% extends "dashboard/field-engineer/layout-1.html" %}
+{% load static %}
 
-{% block title %}Login / Register{% endblock %}
+{% block title %}
+    Complete Your Profile
+{% endblock %}
 
 {% block content %}
+
 <style>
-    html, body {
-        margin: 0 !important;
-        padding: 0 !important;
-        height: 100vh !important;
-        max-height: 100vh !important;
-        overflow: hidden !important;
+
+/* =========================================================
+   PAGE RESET
+========================================================= */
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+
+/* =========================================================
+   REMOVE PARENT CONTENT SPACING
+   This makes the background reach the complete viewport width
+========================================================= */
+
+body > * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   LOGIN PAGE
+========================================================= */
+
+.login-page {
+    position: fixed !important;
+
+    /*
+       Header height
+       Your header is approximately 73px
+    */
+    top: 73px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+
+    width: 100vw !important;
+    height: calc(100vh - 73px) !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   BACKGROUND IMAGE
+========================================================= */
+
+.login-background {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    min-width: 100% !important;
+    min-height: 100% !important;
+
+    display: block !important;
+
+    /*
+       IMPORTANT:
+       Cover the entire login area
+    */
+    object-fit: cover !important;
+
+    /*
+       Center the image
+    */
+    object-position: center center !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: none !important;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   CENTER LOGIN AREA
+========================================================= */
+
+.login-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   GLASS LOGIN BOX
+========================================================= */
+
+.login-box {
+    position: relative;
+
+    width: 450px;
+    max-width: 92%;
+
+    padding: 42px 40px 38px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.40);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.30);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FORM CONTROL
+========================================================= */
+
+.form-container {
+    display: none;
+}
+
+.form-container.active {
+    display: block;
+}
+
+
+/* =========================================================
+   LOGIN HEADING
+========================================================= */
+
+.login-box h2 {
+    margin: 0 0 5px;
+
+    text-align: left;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 30px;
+    line-height: 38px;
+
+    font-weight: 700;
+
+    color: #1e2937;
+}
+
+
+.login-box .subtitle {
+    margin: 0 0 28px;
+
+    text-align: left;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+    line-height: 21px;
+
+    font-weight: 400;
+
+    color: #334155;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.login-box label {
+    display: block;
+
+    margin: 0 0 7px;
+
+    text-align: left;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+    line-height: 19px;
+
+    font-weight: 500;
+
+    color: #263444;
+}
+
+
+/* =========================================================
+   PHONE INPUT
+========================================================= */
+
+.phone-input-wrapper {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.20);
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.phone-input-wrapper:focus-within {
+    border-color: #ffc341;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 195, 65, 0.15);
+}
+
+
+.phone-input-wrapper.error {
+    border-color: #ef4444 !important;
+
+    box-shadow:
+        0 0 0 3px rgba(239, 68, 68, 0.12) !important;
+}
+
+
+/* =========================================================
+   COUNTRY CODE
+========================================================= */
+
+.country-code {
+    flex-shrink: 0;
+
+    padding-left: 14px;
+    padding-right: 6px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+    line-height: 19px;
+
+    font-weight: 500;
+
+    color: #334155;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   PHONE INPUT
+========================================================= */
+
+.phone-input-wrapper input {
+    flex: 1;
+
+    width: 100%;
+    min-width: 0;
+
+    height: 100%;
+
+    padding: 0 14px 0 4px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    color: #1e2937;
+
+    box-sizing: border-box;
+}
+
+
+.phone-input-wrapper input::placeholder {
+    color: #64748b;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.error-message {
+    display: none;
+
+    margin-top: 6px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    color: #ef4444;
+}
+
+
+.error-message.show {
+    display: block;
+}
+
+
+/* =========================================================
+   SEND OTP BUTTON
+========================================================= */
+
+.login-box .btn-send {
+    width: 100%;
+
+    height: 48px;
+
+    margin-top: 21px;
+
+    padding: 0 16px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #ffc341;
+
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+    line-height: 20px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.login-box .btn-send:hover {
+    background: #eeb130;
+
+    box-shadow:
+        0 5px 15px rgba(238, 177, 48, 0.25);
+}
+
+
+.login-box .btn-send:active {
+    transform: translateY(1px);
+}
+
+
+/* =========================================================
+   FOOTER LINK
+========================================================= */
+
+.login-box .footer-link {
+    position: relative;
+
+    margin-top: 29px;
+
+    padding-top: 21px;
+
+    text-align: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+    line-height: 21px;
+
+    font-weight: 400;
+
+    color: #334155;
+}
+
+
+.login-box .footer-link::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.60);
+}
+
+
+.login-box .footer-link a {
+    margin-left: 4px;
+
+    color: #eeb130;
+
+    font-weight: 600;
+
+    text-decoration: underline;
+
+    text-underline-offset: 3px;
+
+    cursor: pointer;
+}
+
+
+.login-box .footer-link a:hover {
+    color: #d99f20;
+}
+
+
+/* =========================================================
+   OTP
+========================================================= */
+
+.otp-box {
+    text-align: center;
+}
+
+
+.otp-box h2 {
+    text-align: center;
+}
+
+
+.otp-box .subtitle {
+    text-align: center;
+
+    margin-bottom: 21px;
+}
+
+
+.otp-box .subtitle span {
+    font-weight: 600;
+
+    color: #1e2937;
+}
+
+
+/* =========================================================
+   OTP INPUTS
+========================================================= */
+
+.otp-input-container {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 13px 0 19px;
+}
+
+
+.otp-input {
+    width: 44px;
+    height: 48px;
+
+    padding: 0;
+
+    text-align: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    color: #1e2937;
+
+    border: 1px solid rgba(255, 255, 255, 0.60);
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.20);
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition: all 0.2s ease;
+}
+
+
+.otp-input:focus {
+    border-color: #ffc341;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 195, 65, 0.15);
+}
+
+
+.otp-input::placeholder {
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESEND
+========================================================= */
+
+.resend-section {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 0 2px;
+
+    margin-bottom: 4px;
+}
+
+
+.resend-section .resend-text {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    color: #475569;
+}
+
+
+.timer-text {
+    color: #eeb130;
+
+    font-weight: 600;
+}
+
+
+.resend-section .resend-link {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #eeb130;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+
+.resend-section .resend-link.disabled {
+    color: #8ea0b4;
+
+    cursor: not-allowed;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   VERIFY BUTTON
+========================================================= */
+
+.btn-verify {
+    background: #ffc341 !important;
+
+    color: #ffffff !important;
+}
+
+
+.btn-verify:hover {
+    background: #eeb130 !important;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 701px) {
+
+    .login-page {
+        top: 73px !important;
+
+        height: calc(100vh - 73px) !important;
     }
 
-    .form-container {
-        display: none;
-    }
-    
-    .form-container.active {
-        display: block;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .login-page {
+        top: 60px !important;
+
+        height: calc(100vh - 60px) !important;
     }
 
-    .otp-input-container {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        margin: 12px 0 16px 0;
+
+    .login-overlay {
+        padding: 16px;
     }
 
-    .otp-input {
-        width: 48px;
-        height: 52px;
-        text-align: center;
-        font-size: 22px;
-        font-weight: 600;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.1);
-        color: #1e2530;
-        outline: none;
-        transition: all 0.3s ease;
-    }
 
-    .otp-input:focus {
-        border-color: #ffc341;
-        background: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 0 0 4px rgba(255, 195, 65, 0.2);
-    }
-
-    .otp-input::placeholder {
-        color: #8ea0b4;
-        font-weight: 400;
-        font-size: 14px;
-    }
-
-    .timer-text {
-        font-size: 15px;
-        font-weight: 600;
-        color: #ffc341;
-    }
-
-    .resend-link {
-        color: #ffc341;
-        font-weight: 600;
-        text-decoration: underline;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .resend-link:hover {
-        color: #eeb130;
-    }
-
-    .resend-link.disabled {
-        color: #8ea0b4;
-        cursor: not-allowed;
-        text-decoration: none;
-    }
-
-    .error-message {
-        color: #ef4444;
-        font-size: 13px;
-        font-weight: 500;
-        margin-top: 6px;
-        display: none;
-    }
-
-    .error-message.show {
-        display: block;
-    }
-
-    .resend-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 4px;
-        margin: 0px 0 6px 0;
-    }
-
-    .resend-section .resend-text {
-        font-size: 15px;
-        font-weight: 500;
-        color: #475569;
-        margin: 0;
-    }
-
-    .resend-section .resend-link {
-        font-size: 15px;
-        font-weight: 600;
-        color: #ffc341;
-        text-decoration: underline;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin: 0;
-    }
-
-    .resend-section .resend-link:hover {
-        color: #eeb130;
-    }
-
-    .resend-section .resend-link.disabled {
-        color: #8ea0b4;
-        cursor: not-allowed;
-        text-decoration: none;
-    }
-
-    .btn-verify {
-        background-color: #ffc341 !important;
-        color: #1e2530 !important;
-        font-weight: 700 !important;
-    }
-
-    .btn-verify:hover {
-        background-color: #eeb130 !important;
-    }
-
-    .phone-input-wrapper {
-        display: flex;
-        align-items: center;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-        padding: 0 4px;
-    }
-
-    .phone-input-wrapper:focus-within {
-        border-color: #ffc341;
-        background: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 0 0 4px rgba(255, 195, 65, 0.15);
-    }
-
-    .phone-input-wrapper.error {
-        border-color: #ef4444 !important;
-        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
-    }
-
-    .country-code {
-        font-weight: 600;
-        color: #1e2530;
-        font-size: 15px;
-        padding-left: 14px;
-        padding-right: 4px;
-        white-space: nowrap;
-    }
-
-    .phone-input-wrapper input {
-        border: none;
-        outline: none;
-        flex: 1;
-        padding: 12px 12px 12px 4px;
-        font-size: 15px;
-        background: transparent;
-        color: #1e2530;
-        min-width: 0;
-        width: 100%;
-    }
-
-    .phone-input-wrapper input::placeholder {
-        color: #8ea0b4;
-        font-weight: 400;
-    }
-
-    /* First image jaisa exact design */
     .login-box {
-        width: 420px;
-        max-width: 92%;
-        padding: 32px 36px;
-        border-radius: 28px;
-        background: rgba(255, 255, 255, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        width: 390px;
+
+        max-width: 100%;
+
+        padding: 30px 25px;
     }
+
 
     .login-box h2 {
-        font-size: 30px;
-        font-weight: 700;
-        color: #1e2530;
-        margin-bottom: 2px;
-        text-align: center;
+        font-size: 27px;
+
+        line-height: 34px;
     }
+
 
     .login-box .subtitle {
-        font-size: 14px;
-        color: #475569;
-        font-weight: 500;
-        text-align: center;
-        margin-bottom: 24px;
+        font-size: 13px;
+
+        line-height: 19px;
     }
 
-    .login-box label {
-        font-size: 14px;
-        font-weight: 500;
-        color: #1e2530;
-        display: block;
-        text-align: left;
-        margin-bottom: 4px;
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .login-box {
+        padding: 27px 20px;
     }
 
-    .login-box .btn-send {
-        width: 100%;
-        padding: 12px;
-        background: #ffc341;
-        border: none;
-        border-radius: 14px;
-        color: white;
-        font-weight: 600;
-        font-size: 15px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin-top: 4px;
+
+    .otp-input-container {
+        gap: 5px;
     }
 
-    .login-box .btn-send:hover {
-        background: #eeb130;
+
+    .otp-input {
+        width: 39px;
+
+        height: 44px;
     }
 
-    .login-box .footer-link {
-        text-align: center;
-        font-size: 14px;
-        font-weight: 500;
-        color: #1e2530;
-        margin-top: 18px;
-    }
+}
 
-    .login-box .footer-link a {
-        color: #ffc341;
-        font-weight: 600;
-        text-decoration: underline;
-        text-underline-offset: 4px;
-        margin-left: 4px;
-        cursor: pointer;
-    }
-
-    .login-box .footer-link a:hover {
-        color: #eeb130;
-    }
-
-    .otp-box {
-        text-align: center;
-    }
-
-    .otp-box h2 {
-        font-size: 30px;
-        font-weight: 700;
-        color: #1e2530;
-        margin-bottom: 2px;
-        text-align: center;
-    }
-
-    .otp-box .subtitle {
-        font-size: 14px;
-        color: #475569;
-        font-weight: 500;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .otp-box .subtitle span {
-        font-weight: 600;
-        color: #1e2530;
-    }
 </style>
 
-<div class="w-full h-[calc(100vh-73px)] max-h-[calc(100vh-73px)] overflow-hidden relative">
-    <img src="/static/img/background-img.webp" 
-         alt="Background" 
-         class="w-full h-full object-cover block">
-    
-    <div class="absolute inset-0 flex items-center justify-center">
+
+<!-- =========================================================
+     LOGIN PAGE
+========================================================= -->
+
+<div class="login-page">
+
+    <!-- =====================================================
+         FULL BACKGROUND IMAGE
+    ====================================================== -->
+
+    <img
+        src="{% static 'img/login-bg.jpg' %}"
+        alt="Background"
+        class="login-background"
+    >
+
+
+    <!-- =====================================================
+         LOGIN OVERLAY
+    ====================================================== -->
+
+    <div class="login-overlay">
+
         <div class="login-box">
-            
-            <!-- Sign In -->
-            <div id="signinForm" class="form-container active">
-                <h2>Sign in</h2>
-                <p class="subtitle">Please login to continue to your account.</p>
 
-                <form onsubmit="validateAndShowOTP(event, 'signin')">
-                    <label for="mobile_no">Mobile No</label>
-                    <div class="phone-input-wrapper" id="signinWrapper">
-                        <span class="country-code">+91</span>
-                        <input type="text" 
-                               id="mobile_no" 
-                               name="mobile_no" 
-                               placeholder="456785 54345" 
-                               maxlength="10"
-                               oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                    </div>
-                    <div class="error-message" id="signinError">Please enter a valid 10-digit mobile number</div>
 
-                    <button type="submit" class="btn-send">Send OTP</button>
-                </form>
+            <!-- =================================================
+                 SIGN IN
+            ================================================== -->
 
-                <div class="footer-link">
-                    Need an account? 
-                    <a href="#" onclick="toggleForms('signin')">Create one</a>
-                </div>
-            </div>
+            <div
+                id="signinForm"
+                class="form-container active"
+            >
 
-            <!-- Register -->
-            <div id="registerForm" class="form-container">
-                <h2>Create Account</h2>
-                <p class="subtitle">Please sign up to continue to your account.</p>
+                <h2>
+                    Sign in
+                </h2>
 
-                <form onsubmit="validateAndShowOTP(event, 'register')">
-                    <label for="register_mobile">Mobile No</label>
-                    <div class="phone-input-wrapper" id="registerWrapper">
-                        <span class="country-code">+91</span>
-                        <input type="text" 
-                               id="register_mobile" 
-                               name="register_mobile" 
-                               placeholder="456785 54345" 
-                               maxlength="10"
-                               oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                    </div>
-                    <div class="error-message" id="registerError">Please enter a valid 10-digit mobile number</div>
-
-                    <button type="submit" class="btn-send">Send OTP</button>
-                </form>
-
-                <div class="footer-link">
-                    Already have an account? 
-                    <a href="#" onclick="toggleForms('register')">Log in</a>
-                </div>
-            </div>
-
-            <!-- OTP -->
-            <div id="otpForm" class="form-container otp-box">
-                <h2>Verify Your Identity</h2>
                 <p class="subtitle">
-                    We've sent a 6-digit verification code to<br>
-                    <span id="displayMobile">+91 ******1234</span>
+                    Please login to continue to your account.
                 </p>
 
-                <form>
-                    <div class="otp-input-container">
-                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
-                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
-                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
-                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
-                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
-                        <input type="text" maxlength="1" class="otp-input" placeholder="0">
+
+                <form
+                    onsubmit="validateAndShowOTP(event, 'signin')"
+                >
+
+                    <label for="mobile_no">
+                        Mobile No
+                    </label>
+
+
+                    <div
+                        class="phone-input-wrapper"
+                        id="signinWrapper"
+                    >
+
+                        <span class="country-code">
+                            +91
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="mobile_no"
+                            name="mobile_no"
+                            placeholder="456785 54345"
+                            maxlength="10"
+                            autocomplete="tel"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                        >
+
                     </div>
+
+
+                    <div
+                        class="error-message"
+                        id="signinError"
+                    >
+                        Please enter a valid 10-digit mobile number
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn-send"
+                    >
+                        Send OTP
+                    </button>
+
+                </form>
+
+
+                <div class="footer-link">
+
+                    Need an account?
+
+                    <a
+                        href="#"
+                        onclick="toggleForms('signin'); return false;"
+                    >
+                        Create one
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REGISTER
+            ================================================== -->
+
+            <div
+                id="registerForm"
+                class="form-container"
+            >
+
+                <h2>
+                    Create Account
+                </h2>
+
+                <p class="subtitle">
+                    Please sign up to continue to your account.
+                </p>
+
+
+                <form
+                    onsubmit="validateAndShowOTP(event, 'register')"
+                >
+
+                    <label for="register_mobile">
+                        Mobile No
+                    </label>
+
+
+                    <div
+                        class="phone-input-wrapper"
+                        id="registerWrapper"
+                    >
+
+                        <span class="country-code">
+                            +91
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="register_mobile"
+                            name="register_mobile"
+                            placeholder="456785 54345"
+                            maxlength="10"
+                            autocomplete="tel"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                        >
+
+                    </div>
+
+
+                    <div
+                        class="error-message"
+                        id="registerError"
+                    >
+                        Please enter a valid 10-digit mobile number
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn-send"
+                    >
+                        Send OTP
+                    </button>
+
+                </form>
+
+
+                <div class="footer-link">
+
+                    Already have an account?
+
+                    <a
+                        href="#"
+                        onclick="toggleForms('register'); return false;"
+                    >
+                        Log in
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 OTP
+            ================================================== -->
+
+            <div
+                id="otpForm"
+                class="form-container otp-box"
+            >
+
+                <h2>
+                    Verify Your Identity
+                </h2>
+
+
+                <p class="subtitle">
+
+                    We've sent a 6-digit verification code to
+
+                    <br>
+
+                    <span id="displayMobile">
+                        +91 ******1234
+                    </span>
+
+                </p>
+
+
+                <form>
+
+                    <div class="otp-input-container">
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="otp-input"
+                            placeholder="0"
+                            inputmode="numeric"
+                        >
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="otp-input"
+                            placeholder="0"
+                            inputmode="numeric"
+                        >
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="otp-input"
+                            placeholder="0"
+                            inputmode="numeric"
+                        >
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="otp-input"
+                            placeholder="0"
+                            inputmode="numeric"
+                        >
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="otp-input"
+                            placeholder="0"
+                            inputmode="numeric"
+                        >
+
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="otp-input"
+                            placeholder="0"
+                            inputmode="numeric"
+                        >
+
+                    </div>
+
 
                     <div class="resend-section">
-                        <span class="resend-text">Resend in <span class="timer-text" id="timer">00:34</span></span>
-                        <a href="#" class="resend-link disabled" id="resendLink" onclick="resendOTP(event)">Resend Code</a>
+
+                        <span class="resend-text">
+
+                            Resend in
+
+                            <span
+                                class="timer-text"
+                                id="timer"
+                            >
+                                00:34
+                            </span>
+
+                        </span>
+
+
+                        <a
+                            href="#"
+                            class="resend-link disabled"
+                            id="resendLink"
+                            onclick="resendOTP(event)"
+                        >
+                            Resend Code
+                        </a>
+
                     </div>
 
-                    <button type="submit" class="btn-send btn-verify">Verify & Continue</button>
+
+                    <button
+                        type="submit"
+                        class="btn-send btn-verify"
+                    >
+                        Verify &amp; Continue
+                    </button>
+
                 </form>
+
             </div>
 
         </div>
+
     </div>
+
 </div>
 
+
 <script>
-    function validateMobile(inputId, errorId, wrapperId) {
-        const input = document.getElementById(inputId);
-        const error = document.getElementById(errorId);
-        const wrapper = document.getElementById(wrapperId);
-        const value = input.value.trim();
-        
-        if (value.length === 10 && /^[0-9]{10}$/.test(value)) {
-            wrapper.classList.remove('error');
-            error.classList.remove('show');
-            return true;
-        } else {
-            wrapper.classList.add('error');
-            error.classList.add('show');
-            return false;
-        }
+
+/* =========================================================
+   MOBILE VALIDATION
+========================================================= */
+
+function validateMobile(inputId, errorId, wrapperId) {
+
+    const input = document.getElementById(inputId);
+    const error = document.getElementById(errorId);
+    const wrapper = document.getElementById(wrapperId);
+
+    const value = input.value.trim();
+
+
+    if (
+        value.length === 10 &&
+        /^[0-9]{10}$/.test(value)
+    ) {
+
+        wrapper.classList.remove('error');
+
+        error.classList.remove('show');
+
+        return true;
+
+    } else {
+
+        wrapper.classList.add('error');
+
+        error.classList.add('show');
+
+        return false;
+    }
+}
+
+
+/* =========================================================
+   SHOW OTP
+========================================================= */
+
+function validateAndShowOTP(event, type) {
+
+    event.preventDefault();
+
+
+    let inputId;
+    let errorId;
+    let wrapperId;
+
+
+    if (type === 'signin') {
+
+        inputId = 'mobile_no';
+
+        errorId = 'signinError';
+
+        wrapperId = 'signinWrapper';
+
+    } else {
+
+        inputId = 'register_mobile';
+
+        errorId = 'registerError';
+
+        wrapperId = 'registerWrapper';
     }
 
-    function validateAndShowOTP(event, type) {
-        event.preventDefault();
-        
-        let inputId, errorId, wrapperId;
-        if (type === 'signin') {
-            inputId = 'mobile_no';
-            errorId = 'signinError';
-            wrapperId = 'signinWrapper';
-        } else {
-            inputId = 'register_mobile';
-            errorId = 'registerError';
-            wrapperId = 'registerWrapper';
-        }
-        
-        if (validateMobile(inputId, errorId, wrapperId)) {
-            const mobile = document.getElementById(inputId).value;
-            document.getElementById('signinForm').classList.remove('active');
-            document.getElementById('registerForm').classList.remove('active');
-            document.getElementById('otpForm').classList.add('active');
-            
-            const masked = '+91 ******' + mobile.slice(-4);
-            document.getElementById('displayMobile').textContent = masked;
-            
-            startTimer();
-        }
-    }
 
-    function toggleForms(type) {
-        const signinForm = document.getElementById('signinForm');
-        const registerForm = document.getElementById('registerForm');
-        const otpForm = document.getElementById('otpForm');
-        
-        otpForm.classList.remove('active');
-        
-        document.getElementById('signinError').classList.remove('show');
-        document.getElementById('registerError').classList.remove('show');
-        document.getElementById('signinWrapper').classList.remove('error');
-        document.getElementById('registerWrapper').classList.remove('error');
-        
-        if (type === 'signin') {
-            signinForm.classList.remove('active');
-            registerForm.classList.add('active');
-        } else {
-            registerForm.classList.remove('active');
-            signinForm.classList.add('active');
-        }
-    }
+    if (
+        validateMobile(
+            inputId,
+            errorId,
+            wrapperId
+        )
+    ) {
 
-    let timeLeft = 34;
-    let timerInterval;
+        const mobile =
+            document
+                .getElementById(inputId)
+                .value;
 
-    function startTimer() {
-        if (timerInterval) {
-            clearInterval(timerInterval);
-        }
-        
-        timeLeft = 34;
-        const timerElement = document.getElementById('timer');
-        const resendLink = document.getElementById('resendLink');
-        
-        timerElement.textContent = '00:34';
-        resendLink.classList.add('disabled');
-        resendLink.style.color = '#8ea0b4';
-        resendLink.style.cursor = 'not-allowed';
-        resendLink.style.textDecoration = 'none';
 
-        timerInterval = setInterval(() => {
-            timeLeft--;
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-            timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        document
+            .getElementById('signinForm')
+            .classList.remove('active');
 
-            if (timeLeft <= 0) {
-                clearInterval(timerInterval);
-                timerElement.textContent = '00:00';
-                resendLink.classList.remove('disabled');
-                resendLink.style.color = '#ffc341';
-                resendLink.style.cursor = 'pointer';
-                resendLink.style.textDecoration = 'underline';
-            }
-        }, 1000);
-    }
 
-    function resendOTP(event) {
-        event.preventDefault();
-        const resendLink = document.getElementById('resendLink');
-        
-        if (resendLink.classList.contains('disabled')) {
-            alert('Please wait for the timer to complete.');
-            return;
-        }
-        
+        document
+            .getElementById('registerForm')
+            .classList.remove('active');
+
+
+        document
+            .getElementById('otpForm')
+            .classList.add('active');
+
+
+        const masked =
+            '+91 ******' +
+            mobile.slice(-4);
+
+
+        document
+            .getElementById('displayMobile')
+            .textContent = masked;
+
+
         startTimer();
-        alert('OTP resent successfully!');
+    }
+}
+
+
+/* =========================================================
+   TOGGLE SIGN IN / REGISTER
+========================================================= */
+
+function toggleForms(type) {
+
+    const signinForm =
+        document.getElementById('signinForm');
+
+    const registerForm =
+        document.getElementById('registerForm');
+
+    const otpForm =
+        document.getElementById('otpForm');
+
+
+    otpForm.classList.remove('active');
+
+
+    document
+        .getElementById('signinError')
+        .classList.remove('show');
+
+
+    document
+        .getElementById('registerError')
+        .classList.remove('show');
+
+
+    document
+        .getElementById('signinWrapper')
+        .classList.remove('error');
+
+
+    document
+        .getElementById('registerWrapper')
+        .classList.remove('error');
+
+
+    if (type === 'signin') {
+
+        signinForm.classList.remove('active');
+
+        registerForm.classList.add('active');
+
+    } else {
+
+        registerForm.classList.remove('active');
+
+        signinForm.classList.add('active');
+    }
+}
+
+
+/* =========================================================
+   OTP TIMER
+========================================================= */
+
+let timeLeft = 34;
+
+let timerInterval;
+
+
+function startTimer() {
+
+    if (timerInterval) {
+
+        clearInterval(timerInterval);
     }
 
-    document.querySelectorAll('.otp-input').forEach((input, index, inputs) => {
-        input.addEventListener('input', function() {
-            if (this.value.length === 1 && index < inputs.length - 1) {
-                inputs[index + 1].focus();
+
+    timeLeft = 34;
+
+
+    const timerElement =
+        document.getElementById('timer');
+
+    const resendLink =
+        document.getElementById('resendLink');
+
+
+    timerElement.textContent = '00:34';
+
+
+    resendLink.classList.add('disabled');
+
+
+    timerInterval = setInterval(function () {
+
+        timeLeft--;
+
+
+        const minutes =
+            Math.floor(timeLeft / 60);
+
+
+        const seconds =
+            timeLeft % 60;
+
+
+        timerElement.textContent =
+            `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+
+        if (timeLeft <= 0) {
+
+            clearInterval(timerInterval);
+
+
+            timerElement.textContent = '00:00';
+
+
+            resendLink.classList.remove('disabled');
+        }
+
+    }, 1000);
+}
+
+
+/* =========================================================
+   RESEND OTP
+========================================================= */
+
+function resendOTP(event) {
+
+    event.preventDefault();
+
+
+    const resendLink =
+        document.getElementById('resendLink');
+
+
+    if (
+        resendLink.classList.contains('disabled')
+    ) {
+
+        alert(
+            'Please wait for the timer to complete.'
+        );
+
+        return;
+    }
+
+
+    startTimer();
+
+
+    alert(
+        'OTP resent successfully!'
+    );
+}
+
+
+/* =========================================================
+   OTP AUTO NEXT
+========================================================= */
+
+document
+    .querySelectorAll('.otp-input')
+    .forEach(function (input, index, inputs) {
+
+        input.addEventListener(
+            'input',
+            function () {
+
+                this.value =
+                    this.value.replace(
+                        /[^0-9]/g,
+                        ''
+                    );
+
+
+                if (
+                    this.value.length === 1 &&
+                    index < inputs.length - 1
+                ) {
+
+                    inputs[index + 1].focus();
+                }
             }
-        });
-        
-        input.addEventListener('keydown', function(e) {
-            if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
-                inputs[index - 1].focus();
+        );
+
+
+        input.addEventListener(
+            'keydown',
+            function (event) {
+
+                if (
+                    event.key === 'Backspace' &&
+                    this.value.length === 0 &&
+                    index > 0
+                ) {
+
+                    inputs[index - 1].focus();
+                }
             }
-        });
+        );
+
     });
+
 </script>
+
 {% endblock %}
