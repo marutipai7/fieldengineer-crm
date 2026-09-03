@@ -111,6 +111,13 @@
   --color-epic-blue: #1466DE;
   --color-vivid-blue:#2B7FFF;
   --color-light-violet:#AD46FF;
+  --color-fe-standard: #FFEBCD;
+  --color-fe-border: #B9F8CF;
+  --color-fe-priority: #FEF2F2;
+  --color-fe-border-2: #FFC9C9;
+  --color-fe-red: #E7000B;
+  --color-header-highlight: #1466DE1A;
+  --color-dim-banner: #1466DE0D;
 
   /* Neutrals */
 
@@ -16652,6 +16659,7 @@ select.fe-select {
     background-color: #F5A623;
     border-radius: 2px;
   }
+
   /* ============================================================
    FIELD ENGINEER HOME
    Designed around the supplied 1448px reference
@@ -17832,14 +17840,13 @@ select.fe-select {
 /* ============================================================
    KYC STEP 1
    COMPLETE PROFILE
+   MATCHED TO STEP 2 SCALE
 ============================================================ */
 
-.profile-verification-page {
+#kycStep1 {
     width: 100%;
-    min-height: calc(100vh - 90px);
-
+    min-height: calc(100vh - 98px);
     background: #ffffff;
-
     box-sizing: border-box;
 }
 
@@ -17848,13 +17855,13 @@ select.fe-select {
    MAIN CONTAINER
 ============================================================ */
 
-.profile-verification-container {
-    width: calc(100% - 80px);
-    max-width: 1280px;
+#kycStep1 .profile-verification-container {
+    width: 100%;
+    max-width: none;
 
-    margin: 0 auto;
+    margin: 0;
 
-    padding: 48px 0 60px;
+    padding: 34px 4.2% 50px;
 
     box-sizing: border-box;
 }
@@ -17864,34 +17871,36 @@ select.fe-select {
    PAGE HEADER
 ============================================================ */
 
-.profile-page-header {
-    margin-bottom: 26px;
+#kycStep1 .profile-page-header {
+    width: 100%;
+
+    margin-bottom: 30px;
 }
 
-.profile-page-header h1 {
+#kycStep1 .profile-page-header h1 {
     margin: 0;
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 30px;
-    line-height: 38px;
+    font-size: 36px;
+    line-height: 44px;
 
     font-weight: 700;
 
     color: #17283a;
 
-    letter-spacing: -0.5px;
+    letter-spacing: -0.8px;
 }
 
-.profile-page-header p {
-    margin: 5px 0 0;
+#kycStep1 .profile-page-header p {
+    margin: 7px 0 0;
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 18px;
+    line-height: 26px;
 
-    color: #536273;
+    color: #536b82;
 }
 
 
@@ -17899,17 +17908,20 @@ select.fe-select {
    STEPPER
 ============================================================ */
 
-.profile-stepper {
+#kycStep1 .profile-stepper {
+
     width: 100%;
 
     display: grid;
 
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
 
-    margin-bottom: 34px;
+    margin-bottom: 38px;
 }
 
-.profile-step {
+#kycStep1 .profile-step {
+
     position: relative;
 
     text-align: center;
@@ -17918,17 +17930,20 @@ select.fe-select {
 }
 
 
-/* connecting line */
+/* ============================================================
+   CONNECTING LINE
+============================================================ */
 
-.profile-step:not(:last-child)::after {
+#kycStep1 .profile-step:not(:last-child)::after {
+
     content: "";
 
     position: absolute;
 
-    top: 7px;
+    top: 12px;
 
-    left: calc(50% + 8px);
-    right: calc(-50% + 8px);
+    left: calc(50% + 13px);
+    right: calc(-50% + 13px);
 
     height: 2px;
 
@@ -17938,19 +17953,23 @@ select.fe-select {
 }
 
 
-/* step circle */
+/* ============================================================
+   STEP CIRCLE
+============================================================ */
 
-.profile-step-number {
+#kycStep1 .profile-step-number {
+
     position: relative;
 
-    width: 15px;
-    height: 15px;
+    width: 26px;
+    height: 26px;
 
-    margin: 0 auto 8px;
+    margin: 0 auto 10px;
 
     border-radius: 50%;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -17960,39 +17979,61 @@ select.fe-select {
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 9px;
+    font-size: 14px;
+
     font-weight: 700;
 
     z-index: 2;
 }
 
 
-/* active step */
+/* ============================================================
+   COMPLETED STEP
+============================================================ */
 
-.profile-step.active .profile-step-number {
+#kycStep1 .profile-step.completed
+.profile-step-number {
+
+    background: #35c775;
+}
+
+
+/* ============================================================
+   ACTIVE STEP
+============================================================ */
+
+#kycStep1 .profile-step.active
+.profile-step-number {
+
     background: #f7b52b;
 }
 
 
-/* step label */
+/* ============================================================
+   STEP LABEL
+============================================================ */
 
-.profile-step-label {
+#kycStep1 .profile-step-label {
+
     display: block;
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 15px;
 
-    color: #536273;
+    line-height: 20px;
+
+    color: #536b82;
 
     white-space: nowrap;
 }
 
-.profile-step.active .profile-step-label {
-    color: #34485b;
+#kycStep1 .profile-step.active
+.profile-step-label {
 
-    font-weight: 500;
+    color: #17283a;
+
+    font-weight: 700;
 }
 
 
@@ -18000,7 +18041,8 @@ select.fe-select {
    FORM AREA
 ============================================================ */
 
-.profile-form-area {
+#kycStep1 .profile-form-area {
+
     position: relative;
 
     width: 100%;
@@ -18010,21 +18052,29 @@ select.fe-select {
 
 
 /* ============================================================
-   AVATAR
+   AVATAR AREA
 ============================================================ */
 
-.profile-avatar-area {
+#kycStep1 .profile-avatar-area {
+
     width: 100%;
 
     display: flex;
+
     align-items: flex-start;
 
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
 
-.profile-avatar {
-    width: 72px;
-    height: 72px;
+
+/* ============================================================
+   AVATAR
+============================================================ */
+
+#kycStep1 .profile-avatar {
+
+    width: 78px;
+    height: 78px;
 
     border: 2px solid #f7b52b;
 
@@ -18033,6 +18083,7 @@ select.fe-select {
     background: #ffffff;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -18041,10 +18092,12 @@ select.fe-select {
     box-sizing: border-box;
 }
 
-.profile-avatar span {
+#kycStep1 .profile-avatar span {
+
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 27px;
+    font-size: 29px;
+
     line-height: 1;
 
     font-weight: 700;
@@ -18053,28 +18106,32 @@ select.fe-select {
 }
 
 
-/* camera */
+/* ============================================================
+   CAMERA
+============================================================ */
 
-.profile-avatar-camera {
+#kycStep1 .profile-avatar-camera {
+
     position: absolute;
 
-    right: -3px;
-    bottom: -3px;
+    right: -4px;
+    bottom: -4px;
 
-    width: 21px;
-    height: 21px;
+    width: 23px;
+    height: 23px;
 
     border-radius: 50%;
 
     background: #f7b52b;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     color: #ffffff;
 
-    font-size: 11px;
+    font-size: 12px;
 }
 
 
@@ -18082,55 +18139,64 @@ select.fe-select {
    VENDOR CONNECTIVITY CARD
 ============================================================ */
 
-.vendor-connectivity-card {
+#kycStep1 .vendor-connectivity-card {
+
     position: absolute;
 
     right: 0;
     top: 0;
 
-    width: 250px;
+    width: 280px;
 
-    min-height: 72px;
+    min-height: 78px;
 
-    padding: 14px 18px;
+    padding: 15px 19px;
 
     background: #ffffff;
 
-    border: 1px solid #e1e5e8;
+    border:
+        1px solid #e1e5e8;
 
     border-radius: 10px;
 
-    box-shadow: 0 3px 12px rgba(23, 40, 58, 0.08);
+    box-shadow:
+        0 3px 12px
+        rgba(23, 40, 58, 0.08);
 
     box-sizing: border-box;
 }
 
-.vendor-connectivity-content {
-    padding-right: 55px;
+#kycStep1 .vendor-connectivity-content {
+
+    padding-right: 60px;
 }
 
-.vendor-connectivity-title {
+#kycStep1 .vendor-connectivity-title {
+
     display: block;
 
     margin-bottom: 4px;
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 14px;
-    line-height: 19px;
+    font-size: 15px;
+
+    line-height: 20px;
 
     font-weight: 700;
 
     color: #243547;
 }
 
-.vendor-connectivity-description {
+#kycStep1 .vendor-connectivity-description {
+
     display: block;
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 11px;
-    line-height: 15px;
+    font-size: 12px;
+
+    line-height: 16px;
 
     color: #687685;
 
@@ -18139,20 +18205,22 @@ select.fe-select {
 
 
 /* ============================================================
-   TOGGLE
+   CONNECTIVITY TOGGLE
 ============================================================ */
 
-.vendor-connectivity-toggle {
+#kycStep1 .vendor-connectivity-toggle {
+
     position: absolute;
 
-    top: 25px;
+    top: 27px;
     right: 18px;
 
-    width: 34px;
-    height: 20px;
+    width: 36px;
+    height: 21px;
 }
 
-.vendor-connectivity-toggle input {
+#kycStep1 .vendor-connectivity-toggle input {
+
     position: absolute;
 
     opacity: 0;
@@ -18161,7 +18229,8 @@ select.fe-select {
     height: 0;
 }
 
-.vendor-connectivity-slider {
+#kycStep1 .vendor-connectivity-slider {
+
     position: absolute;
 
     inset: 0;
@@ -18175,13 +18244,14 @@ select.fe-select {
     transition: 0.2s ease;
 }
 
-.vendor-connectivity-slider::before {
+#kycStep1 .vendor-connectivity-slider::before {
+
     content: "";
 
     position: absolute;
 
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
 
     left: 2px;
     top: 2px;
@@ -18190,34 +18260,40 @@ select.fe-select {
 
     border-radius: 50%;
 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    box-shadow:
+        0 1px 3px
+        rgba(0, 0, 0, 0.15);
 
     transition: 0.2s ease;
 }
 
-.vendor-connectivity-toggle input:checked
+#kycStep1 .vendor-connectivity-toggle input:checked
 + .vendor-connectivity-slider {
+
     background: #f7b52b;
 }
 
-.vendor-connectivity-toggle input:checked
+#kycStep1 .vendor-connectivity-toggle input:checked
 + .vendor-connectivity-slider::before {
-    transform: translateX(14px);
+
+    transform: translateX(15px);
 }
 
 
 /* ============================================================
-   COMPANY DETAILS
+   COMPANY DETAILS CARD
 ============================================================ */
 
-.company-details-section {
+#kycStep1 .company-details-section {
+
     width: 100%;
 
-    margin-top: 5px;
+    margin-top: 6px;
 
-    padding: 25px;
+    padding: 28px;
 
-    border: 1px solid #e1e5e8;
+    border:
+        1px solid #e1e5e8;
 
     border-radius: 12px;
 
@@ -18226,13 +18302,15 @@ select.fe-select {
     box-sizing: border-box;
 }
 
-.company-details-title {
-    margin: 0 0 20px;
+#kycStep1 .company-details-title {
+
+    margin: 0 0 22px;
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 21px;
+
+    line-height: 28px;
 
     font-weight: 700;
 
@@ -18244,13 +18322,16 @@ select.fe-select {
    FORM GRID
 ============================================================ */
 
-.company-details-grid {
+#kycStep1 .company-details-grid {
+
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
-    column-gap: 22px;
-    row-gap: 20px;
+    column-gap: 24px;
+
+    row-gap: 22px;
 
     width: 100%;
 }
@@ -18260,19 +18341,22 @@ select.fe-select {
    FORM GROUP
 ============================================================ */
 
-.profile-form-group {
+#kycStep1 .profile-form-group {
+
     width: 100%;
 }
 
-.profile-form-group label {
+#kycStep1 .profile-form-group label {
+
     display: block;
 
     margin: 0 0 8px;
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 13px;
-    line-height: 18px;
+    font-size: 14px;
+
+    line-height: 19px;
 
     font-weight: 600;
 
@@ -18281,23 +18365,32 @@ select.fe-select {
 
 
 /* ============================================================
-   SELECT
+   SELECT WRAPPER
 ============================================================ */
 
-.profile-select-wrapper {
+#kycStep1 .profile-select-wrapper {
+
     position: relative;
 
     width: 100%;
 }
 
-.profile-select {
+
+/* ============================================================
+   SELECT
+============================================================ */
+
+#kycStep1 .profile-select {
+
     width: 100%;
 
     height: 48px;
 
-    padding: 0 45px 0 15px;
+    padding:
+        0 45px 0 15px;
 
-    border: 1px solid #dfe4e8;
+    border:
+        1px solid #dfe4e8;
 
     border-radius: 8px;
 
@@ -18307,7 +18400,7 @@ select.fe-select {
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 13px;
+    font-size: 14px;
 
     outline: none;
 
@@ -18324,18 +18417,22 @@ select.fe-select {
         background 0.2s ease;
 }
 
-.profile-select:hover {
+#kycStep1 .profile-select:hover {
+
     border-color: #cfd6dc;
 
     background: #ffffff;
 }
 
-.profile-select:focus {
+#kycStep1 .profile-select:focus {
+
     border-color: #f7b52b;
 
     background: #ffffff;
 
-    box-shadow: 0 0 0 3px rgba(247, 181, 43, 0.12);
+    box-shadow:
+        0 0 0 3px
+        rgba(247, 181, 43, 0.12);
 }
 
 
@@ -18343,19 +18440,26 @@ select.fe-select {
    SELECT ARROW
 ============================================================ */
 
-.profile-select-arrow {
+#kycStep1 .profile-select-arrow {
+
     position: absolute;
 
     right: 17px;
+
     top: 50%;
 
     width: 8px;
     height: 8px;
 
-    border-right: 1.5px solid #758391;
-    border-bottom: 1.5px solid #758391;
+    border-right:
+        1.5px solid #758391;
 
-    transform: translateY(-65%) rotate(45deg);
+    border-bottom:
+        1.5px solid #758391;
+
+    transform:
+        translateY(-65%)
+        rotate(45deg);
 
     pointer-events: none;
 }
@@ -18365,18 +18469,20 @@ select.fe-select {
    ACTION AREA
 ============================================================ */
 
-.profile-action-area {
+#kycStep1 .profile-action-area {
+
     width: 100%;
 
     display: flex;
 
     justify-content: flex-end;
 
-    margin-top: 25px;
+    margin-top: 27px;
 
-    padding-top: 20px;
+    padding-top: 21px;
 
-    border-top: 1px solid #e7eaed;
+    border-top:
+        1px solid #e7eaed;
 }
 
 
@@ -18384,8 +18490,9 @@ select.fe-select {
    SAVE BUTTON
 ============================================================ */
 
-.profile-save-button {
-    width: 210px;
+#kycStep1 .profile-save-button {
+
+    width: 215px;
 
     height: 48px;
 
@@ -18398,6 +18505,7 @@ select.fe-select {
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 12px;
@@ -18406,8 +18514,9 @@ select.fe-select {
 
     font-family: Arial, Helvetica, sans-serif;
 
-    font-size: 13px;
-    line-height: 18px;
+    font-size: 14px;
+
+    line-height: 19px;
 
     font-weight: 700;
 
@@ -18421,17 +18530,23 @@ select.fe-select {
         box-shadow 0.2s ease;
 }
 
-.profile-save-button:hover {
+#kycStep1 .profile-save-button:hover {
+
     background: #f4b52c;
 
-    box-shadow: 0 5px 14px rgba(247, 181, 43, 0.25);
+    box-shadow:
+        0 5px 14px
+        rgba(247, 181, 43, 0.25);
 }
 
-.profile-save-button:active {
-    transform: translateY(1px);
+#kycStep1 .profile-save-button:active {
+
+    transform:
+        translateY(1px);
 }
 
-.profile-save-button .save-arrow {
+#kycStep1 .profile-save-button .save-arrow {
+
     font-size: 19px;
 
     line-height: 1;
@@ -18444,136 +18559,213 @@ select.fe-select {
    STEP SECTION CONTROL
 ============================================================ */
 
-.kyc-step-section {
+#kycStep1.kyc-step-section {
+
     width: 100%;
 }
 
-.kyc-step-section.is-hidden {
+#kycStep1.kyc-step-section.is-hidden {
+
     display: none;
 }
 
 
 /* ============================================================
-   RESPONSIVE
+   LARGE DESKTOP
 ============================================================ */
 
-@media (max-width: 1400px) {
+@media (min-width: 1600px) {
 
-    .profile-verification-container {
-        width: calc(100% - 70px);
+    #kycStep1 .profile-verification-container {
+
+        padding-left: 4.2%;
+        padding-right: 4.2%;
+    }
+
+    #kycStep1 .company-details-section {
+
+        padding: 30px;
     }
 }
 
+
+/* ============================================================
+   TABLET
+============================================================ */
 
 @media (max-width: 1100px) {
 
-    .profile-verification-container {
-        width: calc(100% - 50px);
+    #kycStep1 .profile-verification-container {
 
-        padding-top: 38px;
+        padding:
+            32px
+            30px
+            50px;
     }
 
-    .profile-page-header h1 {
-        font-size: 28px;
+    #kycStep1 .profile-page-header h1 {
+
+        font-size: 32px;
+
+        line-height: 40px;
     }
 
-    .profile-step-label {
-        font-size: 11px;
+    #kycStep1 .profile-page-header p {
+
+        font-size: 16px;
     }
 
-    .vendor-connectivity-card {
-        width: 230px;
+    #kycStep1 .profile-step-label {
+
+        font-size: 13px;
+    }
+
+    #kycStep1 .vendor-connectivity-card {
+
+        width: 250px;
     }
 }
 
 
+/* ============================================================
+   SMALL TABLET
+============================================================ */
+
 @media (max-width: 850px) {
 
-    .profile-verification-container {
-        width: calc(100% - 35px);
+    #kycStep1 .profile-verification-container {
 
-        padding-top: 30px;
+        padding-left: 24px;
+
+        padding-right: 24px;
     }
 
-    .vendor-connectivity-card {
+    #kycStep1 .vendor-connectivity-card {
+
         position: relative;
 
         top: auto;
         right: auto;
 
-        width: 250px;
+        width: 280px;
 
-        margin: 0 0 25px;
+        margin:
+            0 0 25px;
     }
 
-    .profile-form-area {
+    #kycStep1 .profile-form-area {
+
         padding-top: 0;
     }
 
-    .profile-stepper {
+    #kycStep1 .profile-stepper {
+
         overflow-x: auto;
 
         padding-bottom: 10px;
 
         grid-template-columns:
-            repeat(6, minmax(130px, 1fr));
+            repeat(
+                6,
+                minmax(130px, 1fr)
+            );
     }
 
-    .company-details-grid {
+    #kycStep1 .company-details-grid {
+
         grid-template-columns: 1fr;
     }
 }
 
 
+/* ============================================================
+   MOBILE
+============================================================ */
+
 @media (max-width: 600px) {
 
-    .profile-verification-container {
-        width: calc(100% - 24px);
+    #kycStep1 .profile-verification-container {
 
-        padding-top: 25px;
-        padding-bottom: 40px;
+        padding:
+            24px
+            16px
+            40px;
     }
 
-    .profile-page-header h1 {
-        font-size: 25px;
-        line-height: 32px;
+    #kycStep1 .profile-page-header {
+
+        margin-bottom: 23px;
     }
 
-    .profile-page-header p {
+    #kycStep1 .profile-page-header h1 {
+
+        font-size: 27px;
+
+        line-height: 35px;
+    }
+
+    #kycStep1 .profile-page-header p {
+
+        font-size: 14px;
+
+        line-height: 20px;
+    }
+
+    #kycStep1 .profile-stepper {
+
+        margin-bottom: 27px;
+    }
+
+    #kycStep1 .profile-step-label {
+
+        font-size: 11px;
+    }
+
+    #kycStep1 .profile-avatar {
+
+        width: 66px;
+        height: 66px;
+    }
+
+    #kycStep1 .profile-avatar span {
+
+        font-size: 24px;
+    }
+
+    #kycStep1 .company-details-section {
+
+        padding: 19px 16px;
+
+        border-radius: 8px;
+    }
+
+    #kycStep1 .company-details-title {
+
+        font-size: 19px;
+
+        line-height: 25px;
+    }
+
+    #kycStep1 .profile-form-group label {
+
+        font-size: 12px;
+    }
+
+    #kycStep1 .profile-select {
+
+        height: 45px;
+
         font-size: 13px;
     }
 
-    .profile-stepper {
-        margin-bottom: 25px;
-    }
+    #kycStep1 .profile-save-button {
 
-    .profile-step-label {
-        font-size: 10px;
-    }
-
-    .profile-avatar {
-        width: 64px;
-        height: 64px;
-    }
-
-    .profile-avatar span {
-        font-size: 23px;
-    }
-
-    .company-details-section {
-        padding: 18px;
-    }
-
-    .company-details-title {
-        font-size: 17px;
-    }
-
-    .profile-save-button {
         width: 100%;
     }
 
-    .profile-action-area {
-        margin-top: 22px;
+    #kycStep1 .profile-action-area {
+
+        margin-top: 23px;
     }
 }
 /* =========================================================
@@ -22744,4 +22936,8 @@ select.fe-select {
     .fe-modal.fe-modal-wide {
         width: 100%;
     }
+}
+
+.fe-leads-card {
+  @apply bg-mid-white border border-slate-mist rounded-[16px] p-5 flex flex-col justify-between transition-all cursor-pointer;
 }

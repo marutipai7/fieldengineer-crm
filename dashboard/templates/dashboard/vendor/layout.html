@@ -47,30 +47,13 @@
                             <span class="text-[20px] font-semibold text-white">FE</span>
                         </div>
                         <div class="leading-tight">
-                            <p class="text-[20px] font-bold text-ink">Field Engineer</p>
-                            <p class="text-[12px] text-granite-gray font-normal">Engineer Network</p>
+                            <p class="text-[20px] font-bold text-ink">Vendor CRM</p>
+                            <p class="text-[12px] text-granite-gray font-normal">Your complete partner management platform</p>
                         </div>
                     </a>
                 </div>
 
-                <!-- Center: Navbar Links (desktop only) -->
-                <ul class="hidden xl:flex items-center gap-10 text-[16px] font-normal text-ink">
-                    <li>
-                        <a href="{% url 'home' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Home</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'leads' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Leads</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'my_jobs' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">My Jobs</a>
-                    </li>
-                    <li>
-                        <a href="#" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Team</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'earnings' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Earnings</a>
-                    </li>
-                </ul>
+               
 
                 <!-- Right: Notification, Chat & Profile Card -->
                 <div class="flex items-center gap-3 sm:gap-4 shrink-0">
@@ -156,12 +139,131 @@
         </header>
 
         <!-- Overlay for mobile sidebar -->
-        <!-- <div id="overlay" class="hidden fixed inset-0 bg-black/40 z-30 lg:hidden"></div> -->
+        <div id="overlay" class="hidden fixed inset-0 bg-black/40 z-30 lg:hidden"></div>
 
-       
+        <!-- ============ SIDEBAR ============ -->
+        <aside id="sidebar" class="fixed top-20 left-0 bottom-0 w-64 bg-white z-30 flex flex-col -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out border border-pale-blue-gray">
+            
+            <div class="flex-1 overflow-y-auto">
 
+                <!-- Profile Info Block -->
+                <div class="flex flex-col items-center text-center py-6 px-4 border-b border-slate-100">
+                    <div class="w-12 h-12 rounded-[3px] bg-primary-yellow text-white flex items-center justify-center font-bold text-[16px] mb-3">
+                        RA
+                    </div>
+                    <div class="space-y-0.5">
+                        <p class="font-semibold text-ink text-sm">Rishi Acharya</p>
+                        <p class="text-xs text-granite-gray font-normal">rishi@acme.me</p>
+                        <p class="text-xs text-granite-gray font-normal">+91 81022 62067</p>
+                    </div>
+                </div>
+
+                <!-- Navigation List -->
+                <nav class="space-y-1.5 py-2 px-3 text-sm font-normal text-ink">
+
+    <!-- Dashboard -->
+    <a href="{% url 'vendor_dashboard' %}"
+       class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+
+        <span class="material-symbols-outlined text-[18px]">
+            dashboard
+        </span>
+
+        Dashboard
+    </a>
+
+
+
+
+    <!-- Engineers -->
+    <a href="{% url 'vendor_engineers' %}"
+       class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+
+        <span class="material-symbols-outlined text-[18px]">
+            engineering
+        </span>
+
+        Engineers
+    </a>
+
+
+    <!-- Live Tracking -->
+    <a href="{% url 'vendor_live_tracking' %}"
+       class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+
+        <span class="material-symbols-outlined text-[18px]">
+            location_on
+        </span>
+
+        Live Tracking
+    </a>
+
+
+     <!-- Assignments -->
+    <a href="{% url 'vendor_assignments' %}"
+       class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+
+        <span class="material-symbols-outlined text-[18px]">
+            assignment
+        </span>
+
+        Assignments
+    </a>
+
+    <!-- Earnings -->
+    <a href="{% url 'vendor_earnings' %}"
+       class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+
+        <span class="material-symbols-outlined text-[18px]">
+            payments
+        </span>
+
+        Earnings
+    </a>
+
+
+    <!-- Reports -->
+    <a href="{% url 'vendor_reports' %}"
+       class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+
+        <span class="material-symbols-outlined text-[18px]">
+            assessment
+        </span>
+
+        Reports
+    </a>
+
+
+   <!-- Settings -->
+<a href="{% url 'vendor_settings' %}"
+   class="nav-link flex items-center gap-3 px-4 py-3 rounded-[10px] hover:bg-slate-50 hover:text-slate-900">
+
+    <span class="material-symbols-outlined text-[18px]">
+        settings
+    </span>
+
+    Settings
+</a>
+
+</nav>
+
+<!-- Logout immediately below Settings -->
+<div class="border-t border-light-medium px-3 pt-2 pb-3">
+    <button
+        class="flex items-center justify-start gap-3 px-4 py-3 rounded-[10px] font-normal text-[#FF453A] hover:bg-red-50 text-sm w-full transition cursor-pointer">
+
+        <span class="material-symbols-outlined text-[18px]">
+            logout
+        </span>
+
+        Logout
+    </button>
+</div>
+
+</div>
+</aside>
         <!-- ============ MAIN CONTENT AREA ============ -->
-     <main class="flex-1 mt-20 p-4 sm:p-5 lg:p-6 transition-all duration-200 bg-white">
+        <main class="flex-1 mt-16 lg:ml-64 p-4 sm:p-5 lg:p-6 transition-all duration-200 bg-white">
             {% block content %}{% endblock %}
         </main>
     </div>
@@ -170,20 +272,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             
-            // Active link highlighting for header navbar
+            // Active link highlighting
             const currentPath = window.location.pathname;
-            const headerLinks = document.querySelectorAll('.fe-header-nav-link');
-            headerLinks.forEach(function (link) {
-                const linkHref = link.getAttribute('href');
-                if (linkHref && linkHref !== '#' && (currentPath === linkHref || (linkHref.length > 1 && currentPath.startsWith(linkHref)))) {
-                    link.classList.add('bg-header-highlight', 'text-primary-yellow', 'border-b-2', 'border-primary-yellow', 'font-semibold');
-                    link.classList.remove('text-ink');
-                } else {
-                    link.classList.remove('bg-header-highlight', 'text-primary-yellow', 'border-b-2', 'border-primary-yellow', 'font-semibold');
-                    link.classList.add('text-ink');
-                }
-            });
-
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(function (link) {
                 link.classList.remove('active-fe-tab');

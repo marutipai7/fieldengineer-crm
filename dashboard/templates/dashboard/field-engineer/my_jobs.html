@@ -1,5 +1,7 @@
-{% extends "dashboard/field-engineer/layout-1.html" %} {% load static %} {%
-block title %}My Jobs{% endblock %} {% block content %}
+{% extends "dashboard/field-engineer/layout-1.html" %} 
+{% load static %} 
+{% block title %}My Jobs{% endblock %} 
+{% block content %}
 
 <div
   id="fe-my-jobs-page"
@@ -285,7 +287,8 @@ block title %}My Jobs{% endblock %} {% block content %}
      exist yet, but this naming convention leaves room for them).
 
      Screens in this flow (only one visible at a time, toggled by
-     progressShowScreen() in fe-my-jobs-progress-flow.js):
+     progressShowScreen() -- all functions live in fe-my-jobs.js, SECTION 4
+     "PROGRESS FLOW"):
        1. #progress-job-details-view  -- Overview / Tasks / Activity / ... tabs
        2. #progress-task-details-view -- single task drill-down
 
@@ -298,7 +301,7 @@ block title %}My Jobs{% endblock %} {% block content %}
 <!-- ==========================================================================
      1. JOB DETAILS SCREEN
      Populated dynamically by progressRenderJobHeader() / progressRenderOverviewTab()
-     etc. in fe-my-jobs-progress-flow.js -- the static markup below only
+     etc. -- all in fe-my-jobs.js, SECTION 4.1 -- the static markup below only
      provides the slots (data-progress-field="...") those functions fill in.
 ========================================================================== -->
 <div
@@ -1000,7 +1003,7 @@ block title %}My Jobs{% endblock %} {% block content %}
         Additional Tasks -- coming soon
       </p>
     </div>
-    <di0v
+    <div
       class="progress-tab-panel hidden p-5 text-center py-16"
       data-progress-panel="client"
     >
@@ -1012,7 +1015,7 @@ block title %}My Jobs{% endblock %} {% block content %}
       <p class="text-sm font-medium text-gray-600 mt-2">
         Client Info -- coming soon
       </p>
-    </di0v>
+    </div>
   </div>
 </div>
 
@@ -1428,14 +1431,14 @@ block title %}My Jobs{% endblock %} {% block content %}
 </div>
 
 <!-- ==========================================================================
-     5. MODAL: CANCEL JOB (two-panel: form + reason list)
+     5. MODAL: CANCEL JOB (single column -- dropdown only, no side reason list)
 ========================================================================== -->
 <div
   id="progress-modal-cancel-job"
   class="hidden fixed inset-0 z-50 items-center justify-center bg-black/50 px-4"
 >
   <div
-    class="bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[85vh] overflow-y-auto"
+    class="bg-white rounded-2xl shadow-xl w-full max-w-md max-h-[85vh] overflow-y-auto"
   >
     <div
       class="flex items-center justify-between px-5 py-4 border-b border-gray-100"
@@ -1451,58 +1454,47 @@ block title %}My Jobs{% endblock %} {% block content %}
         >
       </button>
     </div>
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 gap-0 sm:divide-x sm:divide-gray-100"
-    >
-      <!-- Left: form -->
-      <div class="p-5">
-        <label
-          class="block text-xs font-medium text-gray-600 mb-1.5"
-          for="progress-cancel-reason-select"
-          >Select Cancellation Reason</label
-        >
-        <select
-          id="progress-cancel-reason-select"
-          class="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 mb-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
-        >
-          <option value="">Select Reason</option>
-        </select>
+    <div class="p-5">
+      <label
+        class="block text-xs font-medium text-gray-600 mb-1.5"
+        for="progress-cancel-reason-select"
+        >Select Cancellation Reason</label
+      >
+      <select
+        id="progress-cancel-reason-select"
+        class="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 mb-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
+      >
+        <option value="">Select Reason</option>
+        <!-- Options populated by progressPopulateCancelReasons() from PROGRESS_CANCEL_REASONS -->
+      </select>
 
-        <label
-          class="block text-xs font-medium text-gray-600 mb-1.5"
-          for="progress-cancel-remarks"
-          >Additional Remarks (Optional)</label
-        >
-        <textarea
-          id="progress-cancel-remarks"
-          rows="4"
-          placeholder="Please provide more details..."
-          class="w-full text-xs border border-gray-200 rounded-xl p-3 resize-none mb-4 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
-        ></textarea>
+      <label
+        class="block text-xs font-medium text-gray-600 mb-1.5"
+        for="progress-cancel-remarks"
+        >Additional Remarks (Optional)</label
+      >
+      <textarea
+        id="progress-cancel-remarks"
+        rows="4"
+        placeholder="Please provide more details..."
+        class="w-full text-xs border border-gray-200 rounded-xl p-3 resize-none mb-4 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-amber-300"
+      ></textarea>
 
-        <div class="grid grid-cols-2 gap-3">
-          <button
-            type="button"
-            id="progress-keep-job-btn"
-            class="border border-gray-200 rounded-lg py-2 text-sm font-medium text-gray-600 hover:bg-gray-50"
-          >
-            Keep Job
-          </button>
-          <button
-            type="button"
-            id="progress-confirm-cancel-btn"
-            class="bg-rose-500 rounded-lg py-2 text-sm font-medium text-white hover:bg-rose-600"
-          >
-            Cancel Job
-          </button>
-        </div>
-      </div>
-      <!-- Right: reason list -->
-      <div class="p-5">
-        <div
-          id="progress-cancel-reason-list"
-          class="space-y-3 text-sm text-gray-600"
-        ></div>
+      <div class="grid grid-cols-2 gap-3">
+        <button
+          type="button"
+          id="progress-keep-job-btn"
+          class="border border-gray-200 rounded-lg py-2 text-sm font-medium text-gray-600 hover:bg-gray-50"
+        >
+          Keep Job
+        </button>
+        <button
+          type="button"
+          id="progress-confirm-cancel-btn"
+          class="bg-rose-500 rounded-lg py-2 text-sm font-medium text-white hover:bg-rose-600"
+        >
+          Cancel Job
+        </button>
       </div>
     </div>
   </div>

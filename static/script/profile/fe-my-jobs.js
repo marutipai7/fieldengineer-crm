@@ -1212,11 +1212,13 @@
     }).join("");
   }
 
-  // Cancel Job Modal
+  // ---- Cancel Job Modal ----
+  // NOTE: the cancellation reason is a single <select> DROPDOWN only -- there
+  // is no side-by-side reason list/checklist next to the form. Keep it that
+  // way; do not reintroduce a second reason list here.
   function progressPopulateCancelReasons() {
     var select = document.getElementById("progress-cancel-reason-select");
-    var list = document.getElementById("progress-cancel-reason-list");
-    if (!select || !list) return;
+    if (!select) return;
 
     PROGRESS_CANCEL_REASONS.forEach(function (reason) {
       var option = document.createElement("option");
@@ -1224,17 +1226,6 @@
       option.textContent = reason;
       select.appendChild(option);
     });
-
-    list.innerHTML = PROGRESS_CANCEL_REASONS.map(function (reason) {
-      return (
-        '<button type="button" class="progress-cancel-reason-row w-full flex items-center gap-2.5 text-left hover:text-gray-800" data-reason="' +
-        reason +
-        '">' +
-        '<span class="material-symbols-outlined progress-reason-checkbox-icon text-gray-300" style="font-size:18px;">check_box_outline_blank</span>' +
-        reason +
-        "</button>"
-      );
-    }).join("");
   }
 
   function progressSelectCancelReason(reason) {
@@ -1242,35 +1233,17 @@
 
     var select = document.getElementById("progress-cancel-reason-select");
     if (select) select.value = reason;
-
-    document
-      .querySelectorAll(".progress-cancel-reason-row")
-      .forEach(function (row) {
-        var icon = row.querySelector(".progress-reason-checkbox-icon");
-        var isSelected = row.getAttribute("data-reason") === reason;
-        icon.textContent = isSelected ? "check_box" : "check_box_outline_blank";
-        icon.classList.toggle("text-amber-500", isSelected);
-        icon.classList.toggle("text-gray-300", !isSelected);
-        row.classList.toggle("text-gray-800", isSelected);
-        row.classList.toggle("font-medium", isSelected);
-      });
   }
 
   function progressOpenCancelModal() {
     progressState.selectedCancelReason = "";
     var select = document.getElementById("progress-cancel-reason-select");
-    if (select) select.value = "";
+    if (select) {
+      select.value = "";
+      select.classList.remove("ring-2", "ring-rose-300", "border-rose-300");
+    }
     var remarks = document.getElementById("progress-cancel-remarks");
     if (remarks) remarks.value = "";
-    document
-      .querySelectorAll(".progress-cancel-reason-row")
-      .forEach(function (row) {
-        var icon = row.querySelector(".progress-reason-checkbox-icon");
-        icon.textContent = "check_box_outline_blank";
-        icon.classList.remove("text-amber-500");
-        icon.classList.add("text-gray-300");
-        row.classList.remove("text-gray-800", "font-medium");
-      });
     progressOpenModal("progress-modal-cancel-job");
   }
 
@@ -1498,11 +1471,6 @@
         progressConfirmCancelJob();
         return;
       }
-      var reasonRow = event.target.closest(".progress-cancel-reason-row");
-      if (reasonRow) {
-        progressSelectCancelReason(reasonRow.getAttribute("data-reason"));
-        return;
-      }
 
       // ---- Generic modal close ----
       var closeBtn = event.target.closest(".progress-close-modal");
@@ -1521,11 +1489,17 @@
       }
     });
 
-    // Cancel Job: dropdown sync
+    // Cancel Job: dropdown selection
     var reasonSelect = document.getElementById("progress-cancel-reason-select");
     if (reasonSelect) {
       reasonSelect.addEventListener("change", function (event) {
         progressSelectCancelReason(event.target.value);
+        // Clear any validation highlight once a reason is picked
+        reasonSelect.classList.remove(
+          "ring-2",
+          "ring-rose-300",
+          "border-rose-300",
+        );
       });
     }
 

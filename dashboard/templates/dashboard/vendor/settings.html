@@ -1,0 +1,239 @@
+{% extends "dashboard/vendor/layout.html" %}
+{% load static %}
+
+{% block title %}Payment Details - Field Engineer{% endblock %}
+
+{% block css %}
+<style>
+    /* Styling to match the custom dropdown popups and modal active states */
+    .payment-action-menu {
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+   <p>hoojkjk</p>
+
+    <!-- Payment Method Popup -->
+   
+
+<!-- =========================================================
+     INVOICE MODAL
+     ========================================================= -->
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        
+        // --- 1. Three-Dots Menu Dropdown Handler ---
+        const menuButtons = document.querySelectorAll(".payment-menu-btn");
+        const paymentMenus = document.querySelectorAll(".payment-action-menu");
+
+        function closeAllPaymentMenus() {
+            paymentMenus.forEach(menu => menu.classList.add("hidden"));
+            menuButtons.forEach(btn => btn.setAttribute("aria-expanded", "false"));
+        }
+
+        menuButtons.forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.stopPropagation();
+                const menuId = this.getAttribute("data-payment-menu");
+                const selectedMenu = document.getElementById(menuId);
+                
+                if (selectedMenu) {
+                    const isOpen = !selectedMenu.classList.contains("hidden");
+                    closeAllPaymentMenus();
+                    if (!isOpen) {
+                        selectedMenu.classList.remove("hidden");
+                        this.setAttribute("aria-expanded", "true");
+                    }
+                }
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", closeAllPaymentMenus);
+
+        // --- 2. Set Primary / Edit / Delete Click Action (Mock) ---
+        const setPrimaryBtns = document.querySelectorAll(".set-primary-btn");
+        setPrimaryBtns.forEach(btn => {
+            btn.addEventListener("click", function() {
+                const parentRow = this.closest(".payment-method");
+                
+                // Remove existing primary badges
+                document.querySelectorAll(".primary-badge").forEach(badge => badge.remove());
+                
+                // Create and insert new badge
+                const badge = document.createElement("div");
+                badge.className = "primary-badge w-15 h-5.5 flex items-center justify-center rounded-full bg-[#E5F7F1]";
+                badge.innerHTML = `<p class="font-normal text-xs text-[#00B884]">Primary</p>`;
+                
+                const container = parentRow.querySelector(".flex.items-center.gap-3.shrink-0");
+                container.insertBefore(badge, container.firstChild);
+                
+                closeAllPaymentMenus();
+            });
+        });
+
+        // --- 3. Flatpickr Date Picker Initialization ---
+        if (typeof flatpickr !== "undefined") {
+            const dateBtn = document.getElementById("invoiceDateRangeBtn");
+            const fp = flatpickr(dateBtn, {
+                mode: "range",
+                dateFormat: "M j, Y",
+                onChange: function (selectedDates, dateStr, instance) {
+                    const label = instance.element.querySelector("p");
+                    if (label) {
+                        label.textContent = dateStr ? dateStr : "Date Range";
+                    }
+                }
+            });
+            dateBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                fp.open();
+            });
+        }
+
+        // --- 4. Invoice List Filtering & Search ---
+        const searchInput = document.getElementById("invoiceSearchInput");
+        const tableRows = document.querySelectorAll(".invoice-row");
+
+        if (searchInput) {
+            searchInput.addEventListener("input", function (e) {
+                const query = e.target.value.toLowerCase().trim();
+                tableRows.forEach(row => {
+                    const idText = row.querySelector("td:nth-child(1)").textContent.toLowerCase();
+                    const descText = row.querySelector("td:nth-child(3)").textContent.toLowerCase();
+                    
+                    if (idText.includes(query) || descText.includes(query)) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                });
+            });
+        }
+
+        // --- 5. Add Payment Method Modal Toggle ---
+        const addBtn = document.querySelector(".addPaymentBtn");
+        const addModal = document.getElementById("addPaymentModalfe");
+        const closeAddBtn = document.getElementById("closeAddPaymentModalBtnfe");
+        const cancelAddBtn = document.getElementById("cancelPaymentBtnfe");
+        const saveAddBtn = document.getElementById("savePaymentBtnfe");
+
+        if (addBtn && addModal) {
+            addBtn.addEventListener("click", () => {
+                addModal.classList.remove("hidden");
+                addModal.classList.add("flex");
+            });
+            
+            const closeModal = () => {
+                addModal.classList.add("hidden");
+                addModal.classList.remove("flex");
+            };
+
+            closeAddBtn.addEventListener("click", closeModal);
+            cancelAddBtn.addEventListener("click", closeModal);
+            saveAddBtn.addEventListener("click", () => {
+                // Add a simple mock save notice
+                alert("Payment method linked successfully (demo)!");
+                closeModal();
+            });
+            
+            // Close on backdrop click
+            addModal.addEventListener("click", (e) => {
+                if (e.target === addModal) closeModal();
+            });
+        }
+
+        // Add Payment Option Radio logic
+        const paymentOptions = document.querySelectorAll("#paymentOptionsContainerfe .payment-option");
+        paymentOptions.forEach(opt => {
+            opt.addEventListener("click", function() {
+                // Reset all
+                paymentOptions.forEach(o => {
+                    o.classList.remove("border-[#E5F0FF]", "bg-[#F4F9FF]");
+                    o.classList.add("border-transparent");
+                    
+                    const radio = o.querySelector(".radio-custom");
+                    if (radio) {
+                        radio.classList.remove("border-primary-yellow");
+                        radio.classList.add("border-gray-300");
+                        const innerDot = radio.querySelector(".inner-dot");
+                        if (innerDot) innerDot.classList.add("hidden");
+                    }
+                    
+                    const icon = o.querySelector(".material-symbols-outlined");
+                    if (icon) {
+                        icon.classList.remove("text-[#FFC949]");
+                        icon.classList.add("text-gray-500");
+                    }
+                });
+
+                // Select current
+                this.classList.remove("border-transparent");
+                this.classList.add("border-[#E5F0FF]", "bg-[#F4F9FF]");
+                
+                const radio = this.querySelector(".radio-custom");
+                if (radio) {
+                    radio.classList.remove("border-gray-300");
+                    radio.classList.add("border-primary-yellow");
+                    const innerDot = radio.querySelector(".inner-dot");
+                    if (innerDot) innerDot.classList.remove("hidden");
+                }
+                
+                const icon = this.querySelector(".material-symbols-outlined");
+                if (icon) {
+                    icon.classList.remove("text-gray-500");
+                    icon.classList.add("text-[#FFC949]");
+                }
+            });
+        });
+
+        // --- 6. View Invoice Modal ---
+        const invoiceModal = document.getElementById("invoiceModalfe");
+        const closeInvoiceBtn = document.getElementById("closeInvoiceModalfe");
+        
+        tableRows.forEach(row => {
+            const viewBtn = row.querySelector(".view-invoice-btn");
+            const downloadBtn = row.querySelector(".download-invoice-btn");
+            
+            const openInvoice = () => {
+                const invId = row.querySelector("td:nth-child(1)").textContent;
+                const desc = row.querySelector("td:nth-child(3)").textContent;
+                
+                document.getElementById("modalInvoiceId").textContent = invId;
+                document.getElementById("modalDescription").textContent = desc + " Service";
+                
+                invoiceModal.classList.remove("hidden");
+                invoiceModal.classList.add("flex");
+            };
+
+            if (viewBtn) viewBtn.addEventListener("click", openInvoice);
+            if (downloadBtn) {
+                downloadBtn.addEventListener("click", () => {
+                    // Trigger download mock or open invoice
+                    openInvoice();
+                });
+            }
+        });
+
+        if (invoiceModal && closeInvoiceBtn) {
+            closeInvoiceBtn.addEventListener("click", () => {
+                invoiceModal.classList.add("hidden");
+                invoiceModal.classList.remove("flex");
+            });
+            invoiceModal.addEventListener("click", (e) => {
+                if (e.target === invoiceModal) {
+                    invoiceModal.classList.add("hidden");
+                    invoiceModal.classList.remove("flex");
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}

@@ -56,19 +56,19 @@
                 <!-- Center: Navbar Links (desktop only) -->
                 <ul class="hidden xl:flex items-center gap-9 text-[16px] font-normal text-ink">
                     <li>
-                        <a href="#" class="transition">Home</a>
+                        <a href="{% url 'home' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="transition">Leads</a>
+                        <a href="{% url 'leads' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Leads</a>
                     </li>
                     <li>
-                        <a href="#" class="transition">My Jobs</a>
+                        <a href="{% url 'my_jobs' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">My Jobs</a>
                     </li>
                     <li>
-                        <a href="#" class="transition">Team</a>
+                        <a href="#" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Team</a>
                     </li>
                     <li>
-                        <a href="#" class="transition">Earnings</a>
+                        <a href="{% url 'earnings' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Earnings</a>
                     </li>
                 </ul>
 
@@ -241,8 +241,21 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             
-            // Active link highlighting
+            // Active link highlighting for header navbar
             const currentPath = window.location.pathname;
+            const headerLinks = document.querySelectorAll('.fe-header-nav-link');
+            headerLinks.forEach(function (link) {
+                const linkHref = link.getAttribute('href');
+                if (linkHref && linkHref !== '#' && (currentPath === linkHref || (linkHref.length > 1 && currentPath.startsWith(linkHref)))) {
+                    link.classList.add('bg-header-highlight', 'text-primary-yellow', 'border-b-2', 'border-primary-yellow', 'font-semibold');
+                    link.classList.remove('text-ink');
+                } else {
+                    link.classList.remove('bg-header-highlight', 'text-primary-yellow', 'border-b-2', 'border-primary-yellow', 'font-semibold');
+                    link.classList.add('text-ink');
+                }
+            });
+
+            // Active link highlighting for sidebar
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(function (link) {
                 link.classList.remove('active-fe-tab');
