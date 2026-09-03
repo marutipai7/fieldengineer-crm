@@ -111,6 +111,13 @@
   --color-epic-blue: #1466DE;
   --color-vivid-blue:#2B7FFF;
   --color-light-violet:#AD46FF;
+  --color-fe-standard: #FFEBCD;
+  --color-fe-border: #B9F8CF;
+  --color-fe-priority: #FEF2F2;
+  --color-fe-border-2: #FFC9C9;
+  --color-fe-red: #E7000B;
+  --color-header-highlight: #1466DE1A;
+  --color-dim-banner: #1466DE0D;
 
   /* Neutrals */
 
@@ -22929,4 +22936,8 @@ select.fe-select {
     .fe-modal.fe-modal-wide {
         width: 100%;
     }
+}
+
+.fe-leads-card {
+  @apply bg-mid-white border border-slate-mist rounded-[16px] p-5 flex flex-col justify-between transition-all cursor-pointer;
 }

@@ -54,20 +54,23 @@
                 </div>
 
                 <!-- Center: Navbar Links (desktop only) -->
-              <ul class="hidden xl:flex items-center gap-16 text-[16px] font-normal text-ink">
-    <li>
-        <a href="{% url 'home' %}" class="transition">Home</a>
-    </li>
-    <li>
-        <a href="{% url 'leads' %}" class="transition">Leads</a>
-    </li>
-    <li>
-        <a href="{% url 'my_jobs' %}" class="transition">My Jobs</a>
-    </li>
-    <li>
-        <a href="{% url 'earnings' %}" class="transition">Earnings</a>
-    </li>
-</ul>
+                <ul class="hidden xl:flex items-center gap-10 text-[16px] font-normal text-ink">
+                    <li>
+                        <a href="{% url 'home' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'leads' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Leads</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'my_jobs' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">My Jobs</a>
+                    </li>
+                    <li>
+                        <a href="#" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Team</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'earnings' %}" class="fe-header-nav-link transition-colors py-1.5 px-3.5 hover:text-primary-yellow">Earnings</a>
+                    </li>
+                </ul>
 
                 <!-- Right: Notification, Chat & Profile Card -->
                 <div class="flex items-center gap-3 sm:gap-4 shrink-0">
@@ -167,8 +170,20 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             
-            // Active link highlighting
+            // Active link highlighting for header navbar
             const currentPath = window.location.pathname;
+            const headerLinks = document.querySelectorAll('.fe-header-nav-link');
+            headerLinks.forEach(function (link) {
+                const linkHref = link.getAttribute('href');
+                if (linkHref && linkHref !== '#' && (currentPath === linkHref || (linkHref.length > 1 && currentPath.startsWith(linkHref)))) {
+                    link.classList.add('bg-header-highlight', 'text-primary-yellow', 'border-b-2', 'border-primary-yellow', 'font-semibold');
+                    link.classList.remove('text-ink');
+                } else {
+                    link.classList.remove('bg-header-highlight', 'text-primary-yellow', 'border-b-2', 'border-primary-yellow', 'font-semibold');
+                    link.classList.add('text-ink');
+                }
+            });
+
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(function (link) {
                 link.classList.remove('active-fe-tab');
